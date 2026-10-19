@@ -8,6 +8,12 @@ ms.date: 2026-10-19
 
 [English](../en/index.md) | [Accueil du dépôt](../../README.md)
 
+Consultez le [registre de réexécution réelle](live-rerun-2026-10-19.md) pour les preuves
+les plus récentes. Terraform init, validate et un plan sans apply ont réussi.
+Un échec réel d'importation SDK du lab 6 a été reproduit puis résolu dans un
+environnement isolé aux versions du support. Ces résultats partiels ne certifient
+pas les exercices cloud restants.
+
 Utilisez ces guides avec les supports locaux de l'atelier auxquels vous êtes autorisé
 à accéder. Une vérification documentaire réussie n'est pas un déploiement cloud réussi.
 La dernière revue date du 2026-10-19. Les préversions et fonctions disponibles varient

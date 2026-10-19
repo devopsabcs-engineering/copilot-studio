@@ -12,7 +12,12 @@ ms.topic: tutorial
 Separate four responsibilities: Copilot Studio handles the conversation; a connected Foundry agent performs deeper work; a Search knowledge base retrieves passages from multiple sources; a model writes an answer. Model Context Protocol (MCP) exposes the retrieval tool to the Foundry agent. Allow 120–180 minutes after an administrator provides supported resources and reviews the compatibility changes.
 
 > [!IMPORTANT]
-> Source/static review only; live execution blocked. All 11 code cells in the supplied 24-cell notebook passed Python 3.14.3 syntax parsing without executing their bodies or importing their dependencies. This does not prove SDK compatibility, deployment, retrieval, routing, citations or cleanup. No cloud call, dependency installation or agent edit was performed.
+> Actual dependency testing now supplements the initial syntax-only review.
+> The current SDK environment failed one of 15 imports: the reasoning-effort class
+> used by cell 14 is absent from Search SDK 12.0.0. An isolated environment restored
+> from the source pins passed all 15 imports. The 24 inline records also passed
+> local field/ID checks. Cloud retrieval and connected-agent execution are not yet
+> proven. See the [actual rerun record](live-rerun-2026-10-19.md).
 
 Copilot Studio was initially unauthenticated. The user subsequently signed in, and the signed-in Home page was inspected during the Labs 2–4 review. Navigation to the licensing advisor then remained blank, so no question was executed. Authentication is no longer the current blocker; browser agent navigation remains blocked. The selected Azure subscription has no Search or Application Insights resource for this lab. An approved Foundry project, model deployments, correct identity permissions and a new-portal agent with Activity protocol are still required.
 

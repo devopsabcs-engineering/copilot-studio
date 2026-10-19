@@ -1,0 +1,27 @@
+{
+  "scope": "Local PDF readability/input validation only; not an Azure indexing or query test",
+  "passed": true,
+  "files": [
+    {
+      "file": "Hotel_Contoso_Hotel_Doha.pdf",
+      "pages": 1,
+      "encrypted": false,
+      "extracted_characters": 774,
+      "expected_city_present": true
+    },
+    {
+      "file": "Hotel_Contoso_Hotel_Rome.pdf",
+      "pages": 1,
+      "encrypted": false,
+      "extracted_characters": 767,
+      "expected_city_present": true
+    },
+    {
+      "file": "Hotel_Contoso_Suites_Tokyo.pdf",
+      "pages": 1,
+      "encrypted": false,
+      "extracted_characters": 743,
+      "expected_city_present": true
+    }
+  ]
+}

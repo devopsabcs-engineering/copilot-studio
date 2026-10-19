@@ -18,6 +18,8 @@ résultats observés et les procédures qui restent à exécuter.
 * [Guide de l'atelier en français](docs/fr/index.md)
 * [Validation record in English](docs/en/validation.md)
 * [Registre de validation en français](docs/fr/validation.md)
+* [Actual rerun record](docs/en/live-rerun-2026-10-19.md)
+* [Registre de réexécution réelle](docs/fr/live-rerun-2026-10-19.md)
 * [GitHub wiki](https://github.com/devopsabcs-engineering/copilot-studio/wiki)
 * [Publication and maintenance / Publication et maintenance](docs/publishing.md)
 

@@ -8,6 +8,11 @@ ms.date: 2026-10-19
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+Latest execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
+Terraform init/validate/plan now passed without apply; Lab 6's actual SDK import
+failure was reproduced and the source-pinned isolated retest passed.
+The tables below retain the original review baseline unless superseded by that record.
+
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence
 of its email outcome. The remaining labs have source/documentation/static checks and

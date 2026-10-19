@@ -14,7 +14,10 @@ déployer les services Azure dans le budget approuvé. Une connexion au portail 
 
 État : précontrôle partiel en lecture seule effectué. Azure CLI 2.91.0 est installé
 et authentifié. Microsoft.Search, Microsoft.CognitiveServices et Microsoft.Insights
-sont inscrits dans l'abonnement sélectionné. Terraform est absent du PATH.
+sont inscrits dans l'abonnement sélectionné. Terraform était initialement absent du
+PATH ; une version portable 1.16.6 a été restaurée après vérification du SHA-256.
+Elle a permis une initialisation, une validation et un plan sans apply réussis.
+Consultez le [registre de réexécution réelle](live-rerun-2026-10-19.md).
 La disponibilité complète de l'environnement n'est pas démontrée.
 
 ## 1. Consigner le contexte d'exécution

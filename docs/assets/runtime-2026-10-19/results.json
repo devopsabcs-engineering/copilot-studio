@@ -1,0 +1,88 @@
+{
+  "run": "2026-10-19-live-rerun",
+  "recorded_at_utc": "2026-10-19T18:44:07.026516+00:00",
+  "terraform": {
+    "version": "1.16.6",
+    "archive_sha256_verified": true,
+    "init": "passed",
+    "validate": {
+      "valid": true,
+      "error_count": 0,
+      "warning_count": 0
+    },
+    "plan": {
+      "exit_code": 2,
+      "resource_changes": 15,
+      "resource_types": {
+        "azurerm_cognitive_account": 1,
+        "azurerm_cognitive_deployment": 2,
+        "azurerm_resource_group": 1,
+        "azurerm_role_assignment": 6,
+        "azurerm_search_service": 1,
+        "azurerm_storage_account": 1,
+        "azurerm_user_assigned_identity": 1,
+        "azurerm_virtual_network": 1,
+        "random_id": 1
+      },
+      "applied": false
+    },
+    "adaptation": "Provider auto-registration disabled in the local copy to prevent subscription writes during plan.",
+    "scope": "Local source copy; no cloud resources created; no backend configured."
+  },
+  "lab6": {
+    "current_environment": {
+      "packages": {
+        "azure-ai-projects": "2.3.0",
+        "azure-search-documents": "12.0.0",
+        "azure-identity": "1.25.3",
+        "openai": "2.54.0",
+        "python-dotenv": "1.2.2"
+      },
+      "imports": 15,
+      "failures": [
+        {
+          "cell": 14,
+          "import": "from azure.search.documents.indexes.models import KnowledgeBase, KnowledgeRetrievalMinimalReasoningEffort, KnowledgeRetrievalOutputMode, KnowledgeSourceReference",
+          "error": "cannot import name 'KnowledgeRetrievalMinimalReasoningEffort' from 'azure.search.documents.indexes.models'"
+        }
+      ]
+    },
+    "isolated_source_pins": {
+      "packages": {
+        "azure-ai-projects": "2.0.0b3",
+        "azure-search-documents": "11.7.0b2",
+        "azure-identity": "1.25.1",
+        "openai": "2.16.0",
+        "python-dotenv": "1.2.1"
+      },
+      "imports": 15,
+      "passed": true
+    },
+    "local_data_validation": [
+      {
+        "variable": "fraud_patterns_data",
+        "records": 8,
+        "required_fields_nonempty": true,
+        "unique_ids": true
+      },
+      {
+        "variable": "regulatory_compliance_data",
+        "records": 8,
+        "required_fields_nonempty": true,
+        "unique_ids": true
+      },
+      {
+        "variable": "investigation_procedures_data",
+        "records": 8,
+        "required_fields_nonempty": true,
+        "unique_ids": true
+      }
+    ],
+    "cloud_execution": "not_run"
+  },
+  "constraints": {
+    "billable_deployment_approval": "not_received",
+    "pricing_tool": "No retail rate returned for the attempted Search SKU queries; no rate assumed.",
+    "no_claim_of_full_lab_pass": true
+  }
+}

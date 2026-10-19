@@ -8,6 +8,11 @@ ms.date: 2026-10-19
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+Dernières preuves : [registre de réexécution réelle](live-rerun-2026-10-19.md).
+Terraform init/validate/plan ont réussi sans apply. L'échec SDK réel du lab 6 a été
+reproduit, puis le test isolé aux versions du support a réussi. Les tableaux suivants
+conservent l'état de la revue initiale, sauf mise à jour apportée par ce registre.
+
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.
 Le lab 1 dispose de preuves utilisateur de son résultat d'envoi. Les autres labs

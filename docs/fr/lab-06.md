@@ -12,7 +12,13 @@ ms.topic: tutorial
 Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un agent Foundry connecté effectue le travail approfondi ; une base de connaissances Search récupère des passages de plusieurs sources ; un modèle rédige la réponse. Model Context Protocol (MCP) expose l'outil de recherche à l'agent Foundry. Prévoyez 120 à 180 minutes après la fourniture des ressources et la revue de compatibilité par un administrateur.
 
 > [!IMPORTANT]
-> Revue des sources et analyse statique uniquement ; exécution réelle bloquée. Les 11 cellules de code du notebook fourni, qui contient 24 cellules au total, ont passé l'analyse syntaxique Python 3.14.3 sans exécution de leur contenu ni importation de leurs dépendances. Cela ne prouve ni compatibilité SDK, ni déploiement, ni recherche, routage, citations ou nettoyage. Aucun appel cloud, installation de dépendances ou changement d'agent n'a été effectué.
+> Des tests réels de dépendances complètent désormais la première revue syntaxique.
+> L'environnement actuel a échoué sur une importation parmi 15 : la classe de
+> raisonnement de la cellule 14 est absente du SDK Search 12.0.0. Un environnement
+> isolé restauré aux versions du support a réussi les 15 importations. Les 24
+> enregistrements ont aussi passé les contrôles locaux de champs et d'identifiants.
+> Recherche cloud et agent connecté restent à prouver. Consultez le
+> [registre réel](live-rerun-2026-10-19.md).
 
 Copilot Studio n'était initialement pas authentifié. L'utilisateur s'est ensuite connecté et la page d'accueil authentifiée a été examinée pendant la revue des ateliers 2 à 4. La navigation vers le conseiller de licences est alors restée blanche : aucune question n'a été exécutée. L'authentification n'est plus le blocage actuel ; la navigation vers l'agent reste bloquée. L'abonnement Azure sélectionné ne dispose ni de Search ni d'Application Insights pour cet atelier. Il faut encore un projet Foundry autorisé, des modèles, les droits adéquats et un agent du nouveau portail avec Activity activé.
 

@@ -201,5 +201,12 @@
     "source": "Second user attachment, received Outlook message",
     "changes": "Cropped to requested message; unrelated inbox and browser excluded",
     "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/saved-tools-user-evidence.png",
+    "kind": "user-evidence",
+    "source": "User attachment during live rerun: saved agent and tools",
+    "changes": "Browser chrome and left sidebar removed; configuration-evidence footer added",
+    "new_runtime_capture": false
   }
 ]

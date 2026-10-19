@@ -8,6 +8,11 @@ ms.date: 2026-10-19
 
 [Français](../fr/index.md) | [Repository home](../../README.md)
 
+Follow the [actual rerun record](live-rerun-2026-10-19.md) for the latest execution
+evidence. Terraform init, validate and a non-applying plan have now passed; a real
+Lab 6 SDK import failure was reproduced and resolved in an isolated source-pinned
+environment. These partial results do not certify the remaining cloud exercises.
+
 Use these guides alongside your authorized local workshop material. Do not treat a
 successful documentation check as a successful cloud deployment. The last review
 date is 2026-10-19; each tenant can expose different previews and regional capabilities.

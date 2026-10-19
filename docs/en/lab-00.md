@@ -14,7 +14,10 @@ the Azure services within an approved budget. A signed-in portal alone is not en
 
 Status: partial read-only preflight completed. Azure CLI 2.91.0 is installed and
 authenticated; Microsoft.Search, Microsoft.CognitiveServices, and Microsoft.Insights
-are registered in the selected subscription. Terraform was not found on PATH.
+are registered in the selected subscription. Terraform was initially missing from
+PATH; portable Terraform 1.16.6 has since been restored with archive checksum
+verification and used for successful init, validation and a non-applying plan.
+See the [actual rerun record](live-rerun-2026-10-19.md).
 No end-to-end environment readiness pass is claimed.
 
 ## 1. Record your execution context
