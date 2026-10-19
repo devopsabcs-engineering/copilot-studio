@@ -48,8 +48,11 @@
     },
     {
       "id": "L1-07",
-      "status": "attempted_independently_unverified",
-      "observation": "One read-only self-search with top=-1 was attempted. Model reported HTTP 400 and a positive-number validation error without retry. Raw execution card could not be inspected; actual connector error and expired-auth handling are not certified."
+      "status": "failed_connector_activity_independently_observed_http_body_unverified",
+      "duration_seconds_from_history": 4.62,
+      "input_top_type": "string",
+      "input_top_value": "-1",
+      "observation": "Signed-in History exposed the existing SearchforusersV2 connector call input, red failed activity and Failed conversation. HTTP 400 and the positive-number message remain model prose; no raw response section was exposed. No retry or new email. Expired-authentication handling was not tested."
     }
   ],
   "screenshot_limit": "Published images are privacy-safe crops of partial browser captures. A 1.5-DPR clipping issue truncated the original right edge; no text was reconstructed.",

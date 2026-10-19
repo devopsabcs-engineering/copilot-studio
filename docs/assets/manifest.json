@@ -257,5 +257,12 @@
     "source": "Actual first page rendered from the local Power-Platform-Licensing-Guide.pdf; same filename as uploaded knowledge, byte identity not compared.",
     "changes": "Cover only; bilingual provenance footer. No full document or substantive licensing pages published.",
     "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-failed-activity.png",
+    "kind": "live-validation",
+    "source": "Signed-in Copilot Studio History, existing Search for users (V2) failed activity; 21:35-21:44 UTC read-only follow-up.",
+    "changes": "Cropped to red failure marker, tool title and 4.62-second latency only. Recipient, prompt, connection reference and tenant context excluded; bilingual provenance footer. Raw HTTP response not exposed.",
+    "new_runtime_capture": true
   }
 ]

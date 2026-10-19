@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-19",
+  "observation_window_utc": "21:35-21:44",
+  "authentication": "recovered_using_user_shared_signed_in_page",
+  "actions": "Read-only inspection of existing History, uploaded knowledge source, model menu, tool picker, connected-agent picker and Settings.",
+  "new_test_prompts": 0,
+  "new_connector_calls": 0,
+  "new_emails": 0,
+  "configuration_changes": 0,
+  "history": {
+    "conversation_status": "Failed",
+    "connector": "SearchforusersV2",
+    "duration_seconds": 4.62,
+    "top_input": "-1",
+    "top_input_type": "string",
+    "search_scope": "previously verified self account only; identifier withheld",
+    "raw_http_status_exposed": false,
+    "raw_response_body_exposed": false
+  },
+  "knowledge_source": {
+    "name": "Power-Platform-Licensing-Guide.pdf",
+    "kind": "File",
+    "status": "Ready",
+    "download_control_clicked": true,
+    "browser_download_event_captured": false,
+    "user_confirmed_saved_to_downloads": true,
+    "fresh_download_bytes": 867776,
+    "sha256_matches_audited_source": true
+  },
+  "capabilities_observed": {
+    "modes": ["Build", "Preview", "Evaluate", "Monitor"],
+    "model": "GPT-5.5 Chat",
+    "settings_tabs": ["Agent details", "AI & behavior", "Safety & access", "Greeting & prompts"],
+    "tool_picker_categories": ["Featured", "MCP", "Connectors", "Workflows"],
+    "connected_agents_message": "Only published agents can be connected.",
+    "classic_connections_message": "Classic agent connections are not supported",
+    "topics_exposed_in_inspected_surface": false,
+    "application_insights_configuration_exposed_in_inspected_tabs": false,
+    "custom_model_endpoint_exposed_in_inspected_model_menu": false,
+    "foundry_endpoint_exposed_in_inspected_connected_agent_picker": false,
+    "harness_identifier_newly_exposed": false,
+    "limit": "Absence in these inspected controls is not a claim of global product or tenant unavailability."
+  },
+  "saved_state": "No unsaved changes; Save remained aria-disabled.",
+  "full_workshop_passed": false
+}

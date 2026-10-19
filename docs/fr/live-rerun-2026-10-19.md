@@ -11,7 +11,7 @@ ms.date: 2026-10-19
 | Lab | État de l'exécution réelle | Limite d'acceptation restante |
 |-----|----------------------------|------------------------------|
 | 0 | Identité, rôles, modèles Azure et Terraform portable vérifiés | Autorisation de ressources payantes dédiées |
-| 1 | Recherche PDF, refus, annuaire, livraison du courriel et clarification observés | Identité des copies PDF, audit complet des citations et erreur de connecteur vérifiée indépendamment |
+| 1 | Recherche, refus, annuaire, livraison, clarification, activité de connecteur échouée et hash du PDF téléchargé vérifiés | Audit complet des citations et sortie HTTP brute du connecteur |
 | 2 | Véritables indexation documentaire et recherche Search par solution Free | Ingestion Blob, embeddings intégrés et connexion Search Copilot |
 | 3 | Inventaire corrigé ; télémétrie sans rapport restée privée | Configuration de l'agent, événement synthétique et preuve KQL corrélée |
 | 4 | Procédure BYOM actuelle revue | Appel de modèle autorisé et prompt connecté |
@@ -262,9 +262,18 @@ le blocage d'ambiguïté lors d'un véritable envoi. Aucun autre courriel n'a é
 
 Une recherche en lecture seule du propre compte avec `top=-1` a été tentée.
 L'agent a annoncé HTTP 400 et `Top parameter should be a positive number.`, sans
-nouvel essai. La sortie brute n'a pas pu être inspectée avant le retour de l'écran
-Preview vide. L'échec reste **annoncé par le modèle, pas certifié indépendamment**.
-La gestion d'une authentification expirée n'a pas été testée.
+nouvel essai. La sortie n'était initialement pas accessible. Après la nouvelle
+connexion de l'utilisateur, **History a exposé l'entrée du connecteur
+`SearchforusersV2`, son activité rouge en échec et l'état Failed de la conversation**.
+L'entrée observée était la chaîne `top: "-1"`, avec le propre compte vérifié
+et la chaîne `isSearchTermRequired: "true"`. L'activité a duré **4,62 secondes**.
+L'appel contrôlé et son indicateur d'échec sont ainsi vérifiés indépendamment,
+mais pas le code HTTP ni le corps d'erreur : aucune section Output n'était exposée.
+HTTP 400 et le message cité restent annoncés par le modèle.
+La gestion d'une authentification expirée n'a pas été testée. Aucun test, recherche
+d'annuaire ou envoi n'a été répété pour récupérer cette preuve.
+
+![Activité de connecteur en échec récupérée dans History, identifiants exclus](../assets/runtime-2026-10-19/lab1-live-failed-activity.png)
 
 Une copie locale indépendante de `Power-Platform-Licensing-Guide.pdf` a été trouvée
 dans Downloads. Sa couverture indique réellement **octobre 2026**. Les pages PDF
@@ -273,9 +282,17 @@ application et droits inclus limités. La page 30 mentionne la fin de commercial
 de l'offre par application en janvier 2026. Six contrôles exacts ont réussi.
 Le fichier local comporte 30 pages ; son SHA-256 figure dans les
 [résultats de contrôle](../assets/runtime-2026-10-19/licensing-source-check.json).
-Son nom correspond au fichier chargé, mais **l'identité binaire des deux copies
-n'a pas été vérifiée**. Ce contrôle porte sur le guide local, pas sur chaque citation
-du fichier chargé ni sur les conditions commerciales applicables aujourd'hui.
+L'inspection connectée a ensuite ouvert la véritable source chargée, observé son
+état **File / Ready** et cliqué sur **Download**. L'utilisateur a confirmé
+l'enregistrement dans Downloads. Le nouveau fichier comptait **867 776 octets**,
+avec modification à **17 h 38 min 43 s, heure locale**. Son SHA-256 correspondait
+à la copie déjà contrôlée :
+`e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6`.
+Les six contrôles de source ont été réexécutés avec succès. Cette correspondance
+repose sur la **provenance du téléchargement confirmée par l'utilisateur et le hash
+du fichier**, sans événement de téléchargement du navigateur, nom Content-Disposition
+ou hash côté serveur capturé. Elle ne constitue ni un audit complet des citations
+ni une vérification des conditions commerciales applicables aujourd'hui.
 
 ![Couverture réelle du PDF local de licences, pas une capture du portail](../assets/runtime-2026-10-19/licensing-local-cover.png)
 
@@ -381,14 +398,37 @@ Les tests gratuits et vérifications de source ci-dessus sont réels, mais
 
 ### Dernier contrôle d'accès
 
-Une nouvelle tentative limitée a ouvert l'URL Preview exacte de l'agent existant.
+Une tentative limitée antérieure a ouvert l'URL Preview exacte de l'agent existant.
 Elle a redirigé vers la connexion Microsoft (`login.microsoftonline.com`) ; le
 navigateur a retourné `ERR_ABORTED (-3)` sans identifiant de page utilisable.
-Il s'agit désormais d'un **blocage d'authentification interactive**, pas d'une
-preuve de panne de l'agent ou de ses outils enregistrés. Une personne autorisée
-doit terminer la connexion et le choix du compte, puis partager la page Preview
-chargée pour reprendre les tests d'acceptation restants côté agent.
+L'utilisateur s'est ensuite reconnecté et a partagé l'agent. Le **suivi entre
+21 h 35 et 21 h 44 UTC a réussi**, permettant l'inspection de History et du
+fichier chargé. Le blocage d'authentification est résolu pour cette période
+d'observation.
 Aucune authentification, autorisation ou sélection de compte n'a été contournée.
+
+### Interface de création inspectée après la connexion
+
+Le [registre nettoyé du suivi](../assets/runtime-2026-10-19/signed-in-followup.json)
+conserve l'inspection en lecture seule. Le modèle sélectionné est resté
+**GPT-5.5 Chat** ; aucun nouvel identifiant de moteur ou numéro de version du
+produit n'était exposé.
+
+* Menu de mode : **Build, Preview, Evaluate, Monitor**
+* Paramètres : **Agent details, AI & behavior, Safety & access, Greeting & prompts**
+* Ajout d'outil : **Featured, MCP, Connectors, Workflows**
+* Agents connectés : seuls les agents publiés peuvent être connectés ; le sélecteur
+  affichait **Classic agent connections are not supported**
+
+Les rubriques conventionnelles, la configuration Application Insights, un point
+de modèle personnalisé dans son menu et un point Foundry dans le sélecteur d'agents
+n'étaient **pas exposés dans les contrôles inspectés**. Il s'agit d'un constat
+local à cette interface, pas d'une indisponibilité globale. Cela explique pourquoi
+la supervision, le prompt BYOM et la connexion Foundry de l'agent standard d'origine
+ne peuvent pas être déclarés reproduits en inspectant simplement cet agent.
+Save est resté désactivé au niveau ARIA et les dialogues ont été annulés.
+Aucune configuration, connexion, sélection de modèle, création d'agent ou publication
+n'a été modifiée.
 
 Un inventaire en lecture seule a trouvé **23 déploiements de modèles réussis
 répartis sur huit des neuf comptes Cognitive Services**. Cela établit des métadonnées,

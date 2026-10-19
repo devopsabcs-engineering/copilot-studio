@@ -24,9 +24,10 @@ See the [new execution record](live-rerun-2026-10-19.md) for the observations an
 The two earlier screenshots below remain user-supplied evidence from the original
 run, not screenshots of this new test. Neither run constitutes a full audit of
 licensing-answer accuracy. A later conversational ambiguity test passed without
-connector calls. A model-reported invalid-parameter error could not be independently
-verified from its execution card. The local same-name PDF's edition and summary
-were independently checked, without proving byte identity with the uploaded copy.
+connector calls. Signed-in History later confirmed the invalid-parameter call's
+input and failed activity; its specific HTTP/error body remains model-reported.
+The user-confirmed download of the uploaded PDF matches the audited source's
+SHA-256, with all six edition/summary checks passing again.
 
 ## 1. Choose the equivalent agent experience
 
@@ -189,9 +190,10 @@ The table below preserves the **original evidence baseline**, before the fresh
 supersede its earlier "not executed" or unproven status for L1-02 through L1-05.
 L1-01 now has observed PDF retrieval, but still lacks a full answer-accuracy audit.
 L1-06 now has a conversational-only pass, not full send-time enforcement.
-L1-07 has an attempted but independently unverified connector-error response.
-The latest record also checks the local same-name PDF's cover and summary pages;
-uploaded/local byte identity and a complete citation audit remain unverified.
+L1-07 now has independently observed failed connector activity and actual input,
+but its raw HTTP/error response remains unverified. The latest record checks the
+user-confirmed download's hash against the audited PDF and verifies its cover and
+summary pages. A complete citation audit remains outside those source checks.
 
 | ID    | Test                                      | Required result                                           | Observed evidence                                                                     |
 | ----- | ----------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |

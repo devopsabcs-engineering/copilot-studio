@@ -27,9 +27,10 @@ Les deux captures antérieures ci-dessous restent des preuves fournies par l'uti
 pour l'exécution initiale, pas des captures du nouveau test. Aucune de ces exécutions
 ne constitue un audit complet de l'exactitude des réponses de licences.
 Un test conversationnel ultérieur de destinataire ambigu a réussi sans connecteur.
-Une erreur de paramètre annoncée par le modèle n'a pas pu être vérifiée dans sa
-sortie brute. L'édition et le résumé du PDF local de même nom ont été contrôlés,
-sans preuve d'identité binaire avec la copie chargée.
+History a ensuite confirmé l'entrée et l'activité échouée de l'appel au paramètre
+invalide ; son code HTTP et corps d'erreur restent annoncés par le modèle.
+Le téléchargement de la source confirmé par l'utilisateur correspond au SHA-256
+du PDF contrôlé ; les six contrôles d'édition et de résumé ont de nouveau réussi.
 
 ## 1. Choisir l'expérience d'agent équivalente
 
@@ -193,10 +194,11 @@ exécution du 2026-10-19. Les [derniers résultats](live-rerun-2026-10-19.md)
 remplacent les anciennes mentions « non exécuté » ou non démontrées pour L1-02 à L1-05.
 Une recherche PDF est désormais observée pour L1-01, sans audit complet de l'exactitude
 de la réponse. L1-06 possède désormais un test conversationnel réussi, pas une
-preuve de blocage lors d'un véritable envoi. L1-07 comporte une tentative dont
-l'erreur de connecteur reste non vérifiée indépendamment. Le dernier registre
-contrôle aussi la couverture et les pages résumées du PDF local de même nom ;
-l'identité binaire avec la copie chargée et l'audit complet des citations restent à vérifier.
+preuve de blocage lors d'un véritable envoi. L1-07 comporte désormais une activité
+de connecteur échouée et une entrée observées indépendamment, sans sortie HTTP brute
+vérifiée. Le dernier registre compare le hash du téléchargement confirmé par
+l'utilisateur au PDF contrôlé et vérifie sa couverture et ses pages résumées.
+Un audit complet des citations reste en dehors de ces contrôles de source.
 
 | ID    | Test                                              | Résultat exigé                                             | Preuve observée                                                                                |
 | ----- | ------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

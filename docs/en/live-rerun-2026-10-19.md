@@ -11,7 +11,7 @@ ms.date: 2026-10-19
 | Lab | Actual execution status | Remaining acceptance boundary |
 |-----|-------------------------|-------------------------------|
 | 0 | Azure identity, role, model inventory and portable Terraform verified | Dedicated paid-resource authorization |
-| 1 | PDF retrieval, refusal, directory, self-mail delivery and clarification observed | Uploaded/local PDF identity, full citation audit and independently verified connector failure |
+| 1 | Retrieval, refusal, directory, delivery, clarification, failed connector activity and downloaded PDF hash checked | Full citation audit and raw connector HTTP/error body |
 | 2 | Actual document indexing and Search API retrieval through a Free alternative | Blob ingestion, integrated embeddings and Copilot Search connection |
 | 3 | Resource inventory corrected; unrelated telemetry left private | Agent telemetry configuration, synthetic event and correlated KQL evidence |
 | 4 | Current BYOM procedure reviewed | Approved model invocation and connected prompt |
@@ -251,10 +251,18 @@ the **conversational clarification guard**, not full send-time ambiguity enforce
 No new email was sent.
 
 A read-only self-search with `top=-1` was attempted. The agent reported HTTP 400,
-`Top parameter should be a positive number.`, without retry. The raw execution card
-could not be inspected before Preview became blank again. This remains **model-reported,
-not independently certified connector failure**. Expired-authentication handling
-was not tested.
+`Top parameter should be a positive number.`, without retry. Initially the raw
+execution card could not be inspected. After the user signed in again, **History
+exposed the existing `SearchforusersV2` connector input, red failed activity and
+Failed conversation status**. The observed input was the string `top: "-1"`,
+with the verified self account and string `isSearchTermRequired: "true"`.
+The failed activity took **4.62 seconds**. This independently confirms the controlled
+connector call and failure indicator, not the specific HTTP status or error body:
+the card did not expose an Output section. HTTP 400 and the quoted error text
+remain model-reported. Expired-authentication handling was not tested.
+No test, directory lookup or email was repeated to recover this evidence.
+
+![Existing failed connector activity recovered from live History, identifiers excluded](../assets/runtime-2026-10-19/lab1-live-failed-activity.png)
 
 An independent local copy of `Power-Platform-Licensing-Guide.pdf` was found in Downloads.
 Its actual cover says **October 2026**. PDF pages 6 and 7 support the summary's
@@ -262,9 +270,15 @@ Premium per-user, per-app pay-as-you-go and limited included-rights statements.
 Page 30 records the January 2026 per-app end-of-sale change. Six exact source checks
 passed. The local file has 30 pages and SHA-256 recorded in the
 [source-check results](../assets/runtime-2026-10-19/licensing-source-check.json).
-Its filename matches the uploaded file, but uploaded/local **byte identity was not
-verified**. This is an independent check of the local guide, not proof of every
-uploaded-file citation or of today's applicable commercial terms.
+The signed-in inspection subsequently opened the actual uploaded source, observed
+its **File / Ready** state, and clicked **Download**. The user confirmed saving it
+in Downloads. The freshly saved file was **867,776 bytes**, modified at **17:38:43
+local time**, and its SHA-256 matched the previously audited copy:
+`e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6`.
+All six source checks were rerun and passed. This establishes a matching downloaded
+copy using **user-confirmed download provenance plus filesystem hashing**; no
+browser download event, Content-Disposition filename or server-side hash was captured.
+It is not a full citation audit or verification of today's applicable commercial terms.
 
 ![Actual local licensing PDF cover, not portal UI](../assets/runtime-2026-10-19/licensing-local-cover.png)
 
@@ -364,13 +378,35 @@ work above is real progress, but **the whole workshop is not certified passed**.
 
 ### Final access recheck
 
-A further bounded attempt opened the exact existing-agent Preview URL. It redirected
+An earlier bounded attempt opened the exact existing-agent Preview URL. It redirected
 to Microsoft sign-in (`login.microsoftonline.com`) and the browser reported
 `ERR_ABORTED (-3)` without returning a usable page ID. This is now an **interactive
 authentication gate**, not evidence that the saved agent or its tools failed.
-An authorized user must complete sign-in/account selection and share the loaded
-Preview again before the remaining agent-side acceptance checks can resume.
+The user subsequently completed sign-in and shared the agent again. The **21:35-21:44
+UTC follow-up succeeded**, recovering History and the uploaded-file dialog.
+That authentication blocker is resolved for this observation window.
 No authentication, consent or account selection was bypassed.
+
+### Current authoring surface inspected after sign-in
+
+The [sanitized follow-up record](../assets/runtime-2026-10-19/signed-in-followup.json)
+records the read-only inspection. The selected model remained **GPT-5.5 Chat**;
+no new harness identifier or product build version was exposed.
+
+* Mode menu: **Build, Preview, Evaluate, Monitor**
+* Settings: **Agent details, AI & behavior, Safety & access, Greeting & prompts**
+* Add tool: **Featured, MCP, Connectors, Workflows**
+* Connected agents: only published agents can connect; the picker displayed
+  **Classic agent connections are not supported**
+
+Conventional Topics, Application Insights configuration, a custom model endpoint
+in the model menu, and a Foundry endpoint in the connected-agent picker were
+**not exposed in the inspected controls**. This is a current-surface observation,
+not a claim that those capabilities are globally unavailable. It explains why
+the original standard-agent monitoring, prompt BYOM and connected-Foundry
+instructions cannot be claimed reproduced just by inspecting this saved agent.
+The Save control remained ARIA-disabled, and inspection dialogs were cancelled.
+No configuration, connection, model, agent or publication was changed.
 
 A read-only deployment inventory found **23 successful model deployments across
 eight of the nine Cognitive Services accounts**. This establishes deployment

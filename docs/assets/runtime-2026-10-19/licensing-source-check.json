@@ -4,8 +4,15 @@
   "pages": 30,
   "encrypted": false,
   "sha256": "e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6",
-  "comparison": "Independent read of local PDF with the same filename as the uploaded knowledge file.",
-  "uploaded_file_byte_identity_verified": false,
+  "comparison": "Fresh PDF saved in Downloads after the uploaded knowledge source's Download control was clicked and the user confirmed saving it; SHA-256 matches the previously audited local guide.",
+  "uploaded_file_byte_identity_verified": true,
+  "byte_identity_provenance": "User-confirmed download provenance plus filesystem hash; no server-side source hash or automated browser download event was available.",
+  "download_recheck": {
+    "observed_file_modified_local": "2026-10-19T17:38:43",
+    "bytes": 867776,
+    "matches_previously_audited_sha256": true,
+    "six_source_checks_reexecuted": true
+  },
   "checks": {
     "edition_october_2026_on_cover_page_1": true,
     "premium_per_user_page_6": true,
