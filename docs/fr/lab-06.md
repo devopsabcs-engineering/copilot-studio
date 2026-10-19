@@ -97,9 +97,103 @@ Le modèle Foundry extérieur peut décider comment appeler un outil même si Se
 
 Consultez le [démarrage rapide de recherche agentique](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval), le [guide des connexions de projet](https://learn.microsoft.com/en-us/azure/foundry/how-to/connections-add) et le [guide MCP](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol) pour la compatibilité. Ne copiez pas d'identifiants externes et n'accordez pas de droits sur tout l'abonnement pour contourner un écart.
 
+### Variante GA testée pour le point de contrôle de récupération
+
+L'exécution réelle a utilisé l'API REST Search `2026-04-01` plutôt que de migrer
+tous les SDK du notebook en préversion. Les requêtes ci-dessous reproduisent ce
+contrat ; les noms d'objets sont illustratifs. Le service temporaire a été
+supprimé. Utilisez uniquement un service jetable approuvé et les données locales
+autorisées de l'atelier. N'envoyez pas ces PUT à des objets partagés existants :
+PUT peut remplacer leur définition. Ce parcours ne crée ni agent Foundry ni
+connexion MCP.
+
+1. Chargez les trois listes originales de huit entrées dans trois index distincts.
+   Chaque entrée doit garder ses champs `id`, `title` et `content`. Configurez
+   une configuration sémantique `training-semantic` utilisant titre et contenu ;
+   vérifiez huit chargements réussis par index et 24 au total. Aucun plongement
+   généré ni déploiement de modèle externe n'est nécessaire pour cette variante.
+2. Pour chaque index, envoyez
+   `PUT /knowledgesources/<source-name>?api-version=2026-04-01` au point de
+   terminaison Search approuvé avec du JSON et l'authentification autorisée.
+   Le nom de source doit être identique dans le chemin et le corps. Adaptez les
+   noms de source et d'index pour chacune des trois sources.
+
+```json
+{
+  "name": "fraud-ks",
+  "kind": "searchIndex",
+  "searchIndexParameters": {
+    "searchIndexName": "fraud-index",
+    "semanticConfigurationName": "training-semantic",
+    "sourceDataFields": [
+      {"name": "id"}, {"name": "title"}, {"name": "content"}
+    ]
+  }
+}
+```
+
+3. Envoyez `PUT /knowledgebases/workshop-training-kb?api-version=2026-04-01`.
+   Exigez HTTP 200 ou 201 et vérifiez les trois noms de sources renvoyés.
+   N'ajoutez pas les anciennes propriétés de raisonnement ou de mode de sortie
+   propres à la préversion.
+
+```json
+{
+  "name": "workshop-training-kb",
+  "description": "Isolated workshop retrieval test",
+  "knowledgeSources": [
+    {"name": "fraud-ks"},
+    {"name": "compliance-ks"},
+    {"name": "investigation-ks"}
+  ]
+}
+```
+
+4. Envoyez
+   `POST /knowledgebases/workshop-training-kb/retrieve?api-version=2026-04-01`
+   avec le corps suivant. Exigez HTTP 200. Gardez les réponses brutes dans un
+   espace privé pour comparaison ; publiez seulement des assertions expurgées.
+
+```json
+{
+  "intents": [
+    {"type": "semantic", "search": "fraud investigation compliance"}
+  ],
+  "knowledgeSourceParams": [
+    {"knowledgeSourceName": "fraud-ks", "kind": "searchIndex"},
+    {"knowledgeSourceName": "compliance-ks", "kind": "searchIndex"},
+    {"knowledgeSourceName": "investigation-ks", "kind": "searchIndex"}
+  ]
+}
+```
+
+5. Vérifiez les champs racine `response`, `activity` et `references`.
+   Analysez le texte de réponse comme une liste JSON de passages contenant
+   `ref_id`, `title` et `content`. Associez références et passages par identifiant
+   de référence, puis reliez le `docKey` de chaque référence à l'entrée originale
+   de la source correspondante. Exigez l'égalité exacte du titre et du contenu ;
+   ne dépendez pas de `sourceData`, qui était nul dans les références observées.
+6. Recommencez avec le titre exact de la première entrée de fraude, puis
+   `zqxvunicornasteroidorchard`. L'exécution observée a renvoyé 2, 17 et 0 passages
+   pour les requêtes précise, multisource et sans correspondance respectivement.
+   Ces nombres sont des observations, pas une garantie de classement futur.
+   Le cas multisource couvrait les trois sources ; les 19 passages renvoyés
+   correspondaient aux originaux. Arrêtez sur champ absent, chargement échoué,
+   statut HTTP non réussi, source incorrecte ou texte modifié.
+7. Supprimez uniquement les ressources jetables appartenant à la session après
+   collecte des preuves, puis vérifiez indépendamment leur absence. Les
+   [résultats cloud expurgés](../assets/runtime-2026-10-19/free-cloud-results.json)
+   consignent l'exécution réelle et le nettoyage.
+
+Cela prouve une récupération Search multisource minimale et extractive, pas la
+planification LLM, la synthèse de réponses, les plongements sémantiques générés,
+l'appel d'outil Foundry ni une conversation avec un agent connecté Copilot.
+
 ## 4. Exécuter par points de contrôle lors d'une session approuvée
 
-Aucune étape de cette section n'a été exécutée pendant la revue.
+La séquence originale de bout en bout ci-dessous reste non exécutée. La variante
+GA de récupération ci-dessus a été exécutée séparément ; elle ne valide pas les
+étapes de plongement, MCP, agent Foundry ou agent connecté.
 
 1. Faites préparer un environnement dédié et revoir les dépendances épinglées ou leur migration testée. Installez uniquement dans cet environnement, jamais dans un interpréteur système partagé.
 2. Sélectionnez cet environnement comme noyau. Vérifiez les versions avant toute cellule ; l'analyse syntaxique Python 3.14.3 ne certifie pas ce runtime pour les anciennes dépendances.

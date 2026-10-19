@@ -95,9 +95,99 @@ An outer Foundry model can decide how to call a tool even when Search uses minim
 
 Use the official [agentic retrieval quickstart](https://learn.microsoft.com/en-us/azure/search/search-get-started-agentic-retrieval), [project connections guide](https://learn.microsoft.com/en-us/azure/foundry/how-to/connections-add) and [MCP tool guide](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/model-context-protocol) as compatibility references. Do not copy external credentials or grant subscription-wide access to bypass a mismatch.
 
+### Tested GA substitute for the retrieval checkpoint
+
+The live run used Search REST API `2026-04-01` instead of migrating the
+preview notebook's entire SDK stack. The request shapes below reproduce that
+contract; object names are illustrative. The temporary service was deleted.
+Use only an approved disposable service and authorized local workshop data.
+Do not run these PUT requests against existing shared objects: PUT can replace
+their definitions. This route does not create a Foundry agent or MCP connection.
+
+1. Load the three original eight-record lists into three separate indexes.
+   Each record needs its original `id`, `title` and `content`. Configure a
+   semantic configuration named `training-semantic` using title and content;
+   verify eight successful uploads per index and 24 total. No generated
+   embeddings or external model deployment are needed for this substitute.
+2. For each index, send `PUT /knowledgesources/<source-name>?api-version=2026-04-01`
+   to the approved Search endpoint with JSON content and approved authentication.
+   The source name in the path and body must match. Change both source and index
+   names for each of the three sources.
+
+```json
+{
+  "name": "fraud-ks",
+  "kind": "searchIndex",
+  "searchIndexParameters": {
+    "searchIndexName": "fraud-index",
+    "semanticConfigurationName": "training-semantic",
+    "sourceDataFields": [
+      {"name": "id"}, {"name": "title"}, {"name": "content"}
+    ]
+  }
+}
+```
+
+3. Send `PUT /knowledgebases/workshop-training-kb?api-version=2026-04-01`.
+   Require HTTP 200 or 201 and verify all three returned source names.
+   Do not add the old preview-only reasoning-effort or output-mode properties.
+
+```json
+{
+  "name": "workshop-training-kb",
+  "description": "Isolated workshop retrieval test",
+  "knowledgeSources": [
+    {"name": "fraud-ks"},
+    {"name": "compliance-ks"},
+    {"name": "investigation-ks"}
+  ]
+}
+```
+
+4. Send `POST /knowledgebases/workshop-training-kb/retrieve?api-version=2026-04-01`
+   with the following body. Require HTTP 200. Preserve private raw responses
+   for comparison, but publish only sanitized assertions.
+
+```json
+{
+  "intents": [
+    {"type": "semantic", "search": "fraud investigation compliance"}
+  ],
+  "knowledgeSourceParams": [
+    {"knowledgeSourceName": "fraud-ks", "kind": "searchIndex"},
+    {"knowledgeSourceName": "compliance-ks", "kind": "searchIndex"},
+    {"knowledgeSourceName": "investigation-ks", "kind": "searchIndex"}
+  ]
+}
+```
+
+5. Check the top-level `response`, `activity` and `references` fields.
+   Parse the response's text content as JSON passages containing `ref_id`,
+   `title` and `content`. Match references to passages by reference identifier,
+   then join each reference's `docKey` to the corresponding original source
+   record. Require exact title and content equality; do not rely on `sourceData`,
+   which was null in the observed references.
+6. Repeat with the first fraud record's exact title, then
+   `zqxvunicornasteroidorchard`. The observed run returned 2, 17 and 0 passages
+   for the specific, cross-source and unsupported queries respectively.
+   These are recorded observations, not guaranteed future ranking counts.
+   The cross-source case covered all three sources, and all 19 returned passages
+   matched originals. Stop on missing fields, failed uploads, non-success HTTP
+   status, source mismatch or altered text.
+7. Delete only the session-owned disposable resources after collecting evidence,
+   then independently verify their absence. The
+   [sanitized cloud results](../assets/runtime-2026-10-19/free-cloud-results.json)
+   record the actual run and cleanup.
+
+This proves multi-source minimal/extractive Search retrieval. It does not prove
+LLM query planning, answer synthesis, generated semantic embeddings, Foundry
+tool invocation or a Copilot connected-agent conversation.
+
 ## 4. Execute in checkpoints during an approved later session
 
-No step in this section was executed during review.
+The original end-to-end sequence below remains unexecuted. The separate GA
+retrieval substitute above was executed; do not treat it as a pass for the
+embedding, MCP, Foundry-agent or connected-agent steps.
 
 1. Have the instructor prepare a dedicated environment and review the pinned dependencies or a tested migration. Install only in that approved environment, never in a shared system interpreter.
 2. Select that environment as the notebook kernel. Verify package versions before running any cell; syntax success on Python 3.14.3 is not certification of that runtime for the old dependency set.
