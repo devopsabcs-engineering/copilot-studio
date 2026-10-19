@@ -379,6 +379,23 @@ Les tests gratuits et vérifications de source ci-dessus sont réels, mais
 
 ## Éléments restés intacts
 
+### Dernier contrôle d'accès
+
+Une nouvelle tentative limitée a ouvert l'URL Preview exacte de l'agent existant.
+Elle a redirigé vers la connexion Microsoft (`login.microsoftonline.com`) ; le
+navigateur a retourné `ERR_ABORTED (-3)` sans identifiant de page utilisable.
+Il s'agit désormais d'un **blocage d'authentification interactive**, pas d'une
+preuve de panne de l'agent ou de ses outils enregistrés. Une personne autorisée
+doit terminer la connexion et le choix du compte, puis partager la page Preview
+chargée pour reprendre les tests d'acceptation restants côté agent.
+Aucune authentification, autorisation ou sélection de compte n'a été contournée.
+
+Un inventaire en lecture seule a trouvé **23 déploiements de modèles réussis
+répartis sur huit des neuf comptes Cognitive Services**. Cela établit des métadonnées,
+pas l'autorisation d'envoyer les données d'atelier vers d'autres applications,
+la gratuité des appels, la compatibilité des points d'accès ou la réussite BYOM.
+Aucun appel d'inférence ni lecture de clé de ces comptes existants n'a été effectué.
+
 Les documents Word, le notebook et les sources Terraform d'origine sont inchangés.
 Les ressources de production ou d'autres usages n'ont pas été modifiées. Les preuves
 initiales d'envoi et de réception du lab 1 restent des preuves historiques utilisateur,

@@ -362,6 +362,22 @@ work above is real progress, but **the whole workshop is not certified passed**.
 
 ## What remains unchanged
 
+### Final access recheck
+
+A further bounded attempt opened the exact existing-agent Preview URL. It redirected
+to Microsoft sign-in (`login.microsoftonline.com`) and the browser reported
+`ERR_ABORTED (-3)` without returning a usable page ID. This is now an **interactive
+authentication gate**, not evidence that the saved agent or its tools failed.
+An authorized user must complete sign-in/account selection and share the loaded
+Preview again before the remaining agent-side acceptance checks can resume.
+No authentication, consent or account selection was bypassed.
+
+A read-only deployment inventory found **23 successful model deployments across
+eight of the nine Cognitive Services accounts**. This establishes deployment
+metadata, not permission to send workshop data to unrelated workloads, free
+inference, endpoint compatibility, or successful BYOM execution. No inference
+request was made and no key was retrieved from those existing accounts.
+
 The original Word documents, notebook, and Terraform sources are unchanged.
 Existing production or unrelated lab resources were not modified. The original
 Lab 1 send/receipt screenshots remain historical user evidence, distinct from any
