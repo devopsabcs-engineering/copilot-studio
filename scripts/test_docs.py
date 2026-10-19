@@ -3,7 +3,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from build_wiki import export, page_name, rewrite_links
+from build_wiki import export, page_name, render_wiki_metadata, rewrite_links
 from validate_docs import local_link_errors, validate
 
 
@@ -26,6 +26,12 @@ class WikiTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         result = rewrite_links("[Guide](index.md#start-here)", root / "docs/en/lab-01.md")
         self.assertEqual(result, "[Guide](EN-index#start-here)")
+
+    def test_wiki_metadata_is_rendered_as_a_title(self):
+        source = "---\ntitle: Guide français\ndescription: Example\n---\n\n## Goal\n"
+        self.assertEqual(render_wiki_metadata(source), "# Guide français\n\n## Goal\n")
+        with self.assertRaises(ValueError):
+            render_wiki_metadata("No metadata")
 
     def test_export_does_not_overwrite_sources(self):
         root = Path(__file__).resolve().parents[1]

@@ -11,6 +11,17 @@ ROOT = Path(__file__).resolve().parents[1]
 LINK = re.compile(r"(!?\[[^\]]*\])\(([^)\n]+)\)")
 
 
+def render_wiki_metadata(text: str) -> str:
+    metadata = re.match(r"\A---\r?\n(.*?)\r?\n---\r?\n", text, re.S)
+    if not metadata:
+        raise ValueError("Canonical documentation must have YAML frontmatter.")
+    title = re.search(r"^title:\s*(.+)$", metadata.group(1), re.M)
+    if not title:
+        raise ValueError("Canonical documentation must have a title.")
+    heading = title.group(1).strip().strip("\"'")
+    return f"# {heading}\n\n{text[metadata.end():].lstrip()}"
+
+
 def page_name(path: Path, root: Path = ROOT) -> str:
     relative = path.resolve().relative_to(root.resolve())
     if relative == Path("README.md"):
@@ -52,15 +63,10 @@ def export(output: Path, root: Path = ROOT) -> int:
     output.mkdir(parents=True, exist_ok=True)
     sources = [root / "README.md", *sorted(docs.rglob("*.md"))]
     for source in sources:
-        content = rewrite_links(source.read_text(encoding="utf-8"), source, root)
+        content = render_wiki_metadata(rewrite_links(source.read_text(encoding="utf-8"), source, root))
         (output / f"{page_name(source, root)}.md").write_text(content, encoding="utf-8", newline="\n")
     shutil.copytree(docs / "assets", output / "assets", dirs_exist_ok=True)
-    sidebar = """---
-title: Workshop navigation
-description: English and French wiki navigation.
----
-
-## English | Français
+    sidebar = """## English | Français
 
 * [Home / Accueil](Home)
 * [English guides](EN-index)
@@ -75,12 +81,7 @@ description: English and French wiki navigation.
         for lab in ("00", "01", "02", "03", "04", "05-1", "05", "06"):
             sidebar += f"* [Lab {lab.replace('05-1', '5.1')}]({language}-lab-{lab})\n"
     (output / "_Sidebar.md").write_text(sidebar, encoding="utf-8", newline="\n")
-    (output / "_Footer.md").write_text("""---
-title: Evidence notice / Mention sur les preuves
-description: Distinguish original screenshots from live validation.
----
-
-## Evidence / Preuves
+    (output / "_Footer.md").write_text("""## Evidence / Preuves
 
 Source screenshots are not new executions. Les captures d'origine ne sont pas de nouvelles exécutions.
 See [validation](EN-validation) / voir le [registre](FR-validation).

@@ -103,7 +103,7 @@ python scripts\validate_docs.py --wiki .wiki-build
 ```
 
 Les contrôles hors ligne ont réussi pour la version de publication : compilation
-Python, six tests unitaires, 28 fichiers Markdown de référence, 13 paires français/anglais,
+Python, sept tests unitaires, 28 fichiers Markdown de référence, 13 paires français/anglais,
 29 figures PNG avec provenance et 30 fichiers Markdown exportés pour le wiki.
 Aucun lien local rompu ni image ou provenance manquante n'a été trouvé. Le dépôt
 initialement vide ne disposait d'aucun linter ou build de paquet préconfiguré.

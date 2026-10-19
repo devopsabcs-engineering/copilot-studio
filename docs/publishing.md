@@ -52,6 +52,12 @@ links and copies shared assets. For example, the English Lab 1 guide becomes
 `EN-lab-01`, the French guide becomes `FR-lab-01`, and the repository README becomes
 `Home`. Wiki links deliberately omit the Markdown extension.
 
+Canonical Markdown retains the required YAML metadata. GitHub wiki does not render
+that frontmatter as repository Markdown does: it displays it as page content.
+The generated wiki-only files therefore convert the metadata title to a visible
+heading and omit the remaining frontmatter. This compatibility exception also applies
+to the generated sidebar and footer; the canonical source metadata remains intact.
+
 ### Publish the same content to the wiki
 
 Before publishing, review the destination, current remote branch, and any human edits.
@@ -130,6 +136,12 @@ Le [script d'export](../scripts/build_wiki.py) transforme les liens locaux en li
 pages wiki et copie les images partagées. Le guide anglais du lab 1 devient
 `EN-lab-01`, son équivalent français `FR-lab-01`, et l'accueil du dépôt devient `Home`.
 Les liens wiki omettent volontairement l'extension Markdown.
+
+Les sources Markdown conservent les métadonnées YAML requises. Le wiki GitHub ne les
+interprète pas comme le dépôt : il les affiche dans le contenu. Les fichiers générés
+pour le wiki convertissent donc le titre en en-tête visible et omettent les autres
+métadonnées. Cette exception de compatibilité concerne aussi la barre latérale et
+le pied de page générés ; les sources de référence restent intactes.
 
 ### Publier le même contenu sur le wiki
 

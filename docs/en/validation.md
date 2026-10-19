@@ -98,7 +98,7 @@ python scripts\build_wiki.py --output .wiki-build
 python scripts\validate_docs.py --wiki .wiki-build
 ```
 
-The offline checks passed for the publication snapshot: Python compilation, six
+The offline checks passed for the publication snapshot: Python compilation, seven
 unit tests, 28 canonical Markdown files, 13 English/French page pairs, 29 manifested
 PNG figures, and 30 exported wiki Markdown files. There were no broken local links
 or missing image/provenance entries. No pre-existing linter or package build was
