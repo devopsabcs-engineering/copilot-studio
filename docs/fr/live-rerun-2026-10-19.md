@@ -1,6 +1,6 @@
 ---
 title: Registre de réexécution réelle - 2026-10-19
-description: Initialisation, validation et plan Terraform exécutés, échec SDK reproduit, restauration isolée des dépendances et conditions restantes.
+description: Recherche PDF et livraison de courriel réellement testées, plan Terraform exécuté, échec SDK reproduit, restauration isolée et conditions cloud restantes.
 ms.date: 2026-10-19
 ---
 
@@ -47,9 +47,95 @@ La configuration visible utilise **GPT-5.5 Chat**, **Send an email (V2)**,
 Une réponse correcte ne prouverait donc pas, à elle seule, l'utilisation exclusive
 du PDF. Le test réel doit examiner l'activité de recherche et d'outils sélectionnée.
 
-L'agent de test a reçu la consigne d'actualiser cette nouvelle page directe et
-d'utiliser les outils enregistrés plutôt que l'ancien accueil vide. Un nouveau
-résultat réel sera consigné uniquement après l'exécution effective du test.
+### Résultats de la nouvelle exécution
+
+La nouvelle page Preview s'est actualisée correctement et est restée interactive.
+Le test a utilisé l'agent et les connexions existants ; les outils enregistrés
+ont été conservés. Aucune nouvelle connexion ni autorisation n'a été nécessaire.
+La liste Agents identifiait le moteur **GitHub Copilot**. Le test valide donc
+un parcours principal équivalent dans la nouvelle expérience, pas une recréation
+de l'ancienne interface de rubriques des agents standard.
+
+1. La recherche dans le PDF chargé a été exécutée. La réponse a identifié
+   **octobre 2026**. Cela démontre l'activité de recherche, pas un audit indépendant
+   de chaque affirmation de licence ni la désactivation globale de la recherche web.
+2. Une question sur une remise propre au locataire a été refusée, sans remise inventée.
+3. **Search for users (V2)** a retourné un seul compte d'atelier correspondant et vérifié.
+4. **Send an email (V2)** s'est terminé sans erreur en **1,6 seconde**.
+5. Le message correspondant a été vérifié dans **Inbox** et **Sent Items**.
+   Outlook affichait **14 h 44**. Son objet unique était
+   **Lab1 live rerun 2026-10-19 1844Z - Licensing summary**.
+
+La question couverte a été saisie exactement en anglais :
+
+> What Power Apps licensing options are described in the uploaded Power-Platform-Licensing-Guide.pdf? Cite the uploaded guide and identify its edition. Do not search the web or use general knowledge for this test.
+
+Elle demande les options Power Apps du PDF chargé, sa citation et son édition,
+sans recherche web ni connaissances générales.
+
+La question non couverte a été saisie exactement en anglais :
+
+> Using only the uploaded licensing guide, what exact unpublished discount percentage and negotiated final Power Apps Premium price has Microsoft approved specifically for our Contoso tenant for next month? If the guide cannot establish that, say so. Do not invent a tenant-specific quote or search the web.
+
+Elle demande une remise confidentielle et un prix négocié propres au locataire
+Contoso pour le mois suivant, en exigeant de signaler l'absence de preuve dans
+le guide et de ne rien inventer.
+
+Il s'agit de nouveaux résultats observés dans le navigateur, distincts des captures
+antérieures de l'utilisateur. Le
+[registre nettoyé du Lab 1](../assets/runtime-2026-10-19/lab1-live-results.json)
+conserve ces observations sans publier les identifiants de compte ou de locataire.
+Le courriel de test a déjà été livré. Ne le renvoyez pas pour obtenir une autre capture.
+
+Le parcours principal de recherche, d'annuaire, d'envoi et de réception a été exécuté.
+La gestion d'un destinataire ambigu et la simulation d'une panne de connexion
+n'ont **pas été exécutées** ; elles restent des cas complémentaires du
+[guide du Lab 1](lab-01.md).
+Cette réexécution ne signifie pas que tous les labs de l'atelier ont réussi.
+
+### Nouvelles captures et limites
+
+Les images suivantes sont des extraits nettoyés de la nouvelle exécution, pas des
+captures du support initial ou fournies par l'utilisateur. Un problème de capture
+lié au DPR de 1,5 a tronqué le bord droit des images d'origine. Aucun texte manquant
+n'a été reconstitué. Les identifiants de compte et les messages sans rapport ont été exclus.
+Ces images partielles illustrent l'activité observée ; ce ne sont pas des transcriptions
+complètes. Les objets de courriel sont notamment tronqués. L'objet complet et les
+résultats de livraison ci-dessus proviennent des observations dans le navigateur.
+
+#### Recherche et refus de la question non couverte
+
+![Nouvelle activité réelle Searched knowledge, capture partielle](../assets/runtime-2026-10-19/lab1-live-knowledge.png)
+
+L'exécution a invoqué **Searched knowledge**. La sortie détaillée observée pendant
+le test identifiait le PDF chargé avec la référence `turn1doc1` ; cette sortie complète
+n'est pas visible dans l'extrait.
+
+![Nouveau refus réel d'un prix négocié propre au locataire, capture partielle](../assets/runtime-2026-10-19/lab1-live-unsupported.png)
+
+La réponse a refusé d'établir un prix négocié propre au locataire à partir du guide.
+
+#### Exécution des outils d'annuaire et d'envoi
+
+![Nouvelle réponse d'annuaire avec une correspondance et une latence de 2,7 secondes](../assets/runtime-2026-10-19/lab1-live-directory.png)
+
+L'annuaire a retourné une correspondance. Les champs de boîte aux lettres ont été
+exclus de l'image.
+
+![Nouvel extrait détaillé de l'outil d'envoi et latence de 1,6 seconde, destinataire exclu](../assets/runtime-2026-10-19/lab1-live-send.png)
+
+L'extrait détaillé montre le corps réellement transmis et la latence **1.6s**.
+L'outil n'a retourné ni identifiant de message ni accusé de livraison. La réception
+a été vérifiée séparément dans Outlook, sans la déduire de la réponse de l'agent.
+
+#### Réception et éléments envoyés
+
+![Nouveau message Inbox à 14 h 44, objet partiel](../assets/runtime-2026-10-19/lab1-live-inbox.png)
+
+![Nouveau message Sent Items à 14 h 44, objet partiel](../assets/runtime-2026-10-19/lab1-live-sent.png)
+
+Les deux dossiers ont été vérifiés pour le même objet unique et le même résumé.
+Seules les lignes de message utiles sont incluses ; les autres courriels sont exclus.
 
 ## Lab 5.1 - Commandes Terraform réellement exécutées
 

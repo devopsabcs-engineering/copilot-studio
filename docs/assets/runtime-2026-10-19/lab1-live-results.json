@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-19",
+  "lab": "1",
+  "provenance": "Live Copilot Studio Preview and Outlook browser observations reported by the live-copilot-test agent.",
+  "refresh": "succeeded",
+  "saved_tools_preserved": true,
+  "new_sign_in_or_consent_required": false,
+  "harness": "GitHub Copilot",
+  "website_search_enabled": true,
+  "tests": [
+    {
+      "id": "L1-01",
+      "status": "retrieval_observed_accuracy_audit_not_performed",
+      "prompt": "What Power Apps licensing options are described in the uploaded Power-Platform-Licensing-Guide.pdf? Cite the uploaded guide and identify its edition. Do not search the web or use general knowledge for this test.",
+      "retrieval_reference": "turn1doc1",
+      "observation": "Uploaded PDF retrieval executed; the answer identified October 2026."
+    },
+    {
+      "id": "L1-02",
+      "status": "passed",
+      "prompt": "Using only the uploaded licensing guide, what exact unpublished discount percentage and negotiated final Power Apps Premium price has Microsoft approved specifically for our Contoso tenant for next month? If the guide cannot establish that, say so. Do not invent a tenant-specific quote or search the web.",
+      "observation": "The unsupported tenant-specific discount question was refused without fabricating a discount."
+    },
+    {
+      "id": "L1-03",
+      "status": "passed",
+      "duration_seconds": 2.7,
+      "observation": "Search for users (V2) returned one matching verified lab account."
+    },
+    {
+      "id": "L1-04",
+      "status": "passed",
+      "tool": "Send an email (V2)",
+      "duration_seconds": 1.6,
+      "observation": "The send tool completed without error."
+    },
+    {
+      "id": "L1-05",
+      "status": "passed",
+      "folders_verified": ["Inbox", "Sent Items"],
+      "displayed_time": "2:44 PM",
+      "subject": "Lab1 live rerun 2026-10-19 1844Z - Licensing summary"
+    },
+    {
+      "id": "L1-06",
+      "status": "not_run"
+    },
+    {
+      "id": "L1-07",
+      "status": "not_run"
+    }
+  ],
+  "screenshot_limit": "Published images are privacy-safe crops of partial browser captures. A 1.5-DPR clipping issue truncated the original right edge; no text was reconstructed.",
+  "do_not_resend": true,
+  "all_workshop_labs_passed": false
+}

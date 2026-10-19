@@ -208,5 +208,47 @@
     "source": "User attachment during live rerun: saved agent and tools",
     "changes": "Browser chrome and left sidebar removed; configuration-evidence footer added",
     "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-knowledge.png",
+    "kind": "live-validation",
+    "source": "Copilot Studio live Preview, Searched knowledge activity.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-unsupported.png",
+    "kind": "live-validation",
+    "source": "Copilot Studio live Preview, unsupported tenant-discount response.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-directory.png",
+    "kind": "live-validation",
+    "source": "Copilot Studio live Preview, directory latency and one-match response.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-send.png",
+    "kind": "live-validation",
+    "source": "Copilot Studio live Preview, expanded email tool and 1.6-second latency.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-inbox.png",
+    "kind": "live-validation",
+    "source": "Outlook live Inbox, matching rerun message and displayed 2:44 PM time.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab1-live-sent.png",
+    "kind": "live-validation",
+    "source": "Outlook live Sent Items, matching rerun message and displayed 2:44 PM time.",
+    "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
+    "new_runtime_capture": true
   }
 ]

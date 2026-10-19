@@ -1,6 +1,6 @@
 ---
 title: Lab 1 - Créer et vérifier un conseiller de licences
-description: Configuration illustrée des réponses fondées sur un fichier et des outils de courriel, avec preuves d'envoi et de réception fournies.
+description: Configuration illustrée du conseiller, preuves initiales et nouvelle exécution réelle du PDF, de l'annuaire, de l'envoi et de la réception.
 ms.date: 2026-10-19
 ---
 
@@ -16,11 +16,17 @@ Vous devez disposer d'un environnement de création autorisé, des connaissances
 fichier, de connexions Office 365 Users et Outlook, d'un PDF de licences pris en charge
 et d'une boîte aux lettres que vous possédez ou êtes autorisé à utiliser.
 
-État : l'utilisateur a fourni deux captures d'une exécution réussie. La première
-montre le résultat de l'outil d'envoi et le message de réussite de l'agent ; la seconde
-montre le courriel reçu. Elles étayent le résultat d'envoi de bout en bout pour cette
-exécution. Elles ne prouvent ni chaque étape de configuration d'origine, ni l'exactitude
-complète des citations, ni une nouvelle exécution effectuée par cet assistant.
+État : la **réexécution réelle du 2026-10-19 par l'assistant** a actualisé l'agent
+enregistré, exécuté la recherche PDF, refusé une remise non documentée, identifié
+un compte vérifié et envoyé un seul courriel à ce compte. L'outil d'envoi s'est terminé
+en **1,6 seconde** ; le message correspondant a été vérifié dans Inbox et Sent Items.
+Les outils enregistrés ont été conservés.
+Consultez les [nouveaux résultats d'exécution](live-rerun-2026-10-19.md) et leurs limites.
+
+Les deux captures antérieures ci-dessous restent des preuves fournies par l'utilisateur
+pour l'exécution initiale, pas des captures du nouveau test. Aucune de ces exécutions
+ne constitue un audit complet de l'exactitude des réponses de licences.
+Les cas de destinataire ambigu et de panne de connexion n'ont pas été exécutés.
 
 ## 1. Choisir l'expérience d'agent équivalente
 
@@ -178,6 +184,12 @@ Preuve fournie par l'utilisateur. Le message reçu porte l'objet
 Les autres messages de la boîte et les éléments du navigateur sont exclus.
 
 ## Tests d'acceptation et interprétation
+
+Le tableau ci-dessous conserve la **preuve initiale**, antérieure à la nouvelle
+exécution du 2026-10-19. Les [derniers résultats](live-rerun-2026-10-19.md)
+remplacent les anciennes mentions « non exécuté » ou non démontrées pour L1-02 à L1-05.
+Une recherche PDF est désormais observée pour L1-01, sans audit complet de l'exactitude
+de la réponse. L1-06 et L1-07 restent non exécutés.
 
 | ID    | Test                                              | Résultat exigé                                             | Preuve observée                                                                                |
 | ----- | ------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

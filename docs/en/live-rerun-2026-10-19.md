@@ -1,6 +1,6 @@
 ---
 title: Live rerun record - 2026-10-19
-description: Executed Terraform initialization, validation and plan, reproduced SDK failure, isolated dependency restoration, and current live-lab gates.
+description: Live PDF retrieval and email delivery tests, executed Terraform plan, reproduced SDK failure, isolated dependency restoration, and remaining cloud gates.
 ms.date: 2026-10-19
 ---
 
@@ -45,9 +45,86 @@ The visible configuration uses **GPT-5.5 Chat**, **Send an email (V2)**,
 An accurate answer in this configuration would not, by itself, prove PDF-only
 grounding. The live test must inspect the selected retrieval/tool activity.
 
-The test agent was directed to refresh the newly shared agent page and use the
-saved tools, rather than the stale blank Home page. A new live result is recorded
-only after the actual test completes.
+### Fresh execution results
+
+The newly shared Preview refreshed successfully and remained interactive. The test
+used the existing agent and connections; the saved tools were preserved. No new
+sign-in or consent was required.
+The Agents list identified the **GitHub Copilot** harness. This validates an
+equivalent core workflow in the new experience, not recreation of the original
+standard-agent Topics interface.
+
+1. The uploaded PDF retrieval executed. The answer identified **October 2026**.
+   This demonstrates retrieval activity, not an independent audit of every
+   licensing statement or proof that website search is globally disabled.
+2. A tenant-specific discount question was refused rather than answered with
+   an invented discount.
+3. **Search for users (V2)** returned one matching, verified lab account.
+4. **Send an email (V2)** completed without error in **1.6 seconds**.
+5. The matching message was verified in both **Inbox** and **Sent Items**.
+   Outlook displayed **2:44 PM**. Its unique subject was
+   **Lab1 live rerun 2026-10-19 1844Z - Licensing summary**.
+
+The exact supported prompt was:
+
+> What Power Apps licensing options are described in the uploaded Power-Platform-Licensing-Guide.pdf? Cite the uploaded guide and identify its edition. Do not search the web or use general knowledge for this test.
+
+The exact unsupported prompt was:
+
+> Using only the uploaded licensing guide, what exact unpublished discount percentage and negotiated final Power Apps Premium price has Microsoft approved specifically for our Contoso tenant for next month? If the guide cannot establish that, say so. Do not invent a tenant-specific quote or search the web.
+
+These are new browser-observed results, separate from the user's earlier screenshots.
+The [sanitized Lab 1 execution record](../assets/runtime-2026-10-19/lab1-live-results.json)
+preserves the observations without publishing account or tenant identifiers.
+The self-mail has already been delivered. Do not resend it to obtain another screenshot.
+
+The core retrieval, directory, send, and downstream delivery path was exercised.
+Ambiguous-recipient handling and simulated connector failure were **not executed**;
+they remain additional acceptance cases in the [Lab 1 guide](lab-01.md).
+This rerun does not establish that all workshop labs passed.
+
+### Fresh screenshots and capture limits
+
+The following are privacy-safe crops of the new execution, not the original
+workshop or user-supplied images. Browser capture exhibited a 1.5-DPR clipping
+problem: the right side of the original captures is missing. No missing text was
+reconstructed. Account identifiers and unrelated messages were excluded.
+These partial images illustrate the observed activity; they are not full transcripts.
+In particular, the mailbox subjects are truncated in the images. The full subject
+and delivery results above come from the live browser observations.
+
+#### Retrieval and unsupported-question response
+
+![Fresh live Searched knowledge activity, partial capture](../assets/runtime-2026-10-19/lab1-live-knowledge.png)
+
+The actual run invoked **Searched knowledge**. Expanded retrieval output, observed
+during execution, identified the uploaded PDF with reference `turn1doc1`; that
+complete output is not visible in this partial crop.
+
+![Fresh refusal of an unsupported tenant-specific quote, partial capture](../assets/runtime-2026-10-19/lab1-live-unsupported.png)
+
+The response declined to establish a tenant-specific negotiated price from the guide.
+
+#### Directory and send-tool execution
+
+![Fresh directory one-match response and 2.7-second latency, privacy-safe crop](../assets/runtime-2026-10-19/lab1-live-directory.png)
+
+The directory result returned one match. Mailbox fields were excluded from the image.
+
+![Fresh expanded send-tool excerpt and 1.6-second latency, recipient excluded](../assets/runtime-2026-10-19/lab1-live-send.png)
+
+The expanded send-tool excerpt shows the actual input body and **1.6s** latency.
+The tool did not return a message ID or delivery receipt. Downstream delivery was
+checked separately in Outlook rather than inferred from the agent's response.
+
+#### Downstream Inbox and Sent Items
+
+![Fresh Inbox message row at 2:44 PM, partial subject](../assets/runtime-2026-10-19/lab1-live-inbox.png)
+
+![Fresh Sent Items message row at 2:44 PM, partial subject](../assets/runtime-2026-10-19/lab1-live-sent.png)
+
+The two folder views were checked for the same unique subject and summary.
+Only the relevant message rows are included; unrelated mailbox content is excluded.
 
 ## Lab 5.1 - Terraform commands actually executed
 

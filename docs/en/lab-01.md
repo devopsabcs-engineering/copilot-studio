@@ -1,6 +1,6 @@
 ---
 title: Lab 1 - Build and verify a licensing advisor
-description: Illustrated setup for file-grounded answers and email tools, with the user's successful send and received-email evidence.
+description: Illustrated licensing advisor setup, original user evidence, and a fresh live PDF, directory, email-send and inbox-verification run.
 ms.date: 2026-10-19
 ---
 
@@ -15,11 +15,15 @@ workshop estimates 45 minutes; allow more time for licensing, consent, and index
 You need a permitted maker environment, file knowledge, Office 365 Users and Outlook
 connections, a supported licensing PDF, and a mailbox you own or are authorized to use.
 
-Status: the user supplied two screenshots of a successful run. The first shows a
-send-email tool result and the agent's success message; the second shows the received
-message. This supports the requested end-to-end email outcome for that run.
-It does not prove every original configuration step, citation accuracy, or a new run
-performed by this assistant.
+Status: the assistant's **2026-10-19 live rerun** refreshed the saved agent, executed
+PDF retrieval, refused an unsupported discount, resolved one verified account,
+and sent one self-mail. The send tool completed in **1.6 seconds**; the matching
+message was verified in Inbox and Sent Items. Saved tools were preserved.
+See the [new execution record](live-rerun-2026-10-19.md) for the observations and limits.
+
+The two earlier screenshots below remain user-supplied evidence from the original
+run, not screenshots of this new test. Neither run constitutes a full audit of
+licensing-answer accuracy. Ambiguous-recipient and connector-failure tests remain unexecuted.
 
 ## 1. Choose the equivalent agent experience
 
@@ -176,6 +180,12 @@ User-supplied execution evidence. The received message has the subject
 Unrelated inbox content and browser chrome have been excluded.
 
 ## Acceptance tests and interpretation
+
+The table below preserves the **original evidence baseline**, before the fresh
+2026-10-19 execution. The [latest execution results](live-rerun-2026-10-19.md)
+supersede its earlier "not executed" or unproven status for L1-02 through L1-05.
+L1-01 now has observed PDF retrieval, but still lacks a full answer-accuracy audit.
+L1-06 and L1-07 remain unexecuted.
 
 | ID    | Test                                      | Required result                                           | Observed evidence                                                                     |
 | ----- | ----------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |
