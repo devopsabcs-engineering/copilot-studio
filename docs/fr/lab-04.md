@@ -15,16 +15,17 @@ rubrique affiche le résultat. Prévoyez 60 à 90 minutes, hors déploiement et
 autorisations.
 
 > [!IMPORTANT]
-> Statut : **Procédure revue ; exécution réelle bloquée**.
-> Équivalent de suivi : **Procedure reviewed; live execution blocked**.
-> Le 2026-10-19, la connexion a réussi et l’accueil était visible, mais la
-> navigation vers Agents et les rechargements suivants ont affiché une page vide.
-> Les outils, connexions de modèles et prérequis de l’agent existant n’ont pas pu
-> être inspectés. L’abonnement courant ne contenait aucune ressource Azure AI
-> Search ; les ressources et connexions ailleurs restent inconnues. Les
-> ressources Cognitive Services existantes ne prouvaient ni déploiement
-> compatible, ni quota, ni connexion de prompt opérationnelle. Aucun modèle n’a
-> été déployé, aucun agent modifié et aucune réponse réelle générée.
+> Statut : **Contrôles actuels inspectés ; parcours BYOM connecté non exécuté**.
+> Après connexion, le modèle GPT-5.5 Chat sélectionné et les menus d'outils ont
+> été inspectés en lecture seule. Le menu du modèle n'exposait pas de point personnalisé
+> et cette interface n'exposait pas les rubriques/prompts conventionnels.
+> Le vrai menu **Open classic experience** a été trouvé, mais sa destination n'a
+> pas ouvert et le chargement de l'interface a ensuite échoué. Cela ne démontre
+> pas une indisponibilité globale de BYOM. Les métadonnées Azure confirment des
+> déploiements existants, pas l'autorisation d'appeler d'autres applications ni une
+> connexion Power Platform opérationnelle. Aucun déploiement, changement de modèle,
+> création de prompt ou appel BYOM n'a eu lieu.
+> Consultez les [limites réellement observées](live-rerun-2026-10-19.md).
 
 ### Objectifs et prérequis
 

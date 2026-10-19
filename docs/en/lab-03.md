@@ -14,16 +14,32 @@ synthetic event without collecting conversation contents. Allow about 60 minutes
 plus access approval and telemetry ingestion time.
 
 > [!IMPORTANT]
-> Status: **Procedure reviewed; live execution blocked**.
-> Review date: 2026-10-19. Sign-in succeeded and the home shell was visible, but
-> subsequent Agents navigation and reloads returned a blank page. Existing agent
-> telemetry settings could not be inspected. The current subscription inventory
-> originally reported no Application Insights resource. A later explicit-subscription
-> recheck corrected that finding: seven unrelated components exist. None was
-> repurposed and no existing telemetry was exported. See the
-> [corrected inventory](live-rerun-2026-10-19.md). Existing Cognitive Services resources do not
-> satisfy this prerequisite. No test event was generated, no resource was
-> created, and no agent was changed.
+> Status: **Native Monitor inspected live; original Application Insights/KQL path blocked**.
+> The signed-in current Monitor displayed no data for October 13-19 and restricted
+> transcript access. Existing Preview History independently exposed the earlier
+> directory, email and failed-search activities; these were not rerun. The classic
+> navigation menu exists, but its destination failed to load during inspection.
+> Seven unrelated Application Insights resources were left untouched.
+> No telemetry configuration, event emission or KQL query was executed.
+> See the [actual results and screenshots](live-rerun-2026-10-19.md).
+
+### Current-experience observation exercise
+
+1. On the existing agent, select **Monitor** from the Build/Preview/Evaluate/Monitor menu.
+2. Record the selected dates and whether the dashboard actually has data.
+   The observed range was **Last 7 days, 10/13/26-10/19/26**.
+3. Open **Sessions > See all**. The current identity saw zero rows and a transcript
+   permission banner. Do not elevate permissions or publish merely to remove it.
+4. Inspect the already-recorded conversation through **Preview > History**.
+   Its directory, email and failed-directory activity durations were **2.73s,
+   1.63s and 4.62s**. Do not rerun the email for monitoring evidence.
+5. Keep native Monitor/History evidence separate from the Azure procedure below.
+   An empty aggregate is not proof of zero consumption or zero true success.
+
+The actual Monitor header showed zero sessions, zero average duration, 0% success
+and zero credits with **No data yet**. The existing History conversation separately
+showed **90.33 estimated credits**. These are different scopes, not a discrepancy
+to resolve by inventing billing or claiming a free agent execution.
 
 ### Objectives and prerequisites
 

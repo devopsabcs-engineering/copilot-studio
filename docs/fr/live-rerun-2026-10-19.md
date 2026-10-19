@@ -13,8 +13,8 @@ ms.date: 2026-10-19
 | 0 | Identité, rôles, modèles Azure et Terraform portable vérifiés | Autorisation de ressources payantes dédiées |
 | 1 | Recherche, refus, annuaire, livraison, clarification, activité de connecteur échouée et hash du PDF téléchargé vérifiés | Audit complet des citations et sortie HTTP brute du connecteur |
 | 2 | Véritables indexation documentaire et recherche Search par solution Free | Ingestion Blob, embeddings intégrés et connexion Search Copilot |
-| 3 | Inventaire corrigé ; télémétrie sans rapport restée privée | Configuration de l'agent, événement synthétique et preuve KQL corrélée |
-| 4 | Procédure BYOM actuelle revue | Appel de modèle autorisé et prompt connecté |
+| 3 | Monitor natif, dates, droits de session et History existant inspectés réellement | Événement Application Insights d'origine et preuve KQL corrélée |
+| 4 | Contrôles réels de modèle/outils et menu d'accès classique inspectés | Destination standard chargée, appel de modèle autorisé et prompt connecté |
 | 5 | 17 assertions réelles Search sur les hôtels réussies | Embeddings sémantiques, découpage et réponse Copilot sourcée |
 | 5.1 | Init, validate et plan Terraform de 15 instances réussis | Apply payant d'origine non autorisé ; solution Free temporaire déployée puis nettoyée |
 | 6 | 24 enregistrements, 3 index/sources, recherche minimale réelle et 19 passages exacts | Modèle/agent Foundry, MCP, Activity et parcours d'agent connecté Copilot |
@@ -429,6 +429,44 @@ ne peuvent pas être déclarés reproduits en inspectant simplement cet agent.
 Save est resté désactivé au niveau ARIA et les dialogues ont été annulés.
 Aucune configuration, connexion, sélection de modèle, création d'agent ou publication
 n'a été modifiée.
+
+### Supervision native comparée à l'historique existant
+
+Entre **21 h 49 et 21 h 54 UTC**, **Monitor** s'est ouvert pour cet agent Draft.
+La période sélectionnée était **Last 7 days, 10/13/26-10/19/26**, du 13 au 19 octobre.
+Le navigateur utilisait America/Toronto ; le tableau n'indiquait pas explicitement
+le fuseau de ses agrégations. Les [résultats nettoyés](../assets/runtime-2026-10-19/monitor-results.json)
+conservent les valeurs affichées et leurs limites.
+
+![État vide réel de Monitor et vue partielle, hors Application Insights](../assets/runtime-2026-10-19/lab3-live-monitor.png)
+
+La vue affichait **0 session, 0 sec de durée moyenne, 0 % de réussite et 0 crédit**
+avec **No data yet**. Son bandeau annonçait des informations après évaluation
+et publication. Ce sont des agrégats vides ou indisponibles, pas la preuve d'une
+consommation historique nulle, d'exécutions instantanées ou d'un véritable taux
+de réussite nul. Aucune action Publish ou Evaluate n'a été exécutée pour modifier cet état.
+
+![Vue Sessions réellement vide, dates et restriction d'accès aux transcriptions](../assets/runtime-2026-10-19/lab3-live-sessions.png)
+
+**Sessions > See all (0)** affichait zéro ligne, des moyennes `--` et un message
+d'absence d'accès aux transcriptions pour l'identité courante. Le téléchargement
+était désactivé. Aucune augmentation de droits ni export n'a été tenté.
+
+La conversation **Preview > History** exposait indépendamment les appels antérieurs
+d'annuaire (**2,73 s**), d'envoi au même objet (**1,63 s**) et d'annuaire échoué
+(**4,62 s**). Son en-tête indiquait séparément **90,33 crédits estimés**. Ce nombre
+n'est ni un montant USD ni une facture Azure ; l'agrégat Monitor nul ne le remplace pas.
+La corrélation portait sur la conversation existante, les entrées d'outil et l'objet
+unique du courriel, **pas** sur des lignes Monitor, qui étaient absentes.
+
+Enfin, **Home > ... en bas du volet > Open classic experience > Skip feedback**
+a été trouvé dans l'interface réelle. La fenêtre de destination n'est pas devenue
+accessible ; les requêtes suivantes du chargement ont retourné `ERR_CONNECTION_RESET`.
+Le parcours existe, sans preuve que ce même agent puisse utiliser les rubriques,
+Application Insights et les prompts/BYOM standard. Aucune conversion ou création
+d'agent n'a été tentée. L'inspection de supervision native est une preuve utile
+de l'expérience actuelle, **pas une réussite Application Insights, événement
+personnalisé ou KQL**.
 
 Un inventaire en lecture seule a trouvé **23 déploiements de modèles réussis
 répartis sur huit des neuf comptes Cognitive Services**. Cela établit des métadonnées,

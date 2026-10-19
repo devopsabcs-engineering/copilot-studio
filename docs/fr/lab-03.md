@@ -14,18 +14,33 @@ vérifiez un événement synthétique sans collecter le contenu des conversation
 Prévoyez environ 60 minutes, hors autorisations et délai d’ingestion.
 
 > [!IMPORTANT]
-> Statut : **Procédure revue ; exécution réelle bloquée**.
-> Équivalent de suivi : **Procedure reviewed; live execution blocked**.
-> Le 2026-10-19, la connexion a réussi et l’accueil était visible, mais la
-> navigation vers Agents et les rechargements suivants ont affiché une page vide.
-> Les paramètres de télémétrie existants n’ont pas pu être inspectés.
-> L'inventaire initial annonçait l'absence d'Application Insights. Un contrôle
-> ultérieur explicitement limité à l'abonnement a corrigé ce résultat : sept
-> composants sans rapport existent. Aucun n'a été réutilisé et aucune télémétrie
-> existante n'a été exportée. Consultez l'[inventaire corrigé](live-rerun-2026-10-19.md).
-> Les ressources
-> Cognitive Services existantes ne remplissent pas ce prérequis. Aucun événement
-> de test n’a été généré, aucune ressource créée et aucun agent modifié.
+> Statut : **Monitor natif inspecté réellement ; parcours Application Insights/KQL bloqué**.
+> Le Monitor connecté n'affichait aucune donnée du 13 au 19 octobre et limitait
+> l'accès aux transcriptions. Preview History exposait indépendamment les activités
+> antérieures d'annuaire, d'envoi et de recherche échouée, sans les réexécuter.
+> Le menu classique existe, mais sa destination n'a pas chargé pendant l'inspection.
+> Les sept ressources Application Insights sans rapport sont restées intactes.
+> Aucun réglage de télémétrie, émission d'événement ou appel KQL n'a été exécuté.
+> Consultez les [résultats et captures réels](live-rerun-2026-10-19.md).
+
+### Exercice d'observation dans l'expérience actuelle
+
+1. Sur l'agent existant, choisissez **Monitor** dans Build/Preview/Evaluate/Monitor.
+2. Consignez les dates et la présence réelle de données. La période observée était
+   **Last 7 days, 10/13/26-10/19/26**, soit du 13 au 19 octobre.
+3. Ouvrez **Sessions > See all**. L'identité courante voyait zéro ligne et une
+   restriction d'accès aux transcriptions. N'augmentez pas les droits et ne publiez
+   pas simplement pour supprimer ce bandeau.
+4. Inspectez la conversation déjà enregistrée par **Preview > History**.
+   Les activités d'annuaire, d'envoi et d'annuaire échoué duraient **2,73 s,
+   1,63 s et 4,62 s**. Ne renvoyez pas le courriel pour obtenir une preuve de supervision.
+5. Séparez Monitor/History de la procédure Azure ci-dessous. Un agrégat vide ne
+   prouve ni consommation nulle ni taux de réussite réel nul.
+
+L'en-tête Monitor affichait zéro session, durée moyenne nulle, 0 % de réussite
+et zéro crédit avec **No data yet**. La conversation History indiquait séparément
+**90,33 crédits estimés**. Ces portées diffèrent ; il ne faut ni inventer une
+facturation ni déclarer gratuite l'exécution de l'agent.
 
 ### Objectifs et prérequis
 

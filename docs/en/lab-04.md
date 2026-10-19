@@ -14,14 +14,16 @@ passages, a prompt sends those passages to an approved Foundry model, and the to
 displays its result. Allow 60 to 90 minutes, excluding deployment and access work.
 
 > [!IMPORTANT]
-> Status: **Procedure reviewed; live execution blocked**.
-> On 2026-10-19, sign-in succeeded and the home shell was visible, but subsequent
-> Agents navigation and reloads returned a blank page. Existing tools, model
-> connections, and agent readiness could not be inspected. The current
-> subscription had no Azure AI Search resource; resources and connections
-> elsewhere remain unknown. Existing Cognitive Services resources did not
-> establish a compatible deployment, quota, or working prompt connection.
-> No model was deployed, no agent was edited, and no live response was generated.
+> Status: **Current controls inspected; original connected-BYOM path not executed**.
+> After sign-in, the saved agent's selected GPT-5.5 Chat model and tool menus were
+> inspected read-only. The model menu did not expose a custom endpoint, and the
+> inspected authoring surface did not expose conventional Topics/Prompt controls.
+> The real **Open classic experience** menu was found, but its destination failed
+> to open and the shell subsequently reset. That is not global BYOM unavailability.
+> Read-only Azure metadata found existing deployments, not approval to invoke
+> unrelated applications or proof of a working Power Platform model connection.
+> No deployment, model switch, prompt creation or BYOM inference occurred.
+> See the [observed capability and route limits](live-rerun-2026-10-19.md).
 
 ### Objectives and prerequisites
 

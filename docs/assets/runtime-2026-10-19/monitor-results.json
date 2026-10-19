@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-19",
+  "observed_at_utc": "21:49-21:54",
+  "scope": "Actual read-only native Monitor and existing Preview History inspection; not Application Insights or KQL execution.",
+  "agent_state": "Draft",
+  "monitor": {
+    "selected_range": "Last 7 days",
+    "displayed_start": "10/13/26",
+    "displayed_end": "10/19/26",
+    "browser_timezone": "America/Toronto",
+    "dashboard_timezone_explicitly_labelled": false,
+    "displayed_total_sessions": 0,
+    "displayed_average_duration_seconds": 0,
+    "displayed_success_rate_percent": 0,
+    "displayed_total_credits_used": 0,
+    "state": "No data yet",
+    "publication_banner": "There's nothing to monitor yet. After you evaluate and publish, this page adds how people use your agent, what it gets done, and what that costs.",
+    "session_rows": 0,
+    "session_average_duration": "--",
+    "session_average_messages": "--",
+    "transcript_access": "You don't have access to session transcripts. You can still view the sessions list.",
+    "download_sessions_enabled": false,
+    "interpretation": "Empty or unavailable aggregates, not proof of zero historical consumption, zero latency or 0 percent true success."
+  },
+  "existing_history": {
+    "matching_unique_email_subject_found": true,
+    "directory_activity_seconds": 2.73,
+    "email_activity_seconds": 1.63,
+    "failed_directory_activity_seconds": 4.62,
+    "failed_conversation_estimated_credits": 90.33,
+    "monitor_row_correlation_possible": false,
+    "exact_raw_http_error_independently_exposed": false
+  },
+  "classic_route": {
+    "observed_menu_path": "Home > sidebar More options > Open classic experience > Skip feedback",
+    "menu_and_feedback_dialog_observed": true,
+    "destination_opened": false,
+    "failure": "Popup observer timed out; subsequent shell bootstrapper request returned ERR_CONNECTION_RESET.",
+    "same_agent_standard_compatibility_verified": false
+  },
+  "new_prompts": 0,
+  "new_connector_calls": 0,
+  "new_emails": 0,
+  "configuration_changes": 0,
+  "agent_published": false,
+  "application_insights_event_emitted": false,
+  "kql_query_executed": false,
+  "full_lab3_passed": false
+}

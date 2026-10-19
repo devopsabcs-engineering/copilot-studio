@@ -264,5 +264,19 @@
     "source": "Signed-in Copilot Studio History, existing Search for users (V2) failed activity; 21:35-21:44 UTC read-only follow-up.",
     "changes": "Cropped to red failure marker, tool title and 4.62-second latency only. Recipient, prompt, connection reference and tenant context excluded; bilingual provenance footer. Raw HTTP response not exposed.",
     "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab3-live-monitor.png",
+    "kind": "live-validation",
+    "source": "Native Monitor empty-state and actual overview, October 13-19 range. Read-only inspection of the existing saved agent, 21:49-21:54 UTC.",
+    "changes": "Cropped to relevant native Monitor body; browser navigation and agent context excluded. Original browser capture clipped the right edge; no missing content reconstructed. Bilingual provenance footer.",
+    "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab3-live-sessions.png",
+    "kind": "live-validation",
+    "source": "Native Monitor Sessions, empty rows, selected date range and transcript-access restriction. Read-only inspection of the existing saved agent, 21:49-21:54 UTC.",
+    "changes": "Cropped to relevant native Monitor body; browser navigation and agent context excluded. Original browser capture clipped the right edge; no missing content reconstructed. Bilingual provenance footer.",
+    "new_runtime_capture": true
   }
 ]

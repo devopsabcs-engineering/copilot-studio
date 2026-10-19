@@ -13,8 +13,8 @@ ms.date: 2026-10-19
 | 0 | Azure identity, role, model inventory and portable Terraform verified | Dedicated paid-resource authorization |
 | 1 | Retrieval, refusal, directory, delivery, clarification, failed connector activity and downloaded PDF hash checked | Full citation audit and raw connector HTTP/error body |
 | 2 | Actual document indexing and Search API retrieval through a Free alternative | Blob ingestion, integrated embeddings and Copilot Search connection |
-| 3 | Resource inventory corrected; unrelated telemetry left private | Agent telemetry configuration, synthetic event and correlated KQL evidence |
-| 4 | Current BYOM procedure reviewed | Approved model invocation and connected prompt |
+| 3 | Native Monitor/date range/session permissions and existing History inspected live | Original Application Insights event and correlated KQL evidence |
+| 4 | Actual model/tool controls and classic-access menu inspected | Loaded standard-agent destination, approved model invocation and connected prompt |
 | 5 | 17 actual hotel Search assertions passed | Semantic embeddings, chunk pipeline and grounded Copilot answer |
 | 5.1 | Original Terraform init, validate and 15-instance plan passed | Paid original apply not authorized; temporary Free alternative deployed and cleaned |
 | 6 | 24 records, 3 indexes/sources, actual minimal retrieval and 19 exact source matches | Foundry model/agent, MCP, Activity and Copilot connected-agent flow |
@@ -407,6 +407,43 @@ the original standard-agent monitoring, prompt BYOM and connected-Foundry
 instructions cannot be claimed reproduced just by inspecting this saved agent.
 The Save control remained ARIA-disabled, and inspection dialogs were cancelled.
 No configuration, connection, model, agent or publication was changed.
+
+### Native monitoring checked against existing execution History
+
+During **21:49-21:54 UTC**, **Monitor** opened successfully for this saved Draft
+agent. The selected range was **Last 7 days, 10/13/26-10/19/26**.
+The browser timezone was America/Toronto; the dashboard did not explicitly identify
+its aggregation timezone. [Sanitized results](../assets/runtime-2026-10-19/monitor-results.json)
+preserve the actual displayed values and limitations.
+
+![Actual Monitor empty state and partial overview, not Application Insights](../assets/runtime-2026-10-19/lab3-live-monitor.png)
+
+The overview displayed **0 sessions, 0 sec average duration, 0% success and 0 credits**
+with **No data yet**. Its banner said information would appear after evaluation
+and publication. These are empty/unavailable aggregates, not evidence of zero
+historical consumption, instant execution or a true 0% success rate.
+No Publish or Evaluate action was taken to change that state.
+
+![Actual empty Sessions view, date range and transcript permission restriction](../assets/runtime-2026-10-19/lab3-live-sessions.png)
+
+**Sessions > See all (0)** displayed no rows, `--` averages and a message that
+the current identity lacked access to session transcripts. Download was disabled.
+No permission escalation or transcript export was attempted.
+
+The existing **Preview > History** conversation independently exposed the prior
+directory call (**2.73s**), matching-subject email call (**1.63s**) and failed
+directory call (**4.62s**). Its header separately showed **90.33 estimated credits**.
+That estimate is not USD or an Azure bill, and the zero-credit Monitor aggregate
+does not override it. Correlation was possible by existing conversation, tool
+input and the unique email subject, **not** by Monitor rows, because none existed.
+
+Finally, **Home > sidebar ... > Open classic experience > Skip feedback** was
+found in the real UI. The destination popup did not become available; subsequent
+shell requests returned `ERR_CONNECTION_RESET`. The route exists, but this run did
+not prove that the same saved agent can use the standard-agent Topics, Application
+Insights and Prompt/BYOM controls. No agent conversion or creation was attempted.
+The native monitoring inspection is useful current-version evidence, **not an
+Application Insights, custom-event or KQL pass**.
 
 A read-only deployment inventory found **23 successful model deployments across
 eight of the nine Cognitive Services accounts**. This establishes deployment
