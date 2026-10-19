@@ -12,7 +12,13 @@ ms.topic: tutorial
 Build a retrieval-augmented generation (RAG) pipeline: ingest documents, split them into passages, generate vectors, retrieve relevant passages, and ground an answer in those passages. Allow 90–120 minutes after infrastructure is available. Retrieval and answer generation are different stages; a plausible answer does not prove retrieval worked.
 
 > [!IMPORTANT]
-> Source/static review only; live execution blocked. Local workshop material and Terraform were inspected, and official references were checked on 2026-10-19. No index was created, no document was uploaded, and no agent conversation was executed. Copilot Studio was initially unauthenticated; the user subsequently signed in and the signed-in Home page was inspected. Navigation to the licensing advisor then remained blank, so no question was executed. Browser agent navigation, not authentication, remains blocked. The selected Azure subscription has no Search or Application Insights resource available for this exercise.
+> Actual Free-tier Search execution now supplements the original review.
+> Three supplied PDFs were indexed and queried with lexical, filter, facet,
+> semantic, vector-contract, hybrid and negative checks. All 17 hotel checks passed
+> after removing unsupported `queryLanguage` from the current API request.
+> The vectors were explicit city features, not semantic embeddings; Storage,
+> integrated vectorization and the Copilot connection remain unexecuted.
+> All isolated resources were deleted. See the [actual results](live-rerun-2026-10-19.md).
 
 These are original teaching instructions, not a republication of protected workshop text or code. The original three PDF demonstration files exist locally but are not distributed here. No protected screenshots are included.
 

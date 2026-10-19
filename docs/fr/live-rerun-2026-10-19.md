@@ -8,6 +8,17 @@ ms.date: 2026-10-19
 
 [Tous les labs](index.md) | [English](../en/live-rerun-2026-10-19.md) | [Registre de validation](validation.md)
 
+| Lab | État de l'exécution réelle | Limite d'acceptation restante |
+|-----|----------------------------|------------------------------|
+| 0 | Identité, rôles, modèles Azure et Terraform portable vérifiés | Autorisation de ressources payantes dédiées |
+| 1 | Recherche PDF, refus, annuaire, livraison du courriel et clarification observés | Identité des copies PDF, audit complet des citations et erreur de connecteur vérifiée indépendamment |
+| 2 | Véritables indexation documentaire et recherche Search par solution Free | Ingestion Blob, embeddings intégrés et connexion Search Copilot |
+| 3 | Inventaire corrigé ; télémétrie sans rapport restée privée | Configuration de l'agent, événement synthétique et preuve KQL corrélée |
+| 4 | Procédure BYOM actuelle revue | Appel de modèle autorisé et prompt connecté |
+| 5 | 17 assertions réelles Search sur les hôtels réussies | Embeddings sémantiques, découpage et réponse Copilot sourcée |
+| 5.1 | Init, validate et plan Terraform de 15 instances réussis | Apply payant d'origine non autorisé ; solution Free temporaire déployée puis nettoyée |
+| 6 | 24 enregistrements, 3 index/sources, recherche minimale réelle et 19 passages exacts | Modèle/agent Foundry, MCP, Activity et parcours d'agent connecté Copilot |
+
 Il s'agit du suivi d'exécution demandé après la première revue documentaire.
 Les contrôles ci-dessous ont réellement été exécutés. Ils ne signifient pas que
 l'ensemble de l'atelier a réussi. Les
@@ -22,9 +33,13 @@ dispose de droits de création et d'attribution de rôles ; les rôles observés
 Owner et Foundry User au niveau de l'abonnement. Cela vérifie cette identité, pas les
 droits de tous les participants.
 
-L'inventaire de cet abonnement ne retournait toujours aucun service Azure AI Search
-ni composant Application Insights. Les applications existantes sans rapport avec
-l'atelier n'ont pas été modifiées. L'inventaire réel des modèles dans eastus2 indiquait
+Le nouvel inventaire limité explicitement à cet abonnement a retourné **neuf comptes
+Cognitive Services, quatre projets Foundry, sept composants Application Insights et
+zéro service Search**, avant les tests isolés. Cela corrige la mention précédente
+d'absence d'Application Insights. Ces ressources servent d'autres applications ;
+leur existence et les droits techniques n'autorisent ni leur réutilisation ni
+l'export de leur télémétrie. Elles n'ont pas été modifiées.
+L'inventaire réel des modèles dans eastus2 indiquait
 `text-embedding-3-large` version `1` à l'état GenerallyAvailable et les anciennes
 versions GPT-4o à l'état Deprecating. La présence d'un modèle et de quotas est un
 prérequis, pas la preuve d'un déploiement réussi.
@@ -88,9 +103,9 @@ conserve ces observations sans publier les identifiants de compte ou de locatair
 Le courriel de test a déjà été livré. Ne le renvoyez pas pour obtenir une autre capture.
 
 Le parcours principal de recherche, d'annuaire, d'envoi et de réception a été exécuté.
-La gestion d'un destinataire ambigu et la simulation d'une panne de connexion
-n'ont **pas été exécutées** ; elles restent des cas complémentaires du
-[guide du Lab 1](lab-01.md).
+À ce premier point de contrôle, l'ambiguïté et la panne de connexion n'avaient
+**pas été exécutées**. Le suivi sûr ci-dessous décrit ensuite une clarification
+conversationnelle réussie et une tentative d'erreur de connecteur non vérifiée indépendamment.
 Cette réexécution ne signifie pas que tous les labs de l'atelier ont réussi.
 
 ### Nouvelles captures et limites
@@ -221,6 +236,15 @@ Les **15 importations sur 15 ont réussi** après restauration. Cette base local
 fonctionne pour le code fourni, sans prouver que les contrats en préversion restent
 compatibles avec les services Azure actuels. Cette vérification cloud reste à faire.
 
+Un contrôle supplémentaire a vérifié que le SDK actuel expose
+`KnowledgeRetrievalMinimalReasoningEffort` dans
+`azure.search.documents.knowledgebases.models`, et non `indexes.models`.
+`KnowledgeBase` et `KnowledgeSourceReference` restent dans `indexes.models` ;
+`KnowledgeRetrievalOutputMode` n'existe dans aucun des deux espaces inspectés.
+Changer une seule importation ne constitue donc pas une migration complète.
+Le test REST GA ci-dessous ne confond pas restauration des importations et
+compatibilité de tous les anciens contrats de préversion.
+
 Les trois jeux de données intégrés ont aussi été évalués localement sans exécution
 des cellules cloud. Ils contiennent chacun huit enregistrements, soit **24 au total**.
 Chaque enregistrement possède des chaînes `id`, `title` et `content` non vides, avec
@@ -228,15 +252,130 @@ des identifiants uniques dans chaque jeu. Le contenu protégé lui-même n'est p
 
 ## Conditions d'exécution restantes
 
+### Suivi sûr du Lab 1 et contrôle indépendant de la source
+
+La question d'ambiguïté demandait quelles informations étaient nécessaires lorsque
+plusieurs collègues s'appelaient Alex, en interdisant les connecteurs. La réponse
+a demandé une adresse, un nom complet, un contexte ou un UPN avant toute action.
+Le **contrôle conversationnel de clarification** a réussi ; cela ne prouve pas
+le blocage d'ambiguïté lors d'un véritable envoi. Aucun autre courriel n'a été envoyé.
+
+Une recherche en lecture seule du propre compte avec `top=-1` a été tentée.
+L'agent a annoncé HTTP 400 et `Top parameter should be a positive number.`, sans
+nouvel essai. La sortie brute n'a pas pu être inspectée avant le retour de l'écran
+Preview vide. L'échec reste **annoncé par le modèle, pas certifié indépendamment**.
+La gestion d'une authentification expirée n'a pas été testée.
+
+Une copie locale indépendante de `Power-Platform-Licensing-Guide.pdf` a été trouvée
+dans Downloads. Sa couverture indique réellement **octobre 2026**. Les pages PDF
+6 et 7 étayent le résumé : Premium par utilisateur, paiement à l'utilisation par
+application et droits inclus limités. La page 30 mentionne la fin de commercialisation
+de l'offre par application en janvier 2026. Six contrôles exacts ont réussi.
+Le fichier local comporte 30 pages ; son SHA-256 figure dans les
+[résultats de contrôle](../assets/runtime-2026-10-19/licensing-source-check.json).
+Son nom correspond au fichier chargé, mais **l'identité binaire des deux copies
+n'a pas été vérifiée**. Ce contrôle porte sur le guide local, pas sur chaque citation
+du fichier chargé ni sur les conditions commerciales applicables aujourd'hui.
+
+![Couverture réelle du PDF local de licences, pas une capture du portail](../assets/runtime-2026-10-19/licensing-local-cover.png)
+
+### Exécution Azure réelle au niveau gratuit
+
+Au lieu de créer des ressources payantes, la réexécution a utilisé un service
+**Search Free**, **semanticSearch=free** et **knowledgeRetrieval=free** isolés.
+La [documentation des niveaux Search](https://learn.microsoft.com/en-us/azure/search/search-sku-tier)
+et celle de la [facturation de recherche agentique](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-enable-disable)
+confirment le niveau gratuit limité et le rejet des requêtes dépassant l'allocation,
+sans bascule automatique vers un forfait payant.
+Aucun compte Storage, appel de modèle externe, niveau Search payant ni ressource
+sans rapport n'a été utilisé. Les clés sont restées en mémoire du processus et
+n'ont pas été écrites dans les preuves publiques.
+
+La première tentative dans **eastus2** a échoué avec `InsufficientResourcesAvailable`.
+Le service Free de **westus2** a fonctionné. Une première requête sémantique a retourné
+HTTP 400 : `queryLanguage` n'est pas accepté par l'API Search **2026-04-01**.
+La suppression de ce paramètre et la réexécution réelle ont résolu l'échec.
+La tentative échouée est conservée dans les
+[résultats cloud nettoyés](../assets/runtime-2026-10-19/free-cloud-results.json),
+au lieu d'être remplacée par un récit de réussite uniquement.
+
+#### Recherche d'hôtels : données réelles et assertions mesurées
+
+Les trois PDF fournis ont été extraits localement et chargés comme **trois documents
+textuels entiers**, pas comme passages issus d'un indexeur Blob. Chaque statut
+individuel de chargement a réussi.
+
+* Le nombre exact de documents était **3** ; les requêtes lexicales Doha, Rome et
+  Tokyo ont chacune retourné uniquement l'hôtel correspondant.
+* Le filtre Rome n'a retourné que Rome ; les trois facettes de ville comptaient
+  chacune **1** document.
+* `rooftop garden` avec `searchMode=any` a retourné Tokyo, mais `searchMode=all`
+  n'a rien retourné. Le corpus fourni contient rooftop, mais pas garden.
+* `bicycle storage` exigeant tous les termes n'a rien retourné : aucun PDF ne contient
+  bicycle. L'exemple du support n'est donc pas automatiquement un test positif.
+* Les requêtes vectorielle et hybride ont classé Tokyo en premier avec des
+  **caractéristiques explicites de ville à trois dimensions, codées one-hot**.
+  Ce ne sont **pas des embeddings sémantiques**, ni une preuve de pertinence sémantique.
+* Une véritable requête sémantique a retourné Tokyo en premier avec un score de
+  reclassement non nul. Le profil `title-boost` a aussi été exécuté ; aucune
+  amélioration de pertinence n'est revendiquée.
+* Un filtre sur `content`, non filtrable, a retourné **HTTP 400**.
+  Une requête sans identifiants a retourné **HTTP 403**, pas les documents.
+
+Ces tests valident réellement les API d'indexation et de recherche. Ils ne valident
+ni ingestion Storage, projections de passages, embeddings intégrés, identité managée,
+URL de citation, ni connexion Search Copilot Studio des Labs 2 et 5 d'origine.
+
+#### Lab 6 : recherche réelle dans trois sources
+
+L'index d'hôtels propre à l'exécution a été supprimé pour respecter la limite de trois
+index Free. Les trois jeux du notebook ont ensuite été chargés dans trois nouveaux
+index : **8 + 8 + 8 = 24 enregistrements**, avec vérification de chaque chargement
+et du nombre final. Trois véritables sources de type index Search et une base
+de connaissances référençant les trois ont été créées.
+
+L'exécution a utilisé le **contrat REST GA minimal/extractif 2026-04-01** :
+aucune configuration LLM, planification, génération d'embeddings ou synthèse de réponse.
+La [documentation de recherche minimale](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
+et le [contrat GA des bases](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)
+expliquent ce remplacement pris en charge du notebook de préversion.
+
+1. Une question précise de fraude a retourné **2 passages et 2 références**, depuis
+   la source des schémas de fraude.
+2. La requête multisource `fraud investigation compliance` a retourné **17 passages
+   et 17 références provenant des trois sources**.
+3. Une requête sans rapport, constituée d'un mot inventé, a retourné **0 passage
+   et 0 référence**.
+4. Les trois sources figuraient dans l'activité de chaque requête.
+5. Les titres et contenus des **19 passages retournés correspondaient exactement
+   aux enregistrements indexés**, reliés par le `docKey` de chaque référence.
+   `sourceData` était nul ; la validation n'a pas supposé qu'il contenait le document.
+
+La dernière exécution a réussi **34 contrôles HTTP, schéma et dénombrement**, ainsi
+que les trois contrôles exacts de forme et de contenu ci-dessus. Les données et
+réponses complètes restent privées ; seuls nombres, assertions et métadonnées
+de test sont publiés. Cela prouve la recherche de connaissances Search, **pas**
+un agent Foundry, une connexion MCP, un point Activity ou un agent connecté Copilot.
+
+#### Nettoyage et limites restantes
+
+Les **quatre** groupes isolés des tentatives de capacité, d'hôtels initiale,
+d'hôtels corrigée et multisource ont tous été supprimés. Leur absence a été vérifiée
+après chaque suppression. Seuls les groupes portant exactement l'étiquette de
+l'exécution et ne contenant aucune ressource inattendue pouvaient être nettoyés.
+Aucun service, agent, connexion ou boîte existants n'a été supprimé.
+
 Aucune ressource facturable n'a été créée ou appliquée. Les demandes de budget
 n'ont reçu aucune réponse humaine ; une réponse automatique d'indisponibilité
 n'est pas interprétée comme une approbation. L'outil de prix n'a retourné aucun tarif
 pour les requêtes de niveaux Search tentées. Aucun tarif ni plafond garanti n'est donc supposé.
 
-La suite exige un périmètre dédié, un seuil de dépenses approuvé, une décision de
-nettoyage et la confirmation des modèles et régions, puis les tests réels d'indexation,
-recherche, télémétrie, prompt et agent connecté. Le lab 1 peut avancer indépendamment
-avec l'agent et les connexions déjà enregistrés.
+Le déploiement payant d'origine, la chaîne Storage/vectoriseur, la télémétrie corrélée
+de l'agent, le prompt BYOM connecté et les agents connectés Foundry/Copilot nécessitent
+encore un périmètre dédié et des dépenses autorisées. Les ressources de production
+existantes ne sont pas des substituts sans accord de leur propriétaire.
+Les tests gratuits et vérifications de source ci-dessus sont réels, mais
+**l'ensemble de l'atelier n'est pas certifié réussi**.
 
 ## Éléments restés intacts
 

@@ -14,12 +14,20 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > [!IMPORTANT]
 > Actual dependency testing now supplements the initial syntax-only review.
 > The current SDK environment failed one of 15 imports: the reasoning-effort class
-> used by cell 14 is absent from Search SDK 12.0.0. An isolated environment restored
+> used by cell 14 moved out of `indexes.models` in Search SDK 12.0.0. An isolated environment restored
 > from the source pins passed all 15 imports. The 24 inline records also passed
-> local field/ID checks. Cloud retrieval and connected-agent execution are not yet
-> proven. See the [actual rerun record](live-rerun-2026-10-19.md).
+> local field/ID checks. Actual Free-plan GA retrieval subsequently indexed all
+> 24 records across three sources and returned 2 specific, 17 cross-source and
+> zero unsupported passages. All 19 returned passages matched originals exactly.
+> The Foundry/Copilot connected-agent layer is still unexecuted. See the
+> [actual rerun record](live-rerun-2026-10-19.md).
 
-Copilot Studio was initially unauthenticated. The user subsequently signed in, and the signed-in Home page was inspected during the Labs 2–4 review. Navigation to the licensing advisor then remained blank, so no question was executed. Authentication is no longer the current blocker; browser agent navigation remains blocked. The selected Azure subscription has no Search or Application Insights resource for this lab. An approved Foundry project, model deployments, correct identity permissions and a new-portal agent with Activity protocol are still required.
+Copilot Studio became usable for the actual Lab 1 retrieval/email run, then Preview
+became intermittently blank again. A later explicit-subscription inventory found
+seven unrelated Application Insights components, correcting the initial absence
+claim. They were not repurposed. The isolated Free Search resources were deleted
+after testing. An approved dedicated Foundry project, model deployments, permissions
+and a new-portal agent with Activity protocol are still required for the connected layer.
 
 The workshop's protected text, notebook code and embedded examples are not republished. The four figures below come only from the unprotected supporting Copilot setup document, with sensitive details redacted. They are historical source screenshots, not newly captured execution evidence.
 

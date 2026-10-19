@@ -250,5 +250,12 @@
     "source": "Outlook live Sent Items, matching rerun message and displayed 2:44 PM time.",
     "changes": "Privacy-safe crop of partial browser capture; account identifiers and unrelated messages excluded; bilingual provenance footer. The original 1.5-DPR capture clipped the right edge; no text reconstructed.",
     "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/licensing-local-cover.png",
+    "kind": "source-validation",
+    "source": "Actual first page rendered from the local Power-Platform-Licensing-Guide.pdf; same filename as uploaded knowledge, byte identity not compared.",
+    "changes": "Cover only; bilingual provenance footer. No full document or substantive licensing pages published.",
+    "new_runtime_capture": false
   }
 ]

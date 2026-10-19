@@ -20,11 +20,15 @@ hors autorisations et délais d’indexation.
 > Le 2026-10-19, la connexion a réussi et l’accueil Copilot Studio était visible.
 > La navigation vers Agents et les rechargements suivants ont toutefois affiché
 > une page vide, empêchant l’inspection de l’agent de licences et une nouvelle
-> question de connaissances. L’abonnement Azure courant contenait des ressources
-> Cognitive Services, mais aucune ressource Azure AI Search ou Application
-> Insights. Cet inventaire est limité à cet abonnement et ne prouve pas l’absence
+> question de connaissances. Le premier inventaire annonçait l'absence de Search
+> et d'Application Insights. Un contrôle ultérieur limité explicitement à l'abonnement
+> a corrigé ce dernier point : sept composants Application Insights sans rapport
+> existent et sont restés intacts. Un service Search Free jetable a ensuite servi
+> à l'indexation et à la recherche réelles, pas au vectoriseur intégré ou à la
+> connexion Copilot. Consultez les [derniers résultats](live-rerun-2026-10-19.md).
+> L'inventaire initial est limité à cet abonnement et ne prouve pas l’absence
 > d’une connexion ailleurs. Une vérification documentaire n’est pas un test
-> d’exécution réussi. Aucune ressource n’a été créée et aucun agent modifié.
+> d’exécution réussi. La revue initiale n'a créé aucune ressource ni modifié d'agent.
 
 ### Objectifs et critères d’acceptation
 

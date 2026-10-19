@@ -18,8 +18,10 @@ plus access approval and telemetry ingestion time.
 > Review date: 2026-10-19. Sign-in succeeded and the home shell was visible, but
 > subsequent Agents navigation and reloads returned a blank page. Existing agent
 > telemetry settings could not be inspected. The current subscription inventory
-> showed no Application Insights resource; resources or connections in other
-> subscriptions remain unknown. Existing Cognitive Services resources do not
+> originally reported no Application Insights resource. A later explicit-subscription
+> recheck corrected that finding: seven unrelated components exist. None was
+> repurposed and no existing telemetry was exported. See the
+> [corrected inventory](live-rerun-2026-10-19.md). Existing Cognitive Services resources do not
 > satisfy this prerequisite. No test event was generated, no resource was
 > created, and no agent was changed.
 

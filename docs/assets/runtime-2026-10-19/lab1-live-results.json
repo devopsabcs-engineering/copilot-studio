@@ -43,11 +43,13 @@
     },
     {
       "id": "L1-06",
-      "status": "not_run"
+      "status": "passed_conversational_guard_only",
+      "observation": "An explicitly no-connectors ambiguity prompt elicited a request for the intended Alex's email, full name, identifying context or UPN. No send-time enforcement test."
     },
     {
       "id": "L1-07",
-      "status": "not_run"
+      "status": "attempted_independently_unverified",
+      "observation": "One read-only self-search with top=-1 was attempted. Model reported HTTP 400 and a positive-number validation error without retry. Raw execution card could not be inspected; actual connector error and expired-auth handling are not certified."
     }
   ],
   "screenshot_limit": "Published images are privacy-safe crops of partial browser captures. A 1.5-DPR clipping issue truncated the original right edge; no text was reconstructed.",

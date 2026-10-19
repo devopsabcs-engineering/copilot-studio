@@ -18,10 +18,14 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 > On 2026-10-19, sign-in succeeded and the Copilot Studio home shell was visible.
 > Subsequent Agents navigation and reloads returned a blank page, preventing
 > inspection of the licensing agent or a fresh knowledge question. The current
-> Azure subscription inventory contained Cognitive Services resources, but no
-> Azure AI Search or Application Insights resource. This inventory is scoped to
+> original Azure subscription inventory reported no Search or Application Insights.
+> A later explicit-subscription recheck corrected the latter: seven unrelated
+> Application Insights components exist and were left unchanged. A disposable Free
+> Search service was then used for actual indexing and retrieval, but not the
+> integrated vectorizer or Copilot connection. See the
+> [latest runtime results](live-rerun-2026-10-19.md). The original review was scoped to
 > that subscription, not proof that no connection exists elsewhere. Documentation
-> checks are not runtime passes. No resource was created and no agent was changed.
+> checks are not runtime passes. The original review created no resources or agent changes.
 
 ### Objectives and acceptance criteria
 

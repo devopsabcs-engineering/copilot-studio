@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-19",
+  "file": "Power-Platform-Licensing-Guide.pdf",
+  "pages": 30,
+  "encrypted": false,
+  "sha256": "e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6",
+  "comparison": "Independent read of local PDF with the same filename as the uploaded knowledge file.",
+  "uploaded_file_byte_identity_verified": false,
+  "checks": {
+    "edition_october_2026_on_cover_page_1": true,
+    "premium_per_user_page_6": true,
+    "per_app_pay_as_you_go_page_6": true,
+    "limited_dynamics_365_rights_page_7": true,
+    "power_apps_basic_microsoft_365_office_365_page_7": true,
+    "per_app_end_of_sale_january_2026_change_log_page_30": true
+  },
+  "passed": true,
+  "limit": "Verifies the requested licensing-options summary against this local source, not every possible licensing answer or current commercial terms."
+}

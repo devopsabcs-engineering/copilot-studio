@@ -8,6 +8,17 @@ ms.date: 2026-10-19
 
 [All labs](index.md) | [Français](../fr/live-rerun-2026-10-19.md) | [Validation ledger](validation.md)
 
+| Lab | Actual execution status | Remaining acceptance boundary |
+|-----|-------------------------|-------------------------------|
+| 0 | Azure identity, role, model inventory and portable Terraform verified | Dedicated paid-resource authorization |
+| 1 | PDF retrieval, refusal, directory, self-mail delivery and clarification observed | Uploaded/local PDF identity, full citation audit and independently verified connector failure |
+| 2 | Actual document indexing and Search API retrieval through a Free alternative | Blob ingestion, integrated embeddings and Copilot Search connection |
+| 3 | Resource inventory corrected; unrelated telemetry left private | Agent telemetry configuration, synthetic event and correlated KQL evidence |
+| 4 | Current BYOM procedure reviewed | Approved model invocation and connected prompt |
+| 5 | 17 actual hotel Search assertions passed | Semantic embeddings, chunk pipeline and grounded Copilot answer |
+| 5.1 | Original Terraform init, validate and 15-instance plan passed | Paid original apply not authorized; temporary Free alternative deployed and cleaned |
+| 6 | 24 records, 3 indexes/sources, actual minimal retrieval and 19 exact source matches | Foundry model/agent, MCP, Activity and Copilot connected-agent flow |
+
 This is the execution follow-up requested after the original documentation review.
 The checks below actually ran. They are not a claim that the whole workshop passed.
 The [sanitized machine-readable results](../assets/runtime-2026-10-19/results.json)
@@ -21,8 +32,12 @@ The current identity has resource-creation and role-assignment rights; the obser
 roles include Owner and Foundry User at subscription scope. This checks the current
 identity, not every participant's access.
 
-The selected-subscription inventory still returned no Azure AI Search service or
-Application Insights component. Existing unrelated applications were not modified.
+The later explicit-subscription recheck returned **nine Cognitive Services accounts,
+four Foundry project resources, seven Application Insights components, and zero
+Search services** before the isolated tests. This corrects the earlier report of
+no Application Insights components. Those resources belong to unrelated workloads;
+existence and access do not authorize repurposing them or exporting their telemetry.
+Existing unrelated applications were not modified.
 The live eastus2 model inventory exposed `text-embedding-3-large` version `1` as
 GenerallyAvailable, while the older GPT-4o versions were marked Deprecating.
 Model listings and quota are prerequisites, not proof of a successful model deployment.
@@ -79,8 +94,9 @@ preserves the observations without publishing account or tenant identifiers.
 The self-mail has already been delivered. Do not resend it to obtain another screenshot.
 
 The core retrieval, directory, send, and downstream delivery path was exercised.
-Ambiguous-recipient handling and simulated connector failure were **not executed**;
-they remain additional acceptance cases in the [Lab 1 guide](lab-01.md).
+At this first checkpoint, ambiguous-recipient handling and connector failure
+were **not executed**. The later safe follow-up below records a conversational
+clarification pass and an independently unverified connector-error attempt.
 This rerun does not establish that all workshop labs passed.
 
 ### Fresh screenshots and capture limits
@@ -210,6 +226,15 @@ All **15 of 15 imports passed** after restoration. This provides a working local
 dependency baseline for the supplied code. It does not prove that the preview
 contracts still work against the current Azure services; that remains a cloud test.
 
+Further inspection verified that the current SDK exposes
+`KnowledgeRetrievalMinimalReasoningEffort` in
+`azure.search.documents.knowledgebases.models`, not `indexes.models`.
+`KnowledgeBase` and `KnowledgeSourceReference` still exist under `indexes.models`;
+`KnowledgeRetrievalOutputMode` does not exist in either inspected namespace.
+Changing only one import is therefore not a complete notebook migration.
+The GA REST retrieval test below avoids pretending that restoring imports proves
+all historical preview contracts work.
+
 The three inline data sets were also evaluated locally without executing notebook
 cloud cells. Each contains eight records, for **24 total**. Every record has a
 nonempty string `id`, `title`, and `content`, and IDs are unique within each set.
@@ -217,15 +242,123 @@ The protected content itself is not republished.
 
 ## Remaining execution gates
 
+### Safe Lab 1 follow-up and independent source check
+
+The ambiguity-only prompt asked what information was needed when several colleagues
+were named Alex, expressly prohibiting connector calls. The response requested an
+email address, full name, contextual identity or UPN before any action. This passed
+the **conversational clarification guard**, not full send-time ambiguity enforcement.
+No new email was sent.
+
+A read-only self-search with `top=-1` was attempted. The agent reported HTTP 400,
+`Top parameter should be a positive number.`, without retry. The raw execution card
+could not be inspected before Preview became blank again. This remains **model-reported,
+not independently certified connector failure**. Expired-authentication handling
+was not tested.
+
+An independent local copy of `Power-Platform-Licensing-Guide.pdf` was found in Downloads.
+Its actual cover says **October 2026**. PDF pages 6 and 7 support the summary's
+Premium per-user, per-app pay-as-you-go and limited included-rights statements.
+Page 30 records the January 2026 per-app end-of-sale change. Six exact source checks
+passed. The local file has 30 pages and SHA-256 recorded in the
+[source-check results](../assets/runtime-2026-10-19/licensing-source-check.json).
+Its filename matches the uploaded file, but uploaded/local **byte identity was not
+verified**. This is an independent check of the local guide, not proof of every
+uploaded-file citation or of today's applicable commercial terms.
+
+![Actual local licensing PDF cover, not portal UI](../assets/runtime-2026-10-19/licensing-local-cover.png)
+
+### Actual Azure Free-tier execution
+
+Rather than create paid resources, the rerun used an isolated **Search Free SKU**,
+**semanticSearch=free**, and **knowledgeRetrieval=free**. Current
+[Search tier documentation](https://learn.microsoft.com/en-us/azure/search/search-sku-tier)
+and [agentic billing documentation](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-enable-disable)
+confirm the limited free tier and that requests exceeding the free retrieval
+allowance fail instead of automatically entering the paid plan.
+No Storage account, external model call, paid Search tier, or unrelated resource
+was used. API keys remained in process memory and were not written to public evidence.
+
+The first attempt in **eastus2** failed with `InsufficientResourcesAvailable`.
+The alternate **westus2** Free service worked. A first semantic query returned HTTP
+400 because `queryLanguage` is not accepted by the **2026-04-01** Search API.
+Removing that parameter and rerunning the real requests resolved the failure.
+The failed attempt is retained in the [sanitized cloud results](../assets/runtime-2026-10-19/free-cloud-results.json),
+not overwritten with a success-only story.
+
+#### Hotel retrieval: actual data and measured assertions
+
+The three supplied hotel PDFs were extracted locally and uploaded as **three full
+text documents**, not blob-indexed chunks. Each per-document upload status passed.
+
+* The exact document count was **3**; lexical Doha, Rome and Tokyo queries each
+  returned only the matching hotel.
+* A Rome filter returned only Rome; the three city facets each had count **1**.
+* `rooftop garden` with `searchMode=any` returned Tokyo, but `searchMode=all` returned
+  zero. The actual supplied corpus has a rooftop term but no garden term.
+* `bicycle storage` with all-terms matching returned zero: no supplied PDF contains
+  the bicycle term. The source example is not automatically a positive test.
+* Vector-only and hybrid requests ranked Tokyo first using explicit
+  **three-dimensional city one-hot features**. These are transparent test features,
+  **not semantic embeddings** or evidence of semantic relevance quality.
+* A real semantic query returned Tokyo first with a non-null reranker score.
+  The `title-boost` scoring profile also executed. No relevance improvement is claimed.
+* Filtering on nonfilterable `content` returned **HTTP 400**.
+  A request without credentials returned **HTTP 403**, not document data.
+
+These tests validate actual Search indexing and retrieval API behavior. They do
+not validate Storage ingestion, chunk projections, integrated embeddings, managed
+identity, citation URLs, or the Copilot Studio Search connection required by the
+original Labs 2 and 5.
+
+#### Lab 6: actual three-source knowledge retrieval
+
+The run-owned hotel index was removed to respect the Free tier's three-index limit.
+The original notebook's three datasets were then uploaded into three fresh indexes:
+**8 + 8 + 8 = 24 records**, with every individual upload status and final count checked.
+Three real search-index knowledge sources and a knowledge base referencing all
+three were created successfully.
+
+The implementation used the current **2026-04-01 GA minimal/extractive REST contract**:
+no LLM configuration, query planning, generated embeddings, or answer synthesis.
+The current [minimal-retrieval guidance](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
+and [GA knowledge-base contract](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)
+explain this supported alternative to the older preview notebook.
+
+1. A specific fraud-pattern query returned **2 passages and 2 references**, from
+   the fraud-pattern source.
+2. The cross-source query `fraud investigation compliance` returned **17 passages
+   and 17 references spanning all three sources**.
+3. An unsupported nonsense query returned **0 passages and 0 references**.
+4. All three knowledge sources appeared in activity for each request.
+5. All **19 returned passage titles and contents matched their original indexed
+   records exactly**, joined through each reference's `docKey`. `sourceData` was
+   null; validation did not assume it contained the document.
+
+The final run passed **34 HTTP/schema/count checks**, plus the three exact
+retrieval-output/content checks above. The raw data and full responses remain
+private; only counts, assertions and test metadata are published.
+This proves Search knowledge retrieval, **not** a Foundry agent, MCP connection,
+Activity endpoint, or Copilot Studio connected-agent flow.
+
+#### Cleanup and remaining limits
+
+All **four** isolated resource groups created across capacity-failure, initial
+hotel, corrected hotel and multi-source attempts were deleted. Absence was verified
+after each deletion. Only groups bearing the current run's exact ownership tag
+and containing no unexpected resources were eligible for cleanup.
+No existing service, agent, connection, or mailbox was deleted.
+
 No billable resources have been created or applied. Requests for a deployment budget
 received no actual user answer; an automated unavailable-user response is not treated
 as approval. The pricing tool returned no rate for the attempted Search SKU queries,
 so no price or hard spending guarantee is assumed.
 
-The next cloud steps require a dedicated deployment boundary, an approved spend
-threshold and cleanup decision, current model/region confirmation, then actual
-indexing, retrieval, telemetry, prompt, and connected-agent tests.
-Lab 1 can proceed independently using the already saved agent and approved connections.
+The original paid deployment, Storage/vectorizer pipeline, correlated agent telemetry,
+connected BYOM prompt and Foundry/Copilot connected-agent tests still need an approved
+dedicated resource and spending boundary. Existing production resources are not
+substitutes without workload-owner approval. The Free Search and source-verification
+work above is real progress, but **the whole workshop is not certified passed**.
 
 ## What remains unchanged
 

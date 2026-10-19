@@ -26,7 +26,10 @@ Consultez les [nouveaux résultats d'exécution](live-rerun-2026-10-19.md) et le
 Les deux captures antérieures ci-dessous restent des preuves fournies par l'utilisateur
 pour l'exécution initiale, pas des captures du nouveau test. Aucune de ces exécutions
 ne constitue un audit complet de l'exactitude des réponses de licences.
-Les cas de destinataire ambigu et de panne de connexion n'ont pas été exécutés.
+Un test conversationnel ultérieur de destinataire ambigu a réussi sans connecteur.
+Une erreur de paramètre annoncée par le modèle n'a pas pu être vérifiée dans sa
+sortie brute. L'édition et le résumé du PDF local de même nom ont été contrôlés,
+sans preuve d'identité binaire avec la copie chargée.
 
 ## 1. Choisir l'expérience d'agent équivalente
 
@@ -189,7 +192,11 @@ Le tableau ci-dessous conserve la **preuve initiale**, antérieure à la nouvell
 exécution du 2026-10-19. Les [derniers résultats](live-rerun-2026-10-19.md)
 remplacent les anciennes mentions « non exécuté » ou non démontrées pour L1-02 à L1-05.
 Une recherche PDF est désormais observée pour L1-01, sans audit complet de l'exactitude
-de la réponse. L1-06 et L1-07 restent non exécutés.
+de la réponse. L1-06 possède désormais un test conversationnel réussi, pas une
+preuve de blocage lors d'un véritable envoi. L1-07 comporte une tentative dont
+l'erreur de connecteur reste non vérifiée indépendamment. Le dernier registre
+contrôle aussi la couverture et les pages résumées du PDF local de même nom ;
+l'identité binaire avec la copie chargée et l'audit complet des citations restent à vérifier.
 
 | ID    | Test                                              | Résultat exigé                                             | Preuve observée                                                                                |
 | ----- | ------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

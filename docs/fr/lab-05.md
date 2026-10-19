@@ -12,7 +12,14 @@ ms.topic: tutorial
 Construisez une chaîne de génération augmentée par récupération (RAG) : ingérez des documents, découpez-les en passages, produisez leurs vecteurs, retrouvez les passages pertinents, puis fondez la réponse sur ceux-ci. Prévoyez 90 à 120 minutes une fois l'infrastructure disponible. La recherche et la génération sont deux étapes distinctes ; une réponse plausible ne prouve pas que la recherche a fonctionné.
 
 > [!IMPORTANT]
-> Revue des sources et analyse statique uniquement ; exécution réelle bloquée. Les supports locaux et le Terraform ont été examinés, et les références officielles consultées le 2026-10-19. Aucun index n'a été créé, aucun document téléversé et aucune conversation exécutée. Copilot Studio n'était initialement pas authentifié ; l'utilisateur s'est ensuite connecté et la page d'accueil authentifiée a été examinée. La navigation vers le conseiller de licences est alors restée blanche : aucune question n'a été exécutée. Le blocage actuel concerne la navigation vers l'agent, pas l'authentification. L'abonnement Azure sélectionné ne dispose ni de Search ni d'Application Insights pour cet exercice.
+> Une exécution réelle Search Free complète désormais la revue initiale.
+> Les trois PDF ont été indexés et testés par recherche lexicale, filtres, facettes,
+> recherche sémantique, contrat vectoriel, hybride et cas négatifs. Les 17 contrôles
+> d'hôtels ont réussi après suppression du paramètre `queryLanguage` non pris en
+> charge par l'API actuelle. Les vecteurs étaient des caractéristiques de ville,
+> pas des embeddings sémantiques ; Storage, vectorisation intégrée et connexion
+> Copilot restent non exécutés. Les ressources isolées ont été supprimées.
+> Consultez les [résultats réels](live-rerun-2026-10-19.md).
 
 Ces consignes pédagogiques originales ne reproduisent ni le texte ni le code du support protégé. Les trois PDF de démonstration existent localement, mais ne sont pas redistribués. Aucune capture d'écran protégée n'est incluse.
 

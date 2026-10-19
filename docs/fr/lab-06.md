@@ -14,13 +14,22 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.
 > L'environnement actuel a échoué sur une importation parmi 15 : la classe de
-> raisonnement de la cellule 14 est absente du SDK Search 12.0.0. Un environnement
+> raisonnement de la cellule 14 a quitté `indexes.models` dans le SDK Search 12.0.0. Un environnement
 > isolé restauré aux versions du support a réussi les 15 importations. Les 24
 > enregistrements ont aussi passé les contrôles locaux de champs et d'identifiants.
-> Recherche cloud et agent connecté restent à prouver. Consultez le
-> [registre réel](live-rerun-2026-10-19.md).
+> Une recherche cloud GA gratuite a ensuite indexé les 24 enregistrements dans trois
+> sources : 2 passages précis, 17 multisources et zéro pour la question non couverte.
+> Les 19 passages correspondaient exactement aux originaux. La couche d'agents
+> connectés Foundry/Copilot reste non exécutée.
+> Consultez le [registre réel](live-rerun-2026-10-19.md).
 
-Copilot Studio n'était initialement pas authentifié. L'utilisateur s'est ensuite connecté et la page d'accueil authentifiée a été examinée pendant la revue des ateliers 2 à 4. La navigation vers le conseiller de licences est alors restée blanche : aucune question n'a été exécutée. L'authentification n'est plus le blocage actuel ; la navigation vers l'agent reste bloquée. L'abonnement Azure sélectionné ne dispose ni de Search ni d'Application Insights pour cet atelier. Il faut encore un projet Foundry autorisé, des modèles, les droits adéquats et un agent du nouveau portail avec Activity activé.
+Copilot Studio est devenu utilisable pour les véritables tests de recherche et
+d'envoi du Lab 1, puis Preview est redevenu vide par intermittence. Un inventaire
+ultérieur explicitement limité à l'abonnement a trouvé sept composants Application
+Insights sans rapport, corrigeant la première mention d'absence. Ils n'ont pas été
+réutilisés. Les ressources Search Free isolées ont été supprimées après les tests.
+La couche connectée exige encore un projet Foundry dédié autorisé, des modèles,
+les droits adéquats et un agent du nouveau portail avec Activity activé.
 
 Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas republiés. Les quatre figures proviennent uniquement du document d'accompagnement non protégé consacré à Copilot, avec masquage des données sensibles. Ce sont des captures historiques du support, pas des preuves d'exécution nouvellement capturées.
 

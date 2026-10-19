@@ -1,0 +1,599 @@
+{
+  "date": "2026-10-19",
+  "scope": "Actual Azure AI Search Free-tier API tests; not the complete original cloud labs",
+  "requested_service_sku": "free",
+  "location": "westus2",
+  "provisioning": "succeeded",
+  "semantic_search_setting": "free",
+  "knowledge_retrieval_setting": "free",
+  "api_version": "2026-04-01",
+  "external_model_calls": 0,
+  "storage_accounts_created": 0,
+  "semantic_embeddings_generated": false,
+  "vector_note": "Transparent 3D city one-hot features test the vector API, not semantic embedding quality.",
+  "tests": [
+    {
+      "name": "index_schema",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 1581,
+      "observation": {
+        "semantic_configuration": "hotel-semantic",
+        "vector_dimensions": 3
+      }
+    },
+    {
+      "name": "upload_each_document",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 566,
+      "observation": {
+        "results": [
+          {
+            "key": "doha",
+            "status": true,
+            "statusCode": 201,
+            "errorMessage": null
+          },
+          {
+            "key": "rome",
+            "status": true,
+            "statusCode": 201,
+            "errorMessage": null
+          },
+          {
+            "key": "tokyo",
+            "status": true,
+            "statusCode": 201,
+            "errorMessage": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "document_count_exactly_three",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 788,
+      "observation": {
+        "count": 3
+      }
+    },
+    {
+      "name": "lexical_Doha",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 499,
+      "observation": {
+        "hits": [
+          {
+            "id": "doha",
+            "city": "Doha",
+            "score": 3.8882918,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "lexical_Rome",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 491,
+      "observation": {
+        "hits": [
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 3.8882918,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "lexical_Tokyo",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 464,
+      "observation": {
+        "hits": [
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 3.8882918,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "filter_only_rome",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 488,
+      "observation": {
+        "hits": [
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 1.0,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "three_city_facets",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 623,
+      "observation": {
+        "facets": [
+          {
+            "value": "Doha",
+            "count": 1
+          },
+          {
+            "value": "Rome",
+            "count": 1
+          },
+          {
+            "value": "Tokyo",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "name": "rooftop_garden_any",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 835,
+      "observation": {
+        "hits": [
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 0.9458044,
+            "reranker_score": null
+          }
+        ],
+        "count": 1,
+        "note": "The supplied corpus has rooftop in Tokyo but no garden term."
+      }
+    },
+    {
+      "name": "rooftop_garden_all",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 789,
+      "observation": {
+        "hits": [],
+        "count": 0,
+        "note": "The supplied corpus has rooftop in Tokyo but no garden term."
+      }
+    },
+    {
+      "name": "unsupported_bicycle_storage",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 533,
+      "observation": {
+        "note": "No bicycle term in any supplied hotel PDF.",
+        "count": 0
+      }
+    },
+    {
+      "name": "vector_city_features",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 659,
+      "observation": {
+        "semantic_embeddings": false,
+        "hits": [
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 1.0,
+            "reranker_score": null
+          },
+          {
+            "id": "doha",
+            "city": "Doha",
+            "score": 0.5,
+            "reranker_score": null
+          },
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 0.5,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "hybrid_city_features",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 570,
+      "observation": {
+        "semantic_embeddings": false,
+        "hits": [
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 0.03333333507180214,
+            "reranker_score": null
+          },
+          {
+            "id": "doha",
+            "city": "Doha",
+            "score": 0.016393441706895828,
+            "reranker_score": null
+          },
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 0.016129031777381897,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "semantic_ranking",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 1023,
+      "observation": {
+        "error": null,
+        "hits": [
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 4.373077,
+            "reranker_score": 3.163367748260498
+          },
+          {
+            "id": "doha",
+            "city": "Doha",
+            "score": 0.5417001,
+            "reranker_score": 1.2166231870651245
+          },
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 0.5417001,
+            "reranker_score": 1.0152846574783325
+          }
+        ]
+      }
+    },
+    {
+      "name": "scoring_profile_execution",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 1102,
+      "observation": {
+        "relevance_improvement_proven": false,
+        "hits": [
+          {
+            "id": "doha",
+            "city": "Doha",
+            "score": 0.52935725,
+            "reranker_score": null
+          },
+          {
+            "id": "rome",
+            "city": "Rome",
+            "score": 0.52935725,
+            "reranker_score": null
+          },
+          {
+            "id": "tokyo",
+            "city": "Tokyo",
+            "score": 0.52935725,
+            "reranker_score": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "nonfilterable_field_rejected",
+      "passed": true,
+      "http_status": 400,
+      "milliseconds": 499,
+      "observation": {
+        "error": {
+          "code": "",
+          "message": "Invalid expression: 'content' is not a filterable field. Only filterable fields can be used in filter expressions.\r\nParameter name: $filter"
+        }
+      }
+    },
+    {
+      "name": "unauthenticated_request_rejected",
+      "passed": true,
+      "http_status": 403,
+      "milliseconds": 491,
+      "observation": {
+        "access_denied": true
+      }
+    },
+    {
+      "name": "remove_owned_hotel_index_for_free_tier_limit",
+      "passed": true,
+      "http_status": 204,
+      "milliseconds": 944,
+      "observation": {
+        "note": "Free allows three indexes; only this run-owned hotel index was removed."
+      }
+    },
+    {
+      "name": "fraud-patterns-live_schema",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 909,
+      "observation": {
+        "created": true
+      }
+    },
+    {
+      "name": "fraud-patterns-live_upload_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 555,
+      "observation": {
+        "failed_items": 0,
+        "count": 8
+      }
+    },
+    {
+      "name": "fraud-patterns-live_count_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 522,
+      "observation": {
+        "count": 8
+      }
+    },
+    {
+      "name": "fraud-patterns-live_knowledge_source",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 2702,
+      "observation": {
+        "kind": "searchIndex",
+        "index": "fraud-patterns-live"
+      }
+    },
+    {
+      "name": "regulatory-compliance-live_schema",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 810,
+      "observation": {
+        "created": true
+      }
+    },
+    {
+      "name": "regulatory-compliance-live_upload_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 567,
+      "observation": {
+        "failed_items": 0,
+        "count": 8
+      }
+    },
+    {
+      "name": "regulatory-compliance-live_count_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 525,
+      "observation": {
+        "count": 8
+      }
+    },
+    {
+      "name": "regulatory-compliance-live_knowledge_source",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 1942,
+      "observation": {
+        "kind": "searchIndex",
+        "index": "regulatory-compliance-live"
+      }
+    },
+    {
+      "name": "investigation-procedures-live_schema",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 835,
+      "observation": {
+        "created": true
+      }
+    },
+    {
+      "name": "investigation-procedures-live_upload_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 581,
+      "observation": {
+        "failed_items": 0,
+        "count": 8
+      }
+    },
+    {
+      "name": "investigation-procedures-live_count_eight",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 535,
+      "observation": {
+        "count": 8
+      }
+    },
+    {
+      "name": "investigation-procedures-live_knowledge_source",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 566,
+      "observation": {
+        "kind": "searchIndex",
+        "index": "investigation-procedures-live"
+      }
+    },
+    {
+      "name": "lab6_knowledge_base_three_sources",
+      "passed": true,
+      "http_status": 201,
+      "milliseconds": 1658,
+      "observation": {
+        "ga_minimal_extractive_only": true,
+        "sources": [
+          "fraud-patterns-live-ks",
+          "regulatory-compliance-live-ks",
+          "investigation-procedures-live-ks"
+        ]
+      }
+    },
+    {
+      "name": "lab6_specific_retrieval_http",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 4006,
+      "observation": {
+        "query": "Synthetic Identity Fraud Patterns",
+        "response_properties": [
+          "@odata.context",
+          "response",
+          "activity",
+          "references"
+        ],
+        "note": "Raw response saved privately; passage/reference assertions verified separately."
+      }
+    },
+    {
+      "name": "lab6_cross_source_retrieval_http",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 2673,
+      "observation": {
+        "query": "fraud investigation compliance",
+        "response_properties": [
+          "@odata.context",
+          "response",
+          "activity",
+          "references"
+        ],
+        "note": "Raw response saved privately; passage/reference assertions verified separately."
+      }
+    },
+    {
+      "name": "lab6_unsupported_retrieval_http",
+      "passed": true,
+      "http_status": 200,
+      "milliseconds": 848,
+      "observation": {
+        "query": "zqxvunicornasteroidorchard",
+        "response_properties": [
+          "@odata.context",
+          "response",
+          "activity",
+          "references"
+        ],
+        "note": "Raw response saved privately; passage/reference assertions verified separately."
+      }
+    }
+  ],
+  "cleanup": "isolated_run_group_deleted_and_absence_verified",
+  "full_workshop_passed": false,
+  "actual_service_sku": "free",
+  "passed": true,
+  "retrieval_content_checks": [
+    {
+      "name": "lab6_specific_retrieval",
+      "passed": true,
+      "passages": 2,
+      "references": 2,
+      "distinct_returned_sources": 1,
+      "searched_sources": [
+        "fraud-patterns-live-ks",
+        "investigation-procedures-live-ks",
+        "regulatory-compliance-live-ks"
+      ],
+      "returned_sources": [
+        "fraud-patterns-live"
+      ],
+      "all_returned_titles_and_contents_match_original_records_exactly": true,
+      "reference_source_data": "null; verification used docKey and extractive response content",
+      "service_reported_reasoning_tokens": 2313
+    },
+    {
+      "name": "lab6_cross_source_retrieval",
+      "passed": true,
+      "passages": 17,
+      "references": 17,
+      "distinct_returned_sources": 3,
+      "searched_sources": [
+        "fraud-patterns-live-ks",
+        "investigation-procedures-live-ks",
+        "regulatory-compliance-live-ks"
+      ],
+      "returned_sources": [
+        "fraud-patterns-live",
+        "investigation-procedures-live",
+        "regulatory-compliance-live"
+      ],
+      "all_returned_titles_and_contents_match_original_records_exactly": true,
+      "reference_source_data": "null; verification used docKey and extractive response content",
+      "service_reported_reasoning_tokens": 2492
+    },
+    {
+      "name": "lab6_unsupported_retrieval",
+      "passed": true,
+      "passages": 0,
+      "references": 0,
+      "distinct_returned_sources": 0,
+      "searched_sources": [
+        "fraud-patterns-live-ks",
+        "investigation-procedures-live-ks",
+        "regulatory-compliance-live-ks"
+      ],
+      "returned_sources": [],
+      "all_returned_titles_and_contents_match_original_records_exactly": true,
+      "reference_source_data": "null; verification used docKey and extractive response content",
+      "service_reported_reasoning_tokens": 0
+    }
+  ],
+  "attempts": [
+    {
+      "location": "eastus2",
+      "checks": 0,
+      "passed": false,
+      "cleanup": "isolated_run_group_deleted_and_absence_verified",
+      "failure_code": "InsufficientResourcesAvailable"
+    },
+    {
+      "location": "westus2",
+      "checks": 17,
+      "passed": false,
+      "cleanup": "isolated_run_group_deleted_and_absence_verified",
+      "failure": "HTTP 400: queryLanguage is not a valid parameter for search API 2026-04-01"
+    },
+    {
+      "location": "westus2",
+      "checks": 17,
+      "passed": true,
+      "cleanup": "isolated_run_group_deleted_and_absence_verified"
+    },
+    {
+      "location": "westus2",
+      "checks": 34,
+      "passed": true,
+      "cleanup": "isolated_run_group_deleted_and_absence_verified"
+    }
+  ],
+  "all_four_isolated_resource_groups_deleted": true
+}

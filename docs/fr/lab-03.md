@@ -19,8 +19,11 @@ Prévoyez environ 60 minutes, hors autorisations et délai d’ingestion.
 > Le 2026-10-19, la connexion a réussi et l’accueil était visible, mais la
 > navigation vers Agents et les rechargements suivants ont affiché une page vide.
 > Les paramètres de télémétrie existants n’ont pas pu être inspectés.
-> L’abonnement courant ne contenait aucune ressource Application Insights ; les
-> ressources et connexions d’autres abonnements restent inconnues. Les ressources
+> L'inventaire initial annonçait l'absence d'Application Insights. Un contrôle
+> ultérieur explicitement limité à l'abonnement a corrigé ce résultat : sept
+> composants sans rapport existent. Aucun n'a été réutilisé et aucune télémétrie
+> existante n'a été exportée. Consultez l'[inventaire corrigé](live-rerun-2026-10-19.md).
+> Les ressources
 > Cognitive Services existantes ne remplissent pas ce prérequis. Aucun événement
 > de test n’a été généré, aucune ressource créée et aucun agent modifié.
 
