@@ -1,0 +1,205 @@
+[
+  {
+    "file": "docs/assets/lab-01/image2.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image2.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image3.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image3.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image5.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image5.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image7.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image7.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image9.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image9.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image13.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image13.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image14.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image14.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image17.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image17.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image18.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image18.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/image19.png",
+    "kind": "source",
+    "source": "Word source 01, embedded image19.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-02/image3.png",
+    "kind": "source",
+    "source": "Word source 02, embedded image3.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-02/image9.png",
+    "kind": "source",
+    "source": "Word source 02, embedded image9.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-02/image19.png",
+    "kind": "source",
+    "source": "Word source 02, embedded image19.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-02/image23.png",
+    "kind": "source",
+    "source": "Word source 02, embedded image23.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-03/image1.png",
+    "kind": "source",
+    "source": "Word source 03, embedded image1.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-03/image4.png",
+    "kind": "source",
+    "source": "Word source 03, embedded image4.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-03/image5.png",
+    "kind": "source",
+    "source": "Word source 03, embedded image5.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-03/image11.png",
+    "kind": "source",
+    "source": "Word source 03, embedded image11.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-04/image5.png",
+    "kind": "source",
+    "source": "Word source 04, embedded image5.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-04/image7.png",
+    "kind": "source",
+    "source": "Word source 04, embedded image7.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-04/image17.png",
+    "kind": "source",
+    "source": "Word source 04, embedded image17.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-04/image22.png",
+    "kind": "source",
+    "source": "Word source 04, embedded image22.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-06/image1.png",
+    "kind": "source",
+    "source": "Word source 08, embedded image1.png",
+    "changes": "Privacy masks applied; bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-06/image4.png",
+    "kind": "source",
+    "source": "Word source 08, embedded image4.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-06/image10.png",
+    "kind": "source",
+    "source": "Word source 08, embedded image10.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-06/image14.png",
+    "kind": "source",
+    "source": "Word source 08, embedded image14.png",
+    "changes": "Bilingual provenance footer",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/evidence-agent-result.png",
+    "kind": "user-evidence",
+    "source": "First user attachment, Copilot Studio Preview",
+    "changes": "Cropped to send-tool result and answer; recipient redacted",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/evidence-request.png",
+    "kind": "user-evidence",
+    "source": "First user attachment, user request",
+    "changes": "Cropped to user request; browser chrome excluded",
+    "new_runtime_capture": false
+  },
+  {
+    "file": "docs/assets/lab-01/evidence-email-received.png",
+    "kind": "user-evidence",
+    "source": "Second user attachment, received Outlook message",
+    "changes": "Cropped to requested message; unrelated inbox and browser excluded",
+    "new_runtime_capture": false
+  }
+]

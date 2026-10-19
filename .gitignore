@@ -1,0 +1,10 @@
+.wiki-build/
+.wiki-publish/
+.copilot-tracking/
+__pycache__/
+*.pyc
+.env
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfplan

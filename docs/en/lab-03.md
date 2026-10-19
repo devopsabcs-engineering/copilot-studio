@@ -1,0 +1,296 @@
+---
+title: "Lab 03: Monitor an agent with Application Insights"
+description: "Configure agent-level telemetry, inspect custom event properties with KQL, and distinguish documentary review from runtime evidence."
+ms.date: 2026-10-19
+ms.topic: tutorial
+---
+
+## Lab 03: Monitor an agent with Application Insights
+
+[Workshop index](index.md) | [Français](../fr/lab-03.md) | [Previous: Search](lab-02.md) | [Next: BYOM](lab-04.md)
+
+Capture an agent's telemetry in Azure Monitor Application Insights, then verify a
+synthetic event without collecting conversation contents. Allow about 60 minutes,
+plus access approval and telemetry ingestion time.
+
+> [!IMPORTANT]
+> Status: **Procedure reviewed; live execution blocked**.
+> Review date: 2026-10-19. Sign-in succeeded and the home shell was visible, but
+> subsequent Agents navigation and reloads returned a blank page. Existing agent
+> telemetry settings could not be inspected. The current subscription inventory
+> showed no Application Insights resource; resources or connections in other
+> subscriptions remain unknown. Existing Cognitive Services resources do not
+> satisfy this prerequisite. No test event was generated, no resource was
+> created, and no agent was changed.
+
+### Objectives and prerequisites
+
+* Connect a development agent to a workspace-based Application Insights resource.
+* Emit a harmless custom event with a repeatable test-case marker.
+* Query the correct telemetry table for the selected scope.
+* Separate test-canvas activity from published-channel activity.
+* Explain why a dashboard, empty query, or user count does not prove agent quality.
+
+You need maker access to a disposable copy of the Lab 01 or Lab 02 agent, an
+approved Azure subscription, permission to configure Application Insights and its
+Log Analytics workspace, and permission to read the resulting logs. Agree on
+cost, retention, data residency, and telemetry access before enabling collection.
+Use fictitious inputs only.
+
+Open a **standard-harness** agent through **… > Open classic experience** or the
+existing agent list. This navigation is not an orchestration switch: the standard
+harness can use classic or generative orchestration. These agent-level settings
+are not instructions for the GitHub Copilot harness. See [harnesses][harness] and
+[standard-agent access][experience].
+
+### Corrected lab numbering and current approach
+
+The monitoring source has an internal “Lab 4” title. It is Lab 03 in this
+workshop, following its source-file order. The BYOM exercise is Lab 04.
+
+* Replace “instrumentation key or connection string” with the **Connection
+  string** field in **Settings > Advanced > Application Insights**.
+  The current article's introductory sentence still mentions a key, but its
+  numbered setup procedure explicitly requests the connection string.
+* Use workspace-based Application Insights and select its approved Log Analytics
+  workspace. A new workspace can incur additional charges and governance work.
+* Use **Enable logging**, **Log conversation details**, **Log sensitive Activity
+  properties**, and **Node execution events** as applicable to your tenant.
+  Older screenshots can call these **Log Activity** or **Log node tools**.
+* Keep conversation details and sensitive activity properties off for this lab.
+  User IDs, names, message text, and tool arguments can carry personal data.
+* Keep the **Copilot Studio Dashboard** workbook optional. Microsoft documents
+  this monitoring view as preview, so gallery availability is not a completion gate.
+* Do not equate agent-level events with environment-level OpenTelemetry spans.
+  The [telemetry overview][overview] identifies `customEvents` for agent-level
+  telemetry and `dependencies` for environment-level tracing.
+
+### Exercise 1: Prepare Application Insights
+
+1. Save an export or approved backup of the disposable agent and record its
+   existing telemetry configuration without placing credentials in the repository.
+2. In Azure portal, locate an approved workspace-based Application Insights
+   resource. If none exists, request approval before selecting **Create a
+   resource > Application Insights**.
+3. Use the authorized subscription, resource group, and region. Select the
+   intended Log Analytics workspace or an explicitly approved new one.
+4. Review ingestion/retention charges, access permissions, and network policy.
+   Do not change shared workspace retention to make this exercise work.
+5. After deployment, open the Application Insights overview and locate its
+   **Connection string**. Transfer it directly into the approved configuration
+   field in Exercise 2. Never include it in screenshots or a shared note.
+6. Open **Logs** from this Application Insights resource. Confirm that you can
+   query the resource and identify whether the editor is resource-scoped or
+   workspace-scoped. Record the scope, not its private identifier.
+
+![Original Application Insights creation screen](../assets/lab-03/image1.png)
+
+*Original workshop screenshot, not a new execution. Resource creation requires
+approval; use workspace and region settings appropriate to your organization.*
+
+### Exercise 2: Configure collection on the agent
+
+1. In the standard agent, open **Settings > Advanced > Application Insights**.
+2. Enter the complete connection string, not a bare instrumentation key.
+3. Turn on **Enable logging**. Leave **Log conversation details** and **Log
+   sensitive Activity properties** off.
+4. Enable **Node execution events** only if needed for this controlled test.
+   Record the original value so you can restore it.
+5. Save the settings. Open a fresh test conversation after saving. Testing inside
+   Copilot Studio can generate telemetry; publishing is not required to prove
+   test-canvas collection. Publishing or testing a real channel requires a
+   separate approval and is outside this review.
+
+![Original agent telemetry settings](../assets/lab-03/image4.png)
+
+*Original workshop screenshot, not a new execution. Current settings use a
+connection string and can display different logging labels.*
+
+### Exercise 3: Add a controlled custom event
+
+1. In the disposable agent, create a topic named `Workshop telemetry check`.
+2. In classic orchestration, add the trigger phrase `run workshop telemetry
+   check`. In generative orchestration, give the topic a precise description
+   limiting it to an explicit request for that check. Do not change the agent's
+   orchestration setting solely to obtain a matching screenshot.
+3. Add the **Log custom event** node from the node menu. If your tenant does not
+   expose this node, record the limitation rather than substituting an unrelated
+   connector or sending an external request.
+4. Set the event name to `WorkshopTelemetryCheck`. Supply a record of synthetic
+   properties, using the formula editor where required:
+
+   ```powerfx
+   {
+       WorkshopId: "cs-lab-03",
+       EnvironmentName: "Workshop",
+       TopicName: "TelemetryCheck",
+       TestCaseId: "MON-01"
+   }
+   ```
+
+5. Add a message after the event node: `Telemetry check requested.`
+6. End the current topic and save. Run the trigger once in a fresh conversation,
+   follow the topic path, and record the UTC time.
+7. Do not put user messages, user roles, names, emails, keys, or licensing-guide
+   text in the event. `EnvironmentName` is a chosen test label, not a claim about
+   the environment's actual deployment stage.
+
+![Original custom-event authoring screen](../assets/lab-03/image5.png)
+
+*Original workshop screenshot, not a new execution. The new event uses fictitious
+properties and a distinct workshop marker.*
+
+### Exercise 4: Inspect events with KQL
+
+Wait for ingestion, then run the discovery query from **Application Insights >
+Logs**. Start with the broad result, because a custom-event node can be surfaced
+through a platform envelope such as `OnLogEvent` rather than the label you chose.
+Do not filter only on an assumed event name before observing the payload.
+
+```kusto
+customEvents
+| where timestamp > ago(1h)
+| project timestamp, name, customDimensions
+| order by timestamp desc
+| take 50
+```
+
+Locate the event near the recorded UTC time and expand `customDimensions`.
+Identify the actual event label and property layout, then use the matching
+query. If the node's record is exposed as top-level dimensions:
+
+```kusto
+customEvents
+| where timestamp > ago(1h)
+| where tostring(customDimensions.WorkshopId) == "cs-lab-03"
+| project timestamp, name,
+    TestCaseId=tostring(customDimensions.TestCaseId),
+    TopicName=tostring(customDimensions.TopicName),
+    DesignMode=tostring(customDimensions.designMode)
+| order by timestamp desc
+```
+
+If properties are nested, inspect their actual location and adapt the property
+path. An empty result from this convenience filter does not prove that the event
+was never emitted. Do not claim a fixed payload shape without capturing it.
+
+At **Log Analytics workspace** scope, Application Insights events use the
+`AppEvents` table and the corresponding `TimeGenerated`, `Name`, and `Properties`
+columns. Use this discovery query instead of renaming only the table:
+
+```kusto
+AppEvents
+| where TimeGenerated > ago(1h)
+| project TimeGenerated, Name, Properties
+| order by TimeGenerated desc
+| take 50
+```
+
+If the workspace contains multiple applications, add the approved application's
+resource filter before interpreting results. Do not export the other applications'
+rows. The [AppEvents reference][appevents] documents these column names.
+
+To exclude test-canvas events at Application Insights resource scope:
+
+```kusto
+customEvents
+| where timestamp > ago(1d)
+| where tostring(customDimensions.designMode) == "False"
+| summarize EventCount=count() by bin(timestamp, 1h)
+```
+
+This last query may correctly return no rows when only the test canvas was used.
+It counts recorded event rows, not conversations, users, or unsampled executions.
+Anonymous `user_Id` values are not reliable counts of distinct people.
+
+### Exercise 5: Explore the optional workbook
+
+1. In Application Insights, select **Monitoring > Workbooks**.
+2. If available, open **Copilot Studio Dashboard** in the gallery.
+3. Choose the intended resource and time range. Check whether test traffic is
+   included before reading a chart.
+4. Inspect topic and tool views, but do not infer request-duration or exception
+   coverage from the presence of a tab. The source lab's `requests` and
+   `exceptions` queries need actual corresponding telemetry and dimensions.
+5. Save a workshop copy only if authorized. Do not create alert actions or send
+   email as part of this lab.
+
+![Original telemetry process diagram](../assets/lab-03/image11.png)
+
+*Original workshop screenshot, not a new execution. The diagram is conceptual
+provenance, not evidence that telemetry flowed in the reviewed tenant.*
+
+### Validation plan and exact expected results
+
+* `MON-01`: Trigger the workshop topic once. Expect the visible message
+  `Telemetry check requested.` and a topic trace reaching the custom-event node.
+  This proves the branch ran, not that ingestion succeeded.
+* `MON-02`: Run the resource-scoped discovery query. Expect at least one event
+  matching the trigger time and workshop marker after ingestion. Record the
+  observed envelope, dimensions, and UTC timestamp. Do not require exactly one
+  row because retries and delivery behavior can affect row counts.
+* `MON-03`: Expand the event. Expect the synthetic test identifier `MON-01`
+  and topic label `TelemetryCheck` in the configured properties. Record any
+  nesting before adapting the filtered query.
+* `MON-04`: Run the published-traffic filter after test-canvas-only activity.
+  Expect that the test events are excluded, not that published traffic exists.
+* `MON-05`: Inspect the captured payload with sensitive settings off. Expect
+  no deliberately logged message text or personal identifiers from this custom
+  record. If sensitive data is observed elsewhere, stop export and escalate.
+  Turning off a setting does not prove that every platform field is anonymous.
+
+### Troubleshooting
+
+* For no events, verify resource scope, time range, saved connection string,
+  logging state, topic execution, ingestion delay, and ingestion caps.
+* For a missing `customEvents` table, check whether the query is workspace-scoped
+  and needs `AppEvents`, or whether the environment-level telemetry route is being
+  inspected instead. Do not interchange event and dependency schemas.
+* For a blank property, inspect the raw dynamic object before casting it.
+  Property names and case matter; an empty cast can mask a wrong path.
+* For forbidden access, request the appropriate monitoring/workspace read
+  permission. Copilot Studio maker access does not grant log access.
+* For an empty Live Metrics or Performance pane, use Logs as the primary event
+  check. Standard agent custom events do not imply streaming Live Metrics or
+  automatic request/exception instrumentation.
+* For a missing gallery workbook, record “optional preview unavailable” and
+  continue with the event queries.
+
+### Rollback, cleanup, and evidence
+
+1. Restore the agent's original connection configuration and logging switches.
+   Remove the disposable topic or restore the saved solution.
+2. Remove only workshop-specific workbooks and resource permissions approved
+   for deletion. Preserve any shared Application Insights resource/workspace.
+3. If resources were created exclusively for the lab, obtain approval before
+   deleting them. Removing the connection does not purge previously ingested logs.
+4. Apply the approved retention and incident process to any accidental sensitive
+   telemetry. Do not promise that deleting an agent deletes Azure Monitor data.
+5. Keep sanitized configuration evidence, UTC trigger time, topic path,
+   discovery/filtered queries, observed event structure, and cleanup outcome.
+   Leave all runtime cases **Not run** until executed.
+
+Official configuration and schema checks passed as documentary review only.
+Connection saving, node availability, telemetry delivery, actual custom-property
+shape, workbook availability, and rollback have not been exercised. Unblocking
+requires a working agent authoring page with maker access, an approved
+Application Insights/workspace pair, permitted ingestion, and authorized
+log-reading access. Authentication is no longer the observed blocker.
+
+### Official references checked
+
+The following Microsoft Learn pages were fetched on 2026-10-19.
+
+* [Agent-level Application Insights configuration and queries][telemetry]
+* [Telemetry scopes and their table distinctions][overview]
+* [Create a workspace-based Application Insights resource][workspace]
+* [AppEvents table and columns][appevents]
+* [Copilot Studio harnesses][harness]
+* [Access standard agents][experience]
+
+[telemetry]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-bot-framework-composer-capture-telemetry
+[overview]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/telemetry-overview
+[workspace]: https://learn.microsoft.com/en-us/azure/azure-monitor/app/create-workspace-resource
+[appevents]: https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/appevents
+[harness]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/harnesses-overview
+[experience]: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/switch-experiences

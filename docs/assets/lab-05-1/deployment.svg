@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="320" viewBox="0 0 1120 320" role="img" aria-labelledby="title desc">
+  <title id="title">Lab 5.1 original deployment review diagram / Schéma original de revue de déploiement</title>
+  <desc id="desc">Terraform configuration goes through validation and human approval before deploying training resources. The optional Foundry module is disabled. Configuration Terraform, validation et accord humain avant déploiement ; module Foundry désactivé.</desc>
+  <rect width="1120" height="320" fill="#f5f8fc"/>
+  <g fill="#fff" stroke="#294b75" stroke-width="2">
+    <rect x="20" y="70" width="240" height="130" rx="12"/>
+    <rect x="300" y="70" width="240" height="130" rx="12"/>
+    <rect x="580" y="70" width="240" height="130" rx="12"/>
+    <rect x="860" y="70" width="240" height="130" rx="12"/>
+  </g>
+  <g stroke="#294b75" stroke-width="3" fill="none">
+    <path d="M260 135h40m-10-7 10 7-10 7"/>
+    <path d="M540 135h40m-10-7 10 7-10 7"/>
+    <path d="M820 135h40m-10-7 10 7-10 7"/>
+  </g>
+  <g font-family="Segoe UI, sans-serif" text-anchor="middle" fill="#172d49">
+    <text x="560" y="32" font-size="20">Original diagram / Schéma original (not a screenshot / pas une capture)</text>
+    <text x="140" y="108" font-size="18">Authorized working copy</text>
+    <text x="140" y="138" font-size="17">Copie de travail autorisée</text>
+    <text x="140" y="172" font-size="15">Root files + modules / Racine</text>
+    <text x="420" y="108" font-size="18">Validate + saved plan</text>
+    <text x="420" y="138" font-size="17">Valider + enregistrer le plan</text>
+    <text x="420" y="172" font-size="15">Identity, network, costs / coûts</text>
+    <text x="700" y="108" font-size="18">Human approval</text>
+    <text x="700" y="138" font-size="17">Approbation humaine</text>
+    <text x="700" y="172" font-size="15">No automatic apply / Pas d'apply auto</text>
+    <text x="980" y="100" font-size="17">Training Azure resources</text>
+    <text x="980" y="126" font-size="17">Ressources de formation</text>
+    <text x="980" y="155" font-size="15">Search + Storage + OpenAI</text>
+    <text x="980" y="180" font-size="15">VNet + identity / identité</text>
+    <text x="560" y="242" font-size="17">Foundry root module disabled / Module Foundry racine désactivé</text>
+    <text x="560" y="272" font-size="16">An output index name does not create an index / Un nom de sortie ne crée pas d'index</text>
+    <text x="560" y="300" font-size="15">No deployment executed during review / Aucun déploiement exécuté pendant la revue</text>
+  </g>
+</svg>
