@@ -24,8 +24,14 @@ multisources ont échoué ; Activity a été configuré sans conversation Activi
 Cet environnement isolé a aussi été supprimé, avec absence vérifiée indépendamment.
 La [poursuite backend](backend-live-2026-10-20.md) s'est authentifiée à Dataverse
 et a cloné l'agent réellement sauvegardé via PAC officiel. La découverte Direct
-Line et l'autorisation d'évaluation restent bloquées ; un clone n'est pas une
-conversation. Les tableaux suivants conservent l'état de la revue initiale,
+Line et l'autorisation d'évaluation PAC restent bloquées ; un clone n'est pas une
+conversation. La [reprise ultérieure du navigateur](backend-live-2026-10-20.md#reprise-du-navigateur-et-trois-nouveaux-contrôles-réels)
+a permis trois nouveaux contrôles Preview : recherche dans le PDF avec réponse
+complète, refus d'inventer un prix et validation d'entrée incorrecte avec erreur 400
+visible. L'interface Evaluate s'ouvre, sans création ni exécution d'évaluation.
+L'audit indépendant des affirmations, pages et citations du PDF ainsi que
+l'acceptation des labs connectés restent à effectuer.
+Les tableaux suivants conservent l'état de la revue initiale,
 sauf mise à jour apportée par ces registres.
 
 La revue et la publication de la documentation sont distinctes de la validation

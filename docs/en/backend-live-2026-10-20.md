@@ -168,6 +168,47 @@ be recorded as separate steps. A real authorized person must complete any
 required consent or interactive sign-in; an automated unavailable-user response
 does not authorize it.
 
+## Browser recovery and three new runtime checks
+
+On October 20, the signed-in browser route became accessible again. Saved
+configuration and conversation history matched the earlier workshop licensing
+advisor. This confirms continuity with that Default-environment agent, not
+independent verification of the originally intended environment or a standard
+agent destination.
+
+Three fresh Preview checks passed their narrow expectations:
+
+* Uploaded-file retrieval returned `Power-Platform-Licensing-Guide.pdf`,
+  reference `turn1doc1`, with a displayed latency of 4.9 seconds. The complete
+  new answer identifies October 2026, quotes an introductory sentence and
+  cites the uploaded-file title through `cite:1`.
+* A fictional Contoso unpublished-discount question explicitly refused to
+  invent a tenant-specific discount or negotiated price.
+* Search for users (V2), called once with a synthetic search term and `top=-1`,
+  displayed the matching input and **Request validation · 400**, with a
+  displayed latency of 4.5 seconds. No retry was observed. The more specific
+  positive-number error text came from the agent, not the expanded error panel.
+
+The [sanitized browser evidence](../assets/runtime-2026-10-20/browser-results.json)
+preserves exact prompts, complete new answers, observed tool output and limits.
+The uploaded PDF's actual page, edition and quotation still require an
+independent source audit. A title match does not establish a working page anchor,
+and the new answer does not reconstruct the earlier historical transcript.
+The directory result proves request validation, not downstream outage recovery.
+
+Evaluate now opens and displays **Create your first evaluation**, alongside a
+Copilot Credits warning. No evaluation was created or run. The approval form
+received an unavailable-user response, not authorization. This browser boundary
+is distinct from the earlier PAC missing delegated-permission failure, which
+has not been repaired.
+
+No email, agent configuration, permission, consent, authentication or publication
+was changed, and no Azure resource was provisioned. Preview inference and retrieval
+did run; a displayed zero-credit estimate does not prove zero billing.
+No new screenshot file was retained, so none is claimed in the published gallery.
+The full workshop remains incomplete, including independent citation auditing,
+evaluation grading and the connected Search, telemetry, BYOM and Foundry paths.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

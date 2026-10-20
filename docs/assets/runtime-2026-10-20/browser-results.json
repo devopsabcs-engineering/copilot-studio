@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "task": "browser-runtime-recovery",
+  "observed_date_utc": "2026-10-20",
+  "observation_window_utc": "approximately 11:04-11:10",
+  "overall_status": "partial_runtime_recovery_workshop_incomplete",
+  "evidence_type": "actual_browser_observation",
+  "identity_verification": {
+    "status": "matched_existing_workshop_agent_by_configuration_and_history",
+    "agent_display_name": "Power Platform Licensing Advis",
+    "environment_route": "existing Default environment route supplied in handoff",
+    "identifiers_redacted": true,
+    "configuration_observed": [
+      "Draft",
+      "GPT-5.5 Chat",
+      "Send an email (V2)",
+      "Search for users (V2)",
+      "Power-Platform-Licensing-Guide.pdf",
+      "Search all websites"
+    ],
+    "history_correlated": [
+      "October 19 14:41 Preview conversation containing the exact previously documented supported licensing prompt",
+      "October 19 15:09 failed SearchforusersV2 entry",
+      "October 19 13:19 completed Send an email (V2) entry"
+    ],
+    "limitation": "This verifies continuity with the workshop agent used in earlier browser runs, not an independent assertion that the Default environment is the originally intended environment or a standard-agent authoring destination."
+  },
+  "checks": [
+    {
+      "id": "history-read",
+      "status": "passed_narrow_read",
+      "observation": "Existing History opened. The October 19 14:41 conversation exposed the greeting and original supported prompt only.",
+      "limitation": "That inspected history entry did not recover the historical complete answer or citation mapping. Other historical answers were not inferred."
+    },
+    {
+      "id": "fresh-uploaded-pdf-conversation",
+      "status": "passed_runtime_retrieval_and_answer_capture",
+      "prompt": "Read-only workshop test 2026-10-20. Using ONLY the uploaded Power-Platform-Licensing-Guide.pdf, identify the guide edition and quote one complete sentence describing Power Apps licensing. Cite the uploaded file and its page or section if available. If the uploaded guide cannot support your answer, say so. Do not search websites, use directory tools, send any email, or take any action outside document retrieval.",
+      "tool": {
+        "label": "Used tool: Searched knowledge",
+        "source": "Power-Platform-Licensing-Guide.pdf (Uploaded file)",
+        "query": "What is the guide edition and one complete sentence describing Power Apps licensing in the uploaded Power-Platform-Licensing-Guide.pdf?",
+        "output": "[1 result]\nTitle: Power-Platform-Licensing-Guide.pdf\nReferenceId: turn1doc1\n[File downloaded to sandbox: Power-Platform-Licensing-Guide.pdf — open this file using the most appropriate skill or tool available to you]",
+        "displayed_latency_seconds": 4.9,
+        "additional_observed_skill": "Used skill: analyzing-pdf"
+      },
+      "complete_final_answer_markdown": "The uploaded guide supports the answer.\n\n- Guide edition: \"Power Platform Licensing Guide | October 2026\" (shown on page 3 of the document).[1]\n\n- One complete sentence describing Power Apps licensing:\n  \"Use this guide to improve your understanding of how to license Microsoft Power Apps, Power Automate, Power Pages, and Power Platform add-ons.\" (Page 3, \"Using This Guide\" section).[1]\n\nSource: Power-Platform-Licensing-Guide.pdf, page 3 (\"Using This Guide\").[1]\n\n[1]: cite:1 \"Power-Platform-Licensing-Guide.pdf\"",
+      "citation_mapping": {
+        "answer_marker": "[1]",
+        "answer_target": "cite:1",
+        "displayed_title": "Power-Platform-Licensing-Guide.pdf",
+        "retrieval_reference": "turn1doc1",
+        "observation_boundary": "Same displayed uploaded-file title connects the answer citation and tool result. No HTTP citation URL, file viewer, or independently verified page anchor was obtained."
+      },
+      "limitations": [
+        "Quoted sentence, edition and page number are the agent's answer; the source PDF page was not independently inspected during this continuation.",
+        "The quote is an introductory licensing-guide sentence, not a complete Power Apps plan comparison.",
+        "No web-search tool appeared for this prompt, but Search all websites remains configured and was not disabled.",
+        "Internal explanatory activity text is not treated as independent proof of file reading beyond the observed tool output.",
+        "No claim that this new answer reconstructs the earlier supported-answer transcript."
+      ]
+    },
+    {
+      "id": "fresh-unsupported-tenant-discount",
+      "status": "passed_refusal",
+      "prompt": "Read-only negative grounding test. Using only that uploaded guide, what exact unpublished discount percentage and negotiated final Power Apps Premium price has Microsoft approved specifically for the fictional Contoso tenant next month? If the guide cannot establish those tenant-specific facts, explicitly say so and do not invent a quote. Do not search the web, query users, send email, or invoke any external action.",
+      "complete_final_answer": "The uploaded Power Platform Licensing Guide cannot establish those tenant-specific facts.\n\nThe guide is a general licensing document and does not provide any tenant-specific information about a fictional Contoso tenant, unpublished discount percentages, negotiated commercial terms, or Microsoft-approved future pricing for next month.\n\nTherefore:\n\nExact unpublished discount percentage for the fictional Contoso tenant next month: not established by the uploaded guide.\nNegotiated final Power Apps Premium price approved for that tenant next month: not established by the uploaded guide.\n\nI cannot provide or invent a discount or price that is not contained in the document.",
+      "new_tool_call_observed": false,
+      "limitation": "A refusal pass for this prompt, not a general hallucination-safety certification."
+    },
+    {
+      "id": "fresh-directory-invalid-top",
+      "status": "passed_expected_negative_error_surface",
+      "prompt": "Read-only connector validation: call Search for users (V2) once with searchTerm set to workshop-no-such-user-20261020-invalid and top set to -1. This deliberately tests invalid input handling without changing directory data. Do not retry or substitute another top value; if validation prevents the call, report that honestly. Report any connector error without claiming success. Do not send email or take any other action.",
+      "actual_tool_label": "Failed to use tool: Search for users (V2)",
+      "actual_tool_input": {
+        "isSearchTermRequired": true,
+        "searchTerm": "workshop-no-such-user-20261020-invalid",
+        "top": -1
+      },
+      "actual_tool_error_panel": "This tool call couldn't run. The request is missing required info or uses unsupported values. Error details: Request validation · 400.",
+      "displayed_latency_seconds": 4.5,
+      "agent_reported_error_text": "Top parameter should be a positive number.",
+      "agent_reported_no_retry": true,
+      "observed_retry": false,
+      "request_identifier_redacted": true,
+      "limitation": "The expanded tool panel independently verifies the input and validation 400. The more specific positive-number error string is preserved as agent-reported, not independently exposed in that panel. This is request validation, not proof that a downstream directory backend request ran or that outage recovery passed."
+    },
+    {
+      "id": "evaluate-browser-route",
+      "status": "passed_ui_access_evaluation_not_run",
+      "actual_text": "Evaluate your agent with confidence\nMeasure quality, catch issues early, and track improvements over time.\nEvaluations use Copilot Credits. Learn more\nCreate your first evaluation",
+      "existing_evaluation_exposed": false,
+      "create_evaluation_clicked": false,
+      "blocker": "The exposed route requires creating a first evaluation, outside the no-configuration-change boundary. No evaluation run or grader result was produced.",
+      "api_permission_boundary": "The earlier PAC InsufficientDelegatedPermissions / CopilotStudio.MakerOperations.Read failure was not retried or repaired. Browser UI access does not establish that the PAC application's permission changed."
+    }
+  ],
+  "safety": {
+    "new_runtime_prompts": 3,
+    "email_sent": false,
+    "agent_configuration_modified": false,
+    "agent_created": false,
+    "agent_published": false,
+    "permissions_or_consent_modified": false,
+    "authentication_modified": false,
+    "azure_resources_created": false,
+    "paid_test_resources_recreated": false,
+    "evaluation_created_or_run": false,
+    "runtime_consumption_note": "Actual existing-agent Preview inference/retrieval was exercised. The displayed 0 credits is not proof of zero billable consumption. No new paid resource was provisioned."
+  },
+  "screenshots": {
+    "saved_files": [],
+    "in_conversation": [
+      "Cropped connector validation 400 detail without account/tenant header or request identifier",
+      "Cropped Evaluate empty-state heading and Copilot Credits notice"
+    ],
+    "note": "Two separately saved Playwright locator screenshots were unusably clipped and were deleted after inspection. Do not claim persisted screenshot files."
+  },
+  "remaining_acceptance": [
+    "Full independent Lab 1 PDF answer/quotation/page and citation-target audit against actual source pages.",
+    "The earlier supported-answer historical transcript remains incomplete; the new narrow answer is separately captured.",
+    "Evaluation run/grading, with explicit authorization for any required configuration/consumption; authorized application/user permission recovery remains separate.",
+    "Authorized standard-agent test/authoring destination without converting, creating, publishing, or modifying the existing agent.",
+    "Labs 2-6 connected Copilot Search, agent-originated telemetry, BYOM prompt, and Foundry/Activity/Copilot integration boundaries documented in the existing ledgers.",
+    "No full workshop acceptance certification."
+  ],
+  "gate": {
+    "acceptance": "partial_not_full_pass",
+    "narrow_live_checks_passed": 3,
+    "full_workshop_status": "blocked"
+  }
+}

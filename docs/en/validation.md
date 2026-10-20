@@ -23,7 +23,12 @@ Activity configuration passed without an Activity/Copilot conversation.
 That isolated environment was also deleted and its absence independently verified.
 The [backend continuation](backend-live-2026-10-20.md) authenticated to Dataverse
 and cloned the actual saved agent through official PAC. Direct Line discovery
-and evaluation authorization remain blocked; a clone is not a conversation.
+and PAC evaluation authorization remain blocked; a clone is not a conversation.
+The later [browser recovery](backend-live-2026-10-20.md#browser-recovery-and-three-new-runtime-checks)
+did execute three fresh Preview checks: uploaded-PDF retrieval/answer capture,
+unsupported-price refusal and visible invalid-input validation 400.
+Evaluate UI access recovered, but no evaluation was created or run.
+Independent PDF claim/page/citation auditing and connected-lab acceptance remain open.
 The tables below retain the original review baseline unless superseded by those records.
 
 Documentation review and publication are separate from live lab validation.

@@ -174,6 +174,50 @@ distinctes. Une vraie personne autorisée doit effectuer le consentement ou la
 connexion interactive nécessaire ; une réponse automatique d'indisponibilité
 ne l'autorise pas.
 
+## Reprise du navigateur et trois nouveaux contrôles réels
+
+Le 20 octobre, le parcours navigateur connecté est redevenu accessible.
+La configuration et l'historique correspondaient au conseiller de licences
+utilisé précédemment. Cela confirme la continuité avec cet agent de
+l'environnement Default, pas une vérification indépendante de l'environnement
+initialement visé ni d'une destination d'agent standard.
+
+Trois nouveaux contrôles Preview ont satisfait leurs attentes limitées :
+
+* La recherche dans le fichier chargé a renvoyé
+  `Power-Platform-Licensing-Guide.pdf`, référence `turn1doc1`, avec une latence
+  affichée de 4,9 secondes. La nouvelle réponse complète indique octobre 2026,
+  cite une phrase d'introduction et référence le titre du fichier via `cite:1`.
+* Une question sur une remise non publiée du locataire fictif Contoso a
+  explicitement refusé d'inventer une remise ou un prix négocié propre au client.
+* Search for users (V2), appelé une seule fois avec une recherche synthétique
+  et `top=-1`, a affiché les entrées correspondantes et
+  **Request validation · 400**, avec une latence affichée de 4,5 secondes.
+  Aucune nouvelle tentative n'a été observée. Le message plus précis exigeant
+  un nombre positif provenait de l'agent, pas du panneau d'erreur développé.
+
+Les [preuves navigateur expurgées](../assets/runtime-2026-10-20/browser-results.json)
+conservent les questions exactes, les nouvelles réponses complètes, les sorties
+observées et leurs limites. La page, l'édition et la citation doivent encore
+être contrôlées indépendamment dans le PDF. Un titre identique ne prouve pas
+qu'une ancre de page fonctionne ; cette nouvelle réponse ne reconstitue pas
+l'ancienne transcription. L'erreur de l'annuaire prouve la validation des
+entrées, pas la récupération après une panne du service en aval.
+
+Evaluate s'ouvre désormais et affiche **Create your first evaluation**, avec
+un avertissement sur les Copilot Credits. Aucune évaluation n'a été créée ou
+exécutée. Le formulaire d'approbation a signalé l'indisponibilité de
+l'utilisateur, pas une autorisation. Cette limite du navigateur est distincte
+de l'échec PAC antérieur pour permission déléguée absente, qui reste non corrigé.
+
+Aucun courriel n'a été envoyé ; configuration, permissions, consentement,
+authentification et publication de l'agent sont inchangés. Aucune ressource
+Azure n'a été créée. L'inférence et la recherche Preview ont bien eu lieu ;
+une estimation affichée à zéro crédit ne prouve pas une facturation nulle.
+Aucun nouveau fichier de capture n'a été conservé ni ajouté à la galerie.
+L'atelier reste incomplet : audit indépendant des citations, notation des
+évaluations et parcours connectés Search, télémétrie, BYOM et Foundry.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

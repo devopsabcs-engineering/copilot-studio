@@ -107,6 +107,30 @@ class WikiTests(unittest.TestCase):
                     "new_citation_checks", "new_screenshots"):
             self.assertEqual(result[key], 0)
 
+    def test_browser_recovery_preserves_acceptance_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "browser-results.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(result["gate"]["narrow_live_checks_passed"], 3)
+        self.assertEqual(result["gate"]["full_workshop_status"], "blocked")
+        checks = {check["id"]: check for check in result["checks"]}
+        answer = checks["fresh-uploaded-pdf-conversation"]
+        self.assertIn("cite:1", answer["complete_final_answer_markdown"])
+        self.assertEqual(answer["citation_mapping"]["retrieval_reference"], "turn1doc1")
+        directory = checks["fresh-directory-invalid-top"]
+        self.assertEqual(directory["actual_tool_input"]["top"], -1)
+        self.assertIn("400", directory["actual_tool_error_panel"])
+        self.assertFalse(directory["observed_retry"])
+        self.assertFalse(checks["evaluate-browser-route"]["create_evaluation_clicked"])
+        safety = result["safety"]
+        self.assertEqual(safety["new_runtime_prompts"], 3)
+        for key in ("email_sent", "agent_configuration_modified", "agent_created",
+                    "agent_published", "permissions_or_consent_modified",
+                    "authentication_modified", "azure_resources_created",
+                    "paid_test_resources_recreated", "evaluation_created_or_run"):
+            self.assertFalse(safety[key])
+        self.assertEqual(result["screenshots"]["saved_files"], [])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"
