@@ -12,10 +12,10 @@ ms.date: 2026-10-19
 |-----|----------------------------|------------------------------|
 | 0 | Identité, rôles, quotas et outils vérifiés ; tests payants approuvés | Disponibilité complète du harnais standard |
 | 1 | Recherche, refus, annuaire, livraison, clarification, activité de connecteur échouée et hash du PDF téléchargé vérifiés | Audit complet des citations et sortie HTTP brute du connecteur |
-| 2 | Indexation, vrais embeddings et vectorisation des requêtes par identité managée réussis | Ingestion Blob privée par indexeur et connexion Search Copilot |
+| 2 | Ingestion privée des PDF hôteliers, embeddings intégrés et vectorisation des requêtes par identité managée réussis | Isolation du corpus de licences et connexion Search Copilot |
 | 3 | Monitor natif inspecté ; ingestion Azure synthétique dédiée et corrélation KQL exacte réussies | Télémétrie émise par l'agent et configuration standard |
 | 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
-| 5 | Tests Free et 14 contrôles payants sans clé de modèle/recherche réussis | Indexeur Blob, projections et réponse Copilot sourcée |
+| 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis | Réponse Copilot sourcée |
 | 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
 | 6 | 24 enregistrements, 3 index/sources, recherche minimale réelle et 19 passages exacts | Modèle/agent Foundry, MCP, Activity et parcours d'agent connecté Copilot |
 
@@ -26,12 +26,133 @@ l'ensemble de l'atelier a réussi. Les
 conservent versions, nombres et erreur observée, sans identifiants de locataire,
 chemins privés, secrets ou état Terraform.
 
+## Poursuite de l'ingestion privée des PDF
+
+Le test payant isolé suivant a validé l'ingestion laissée ouverte par la première
+exécution payante. Il utilisait un nouveau service Search **Basic** dans West US 2,
+un stockage privé et les trois PDF hôteliers originaux autorisés. Les
+[résultats expurgés de la chaîne privée](../assets/runtime-2026-10-19/private-pipeline-results.json)
+consignent **25 contrôles réussis**. Il s'agit d'une exécution réelle des services,
+pas d'une reproduction de l'assistant du portail ni d'une validation complète
+d'agent connecté.
+
+### Transfert privé sans affaiblir les stratégies
+
+Le réseau public, l'accès anonyme et les clés partagées du stockage sont restés
+désactivés. Une VM Ubuntu privée ne disposait d'aucune IP publique. Son identité
+managée affectée par l'utilisateur téléversait par un point de terminaison privé
+Blob, avec vérification réelle de la résolution DNS privée. Chaque PDF original
+a été retéléchargé puis comparé par SHA-256 à son original local : respectivement
+**812 743**, **812 380** et **825 009 octets**.
+
+La première commande VM intégrant un gros contenu a annoncé un provisionnement
+réussi, sans marqueur de téléversement. Cette réponse n'a pas été acceptée comme
+preuve ; aucune limite précise de taille ni cause racine n'a été démontrée.
+La solution fonctionnelle utilisait temporairement un tunnel SSH/SCP natif
+**Azure Bastion Standard**. La clé d'hôte de la VM provenait d'une lecture
+authentifiée du plan de contrôle Azure. SSH était autorisé seulement depuis le
+sous-réseau Bastion ; aucune IP publique n'a été attribuée à la VM. Les trois
+fichiers originaux ont été transférés, puis de petites commandes VM ont réalisé
+le téléversement sans clé et la comparaison des empreintes. Le tunnel local a
+ensuite été arrêté.
+
+Un plan Terraform rafraîchi tentait aussi de remplacer l'IP publique NAT existante,
+car Azure avait ajouté des étiquettes IP gérées par le service. La copie de travail
+a préservé ce champ avec `ignore_changes = [ip_tags]`, de portée limitée, sans
+ignorer toute dérive. Le plan Bastion revu ne comportait alors que trois créations
+et une modification privée du NSG, sans remplacer l'IP existante. L'environnement
+privé initial comportait 30 instances Terraform ; Bastion en a ajouté trois.
+
+### Indexeur Blob, projections enfants et vecteurs intégrés réels
+
+1. Attribuez à l'identité système Search Storage Blob Data Reader sur le nouveau
+   compte et Cognitive Services OpenAI User sur la nouvelle ressource de modèles.
+2. Créez une liaison privée partagée Search pour le groupe Blob. Comparez
+   l'inventaire des connexions privées avant et après ; approuvez seulement la
+   nouvelle connexion unique. Vérifiez provisionnement réussi et approbation.
+3. Créez une source Blob avec une chaîne `ResourceId`, sans clé de compte.
+   Utilisez l'API de données Search `2026-04-01` et l'API ARM `2025-05-01`
+   pour la liaison partagée.
+4. Créez un index enfant avec clé de passage, `parent_id` filtrable, nom du fichier,
+   URL source, texte et vecteur récupérable de 1 536 dimensions.
+5. Configurez Text Split sur **400 caractères**, avec **50 caractères de
+   chevauchement**, puis la compétence réelle `text-embedding-ada-002`, avec
+   identité managée et sans clé d'API.
+6. Configurez `indexProjections` en un-à-plusieurs avec
+   `projectionMode: skipIndexingParentDocuments`, en associant passage, vecteur
+   et métadonnées sources. Laissez Search produire l'association au parent.
+7. Exécutez l'indexeur avec `executionEnvironment: private`, aucune défaillance
+   tolérée, puis examinez son résultat final, pas seulement sa création.
+8. Récupérez les documents projetés, contrôlez chaque vecteur et champ source,
+   puis combinez requête vectorielle en langage naturel et recherche lexicale
+   sémantique.
+
+Le résultat final était **success : 3 traités, 0 échec, aucune erreur ni
+avertissement**. Search a produit **9 passages enfants pour 3 parents**, trois
+par PDF. Les neuf vecteurs avaient chacun 1 536 valeurs finies et n'étaient pas
+nuls. Chaque enfant conservait son nom de fichier original et son URL source
+Blob. La recherche hybride sémantique a renvoyé trois résultats avec scores de
+reclassement, **Tokyo** en tête pour la question sur le toit-terrasse. Les URL
+privées ont été vérifiées comme métadonnées, pas comme citations accessibles
+à chaque utilisateur.
+
+La première automatisation s'est arrêtée après les transferts et l'approbation,
+car la commande CLI d'annuaire n'accepte pas `--subscription`. Retirer cet argument
+uniquement des lectures Graph a permis de reprendre seulement Search. Les preuves
+de téléversement et d'approbation ont été conservées, sans refaire le transfert.
+
+### Correction de l'ordre de nettoyage
+
+L'inventaire de nettoyage vérifié contenait **17 ressources Azure** ; le plan de
+suppression couvrait **33 instances Terraform**, y compris les rôles et associations
+techniques. L'appartenance du disque VM et de la carte réseau du point de
+terminaison privé, créés automatiquement, a été vérifiée avant suppression.
+
+Le premier destroy a supprimé les autres ressources, mais Search a renvoyé
+HTTP 409, `LockedSPLResourceFound` : les verrous de gestion ne pouvaient pas être
+vérifiés sur le stockage cible déjà supprimé. Cela ne prouve pas l'existence
+d'un verrou réel. La reprise a vérifié que l'unique ressource Azure restante
+était le service Search du test, contrôlé la cible Storage exacte de sa liaison
+partagée, supprimé cette seule liaison et revu un nouveau plan de suppression
+pour les objets Terraform restants. Aucun verrou ni ressource sans rapport
+n'a été modifié.
+
+Pour reproduire le nettoyage, supprimez les liaisons privées partagées du test
+**avant Search ou leur compte Storage cible**. Une liaison créée hors Terraform
+n'est pas nécessairement connue du graphe de destruction initial. Les résultats
+structurés distinguent le contrôle final indépendant d'absence du groupe
+de la première destruction échouée. La reprise a réussi et Azure a confirmé
+indépendamment l'absence du groupe. Le tunnel a été arrêté ; les clés SSH de
+session et fichiers temporaires de transfert ont été supprimés. Aucune ressource
+de test n'a été volontairement conservée. Aucun montant exact n'est annoncé.
+
+### Limites actuelles et références prises en charge
+
+Basic n'est pas pris en charge pour tous les âges et toutes les régions de service
+Search. Le [guide actuel des indexeurs privés](https://learn.microsoft.com/en-us/azure/search/search-indexer-howto-access-private)
+autorise les compétences de plongement sur Basic ou supérieur dans les régions
+à haute capacité admissibles pour les services créés après le 3 avril 2024.
+Ce test couvre un nouveau service West US 2, pas toutes les combinaisons.
+Le [transfert Bastion natif](https://learn.microsoft.com/en-us/azure/bastion/vm-upload-download-native)
+exige Standard ou supérieur avec tunnel natif ; Bastion Basic ne convient pas.
+
+L'interface Copilot Studio échouait toujours au rechargement. Son point de
+terminaison public de chargement de l'interface a renvoyé une réinitialisation
+de connexion dans `curl` comme dans le navigateur. Ce n'est pas une preuve
+d'échec d'authentification. La route Indexers du portail Azure s'est ouverte,
+mais son cadre de contenu ne s'est pas chargé ; aucune capture de portail réussie
+n'est annoncée pour cette chaîne. La preuve est le résultat réel des API/indexeur.
+
+La chaîne hôtelière ne valide pas l'isolation du corpus de licences, le connecteur
+Search Copilot, la télémétrie émise par l'agent, un prompt BYOM connecté ou le
+parcours Foundry/MCP/Activity/agent connecté. Ces critères restent ouverts.
+
 ## Poursuite payante approuvée
 
 À **19 h 04, heure de l'Est, le 19 octobre**, le propriétaire a explicitement
 approuvé le paiement des tests. Les mentions d'autorisation payante manquante
 plus bas décrivent les étapes précédentes, pas l'état actuel. La poursuite a utilisé
-un seul nouveau groupe étiqueté, sans réutiliser d'applications sans rapport.
+un seul nouveau groupe étiqueté pour cette première étape, sans réutiliser d'applications sans rapport.
 Les [résultats payants expurgés](../assets/runtime-2026-10-19/paid-cloud-results.json)
 séparent déploiement, recherche, télémétrie synthétique et nettoyage.
 
@@ -130,9 +251,10 @@ la facturation Azure peut apparaître plus tard.
 Le nouvel onglet a brièvement affiché Home, mais le nouvel onglet classique restait
 inaccessible à l'automatisation et la navigation suivante a de nouveau rencontré
 la réinitialisation de connexion de l'interface. Le paiement n'est plus le blocage.
-Restent l'accès standard, le réseau Blob/indexeur privé, les prompts connectés et
-le parcours Foundry/MCP/Activity/agent connecté Copilot. Aucun courriel de preuve
-existant n'a été renvoyé.
+À la fin de cette étape, le réseau Blob/indexeur privé restait à vérifier ;
+la poursuite décrite plus haut l'a ensuite validé. Restent l'accès standard,
+les prompts connectés et le parcours Foundry/MCP/Activity/agent connecté Copilot.
+Aucun courriel de preuve existant n'a été renvoyé.
 
 ## Lab 0 - Précontrôle réel de l'environnement
 

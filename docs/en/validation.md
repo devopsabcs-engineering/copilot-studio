@@ -12,7 +12,10 @@ Latest execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,
 14 keyless model/retrieval checks, and one actual synthetic Application Insights
 event with exact KQL correlation passed; the owned resources were deleted and
-absence verified. Lab 6's SDK failure and isolated restoration were also tested.
+absence verified. A further private PDF pipeline passed 25 checks, including an
+actual Blob indexer, nine child projections and integrated 1,536-dimensional
+embeddings. The latest record separates its cleanup from the earlier run.
+Lab 6's SDK failure and isolated restoration were also tested.
 The tables below retain the original review baseline unless superseded by that record.
 
 Documentation review and publication are separate from live lab validation.

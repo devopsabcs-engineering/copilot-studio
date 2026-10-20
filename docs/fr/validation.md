@@ -12,7 +12,10 @@ Dernières preuves : [registre de réexécution réelle](live-rerun-2026-10-19.m
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de
 15 instances, 14 contrôles modèle/recherche sans clé et un événement synthétique
 Application Insights réellement corrélé par KQL ont réussi. Les ressources ont
-été supprimées et leur absence vérifiée. L'échec SDK du lab 6 et sa restauration
+été supprimées et leur absence vérifiée. Une autre chaîne PDF privée a réussi
+25 contrôles : indexeur Blob réel, neuf projections enfants et embeddings
+intégrés de 1 536 dimensions. Le dernier registre distingue son nettoyage
+de celui de l'exécution précédente. L'échec SDK du lab 6 et sa restauration
 isolée ont aussi été testés. Les tableaux suivants
 conservent l'état de la revue initiale, sauf mise à jour apportée par ce registre.
 

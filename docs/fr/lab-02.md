@@ -15,8 +15,8 @@ provenance documentaire afin de tester chaque étape. Prévoyez environ 90 minut
 hors autorisations et délais d’indexation.
 
 > [!IMPORTANT]
-> Statut : **Procédure revue ; exécution réelle bloquée**.
-> Équivalent de suivi : **Procedure reviewed; live execution blocked**.
+> Statut : **Chaîne de recherche testée ; intégration Copilot complète bloquée**.
+> Équivalent de suivi : **Retrieval pipeline tested; complete Copilot integration blocked**.
 > Le 2026-10-19, la connexion a réussi et l’accueil Copilot Studio était visible.
 > La navigation vers Agents et les rechargements suivants ont toutefois affiché
 > une page vide, empêchant l’inspection de l’agent de licences et une nouvelle
@@ -27,7 +27,9 @@ hors autorisations et délais d’indexation.
 > à l'indexation et à la recherche réelles, pas au vectoriseur intégré ou à la
 > connexion Copilot à cette étape. Une exécution payante approuvée a ensuite validé
 > de vrais embeddings et la vectorisation des requêtes par identité managée ;
-> ingestion privée Blob/indexeur et connexion Copilot restent non vérifiées.
+> un autre test privé du corpus hôtelier a réussi 25 contrôles : trois PDF originaux,
+> neuf passages enfants projetés par Search, embeddings intégrés et recherche hybride.
+> L'isolation du corpus de licences et la connexion Copilot restent non vérifiées.
 > Consultez les [derniers résultats](live-rerun-2026-10-19.md).
 > L'inventaire initial est limité à cet abonnement et ne prouve pas l’absence
 > d’une connexion ailleurs. Une vérification documentaire n’est pas un test

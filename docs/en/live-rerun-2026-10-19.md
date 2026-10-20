@@ -12,10 +12,10 @@ ms.date: 2026-10-19
 |-----|-------------------------|-------------------------------|
 | 0 | Azure identity, roles, quota and tools verified; owner approved paid tests | Full standard-harness readiness |
 | 1 | Retrieval, refusal, directory, delivery, clarification, failed connector activity and downloaded PDF hash checked | Full citation audit and raw connector HTTP/error body |
-| 2 | Actual indexing, real embeddings and managed-identity query vectorization passed | Private Blob/indexer ingestion and Copilot Search connection |
+| 2 | Private hotel PDF ingestion, integrated embeddings and managed-identity query vectorization passed | Licensing-corpus isolation and Copilot Search connection |
 | 3 | Native Monitor inspected; dedicated Azure synthetic ingestion and exact KQL correlation passed | Agent-originated telemetry and standard-agent configuration |
 | 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
-| 5 | Free checks plus 14 paid keyless model/retrieval checks passed | Blob indexer/projections and grounded Copilot answer |
+| 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed | Grounded Copilot answer |
 | 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
 | 6 | 24 records, 3 indexes/sources, actual minimal retrieval and 19 exact source matches | Foundry model/agent, MCP, Activity and Copilot connected-agent flow |
 
@@ -25,12 +25,122 @@ The [sanitized machine-readable results](../assets/runtime-2026-10-19/results.js
 retain the exact observed versions, counts, and failure without tenant identifiers,
 private paths, credentials, or Terraform state.
 
+## Private PDF ingestion continuation
+
+The next isolated paid test completed the ingestion boundary left open by the
+first paid run. It used a fresh **Basic** Search service in West US 2, private
+Storage and the three original authorized hotel PDFs. The
+[sanitized private-pipeline results](../assets/runtime-2026-10-19/private-pipeline-results.json)
+record **25 passing checks**. This is actual service execution, not a reproduction
+of a portal wizard screenshot or a complete connected-agent pass.
+
+### Private transfer without weakening policy
+
+The test kept Storage public networking, anonymous access and shared keys disabled.
+A private Ubuntu runner had no public IP. Its user-assigned identity uploaded
+through a Blob private endpoint, with private DNS resolution checked at runtime.
+Each original PDF was downloaded again and its SHA-256 compared with the local
+original: **812,743**, **812,380** and **825,009 bytes**, respectively.
+
+The first large embedded VM Run Command returned provisioning success but no upload
+marker. It was rejected as evidence; no specific payload limit or root cause was
+proven. The working substitute was a temporary **Standard Azure Bastion** native
+SSH/SCP tunnel. The VM host key was pinned from an authenticated Azure control-plane
+read. SSH was allowed only from the Bastion subnet; the runner never received a
+public IP. Three original files were transferred, then small VM commands performed
+the keyless upload and hash verification. The local tunnel was stopped afterward.
+
+A refreshed Terraform plan also tried to replace the existing NAT public IP because
+Azure had injected service-managed IP tags. The working copy preserved that field
+with narrowly scoped `ignore_changes = [ip_tags]`, not a broad drift exemption.
+The reviewed Bastion plan then contained only three creates and one private NSG
+update, with no existing IP replacement. The initial private environment had
+30 Terraform instances; Bastion added three.
+
+### Actual Blob indexer, child projections and integrated vectors
+
+1. Assign the Search system identity Storage Blob Data Reader on the new account,
+   and Cognitive Services OpenAI User on the new model resource.
+2. Create a Search shared private link for the Blob group. Compare the account's
+   private connection inventory before and after creation; approve only the one
+   new connection. Verify both provisioning success and approval.
+3. Create a Blob data source with a `ResourceId` connection string, not an account
+   key. Use Search data-plane API `2026-04-01` and shared-link ARM API `2025-05-01`.
+4. Create a child index with a chunk key, filterable `parent_id`, source filename,
+   source URL, passage text and a retrievable 1,536-dimensional vector.
+5. Configure Text Split for **400 characters** with **50-character overlap**.
+   Follow it with the actual `text-embedding-ada-002` skill, using managed identity
+   and no API key.
+6. Configure one-to-many `indexProjections` with
+   `projectionMode: skipIndexingParentDocuments`, mapping passage, vector and source
+   metadata. Let Search populate the parent association.
+7. Run the indexer with `executionEnvironment: private`, zero tolerated failures,
+   and inspect its terminal result rather than only its creation response.
+8. Retrieve the projected documents, inspect every vector and source field, then
+   execute a natural-language vector query combined with semantic lexical search.
+
+The final indexer result was **success: 3 processed, 0 failed, no errors and no
+warnings**. Search produced **9 child chunks across 3 parents**, three per PDF.
+All nine vectors contained 1,536 finite values and were nonzero. Every child
+retained its original filename and Blob source URL. Semantic hybrid retrieval
+returned three hits with reranker scores, with **Tokyo** first for the rooftop query.
+Private URLs were checked as metadata, not certified as user-accessible citations.
+
+The first automation attempt stopped after upload/link success because the
+directory CLI command does not accept `--subscription`. Removing that argument
+only from Graph directory lookups allowed a Search-only resume. Existing upload
+and approval evidence was retained; the completed upload was not repeated.
+
+### Cleanup ordering correction
+
+The guarded cleanup inventory contained **17 Azure resources**; the delete-only
+plan covered **33 Terraform instances**, including role assignments and helper
+associations. Automatically created VM disk and private-endpoint NIC ownership
+were verified before deletion.
+
+The first destroy removed the other resources but Search returned HTTP 409,
+`LockedSPLResourceFound`: it could not verify management locks on the already
+deleted Storage target. This does not prove an actual management lock existed.
+The recovery verified that the sole remaining Azure resource was the owned Search
+service, checked the shared link's exact Storage target, deleted that owned link,
+and reviewed a new deletion-only plan for the remaining Terraform objects.
+No unrelated locks or resources were changed.
+
+For reproduction, remove owned shared private links **before deleting either
+Search or their target Storage account**. If a link is created outside Terraform,
+do not assume the original deployment's destroy graph knows this dependency.
+The structured evidence records the independent final resource-group absence
+check, separately from the failed first destroy. The retry succeeded and Azure
+independently confirmed that the group was absent. The tunnel was stopped and
+the session SSH keys and temporary payload files were removed. No test resources
+were intentionally retained. No exact billed total is claimed.
+
+### Current limits and supported references
+
+Basic support is not universal across all ages and regions of Search services.
+The current [private-indexer guidance](https://learn.microsoft.com/en-us/azure/search/search-indexer-howto-access-private)
+supports embedding skillsets on Basic or higher in supported high-capacity regions
+for services created after April 3, 2024. This run tested one new West US 2 service,
+not every SKU/region combination. The
+[native Bastion transfer procedure](https://learn.microsoft.com/en-us/azure/bastion/vm-upload-download-native)
+requires Standard or higher and native tunneling; Basic Bastion is not a substitute.
+
+The Copilot Studio shell still failed on reload. The public shell bootstrapper
+endpoint independently returned a connection reset from `curl` as well as the
+browser. This is not evidence of a failed sign-in. The Azure portal Indexers route
+opened, but its content frame did not load; no successful portal screenshot is
+claimed for this pipeline. The pass evidence is the actual API/indexer result.
+
+The hotel pipeline does not validate licensing-document isolation, the Copilot
+Search connector, agent-originated telemetry, a connected BYOM prompt, or the
+Foundry/MCP/Activity/connected-agent flow. Those acceptance boundaries remain open.
+
 ## Approved paid continuation
 
 At **19:04 Eastern on October 19**, the owner explicitly approved paying for
 the lab tests. Earlier statements about missing paid authorization below describe
 the preceding checkpoints, not the current approval state. The continuation used
-one new, tagged resource group; no unrelated applications were repurposed.
+one new, tagged resource group for this first increment; no unrelated applications were repurposed.
 The [sanitized paid results](../assets/runtime-2026-10-19/paid-cloud-results.json)
 separate deployment, retrieval, synthetic telemetry and cleanup evidence.
 
@@ -121,9 +231,10 @@ Azure billing can arrive later.
 
 The new browser tab briefly rendered Home, but the classic popup was still not
 exposed to automation and later navigation again hit the shell connection reset.
-Paid approval is no longer the blocker. The remaining gates are standard-agent
-access, private Blob/indexer networking, connected prompts, and the Foundry/MCP/
-Activity/Copilot connected-agent path. No existing proof email was resent.
+Paid approval is no longer the blocker. At the end of that increment, the remaining
+gates included private Blob/indexer networking, covered by the later continuation
+above. Standard-agent access, connected prompts and the Foundry/MCP/Activity/Copilot
+connected-agent path remain open. No existing proof email was resent.
 
 ## Lab 0 - Actual environment preflight
 

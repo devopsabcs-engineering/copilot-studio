@@ -1,0 +1,182 @@
+{
+  "workshop_day_local": "2026-10-19",
+  "scope": "Approved isolated private Blob/indexer/integrated-vectorization validation",
+  "full_workshop_passed": false,
+  "deployment": {
+    "initial_terraform_instances": 30,
+    "final_terraform_instances": 33,
+    "search_sku": "basic",
+    "search_region": "westus2",
+    "runner_public_ip": false,
+    "storage_public_network_access": "Disabled",
+    "storage_shared_key_access": false,
+    "storage_anonymous_access": false,
+    "policy_exemptions_created": false,
+    "azure_managed_ip_tags_preserved": true,
+    "bastion_sku": "Standard",
+    "vm_host_key_pinned_from_control_plane": true,
+    "ssh_allowed_only_from_bastion_subnet": true,
+    "temporary_tunnel_stopped": true
+  },
+  "retrieval": {
+    "passed": true,
+    "checks_passed": 25,
+    "original_pdf_hash_roundtrips": 3,
+    "text_split_maximum_characters": 400,
+    "text_split_overlap_characters": 50,
+    "embedding_model": "text-embedding-ada-002",
+    "vector_dimensions": 1536,
+    "indexer_execution_environment": "private",
+    "shared_private_link_approved": true,
+    "managed_identity_for_upload_indexing_and_vectorization": true,
+    "search_data_plane_api": "2026-04-01",
+    "shared_private_link_arm_api": "2025-05-01",
+    "private_source_urls_are_not_proof_of_user_accessible_citations": true,
+    "checks": [
+      {
+        "name": "owned_private_group",
+        "passed": true
+      },
+      {
+        "name": "storage_private_and_keyless",
+        "passed": true
+      },
+      {
+        "name": "runner_has_no_public_ip",
+        "passed": true
+      },
+      {
+        "name": "original_pdf_count",
+        "passed": true
+      },
+      {
+        "name": "pdf_1_transfer_request_bounded",
+        "passed": true
+      },
+      {
+        "name": "pdf_1_private_upload_hash",
+        "passed": true
+      },
+      {
+        "name": "pdf_1_private_roundtrip",
+        "passed": true,
+        "bytes": 812743
+      },
+      {
+        "name": "pdf_2_transfer_request_bounded",
+        "passed": true
+      },
+      {
+        "name": "pdf_2_private_upload_hash",
+        "passed": true
+      },
+      {
+        "name": "pdf_2_private_roundtrip",
+        "passed": true,
+        "bytes": 812380
+      },
+      {
+        "name": "pdf_3_transfer_request_bounded",
+        "passed": true
+      },
+      {
+        "name": "pdf_3_private_upload_hash",
+        "passed": true
+      },
+      {
+        "name": "pdf_3_private_roundtrip",
+        "passed": true,
+        "bytes": 825009
+      },
+      {
+        "name": "shared_private_link_provisioned",
+        "passed": true
+      },
+      {
+        "name": "single_new_private_connection",
+        "passed": true
+      },
+      {
+        "name": "shared_private_link_approved",
+        "passed": true
+      },
+      {
+        "name": "resumed_link_owned_and_approved",
+        "passed": true
+      },
+      {
+        "name": "fresh_owned_index_namespace",
+        "passed": true
+      },
+      {
+        "name": "indexer_success",
+        "passed": true,
+        "status": "success",
+        "processed": 3,
+        "failed": 0
+      },
+      {
+        "name": "indexer_no_warnings",
+        "passed": true
+      },
+      {
+        "name": "one_to_many_child_projection",
+        "passed": true,
+        "child_chunks": 9,
+        "parents": 3,
+        "chunks_per_parent": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "name": "all_projected_vectors_real_dimensions",
+        "passed": true,
+        "checked_vectors": 9
+      },
+      {
+        "name": "original_source_metadata_preserved",
+        "passed": true
+      },
+      {
+        "name": "projected_semantic_hybrid",
+        "passed": true,
+        "hits": 3
+      },
+      {
+        "name": "rooftop_top_source_tokyo",
+        "passed": true
+      }
+    ]
+  },
+  "failed_attempts_and_corrections": [
+    "Large embedded VM command returned no upload marker; rejected as proof, root cause not established",
+    "Transferred original PDFs with native Bastion SCP and used small keyless upload commands",
+    "Preserved Azure-injected IP tags rather than replacing the existing NAT public IP",
+    "Removed unsupported subscription argument from Graph directory lookup; resumed only Search processing"
+  ],
+  "cleanup": {
+    "passed": true,
+    "terraform_delete_instances": 33,
+    "owned_azure_resources": 17,
+    "automatic_child_ownership_verified": true,
+    "resource_group_absence_independently_verified": true,
+    "active_paid_lab_resources_intentionally_retained": false,
+    "initial_search_deletion_http_status": 409,
+    "initial_search_deletion_error_code": "LockedSPLResourceFound",
+    "owned_shared_link_deleted_before_retry": true,
+    "remaining_retry_terraform_instances": 3
+  },
+  "remaining_acceptance": [
+    "Licensing-corpus isolation",
+    "Copilot Search connection and grounded answer",
+    "Agent-originated telemetry",
+    "Connected BYOM prompt",
+    "Foundry agent, MCP, Activity and Copilot connected-agent flow"
+  ],
+  "cost": {
+    "paid_usage_occurred": true,
+    "exact_billed_total_verified": false
+  }
+}

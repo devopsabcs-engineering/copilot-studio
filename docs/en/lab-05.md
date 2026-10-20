@@ -19,8 +19,10 @@ Build a retrieval-augmented generation (RAG) pipeline: ingest documents, split t
 > Those Free-run vectors were explicit city features, not semantic embeddings.
 > A later approved paid run passed 14 keyless checks with real 1,536-dimensional
 > embeddings, managed-identity query vectorization and semantic hybrid retrieval.
-> Its chunking was local, not a Blob indexer/projection pipeline; the Copilot
-> connection remains unexecuted. See cleanup and the
+> That first run used local chunking. A subsequent private Basic Search run passed
+> 25 checks with the three original PDFs, a private Blob indexer, nine child
+> projections, integrated embeddings and semantic hybrid retrieval. The Copilot
+> connection remains unexecuted. See the detailed private procedure, cleanup and the
 > [actual results](live-rerun-2026-10-19.md).
 
 These are original teaching instructions, not a republication of protected workshop text or code. The original three PDF demonstration files exist locally but are not distributed here. No protected screenshots are included.

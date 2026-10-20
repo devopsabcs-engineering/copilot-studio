@@ -14,7 +14,7 @@ Keep retrieval, answer generation, and document provenance separate so you can t
 each layer. Allow about 90 minutes, excluding resource approval and indexing delays.
 
 > [!IMPORTANT]
-> Status: **Procedure reviewed; live execution blocked**.
+> Status: **Retrieval pipeline tested; complete Copilot integration blocked**.
 > On 2026-10-19, sign-in succeeded and the Copilot Studio home shell was visible.
 > Subsequent Agents navigation and reloads returned a blank page, preventing
 > inspection of the licensing agent or a fresh knowledge question. The current
@@ -23,8 +23,10 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 > Application Insights components exist and were left unchanged. A disposable Free
 > Search service was then used for actual indexing and retrieval, but not the
 > integrated vectorizer or Copilot connection at that checkpoint. A later approved
-> paid run verified real embeddings and managed-identity query vectorization;
-> private Blob/indexer ingestion and the Copilot connection remain unverified. See the
+> paid run verified real embeddings and managed-identity query vectorization.
+> A further private hotel-corpus test passed 25 checks: three original PDFs,
+> nine Search-projected child chunks, integrated embeddings and hybrid retrieval.
+> Licensing-corpus isolation and the Copilot connection remain unverified. See the
 > [latest runtime results](live-rerun-2026-10-19.md). The original review was scoped to
 > that subscription, not proof that no connection exists elsewhere. Documentation
 > checks are not runtime passes. The original review created no resources or agent changes.
