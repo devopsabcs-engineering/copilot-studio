@@ -31,6 +31,16 @@ autorisations.
 
 ### Objectifs et prérequis
 
+L'expérience Standard rétablie a ensuite exposé la vraie fenêtre BYOM du prompt.
+Elle exige nom de déploiement, modèle de base, point de terminaison et
+**API Key**, sans sélecteur d'authentification. L'abonnement sélectionné impose
+des comptes Cognitive Services sans clé. Il s'agit d'un conflit concret entre
+politique et authentification, non d'un manque de droits sur l'abonnement.
+Le provisionnement de ce parcours est suspendu : ne réactivez pas
+l'authentification locale et ne comptez pas un modèle intégré comme réussite
+BYOM. L'action Search propose séparément Entra Integrated.
+Voir les [contrats observés](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
+
 * Distinguer le modèle d’embeddings de Search du modèle de conversation du prompt.
 * Connecter un modèle approuvé par son point de terminaison de complétion compatible.
 * Récupérer et normaliser la réponse réelle du connecteur Search sans supposer

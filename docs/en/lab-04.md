@@ -29,6 +29,15 @@ displays its result. Allow 60 to 90 minutes, excluding deployment and access wor
 
 ### Objectives and prerequisites
 
+The later restored Standard experience exposed the actual prompt BYOM dialog.
+It requires deployment name, base-model name, endpoint and **API Key**, with
+no authentication selector. The selected subscription enforces keyless
+Cognitive Services accounts. This is a concrete policy/authentication mismatch,
+not missing Azure subscription permissions. Provisioning for this path is held;
+do not enable local authentication or substitute a built-in model and call it
+a BYOM pass. The Search action separately offers Entra Integrated authentication.
+See the [observed contracts](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
+
 * Distinguish the embedding model used by Search from the chat model used by a prompt.
 * Connect an approved model using its supported chat-completions endpoint.
 * Retrieve and normalize the actual Search connector response rather than assuming

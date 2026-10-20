@@ -332,6 +332,24 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(cleanup["secret_handoff_removed"])
         self.assertTrue(cleanup["complete"])
 
+    def test_advanced_contract_inspection_does_not_claim_runtime_success(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "advanced-integration-contracts.json"
+        contracts = json.loads(path.read_text(encoding="utf-8"))
+        search = contracts["search_knowledge"]
+        self.assertIn("Microsoft Entra ID Integrated", search["authentication_choices"])
+        self.assertFalse(search["connection_runtime_verified_by_this_receipt"])
+        byom = contracts["prompt_byom"]
+        self.assertIn("API Key", byom["required_fields"])
+        self.assertEqual(byom["authentication_selector_count"], 0)
+        self.assertTrue(byom["conflicts_with_enforced_keyless_cognitive_policy"])
+        self.assertTrue(byom["provisioning_for_key_only_path_held"])
+        foundry = contracts["foundry_connected_agent"]
+        self.assertTrue(foundry["activity_protocol_required_by_official_docs"])
+        self.assertFalse(foundry["connection_runtime_verified_by_this_receipt"])
+        self.assertEqual(contracts["connections_created_during_inspection"], 0)
+        self.assertEqual(contracts["new_consents_granted"], 0)
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

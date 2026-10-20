@@ -51,6 +51,15 @@ The workshop's protected text, notebook code and embedded examples are not repub
 
 ## 1. Confirm prerequisites and choose the right experience
 
+After the approved trial extension, the isolated Standard draft's actual
+Microsoft Foundry connection dialog offered **Microsoft Entra ID User Login**
+and required an Azure AI Project Endpoint, without a key field. The official
+connection requirements still demand an Activity-capable new-portal agent.
+The downstream agent-ID picker and conversation were not exercised during
+this read-only inspection. This establishes an available keyless connection
+surface, not a connected-agent pass. See the
+[observed contracts](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
+
 1. Complete the standard-agent creation prerequisite and [Lab 5](lab-05.md), or obtain equivalent approved Search infrastructure.
 2. Open the [standard agents experience](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/switch-experiences). The Knowledge, Agents and test-pane instructions below target the standard harness.
 3. Treat orchestration separately: a standard agent can use generative or classic orchestration. Use generative orchestration for metadata-driven connected-agent selection, or explicitly invoke the connected agent from a topic when testing a deterministic route.

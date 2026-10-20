@@ -1,0 +1,52 @@
+{
+  "observed_through_utc": "2026-10-20T20:09:17.495Z",
+  "scope": "Read-only supported portal inspection on the isolated Standard draft after trial extension.",
+  "search_knowledge": {
+    "authentication_choices": [
+      "Access Key",
+      "Client Certificate Auth",
+      "Service principal (Microsoft Entra ID application)",
+      "Microsoft Entra ID Integrated"
+    ],
+    "integrated_required_fields": ["Azure AI Search Endpoint URL"],
+    "integrated_placeholder": "ai://testai.search.windows.net/",
+    "requires_vector_index": true,
+    "connection_runtime_verified_by_this_receipt": false
+  },
+  "search_action": {
+    "display_name": "Search vectors with natural language",
+    "operation_id_observed_in_portal": "IntegratedVectorSearch",
+    "connector_id_observed_in_portal": "shared_azureaisearch",
+    "entra_integrated_offered": true,
+    "parameters_and_output_observed_after_connection": false,
+    "documented_output": "response: array of Object"
+  },
+  "prompt_byom": {
+    "required_fields": [
+      "Model deployment name",
+      "Base model name",
+      "Azure model endpoint URL",
+      "API Key"
+    ],
+    "authentication_selector_count": 0,
+    "test_connection_default_checked": true,
+    "conflicts_with_enforced_keyless_cognitive_policy": true,
+    "connection_or_prompt_saved": false,
+    "provisioning_for_key_only_path_held": true
+  },
+  "foundry_connected_agent": {
+    "preview": true,
+    "authentication_choices_observed": ["Microsoft Entra ID User Login"],
+    "required_connection_field": "Azure AI Project Endpoint",
+    "activity_protocol_required_by_official_docs": true,
+    "new_portal_agent_required_by_official_docs": true,
+    "downstream_agent_id_field_observed": false,
+    "connection_runtime_verified_by_this_receipt": false,
+    "documentation": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent"
+  },
+  "connections_created_during_inspection": 0,
+  "new_consents_granted": 0,
+  "advanced_resources_created_during_inspection": 0,
+  "original_agents_changed": false,
+  "web_search_enabled": false
+}

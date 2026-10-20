@@ -53,6 +53,15 @@ Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas r
 
 ## 1. Confirmer les prérequis et choisir la bonne expérience
 
+Après prolongation approuvée de l'essai, la vraie fenêtre Microsoft Foundry du
+brouillon Standard isolé proposait **Microsoft Entra ID User Login** et exigeait
+un Azure AI Project Endpoint, sans champ de clé. Les exigences officielles
+imposent toujours un agent du nouveau portail compatible Activity. Le sélecteur
+d'identifiant en aval et la conversation n'ont pas été exercés durant cette
+inspection en lecture seule. Cela établit une interface de connexion sans clé,
+non la réussite d'un agent connecté. Voir les
+[contrats observés](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
+
 1. Terminez la création d'un agent standard et l'[atelier 5](lab-05.md), ou obtenez une infrastructure Search équivalente et autorisée.
 2. Ouvrez l'[expérience des agents standard](https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/switch-experiences). Les étapes Connaissances, Agents et volet de test suivantes visent le harnais standard.
 3. Distinguez l'orchestration du harnais : un agent standard peut utiliser l'orchestration générative ou classique. Utilisez la générative pour sélectionner l'agent selon ses métadonnées, ou invoquez-le explicitement depuis une rubrique pour un test déterministe.
