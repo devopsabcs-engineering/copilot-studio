@@ -37,6 +37,12 @@ chaque opération. La découverte Direct Line a échoué avec une erreur imbriqu
 d'appartenance au locataire ; celle des évaluations maker a renvoyé HTTP 403.
 Aucune nouvelle conversation ni aucun courriel n'a été compté, et aucune
 ressource payante supplémentaire n'a été créée.
+L'inspection ultérieure a identifié l'erreur interne exacte d'évaluation :
+`InsufficientDelegatedPermissions`, permission
+`CopilotStudio.MakerOperations.Read` absente. Un essai distinct d'ouverture du
+navigateur sur le moteur actuel a expiré sans conversation. Aucun droit ni
+consentement n'a été modifié ; la demande de jeton arrêtée n'a pas été
+comptée comme un jeton valide.
 
 ## Poursuite Foundry et MCP
 

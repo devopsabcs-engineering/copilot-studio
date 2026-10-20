@@ -35,6 +35,11 @@ published and the original PAC profile was restored after each operation.
 Direct Line endpoint discovery failed with a nested tenant-membership error;
 maker evaluation discovery returned HTTP 403. No new conversation or email
 was counted, and no additional paid resource was created.
+Follow-up inspection identified the evaluation API's exact inner error:
+`InsufficientDelegatedPermissions`, missing
+`CopilotStudio.MakerOperations.Read`. A separate current-harness browser-open
+attempt timed out without producing a conversation. Permission/consent changes
+were not made, and the stopped scope request was not counted as a valid token.
 
 ## Foundry and MCP continuation
 

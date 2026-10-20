@@ -31,7 +31,7 @@ BYOM prompts or connected Foundry agents have been exercised.
 | Official CLI authentication | Default Azure identity authenticated and connected | Existing Azure CLI login reused; no new app registration |
 | Official agent clone | Completed in a short path | Management/export passed, not a new runtime test |
 | Direct Line endpoint discovery | Outer HTTP 400, nested 403/code 1002: `Bot does not belong to the tenant.` | No endpoint or conversation obtained; cause not established |
-| Maker evaluation test-set discovery | HTTP 403: caller not authorized | No evaluation run started |
+| Maker evaluation test-set discovery | HTTP 403, `InsufficientDelegatedPermissions`; missing `CopilotStudio.MakerOperations.Read` | No evaluation run started |
 
 The agent's stored recognizer is `CLICopilotRecognizer` and its template is
 `cliagent-1.0.0`. Integrated authentication remains enabled. The two exported
@@ -133,9 +133,46 @@ The existing gallery preserves its real screenshot provenance. All earlier
 paid test environments remain deleted; the local tools and private source
 backup are not cloud deployment resources.
 
+## Follow-up: exact authorization diagnosis and bounded retries
+
+The official PAC diagnostic response body identifies the maker-evaluation
+failure precisely: `InsufficientDelegatedPermissions`, with the application
+missing the delegated permission `CopilotStudio.MakerOperations.Read`.
+This is an observed API error, not a guess that the user lacks an Azure
+subscription role. Assigning a broader Azure role is not a justified fix.
+The separate Direct Line tenant-membership error remains unexplained.
+
+The [Power Platform authentication guidance](https://learn.microsoft.com/en-us/power-platform/admin/programmability-authentication-v2)
+requires an application with the relevant API permissions and an appropriately
+authorized user token. Application configuration, user consent and admin consent
+are distinct from an existing successful Azure CLI or Dataverse login.
+No application, permission grant or tenant-wide consent was created in this test.
+
+A token request for only the observed read scope was attempted using the
+existing login. It returned no usable token result before the attempt was
+stopped. That is not evidence of successful consent, a corrected token, or
+an additional server rejection. The configured npm policy also rejected an
+offline dependency-restore attempt with `EALLOWREMOTE`; no policy override
+was attempted.
+
+An independent Test Agent tried the historically verified current-harness
+Preview route, rather than repeating the broken classic route. The previous
+browser tab was unavailable. One browser-open operation timed out without
+returning a page ID; its eventual effect is unknown. No retry loop, prompt,
+answer, citation check or new screenshot resulted.
+
+The next legitimate recovery is an authorized delegated application/user
+session for evaluation, plus an accessible standard-agent test destination.
+Requesting a permission, granting it and successfully exercising the API must
+be recorded as separate steps. A real authorized person must complete any
+required consent or interactive sign-in; an automated unavailable-user response
+does not authorize it.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
 * [PAC authentication](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/auth)
 * [PAC Copilot commands](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot)
+* [PAC Copilot Studio evaluation commands](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot-studio)
+* [Power Platform API permission reference](https://learn.microsoft.com/en-us/power-platform/admin/programmability-permission-reference)
 * [Microsoft Power Platform VS Code extension](https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode)

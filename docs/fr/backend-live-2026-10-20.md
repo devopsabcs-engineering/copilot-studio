@@ -32,7 +32,7 @@ agents Foundry connectés.
 | Authentification du CLI officiel | Identité Azure par défaut authentifiée et connectée | Connexion Azure CLI existante réutilisée ; aucune nouvelle inscription d'application |
 | Clone officiel de l'agent | Terminé dans un chemin court | Administration/export réussis, pas un nouveau test de conversation |
 | Découverte du point Direct Line | HTTP externe 400, 403/code 1002 imbriqué : `Bot does not belong to the tenant.` | Aucun point utilisable ni conversation ; cause non établie |
-| Découverte des jeux d'évaluation maker | HTTP 403 : appelant non autorisé | Aucune exécution d'évaluation démarrée |
+| Découverte des jeux d'évaluation maker | HTTP 403, `InsufficientDelegatedPermissions` ; permission `CopilotStudio.MakerOperations.Read` absente | Aucune exécution d'évaluation démarrée |
 
 Le recognizer stocké est `CLICopilotRecognizer` et le modèle de création est
 `cliagent-1.0.0`. L'authentification intégrée reste activée. Les deux outils
@@ -139,9 +139,46 @@ La galerie existante préserve la provenance de ses vraies captures. Tous les
 environnements payants antérieurs restent supprimés ; outils locaux et
 sauvegarde privée de la source ne sont pas des ressources cloud déployées.
 
+## Suivi : diagnostic précis des droits et essais limités
+
+Le corps de réponse du journal officiel PAC identifie précisément l'échec
+d'évaluation maker : `InsufficientDelegatedPermissions`, avec la permission
+déléguée `CopilotStudio.MakerOperations.Read` absente de l'application.
+Il s'agit d'une erreur API observée, pas d'une supposition concernant les
+rôles Azure de l'utilisateur. Ajouter un rôle Azure plus large n'est pas
+une correction justifiée. L'erreur distincte Direct Line reste inexpliquée.
+
+La [documentation d'authentification Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/programmability-authentication-v2)
+exige une application dotée des permissions API adaptées et un jeton utilisateur
+autorisé. Configuration d'application, consentement utilisateur et consentement
+administrateur se distinguent d'une connexion Azure CLI ou Dataverse réussie.
+Aucune application, permission ou autorisation globale du locataire n'a été créée.
+
+Une demande de jeton limitée au droit de lecture observé a été tentée avec
+la connexion existante. Elle n'a fourni aucun résultat de jeton utilisable
+avant son arrêt. Cela ne prouve ni consentement réussi, ni jeton corrigé,
+ni rejet serveur supplémentaire. La stratégie npm a aussi refusé une
+restauration hors ligne des dépendances avec `EALLOWREMOTE` ; aucun
+contournement de stratégie n'a été tenté.
+
+Un Test Agent indépendant a essayé le parcours Preview du moteur actuel
+historiquement vérifié, sans répéter le parcours classique cassé. L'ancien
+onglet navigateur était indisponible. Une seule opération d'ouverture a expiré
+sans renvoyer d'identifiant de page ; son effet final est inconnu. Aucune boucle,
+question, réponse, vérification de citation ou nouvelle capture n'en a résulté.
+
+La reprise légitime exige une session déléguée application/utilisateur autorisée
+pour l'évaluation, ainsi qu'une destination standard accessible pour les tests.
+Demander une permission, l'accorder et réussir l'appel API sont trois étapes
+distinctes. Une vraie personne autorisée doit effectuer le consentement ou la
+connexion interactive nécessaire ; une réponse automatique d'indisponibilité
+ne l'autorise pas.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
 * [Authentification PAC](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/auth)
 * [Commandes PAC Copilot](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot)
+* [Commandes d'évaluation PAC Copilot Studio](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot-studio)
+* [Référence des permissions API Power Platform](https://learn.microsoft.com/en-us/power-platform/admin/programmability-permission-reference)
 * [Extension Microsoft Power Platform VS Code](https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode)

@@ -76,6 +76,10 @@ class WikiTests(unittest.TestCase):
         runtime = result["runtime_boundaries"]
         self.assertEqual(runtime["directline_discovery_outer_http_status"], 400)
         self.assertEqual(runtime["maker_evaluation_discovery_http_status"], 403)
+        self.assertEqual(runtime["maker_evaluation_inner_error"],
+                         "InsufficientDelegatedPermissions")
+        self.assertEqual(runtime["maker_evaluation_missing_delegated_permission"],
+                         "CopilotStudio.MakerOperations.Read")
         for key in ("directline_endpoint_obtained", "directline_root_cause_established",
                     "evaluation_run_started", "new_agent_conversation_executed",
                     "standard_harness_connection_verified"):
@@ -85,6 +89,23 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(preservation["existing_agent_published_by_this_test"])
         self.assertEqual(preservation["emails_resent"], 0)
         self.assertEqual(preservation["new_paid_azure_resources"], 0)
+
+    def test_runtime_retries_do_not_invent_conversation_or_consent(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-19" / "backend-results.json"
+        result = json.loads(path.read_text(encoding="utf-8"))["additional_runtime_attempts"]
+        self.assertTrue(result["explicit_read_scope_token_request_started"])
+        self.assertTrue(result["explicit_read_scope_token_request_stopped"])
+        self.assertFalse(result["explicit_read_scope_token_obtained"])
+        self.assertFalse(result["package_policy_override_attempted"])
+        self.assertEqual(result["consent_or_permission_changes"], 0)
+        self.assertEqual(result["browser_open_attempts"], 1)
+        self.assertEqual(result["browser_open_result"], "tool_timeout")
+        self.assertFalse(result["browser_open_page_id_returned"])
+        self.assertFalse(result["browser_open_eventual_effect_known"])
+        for key in ("new_benign_prompts_submitted", "new_complete_answers_captured",
+                    "new_citation_checks", "new_screenshots"):
+            self.assertEqual(result[key], 0)
 
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
