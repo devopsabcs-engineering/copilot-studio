@@ -20,7 +20,10 @@ Prévoyez environ 60 minutes, hors autorisations et délai d’ingestion.
 > antérieures d'annuaire, d'envoi et de recherche échouée, sans les réexécuter.
 > Le menu classique existe, mais sa destination n'a pas chargé pendant l'inspection.
 > Les sept ressources Application Insights sans rapport sont restées intactes.
-> Aucun réglage de télémétrie, émission d'événement ou appel KQL n'a été exécuté.
+> Un test payant approuvé a ensuite créé des ressources dédiées, émis un seul
+> événement explicitement synthétique avec Entra ID et vérifié sa corrélation
+> exacte opération/exécution par KQL. Cela prouve la couche Azure d'ingestion/requête,
+> pas une émission par l'agent ni une configuration de sa télémétrie.
 > Consultez les [résultats et captures réels](live-rerun-2026-10-19.md).
 
 ### Exercice d'observation dans l'expérience actuelle

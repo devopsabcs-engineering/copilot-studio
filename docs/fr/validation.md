@@ -9,15 +9,18 @@ ms.date: 2026-10-19
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
 Dernières preuves : [registre de réexécution réelle](live-rerun-2026-10-19.md).
-Terraform init/validate/plan ont réussi sans apply. L'échec SDK réel du lab 6 a été
-reproduit, puis le test isolé aux versions du support a réussi. Les tableaux suivants
+Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de
+15 instances, 14 contrôles modèle/recherche sans clé et un événement synthétique
+Application Insights réellement corrélé par KQL ont réussi. Les ressources ont
+été supprimées et leur absence vérifiée. L'échec SDK du lab 6 et sa restauration
+isolée ont aussi été testés. Les tableaux suivants
 conservent l'état de la revue initiale, sauf mise à jour apportée par ce registre.
 
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.
-Le lab 1 dispose de preuves utilisateur de son résultat d'envoi. Les autres labs
-disposent de vérifications documentaires ou statiques et de procédures d'acceptation,
-mais pas d'une réussite cloud complète démontrée.
+Le lab 1 dispose de preuves utilisateur et d'une nouvelle exécution de son parcours
+principal. Les autres labs ont désormais de vraies preuves cloud par sous-système,
+mais leurs intégrations complètes d'agents connectés restent non vérifiées.
 
 Le navigateur a d'abord rencontré une barrière d'authentification. L'utilisateur s'est
 ensuite connecté et a initialisé le wiki GitHub. Cela a levé le blocage de publication,
@@ -38,7 +41,10 @@ index, les bases de connaissances ou les connecteurs nécessaires.
 Une étape indisponible ou non testée reste bloquée ou non exécutée. Une capture d'un
 document Word, un schéma généré ou une réponse plausible ne peut pas améliorer cet état.
 
-## Registre d'acceptation par lab
+## État de la revue initiale
+
+Le tableau suivant conserve la revue d'origine. Consultez le
+[tableau actuel d'exécution par lab](live-rerun-2026-10-19.md) pour les résultats ultérieurs.
 
 | Lab                | Résultat actuel                                                                            | Preuves requises pour une réussite complète                                                                             |
 | ------------------ | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
@@ -131,7 +137,7 @@ décrit l'export et la maintenance.
 6. Corrigez l'étape en échec la plus ciblée, retestez-la, puis retestez le parcours intégré.
 7. Actualisez les deux registres et distinguez un test partiel d'un lab entièrement réussi.
 
-Le travail documentaire n'a créé aucune ressource Azure facturable, stratégie de
-facturation ou modification de configuration d'agent, et n'a envoyé aucun courriel
-externe. Conservez l'état bloqué plutôt que d'inventer une réussite si l'environnement
-autorisé nécessaire n'est pas disponible.
+La phase documentaire initiale n'a créé aucune ressource facturable. Les tests
+payants approuvés ensuite et leur nettoyage figurent explicitement au registre.
+Aucune stratégie de facturation ni application sans rapport n'a été modifiée.
+Conservez l'état bloqué plutôt que de déduire une intégration réussie de sous-systèmes validés.

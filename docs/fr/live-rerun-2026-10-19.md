@@ -10,13 +10,13 @@ ms.date: 2026-10-19
 
 | Lab | État de l'exécution réelle | Limite d'acceptation restante |
 |-----|----------------------------|------------------------------|
-| 0 | Identité, rôles, modèles Azure et Terraform portable vérifiés | Autorisation de ressources payantes dédiées |
+| 0 | Identité, rôles, quotas et outils vérifiés ; tests payants approuvés | Disponibilité complète du harnais standard |
 | 1 | Recherche, refus, annuaire, livraison, clarification, activité de connecteur échouée et hash du PDF téléchargé vérifiés | Audit complet des citations et sortie HTTP brute du connecteur |
-| 2 | Véritables indexation documentaire et recherche Search par solution Free | Ingestion Blob, embeddings intégrés et connexion Search Copilot |
-| 3 | Monitor natif, dates, droits de session et History existant inspectés réellement | Événement Application Insights d'origine et preuve KQL corrélée |
-| 4 | Contrôles réels de modèle/outils et menu d'accès classique inspectés | Destination standard chargée, appel de modèle autorisé et prompt connecté |
-| 5 | 17 assertions réelles Search sur les hôtels réussies | Embeddings sémantiques, découpage et réponse Copilot sourcée |
-| 5.1 | Init, validate et plan Terraform de 15 instances réussis | Apply payant d'origine non autorisé ; solution Free temporaire déployée puis nettoyée |
+| 2 | Indexation, vrais embeddings et vectorisation des requêtes par identité managée réussis | Ingestion Blob privée par indexeur et connexion Search Copilot |
+| 3 | Monitor natif inspecté ; ingestion Azure synthétique dédiée et corrélation KQL exacte réussies | Télémétrie émise par l'agent et configuration standard |
+| 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
+| 5 | Tests Free et 14 contrôles payants sans clé de modèle/recherche réussis | Indexeur Blob, projections et réponse Copilot sourcée |
+| 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
 | 6 | 24 enregistrements, 3 index/sources, recherche minimale réelle et 19 passages exacts | Modèle/agent Foundry, MCP, Activity et parcours d'agent connecté Copilot |
 
 Il s'agit du suivi d'exécution demandé après la première revue documentaire.
@@ -25,6 +25,114 @@ l'ensemble de l'atelier a réussi. Les
 [résultats structurés et nettoyés](../assets/runtime-2026-10-19/results.json)
 conservent versions, nombres et erreur observée, sans identifiants de locataire,
 chemins privés, secrets ou état Terraform.
+
+## Poursuite payante approuvée
+
+À **19 h 04, heure de l'Est, le 19 octobre**, le propriétaire a explicitement
+approuvé le paiement des tests. Les mentions d'autorisation payante manquante
+plus bas décrivent les étapes précédentes, pas l'état actuel. La poursuite a utilisé
+un seul nouveau groupe étiqueté, sans réutiliser d'applications sans rapport.
+Les [résultats payants expurgés](../assets/runtime-2026-10-19/paid-cloud-results.json)
+séparent déploiement, recherche, télémétrie synthétique et nettoyage.
+
+### Échecs de compatibilité Terraform et correction fonctionnelle
+
+Le plan initial comportait 15 instances Terraform, toutes à créer. Azure a créé
+Search, Storage, identité, réseau et ressource OpenAI, mais a refusé le déploiement
+GPT-4o `2024-05-13` avec HTTP 400, `ServiceModelDeprecating`. La présence du modèle
+dans le catalogue ne garantissait donc pas de nouveaux déploiements.
+Le remplacement de cette seule version par **2024-11-20** a permis de terminer
+le déploiement manquant. Il s'agit d'un support corrigé, pas d'une réussite des
+sources inchangées.
+
+Les stratégies Azure avaient aussi désactivé l'authentification locale OpenAI et
+l'accès public/les clés partagées Storage. Un plan actualisé voulait restaurer les
+anciennes valeurs par défaut du fournisseur. Les substitutions de la copie de
+travail ont au contraire conservé les protections imposées. Aucune exemption ni
+désactivation d'une protection n'a été utilisée. Le dossier source original
+n'a pas été modifié.
+
+![Grille Azure réelle partielle avec noms de ressources masqués](../assets/runtime-2026-10-19/lab51-live-paid-resources.png)
+
+Cette vraie capture partielle montre les lignes OpenAI et Search, avec liens de
+ressources masqués. Le navigateur a tronqué la capture ; aucun texte ni ligne
+manquante n'a été reconstitué. Elle ne constitue ni l'inventaire complet des huit
+ressources ni la preuve d'un appel de données réussi ; ces assertions reposent
+sur les contrôles API réels.
+
+### Vrais embeddings et vectorisation par identité managée
+
+L'exécution payante finale a réussi **14 contrôles**. Elle a utilisé les textes des
+trois PDF d'hôtels originaux, un découpage local par fenêtres de caractères et le
+vrai déploiement `text-embedding-ada-002`. Ces textes courts ont produit trois
+passages, pas plusieurs pages de fragments projetés. Chaque vecteur comportait
+**1 536 valeurs finies**. Le dernier lot d'embeddings documentaires a déclaré
+**554 jetons d'entrée** ; ce n'est pas la consommation totale, qui inclut aussi
+la tentative précédente et la vectorisation des requêtes.
+
+L'identité système Search a reçu le rôle OpenAI User seulement sur le nouveau
+modèle d'atelier. La vectorisation `kind: text` a ensuite fonctionné sans clé API
+dans le vectoriseur. La recherche hybride sémantique a retourné trois résultats
+avec scores de reclassement, **Tokyo** en premier. Les trois passages contrôlés
+et leurs noms de fichiers correspondaient aux originaux. Le filtre parent Rome
+a réussi ; le texte déclaré explicitement non filtrable a retourné HTTP 400 ;
+un terme lexical absent a retourné zéro résultat. Le nouveau GPT-4o a aussi
+retourné le marqueur exact du test minimal, avec **18 jetons au total** pour cet appel.
+
+Un premier test négatif avait retourné HTTP 200 parce que le schéma omettait
+`filterable: false` sur son champ texte. Seul l'index jetable appartenant à la
+session a été supprimé puis recréé avec cette propriété explicite, avant de rejouer
+les contrôles. La tentative incorrecte est conservée dans les résultats.
+
+Cette exécution prouve les vrais embeddings et la vectorisation des requêtes par
+identité managée, pas l'ingestion Blob, un indexeur, les projections un-vers-plusieurs,
+le découpage automatique dans Search ni une réponse Copilot sourcée. Le compte
+Storage rendu privé par stratégie n'a pas été ouvert publiquement pour contourner
+sa frontière réseau.
+
+### Ingestion Application Insights synthétique et KQL réels
+
+Un espace de travail et un composant Application Insights dédiés ont été créés
+dans le même groupe isolé. Le test utilisait Entra ID et le rôle Monitoring Metrics
+Publisher limité à ce composant. L'ancien point `/v2/track` a retourné HTTP 400,
+**Authorization not supported** ; `/v2.1/track`, compatible AAD, a accepté exactement
+**un événement synthétique**.
+
+La première attente bornée ne montrait pas encore l'événement. Une requête
+ultérieure en lecture seule a retrouvé exactement un événement correspondant
+aux identifiants d'opération et d'exécution générés. L'événement accepté n'a pas
+été renvoyé. Cela démontre un délai d'ingestion, pas une disponibilité immédiate.
+La requête était :
+
+```kusto
+customEvents
+| where timestamp > ago(24h)
+| where name == "AgentFactoryPaidValidationSynthetic"
+| project name, operation_Id,
+    Scope=tostring(customDimensions.Scope),
+    RunId=tostring(customDimensions.RunId)
+```
+
+Les identifiants renvoyés ont été comparés exactement à ceux de l'événement envoyé.
+Son périmètre précisait **Synthetic infrastructure test; not Copilot**, soit un
+test d'infrastructure synthétique, pas Copilot. Cela prouve ingestion et corrélation
+KQL, pas une émission par Copilot Studio ni la configuration de sa télémétrie.
+
+### Nettoyage et intégrations restantes
+
+L'inventaire de nettoyage a trouvé sept ressources créées explicitement, plus
+une règle Failure Anomalies automatique. Son unique cible a été vérifiée comme
+étant le nouveau composant Insights avant de l'inclure au nettoyage. Les résultats
+structurés consignent le plan Terraform de suppression et la vérification
+indépendante de l'absence du groupe. Aucun montant exact n'est déduit des jetons ;
+la facturation Azure peut apparaître plus tard.
+
+Le nouvel onglet a brièvement affiché Home, mais le nouvel onglet classique restait
+inaccessible à l'automatisation et la navigation suivante a de nouveau rencontré
+la réinitialisation de connexion de l'interface. Le paiement n'est plus le blocage.
+Restent l'accès standard, le réseau Blob/indexeur privé, les prompts connectés et
+le parcours Foundry/MCP/Activity/agent connecté Copilot. Aucun courriel de preuve
+existant n'a été renvoyé.
 
 ## Lab 0 - Précontrôle réel de l'environnement
 

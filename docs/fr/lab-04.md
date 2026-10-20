@@ -23,8 +23,10 @@ autorisations.
 > pas ouvert et le chargement de l'interface a ensuite échoué. Cela ne démontre
 > pas une indisponibilité globale de BYOM. Les métadonnées Azure confirment des
 > déploiements existants, pas l'autorisation d'appeler d'autres applications ni une
-> connexion Power Platform opérationnelle. Aucun déploiement, changement de modèle,
-> création de prompt ou appel BYOM n'a eu lieu.
+> connexion Power Platform opérationnelle. Après approbation payante explicite,
+> un nouveau GPT-4o `2024-11-20` dédié a été déployé puis appelé directement avec
+> Entra ID. Aucun changement de modèle de l'agent enregistré, prompt connecté ou
+> appel BYOM Copilot n'a été effectué.
 > Consultez les [limites réellement observées](live-rerun-2026-10-19.md).
 
 ### Objectifs et prérequis

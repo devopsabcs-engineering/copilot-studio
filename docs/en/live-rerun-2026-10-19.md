@@ -10,13 +10,13 @@ ms.date: 2026-10-19
 
 | Lab | Actual execution status | Remaining acceptance boundary |
 |-----|-------------------------|-------------------------------|
-| 0 | Azure identity, role, model inventory and portable Terraform verified | Dedicated paid-resource authorization |
+| 0 | Azure identity, roles, quota and tools verified; owner approved paid tests | Full standard-harness readiness |
 | 1 | Retrieval, refusal, directory, delivery, clarification, failed connector activity and downloaded PDF hash checked | Full citation audit and raw connector HTTP/error body |
-| 2 | Actual document indexing and Search API retrieval through a Free alternative | Blob ingestion, integrated embeddings and Copilot Search connection |
-| 3 | Native Monitor/date range/session permissions and existing History inspected live | Original Application Insights event and correlated KQL evidence |
-| 4 | Actual model/tool controls and classic-access menu inspected | Loaded standard-agent destination, approved model invocation and connected prompt |
-| 5 | 17 actual hotel Search assertions passed | Semantic embeddings, chunk pipeline and grounded Copilot answer |
-| 5.1 | Original Terraform init, validate and 15-instance plan passed | Paid original apply not authorized; temporary Free alternative deployed and cleaned |
+| 2 | Actual indexing, real embeddings and managed-identity query vectorization passed | Private Blob/indexer ingestion and Copilot Search connection |
+| 3 | Native Monitor inspected; dedicated Azure synthetic ingestion and exact KQL correlation passed | Agent-originated telemetry and standard-agent configuration |
+| 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
+| 5 | Free checks plus 14 paid keyless model/retrieval checks passed | Blob indexer/projections and grounded Copilot answer |
+| 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
 | 6 | 24 records, 3 indexes/sources, actual minimal retrieval and 19 exact source matches | Foundry model/agent, MCP, Activity and Copilot connected-agent flow |
 
 This is the execution follow-up requested after the original documentation review.
@@ -24,6 +24,106 @@ The checks below actually ran. They are not a claim that the whole workshop pass
 The [sanitized machine-readable results](../assets/runtime-2026-10-19/results.json)
 retain the exact observed versions, counts, and failure without tenant identifiers,
 private paths, credentials, or Terraform state.
+
+## Approved paid continuation
+
+At **19:04 Eastern on October 19**, the owner explicitly approved paying for
+the lab tests. Earlier statements about missing paid authorization below describe
+the preceding checkpoints, not the current approval state. The continuation used
+one new, tagged resource group; no unrelated applications were repurposed.
+The [sanitized paid results](../assets/runtime-2026-10-19/paid-cloud-results.json)
+separate deployment, retrieval, synthetic telemetry and cleanup evidence.
+
+### Terraform compatibility failures and working correction
+
+The original create-only plan contained 15 Terraform instances. Azure created the
+Search, Storage, identity, network and OpenAI resources, but rejected the original
+GPT-4o `2024-05-13` deployment with HTTP 400, `ServiceModelDeprecating`.
+Being listed by the model catalog did not mean it accepted new deployments.
+Changing only that model version to **2024-11-20** allowed the missing deployment
+to complete. This is a corrected workshop deployment, not an unchanged-source pass.
+
+Azure policy had also set OpenAI local authentication off and Storage public
+access/shared keys off. A refreshed plan tried to restore the old provider defaults.
+The working-copy overrides instead preserved those policy-enforced settings.
+No policy exemption or security-control rollback was used. The original source
+folder was not edited.
+
+![Partial live Azure resource grid with resource names masked](../assets/runtime-2026-10-19/lab51-live-paid-resources.png)
+
+The portal capture is a genuine, partial grid showing the OpenAI and Search rows,
+with resource links masked. The browser clipped the capture; missing rows or text
+were not reconstructed. It is not a complete eight-resource inventory or proof
+that a data-plane request succeeded; those assertions come from actual API checks.
+
+### Real semantic embeddings and managed-identity vectorization
+
+The final paid run passed **14 checks**. It used the three original hotel PDF
+texts, local character-window chunking and the actual `text-embedding-ada-002`
+deployment. These short inputs produced three passages, not multiple pages of
+projected chunks. Each returned vector had **1,536 finite values**. The final
+document-embedding batch reported **554 input tokens**; that is not the total
+run's usage, which also included the earlier attempt and query-time vectorization.
+
+The Search system-assigned identity received OpenAI User rights only on the new
+lab model resource. Query-time `kind: text` vectorization then succeeded without
+an API key in the vectorizer. Semantic hybrid retrieval returned three hits with
+reranker scores, with **Tokyo** first. All three checked passages and source
+filenames matched the original inputs. A Rome parent filter passed; explicitly
+nonfilterable passage text returned HTTP 400; an unsupported lexical term returned
+zero hits. The new GPT-4o deployment also returned the exact smoke-test marker,
+using **18 total tokens** for that one request.
+
+An initial negative test unexpectedly returned HTTP 200 because the test schema
+omitted `filterable: false` on its string field. The owned disposable index was
+deleted and recreated with that explicit property, then all checks were rerun.
+This correction is recorded rather than hiding the failed first attempt.
+
+This run proves real embeddings and managed-identity query vectorization. It does
+not prove Blob ingestion, an indexer, one-to-many index projections, automatic
+chunking inside Search or a grounded Copilot response. The policy-private Storage
+account was not opened publicly to bypass its network boundary.
+
+### Actual synthetic Application Insights ingestion and KQL
+
+A dedicated workspace and Application Insights component were created in the same
+isolated group. The test used Entra ID and a scoped Monitoring Metrics Publisher
+role. The old `/v2/track` endpoint returned HTTP 400, **Authorization not supported**;
+the AAD-capable `/v2.1/track` endpoint accepted exactly **one synthetic event**.
+
+The first bounded query window did not yet show the event. A later read-only query
+found exactly one matching event by its generated operation ID and run ID.
+No accepted event was resent. This is ingestion-delay evidence, not an instantaneous
+availability claim. The query was:
+
+```kusto
+customEvents
+| where timestamp > ago(24h)
+| where name == "AgentFactoryPaidValidationSynthetic"
+| project name, operation_Id,
+    Scope=tostring(customDimensions.Scope),
+    RunId=tostring(customDimensions.RunId)
+```
+
+The returned operation ID and run ID were compared exactly with the submitted
+event. Its scope explicitly said **Synthetic infrastructure test; not Copilot**.
+This proves actual Application Insights ingestion and KQL correlation, not that
+Copilot Studio emitted telemetry or that its telemetry settings were configured.
+
+### Cleanup and remaining integration boundary
+
+The cleanup inventory identified seven explicitly created Azure resources plus
+an automatically created Failure Anomalies rule. That rule's sole scope was
+verified as the new lab Insights component before including it in cleanup.
+The machine-readable results record the delete-only Terraform plan and independent
+resource-group absence check. No exact dollar total is inferred from token counts;
+Azure billing can arrive later.
+
+The new browser tab briefly rendered Home, but the classic popup was still not
+exposed to automation and later navigation again hit the shell connection reset.
+Paid approval is no longer the blocker. The remaining gates are standard-agent
+access, private Blob/indexer networking, connected prompts, and the Foundry/MCP/
+Activity/Copilot connected-agent path. No existing proof email was resent.
 
 ## Lab 0 - Actual environment preflight
 

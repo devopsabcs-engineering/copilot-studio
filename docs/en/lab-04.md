@@ -22,7 +22,9 @@ displays its result. Allow 60 to 90 minutes, excluding deployment and access wor
 > to open and the shell subsequently reset. That is not global BYOM unavailability.
 > Read-only Azure metadata found existing deployments, not approval to invoke
 > unrelated applications or proof of a working Power Platform model connection.
-> No deployment, model switch, prompt creation or BYOM inference occurred.
+> After explicit paid approval, a new dedicated GPT-4o `2024-11-20` deployment
+> was created and its direct Entra-authenticated invocation passed.
+> No saved-agent model switch, connected prompt or Copilot BYOM invocation occurred.
 > See the [observed capability and route limits](live-rerun-2026-10-19.md).
 
 ### Objectives and prerequisites

@@ -20,7 +20,10 @@ plus access approval and telemetry ingestion time.
 > directory, email and failed-search activities; these were not rerun. The classic
 > navigation menu exists, but its destination failed to load during inspection.
 > Seven unrelated Application Insights resources were left untouched.
-> No telemetry configuration, event emission or KQL query was executed.
+> A later approved paid test created dedicated telemetry resources, emitted one
+> explicitly synthetic event with Entra ID, and verified its exact operation/run
+> correlation through KQL. This proves the Azure ingestion/query layer, not
+> agent-originated telemetry or configuration of the saved agent.
 > See the [actual results and screenshots](live-rerun-2026-10-19.md).
 
 ### Current-experience observation exercise

@@ -16,9 +16,12 @@ Build a retrieval-augmented generation (RAG) pipeline: ingest documents, split t
 > Three supplied PDFs were indexed and queried with lexical, filter, facet,
 > semantic, vector-contract, hybrid and negative checks. All 17 hotel checks passed
 > after removing unsupported `queryLanguage` from the current API request.
-> The vectors were explicit city features, not semantic embeddings; Storage,
-> integrated vectorization and the Copilot connection remain unexecuted.
-> All isolated resources were deleted. See the [actual results](live-rerun-2026-10-19.md).
+> Those Free-run vectors were explicit city features, not semantic embeddings.
+> A later approved paid run passed 14 keyless checks with real 1,536-dimensional
+> embeddings, managed-identity query vectorization and semantic hybrid retrieval.
+> Its chunking was local, not a Blob indexer/projection pipeline; the Copilot
+> connection remains unexecuted. See cleanup and the
+> [actual results](live-rerun-2026-10-19.md).
 
 These are original teaching instructions, not a republication of protected workshop text or code. The original three PDF demonstration files exist locally but are not distributed here. No protected screenshots are included.
 

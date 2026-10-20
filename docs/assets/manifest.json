@@ -278,5 +278,12 @@
     "source": "Native Monitor Sessions, empty rows, selected date range and transcript-access restriction. Read-only inspection of the existing saved agent, 21:49-21:54 UTC.",
     "changes": "Cropped to relevant native Monitor body; browser navigation and agent context excluded. Original browser capture clipped the right edge; no missing content reconstructed. Bilingual provenance footer.",
     "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-19/lab51-live-paid-resources.png",
+    "kind": "live-validation",
+    "source": "Actual Azure portal resource-group grid during the explicitly approved paid test continuation, after original Terraform resource creation.",
+    "changes": "Resource-name hyperlinks masked by the browser screenshot API. Grid captured at reduced display zoom. Screenshot system clipped the right and bottom edges; only partial OpenAI and Search rows are visible. No missing content reconstructed. Not a complete resource inventory or data-plane execution proof.",
+    "new_runtime_capture": true
   }
 ]

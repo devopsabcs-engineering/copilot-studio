@@ -22,7 +22,9 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 > A later explicit-subscription recheck corrected the latter: seven unrelated
 > Application Insights components exist and were left unchanged. A disposable Free
 > Search service was then used for actual indexing and retrieval, but not the
-> integrated vectorizer or Copilot connection. See the
+> integrated vectorizer or Copilot connection at that checkpoint. A later approved
+> paid run verified real embeddings and managed-identity query vectorization;
+> private Blob/indexer ingestion and the Copilot connection remain unverified. See the
 > [latest runtime results](live-rerun-2026-10-19.md). The original review was scoped to
 > that subscription, not proof that no connection exists elsewhere. Documentation
 > checks are not runtime passes. The original review created no resources or agent changes.

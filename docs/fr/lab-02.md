@@ -25,7 +25,10 @@ hors autorisations et délais d’indexation.
 > a corrigé ce dernier point : sept composants Application Insights sans rapport
 > existent et sont restés intacts. Un service Search Free jetable a ensuite servi
 > à l'indexation et à la recherche réelles, pas au vectoriseur intégré ou à la
-> connexion Copilot. Consultez les [derniers résultats](live-rerun-2026-10-19.md).
+> connexion Copilot à cette étape. Une exécution payante approuvée a ensuite validé
+> de vrais embeddings et la vectorisation des requêtes par identité managée ;
+> ingestion privée Blob/indexeur et connexion Copilot restent non vérifiées.
+> Consultez les [derniers résultats](live-rerun-2026-10-19.md).
 > L'inventaire initial est limité à cet abonnement et ne prouve pas l’absence
 > d’une connexion ailleurs. Une vérification documentaire n’est pas un test
 > d’exécution réussi. La revue initiale n'a créé aucune ressource ni modifié d'agent.

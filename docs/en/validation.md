@@ -9,14 +9,16 @@ ms.date: 2026-10-19
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
 Latest execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
-Terraform init/validate/plan now passed without apply; Lab 6's actual SDK import
-failure was reproduced and the source-pinned isolated retest passed.
+The owner approved paid testing. A corrected 15-instance Terraform deployment,
+14 keyless model/retrieval checks, and one actual synthetic Application Insights
+event with exact KQL correlation passed; the owned resources were deleted and
+absence verified. Lab 6's SDK failure and isolated restoration were also tested.
 The tables below retain the original review baseline unless superseded by that record.
 
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence
-of its email outcome. The remaining labs have source/documentation/static checks and
-explicit acceptance procedures, but do not have a demonstrated complete cloud pass.
+of its email outcome plus a fresh core-path rerun. Other labs now have real cloud
+subsystem evidence, but their complete connected-agent integrations remain unverified.
 
 The browser initially reached an authentication barrier. The user then signed in
 and initialized the GitHub wiki. That removed the publication barrier; it did not
@@ -36,7 +38,10 @@ automatically create Search, telemetry, models, indexes, knowledge bases, or con
 An unavailable or untested step remains blocked/not run. A screenshot from a Word
 document, a generated diagram, or a plausible agent answer cannot upgrade that status.
 
-## Per-lab acceptance ledger
+## Original review baseline
+
+The following table preserves the initial review state. Use the linked
+[current per-lab execution table](live-rerun-2026-10-19.md) for later real results.
 
 | Lab                | Current result                                                                      | Required evidence before a full pass                                                                            |
 | ------------------ | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -127,6 +132,7 @@ documentation deliverable, not cloud execution. See
 6. Fix the smallest failing boundary, retest it, then retest the integrated path.
 7. Update both language ledgers and distinguish partial tests from a complete lab pass.
 
-No billable Azure resources, new billing policy, external email, or agent configuration
-changes were performed by the documentation work. Stop at blocked rather than
-inventing a pass if the required authorized environment is unavailable.
+The initial documentation-only phase created no billable resources. Later owner-approved
+paid tests and their cleanup are explicitly recorded in the execution ledger.
+No billing-policy change or modification of unrelated applications was made.
+Stop at blocked rather than inventing an integrated pass from subsystem results.

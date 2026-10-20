@@ -16,10 +16,12 @@ Construisez une chaîne de génération augmentée par récupération (RAG) : in
 > Les trois PDF ont été indexés et testés par recherche lexicale, filtres, facettes,
 > recherche sémantique, contrat vectoriel, hybride et cas négatifs. Les 17 contrôles
 > d'hôtels ont réussi après suppression du paramètre `queryLanguage` non pris en
-> charge par l'API actuelle. Les vecteurs étaient des caractéristiques de ville,
-> pas des embeddings sémantiques ; Storage, vectorisation intégrée et connexion
-> Copilot restent non exécutés. Les ressources isolées ont été supprimées.
-> Consultez les [résultats réels](live-rerun-2026-10-19.md).
+> charge par l'API actuelle. Ces vecteurs Free étaient des caractéristiques de ville.
+> Une exécution payante approuvée a ensuite réussi 14 contrôles sans clé, avec
+> vrais embeddings de 1 536 dimensions, vectorisation des requêtes par identité
+> managée et recherche hybride sémantique. Le découpage restait local, pas une
+> chaîne indexeur/projections Blob ; la connexion Copilot reste non exécutée.
+> Consultez nettoyage et [résultats réels](live-rerun-2026-10-19.md).
 
 Ces consignes pédagogiques originales ne reproduisent ni le texte ni le code du support protégé. Les trois PDF de démonstration existent localement, mais ne sont pas redistribués. Aucune capture d'écran protégée n'est incluse.
 
