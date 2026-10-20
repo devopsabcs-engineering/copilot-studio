@@ -1,7 +1,7 @@
 ---
 title: Provenance des captures et preuves d'exécution
 description: Distinguer l'exécution réussie du lab 1 fournie par l'utilisateur, les figures pédagogiques et les prochaines captures de validation.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Catégories de preuves
@@ -64,6 +64,18 @@ de preuves utilisateur. Les identifiants du manifeste correspondent à 01 pour l
 lab 1, 02 pour le lab 2, 03 pour la supervision, 04 pour BYOM et 08 pour le guide
 complémentaire du lab 6. Toute nouvelle preuve réelle est ajoutée individuellement
 au manifeste.
+
+## Soumission d'une évaluation approuvée
+
+![Une évaluation soumise attend de la capacité, avec les données du compte masquées](../assets/runtime-2026-10-20/evaluation-queued.png)
+
+Après approbation explicite des crédits, une évaluation comprenant trois cas
+en lecture seule a été enregistrée et soumise le 20 octobre. Cette capture
+montre la notification réelle de mise en attente et une seule exécution totale.
+Elle ne montre ni réponses terminées ni notes. Le compte et la navigation sont
+masqués ; un masque prudent couvre aussi une partie de la phrase sur la capacité.
+Aucun texte caché n'a été reconstitué. Consultez la
+[poursuite backend](backend-live-2026-10-20.md) pour le dernier résultat.
 
 ## Confidentialité et conservation
 

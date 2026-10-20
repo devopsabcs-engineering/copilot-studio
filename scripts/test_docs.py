@@ -131,6 +131,45 @@ class WikiTests(unittest.TestCase):
             self.assertFalse(safety[key])
         self.assertEqual(result["screenshots"]["saved_files"], [])
 
+    def test_new_pdf_answer_audit_preserves_citation_boundary(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "pdf-answer-audit.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(result["passed"], 5)
+        self.assertEqual(result["failed"], 0)
+        self.assertEqual(result["passed"], sum(result["checks"].values()))
+        self.assertEqual(result["source_bytes"], 867776)
+        self.assertEqual(result["quotation_found_on_physical_pages"], [3])
+        self.assertTrue(result["checks"]["edition_matches_page_3"])
+        self.assertFalse(result["citation_click_target_or_page_anchor_verified"])
+        self.assertFalse(result["historical_full_answer_audited"])
+        self.assertFalse(result["current_remote_file_bytes_retrieved_during_this_audit"])
+        self.assertFalse(result["overall_workshop_certified"])
+
+    def test_approved_evaluation_does_not_claim_unobserved_grades(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "evaluation-results.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["testSet"]["persisted"])
+        self.assertEqual(result["testSet"]["grader"], "General quality")
+        self.assertEqual(result["testSet"]["testCaseCount"], 3)
+        self.assertEqual(len(result["cases"]), 3)
+        self.assertTrue(result["run"]["submitted"])
+        self.assertEqual(result["run"]["totalRuns"], 1)
+        self.assertFalse(result["run"]["duplicateRunCreated"])
+        self.assertFalse(result["run"]["completed"])
+        self.assertIsNone(result["run"]["score"])
+        self.assertIsNone(result["run"]["creditsUsed"])
+        for case in result["cases"]:
+            self.assertIsNone(case["actualResponse"])
+            self.assertIsNone(case["score"])
+        follow_up = result["boundedFollowUp"]
+        self.assertEqual(follow_up["navigationRecoveryAttempts"], 2)
+        self.assertEqual(follow_up["newRunsSubmitted"], 0)
+        self.assertFalse(follow_up["completedRunClaimed"])
+        self.assertFalse(result["citationNavigationFollowUp"]["pageAnchorVerified"])
+        self.assertFalse(result["workshopComplete"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

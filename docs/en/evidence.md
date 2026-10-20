@@ -1,7 +1,7 @@
 ---
 title: Screenshot provenance and execution evidence
 description: Distinguish the user's successful Lab 1 run from historical teaching figures and future validation captures.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Evidence classes
@@ -62,6 +62,17 @@ The initial publication includes 29 PNG figures: 26 source figures and 3 user-ev
 crops. Source IDs in the manifest map as follows: 01 to Lab 1, 02 to Lab 2, 03 to
 monitoring, 04 to BYOM, and 08 to the Lab 6 supporting setup guide.
 Additional live evidence, if captured, is listed individually in the manifest.
+
+## Approved evaluation submission
+
+![One submitted evaluation queued for capacity, with account details masked](../assets/runtime-2026-10-20/evaluation-queued.png)
+
+After explicit credit approval, one evaluation containing three read-only cases
+was saved and submitted on October 20. This screenshot records the actual queued
+notification and one total run. It does not show completed answers or grades.
+Account/navigation details are masked; an oversized privacy mask also covers
+part of the capacity sentence. No obscured text was reconstructed.
+See the [backend continuation](backend-live-2026-10-20.md) for the latest result.
 
 ## Privacy and preservation
 

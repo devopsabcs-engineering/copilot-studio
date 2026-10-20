@@ -209,6 +209,61 @@ No new screenshot file was retained, so none is claimed in the published gallery
 The full workshop remains incomplete, including independent citation auditing,
 evaluation grading and the connected Search, telemetry, BYOM and Foundry paths.
 
+## Independent audit of the new PDF answer
+
+After runtime recovery, an independent PyMuPDF check inspected the retained
+official PAC clone, rather than asking the agent to verify itself.
+All **five checks passed**: the clone matches the original download and prior
+SHA-256, and the new answer's edition, complete quotation and named section
+match physical page 3. Only whitespace was normalized for the quotation check.
+The PDF has 30 pages and contains 867,776 bytes.
+
+The [source-audit results](../assets/runtime-2026-10-20/pdf-answer-audit.json)
+supersede the earlier unverified-content boundary for this one new answer.
+They do not audit the historical full licensing-plan response or prove that
+clicking `cite:1` opens the intended file/page. No fresh remote download was
+performed in this local comparison. Full Lab 1 citation navigation and full
+workshop acceptance therefore remain open.
+
+## Approved evaluation submitted, grading not observed
+
+The owner subsequently approved Copilot Credits and Azure resources.
+The signed-in Evaluate route saved **Read-only licensing 3 cases 2026-10-20**
+and submitted exactly **one run** at the displayed 7:25 AM start time.
+All three cases use the actual UI's **General quality** grader:
+
+* Retrieve the uploaded guide's edition and one introductory sentence
+* Refuse an invented tenant-specific discount and negotiated price
+* Reject an unsupported fictional product and unlimited-free-capacity claim
+
+General quality checks relevance and completeness; it does not compare against
+an expected response. No exact-match grader or completed score is claimed.
+The actual notification said the evaluation was queued and would start when
+capacity became available. The overview showed **Waiting**, with no per-case
+responses, grades or credit total. A ticking duration and a credits field
+labeled Running were not treated as proof of execution.
+
+![The approved evaluation was queued, not graded](../assets/runtime-2026-10-20/evaluation-queued.png)
+
+At **11:36:20 UTC**, two bounded attempts to reopen the same run failed:
+the existing shell reported `ERR_CONNECTION_RESET`; a fresh same-run route
+aborted during the Microsoft sign-in redirect. Current state is therefore
+**unknown**. Waiting is the last historical observation, not a freshly verified
+status. The submitted run remains in place and may execute later.
+No duplicate run was created or cancellation attempted.
+
+The [evaluation evidence](../assets/runtime-2026-10-20/evaluation-results.json)
+preserves the prompts, UI grader, queued state and timestamped recovery failures.
+Agent configuration, authentication, permissions and consent were unchanged.
+No email was requested or sent by the operator. Without completed traces,
+the evaluation's eventual connector behavior cannot be independently certified.
+No Azure resource was needed for this browser evaluation.
+
+A separate citation-navigation question returned plain file-URI text instead
+of an exposed clickable citation. No file or page target was opened. This
+does not invalidate the independent source-content audit, but citation
+navigation remains unverified. The workshop is not complete.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

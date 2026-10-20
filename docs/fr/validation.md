@@ -29,8 +29,15 @@ conversation. La [reprise ultérieure du navigateur](backend-live-2026-10-20.md#
 a permis trois nouveaux contrôles Preview : recherche dans le PDF avec réponse
 complète, refus d'inventer un prix et validation d'entrée incorrecte avec erreur 400
 visible. L'interface Evaluate s'ouvre, sans création ni exécution d'évaluation.
-L'audit indépendant des affirmations, pages et citations du PDF ainsi que
-l'acceptation des labs connectés restent à effectuer.
+Un audit indépendant du PDF conservé a ensuite réussi les cinq contrôles de
+l'identité source, de l'édition, de la citation complète et de la section en
+page 3 de cette nouvelle réponse. L'audit de l'ancienne réponse complète,
+la navigation des citations et l'acceptation des labs connectés restent ouverts.
+Après approbation explicite des crédits, une évaluation de trois cas avec
+General quality a été enregistrée et soumise. Elle a été observée en attente,
+sans notation ; la reprise navigateur de 11:36 UTC a échoué et son état actuel
+est inconnu. Les [preuves de l'exécution approuvée](backend-live-2026-10-20.md#évaluation-approuvée-et-soumise-notation-non-observée)
+ne revendiquent ni score, ni total de crédits, ni correction des permissions PAC.
 Les tableaux suivants conservent l'état de la revue initiale,
 sauf mise à jour apportée par ces registres.
 

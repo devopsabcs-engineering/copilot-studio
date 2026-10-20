@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Créer et vérifier un conseiller de licences
 description: Configuration illustrée du conseiller, preuves initiales et nouvelle exécution réelle du PDF, de l'annuaire, de l'envoi et de la réception.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Objectif, prérequis et preuves
@@ -31,6 +31,14 @@ History a ensuite confirmé l'entrée et l'activité échouée de l'appel au par
 invalide ; son code HTTP et corps d'erreur restent annoncés par le modèle.
 Le téléchargement de la source confirmé par l'utilisateur correspond au SHA-256
 du PDF contrôlé ; les six contrôles d'édition et de résumé ont de nouveau réussi.
+
+La [poursuite navigateur du 20 octobre](backend-live-2026-10-20.md)
+ajoute une nouvelle réponse fondée sur le fichier, un refus de prix inventé et
+une erreur HTTP 400 de validation d'entrée visible indépendamment pour `top=-1`.
+L'édition, la citation introductive complète et la section en page 3 de cette
+nouvelle réponse ont satisfait cinq contrôles indépendants du PDF source.
+Cela ne certifie ni l'ancienne réponse complète ni la navigation par clic
+sur une citation. Aucun courriel n'a été envoyé pendant cette poursuite.
 
 ## 1. Choisir l'expérience d'agent équivalente
 

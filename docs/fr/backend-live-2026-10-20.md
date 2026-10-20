@@ -218,6 +218,65 @@ Aucun nouveau fichier de capture n'a été conservé ni ajouté à la galerie.
 L'atelier reste incomplet : audit indépendant des citations, notation des
 évaluations et parcours connectés Search, télémétrie, BYOM et Foundry.
 
+## Audit indépendant de la nouvelle réponse PDF
+
+Après la reprise, un contrôle indépendant PyMuPDF a examiné le clone PAC
+officiel conservé, au lieu de demander à l'agent de se vérifier lui-même.
+Les **cinq contrôles ont réussi** : le clone correspond au téléchargement
+original et au SHA-256 antérieur ; l'édition, la citation complète et le nom
+de section de la nouvelle réponse correspondent à la page physique 3.
+Seuls les espaces ont été normalisés pour comparer la citation.
+Le PDF contient 30 pages et 867 776 octets.
+
+Les [résultats de l'audit source](../assets/runtime-2026-10-20/pdf-answer-audit.json)
+remplacent la réserve précédente sur l'exactitude du contenu pour cette seule
+nouvelle réponse. Ils ne vérifient ni l'ancienne réponse complète sur les offres,
+ni l'ouverture du fichier et de la page attendus en cliquant sur `cite:1`.
+Aucun nouveau téléchargement distant n'a été effectué pour cette comparaison
+locale. La navigation des citations du lab 1 et l'acceptation complète de
+l'atelier restent donc à vérifier.
+
+## Évaluation approuvée et soumise, notation non observée
+
+Le propriétaire a ensuite approuvé les Copilot Credits et les ressources Azure.
+Le parcours Evaluate connecté a enregistré
+**Read-only licensing 3 cases 2026-10-20** et soumis exactement
+**une exécution**, avec un début affiché à 7 h 25.
+Les trois cas utilisent le véritable évaluateur **General quality** de l'interface :
+
+* Retrouver l'édition du guide chargé et une phrase d'introduction
+* Refuser une remise et un prix négocié propres à un locataire inventé
+* Rejeter un produit fictif et une capacité gratuite illimitée non documentés
+
+General quality contrôle la pertinence et l'exhaustivité, sans comparaison à
+une réponse attendue. Aucun évaluateur de correspondance exacte ni score final
+n'est revendiqué. La notification réelle annonçait une mise en attente jusqu'à
+disponibilité de capacité. La vue d'ensemble affichait **Waiting**, sans
+réponses par cas, notes ni total de crédits. Une durée croissante et le champ
+de crédits Running n'ont pas été considérés comme une preuve d'exécution.
+
+![L'évaluation approuvée était en attente, sans notation](../assets/runtime-2026-10-20/evaluation-queued.png)
+
+À **11:36:20 UTC**, deux essais limités de réouverture de la même exécution
+ont échoué : l'interface existante a signalé `ERR_CONNECTION_RESET` ;
+une nouvelle page ciblant cette même exécution s'est interrompue pendant
+la redirection Microsoft. L'état actuel est donc **inconnu**. Waiting est
+la dernière observation historique, pas un état nouvellement vérifié.
+L'exécution soumise reste en place et peut démarrer ultérieurement.
+Aucune exécution en double ni annulation n'a été demandée.
+
+Les [preuves d'évaluation](../assets/runtime-2026-10-20/evaluation-results.json)
+conservent questions, évaluateur réel, état d'attente et échecs horodatés.
+Configuration, authentification, permissions et consentement de l'agent sont
+inchangés. L'opérateur n'a demandé ni envoyé de courriel. Sans traces terminées,
+le comportement éventuel des connecteurs de l'évaluation ne peut pas être
+certifié indépendamment. Ce test navigateur n'a nécessité aucune ressource Azure.
+
+Une question distincte sur la navigation des citations a renvoyé une URI de
+fichier en texte brut, sans citation cliquable exposée. Aucun fichier ni cible
+de page n'a été ouvert. L'audit indépendant du contenu source reste valable,
+mais la navigation des citations demeure non vérifiée. L'atelier est incomplet.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

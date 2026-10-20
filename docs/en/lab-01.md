@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Build and verify a licensing advisor
 description: Illustrated licensing advisor setup, original user evidence, and a fresh live PDF, directory, email-send and inbox-verification run.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Goal, prerequisites, and evidence
@@ -28,6 +28,13 @@ connector calls. Signed-in History later confirmed the invalid-parameter call's
 input and failed activity; its specific HTTP/error body remains model-reported.
 The user-confirmed download of the uploaded PDF matches the audited source's
 SHA-256, with all six edition/summary checks passing again.
+
+The [October 20 browser continuation](backend-live-2026-10-20.md)
+adds a fresh uploaded-file answer, unsupported-price refusal and independently
+visible request-validation HTTP 400 for `top=-1`. Its new answer's edition,
+complete introductory quotation and page 3 section passed an independent
+five-check PDF source audit. This does not certify the historical full answer
+or citation-click navigation. No email was sent during this continuation.
 
 ## 1. Choose the equivalent agent experience
 

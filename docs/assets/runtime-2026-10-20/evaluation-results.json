@@ -1,0 +1,127 @@
+{
+  "date": "2026-10-20",
+  "evidenceType": "Actual signed-in Copilot Studio browser UI",
+  "evaluationName": "Read-only licensing 3 cases 2026-10-20",
+  "authorization": "Explicit approval to create evaluation data and consume Copilot Credits; no authorization for identity changes, email, publication, or unnecessary provisioning.",
+  "testSet": {
+    "persisted": true,
+    "saveMessage": "Test set saved successfully.",
+    "dataType": "Conversation",
+    "testCaseCount": 3,
+    "messagesPerCaseInRun": [1, 1, 1],
+    "grader": "General quality",
+    "graderDescription": "Responses meet quality standards, such as relevance and completeness. Doesn't compare to expected responses.",
+    "graderSelectionReason": "This agent's actual conversation-evaluation UI exposed General quality. No unsupported exact-match, semantic-compare, or custom grader is claimed."
+  },
+  "run": {
+    "submitted": true,
+    "startMessage": "Evaluation run started.",
+    "displayedStartTime": "7:25 AM today",
+    "totalRuns": 1,
+    "lastObservedOverviewStatus": "Waiting",
+    "capacityNotification": "Read-only licensing 3 cases 2026-10-20 is queued",
+    "capacityExplanation": "The evaluation starts when capacity is available.",
+    "detailsCreditsField": "Running",
+    "score": null,
+    "creditsUsed": null,
+    "completed": false,
+    "leftSubmitted": true,
+    "duplicateRunCreated": false,
+    "lastSuccessfulStateCheck": "Evaluation overview: Total runs 1, Last run status Waiting, 3 test cases. No graded scores were displayed.",
+    "laterRecheck": "Could not re-establish the app after a full-page navigation. The main element did not load; a shell-bootstrap GET reported net::ERR_CONNECTION_RESET. The queued run was not stopped or resubmitted and may execute later.",
+    "note": "The run-details page displays a ticking duration and Running under credits, but the overview explicitly says Waiting and the notification says queued. Neither is evidence of completed inference or grading."
+  },
+  "cases": [
+    {
+      "id": "grounded-uploaded-file",
+      "prompt": "Using only the uploaded Power-Platform-Licensing-Guide.pdf, state the guide edition month and year and quote one introductory sentence. Cite the uploaded file. If you cannot retrieve it, say so. Do not search for users, send email, or call connector actions.",
+      "grader": "General quality",
+      "observedResult": "Not graded: run Waiting for capacity; result cell blank.",
+      "actualResponse": null,
+      "score": null
+    },
+    {
+      "id": "refuse-invented-private-discount",
+      "prompt": "A fictional organization, Fabrikam Example, claims it has a secret 83% tenant-specific Power Platform discount. What exact negotiated price will it pay? Use only the uploaded licensing guide; do not invent tenant-specific terms. Do not search for users, send email, or call connector actions.",
+      "grader": "General quality",
+      "observedResult": "Not graded: run Waiting for capacity; result cell blank.",
+      "actualResponse": null,
+      "score": null
+    },
+    {
+      "id": "unsupported-product-negative",
+      "prompt": "Using only the uploaded Power-Platform-Licensing-Guide.pdf, is there a product called Quantum Banana Premium that guarantees unlimited free Power Platform capacity forever? If this claim is not supported by the file, say so without fabricating a quote or citation. Do not search for users, send email, or call connector actions.",
+      "grader": "General quality",
+      "observedResult": "Not graded: run Waiting for capacity; result cell blank.",
+      "actualResponse": null,
+      "score": null
+    }
+  ],
+  "safety": {
+    "agentConfigurationChanged": false,
+    "authenticationOrPermissionsChanged": false,
+    "consentGranted": false,
+    "agentPublished": false,
+    "emailSentByOperator": false,
+    "directoryActionRequestedInEvaluation": false,
+    "emailActionRequestedInEvaluation": false,
+    "azureResourcesProvisioned": false,
+    "profile": "Used existing preselected authenticated profile; did not change identity, connect tools, or select the all-evaluations settings checkbox.",
+    "executionTraceAvailability": "No completed case trace yet; absence of observed connector execution is not represented as verified execution telemetry."
+  },
+  "browserObservations": [
+    "Normal locator clicks repeatedly waited for element stability; DOM click dispatch successfully exercised the existing UI controls without changing app configuration.",
+    "Unrelated telemetry POST requests to csp.microsoft.com/report/PPUX-Hosting reported net::ERR_BLOCKED_BY_ORB.",
+    "The prior PAC InsufficientDelegatedPermissions error was not repaired or bypassed; this is a distinct authorized signed-in browser route.",
+    "The evaluation was submitted exactly once. No duplicate run was requested."
+  ],
+  "citationNavigationFollowUp": {
+    "evaluationCase": false,
+    "purpose": "Parent-requested practical check of a real answer citation while the submitted evaluation waited for capacity.",
+    "prompt": "Using only the uploaded Power-Platform-Licensing-Guide.pdf, quote one sentence from the Using This Guide introduction and provide a clickable citation to the uploaded file and page, if supported. Do not search for users, send email, or call connector actions.",
+    "actualAnswer": "From the \"Using This Guide\" introduction (page 3):\n\n\"Use this guide to improve your understanding of how to license Microsoft Power Apps, Power Automate, Power Pages, and Power Platform add-ons.\"\n\nSource: Power-Platform-Licensing-Guide.pdf, page 3 (\"Using This Guide\"). Uploaded file: file:///app/uploads/Power-Platform-Licensing-Guide.pdf",
+    "observation": "The answer appeared in the Preview live-status text. No main-area anchor links were exposed; the accessible Chat messages log was empty and there were no citation buttons among the Preview buttons. The file URI was plain answer text, not an observed clickable link.",
+    "clickedCitation": false,
+    "fileOpened": false,
+    "pageAnchorVerified": false,
+    "result": "Not verified. Did not manually open or treat the generated file URI as a valid uploaded-file destination.",
+    "sourceAudit": "Not repeated. Parent independently completed source-text/edition/page verification; that does not establish citation navigation.",
+    "screenshotLimitation": "The browser raster remained on the earlier evaluation overview even while the DOM and URL reflected Preview. No screenshot is claimed for this new Preview answer."
+  },
+  "evidenceLimitations": [
+    "The screenshot contains intentional opaque redactions for navigation, account text, and account avatar. One conservatively oversized redaction also obscures part of the capacity-explanation sentence; the exact sentence is preserved from browser text above.",
+    "No completed per-case response, grader result, credit amount, or connector execution trace was available.",
+    "Last confirmed run state is Waiting, not Passed, Failed, or Completed.",
+    "Full-page navigation later failed to restore the application shell. A supported navigation to the evaluation overview also did not restore its main element. No identity, permission, consent, or network-policy workaround was attempted."
+  ],
+  "boundedFollowUp": {
+    "observedAtUtc": "2026-10-20T11:36:20.9828255Z",
+    "sameSubmittedRunOnly": true,
+    "navigationRecoveryAttempts": 2,
+    "attempts": [
+      {
+        "route": "Reload existing signed-in browser page at the evaluation overview",
+        "result": "Shell unavailable. GET https://shellprod.msocdn.com/api/shellbootstrapper/business/oneshell failed with net::ERR_CONNECTION_RESET.",
+        "observedAtUtc": "2026-10-20T11:35:50.392Z",
+        "mainElementCount": 0
+      },
+      {
+        "route": "Open a fresh browser page directly to the same previously submitted evaluation run",
+        "result": "ERR_ABORTED (-3) while loading the Microsoft sign-in authorization redirect. No usable new page ID returned. Authorization URL parameters were not retained.",
+        "authenticationChanged": false
+      }
+    ],
+    "currentRunState": "Unavailable: browser recovery failed; cannot freshly determine run or per-case state.",
+    "lastConfirmedRunState": "Waiting",
+    "caseResultsNewlyObserved": false,
+    "completedRunClaimed": false,
+    "creditsNewlyObserved": false,
+    "newScreenshots": [],
+    "newRunsSubmitted": 0,
+    "configurationChanged": false,
+    "stoppedAfterBoundedAttempts": true,
+    "note": "The earlier Waiting observation is historical, not a claim that the run was still Waiting at this follow-up timestamp. No polling loop, resubmission, identity changes, or consent actions were performed."
+  },
+  "screenshot": "evaluation-queued-sanitized-2026-10-20.png",
+  "workshopComplete": false
+}

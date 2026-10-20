@@ -285,5 +285,12 @@
     "source": "Actual Azure portal resource-group grid during the explicitly approved paid test continuation, after original Terraform resource creation.",
     "changes": "Resource-name hyperlinks masked by the browser screenshot API. Grid captured at reduced display zoom. Screenshot system clipped the right and bottom edges; only partial OpenAI and Search rows are visible. No missing content reconstructed. Not a complete resource inventory or data-plane execution proof.",
     "new_runtime_capture": true
+  },
+  {
+    "file": "docs/assets/runtime-2026-10-20/evaluation-queued.png",
+    "kind": "live-validation",
+    "source": "Signed-in Copilot Studio Evaluate after explicit credit approval on 2026-10-20. One submitted run, three read-only conversation cases, actual queued notification.",
+    "changes": "Navigation, account text and avatar masked with opaque redactions. A conservative mask also obscures part of the capacity sentence; no hidden text reconstructed. Bilingual provenance footer added. Shows queue admission, not completed responses, grading or billed credits.",
+    "new_runtime_capture": true
   }
 ]

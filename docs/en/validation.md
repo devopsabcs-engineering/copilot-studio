@@ -28,7 +28,15 @@ The later [browser recovery](backend-live-2026-10-20.md#browser-recovery-and-thr
 did execute three fresh Preview checks: uploaded-PDF retrieval/answer capture,
 unsupported-price refusal and visible invalid-input validation 400.
 Evaluate UI access recovered, but no evaluation was created or run.
-Independent PDF claim/page/citation auditing and connected-lab acceptance remain open.
+An independent retained-PDF audit then passed all five checks for the new
+answer's source identity, edition, complete quotation and page 3 section.
+Historical full-answer auditing, citation navigation and connected-lab acceptance
+remain open.
+With explicit credit approval, one three-case General quality evaluation was
+then saved and submitted. It was observed queued, not graded; the 11:36 UTC
+browser recovery failed, so its current state is unknown.
+The [approved-run evidence](backend-live-2026-10-20.md#approved-evaluation-submitted-grading-not-observed)
+does not claim a score, credit total or repaired PAC permission.
 The tables below retain the original review baseline unless superseded by those records.
 
 Documentation review and publication are separate from live lab validation.

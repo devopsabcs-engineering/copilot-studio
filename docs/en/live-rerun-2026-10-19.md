@@ -11,7 +11,7 @@ ms.date: 2026-10-20
 | Lab | Actual execution status | Remaining acceptance boundary |
 |-----|-------------------------|-------------------------------|
 | 0 | Azure identity, roles, quota and tools verified; owner approved paid tests | Full standard-harness readiness |
-| 1 | Retrieval, refusal, directory, delivery, clarification, failed connector activity and downloaded PDF hash checked | Full citation audit and raw connector HTTP/error body |
+| 1 | Retrieval, refusal, directory, delivery and clarification checked; fresh validation 400 visible; new PDF answer passed five source checks | Historical full-answer audit, citation navigation and downstream connector error-body fidelity |
 | 2 | Private hotel PDF ingestion, integrated embeddings and managed-identity query vectorization passed | Licensing-corpus isolation and Copilot Search connection |
 | 3 | Native Monitor inspected; dedicated Azure synthetic ingestion and exact KQL correlation passed | Agent-originated telemetry and standard-agent configuration |
 | 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
@@ -40,6 +40,16 @@ Follow-up inspection identified the evaluation API's exact inner error:
 `CopilotStudio.MakerOperations.Read`. A separate current-harness browser-open
 attempt timed out without producing a conversation. Permission/consent changes
 were not made, and the stopped scope request was not counted as a valid token.
+
+The later [browser recovery and source audit](backend-live-2026-10-20.md)
+executed three new Preview checks and independently verified the new answer's
+edition, complete quotation and page 3 section against the retained PDF.
+This later execution is separate from the earlier timed-out browser attempt;
+it does not repair PAC application permissions or certify the whole workshop.
+Following explicit credit approval, a three-case General quality evaluation
+was saved and submitted once. It was observed Waiting for capacity without
+grades. A later bounded browser recheck failed; current state is unknown.
+The same report preserves the actual queue screenshot and recovery failures.
 
 ## Foundry and MCP continuation
 
