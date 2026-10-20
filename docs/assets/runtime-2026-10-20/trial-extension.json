@@ -1,0 +1,16 @@
+{
+  "observed_utc": "2026-10-20T19:46:08Z",
+  "explicit_user_approval_received": true,
+  "action": "Pressed the previously inspected 30-day Extend trial button once.",
+  "expired_trial_dialog_gone": true,
+  "upgrade_banner_gone": true,
+  "generative_settings_restored": true,
+  "expiry_date_verified": false,
+  "knowledge_tools_agents_auth_contracts_verified_by_this_receipt": false,
+  "recurring_purchase": false,
+  "new_environment_or_database": false,
+  "unrelated_consent_or_admin_grants": false,
+  "bing_or_web_search_activated": false,
+  "agent_published": false,
+  "original_agents_changed": false
+}

@@ -1,0 +1,41 @@
+{
+  "observed_date": "2026-10-20",
+  "scope": "One isolated Standard draft agent; native topic and genuine telemetry ingestion",
+  "created_through_supported_portal": true,
+  "official_initial_clone_completed": true,
+  "initial_original_files": 20,
+  "new_topic_schema_checks_passed": 13,
+  "official_offline_pack_passed": true,
+  "official_push_changes": 1,
+  "original_pac_profile_restored": true,
+  "privacy_settings_verified_by_persisted_ui_readback": {
+    "enable_logging": true,
+    "conversation_details": false,
+    "sensitive_properties": false,
+    "node_execution_events": false
+  },
+  "fresh_session_utc": "2026-10-20T19:49:23.476Z",
+  "submitted_utc": "2026-10-20T19:49:32.635Z",
+  "response_observed_utc": "2026-10-20T19:49:40.799Z",
+  "operator_prompt_submissions": 1,
+  "trigger": "run workshop telemetry check",
+  "actual_response": "Telemetry check requested.",
+  "event_node": "LogCustomTelemetryEvent",
+  "event_name": "WorkshopTelemetryCheck",
+  "synthetic_properties": {
+    "WorkshopId": "cs-lab-03",
+    "EnvironmentName": "Workshop",
+    "TopicName": "TelemetryCheck",
+    "TestCaseId": "MON-01",
+    "RunCorrelationId": "wv-mon01-7a45e97fe3c84a3ea91cda0ce42fc892"
+  },
+  "original_agents_modified": false,
+  "agent_published": false,
+  "synthetic_emitter_used": false,
+  "acceptance": "Actual test-chat execution plus independently observed matching custom event",
+  "limitations": [
+    "Platform event dimensions include conversationId/channelId keys even with conversation-detail logging off; their values are excluded from public evidence.",
+    "Client and service timestamps are independently observed clocks, not an exact latency measurement.",
+    "Logging disconnection and Azure resource cleanup are recorded separately."
+  ]
+}

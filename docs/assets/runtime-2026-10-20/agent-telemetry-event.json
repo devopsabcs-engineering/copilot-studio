@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": "workshop-monitor-20261020T194035Z-675bfa",
+  "source": "Actual app-scoped query; no synthetic emitter",
+  "query_start_utc": "2026-10-20T15:49:20-04:00",
+  "expected_custom_event": "WorkshopTelemetryCheck",
+  "expected_correlation": "wv-mon01-7a45e97fe3c84a3ea91cda0ce42fc892",
+  "query_access_verified": true,
+  "agent_event_found": true,
+  "matching_rows": 1,
+  "event_envelope_names": [
+    "WorkshopTelemetryCheck"
+  ],
+  "exact_property_shape_verified": true,
+  "live_topic_execution_evidence_required_from_Manage": false,
+  "no_synthetic_emitter_executed": true,
+  "resources_retained_pending_parent_release": true,
+  "attempts": [
+    {
+      "matches": 1,
+      "ordinal": 1,
+      "observed_utc": "2026-10-20T19:50:24.1671387Z"
+    }
+  ],
+  "event_dimension_key_names": [
+    "TestCaseId",
+    "EnvironmentName",
+    "TopicName",
+    "RunCorrelationId",
+    "WorkshopId",
+    "DesignMode",
+    "channelId",
+    "conversationId"
+  ],
+  "first_event_utc": "2026-10-20T19:49:31.8275371Z",
+  "live_topic_execution_evidence": "workshop-telemetry-live-execution-2026-10-20.json",
+  "privacy_note": "Conversation-detail, sensitive-property and node-execution logging disabled; platform event still has conversationId/channelId dimension keys. Their values were not selected or exposed in sanitized query evidence."
+}

@@ -278,6 +278,60 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(sum(case["grade"] == "Pass" for case in result["cases"]), 1)
         self.assertEqual(sum(case["grade"] == "Fail" for case in result["cases"]), 2)
 
+    def test_real_agent_telemetry_is_not_synthetic_ingestion(self):
+        root = Path(__file__).resolve().parents[1]
+        folder = root / "docs" / "assets" / "runtime-2026-10-20"
+        execution = json.loads((folder / "agent-telemetry-execution.json").read_text(encoding="utf-8"))
+        event = json.loads((folder / "agent-telemetry-event.json").read_text(encoding="utf-8"))
+        self.assertEqual(execution["official_push_changes"], 1)
+        self.assertEqual(execution["operator_prompt_submissions"], 1)
+        self.assertEqual(execution["event_node"], "LogCustomTelemetryEvent")
+        settings = execution["privacy_settings_verified_by_persisted_ui_readback"]
+        self.assertTrue(settings["enable_logging"])
+        for key in ("conversation_details", "sensitive_properties", "node_execution_events"):
+            self.assertFalse(settings[key])
+        self.assertTrue(event["agent_event_found"])
+        self.assertEqual(event["matching_rows"], 1)
+        self.assertTrue(event["exact_property_shape_verified"])
+        self.assertEqual(event["expected_correlation"], execution["synthetic_properties"]["RunCorrelationId"])
+        self.assertFalse(execution["synthetic_emitter_used"])
+        self.assertTrue(event["no_synthetic_emitter_executed"])
+        self.assertFalse(execution["agent_published"])
+
+    def test_trial_and_disconnect_do_not_imply_full_integration_or_cleanup(self):
+        root = Path(__file__).resolve().parents[1]
+        folder = root / "docs" / "assets" / "runtime-2026-10-20"
+        trial = json.loads((folder / "trial-extension.json").read_text(encoding="utf-8"))
+        self.assertTrue(trial["explicit_user_approval_received"])
+        self.assertTrue(trial["generative_settings_restored"])
+        for key in ("expiry_date_verified", "recurring_purchase",
+                    "new_environment_or_database", "unrelated_consent_or_admin_grants",
+                    "bing_or_web_search_activated", "original_agents_changed",
+                    "knowledge_tools_agents_auth_contracts_verified_by_this_receipt"):
+            self.assertFalse(trial[key])
+        disconnected = json.loads((folder / "agent-telemetry-disconnection.json").read_text(encoding="utf-8"))
+        self.assertTrue(disconnected["persisted_connection_absent"])
+        self.assertFalse(disconnected["persisted_enable_logging"])
+        self.assertTrue(all(value is False for value in disconnected["privacy_flags"].values()))
+        self.assertEqual(disconnected["additional_user_prompts"], 0)
+        self.assertFalse(disconnected["resource_cleanup_verified_by_this_receipt"])
+
+    def test_agent_monitoring_cleanup_preserves_shared_resources(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "agent-telemetry-cleanup.json"
+        cleanup = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(cleanup["remote_connection_absent_and_logging_off_verified"])
+        self.assertTrue(cleanup["ancillary_alert_single_owned_component_scope_verified"])
+        self.assertEqual(cleanup["exact_allowlist_inventory_count"], 3)
+        for key in ("group_get_http_status", "component_get_http_status",
+                    "workspace_get_http_status", "ancillary_alert_get_http_status"):
+            self.assertEqual(cleanup[key], 404)
+        self.assertTrue(cleanup["shared_action_groups_before_http200"])
+        self.assertTrue(cleanup["shared_action_groups_after_http200"])
+        self.assertFalse(cleanup["external_resources_mutated"])
+        self.assertTrue(cleanup["secret_handoff_removed"])
+        self.assertTrue(cleanup["complete"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

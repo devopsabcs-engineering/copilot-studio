@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "remote_connection_absent_and_logging_off_verified": true,
+  "cleanup_started_utc": "2026-10-20T19:56:43.9444632Z",
+  "cleanup_completed_utc": "2026-10-20T19:58:02.5258748Z",
+  "exact_allowlist_inventory_count": 3,
+  "owned_tagged_resources_count": 2,
+  "ancillary_alert_provenance": "New auto-created Failure Anomalies rule inside the owned group; exact single scope verified against the owned Insights component; explicitly authorized despite absent ownership tag.",
+  "ancillary_alert_single_owned_component_scope_verified": true,
+  "group_exists_false": true,
+  "group_get_http_status": 404,
+  "component_get_http_status": 404,
+  "workspace_get_http_status": 404,
+  "ancillary_alert_get_http_status": 404,
+  "shared_action_groups_before_http200": true,
+  "shared_action_groups_after_http200": true,
+  "external_resources_mutated": false,
+  "secret_handoff_removed": true,
+  "complete": true,
+  "cost_boundary": "No active owned monitoring resources remain; historical ingestion charges may still settle."
+}

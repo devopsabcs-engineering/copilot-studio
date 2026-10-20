@@ -1,7 +1,7 @@
 ---
 title: "Lab 03: Monitor an agent with Application Insights"
 description: "Configure agent-level telemetry, inspect custom event properties with KQL, and distinguish documentary review from runtime evidence."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -14,7 +14,7 @@ synthetic event without collecting conversation contents. Allow about 60 minutes
 plus access approval and telemetry ingestion time.
 
 > [!IMPORTANT]
-> Status: **Native Monitor inspected live; original Application Insights/KQL path blocked**.
+> Initial result: **Native Monitor inspected live; Application Insights/KQL path initially blocked**.
 > The signed-in current Monitor displayed no data for October 13-19 and restricted
 > transcript access. Existing Preview History independently exposed the earlier
 > directory, email and failed-search activities; these were not rerun. The classic
@@ -25,6 +25,43 @@ plus access approval and telemetry ingestion time.
 > correlation through KQL. This proves the Azure ingestion/query layer, not
 > agent-originated telemetry or configuration of the saved agent.
 > See the [actual results and screenshots](live-rerun-2026-10-19.md).
+
+### Later connected-agent test passed
+
+On October 20, an isolated **Standard** draft agent was created through the
+supported portal and cloned with official PAC. Its native
+`LogCustomTelemetryEvent` topic passed 13 schema checks and official offline
+packaging, then exactly one topic change was pushed.
+
+The owned Application Insights connection was saved and verified by navigating
+away and back. Conversation-detail, sensitive-property and node-execution
+logging were all **off** before the single operator trigger at
+**19:49:32 UTC**. The actual test chat replied `Telemetry check requested.`
+
+An independent app-scoped KQL query found exactly **one**
+`WorkshopTelemetryCheck` event with all five expected synthetic properties,
+including the unique correlation marker. No external synthetic emitter or
+repeat trigger was used. This passes the actual agent-originated event and
+KQL correlation boundary that the earlier Azure-only test could not establish.
+
+The [execution record](../assets/runtime-2026-10-20/agent-telemetry-execution.json)
+and [ingestion evidence](../assets/runtime-2026-10-20/agent-telemetry-event.json)
+remain separate. Platform event dimensions still include conversation/channel
+identifier keys despite those privacy switches; their values are not published.
+The timestamps come from separate client/service clocks, not an exact latency
+measurement. The existing agents were untouched and no agent was published.
+At **19:55:31 UTC**, saved settings were read back after navigation: the
+connection was empty, logging was off and all three privacy flags remained off.
+The first save had retained the connection despite disabling logging; an
+explicit field clear, blur and second save corrected that.
+The [disconnection receipt](../assets/runtime-2026-10-20/agent-telemetry-disconnection.json)
+proves remote disconnection, not Azure resource deletion.
+The separate [cleanup receipt](../assets/runtime-2026-10-20/agent-telemetry-cleanup.json)
+verified deletion at **19:58:02 UTC**: the group, workspace, Insights component
+and specifically authorized component-scoped alert each returned HTTP 404.
+The referenced shared action group returned HTTP 200 before and after and was
+untouched. The private connection-string handoff was removed. Historical
+ingestion charges may still settle.
 
 ### Current-experience observation exercise
 

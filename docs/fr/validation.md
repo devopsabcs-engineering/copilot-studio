@@ -62,6 +62,19 @@ Le [rapport des résultats](backend-live-2026-10-20.md#résultats-de-lévaluatio
 conserve l'écart refus/pertinence et l'échec de complétude/citation du PDF.
 Une destination Standard de création/test est désormais accessible ; ses
 contrôles d'intégration ne prouvent pas la réussite des labs connectés.
+Le [test connecté ultérieur du lab 3](lab-03.md#réussite-ultérieure-du-test-connecté-de-lagent)
+a réellement validé l'émission par l'agent : une rubrique native exécutée,
+réglages de confidentialité relus et un événement Application Insights
+indépendamment associé à cinq propriétés synthétiques. Aucun émetteur externe
+ni canal publié. Les clés d'identifiants conversation/canal existent encore ;
+leurs valeurs sont exclues des preuves publiées.
+
+Après approbation explicite, la
+[prolongation de l'essai](../assets/runtime-2026-10-20/trial-extension.json)
+a supprimé la fenêtre d'expiration et rétabli les réglages génératifs. Aucun
+achat récurrent, nouvel environnement, consentement sans rapport ni activation
+de recherche web. La date d'expiration n'a pas été affichée ni vérifiée ;
+les contrats d'authentification des connecteurs restent à inspecter.
 
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.

@@ -13,7 +13,7 @@ ms.date: 2026-10-20
 | 0 | Identité, rôles, quotas et outils vérifiés ; tests payants approuvés | Disponibilité complète du harnais standard |
 | 1 | Recherche, refus, annuaire, livraison et clarification vérifiés ; nouvelle erreur 400 visible ; cinq contrôles source de la nouvelle réponse PDF réussis | Audit de l'ancienne réponse complète, navigation des citations et fidélité du corps d'erreur du service en aval |
 | 2 | Ingestion privée des PDF hôteliers, embeddings intégrés et vectorisation des requêtes par identité managée réussis | Isolation du corpus de licences et connexion Search Copilot |
-| 3 | Monitor natif inspecté ; ingestion Azure synthétique dédiée et corrélation KQL exacte réussies | Télémétrie émise par l'agent et configuration standard |
+| 3 | Rubrique Standard exécutée une fois ; confidentialité relue ; un vrai événement avec cinq propriétés corrélé par KQL ; journal déconnecté et ressources dédiées supprimées | Canal publié et absence de tout identifiant de plateforme non certifiés |
 | 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
 | 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis | Réponse Copilot sourcée |
 | 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
@@ -55,6 +55,9 @@ General quality a été enregistrée et soumise une seule fois. Elle a été
 observée Waiting pour capacité, sans notes. La vérification navigateur
 ultérieure a échoué ; son état actuel est inconnu. Le même rapport conserve
 la véritable capture d'attente et les échecs de reprise.
+Cette incertitude a ensuite été levée par la récupération de l'exécution
+d'origine terminée : **1 réussite, 2 échecs, 7 Copilot Credits, 00:02:44**.
+Aucune exécution en double n'a été soumise.
 
 ## Poursuite Foundry et MCP
 

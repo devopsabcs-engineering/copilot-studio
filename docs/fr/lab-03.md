@@ -1,7 +1,7 @@
 ---
 title: "Lab 03 : Superviser un agent avec Application Insights"
 description: "Configurer la télémétrie d’un agent, examiner les propriétés d’un événement avec KQL et distinguer revue documentaire et preuve d’exécution."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -14,7 +14,7 @@ vérifiez un événement synthétique sans collecter le contenu des conversation
 Prévoyez environ 60 minutes, hors autorisations et délai d’ingestion.
 
 > [!IMPORTANT]
-> Statut : **Monitor natif inspecté réellement ; parcours Application Insights/KQL bloqué**.
+> Résultat initial : **Monitor natif inspecté ; parcours Application Insights/KQL initialement bloqué**.
 > Le Monitor connecté n'affichait aucune donnée du 13 au 19 octobre et limitait
 > l'accès aux transcriptions. Preview History exposait indépendamment les activités
 > antérieures d'annuaire, d'envoi et de recherche échouée, sans les réexécuter.
@@ -25,6 +25,46 @@ Prévoyez environ 60 minutes, hors autorisations et délai d’ingestion.
 > exacte opération/exécution par KQL. Cela prouve la couche Azure d'ingestion/requête,
 > pas une émission par l'agent ni une configuration de sa télémétrie.
 > Consultez les [résultats et captures réels](live-rerun-2026-10-19.md).
+
+### Réussite ultérieure du test connecté de l'agent
+
+Le 20 octobre, un agent **Standard** brouillon isolé a été créé dans le portail
+pris en charge et cloné avec PAC officiel. Sa rubrique native
+`LogCustomTelemetryEvent` a réussi 13 contrôles de schéma et l'empaquetage
+officiel hors ligne, puis une seule modification de rubrique a été poussée.
+
+La connexion Application Insights dédiée a été sauvegardée puis relue après
+navigation aller-retour. Les journaux détaillés de conversation, propriétés
+sensibles et exécution de nœuds étaient tous **désactivés** avant l'unique
+déclenchement opérateur à **19:49:32 UTC**. Le vrai volet de test a répondu
+`Telemetry check requested.`
+
+Une requête KQL indépendante limitée à l'application a trouvé exactement
+**un** événement `WorkshopTelemetryCheck` avec les cinq propriétés synthétiques
+attendues, dont le marqueur unique de corrélation. Aucun émetteur synthétique
+externe ni second déclenchement n'a été utilisé. Cela valide la véritable
+émission par l'agent et sa corrélation KQL, non établies par le test Azure seul.
+
+Le [registre d'exécution](../assets/runtime-2026-10-20/agent-telemetry-execution.json)
+et les [preuves d'ingestion](../assets/runtime-2026-10-20/agent-telemetry-event.json)
+restent distincts. Les dimensions de plateforme contiennent encore des clés
+d'identifiants conversation/canal malgré ces réglages ; leurs valeurs ne sont
+pas publiées. Les horloges client/service sont distinctes : les dates ne mesurent
+pas une latence exacte. Aucun agent existant n'a été touché ni publié.
+À **19:55:31 UTC**, les réglages sauvegardés ont été relus après navigation :
+connexion vide, journalisation désactivée et trois options de confidentialité
+toujours désactivées. Le premier enregistrement avait conservé la connexion ;
+un effacement explicite, une sortie du champ et un second enregistrement ont
+corrigé cela.
+La [preuve de déconnexion](../assets/runtime-2026-10-20/agent-telemetry-disconnection.json)
+établit la déconnexion distante, non la suppression des ressources Azure.
+La [preuve de nettoyage](../assets/runtime-2026-10-20/agent-telemetry-cleanup.json)
+distincte vérifie la suppression à **19:58:02 UTC** : groupe, espace de travail,
+composant Insights et alerte limitée au composant expressément autorisée ont
+tous renvoyé HTTP 404. Le groupe d'actions partagé référencé renvoyait HTTP 200
+avant et après, sans modification. Le fichier privé de transmission de la
+connexion a été supprimé. Des frais d'ingestion antérieurs peuvent encore
+apparaître.
 
 ### Exercice d'observation dans l'expérience actuelle
 

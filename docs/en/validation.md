@@ -59,6 +59,19 @@ The [completed-run report](backend-live-2026-10-20.md#completed-evaluation-recov
 preserves the refusal/relevance mismatch and PDF completeness/citation failure.
 A Standard authoring/test destination is now reachable, but merely reaching
 its integration controls does not pass the connected-lab gates.
+The later [Lab 3 connected test](lab-03.md#later-connected-agent-test-passed)
+did pass the remaining agent-originated telemetry boundary: one real native
+topic execution, privacy-settings readback and one independently matched
+Application Insights event with five synthetic properties. No synthetic emitter
+or published channel was used. Platform conversation/channel identifier keys
+still exist; their values are excluded from published evidence.
+
+After explicit user approval, the
+[trial extension](../assets/runtime-2026-10-20/trial-extension.json)
+removed the expired-trial dialog and restored generative settings. No recurring
+purchase, new environment, unrelated consent or web-search activation occurred.
+The expiry date was not displayed or verified; advanced connector authentication
+contracts still require inspection.
 
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence

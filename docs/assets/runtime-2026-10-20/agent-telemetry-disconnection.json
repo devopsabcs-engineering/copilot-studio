@@ -1,0 +1,17 @@
+{
+  "verified_utc": "2026-10-20T19:55:31.724Z",
+  "persisted_connection_absent": true,
+  "persisted_enable_logging": false,
+  "save_disabled_after_readback": true,
+  "readback_method": "Saved, navigated away and back, then reopened Application Insights settings.",
+  "privacy_flags": {
+    "conversation_details": false,
+    "sensitive_properties": false,
+    "node_execution_events": false
+  },
+  "retry_detail": "The first save disabled logging but retained the connection. An explicit empty field, blur and second save removed it; navigation readback verified absence.",
+  "additional_user_prompts": 0,
+  "existing_agents_unchanged": true,
+  "isolated_draft_and_native_topic_preserved": true,
+  "resource_cleanup_verified_by_this_receipt": false
+}
