@@ -252,6 +252,11 @@ aborted during the Microsoft sign-in redirect. Current state is therefore
 status. The submitted run remains in place and may execute later.
 No duplicate run was created or cancellation attempted.
 
+One final elapsed-time recheck at **13:01:03 UTC** encountered the same shell
+connection reset and stopped after one navigation. No new status, grade or
+credit total was accessible. The [final recheck record](../assets/runtime-2026-10-20/evaluation-final-recheck.json)
+preserves that observation without changing the historical queued-run evidence.
+
 The [evaluation evidence](../assets/runtime-2026-10-20/evaluation-results.json)
 preserves the prompts, UI grader, queued state and timestamped recovery failures.
 Agent configuration, authentication, permissions and consent were unchanged.

@@ -265,6 +265,12 @@ la dernière observation historique, pas un état nouvellement vérifié.
 L'exécution soumise reste en place et peut démarrer ultérieurement.
 Aucune exécution en double ni annulation n'a été demandée.
 
+Une dernière vérification différée à **13:01:03 UTC** a rencontré la même
+réinitialisation de connexion et s'est arrêtée après une navigation.
+Aucun nouvel état, score ni total de crédits n'était accessible.
+Le [registre de cette dernière vérification](../assets/runtime-2026-10-20/evaluation-final-recheck.json)
+conserve cette observation sans modifier les preuves historiques d'attente.
+
 Les [preuves d'évaluation](../assets/runtime-2026-10-20/evaluation-results.json)
 conservent questions, évaluateur réel, état d'attente et échecs horodatés.
 Configuration, authentification, permissions et consentement de l'agent sont

@@ -169,6 +169,13 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(follow_up["completedRunClaimed"])
         self.assertFalse(result["citationNavigationFollowUp"]["pageAnchorVerified"])
         self.assertFalse(result["workshopComplete"])
+        final_path = path.with_name("evaluation-final-recheck.json")
+        final = json.loads(final_path.read_text(encoding="utf-8"))
+        self.assertEqual(final["supportedNavigationAttempts"], 1)
+        self.assertEqual(final["newRunsSubmitted"], 0)
+        self.assertIsNone(final["newScores"])
+        self.assertIsNone(final["newCreditTotals"])
+        self.assertFalse(final["workshopComplete"])
 
     def test_foundry_quote_recovery_keeps_failed_citation_gate(self):
         root = Path(__file__).resolve().parents[1]

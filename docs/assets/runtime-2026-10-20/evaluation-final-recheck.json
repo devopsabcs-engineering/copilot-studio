@@ -1,0 +1,27 @@
+{
+  "observedAtUtc": "2026-10-20T13:01:03.1071857Z",
+  "purpose": "One final elapsed-time recheck of the same previously submitted evaluation run",
+  "evaluationName": "Read-only licensing 3 cases 2026-10-20",
+  "supportedNavigationAttempts": 1,
+  "route": "Existing shared browser page navigated directly to the same submitted run",
+  "result": "Application shell unavailable",
+  "observedFailure": {
+    "request": "GET https://shellprod.msocdn.com/api/shellbootstrapper/business/oneshell",
+    "error": "net::ERR_CONNECTION_RESET",
+    "consoleEventAtUtc": "2026-10-20T13:00:37.829Z",
+    "pageTitle": "Microsoft Copilot Studio",
+    "snapshot": "unchanged"
+  },
+  "currentRunState": "Unknown: no fresh evaluation status was accessible",
+  "lastConfirmedStateHistoricalOnly": "Waiting",
+  "newCaseResults": null,
+  "newScores": null,
+  "newCreditTotals": null,
+  "newRunsSubmitted": 0,
+  "configurationChanged": false,
+  "authenticationOrConsentChanged": false,
+  "publishedEvaluationEvidenceChanged": false,
+  "stoppedImmediatelyAfterShellFailure": true,
+  "newScreenshots": [],
+  "workshopComplete": false
+}
