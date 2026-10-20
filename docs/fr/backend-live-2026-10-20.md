@@ -344,6 +344,51 @@ Aucun agent existant n'a été modifié pendant cette reprise.
 L'ancienne erreur de configuration n'a pas été reproduite ; sa cause
 initiale reste non prouvée.
 
+## Connexion Search sans clé bloquée par le navigateur hôte
+
+Après prolongation approuvée de l'essai, un service Basic Search jetable et un
+compte d'embeddings sans clé ont été créés. Les index distincts contenaient
+30 pages du PDF de licences et trois documents hôteliers d'origine. Deux vraies
+requêtes avec vectorisation en langage naturel ont retourné le texte source
+exact. Le PDF de l'éditeur correspondait octet pour octet au fichier autorisé ;
+aucune URL navigable d'hôtel n'était disponible ni inventée.
+
+Dans le brouillon Standard isolé, le formulaire **Microsoft Entra ID Integrated**
+a activé Create avec l'adresse HTTPS Search. Des activations distinctes prises
+en charge ont retourné la même erreur :
+
+> The connection consent pop-up window has been blocked by the browser. Please
+> allow pop-ups in your browser and try again.
+
+Aucun véritable écran de connexion ou de consentement ne s'est ouvert. Après
+annulation, le sélecteur affichait **Not connected**, **No connections available**
+et **Next** désactivé. Aucun index, mappage ou source n'a été sauvegardé ; zéro
+question Copilot exécutée. Le blocage vient du navigateur hôte, non d'un échec
+établi des droits Azure ou du point de terminaison. Les tests du vectoriseur ne
+valident ni l'ancrage connecté ni la navigation des citations.
+
+La [tentative nettoyée](../assets/runtime-2026-10-20/search-connected-attempt.json)
+conserve ces limites. L'utilisateur était indisponible pour le formulaire de
+reprise ; aucun consentement ni changement de sécurité n'a été déduit. Tout
+provisionnement supplémentaire, dont la réutilisation Foundry, a été arrêté.
+Le nettoyage dédié a été autorisé sous réserve de vérifier l'absence de connexion
+distante. La suppression exige une preuve distincte. À **20:42:56 UTC**, la relecture
+après navigation a vérifié Knowledge et Tools sauvegardés vides et aucune connexion
+Search disponible ; l'assistant non sauvegardé a été abandonné. Cela établit la
+préparation au nettoyage visible dans le portail, non un inventaire des connexions
+du locataire ni une suppression Azure. Reprenez via les contrôles
+normaux de fenêtres contextuelles ou une session interactive fonctionnelle ;
+arrêtez si un nouveau consentement de permissions ou administrateur apparaît.
+
+La [preuve de nettoyage](../assets/runtime-2026-10-20/search-cleanup.json)
+distincte vérifie la suppression à **20:48:11 UTC**. Groupe dédié, service Search,
+compte IA, déploiement d'embeddings et quatre attributions de rôles dédiées
+ont renvoyé HTTP 404. Le fichier privé de connexion a été supprimé ; les identités
+sans rapport et destinations de politiques externes sont restées intactes.
+Aucune ressource active de ce test ne subsiste ; des frais horaires Search et de
+jetons d'embeddings antérieurs peuvent encore apparaître. Le nettoyage ne
+transforme pas les tests Copilot bloqués en réussites.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

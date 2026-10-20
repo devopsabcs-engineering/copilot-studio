@@ -12,10 +12,10 @@ ms.date: 2026-10-20
 |-----|----------------------------|------------------------------|
 | 0 | Identité, rôles, quotas et outils vérifiés ; tests payants approuvés | Disponibilité complète du harnais standard |
 | 1 | Recherche, refus, annuaire, livraison et clarification vérifiés ; nouvelle erreur 400 visible ; cinq contrôles source de la nouvelle réponse PDF réussis | Audit de l'ancienne réponse complète, navigation des citations et fidélité du corps d'erreur du service en aval |
-| 2 | Ingestion privée des PDF hôteliers, embeddings intégrés et vectorisation des requêtes par identité managée réussis | Isolation du corpus de licences et connexion Search Copilot |
+| 2 | Ingestion/vectorisation privées réussies ; index ultérieur de licences seul, 30 pages, requête vectorisée fidèle aux sources | Connexion Entra Copilot bloquée par les fenêtres du navigateur hôte ; zéro question connectée |
 | 3 | Rubrique Standard exécutée une fois ; confidentialité relue ; un vrai événement avec cinq propriétés corrélé par KQL ; journal déconnecté et ressources dédiées supprimées | Canal publié et absence de tout identifiant de plateforme non certifiés |
 | 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
-| 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis | Réponse Copilot sourcée |
+| 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis ; nouvelle requête vectorisée sur hôtels isolés réussie | Réponse Copilot bloquée avant connexion ; aucune URL hôtelière navigable vérifiée |
 | 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
 | 6 | MCP/Foundry authentifiés réussis ; 3/3 extraits exacts deux fois ; nouveau format testé ; cinq groupes supprimés | Zéro annotation native ; dernière réponse avec 3/3 URL inventées ; sept résultats hors sujet ; Activity/Copilot non exécuté |
 

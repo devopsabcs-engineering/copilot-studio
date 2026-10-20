@@ -73,8 +73,16 @@ Après approbation explicite, la
 [prolongation de l'essai](../assets/runtime-2026-10-20/trial-extension.json)
 a supprimé la fenêtre d'expiration et rétabli les réglages génératifs. Aucun
 achat récurrent, nouvel environnement, consentement sans rapport ni activation
-de recherche web. La date d'expiration n'a pas été affichée ni vérifiée ;
-les contrats d'authentification des connecteurs restent à inspecter.
+de recherche web. La date d'expiration n'a pas été affichée ni vérifiée.
+Les [contrats d'authentification](../assets/runtime-2026-10-20/advanced-integration-contracts.json)
+ont ensuite été inspectés : Search propose Entra Integrated, mais le prompt BYOM
+exige une clé incompatible avec la politique imposée. La véritable
+[tentative Search](backend-live-2026-10-20.md#connexion-search-sans-clé-bloquée-par-le-navigateur-hôte)
+a échoué car le navigateur hôte bloquait la fenêtre de connexion. Aucun écran
+de consentement, connexion ou question connectée, malgré les requêtes Azure
+réussies. Le nettoyage a ensuite vérifié HTTP 404 pour le groupe, Search,
+compte IA, déploiement et quatre attributions de rôles dédiés. Aucune ressource
+active de ce test ne subsiste ; des frais antérieurs peuvent encore apparaître.
 
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.

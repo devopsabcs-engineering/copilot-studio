@@ -350,6 +350,48 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(contracts["connections_created_during_inspection"], 0)
         self.assertEqual(contracts["new_consents_granted"], 0)
 
+    def test_search_popup_blocker_is_not_a_connected_runtime_pass(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-connected-attempt.json"
+        attempt = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(attempt["status"], "blocked")
+        self.assertEqual(attempt["cloud_readiness"]["vectorizer_smoke_queries"], 2)
+        connection = attempt["connection_attempt"]
+        self.assertIn("pop-up window has been blocked", connection["exact_error"])
+        for key in ("actual_signin_or_consent_screen_opened", "new_consent_accepted",
+                    "connection_created", "index_selection_reached",
+                    "field_mapping_reached", "knowledge_source_saved"):
+            self.assertFalse(connection[key])
+        self.assertEqual(attempt["copilot_user_prompts_submitted"], 0)
+        for key in ("licensing_positive", "licensing_unsupported_negative",
+                    "hotel_positive", "hotel_unsupported_negative"):
+            self.assertEqual(attempt[key], "not_run")
+        self.assertFalse(attempt["copilot_retrieval_provenance_verified"])
+        self.assertFalse(attempt["licensing_citation_navigation_verified"])
+        self.assertFalse(attempt["browser_popup_security_modified"])
+        self.assertFalse(attempt["user_available_for_popup_recovery_form"])
+        readback = attempt["cleanup_ready_readback"]
+        self.assertTrue(readback["saved_knowledge_empty_after_navigation"])
+        self.assertTrue(readback["unsaved_wizard_discarded"])
+        self.assertFalse(readback["endpoint_or_reference_retained_in_portal_visible_components"])
+        self.assertFalse(attempt["cleanup_verified_by_this_receipt"])
+
+    def test_keyless_search_cleanup_removes_only_owned_resources_and_roles(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-cleanup.json"
+        cleanup = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(cleanup["remote_saved_connection_source_tool_absence_confirmed"])
+        self.assertEqual(cleanup["exact_run_tagged_group_inventory_count"], 2)
+        self.assertEqual(cleanup["deleted_owned_role_assignments_count"], 4)
+        self.assertEqual(cleanup["role_assignment_get_http_statuses"], [404] * 4)
+        for key in ("group_get_http_status", "account_get_http_status",
+                    "search_get_http_status", "deployment_get_http_status"):
+            self.assertEqual(cleanup[key], 404)
+        self.assertFalse(cleanup["unrelated_principals_or_external_policy_destinations_modified"])
+        self.assertFalse(cleanup["new_provisioning_or_data_queries"])
+        self.assertTrue(cleanup["private_connection_handoff_removed"])
+        self.assertTrue(cleanup["complete"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

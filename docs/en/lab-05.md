@@ -27,6 +27,13 @@ Build a retrieval-augmented generation (RAG) pipeline: ingest documents, split t
 
 These are original teaching instructions, not a republication of protected workshop text or code. The original three PDF demonstration files exist locally but are not distributed here. No protected screenshots are included.
 
+The later isolated keyless setup indexed the three original hotel documents and
+passed a genuine natural-language query vectorizer check. Copilot's Entra
+connection attempt was blocked before sign-in by the hosting browser's pop-up
+restriction; no connected question ran. Hotel source URLs also remain unavailable,
+so navigation would require separate proof even after sign-in recovery.
+See the [connection record](backend-live-2026-10-20.md#keyless-search-connection-blocked-by-the-hosting-browser).
+
 ## Architecture and prerequisites
 
 ![Original bilingual diagram of ingestion, vectorization, retrieval and grounded answers](../assets/lab-05/architecture.svg)

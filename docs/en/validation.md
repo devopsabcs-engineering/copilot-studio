@@ -70,8 +70,16 @@ After explicit user approval, the
 [trial extension](../assets/runtime-2026-10-20/trial-extension.json)
 removed the expired-trial dialog and restored generative settings. No recurring
 purchase, new environment, unrelated consent or web-search activation occurred.
-The expiry date was not displayed or verified; advanced connector authentication
-contracts still require inspection.
+The expiry date was not displayed or verified. The
+[advanced authentication contracts](../assets/runtime-2026-10-20/advanced-integration-contracts.json)
+were then inspected: Search offers Entra Integrated, whereas prompt BYOM requires
+an API key incompatible with the enforced keyless policy. The actual
+[Search connection attempt](backend-live-2026-10-20.md#keyless-search-connection-blocked-by-the-hosting-browser)
+failed because the hosting browser blocked its sign-in pop-up. No consent screen,
+connection or connected question occurred, despite successful Azure vectorizer
+queries. Cleanup subsequently verified HTTP 404 for the owned group, Search,
+AI account, embedding deployment and four scoped role assignments. No active
+resources from this test remain; historical charges may still settle.
 
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence

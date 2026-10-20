@@ -37,6 +37,14 @@ hors autorisations et délais d’indexation.
 
 ### Objectifs et critères d’acceptation
 
+La tentative ultérieure du 20 octobre a créé un index de licences de 30 pages,
+distinct de l'index hôtelier, avec un vrai test du vectoriseur réussi.
+Le test Standard connecté s'est arrêté à la fenêtre Entra bloquée par le
+navigateur hôte : aucune connexion, mappage, source ou question sauvegardée.
+Cela lève l'incertitude sur l'isolation de l'index, non la limite d'acceptation
+de l'agent connecté. Voir
+[l'échec réel de connexion](backend-live-2026-10-20.md#connexion-search-sans-clé-bloquée-par-le-navigateur-hôte).
+
 * Créer un conteneur documentaire privé et un index au contenu textuel récupérable.
 * Employer la vectorisation intégrée pour l’ingestion et les requêtes en langage naturel.
 * Connecter un index vectoriel par une connexion de données Copilot Studio prise en charge.

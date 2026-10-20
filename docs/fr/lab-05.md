@@ -27,6 +27,13 @@ Construisez une chaîne de génération augmentée par récupération (RAG) : in
 
 Ces consignes pédagogiques originales ne reproduisent ni le texte ni le code du support protégé. Les trois PDF de démonstration existent localement, mais ne sont pas redistribués. Aucune capture d'écran protégée n'est incluse.
 
+Le nouvel environnement isolé sans clé a indexé les trois documents hôteliers
+d'origine et réussi une vraie requête avec vectorisation en langage naturel.
+La connexion Entra Copilot a été bloquée avant authentification par le navigateur
+hôte ; aucune question connectée exécutée. Les URL sources hôtelières restent
+aussi indisponibles : leur navigation exige une preuve distincte même après reprise.
+Voir le [registre de connexion](backend-live-2026-10-20.md#connexion-search-sans-clé-bloquée-par-le-navigateur-hôte).
+
 ## Architecture et prérequis
 
 ![Schéma bilingue original de l'ingestion, de la vectorisation, de la recherche et des réponses sourcées](../assets/lab-05/architecture.svg)

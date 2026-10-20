@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "remote_saved_connection_source_tool_absence_confirmed": true,
+  "cleanup_started_utc": "2026-10-20T20:46:24.506689+00:00",
+  "cleanup_completed_utc": "2026-10-20T20:48:11.281338+00:00",
+  "exact_run_tagged_group_inventory_count": 2,
+  "verified_embedding_deployments_count": 1,
+  "scoped_owned_role_assignments_count": 4,
+  "deleted_owned_role_assignments_count": 4,
+  "unrelated_principals_or_external_policy_destinations_modified": false,
+  "new_provisioning_or_data_queries": false,
+  "group_absent": true,
+  "group_get_http_status": 404,
+  "account_get_http_status": 404,
+  "search_get_http_status": 404,
+  "deployment_get_http_status": 404,
+  "role_assignment_get_http_statuses": [404, 404, 404, 404],
+  "private_connection_handoff_removed": true,
+  "complete": true,
+  "cost_state": "No active owned Search, AI account or deployment remains. Historical hourly Search and embedding-token charges may settle later."
+}

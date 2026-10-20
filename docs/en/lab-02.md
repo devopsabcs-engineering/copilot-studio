@@ -33,6 +33,14 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 
 ### Objectives and acceptance criteria
 
+The later October 20 attempt created a licensing-only index of 30 source pages,
+separate from the hotel index, and passed an actual query vectorizer check.
+The connected Standard-agent test then stopped at the hosting browser's blocked
+Entra sign-in pop-up: no connection, field mapping, source or question was saved.
+This supersedes the earlier index-isolation uncertainty, not the connected-agent
+acceptance boundary. See the
+[actual connection failure](backend-live-2026-10-20.md#keyless-search-connection-blocked-by-the-hosting-browser).
+
 * Create a private document container and an index containing retrievable text.
 * Use integrated vectorization for both ingestion and natural-language queries.
 * Connect one vector index through a supported Copilot Studio data connection.

@@ -12,10 +12,10 @@ ms.date: 2026-10-20
 |-----|-------------------------|-------------------------------|
 | 0 | Azure identity, roles, quota and tools verified; owner approved paid tests | Full standard-harness readiness |
 | 1 | Retrieval, refusal, directory, delivery and clarification checked; fresh validation 400 visible; new PDF answer passed five source checks | Historical full-answer audit, citation navigation and downstream connector error-body fidelity |
-| 2 | Private hotel PDF ingestion, integrated embeddings and managed-identity query vectorization passed | Licensing-corpus isolation and Copilot Search connection |
+| 2 | Private ingestion/vectorization passed; later licensing-only 30-page index passed source-matched vectorizer query | Copilot Entra connection blocked by hosting-browser pop-up restriction; zero connected questions |
 | 3 | Native Standard topic executed once; privacy settings checked; exactly one genuine event matched five properties in KQL; logging disconnected and owned monitoring deleted | Published-channel behavior and absence of all platform identifiers not certified |
 | 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
-| 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed | Grounded Copilot answer |
+| 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed; later isolated original-hotel vectorizer query passed | Grounded Copilot answer blocked before sign-in; no verified navigable hotel URLs |
 | 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
 | 6 | Authenticated MCP/Foundry calls passed; 3/3 exact quotations twice; supported-format retest executed; five groups deleted | Zero native annotations; latest answer invented 3/3 document URLs; seven off-topic unsupported hits; Activity/Copilot not run |
 

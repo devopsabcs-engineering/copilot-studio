@@ -329,6 +329,47 @@ surface, not completed connected Search, telemetry, BYOM or Foundry tests.
 Existing agents were not modified during this recovery. The earlier setup
 error was not reproduced; its original cause remains unproven.
 
+## Keyless Search connection blocked by the hosting browser
+
+After the approved trial extension, a single disposable Basic Search service and
+keyless embedding account were created. Separate indexes held 30 licensing PDF
+pages and three original hotel documents. Two real natural-language vectorizer
+queries returned exact-source text. The licensing publisher PDF matched the
+approved file byte-for-byte; no navigable hotel URLs were available or invented.
+
+The isolated Standard draft's **Microsoft Entra ID Integrated** connection form
+enabled Create with an HTTPS Search endpoint. Distinct supported activation
+attempts returned the same error:
+
+> The connection consent pop-up window has been blocked by the browser. Please
+> allow pop-ups in your browser and try again.
+
+No actual sign-in or consent screen opened. After canceling, the knowledge
+selector showed **Not connected**, **No connections available**, and disabled
+**Next**. No index, field mapping or knowledge source was saved, and zero Copilot
+questions ran. This is a hosting-browser blocker, not an established Azure
+permission or endpoint failure. Vectorizer smoke tests do not pass the connected
+grounding or citation-navigation gates.
+
+The [sanitized attempt](../assets/runtime-2026-10-20/search-connected-attempt.json)
+preserves these boundaries. The user was unavailable for the browser-recovery
+form; no consent or browser-security change was inferred. Further provisioning,
+including Foundry reuse, was stopped and owned-resource cleanup was released,
+subject to verifying remote connection absence. Deletion requires its separate
+receipt. At **20:42:56 UTC**, navigation readback verified empty saved Knowledge,
+empty Tools and no available Search connection; the unsaved wizard was discarded.
+This establishes portal-visible cleanup readiness, not a tenant-wide connection
+inventory or Azure deletion. Resume only through normal browser pop-up controls or a working
+interactive sign-in session, and stop if new permission/admin consent appears.
+
+The separate [cleanup receipt](../assets/runtime-2026-10-20/search-cleanup.json)
+verified deletion at **20:48:11 UTC**. The owned group, Search service, AI account,
+embedding deployment and all four owned resource-scoped role assignments returned
+HTTP 404. The private connection handoff was removed; unrelated principals and
+external policy destinations were untouched. No active resources from this test
+remain, although historical hourly Search and embedding-token charges may settle
+later. Cleanup does not turn the blocked Copilot tests into passes.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
