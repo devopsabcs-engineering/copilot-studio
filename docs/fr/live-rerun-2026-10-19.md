@@ -26,6 +26,18 @@ l'ensemble de l'atelier a réussi. Les
 conservent versions, nombres et erreur observée, sans identifiants de locataire,
 chemins privés, secrets ou état Terraform.
 
+## Poursuite backend et CLI pris en charge
+
+Le [rapport backend du 20 octobre](backend-live-2026-10-20.md) consigne les
+lectures authentifiées réelles de l'environnement/Dataverse et le clone PAC
+officiel réussi de l'agent sauvegardé, de ses outils et de son PDF téléversé.
+Un chemin persistant court a résolu l'échec de clone observé. L'agent utilisateur
+n'a été ni modifié ni publié ; le profil PAC initial a été réactivé après
+chaque opération. La découverte Direct Line a échoué avec une erreur imbriquée
+d'appartenance au locataire ; celle des évaluations maker a renvoyé HTTP 403.
+Aucune nouvelle conversation ni aucun courriel n'a été compté, et aucune
+ressource payante supplémentaire n'a été créée.
+
 ## Poursuite Foundry et MCP
 
 Le [rapport d'exécution Foundry du 20 octobre](foundry-live-2026-10-20.md) ajoute

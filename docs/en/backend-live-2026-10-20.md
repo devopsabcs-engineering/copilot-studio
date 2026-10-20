@@ -1,0 +1,141 @@
+---
+title: Copilot backend and CLI validation - 2026-10-20
+description: Actual authenticated Dataverse reads, official PAC recovery, saved-agent clone, and the remaining conversation and evaluation barriers.
+ms.date: 2026-10-20
+---
+
+## Result and boundaries
+
+[All labs](index.md) | [Français](../fr/backend-live-2026-10-20.md) | [Live ledger](live-rerun-2026-10-19.md)
+
+The portal failure did not end the investigation. Authenticated Power Platform
+and Dataverse calls succeeded, and the official Power Platform CLI cloned the
+saved workshop agent, its two tools and its uploaded licensing PDF.
+No agent configuration was changed or published. No email was resent and no
+new paid Azure resource was created.
+
+This proves a supported management route, not a completed conversation route.
+The saved agent uses the newer CLI/GitHub Copilot harness. Its successful clone
+does not establish that standard-harness Topics, Search knowledge, telemetry,
+BYOM prompts or connected Foundry agents have been exercised.
+
+## Actual service observations
+
+| Check | Observed result | Acceptance boundary |
+|-------|-----------------|---------------------|
+| Intended Power Apps environment | HTTP 200; provisioning succeeded | Environment discovery only |
+| Dataverse `WhoAmI` | HTTP 200 | Caller identified, not every service permission granted |
+| Known workshop agent | HTTP 200 | Existing agent and configuration exported privately |
+| Components scoped to that agent | Four records; no continuation page | Two connector tools, one file attachment and one settings component |
+| Serialized component definitions | YAML in `data`; `content` null | Read actual definitions rather than treating null content as missing tools |
+| Official CLI authentication | Default Azure identity authenticated and connected | Existing Azure CLI login reused; no new app registration |
+| Official agent clone | Completed in a short path | Management/export passed, not a new runtime test |
+| Direct Line endpoint discovery | Outer HTTP 400, nested 403/code 1002: `Bot does not belong to the tenant.` | No endpoint or conversation obtained; cause not established |
+| Maker evaluation test-set discovery | HTTP 403: caller not authorized | No evaluation run started |
+
+The agent's stored recognizer is `CLICopilotRecognizer` and its template is
+`cliagent-1.0.0`. Integrated authentication remains enabled. The two exported
+tools are **Search for users (V2)** and **Send an email (V2)** with invoker
+authentication. Connection identities and references remain private.
+
+The CLI list displays the Dataverse component state as `Published`, while the
+agent record's `publishedon` field is null. Neither observation was treated as
+proof of a usable published channel. The existing agent was not published to
+make the test pass.
+
+## Recover the official CLI without weakening policy
+
+1. Check the existing installation before changing dependencies. In this run,
+   `pac` was absent from PATH.
+2. Try Microsoft's documented .NET tool distribution in a session-local path.
+   NuGet v3 failed TLS; the official v2 attempt stalled and was stopped.
+   Certificate validation and proxy settings were not disabled.
+3. Use the official Microsoft Power Platform VS Code extension distribution
+   when its bundled CLI is available. Resolve its package through the Visual
+   Studio Marketplace's Microsoft publisher metadata, not an untrusted mirror.
+4. Retrieve the bundled package through its actual HTTPS gallery CDN asset.
+   The initial package gateway timed out. The CDN honored ordinary byte-range
+   requests, allowing only the required bundled packages to be retrieved.
+5. Verify package integrity. The Windows executable had a **Valid**
+   Authenticode signature from **Microsoft Corporation**. ZIP CRC and byte
+   lengths were checked. This is not a claim that a separate package-signature
+   verification was performed.
+6. Keep the CLI isolated. Both Windows and .NET CLI **2.13.1** were obtained.
+   The .NET tool installed from the already downloaded official bundle using
+   a local-only NuGet source. No global tool installation was required.
+
+The Windows .NET Framework CLI reports that its MCP server is unsupported.
+The .NET tool's MCP server initialized and returned its actual tool schemas.
+Its management/evaluation discovery is not itself agent conversation evidence.
+
+The installed Copilot plugin's management bundle also failed on a missing
+native dependency. A session-local restore was attempted, but npm returned
+`EALLOWREMOTE` under the configured package policy. No alternate registry or
+policy override was used. The working PAC route was kept separate.
+
+## Authenticate and clone safely
+
+Use the actual Dataverse URL discovered for your intended environment.
+Do not substitute a tenant domain or infer a URL from the agent's display name.
+The examples use placeholders and omit private connection details.
+
+```powershell
+$env:AZURE_TOKEN_CREDENTIALS = 'AzureCliCredential'
+& $pac auth list
+& $pac auth create --name 'workshop-test' --managedIdentity `
+  --environment '<actual Dataverse HTTPS URL>'
+& $pac copilot clone --bot '<known workshop bot ID>' `
+  --display-name 'lab1' --output-dir '<short private output directory>'
+```
+
+Here `--managedIdentity` means the documented default Azure identity chain.
+It successfully reused the existing Azure CLI identity in this run; it does
+not imply that this workstation acquired an Azure resource's managed identity.
+The process-only credential selector was not persisted as a machine setting.
+
+Record the original active PAC profile and restore it in `finally` after
+each operation. This run preserved the existing profile and restored it after
+each use of the uniquely named lab profile. Never clear all profiles.
+
+The first clone hit `DirectoryNotFoundException` when writing a long connection
+filename below the deep session path. Its partial output was not counted as a
+successful clone. A retry into that nonempty destination was rejected.
+A fresh, short private path then completed; a persistent short-path clone also
+completed. No system-wide long-path setting or user file was changed.
+
+## Evidence handling and remaining work
+
+Raw configuration, source PDF, connection definitions and identity responses
+are private. The [sanitized backend results](../assets/runtime-2026-10-19/backend-results.json)
+publish only narrow observations, counts and failed acceptance boundaries.
+The independent Lab 1 evidence audit distinguishes source identity from answer
+accuracy: a matching PDF hash cannot prove that every answer claim or citation
+is correct.
+
+The freshly cloned PDF contains **867,776 bytes**. Its SHA-256 equals both the
+freshly hashed approved original and the previously recorded source hash.
+The independent audit passed **6 of 8 checks**, with **2 blocked** and none
+failed. It made no new live call or PDF content-check claim.
+
+The complete saved supported-answer text and citation-target mapping are still
+needed for a full Lab 1 citation audit. Existing clipped screenshots must not
+be reconstructed into an invented transcript. The six earlier PDF content
+checks remain historical evidence unless actually rerun.
+
+Before additional paid provisioning, establish an authorized standard-agent
+authoring and test route. Evaluation requires an identity accepted by that API;
+Dataverse access alone did not provide it. Do not bypass the observed 403,
+disable authentication, broaden roles speculatively, or publish the existing
+user agent to work around the barrier.
+
+No new product screenshot is claimed for this backend-only continuation.
+The existing gallery preserves its real screenshot provenance. All earlier
+paid test environments remain deleted; the local tools and private source
+backup are not cloud deployment resources.
+
+## Official references
+
+* [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
+* [PAC authentication](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/auth)
+* [PAC Copilot commands](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot)
+* [Microsoft Power Platform VS Code extension](https://marketplace.visualstudio.com/items?itemName=microsoft-IsvExpTools.powerplatform-vscode)

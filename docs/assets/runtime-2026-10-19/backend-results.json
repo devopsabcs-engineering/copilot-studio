@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "execution_date": "2026-10-20",
+  "overall_workshop_certified": false,
+  "power_platform": {
+    "environment_http_status": 200,
+    "environment_provisioning_succeeded": true,
+    "dataverse_identity_http_status": 200,
+    "known_agent_http_status": 200,
+    "scoped_component_count": 4,
+    "component_types": [9, 14, 18],
+    "connector_tool_count": 2,
+    "component_definitions_field": "data",
+    "recognizer_kind": "CLICopilotRecognizer",
+    "template": "cliagent-1.0.0",
+    "integrated_authentication": true
+  },
+  "official_cli": {
+    "version": "2.13.1",
+    "publisher": "microsoft-IsvExpTools",
+    "windows_authenticode_status": "Valid",
+    "windows_authenticode_signer": "Microsoft Corporation",
+    "bundled_zip_integrity_checked": true,
+    "separate_package_signature_verification_claimed": false,
+    "session_local_windows_cli": true,
+    "session_local_dotnet_tool": true,
+    "dotnet_tool_installed_from_official_local_bundle": true,
+    "default_azure_identity_authenticated": true,
+    "original_active_profile_restored": true,
+    "windows_mcp_supported": false,
+    "dotnet_mcp_initialization_passed": true,
+    "clone_initial_deep_path_passed": false,
+    "clone_short_path_passed": true,
+    "clone_persistent_short_path_passed": true,
+    "global_cli_installation": false,
+    "tls_validation_disabled": false,
+    "proxy_settings_changed": false,
+    "package_policy_overridden": false
+  },
+  "lab1_source_identity_audit": {
+    "checks": 8,
+    "passed": 6,
+    "blocked": 2,
+    "failed": 0,
+    "cloned_pdf_bytes": 867776,
+    "cloned_pdf_matches_fresh_original_hash": true,
+    "cloned_pdf_matches_prior_hash": true,
+    "new_pdf_content_checks": 0,
+    "complete_answer_claim_accuracy_verified": false,
+    "citation_target_fidelity_verified": false,
+    "clipped_text_reconstructed": false,
+    "new_live_tests": 0
+  },
+  "runtime_boundaries": {
+    "directline_discovery_outer_http_status": 400,
+    "directline_discovery_nested_status": 403,
+    "directline_discovery_nested_code": 1002,
+    "directline_discovery_message": "Bot does not belong to the tenant.",
+    "directline_endpoint_obtained": false,
+    "directline_root_cause_established": false,
+    "maker_evaluation_discovery_http_status": 403,
+    "evaluation_run_started": false,
+    "new_agent_conversation_executed": false,
+    "standard_harness_connection_verified": false
+  },
+  "preservation": {
+    "existing_agent_modified": false,
+    "existing_agent_published_by_this_test": false,
+    "emails_resent": 0,
+    "new_paid_azure_resources": 0,
+    "raw_source_or_credentials_published": false
+  }
+}

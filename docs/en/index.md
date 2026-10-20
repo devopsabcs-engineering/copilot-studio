@@ -1,7 +1,7 @@
 ---
 title: Workshop guide in English
 description: Lab sequence, prerequisites, shared screenshots, and evidence-based validation for the Agent Factory workshop.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Start here
@@ -9,26 +9,27 @@ ms.date: 2026-10-19
 [Français](../fr/index.md) | [Repository home](../../README.md)
 
 Follow the [actual rerun record](live-rerun-2026-10-19.md) for the latest execution
-evidence. Terraform init, validate and a non-applying plan have now passed; a real
-Lab 6 SDK import failure was reproduced and resolved in an isolated source-pinned
-environment. These partial results do not certify the remaining cloud exercises.
+evidence. Paid infrastructure, private ingestion and Foundry/MCP subsystems have
+now been exercised and cleaned up. The [backend continuation](backend-live-2026-10-20.md)
+also cloned the actual saved agent and PDF through official PAC. These partial
+results do not certify the complete connected-agent exercises.
 
 Use these guides alongside your authorized local workshop material. Do not treat a
 successful documentation check as a successful cloud deployment. The last review
-date is 2026-10-19; each tenant can expose different previews and regional capabilities.
+date is 2026-10-20; each tenant can expose different previews and regional capabilities.
 
 ## Lab sequence
 
 | Lab | Guide                                                               | Evidence level                            |
 | --- | ------------------------------------------------------------------- | ----------------------------------------- |
-| 0   | [Prerequisites, licensing, environment, and permissions](lab-00.md) | Partial read-only preflight               |
-| 1   | [Licensing advisor, knowledge, and email tools](lab-01.md)          | User-provided execution evidence          |
-| 2   | [Azure AI Search as knowledge](lab-02.md)                           | Procedure review; live run blocked        |
-| 3   | [Application Insights monitoring](lab-03.md)                        | Procedure review; live run blocked        |
-| 4   | [Bring your own model with a prompt](lab-04.md)                     | Procedure review; live run blocked        |
-| 5.1 | [Deploy the advanced-search infrastructure](lab-05-1.md)            | Static review; deployment not run         |
-| 5   | [Advanced querying with Azure AI Search](lab-05.md)                 | Static/procedure review; live run blocked |
-| 6   | [Foundry IQ and agentic retrieval](lab-06.md)                       | Static/procedure review; live run blocked |
+| 0   | [Prerequisites, licensing, environment, and permissions](lab-00.md) | Preflight and backend access; standard runtime incomplete |
+| 1   | [Licensing advisor, knowledge, and email tools](lab-01.md)          | Core live path passed; cloned PDF hash matched; citation audit incomplete |
+| 2   | [Azure AI Search as knowledge](lab-02.md)                           | Private ingestion passed; licensing/Copilot integration incomplete |
+| 3   | [Application Insights monitoring](lab-03.md)                        | Synthetic ingestion/KQL passed; agent-originated telemetry incomplete |
+| 4   | [Bring your own model with a prompt](lab-04.md)                     | Direct paid model call passed; connected prompt incomplete |
+| 5.1 | [Deploy the advanced-search infrastructure](lab-05-1.md)            | Corrected paid deployment and verified cleanup completed |
+| 5   | [Advanced querying with Azure AI Search](lab-05.md)                 | Real retrieval checks passed; connected Copilot answer incomplete |
+| 6   | [Foundry IQ and agentic retrieval](lab-06.md)                       | MCP/single-source passed; exact multisource quotations failed; Activity conversation not run |
 
 Run 5.1 before 5 if the advanced-search resources do not already exist. Lab 4
 depends on the Search index from Lab 2. The supplied monitoring document has an

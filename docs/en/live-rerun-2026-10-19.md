@@ -25,6 +25,17 @@ The [sanitized machine-readable results](../assets/runtime-2026-10-19/results.js
 retain the exact observed versions, counts, and failure without tenant identifiers,
 private paths, credentials, or Terraform state.
 
+## Supported backend and CLI continuation
+
+The [October 20 backend report](backend-live-2026-10-20.md) records actual
+authenticated environment/Dataverse reads and a successful official PAC clone
+of the saved agent, tools and uploaded PDF. A short persistent path resolved
+the observed clone failure. The existing user agent was not modified or
+published and the original PAC profile was restored after each operation.
+Direct Line endpoint discovery failed with a nested tenant-membership error;
+maker evaluation discovery returned HTTP 403. No new conversation or email
+was counted, and no additional paid resource was created.
+
 ## Foundry and MCP continuation
 
 The [October 20 Foundry execution report](foundry-live-2026-10-20.md) adds actual

@@ -55,6 +55,37 @@ class WikiTests(unittest.TestCase):
             self.assertGreaterEqual(counts["bilingual_pairs"], 13)
             self.assertGreaterEqual(counts["screenshots"], 29)
 
+    def test_backend_evidence_preserves_acceptance_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-19" / "backend-results.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertFalse(result["overall_workshop_certified"])
+        self.assertEqual(result["power_platform"]["scoped_component_count"], 4)
+        cli = result["official_cli"]
+        self.assertEqual(cli["windows_authenticode_status"], "Valid")
+        self.assertTrue(cli["clone_persistent_short_path_passed"])
+        self.assertTrue(cli["original_active_profile_restored"])
+        for key in ("global_cli_installation", "tls_validation_disabled",
+                    "proxy_settings_changed", "package_policy_overridden"):
+            self.assertFalse(cli[key])
+        audit = result["lab1_source_identity_audit"]
+        self.assertEqual(audit["checks"], audit["passed"] + audit["blocked"] + audit["failed"])
+        self.assertTrue(audit["cloned_pdf_matches_fresh_original_hash"])
+        self.assertFalse(audit["complete_answer_claim_accuracy_verified"])
+        self.assertFalse(audit["citation_target_fidelity_verified"])
+        runtime = result["runtime_boundaries"]
+        self.assertEqual(runtime["directline_discovery_outer_http_status"], 400)
+        self.assertEqual(runtime["maker_evaluation_discovery_http_status"], 403)
+        for key in ("directline_endpoint_obtained", "directline_root_cause_established",
+                    "evaluation_run_started", "new_agent_conversation_executed",
+                    "standard_harness_connection_verified"):
+            self.assertFalse(runtime[key])
+        preservation = result["preservation"]
+        self.assertFalse(preservation["existing_agent_modified"])
+        self.assertFalse(preservation["existing_agent_published_by_this_test"])
+        self.assertEqual(preservation["emails_resent"], 0)
+        self.assertEqual(preservation["new_paid_azure_resources"], 0)
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

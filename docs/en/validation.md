@@ -21,7 +21,10 @@ verified 22 retrieved passages. Direct authenticated MCP and single-source
 Foundry-agent grounding passed. Cross-source final exact quotations failed;
 Activity configuration passed without an Activity/Copilot conversation.
 That isolated environment was also deleted and its absence independently verified.
-The tables below retain the original review baseline unless superseded by that record.
+The [backend continuation](backend-live-2026-10-20.md) authenticated to Dataverse
+and cloned the actual saved agent through official PAC. Direct Line discovery
+and evaluation authorization remain blocked; a clone is not a conversation.
+The tables below retain the original review baseline unless superseded by those records.
 
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence
