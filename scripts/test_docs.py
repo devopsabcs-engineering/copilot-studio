@@ -1,5 +1,6 @@
 """Offline regression tests for documentation export and link validation."""
 from pathlib import Path
+import json
 import tempfile
 import unittest
 
@@ -53,6 +54,29 @@ class WikiTests(unittest.TestCase):
             self.assertEqual(errors, [])
             self.assertGreaterEqual(counts["bilingual_pairs"], 13)
             self.assertGreaterEqual(counts["screenshots"], 29)
+
+    def test_foundry_evidence_preserves_acceptance_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertFalse(result["overall_workshop_certified"])
+        retrieval = result["indexing_and_ga_retrieval"]
+        self.assertEqual(retrieval["original_records"], 24)
+        self.assertEqual(sum(query["passages"] for query in retrieval["queries"]),
+                         retrieval["exact_original_passage_matches"])
+        self.assertTrue(result["mcp"]["current_preview"]["passed"])
+        self.assertFalse(result["mcp"]["historical_preview"]["tool_call_passed"])
+        self.assertTrue(result["foundry_agent"]["single_source"]["passed"])
+        self.assertFalse(result["foundry_agent"]["single_source"]["requested_output_constraints_followed"])
+        cross = result["foundry_agent"]["cross_source_recovery"]
+        self.assertFalse(cross["passed"])
+        self.assertEqual(len(cross["final_quotation_checks"]), 3)
+        self.assertTrue(all(not check["exact_original_quotation"] for check in cross["final_quotation_checks"]))
+        self.assertTrue(result["activity"]["configuration_passed"])
+        self.assertFalse(result["activity"]["activity_conversation_executed"])
+        self.assertFalse(result["activity"]["copilot_connection_executed"])
+        self.assertTrue(result["cleanup"]["deleted"])
+        self.assertTrue(result["cleanup"]["independent_group_absence"])
 
 
 if __name__ == "__main__":

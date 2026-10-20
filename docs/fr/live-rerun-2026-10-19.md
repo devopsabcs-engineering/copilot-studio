@@ -1,7 +1,7 @@
 ---
 title: Registre de réexécution réelle - 2026-10-19
 description: Recherche PDF et livraison de courriel réellement testées, plan Terraform exécuté, échec SDK reproduit, restauration isolée et conditions cloud restantes.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Périmètre et résultat actuel
@@ -17,7 +17,7 @@ ms.date: 2026-10-19
 | 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
 | 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis | Réponse Copilot sourcée |
 | 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
-| 6 | 24 enregistrements, 3 index/sources, recherche minimale réelle et 19 passages exacts | Modèle/agent Foundry, MCP, Activity et parcours d'agent connecté Copilot |
+| 6 | 24 embeddings réels ; 22 passages exacts dans le test payant ; MCP authentifié et appel Foundry monosource réussis ; Activity configuré | Citations finales multisources échouées ; conversation Activity et connexion Copilot non exécutées |
 
 Il s'agit du suivi d'exécution demandé après la première revue documentaire.
 Les contrôles ci-dessous ont réellement été exécutés. Ils ne signifient pas que
@@ -25,6 +25,27 @@ l'ensemble de l'atelier a réussi. Les
 [résultats structurés et nettoyés](../assets/runtime-2026-10-19/results.json)
 conservent versions, nombres et erreur observée, sans identifiants de locataire,
 chemins privés, secrets ou état Terraform.
+
+## Poursuite Foundry et MCP
+
+Le [rapport d'exécution Foundry du 20 octobre](foundry-live-2026-10-20.md) ajoute
+des appels réels de modèle, d'embeddings et d'outil d'agent avec connexion par
+identité managée. La préversion MCP Search actuelle utilise `query_variants`,
+pas l'ancien argument `queries`. Son appel direct a renvoyé titre et contenu
+originaux exacts. Un appel monosource de l'agent Foundry a produit une citation
+originale vérifiée. La reprise multisource a exécuté sa question complète
+contrôlée, mais ses trois citations annoncées ont échoué à la comparaison exacte.
+Les écarts de format/longueur sont consignés séparément, sans être masqués par
+un transport réussi.
+
+La configuration Activity et sa relecture indépendante ont réussi, avec
+version 3 épinglée et autorisation Entra uniquement. Aucune conversation
+Activity/Copilot n'a été exécutée. Les
+[résultats Foundry expurgés](../assets/runtime-2026-10-19/foundry-results.json)
+préservent réussites et échecs. Les trois ressources Azure inventoriées et
+leurs enfants dédiés ont été retirés par suppression contrôlée du groupe ;
+son absence a été vérifiée indépendamment. Aucun environnement payant
+d'essai n'est volontairement conservé.
 
 ## Poursuite de l'ingestion privée des PDF
 

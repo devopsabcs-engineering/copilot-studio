@@ -1,7 +1,7 @@
 ---
 title: Live rerun record - 2026-10-19
 description: Live PDF retrieval and email delivery tests, executed Terraform plan, reproduced SDK failure, isolated dependency restoration, and remaining cloud gates.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Scope and current result
@@ -17,13 +17,31 @@ ms.date: 2026-10-19
 | 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
 | 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed | Grounded Copilot answer |
 | 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
-| 6 | 24 records, 3 indexes/sources, actual minimal retrieval and 19 exact source matches | Foundry model/agent, MCP, Activity and Copilot connected-agent flow |
+| 6 | 24 real embeddings; 22 exact passages in the paid run; authenticated MCP and single-source Foundry call passed; Activity configured | Cross-source final quotations failed; Activity conversation and Copilot connection not run |
 
 This is the execution follow-up requested after the original documentation review.
 The checks below actually ran. They are not a claim that the whole workshop passed.
 The [sanitized machine-readable results](../assets/runtime-2026-10-19/results.json)
 retain the exact observed versions, counts, and failure without tenant identifiers,
 private paths, credentials, or Terraform state.
+
+## Foundry and MCP continuation
+
+The [October 20 Foundry execution report](foundry-live-2026-10-20.md) adds actual
+model, embedding, managed-identity connection and agent-tool execution. The
+current Search MCP preview uses `query_variants`, not the older `queries`
+argument. Its direct call returned the exact original title and content.
+A Foundry-agent single-source call returned a verified original quotation.
+The cross-source retry executed its reviewed full query, but all three claimed
+quotations failed exact comparison. Formatting/length deviations are recorded
+separately, not hidden by a passing transport status.
+
+Activity configuration and independent readback passed with version 3 pinned
+and Entra-only authorization. No Activity/Copilot conversation ran. The
+[sanitized Foundry results](../assets/runtime-2026-10-19/foundry-results.json)
+preserve both successes and failures. All three inventoried Azure resources and
+their owned children were removed through guarded group deletion; independent
+group absence passed. No paid test environment is intentionally retained.
 
 ## Private PDF ingestion continuation
 

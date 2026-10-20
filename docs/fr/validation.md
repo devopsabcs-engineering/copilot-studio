@@ -1,7 +1,7 @@
 ---
 title: Registre de validation de l'atelier
 description: Preuves, vérifications effectuées, limites d'exécution et critères d'acceptation encore nécessaires pour chaque lab.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Verdict global
@@ -16,7 +16,13 @@ Application Insights réellement corrélé par KQL ont réussi. Les ressources o
 25 contrôles : indexeur Blob réel, neuf projections enfants et embeddings
 intégrés de 1 536 dimensions. Le dernier registre distingue son nettoyage
 de celui de l'exécution précédente. L'échec SDK du lab 6 et sa restauration
-isolée ont aussi été testés. Les tableaux suivants
+isolée ont aussi été testés. Son
+[exécution Foundry payante ultérieure](foundry-live-2026-10-20.md) a généré
+24 embeddings réels et vérifié 22 passages récupérés. Le MCP authentifié direct
+et les citations monosources de l'agent Foundry ont réussi. Les citations finales
+multisources ont échoué ; Activity a été configuré sans conversation Activity/Copilot.
+Cet environnement isolé a aussi été supprimé, avec absence vérifiée indépendamment.
+Les tableaux suivants
 conservent l'état de la revue initiale, sauf mise à jour apportée par ce registre.
 
 La revue et la publication de la documentation sont distinctes de la validation

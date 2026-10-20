@@ -1,7 +1,7 @@
 ---
 title: Workshop validation ledger
 description: Evidence, completed checks, runtime limitations, and the acceptance criteria still required for each workshop lab.
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ---
 
 ## Overall verdict
@@ -15,7 +15,12 @@ event with exact KQL correlation passed; the owned resources were deleted and
 absence verified. A further private PDF pipeline passed 25 checks, including an
 actual Blob indexer, nine child projections and integrated 1,536-dimensional
 embeddings. The latest record separates its cleanup from the earlier run.
-Lab 6's SDK failure and isolated restoration were also tested.
+Lab 6's SDK failure and isolated restoration were also tested. Its later
+[paid Foundry run](foundry-live-2026-10-20.md) generated 24 real embeddings and
+verified 22 retrieved passages. Direct authenticated MCP and single-source
+Foundry-agent grounding passed. Cross-source final exact quotations failed;
+Activity configuration passed without an Activity/Copilot conversation.
+That isolated environment was also deleted and its absence independently verified.
 The tables below retain the original review baseline unless superseded by that record.
 
 Documentation review and publication are separate from live lab validation.

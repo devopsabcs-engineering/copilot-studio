@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "run_date_utc": "2026-10-20",
+  "overall_workshop_certified": false,
+  "scope": "Actual isolated paid Foundry/Search validation; partial acceptance only",
+  "configuration": {
+    "foundry_region": "swedencentral",
+    "search_region": "westus2",
+    "search_tier": "basic",
+    "local_auth_disabled": true,
+    "chat_model": "gpt-4o",
+    "embedding_model": "text-embedding-ada-002",
+    "embedding_dimensions": 1536,
+    "source_pinned_projects_sdk": "2.0.0b3",
+    "agent_api_version": "v1"
+  },
+  "indexing_and_ga_retrieval": {
+    "original_records": 24,
+    "original_index_count": 3,
+    "actual_embeddings_passed": true,
+    "embedding_usage": {
+      "prompt_tokens": 3322,
+      "total_tokens": 3322
+    },
+    "stored_vectors_and_source_fields_rechecked": true,
+    "managed_identity_semantic_hybrid_passed": true,
+    "ga_api_version": "2026-04-01",
+    "queries": [
+      {
+        "passed": true,
+        "passages": 2,
+        "sources": 1
+      },
+      {
+        "passed": true,
+        "passages": 20,
+        "sources": 3
+      },
+      {
+        "passed": true,
+        "passages": 0,
+        "sources": 0
+      }
+    ],
+    "exact_original_passage_matches": 22
+  },
+  "mcp": {
+    "historical_preview": {
+      "api_version": "2026-05-01-preview",
+      "declared_argument": "queries",
+      "tool_discovery_passed": true,
+      "tool_call_passed": false,
+      "planning_model_present_in_preview_readback": true,
+      "observed_error": "A Knowledge Base model must be specified to use any reasoning effort other than 'Minimal'",
+      "root_cause_not_established": true
+    },
+    "current_preview": {
+      "api_version": "2026-08-01-preview",
+      "tool_discovery_passed": true,
+      "declared_argument": "query_variants",
+      "tool_call_error": false,
+      "exact_title_present": true,
+      "exact_original_content_present": true,
+      "passed": true
+    },
+    "planning_model_keyless_readback_passed": true,
+    "project_connection": {
+      "auth_type": "ProjectManagedIdentity",
+      "audience": "https://search.azure.com/",
+      "owned_target_and_audience_verified": true,
+      "allowed_tool": "knowledge_base_retrieve",
+      "approval_required": "always"
+    }
+  },
+  "foundry_agent": {
+    "smoke": {
+      "passed": true,
+      "api_version": "v1",
+      "source_pinned_sdk": "2.0.0b3",
+      "exact_agent_smoke_marker": true,
+      "total_tokens": 41,
+      "copilot_connection_executed": false
+    },
+    "single_source": {
+      "version": "2",
+      "name": "single",
+      "passed": true,
+      "reviewed_approvals": 1,
+      "successful_mcp_calls": 1,
+      "answer_format": "markdown_fenced_json",
+      "excerpt_lengths": [
+        574
+      ],
+      "requested_output_constraints_followed": false,
+      "exact_source_titles": 1,
+      "exact_source_quotations": 1,
+      "total_final_tokens": 1587
+    },
+    "initial_cross_source": {
+      "version": "2",
+      "query_narrowed_to_one_source": true,
+      "narrowed_query_approved": false
+    },
+    "cross_source_recovery": {
+      "version": "3",
+      "reviewed_full_query_executed": true,
+      "successful_mcp_calls": 1,
+      "tool_output_exact_original_titles": 3,
+      "tool_output_exact_full_original_contents": 2,
+      "final_quotation_checks": [
+        {
+          "title_matches_requested_original": true,
+          "excerpt_characters": 171,
+          "exact_original_quotation": false,
+          "exact_tool_quotation": false
+        },
+        {
+          "title_matches_requested_original": true,
+          "excerpt_characters": 166,
+          "exact_original_quotation": false,
+          "exact_tool_quotation": false
+        },
+        {
+          "title_matches_requested_original": true,
+          "excerpt_characters": 170,
+          "exact_original_quotation": false,
+          "exact_tool_quotation": false
+        }
+      ],
+      "final_exact_quotation_check_passed": false,
+      "passed": false
+    }
+  },
+  "activity": {
+    "activity_enabled": true,
+    "responses_preserved": true,
+    "entra_only": true,
+    "version_3_pinned": true,
+    "activity_conversation_executed": false,
+    "copilot_connection_executed": false,
+    "scope": "Configuration and independent readback only; no Activity or Copilot conversation",
+    "configuration_passed": true
+  },
+  "cleanup": {
+    "deleted": true,
+    "cleanup_inventory_resources": 3,
+    "independent_group_absence": true
+  },
+  "new_product_execution_screenshots": 0,
+  "remaining": [
+    "Cross-source final exact quotations",
+    "Activity conversation and Copilot connected-agent conversation",
+    "Full standard-harness integration and the other published lab acceptance boundaries"
+  ]
+}

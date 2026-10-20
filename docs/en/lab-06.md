@@ -1,7 +1,7 @@
 ---
 title: "Lab 6: Foundry IQ retrieval and connected-agent evaluation"
 description: "Review a multi-source retrieval notebook, reconcile current Foundry APIs, and evaluate a standard Copilot Studio agent without confusing static checks with live proof."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -19,15 +19,21 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > local field/ID checks. Actual Free-plan GA retrieval subsequently indexed all
 > 24 records across three sources and returned 2 specific, 17 cross-source and
 > zero unsupported passages. All 19 returned passages matched originals exactly.
-> The Foundry/Copilot connected-agent layer is still unexecuted. See the
-> [actual rerun record](live-rerun-2026-10-19.md).
+> A later paid run generated all 24 embeddings, verified stored vectors and
+> source fields, and matched 22 retrieved passages exactly. Direct authenticated
+> MCP retrieval and a single-source Foundry-agent tool call also passed.
+> Cross-source final exact quotations failed; Activity was configured but no
+> Activity/Copilot conversation ran. See the
+> [Foundry execution results and current API walkthrough](foundry-live-2026-10-20.md).
 
 Copilot Studio became usable for the actual Lab 1 retrieval/email run, then Preview
 became intermittently blank again. A later explicit-subscription inventory found
 seven unrelated Application Insights components, correcting the initial absence
 claim. They were not repurposed. The isolated Free Search resources were deleted
-after testing. An approved dedicated Foundry project, model deployments, permissions
-and a new-portal agent with Activity protocol are still required for the connected layer.
+after testing. The subsequent paid Foundry account, project, model deployments,
+Search service and MCP connection were exercised and then deleted, with group
+absence independently verified. A future connected-agent run needs a new approved
+environment; no live endpoint is intentionally retained.
 
 The workshop's protected text, notebook code and embedded examples are not republished. The four figures below come only from the unprotected supporting Copilot setup document, with sensitive details redacted. They are historical source screenshots, not newly captured execution evidence.
 
@@ -183,11 +189,13 @@ This proves multi-source minimal/extractive Search retrieval. It does not prove
 LLM query planning, answer synthesis, generated semantic embeddings, Foundry
 tool invocation or a Copilot connected-agent conversation.
 
-## 4. Execute in checkpoints during an approved later session
+## 4. Execute in checkpoints and distinguish the tested layers
 
-The original end-to-end sequence below remains unexecuted. The separate GA
-retrieval substitute above was executed; do not treat it as a pass for the
-embedding, MCP, Foundry-agent or connected-agent steps.
+The paid continuation executed the embedding, Search, MCP and Foundry-agent
+checkpoints below, with mixed acceptance results. Its
+[current API walkthrough](foundry-live-2026-10-20.md) records the exact substitutions,
+the single-source success and the failed cross-source quotation check.
+The original Copilot connected-agent sequence remains unexecuted.
 
 1. Have the instructor prepare a dedicated environment and review the pinned dependencies or a tested migration. Install only in that approved environment, never in a shared system interpreter.
 2. Select that environment as the notebook kernel. Verify package versions before running any cell; syntax success on Python 3.14.3 is not certification of that runtime for the old dependency set.
@@ -206,6 +214,11 @@ embedding, MCP, Foundry-agent or connected-agent steps.
 ## 5. Enable the protocol required by Copilot Studio
 
 The current [Foundry connected-agent procedure](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent) requires the **Activity protocol** endpoint. New Foundry agents expose Responses and A2A by default; that alone is insufficient.
+
+The paid run enabled Activity and preserved Responses, pinned version 3, and read
+back Entra-only authorization successfully. That configuration result is not an
+Activity conversation or proof of the channel-specific authorization required by
+Copilot or Teams.
 
 1. Confirm the agent was created in the new Foundry portal/project experience. The current connector documentation warns that agents from the previous portal can produce `404 - Version not found`.
 2. Follow [Configure and share your agent](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/configure-agent) to enable Activity programmatically through the supported REST API or SDK. This is a separately reviewed configuration change, not a portal toggle available in the historical screenshot.
@@ -254,7 +267,7 @@ Use only fictional, nonidentifying situations. Financial-domain content in the a
 | F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | Not run                         |
 | F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | Not run                         |
 | F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | Not run                         |
-| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | Not run                         |
+| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | Dedicated Foundry/Search group deleted and absence verified; no Copilot objects created |
 
 For each live case, record actual route, source IDs, assertion pass/fail, citation support, latency and sanitized error. Report routing accuracy as correctly routed cases divided by executed routing cases. Report citation support separately. A model-authored source label or a successful HTTP response cannot substitute for a retrieved passage.
 
@@ -290,4 +303,11 @@ Capture new live screenshots only after obtaining access and approval. Redact id
 6. Close local clients/kernel sessions and remove private `.env` files and sensitive outputs according to the approved retention policy.
 7. Remove dedicated infrastructure only with the owner-approved [Lab 5.1 cleanup plan](lab-05-1.md). Search, model and Foundry resources can continue to incur charges after notebook objects are deleted.
 
-Static review and syntax checks are complete; the cloud acceptance matrix remains unexecuted. Current blockers are blank browser navigation to the agent, absent Search/Application Insights resources in the selected subscription, and outstanding Foundry compatibility, identity and Activity-protocol configuration review. Copilot sign-in succeeded; it is not a remaining blocker. An operator must resolve the current blockers, run the checkpointed tests, and record actual results before declaring the lab validated.
+Static review, dependency restoration and substantial cloud checkpoints are complete.
+The [paid Foundry record](foundry-live-2026-10-20.md) distinguishes passing transport
+and single-source grounding from failing cross-source final quotations.
+Copilot routing cases F6-04 through F6-11 and an actual Activity conversation
+remain unexecuted. Standard Copilot navigation still failed; the Foundry browser
+also reported an IndexedDB object-store error. These observations do not establish
+invalid user credentials. All isolated resources were removed. Do not certify the
+whole lab until the remaining acceptance criteria actually pass.

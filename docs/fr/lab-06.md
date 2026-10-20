@@ -1,7 +1,7 @@
 ---
 title: "Atelier 6 : Recherche Foundry IQ et évaluation d'agents connectés"
 description: "Examinez un notebook de recherche multisource, adaptez les API Foundry actuelles et évaluez un agent standard Copilot Studio sans confondre contrôle statique et preuve réelle."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -19,17 +19,22 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > enregistrements ont aussi passé les contrôles locaux de champs et d'identifiants.
 > Une recherche cloud GA gratuite a ensuite indexé les 24 enregistrements dans trois
 > sources : 2 passages précis, 17 multisources et zéro pour la question non couverte.
-> Les 19 passages correspondaient exactement aux originaux. La couche d'agents
-> connectés Foundry/Copilot reste non exécutée.
-> Consultez le [registre réel](live-rerun-2026-10-19.md).
+> Les 19 passages correspondaient exactement aux originaux. Un test payant ultérieur
+> a généré les 24 embeddings, vérifié vecteurs/champs stockés et comparé exactement
+> 22 passages récupérés. La recherche MCP authentifiée et un appel d'outil par
+> l'agent Foundry monosource ont réussi. Les citations finales multisources ont
+> échoué ; Activity a été configuré sans conversation Activity/Copilot.
+> Consultez les [résultats Foundry et la procédure API actuelle](foundry-live-2026-10-20.md).
 
 Copilot Studio est devenu utilisable pour les véritables tests de recherche et
 d'envoi du Lab 1, puis Preview est redevenu vide par intermittence. Un inventaire
 ultérieur explicitement limité à l'abonnement a trouvé sept composants Application
 Insights sans rapport, corrigeant la première mention d'absence. Ils n'ont pas été
 réutilisés. Les ressources Search Free isolées ont été supprimées après les tests.
-La couche connectée exige encore un projet Foundry dédié autorisé, des modèles,
-les droits adéquats et un agent du nouveau portail avec Activity activé.
+Le compte Foundry payant, son projet, ses modèles, Search et sa connexion MCP
+ont ensuite été testés puis supprimés, avec absence du groupe vérifiée
+indépendamment. Une future exécution connectée exige un nouvel environnement
+autorisé ; aucune adresse active n'est volontairement conservée.
 
 Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas republiés. Les quatre figures proviennent uniquement du document d'accompagnement non protégé consacré à Copilot, avec masquage des données sensibles. Ce sont des captures historiques du support, pas des preuves d'exécution nouvellement capturées.
 
@@ -189,11 +194,13 @@ Cela prouve une récupération Search multisource minimale et extractive, pas la
 planification LLM, la synthèse de réponses, les plongements sémantiques générés,
 l'appel d'outil Foundry ni une conversation avec un agent connecté Copilot.
 
-## 4. Exécuter par points de contrôle lors d'une session approuvée
+## 4. Exécuter par points de contrôle et distinguer les couches testées
 
-La séquence originale de bout en bout ci-dessous reste non exécutée. La variante
-GA de récupération ci-dessus a été exécutée séparément ; elle ne valide pas les
-étapes de plongement, MCP, agent Foundry ou agent connecté.
+La poursuite payante a exécuté les points de contrôle embeddings, Search, MCP et
+agent Foundry ci-dessous, avec des résultats d'acceptation mixtes. La
+[procédure API actuelle](foundry-live-2026-10-20.md) consigne les substitutions,
+la réussite monosource et l'échec des citations finales multisources.
+La séquence originale d'agent connecté Copilot reste non exécutée.
 
 1. Faites préparer un environnement dédié et revoir les dépendances épinglées ou leur migration testée. Installez uniquement dans cet environnement, jamais dans un interpréteur système partagé.
 2. Sélectionnez cet environnement comme noyau. Vérifiez les versions avant toute cellule ; l'analyse syntaxique Python 3.14.3 ne certifie pas ce runtime pour les anciennes dépendances.
@@ -212,6 +219,10 @@ GA de récupération ci-dessus a été exécutée séparément ; elle ne valide 
 ## 5. Activer le protocole nécessaire à Copilot Studio
 
 La [procédure actuelle d'agent connecté](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent) exige le point de terminaison du **protocole Activity**. Responses et A2A, exposés par défaut, ne suffisent pas.
+
+Le test payant a activé Activity en préservant Responses, épinglé la version 3
+et relu une autorisation Entra uniquement. Cela ne prouve ni une conversation
+Activity ni l'autorisation propre au canal exigée par Copilot ou Teams.
 
 1. Confirmez la création de l'agent dans la nouvelle expérience de portail/projet Foundry. La documentation du connecteur avertit que l'ancien portail peut produire `404 - Version not found`.
 2. Suivez [Configurer et partager l'agent](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/configure-agent) pour activer Activity par l'API REST ou le SDK pris en charge. C'est une modification distincte à faire approuver, pas un bouton disponible dans la capture historique.
@@ -260,7 +271,7 @@ Utilisez seulement des situations fictives non identifiantes. Le contenu financi
 | F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | Non exécuté                      |
 | F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | Non exécuté                      |
 | F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | Non exécuté                      |
-| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | Non exécuté                      |
+| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | Groupe Foundry/Search dédié supprimé et absence vérifiée ; aucun objet Copilot créé |
 
 Pour chaque cas réel, notez chemin, sources, résultat des assertions, justification des citations, latence et erreur assainie. La justesse du routage est le nombre de cas bien routés divisé par les cas exécutés. Évaluez séparément les citations. Un libellé rédigé par le modèle ou un succès HTTP ne remplace pas un passage récupéré.
 
@@ -296,4 +307,12 @@ Capturez de nouvelles preuves seulement après autorisation et accès effectif. 
 6. Fermez clients et noyaux locaux, puis retirez `.env` et sorties sensibles selon la politique de conservation.
 7. Supprimez l'infrastructure dédiée uniquement avec le [plan de nettoyage 5.1](lab-05-1.md) approuvé. Search, modèles et Foundry peuvent rester facturés après suppression des objets du notebook.
 
-La revue statique et les contrôles syntaxiques sont terminés ; la matrice cloud n'a pas été exécutée. Les blocages actuels sont la navigation blanche vers l'agent, l'absence de ressources Search/Application Insights dans l'abonnement sélectionné et la revue de compatibilité, d'identité et de configuration Activity de Foundry encore nécessaire. La connexion Copilot a réussi ; ce n'est plus un blocage. L'opérateur doit résoudre les blocages actuels, exécuter les tests par points de contrôle et consigner les résultats avant de déclarer l'atelier validé.
+La revue statique, la restauration des dépendances et plusieurs contrôles cloud
+sont terminés. Le [registre Foundry payant](foundry-live-2026-10-20.md) distingue
+transport et citations monosources réussis des citations finales multisources
+échouées. Les cas de routage Copilot F6-04 à F6-11 et une conversation Activity
+réelle restent non exécutés. La navigation Copilot standard échouait encore ;
+le navigateur Foundry signalait aussi une erreur de magasin IndexedDB.
+Ces observations ne prouvent pas des identifiants utilisateur invalides.
+Toutes les ressources isolées ont été retirées. Ne certifiez pas le lab complet
+avant la réussite effective des critères restants.
