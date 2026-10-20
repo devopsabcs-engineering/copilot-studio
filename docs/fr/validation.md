@@ -22,6 +22,11 @@ isolée ont aussi été testés. Son
 et les citations monosources de l'agent Foundry ont réussi. Les citations finales
 multisources ont échoué ; Activity a été configuré sans conversation Activity/Copilot.
 Cet environnement isolé a aussi été supprimé, avec absence vérifiée indépendamment.
+La [reprise approuvée des citations](foundry-live-2026-10-20.md#8-reprise-approuvée-des-citations-exactes-et-échec-des-références-natives)
+a réussi les trois extraits exacts deux fois, mais les références natives
+étaient vides. Le modèle s'est abstenu malgré sept documents hors sujet.
+Quatre nouveaux environnements successifs ont été supprimés ; les contrôles
+indépendants ont confirmé quatre groupes absents et huit réponses ARM 404.
 La [poursuite backend](backend-live-2026-10-20.md) s'est authentifiée à Dataverse
 et a cloné l'agent réellement sauvegardé via PAC officiel. La découverte Direct
 Line et l'autorisation d'évaluation PAC restent bloquées ; un clone n'est pas une

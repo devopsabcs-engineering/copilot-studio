@@ -33,6 +33,11 @@ record was returned. All three final purported quotations differed from both the
 original content and the tool output. This establishes a failed exact-quotation
 criterion, not proof that every paraphrased factual statement was false.
 
+A later [approved quotation-recovery test](#8-approved-quotation-recovery-and-remaining-citation-failure)
+recovered exact quotations twice. It did not pass native citation output or
+the unsupported query's zero-document criterion. The original run below is
+preserved separately from that continuation.
+
 ## 1. Keep the test isolated and keyless
 
 Use a fresh approved resource group with an ownership tag and a private ownership
@@ -222,6 +227,62 @@ repair and rerun the final-answer grounding criterion, then execute the original
 bilingual routing, negative-access, Activity and connected-agent acceptance cases.
 Create any replacement paid environment only within the approved scope and
 remove it after testing. Documentation publication is not full lab certification.
+
+## 8. Approved quotation recovery and remaining citation failure
+
+After renewed Azure resource approval, four disposable environments were tested
+sequentially, not concurrently. Each used a fresh tagged ownership-manifest
+group, keyless Foundry account/project, Basic Search and GPT-4o/Ada002
+capacity 10. Only roles scoped to these new resources were added; no broad
+subscription grant, application permission or consent was changed.
+
+The original saved failure was rechecked: all three purported quotations
+were paraphrases, not an escaping-only comparison error. Subsequent attempts
+exposed three separate compatibility issues:
+
+1. Low-effort native MCP still reported a missing planning model despite
+   configuration readback. That path remains unresolved.
+2. Minimal retrieval worked, but installed Projects SDK 2.3.0 lacked the
+   `AgentReference` helper. Explicit agent-reference request dictionaries
+   resolved this SDK compatibility issue.
+3. The actual minimal MCP tool schema required short queries. Its three title
+   queries were initially rejected by the earlier full-question approval guard.
+   The new test instructions and guard were aligned to one reviewed tool call
+   containing all three exact requested title queries.
+
+Explicit extraction instructions, rather than summarization, then produced
+two actual model responses with **3/3 exact quotations each**. All six
+quotations matched original records and actual tool content, with independently
+verified source IDs, titles and owned Search index-document URLs. The excerpts
+contained 80, 109 and 144 characters. Both answers were valid unfenced JSON.
+Each cross-source tool response contained 24 documents, all matching the corpus.
+No deterministic replacement answer was substituted.
+
+Complete output acceptance still **failed twice**: every `citation` string
+contained whitespace only and the output-text annotation arrays were empty.
+Independently proven provenance and correct titles are not native citations.
+The unsupported control returned the actual answer `{"sources":[]}`, so model
+abstention passed; however, its tool returned **seven off-topic documents**.
+Successful MCP completion does not establish zero-document retrieval.
+
+The [sanitized recovery evidence](../assets/runtime-2026-10-20/foundry-quote-recovery.json)
+keeps quotation fidelity, citation output, abstention and retrieval precision
+as separate checks. Actual source text and complete model responses remain
+private. No user agent, Activity or connected Copilot configuration was changed
+or exercised in this continuation.
+
+All four owned groups were deleted. Independent verification at
+**12:55:32 UTC** confirmed four absent groups and **eight ARM 404 responses**
+for the four account/Search pairs. Only manifest-owned resources were deleted.
+ARM absence does not certify provider soft-delete or inference-retention policy.
+Observed usage was **16,184 agent-response tokens**, **13,288 embedding tokens**
+and 96 embeddings across four batches of the same 24 unique records.
+Direct MCP reasoning-token metadata is recorded separately; no billed amount
+or complete hidden-planning total was observed.
+
+Quotation fidelity is now recovered within this narrow test. Native citations,
+zero-document retrieval, the low-effort planner path and connected-agent
+acceptance remain open. No paid test environment is intentionally retained.
 
 ## Current references
 

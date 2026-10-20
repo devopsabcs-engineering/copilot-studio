@@ -21,6 +21,11 @@ verified 22 retrieved passages. Direct authenticated MCP and single-source
 Foundry-agent grounding passed. Cross-source final exact quotations failed;
 Activity configuration passed without an Activity/Copilot conversation.
 That isolated environment was also deleted and its absence independently verified.
+The later [approved quotation recovery](foundry-live-2026-10-20.md#8-approved-quotation-recovery-and-remaining-citation-failure)
+passed all three exact quotations twice, but native citation fields were blank.
+The unsupported model abstained despite seven off-topic retrieved documents.
+Four new sequential test environments were deleted; independent checks confirmed
+four absent groups and eight account/Search ARM 404 responses.
 The [backend continuation](backend-live-2026-10-20.md) authenticated to Dataverse
 and cloned the actual saved agent through official PAC. Direct Line discovery
 and PAC evaluation authorization remain blocked; a clone is not a conversation.

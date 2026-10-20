@@ -234,6 +234,67 @@ originaux bilingues de routage, refus d'accès, Activity et agent connecté.
 Ne recréez un environnement payant que dans le périmètre autorisé et supprimez-le
 après les tests. La publication documentaire ne certifie pas le lab complet.
 
+## 8. Reprise approuvée des citations exactes et échec des références natives
+
+Après la nouvelle approbation Azure, quatre environnements jetables ont été
+testés successivement, jamais simultanément. Chacun utilisait un nouveau groupe
+étiqueté avec manifeste de propriété, un compte/projet Foundry sans clé,
+Search Basic et GPT-4o/Ada002 de capacité 10. Seuls des rôles limités aux
+nouvelles ressources ont été ajoutés ; aucun droit global d'abonnement,
+permission applicative ou consentement n'a été modifié.
+
+L'ancien échec conservé a été revérifié : les trois prétendues citations étaient
+des reformulations, pas une simple différence d'échappement. Les tentatives
+suivantes ont révélé trois problèmes distincts de compatibilité :
+
+1. Le MCP natif en effort low signalait toujours un modèle de planification
+   manquant malgré la relecture de configuration. Ce parcours reste non résolu.
+2. La recherche minimal fonctionnait, mais le SDK Projects 2.3.0 installé
+   n'exposait pas `AgentReference`. Des dictionnaires explicites de référence
+   d'agent ont résolu cette incompatibilité SDK.
+3. Le schéma réel de l'outil MCP minimal exigeait des requêtes courtes.
+   Les trois requêtes par titre ont d'abord été refusées par l'ancien contrôle
+   d'approbation exigeant une question complète. Instructions et contrôle ont
+   été alignés sur un appel unique contenant les trois titres exacts approuvés.
+
+Des instructions d'extraction explicite, plutôt que de résumé, ont ensuite
+produit deux vraies réponses du modèle avec **3/3 citations exactes chacune**.
+Les six citations correspondent aux enregistrements originaux et aux sorties
+d'outil, avec identifiants, titres et URL de documents de l'index Search
+vérifiés indépendamment. Les extraits comportaient 80, 109 et 144 caractères.
+Les deux réponses étaient du JSON valide sans bloc Markdown. Chaque réponse
+d'outil multisource contenait 24 documents, tous conformes au corpus.
+Aucune réponse de remplacement déterministe n'a été substituée.
+
+L'acceptation complète de sortie a néanmoins **échoué deux fois** :
+chaque champ `citation` ne contenait que des espaces et les tableaux
+d'annotations du texte de sortie étaient vides. Provenance indépendante et
+titres corrects ne remplacent pas des références natives. Le contrôle non
+couvert a produit la vraie réponse `{"sources":[]}` ; l'abstention du modèle
+a réussi, mais l'outil a renvoyé **sept documents hors sujet**. La réussite
+technique du MCP ne prouve pas l'absence de documents récupérés.
+
+Les [preuves de reprise expurgées](../assets/runtime-2026-10-20/foundry-quote-recovery.json)
+séparent fidélité des extraits, références natives, abstention et précision
+de recherche. Textes sources et réponses complètes restent privés.
+Aucun agent utilisateur, Activity ou Copilot connecté n'a été modifié
+ni testé pendant cette poursuite.
+
+Les quatre groupes dédiés ont été supprimés. La vérification indépendante
+de **12:55:32 UTC** a confirmé quatre groupes absents et **huit réponses ARM 404**
+pour les quatre paires compte/Search. Seules les ressources du manifeste ont
+été supprimées. L'absence ARM ne certifie ni suppression réversible du
+fournisseur ni politique de conservation des inférences. L'usage observé est de
+**16 184 jetons de réponse d'agent**, **13 288 jetons d'embeddings** et
+96 embeddings, soit quatre lots des mêmes 24 enregistrements uniques.
+Les métadonnées de raisonnement MCP sont consignées séparément ; ni montant
+facturé ni total complet de planification interne n'ont été observés.
+
+La fidélité des extraits est rétablie dans ce test limité. Les références
+natives, la recherche sans résultat, le planificateur low et l'acceptation
+d'agent connecté restent ouverts. Aucun environnement payant n'est conservé
+intentionnellement.
+
 ## Références actuelles
 
 - [Création de base Search et distinctions entre API](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)

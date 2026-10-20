@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "run_id": "af-lab6-quotes-20261020T123135Z",
+  "started_utc": "2026-10-20T12:31:35.937592+00:00",
+  "scope": "Disposable Foundry quotation acceptance only; not full Lab6 certification",
+  "passed": false,
+  "prior_group_independently_absent": true,
+  "prior_failure": {
+    "exact_quotations": 0,
+    "requested_sources": 3,
+    "markdown_fence": true,
+    "excerpt_lengths": [
+      171,
+      166,
+      170
+    ],
+    "finding": "Actual model paraphrased in purported quotations; not an escaping-only mismatch"
+  },
+  "configuration": {
+    "new_resources_only": true,
+    "foundry_region": "swedencentral",
+    "search_region": "westus2",
+    "search_tier": "basic",
+    "gpt4o_capacity": 10,
+    "ada002_capacity": 10,
+    "keyless": true,
+    "existing_projects_sdk": "2.3.0",
+    "agent_api": "v1",
+    "search_mcp_api": "2026-08-01-preview",
+    "retrieval_reasoning": "minimal",
+    "reason": "Bounded extractive lookup avoids failed low-effort planner dependency",
+    "prior_attempt_cleaned": true
+  },
+  "cases": [
+    {
+      "name": "cross-source",
+      "transport_passed": true,
+      "retrieval_passed": true,
+      "faithful_quotes_passed": true,
+      "exact_output_compliance_passed": false,
+      "passed": false,
+      "initial_usage": {
+        "input_tokens": 689,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 40,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 729
+      },
+      "final_usage": {
+        "input_tokens": 4911,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 132,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5043
+      },
+      "markdown_fenced": false,
+      "quotation_checks": [
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 80,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        },
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 109,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        },
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 144,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        }
+      ]
+    },
+    {
+      "name": "cross-source-repeat",
+      "transport_passed": true,
+      "retrieval_passed": true,
+      "faithful_quotes_passed": true,
+      "exact_output_compliance_passed": false,
+      "passed": false,
+      "initial_usage": {
+        "input_tokens": 689,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 40,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 729
+      },
+      "final_usage": {
+        "input_tokens": 4911,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 4864
+        },
+        "output_tokens": 132,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5043
+      },
+      "markdown_fenced": false,
+      "quotation_checks": [
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 80,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        },
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 109,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        },
+        {
+          "requested_title": true,
+          "unique_title": true,
+          "exact_original_substring": true,
+          "exact_tool_substring": true,
+          "quote_characters": 144,
+          "length_40_to_160": true,
+          "citation_label_matches_title": false,
+          "exact_entry_fields": true
+        }
+      ]
+    },
+    {
+      "name": "unsupported",
+      "transport_passed": true,
+      "retrieval_passed": true,
+      "faithful_quotes_passed": true,
+      "exact_output_compliance_passed": true,
+      "passed": true,
+      "initial_usage": {
+        "input_tokens": 669,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 31,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 700
+      },
+      "final_usage": {
+        "input_tokens": 1930,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 6,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1936
+      },
+      "markdown_fenced": false,
+      "quotation_checks": [],
+      "model_abstention_passed": true,
+      "zero_document_retrieval_passed": false,
+      "retrieval_passed_meaning": "Native MCP completed successfully; not a zero-document retrieval claim"
+    }
+  ],
+  "cleanup": {
+    "attempted": true,
+    "group_absent": true,
+    "inventory_resources": 3,
+    "owned_only": true
+  },
+  "usage": {
+    "embeddings": {
+      "prompt_tokens": 3322,
+      "total_tokens": 3322
+    },
+    "planning_model_tokens": "Separate direct-MCP agenticReasoningTokens metadata recorded; hidden inner calls not otherwise observable",
+    "billed_amount": "Not observed; token counts are not a cost estimate",
+    "all_attempt_embedding_tokens": 13288,
+    "all_attempt_actual_embeddings": 96,
+    "all_attempt_agent_response_total_tokens": 16184,
+    "agent_response_api_calls": 9,
+    "observed_cached_input_tokens": 4864,
+    "native_mcp_direct_observed_metadata": [
+      {
+        "attempt": 1,
+        "agenticReasoningTokens": null
+      },
+      {
+        "attempt": 2,
+        "agenticReasoningTokens": 3466
+      },
+      {
+        "attempt": 3,
+        "agenticReasoningTokens": 3466
+      },
+      {
+        "attempt": 4,
+        "agenticReasoningTokens": 3466
+      }
+    ]
+  },
+  "copilot_or_activity_executed": false,
+  "production_or_user_agent_modified": false,
+  "foundation": {
+    "passed": true,
+    "checks_passed": 25,
+    "exact_source_matches": 22
+  },
+  "connection_keyless_target_readback_passed": true,
+  "finished_utc": "2026-10-20T12:50:31.459783+00:00",
+  "independent_verification": {
+    "source_attribution": [
+      {
+        "case": "cross-source",
+        "original_and_tool_source_attribution_passed": true,
+        "actual_tool_documents": 24,
+        "all_tool_documents_exact_originals": true,
+        "source_checks": [
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 80,
+            "citation_whitespace_only": true
+          },
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 109,
+            "citation_whitespace_only": true
+          },
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 144,
+            "citation_whitespace_only": true
+          }
+        ]
+      },
+      {
+        "case": "cross-source-repeat",
+        "original_and_tool_source_attribution_passed": true,
+        "actual_tool_documents": 24,
+        "all_tool_documents_exact_originals": true,
+        "source_checks": [
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 80,
+            "citation_whitespace_only": true
+          },
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 109,
+            "citation_whitespace_only": true
+          },
+          {
+            "exact_original": true,
+            "exact_actual_tool_content": true,
+            "original_first_sentence": true,
+            "correct_source_document_id": true,
+            "correct_source_title": true,
+            "owned_search_index_document_url_matches": true,
+            "excerpt_characters": 144,
+            "citation_whitespace_only": true
+          }
+        ]
+      }
+    ],
+    "unsupported_actual_tool_documents": 7,
+    "unsupported_zero_documents_verified": false,
+    "unsupported_model_abstention_passed": true,
+    "group_and_resource_absence": [
+      {
+        "attempt": 1,
+        "group_absent": true,
+        "resource_get_status": {
+          "account": 404,
+          "search": 404
+        },
+        "inventory_resources": 3,
+        "only_manifest_owned_resources_deleted": true
+      },
+      {
+        "attempt": 2,
+        "group_absent": true,
+        "resource_get_status": {
+          "account": 404,
+          "search": 404
+        },
+        "inventory_resources": 3,
+        "only_manifest_owned_resources_deleted": true
+      },
+      {
+        "attempt": 3,
+        "group_absent": true,
+        "resource_get_status": {
+          "account": 404,
+          "search": 404
+        },
+        "inventory_resources": 3,
+        "only_manifest_owned_resources_deleted": true
+      },
+      {
+        "attempt": 4,
+        "group_absent": true,
+        "resource_get_status": {
+          "account": 404,
+          "search": 404
+        },
+        "inventory_resources": 3,
+        "only_manifest_owned_resources_deleted": true
+      }
+    ]
+  },
+  "quotation_acceptance_passed": true,
+  "citation_output_acceptance_passed": false,
+  "scope_verdict": "Quotation fidelity and source-title attribution recovered twice; native citation output remains failed",
+  "all_new_owned_resources_absent": true,
+  "attempts_summary": [
+    {
+      "attempt": 1,
+      "outcome": "Low-effort native MCP missing-planning-model error despite definition readback; no agent call"
+    },
+    {
+      "attempt": 2,
+      "outcome": "Minimal MCP succeeded; installed SDK removed AgentReference helper; no agent call"
+    },
+    {
+      "attempt": 3,
+      "outcome": "Installed-SDK-compatible agent requested all three short title queries; full-question approval guard rejected these; no retrieval approved"
+    },
+    {
+      "attempt": 4,
+      "outcome": "Corrected to observed minimal MCP schema; two actual model answers each copied all three original opening sentences; citations were blank; unsupported model abstained despite seven off-topic tool documents"
+    }
+  ],
+  "limitations": [
+    "Current minimal MCP exposes short-query semantics, unlike the earlier low-effort full-question schema; low-effort planner failure is not resolved",
+    "Actual excerpts and titles are exact, independently joined to original IDs and owned index document URLs",
+    "Actual model citation strings contain only whitespace and message annotations are empty; citation rendering and exact requested citation output remain failed",
+    "Unsupported control passed model abstention with an empty sources array, but native MCP returned seven off-topic documents; zero-document retrieval did not pass",
+    "No deterministic final-answer replacement, no user-agent mutation/publication, no Activity or Copilot connected-agent execution",
+    "ARM absence proves resources are deleted, not a guarantee about provider soft-delete or inference-retention policies",
+    "Four sequential disposable environments, never concurrent, same approved small capacity; no billed-amount claim"
+  ],
+  "verification_utc": "2026-10-20T12:55:32.520825+00:00"
+}

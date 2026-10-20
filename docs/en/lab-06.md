@@ -26,6 +26,13 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > Activity/Copilot conversation ran. See the
 > [Foundry execution results and current API walkthrough](foundry-live-2026-10-20.md).
 
+The later approved recovery produced **3/3 exact source quotations in each
+of two runs**, but native citation fields were blank. Its unsupported model
+abstained despite seven off-topic retrieved documents. All four sequential
+disposable environments were deleted and independently verified absent.
+See the [recovery boundary](foundry-live-2026-10-20.md#8-approved-quotation-recovery-and-remaining-citation-failure);
+this does not certify connected Copilot/Activity acceptance.
+
 Copilot Studio became usable for the actual Lab 1 retrieval/email run, then Preview
 became intermittently blank again. A later explicit-subscription inventory found
 seven unrelated Application Insights components, correcting the initial absence

@@ -26,6 +26,14 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > échoué ; Activity a été configuré sans conversation Activity/Copilot.
 > Consultez les [résultats Foundry et la procédure API actuelle](foundry-live-2026-10-20.md).
 
+La reprise approuvée ultérieure a produit **3/3 citations sources exactes dans
+chacune de deux exécutions**, mais les références natives étaient vides.
+Le modèle s'est abstenu malgré sept documents hors sujet récupérés.
+Les quatre environnements jetables successifs ont été supprimés, avec absence
+vérifiée indépendamment. Consultez les
+[limites de la reprise](foundry-live-2026-10-20.md#8-reprise-approuvée-des-citations-exactes-et-échec-des-références-natives) ;
+cela ne certifie pas l'acceptation Copilot/Activity connecté.
+
 Copilot Studio est devenu utilisable pour les véritables tests de recherche et
 d'envoi du Lab 1, puis Preview est redevenu vide par intermittence. Un inventaire
 ultérieur explicitement limité à l'abonnement a trouvé sept composants Application

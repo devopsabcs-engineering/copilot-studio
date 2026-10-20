@@ -170,6 +170,37 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["citationNavigationFollowUp"]["pageAnchorVerified"])
         self.assertFalse(result["workshopComplete"])
 
+    def test_foundry_quote_recovery_keeps_failed_citation_gate(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-quote-recovery.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["quotation_acceptance_passed"])
+        self.assertFalse(result["citation_output_acceptance_passed"])
+        self.assertFalse(result["passed"])
+        attribution = result["independent_verification"]["source_attribution"]
+        self.assertEqual(len(attribution), 2)
+        for run in attribution:
+            self.assertTrue(run["original_and_tool_source_attribution_passed"])
+            self.assertEqual(len(run["source_checks"]), 3)
+            for check in run["source_checks"]:
+                self.assertTrue(check["exact_original"])
+                self.assertTrue(check["exact_actual_tool_content"])
+                self.assertTrue(check["owned_search_index_document_url_matches"])
+                self.assertTrue(check["citation_whitespace_only"])
+        verification = result["independent_verification"]
+        self.assertEqual(verification["unsupported_actual_tool_documents"], 7)
+        self.assertFalse(verification["unsupported_zero_documents_verified"])
+        self.assertTrue(verification["unsupported_model_abstention_passed"])
+        cleanup = verification["group_and_resource_absence"]
+        self.assertEqual(len(cleanup), 4)
+        for attempt in cleanup:
+            self.assertTrue(attempt["group_absent"])
+            self.assertTrue(attempt["only_manifest_owned_resources_deleted"])
+            self.assertEqual(attempt["resource_get_status"], {"account": 404, "search": 404})
+        self.assertTrue(result["all_new_owned_resources_absent"])
+        self.assertFalse(result["production_or_user_agent_modified"])
+        self.assertFalse(result["copilot_or_activity_executed"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"
