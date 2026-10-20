@@ -1,0 +1,57 @@
+{
+  "observedAtUtc": "2026-10-20T17:25:01.1765244Z",
+  "clockSource": "Execution host UTC clock",
+  "scope": "Existing workshop environment and saved agent; read-only backend comparison",
+  "portalObservation": "Dataverse isn't set up in this environment",
+  "historicalEvidenceMatchesSuppliedPortalRoute": true,
+  "checks": [
+    {
+      "operation": "Discover exact existing environment",
+      "observedAtUtc": "2026-10-20T17:25:07.4891500Z",
+      "httpStatus": 200,
+      "httpReason": "OK",
+      "errorCode": null,
+      "matchesSuppliedPortalEnvironment": true,
+      "provisioningState": "Succeeded",
+      "dataverseEndpointPresent": true,
+      "sameDataverseEndpointAsHistoricalEvidence": true
+    },
+    {
+      "operation": "Dataverse WhoAmI",
+      "observedAtUtc": "2026-10-20T17:25:15.3152053Z",
+      "httpStatus": 200,
+      "httpReason": "OK",
+      "errorCode": null,
+      "sameUserAsHistoricalEvidence": true,
+      "sameOrganizationAsHistoricalEvidence": true
+    },
+    {
+      "operation": "Read exact saved workshop bot",
+      "observedAtUtc": "2026-10-20T17:25:15.6106514Z",
+      "httpStatus": 200,
+      "httpReason": "OK",
+      "errorCode": null,
+      "matchesSuppliedPortalAgent": true,
+      "sameNameAsHistoricalEvidence": true,
+      "sameSchemaAsHistoricalEvidence": true,
+      "stateCode": 0,
+      "statusCode": 1
+    }
+  ],
+  "evaluationStatus": "Unknown; no newly observed run status",
+  "evaluationStatusRead": "Not attempted: retained official diagnosis establishes the existing Azure CLI application lacks delegated CopilotStudio.MakerOperations.Read; no existing authorized browser session is available. No repeated known-denied call.",
+  "safety": {
+    "pacCommandsExecuted": false,
+    "authProfileOrActiveAccountChanges": false,
+    "permissionConsentOrIdentityChanges": false,
+    "rawResponsesOrTokensPersisted": false,
+    "evaluationSubmitted": false,
+    "httpMethods": [
+      "GET"
+    ],
+    "browserAttempted": false,
+    "provisioningOrAgentChanges": false
+  },
+  "conclusion": "Fresh supported reads confirm the same environment is discoverable with provisioning Succeeded, Dataverse WhoAmI succeeds, and the exact saved workshop bot remains readable. The portal setup message does not establish that Dataverse is absent or the bot deleted. Root cause of the portal rendering is not established; evaluation run status, grades, and credit usage remain unknown.",
+  "completedAtUtc": "2026-10-20T17:25:15.6443963Z"
+}

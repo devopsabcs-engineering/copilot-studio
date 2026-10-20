@@ -295,6 +295,42 @@ natives, la recherche sans résultat, le planificateur low et l'acceptation
 d'agent connecté restent ouverts. Aucun environnement payant n'est conservé
 intentionnellement.
 
+## 9. Diagnostic du contrat de citation avant un nouveau test
+
+Une relecture hors ligne des vraies réponses conservées a réussi **45 contrôles**,
+sans appel cloud ni modèle. Elle confirme six associations sources exactes,
+six champs JSON de citation vides et zéro annotation native. Dans chaque
+réponse d'outil normalisée, les 24 titres externes des documents étaient des URL.
+Le titre humain et l'identifiant d'origine figuraient dans `document.content`
+décodé en JSON, pas dans ces champs externes.
+
+Le [diagnostic du contrat](../assets/runtime-2026-10-20/foundry-citation-contract.json)
+identifie une hypothèse incorrecte du test précédent : ni une correspondance
+numérique de marqueurs natifs choisie manuellement, ni l'égalité entre leur
+libellé source et ce titre interne n'étaient établies par la réponse réelle
+ou le contrat public. L'API utilisait le format texte ; le JSON strict venait
+des instructions, pas d'un schéma imposé. Même renseigné, un champ de citation
+rédigé par le modèle ne prouverait pas une annotation native du service.
+
+La documentation Microsoft actuelle décrit les annotations natives pour
+Foundry IQ MCP, y compris avec la recherche minimal/extractive.
+Il est donc incorrect de les déclarer globalement non prises en charge.
+Les réponses conservées n'en contiennent toujours aucune ; omission du modèle
+et post-traitement du service ne peuvent pas être départagés.
+
+La correction à tester consiste à produire des sections en langue naturelle,
+avec citations textuelles inchangées et référence native hors de chaque extrait,
+plutôt que des marqueurs construits dans du JSON. Les contrôles de titre,
+d'identifiant, d'URL d'outil et d'exactitude restent obligatoires.
+Les libellés natifs doivent suivre le service réel ; une URL MCP de repli
+documentée ne suffit pas sans métadonnées d'annotation et association unique
+à l'enregistrement original. Ce diagnostic hors ligne ne transforme pas
+la correction proposée en réussite réelle.
+
+* [Connecter les agents Foundry à IQ](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
+* [Chaîne de recherche minimal/extractive](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-pipeline)
+* [Contrat d'effort de raisonnement](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
+
 ## Références actuelles
 
 - [Création de base Search et distinctions entre API](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)

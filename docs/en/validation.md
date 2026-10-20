@@ -42,6 +42,11 @@ then saved and submitted. It was observed queued, not graded; the 11:36 UTC
 browser recovery failed, so its current state is unknown.
 The [approved-run evidence](backend-live-2026-10-20.md#approved-evaluation-submitted-grading-not-observed)
 does not claim a score, credit total or repaired PAC permission.
+The next shared tab displayed a Dataverse setup error, but fresh authenticated
+reads returned HTTP 200 for the same provisioned environment, identity and saved
+bot. That portal message does not prove deletion or justify a replacement database.
+An offline Foundry citation-contract diagnosis also passed 45 checks, identifying
+unsupported JSON/title-binding assumptions without inventing missing native annotations.
 The tables below retain the original review baseline unless superseded by those records.
 
 Documentation review and publication are separate from live lab validation.

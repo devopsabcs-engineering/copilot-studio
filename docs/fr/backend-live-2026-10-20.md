@@ -283,6 +283,39 @@ fichier en texte brut, sans citation cliquable exposée. Aucun fichier ni cible
 de page n'a été ouvert. L'audit indépendant du contenu source reste valable,
 mais la navigation des citations demeure non vérifiée. L'atelier est incomplet.
 
+## Erreur de l'onglet restauré et preuves backend récentes
+
+Lors de la poursuite suivante, le nouvel onglet Agents partagé a été inspecté
+avant toute navigation. Il affichait **Dataverse isn't set up in this environment**
+à la racine de l'agent existant, pas sur les résultats d'évaluation.
+Le retour direct à l'exécution déjà soumise a expiré, puis la connexion
+au navigateur a échoué. Aucun nouvel état, réponse, score ni total de crédits
+n'a été obtenu. Aucune capture n'est revendiquée pour cette inspection.
+
+Le [registre de l'onglet restauré](../assets/runtime-2026-10-20/evaluation-restored-tab.json)
+conserve le message réel et distingue les événements de console conservés
+des nouvelles observations. Ce seul message ne prouve ni suppression,
+ni absence de base, ni nécessité de créer une infrastructure de remplacement.
+
+De nouveaux contrôles backend en lecture seule à **17:25 UTC**, selon
+l'horloge de l'hôte d'exécution, ont ensuite renvoyé :
+
+* Découverte de l'environnement HTTP **200**, état **Succeeded**, avec
+  le même point d'accès Dataverse que dans les preuves précédentes
+* WhoAmI Dataverse HTTP **200**, même utilisateur et même organisation
+* Agent d'atelier exact HTTP **200**, correspondant à l'agent du portail,
+  avec nom et schéma inchangés
+
+La [comparaison backend](../assets/runtime-2026-10-20/evaluation-backend-diagnosis.json)
+confirme donc que l'environnement et l'agent existants restent lisibles.
+Elle ne prouve pas tous les prérequis du portail et n'explique pas l'erreur
+d'affichage. L'API d'évaluation précédemment refusée n'a pas été rappelée.
+Aucune base, environnement, identité, permission, consentement ou configuration
+d'agent n'a été modifié. L'état de l'unique évaluation soumise reste inconnu.
+Rétablissez une session de portail autorisée fonctionnelle ou obtenez une voie
+applicative déléguée approuvée avant d'annoncer des résultats ; ne créez pas
+de base de remplacement uniquement pour faire disparaître ce message.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

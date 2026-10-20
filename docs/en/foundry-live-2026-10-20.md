@@ -284,6 +284,40 @@ Quotation fidelity is now recovered within this narrow test. Native citations,
 zero-document retrieval, the low-effort planner path and connected-agent
 acceptance remain open. No paid test environment is intentionally retained.
 
+## 9. Citation-contract diagnosis before another model test
+
+An offline replay of retained payloads passed **45 checks**, without cloud
+requests or model calls. It confirmed six exact source mappings, six blank
+JSON citation strings and zero native annotations. In each normalized tool
+response, all 24 outer document titles were URLs. The original human title
+and record ID were inside JSON-decoded `document.content`, not those outer
+title/ID fields.
+
+The [contract diagnosis](../assets/runtime-2026-10-20/foundry-citation-contract.json)
+identifies a defect in the earlier test assumption: neither a manually chosen
+numeric native-marker map nor binding its source label to that inner human
+title was established by the actual normalized response or public contract.
+The output API used text format; strict JSON came from instructions, not an
+enforced response schema. A model-authored citation string would not, by itself,
+prove a service-native annotation even if populated.
+
+Current Microsoft guidance documents native annotations with Foundry IQ MCP,
+including minimal/extractive retrieval. Native citations are therefore not
+globally unsupported. The saved Responses payloads still contain none;
+model omission versus service postprocessing is not established.
+
+The supported correction to test is natural-language source sections with
+unchanged quotations and a native citation outside each quote, rather than
+hand-built markers inside JSON. Required original-title, ID, tool-URL and
+exact-quotation checks remain. Native labels must follow the actual service;
+a documented MCP-endpoint URL fallback is insufficient without real annotation
+metadata and an unambiguous original-record join. The offline diagnosis does
+not turn this proposed correction into a live pass.
+
+* [Connect Foundry agents to IQ](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
+* [Minimal/extractive retrieval pipeline](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-pipeline)
+* [Retrieval reasoning-effort contract](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
+
 ## Current references
 
 - [Search knowledge-base creation and API distinctions](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)

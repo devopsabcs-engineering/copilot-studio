@@ -1,0 +1,82 @@
+{
+  "task": "lab6-native-citation-contract",
+  "mode": "offline_saved_evidence_and_public_docs_only",
+  "checked_utc": "2026-10-20T17:25:48.4020668Z",
+  "diagnosis_completed": true,
+  "live_native_citation_acceptance": "failed_unrecovered",
+  "cases": [
+    {
+      "name": "cross-source",
+      "documents": 24,
+      "exact_source_mappings": 3,
+      "blank_citation_fields": 3,
+      "native_annotations": 0,
+      "outer_title_equals_url": 24,
+      "opaque_document_ids": 24,
+      "source_title_location": "JSON-decoded document.content.title, not document.title",
+      "native_citation_gate": "failed"
+    },
+    {
+      "name": "cross-source-repeat",
+      "documents": 24,
+      "exact_source_mappings": 3,
+      "blank_citation_fields": 3,
+      "native_annotations": 0,
+      "outer_title_equals_url": 24,
+      "opaque_document_ids": 24,
+      "source_title_location": "JSON-decoded document.content.title, not document.title",
+      "native_citation_gate": "failed"
+    }
+  ],
+  "contract": {
+    "source_provenance_available": true,
+    "direct_mcp": "Two text blocks: grounding with numeric ref_id; reference with matching ref_id, uri and sourceData",
+    "foundry_normalized_mcp": "documents with opaque id, content, title, url, metadata, knowledgeSourceIndex; outer title equals URL and metadata is application/json",
+    "native_annotations_documented": true,
+    "annotations_in_captured_cross_source_responses": 0,
+    "strict_json_native_marker_inner_title_binding_documented": false,
+    "important_distinction": "A model-authored citation string is never proof of a native annotation. Final visible JSON has blank citation strings; raw pre-render model tokens were not captured."
+  },
+  "causal_assessment": {
+    "established": "The evaluator required native source_name to equal the inner original title, while the tool exposes outer source titles as URLs and no message_idx/search_idx map.",
+    "unsupported_assumption": "Prompt-required JSON citation strings with manually chosen numeric indices and exact inner title were treated as a supported native citation contract.",
+    "hypothesis_only": "Rigid JSON/native marker interaction or citation rendering/normalization may explain blank fields; captured data cannot distinguish model omission from service postprocessing.",
+    "not_concluded": "Native annotations are not globally unsupported: current Microsoft integration docs explicitly describe them. Their successful production is not demonstrated by these responses."
+  },
+  "next_supported_change": {
+    "kind": "One format-and-instruction correction in a future disposable test only",
+    "instruction": "Return exactly three source sections, each with the exact requested original title, original document ID, tool-provided document URL, and unchanged first complete sentence in a quotation block. Preserve exact quotation text. Place the knowledge-base native citation outside the quotation using the service citation mechanism. Do not invent numeric citation indices or relabel native source names. Do not wrap the answer in JSON. If unsupported, return no sources.",
+    "retain_acceptance": "Require all three exact titles, contiguous original quotes, matching original IDs/tool URLs, and actual nonempty native annotation metadata. Match native URI to the tool URL or documented MCP fallback, with a unique original-record join. A fallback URL alone is insufficient.",
+    "blocker": "Needs a new actual model response to validate; no offline replay can create or repair missing native annotations. Keep the gate failed until that response proves native citation and original-source association."
+  },
+  "public_documentation": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect",
+      "verified": "Current page fetched with Microsoft Learn text/markdown; example uses natural-language response and requests native marker annotations",
+      "statement": "Citation URLs vary by knowledge source; search index sources can fall back to the knowledge base MCP endpoint."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-pipeline",
+      "verified": "Current page fetched; tutorial explicitly combines minimal reasoning, extractive output and Foundry MCP",
+      "statement": "Agent instructions request annotations rendered as message_idx:search_idx with source_name; there is no required JSON citation field."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort",
+      "verified": "Current page fetched",
+      "statement": "Minimal disables LLM query planning and requires extractiveData; Search-side answer synthesis is unsupported. This does not rule out Foundry agent synthesis/citations."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-retrieve",
+      "verified": "Current complete page fetched through Microsoft documentation MCP and direct Learn markdown",
+      "statement": "MCP differs from the REST response/activity/references envelope. Current documented sample shows text grounding with ref_id and says no separate references/resource entries.",
+      "limitation": "Saved direct MCP additionally has a second reference text block; saved Foundry Responses normalize that into documents. Do not assume the documentation sample and actual normalized payload are identical."
+    }
+  ],
+  "local_checks": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "reproduction": "diagnose_lab6_citations.ps1"
+  },
+  "boundaries": "No cloud resource requests, provisioning, model invocations, installations, agent mutations, repository edits, git operations, PDF audit, or subagents"
+}

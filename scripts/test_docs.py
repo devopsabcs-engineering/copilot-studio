@@ -208,6 +208,36 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["production_or_user_agent_modified"])
         self.assertFalse(result["copilot_or_activity_executed"])
 
+    def test_portal_setup_error_does_not_override_backend_reads(self):
+        root = Path(__file__).resolve().parents[1]
+        evidence = root / "docs" / "assets" / "runtime-2026-10-20"
+        portal = json.loads((evidence / "evaluation-restored-tab.json").read_text(encoding="utf-8"))
+        self.assertTrue(portal["initialInspection"]["newUserSharedTabInspectedBeforeNavigation"])
+        self.assertEqual(portal["evaluation"]["newRunsSubmitted"], 0)
+        self.assertIsNone(portal["evaluation"]["newCreditUsage"])
+        backend = json.loads((evidence / "evaluation-backend-diagnosis.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(backend["checks"]), 3)
+        self.assertTrue(all(check["httpStatus"] == 200 for check in backend["checks"]))
+        self.assertTrue(backend["checks"][0]["matchesSuppliedPortalEnvironment"])
+        self.assertEqual(backend["checks"][0]["provisioningState"], "Succeeded")
+        self.assertTrue(backend["checks"][2]["matchesSuppliedPortalAgent"])
+        self.assertEqual(backend["safety"]["httpMethods"], ["GET"])
+        self.assertFalse(backend["safety"]["provisioningOrAgentChanges"])
+        self.assertFalse(backend["safety"]["permissionConsentOrIdentityChanges"])
+
+    def test_offline_contract_diagnosis_does_not_invent_native_citations(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-citation-contract.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["diagnosis_completed"])
+        self.assertEqual(result["local_checks"]["passed"], 45)
+        self.assertEqual(result["local_checks"]["failed"], 0)
+        self.assertTrue(result["contract"]["native_annotations_documented"])
+        self.assertFalse(result["contract"]["strict_json_native_marker_inner_title_binding_documented"])
+        self.assertEqual(result["contract"]["annotations_in_captured_cross_source_responses"], 0)
+        self.assertEqual(sum(case["blank_citation_fields"] for case in result["cases"]), 6)
+        self.assertEqual(result["live_native_citation_acceptance"], "failed_unrecovered")
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

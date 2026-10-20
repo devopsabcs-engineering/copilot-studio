@@ -43,6 +43,12 @@ General quality a été enregistrée et soumise. Elle a été observée en atten
 sans notation ; la reprise navigateur de 11:36 UTC a échoué et son état actuel
 est inconnu. Les [preuves de l'exécution approuvée](backend-live-2026-10-20.md#évaluation-approuvée-et-soumise-notation-non-observée)
 ne revendiquent ni score, ni total de crédits, ni correction des permissions PAC.
+L'onglet partagé suivant affichait une erreur de configuration Dataverse, mais
+de nouvelles lectures authentifiées ont renvoyé HTTP 200 pour le même environnement
+provisionné, l'identité et l'agent enregistré. Ce message ne prouve pas une suppression
+et ne justifie pas une base de remplacement. Un diagnostic hors ligne du contrat
+de citation Foundry a aussi réussi 45 contrôles : il identifie des hypothèses
+JSON/titre non prises en charge, sans inventer les annotations natives absentes.
 Les tableaux suivants conservent l'état de la revue initiale,
 sauf mise à jour apportée par ces registres.
 

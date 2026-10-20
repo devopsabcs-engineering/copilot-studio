@@ -269,6 +269,39 @@ of an exposed clickable citation. No file or page target was opened. This
 does not invalidate the independent source-content audit, but citation
 navigation remains unverified. The workshop is not complete.
 
+## Restored tab error versus fresh backend evidence
+
+On the next continuation, the newly shared Agents tab was inspected before
+navigation. It rendered **Dataverse isn't set up in this environment** at
+the existing agent's root, not the evaluation-results route. Returning directly
+to the same submitted run timed out; the subsequent browser connection failed.
+No new evaluation state, response, grade or credit total was obtained.
+No screenshot is claimed for this inspection.
+
+The [restored-tab record](../assets/runtime-2026-10-20/evaluation-restored-tab.json)
+preserves the actual message and distinguishes retained console events from
+new observations. The setup message alone does not establish deletion,
+database absence or a need to provision a replacement.
+
+Fresh read-only backend checks at **17:25 UTC**, recorded by the execution-host
+clock, then returned:
+
+* Environment discovery HTTP **200**, provisioning **Succeeded**, with the
+  same Dataverse endpoint as the earlier evidence
+* Dataverse WhoAmI HTTP **200**, matching the historical user and organization
+* Exact saved workshop bot HTTP **200**, matching the supplied portal agent,
+  with unchanged name and schema
+
+The [backend comparison](../assets/runtime-2026-10-20/evaluation-backend-diagnosis.json)
+therefore confirms that the existing environment and agent remain readable.
+It does not prove every portal prerequisite or diagnose the rendering failure.
+The known-denied evaluation API was not called again, and no database,
+environment, identity, permission, consent or agent configuration was changed.
+The single submitted evaluation's current state remains unknown. Restore a
+working authorized portal session or obtain an approved delegated application
+route before claiming run results; do not create a replacement database merely
+to suppress this portal message.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
