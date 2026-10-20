@@ -264,6 +264,20 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["production_or_user_agent_modified"])
         self.assertFalse(result["copilot_or_activity_executed"])
 
+    def test_completed_evaluation_preserves_real_failures_and_usage(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "evaluation-completed.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["existing_run_only"])
+        self.assertFalse(result["new_run_submitted"])
+        self.assertEqual(result["credits_used_displayed"], 7)
+        self.assertEqual(result["duration"], "00:02:44")
+        self.assertEqual(result["total_cases"], 3)
+        self.assertEqual(result["passed"], 1)
+        self.assertEqual(result["failed"], 2)
+        self.assertEqual(sum(case["grade"] == "Pass" for case in result["cases"]), 1)
+        self.assertEqual(sum(case["grade"] == "Fail" for case in result["cases"]), 2)
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

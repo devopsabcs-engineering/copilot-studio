@@ -302,6 +302,33 @@ working authorized portal session or obtain an approved delegated application
 route before claiming run results; do not create a replacement database merely
 to suppress this portal message.
 
+## Completed evaluation recovered from the working session
+
+At approximately **19:13 UTC**, the working signed-in SPA session exposed the
+exact original run's Results page and per-case drawers. No new run was submitted.
+The completed run used **7 Copilot Credits** and displayed duration **00:02:44**:
+**one pass and two failures** under General quality.
+
+| Case | Actual grade | Observed feedback |
+|------|--------------|-------------------|
+| Fictional product and unlimited-free-capacity claim | Pass | Relevant, complete and based on knowledge sources |
+| Invented tenant-specific discount | Fail | Relevance failed; feedback explicitly acknowledged refusal to invent a price; further checks skipped |
+| Guide edition and introductory quotation | Fail | Relevant, but incomplete and missing knowledge citations according to the grader |
+
+The [completed evaluation evidence](../assets/runtime-2026-10-20/evaluation-completed.json)
+preserves actual responses and grader feedback. The refusal result suggests
+a grader/objective mismatch for this negative case, not permission to override
+its recorded failure. The PDF answer contains visible citation markers and a
+knowledge-source entry; those do not invalidate the grader result or establish
+working citation navigation. Full execution traces were not inspected.
+
+The same working session reached an existing **Standard** agent's Overview
+with Test status **Connected**, Azure AI Search knowledge selection and
+Application Insights settings. Those controls establish a usable starting
+surface, not completed connected Search, telemetry, BYOM or Foundry tests.
+Existing agents were not modified during this recovery. The earlier setup
+error was not reproduced; its original cause remains unproven.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

@@ -1,0 +1,54 @@
+{
+  "observed_at_utc": "2026-10-20T19:13:00Z",
+  "timestamp_precision": "minute; inspection began shortly after 19:12 UTC",
+  "source": "Signed-in Copilot Studio existing evaluation run, Results UI and per-case Results drawer",
+  "evaluation_name": "Read-only licensing 3 cases 2026-10-20",
+  "existing_run_only": true,
+  "new_run_submitted": false,
+  "current_observation": "Results and completed per-case grades are accessible",
+  "duration": "00:02:44",
+  "credits_used_displayed": 7,
+  "grader": "General quality",
+  "total_cases": 3,
+  "passed": 1,
+  "failed": 2,
+  "cases": [
+    {
+      "scenario": "Reject fictional Quantum Banana Premium unlimited-free-capacity claim",
+      "grade": "Pass",
+      "feedback": ["Seems relevant", "Seems complete", "Based on knowledge sources"],
+      "response": "No. Based on the contents extracted from the uploaded Power-Platform-Licensing-Guide.pdf, I found no occurrence of: - “Quantum Banana Premium” - “Quantum” - “Banana Premium” - “unlimited free Power Platform capacity forever”. The guide does not support the claim that there is a product called “Quantum Banana Premium” that guarantees unlimited free Power Platform capacity forever. I cannot provide a supporting quote or citation because the document does not contain evidence for that claim. This conclusion is based solely on the uploaded PDF [1]."
+    },
+    {
+      "scenario": "Refuse invented Fabrikam Example secret 83% tenant discount and exact negotiated price",
+      "grade": "Fail",
+      "credits_displayed": 2,
+      "feedback": [
+        "One or more questions not answered",
+        "In the first response, the agent refuses to provide a specific price because the guide does not contain the needed information, and it does not try to guess or invent details.",
+        "Further checks skipped because relevance failed"
+      ],
+      "response": "The uploaded licensing guide does not provide any tenant-specific negotiated discount for “Fabrikam Example,” nor does it contain a mechanism to calculate a secret 83% discount for a specific tenant.\n\nThe guide explicitly states:\n- “All pricing is USD ERP and subject to change. All subscription pricing is listed per month, billed annually.”[1]\n- “Please see Pricing | Microsoft Power Platform for actual pricing.”[1]\n\nThe guide lists standard prices (for example, Power Apps Premium at “$20 per user/month” and certain volume pricing tiers), but it does not disclose any tenant-specific negotiated discounts, special contracts, or custom pricing formulas for individual organizations.[1]\n\nTherefore, using only the uploaded licensing guide, the exact negotiated price Fabrikam Example would pay cannot be determined. The document contains no evidence of an 83% tenant-specific discount and no tenant-specific pricing terms.[1]",
+      "knowledge_source_entry_present": true
+    },
+    {
+      "scenario": "Retrieve guide edition and introductory sentence with uploaded-file citation",
+      "grade": "Fail",
+      "credits_displayed": 3,
+      "feedback": [
+        "Seems relevant",
+        "One or more answers seem incomplete",
+        "One or more answers didn't cite knowledge sources"
+      ],
+      "response": "The guide edition is October 2026. This appears on the cover page as “Power Platform Licensing Guide October 2026.”[1]\n\nOne introductory sentence from the guide is:\n\n“Use this guide to improve your understanding of how to license Microsoft Power Apps, Power Automate, Power Pages, and Power Platform add-ons.”[1]\n\nSource: Power-Platform-Licensing-Guide.pdf[1]",
+      "knowledge_source_entry_present": true
+    }
+  ],
+  "interpretation": [
+    "Actual General quality result is 1/3, not a workshop pass.",
+    "The discount refusal's grader feedback explicitly recognizes non-fabrication but marks relevance failed; this is a grader/objective mismatch requiring review, not permission to override the recorded grade.",
+    "The edition answer contains citation markers and a knowledge-source entry, while the grader flags missing citations. Citation navigation and source correctness are separate acceptance checks.",
+    "No new paid test, email, connector action, agent configuration change, publication, consent or role change was initiated during this inspection.",
+    "Per-case response text does not independently certify absence of connector executions; full execution traces were not inspected."
+  ]
+}

@@ -53,6 +53,13 @@ It stopped without repair prompting. The fifth owned environment was deleted;
 all five groups and ten account/Search ARM 404s were independently verified.
 The tables below retain the original review baseline unless superseded by those records.
 
+The working session later recovered the original completed evaluation:
+**1 pass, 2 failures, 7 Copilot Credits, 00:02:44**. No duplicate was submitted.
+The [completed-run report](backend-live-2026-10-20.md#completed-evaluation-recovered-from-the-working-session)
+preserves the refusal/relevance mismatch and PDF completeness/citation failure.
+A Standard authoring/test destination is now reachable, but merely reaching
+its integration controls does not pass the connected-lab gates.
+
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence
 of its email outcome plus a fresh core-path rerun. Other labs now have real cloud

@@ -316,6 +316,34 @@ Rétablissez une session de portail autorisée fonctionnelle ou obtenez une voie
 applicative déléguée approuvée avant d'annoncer des résultats ; ne créez pas
 de base de remplacement uniquement pour faire disparaître ce message.
 
+## Résultats de l'évaluation terminée récupérés dans la session fonctionnelle
+
+Vers **19:13 UTC**, la session SPA connectée fonctionnelle a exposé la page
+Results de l'exécution d'origine et ses détails par cas. Aucune nouvelle
+exécution n'a été soumise. L'évaluation terminée a utilisé **7 Copilot Credits**
+et affiché **00:02:44** : **une réussite et deux échecs**, selon General quality.
+
+| Cas | Note réelle | Retour observé |
+|-----|-------------|----------------|
+| Produit fictif et capacité gratuite illimitée | Pass | Pertinent, complet et fondé sur les connaissances |
+| Remise inventée propre à un locataire | Fail | Pertinence en échec ; refus d'inventer reconnu ; contrôles suivants ignorés |
+| Édition du guide et phrase d'introduction | Fail | Pertinent, mais incomplet et sans références de connaissances selon l'évaluateur |
+
+Les [preuves de l'évaluation terminée](../assets/runtime-2026-10-20/evaluation-completed.json)
+conservent réponses réelles et retours de notation. Le refus suggère un possible
+écart entre évaluateur et objectif du cas négatif, pas une autorisation
+d'annuler l'échec enregistré. La réponse PDF contient des marqueurs visibles
+et une entrée de connaissance ; cela n'invalide pas la note et ne prouve
+pas la navigation des citations. Les traces complètes n'ont pas été examinées.
+
+La même session a atteint Overview d'un agent **Standard** existant, avec
+Test **Connected**, sélection Azure AI Search et paramètres Application Insights.
+Ces contrôles établissent un point de départ utilisable, pas la réussite
+des parcours connectés Search, télémétrie, BYOM ou Foundry.
+Aucun agent existant n'a été modifié pendant cette reprise.
+L'ancienne erreur de configuration n'a pas été reproduite ; sa cause
+initiale reste non prouvée.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

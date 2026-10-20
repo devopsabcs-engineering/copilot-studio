@@ -56,6 +56,13 @@ supprimé ; les cinq groupes et dix réponses ARM 404 ont été vérifiés indé
 Les tableaux suivants conservent l'état de la revue initiale,
 sauf mise à jour apportée par ces registres.
 
+La session fonctionnelle a ensuite récupéré l'évaluation d'origine terminée :
+**1 réussite, 2 échecs, 7 Copilot Credits, 00:02:44**. Aucun doublon soumis.
+Le [rapport des résultats](backend-live-2026-10-20.md#résultats-de-lévaluation-terminée-récupérés-dans-la-session-fonctionnelle)
+conserve l'écart refus/pertinence et l'échec de complétude/citation du PDF.
+Une destination Standard de création/test est désormais accessible ; ses
+contrôles d'intégration ne prouvent pas la réussite des labs connectés.
+
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.
 Le lab 1 dispose de preuves utilisateur et d'une nouvelle exécution de son parcours
