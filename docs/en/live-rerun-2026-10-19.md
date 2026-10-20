@@ -12,12 +12,12 @@ ms.date: 2026-10-20
 |-----|-------------------------|-------------------------------|
 | 0 | Azure identity, roles, quota and tools verified; owner approved paid tests | Full standard-harness readiness |
 | 1 | Retrieval, refusal, directory, delivery and clarification checked; fresh validation 400 visible; new PDF answer passed five source checks | Historical full-answer audit, citation navigation and downstream connector error-body fidelity |
-| 2 | Private ingestion/vectorization passed; later licensing-only 30-page index passed source-matched vectorizer query | Copilot Entra connection blocked by hosting-browser pop-up restriction; zero connected questions |
+| 2 | Isolated 30-page licensing index connected through formal AccessKey; exact quote/edition/page/citation target and final source-aware abstention passed | External PDF viewer navigation unverified; nine connected Search questions total retain original failure |
 | 3 | Native Standard topic executed once; privacy settings checked; exactly one genuine event matched five properties in KQL; logging disconnected and owned monitoring deleted | Published-channel behavior and absence of all platform identifiers not certified |
-| 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
-| 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed; later isolated original-hotel vectorizer query passed | Grounded Copilot answer blocked before sign-in; no verified navigable hotel URLs |
+| 4 | Dedicated model invocation passed earlier; restored Standard prompt BYOM dialog inspected | Required API key conflicts with enforced Cognitive keyless policy; no connected BYOM pass |
+| 5 | Private ingestion/projection checks passed; actual isolated Copilot hotel answer matched source location Qatar and unsupported request abstained | No navigable original hotel URLs; city fixture reconciled to source-stated location without changing corpus |
 | 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
-| 6 | Authenticated MCP/Foundry calls passed; 3/3 exact quotations twice; supported-format retest executed; five groups deleted | Zero native annotations; latest answer invented 3/3 document URLs; seven off-topic unsupported hits; Activity/Copilot not run |
+| 6 | Earlier MCP/Foundry calls and exact quotations passed; later real project and one formal Foundry connection attempt exercised | Formal Entra sign-in pop-up blocked; no Activity/Copilot conversation; earlier native citation/URL failures remain |
 
 This is the execution follow-up requested after the original documentation review.
 The checks below actually ran. They are not a claim that the whole workshop passed.

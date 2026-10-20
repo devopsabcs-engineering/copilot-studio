@@ -51,6 +51,14 @@ The workshop's protected text, notebook code and embedded examples are not repub
 
 ## 1. Confirm prerequisites and choose the right experience
 
+The later actual top-level Foundry connection attempt used a real owned project
+endpoint but failed on the hosting browser's blocked consent pop-up. Exactly
+one attempt ran, with no consent or saved Foundry connection. No connected
+Activity conversation was counted. That project's disposable environment was
+then deleted with independent absence checks. See the
+[actual authentication failure](backend-live-2026-10-20.md#foundry-formal-authentication-remained-blocked)
+and [cleanup](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
+
 After the approved trial extension, the isolated Standard draft's actual
 Microsoft Foundry connection dialog offered **Microsoft Entra ID User Login**
 and required an Azure AI Project Endpoint, without a key field. The official

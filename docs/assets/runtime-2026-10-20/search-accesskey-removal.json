@@ -1,0 +1,29 @@
+{
+  "verified_utc": "2026-10-20T23:15:35.805Z",
+  "saved_knowledge_source_removed": true,
+  "knowledge_absence_verified_after_navigation": true,
+  "saved_tools_empty": true,
+  "agent_connection_permissions_empty": true,
+  "three_grounding_instruction_paragraphs_preserved": true,
+  "source_aware_blank_branch_preserved": true,
+  "nonempty_answer_path_preserved": true,
+  "owned_endpoint_or_source_or_connection_references_in_topic": 0,
+  "readback_scope": "Native portal Knowledge, Tools, connection settings and current topic, not raw backend enumeration.",
+  "formal_connection": {
+    "dependency_readback": "This connection isn't being used by any apps or flows.",
+    "native_delete_confirmed_utc": "2026-10-20T23:13:01.777Z",
+    "native_refresh_verified_utc": "2026-10-20T23:13:27.116Z",
+    "owned_search_connection_matches": 0,
+    "foundry_connection_rows": 0,
+    "only_named_owned_connection_deleted": true
+  },
+  "original_agents_unchanged": true,
+  "other_connections_unchanged": true,
+  "historical_results_and_initial_failure_preserved": true,
+  "new_user_prompts": 0,
+  "new_auth_attempts": 0,
+  "agent_published": false,
+  "broad_external_access_cleared": false,
+  "cleanup_ready": true,
+  "cloud_deletion_verified_by_this_receipt": false
+}

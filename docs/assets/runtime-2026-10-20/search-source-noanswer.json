@@ -1,0 +1,44 @@
+{
+  "status": "source_noanswer_acceptance_passed",
+  "authoring": {
+    "surface": "Native topic code editor",
+    "only_delta": "Existing has-answer-conditions.elseActions: source-aware SendActivity followed by EndDialog with clearTopicQueue=true.",
+    "native_save_utc": "2026-10-20T22:52:26.266Z",
+    "persisted_reopen_readback_utc": "2026-10-20T22:53:55.563Z",
+    "persisted_branch_verified": true,
+    "existing_grounding_instructions_preserved": true,
+    "nonempty_answer_path_and_citations_preserved": true,
+    "global_fallback_or_error_handling_edited": false,
+    "source_references_or_settings_edited": false,
+    "pac_push": false
+  },
+  "retests": {
+    "submitted_user_prompts": 2,
+    "total_connected_search_questions_including_history": 9,
+    "licensing_only_source_ready": true,
+    "fresh_conversations_verified": true,
+    "original_negative": {
+      "readback_utc": "2026-10-20T22:57:42.835Z",
+      "actual_response": "I could not establish the requested information from the configured source evidence. I will not infer an answer.",
+      "citation_count": 0,
+      "source_specific_absence_explanation": "passed",
+      "unsupported_claim_safety": "passed"
+    },
+    "positive_regression": {
+      "readback_utc": "2026-10-20T23:00:31.961Z",
+      "complete_audited_quote_matches": true,
+      "edition": "October 2026",
+      "physical_page": 3,
+      "citation_target_matches_verified_publisher_pdf_and_page": true,
+      "single_final_answer": true,
+      "noanswer_message_occurrences": 0,
+      "publisher_viewer_navigation_proven": false
+    }
+  },
+  "historical_failures_preserved": true,
+  "new_pdf_navigation_attempts": 0,
+  "original_agents_edited": false,
+  "agent_published": false,
+  "full_workshop_certified": false,
+  "resources_deleted_by_this_receipt": false
+}

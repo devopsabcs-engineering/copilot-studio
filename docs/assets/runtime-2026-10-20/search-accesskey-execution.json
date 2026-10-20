@@ -1,0 +1,68 @@
+{
+  "completed_utc": "2026-10-20T21:54:28.681Z",
+  "status": "acceptance_failed_rework_pending",
+  "connection": {
+    "surface": "Supported top-level Power Apps Connections > New connection > Azure AI Search",
+    "authentication": "Access Key",
+    "actual_readback": "Connected",
+    "oauth_popup_required": false,
+    "new_consent_shown_or_accepted": false,
+    "manual_yaml_or_api_connection_writes": false,
+    "secret_disclosed_in_evidence": false
+  },
+  "azure_authentication": {
+    "search_keys_permitted_by_reviewed_policy": true,
+    "cognitive_keyless_preserved": true,
+    "cached_documents_and_vectors_reused": 33,
+    "new_document_embedding_tokens": 0,
+    "vectorizer_smoke_queries": 2
+  },
+  "knowledge": {
+    "source_ready_verified": true,
+    "licensing_only_index_saved": true,
+    "hotel_only_index_saved_separately": true,
+    "portal_field_mapping_editor_observed": false,
+    "actual_trace": "Classic orchestration; Conversational boosting; actions/search-content.",
+    "orchestration_changed": false
+  },
+  "runtime": {
+    "submitted_user_prompts": 4,
+    "licensing_positive": {
+      "edition": "October 2026",
+      "complete_quote_matches_audited_source": true,
+      "physical_page": 3,
+      "citation_target_matches_verified_publisher_pdf_and_page": true,
+      "browser_click_navigation_and_viewer_verified": false
+    },
+    "licensing_negative": {
+      "prompt": "Using only the indexed guide, what entitlement does the fictional product WorkshopNebula-999 include?",
+      "verdict": "failed_abstention",
+      "actual": "Acknowledged the product was absent, then extrapolated likely entitlements with unrelated guide citations.",
+      "citation_physical_pages": [15, 20, 19],
+      "retest_included_in_this_receipt": false
+    },
+    "hotel_positive": {
+      "original_question_asked_for": "city",
+      "original_fixture_expected": "Doha",
+      "actual_answer_location": "Qatar",
+      "actual_source_location": "Qatar",
+      "source_content_dialog_opened": true,
+      "source_grounding_passed": true,
+      "city_criterion_satisfied": false,
+      "fixture_source_mismatch": true,
+      "external_document_navigation": "blocked_no_authentic_source_url",
+      "licensing_contamination_observed": false
+    },
+    "hotel_negative": {
+      "prompt": "What is Contoso Hotel Doha's interplanetary shuttle departure time in 2031?",
+      "verdict": "passed_abstention",
+      "invented_departure_time": false
+    }
+  },
+  "original_agents_unchanged": true,
+  "agent_published": false,
+  "web_search_enabled": false,
+  "connection_and_source_retained_at_observation": true,
+  "resources_deleted_by_this_receipt": false,
+  "full_workshop_certified": false
+}

@@ -392,6 +392,113 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(cleanup["private_connection_handoff_removed"])
         self.assertTrue(cleanup["complete"])
 
+    def test_formal_key_connection_preserves_real_runtime_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-accesskey-execution.json"
+        execution = json.loads(path.read_text(encoding="utf-8"))
+        connection = execution["connection"]
+        self.assertEqual(connection["actual_readback"], "Connected")
+        self.assertFalse(connection["oauth_popup_required"])
+        self.assertFalse(connection["new_consent_shown_or_accepted"])
+        self.assertFalse(connection["manual_yaml_or_api_connection_writes"])
+        self.assertTrue(execution["azure_authentication"]["cognitive_keyless_preserved"])
+        runtime = execution["runtime"]
+        self.assertEqual(runtime["submitted_user_prompts"], 4)
+        self.assertEqual(runtime["licensing_negative"]["verdict"], "failed_abstention")
+        self.assertTrue(runtime["licensing_positive"]["citation_target_matches_verified_publisher_pdf_and_page"])
+        self.assertFalse(runtime["licensing_positive"]["browser_click_navigation_and_viewer_verified"])
+        hotel = runtime["hotel_positive"]
+        self.assertEqual(hotel["actual_answer_location"], hotel["actual_source_location"])
+        self.assertTrue(hotel["source_grounding_passed"])
+        self.assertTrue(hotel["fixture_source_mismatch"])
+        self.assertFalse(hotel["city_criterion_satisfied"])
+        self.assertFalse(execution["resources_deleted_by_this_receipt"])
+        self.assertFalse(execution["full_workshop_certified"])
+
+    def test_native_rework_keeps_generic_fallback_and_navigation_limits(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-portal-rework.json"
+        rework = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(rework["authoring"]["all_three_instruction_paragraphs_persisted"])
+        self.assertFalse(rework["authoring"]["pac_push"])
+        self.assertFalse(rework["historical_cli_limitation"]["source_files_stripped_to_bypass_pack"])
+        retests = rework["retests"]
+        self.assertEqual(retests["submitted_user_prompts"], 3)
+        self.assertEqual(retests["total_connected_questions_including_baseline"], 7)
+        self.assertEqual(retests["original_negative"]["unsupported_claim_safety"], "passed")
+        self.assertEqual(retests["original_negative"]["source_specific_absence_explanation"], "not_met")
+        self.assertEqual(retests["distinct_negative"]["source_specific_absence_explanation"], "passed")
+        self.assertTrue(retests["positive_regression"]["complete_audited_quote_matches"])
+        self.assertFalse(retests["positive_regression"]["browser_viewer_navigation_verified"])
+        self.assertFalse(rework["hotel_fixture"]["original_corpus_changed"])
+        self.assertFalse(rework["baseline_failure_erased"])
+        self.assertFalse(rework["resources_deleted_by_this_receipt"])
+        self.assertFalse(rework["full_workshop_certified"])
+
+    def test_source_aware_branch_preserves_positive_answer_and_failure_history(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-source-noanswer.json"
+        final = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(final["authoring"]["persisted_branch_verified"])
+        self.assertFalse(final["authoring"]["global_fallback_or_error_handling_edited"])
+        self.assertTrue(final["authoring"]["nonempty_answer_path_and_citations_preserved"])
+        retests = final["retests"]
+        self.assertEqual(retests["submitted_user_prompts"], 2)
+        self.assertEqual(retests["total_connected_search_questions_including_history"], 9)
+        self.assertEqual(retests["original_negative"]["source_specific_absence_explanation"], "passed")
+        self.assertEqual(retests["original_negative"]["citation_count"], 0)
+        self.assertTrue(retests["positive_regression"]["single_final_answer"])
+        self.assertEqual(retests["positive_regression"]["noanswer_message_occurrences"], 0)
+        self.assertTrue(final["historical_failures_preserved"])
+        self.assertFalse(final["full_workshop_certified"])
+
+    def test_foundry_auth_failure_does_not_claim_activity_or_saved_connection(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-formal-auth.json"
+        auth = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(auth["actual_arm_returned_project_endpoint_used"])
+        self.assertTrue(auth["project_preparation"]["cognitive_keyless_and_network_security_preserved"])
+        self.assertEqual(auth["formal_create_clicks"], 1)
+        self.assertIn("pop-up window has been blocked", auth["exact_error"])
+        self.assertFalse(auth["authentication_succeeded"])
+        self.assertFalse(auth["new_consent_or_admin_permissions_accepted"])
+        self.assertEqual(auth["saved_state"]["foundry_connection_rows"], 0)
+        self.assertFalse(auth["saved_state"]["copilot_foundry_reference_created"])
+        self.assertEqual(auth["model_or_agent_queries"], 0)
+        self.assertFalse(auth["browser_security_modified"])
+        self.assertFalse(auth["oauth_urls_or_tokens_extracted"])
+
+    def test_final_remote_removal_preserves_revised_draft_and_other_connections(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-accesskey-removal.json"
+        removal = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(removal["knowledge_absence_verified_after_navigation"])
+        self.assertTrue(removal["agent_connection_permissions_empty"])
+        self.assertTrue(removal["source_aware_blank_branch_preserved"])
+        self.assertTrue(removal["nonempty_answer_path_preserved"])
+        self.assertEqual(removal["formal_connection"]["owned_search_connection_matches"], 0)
+        self.assertEqual(removal["formal_connection"]["foundry_connection_rows"], 0)
+        self.assertTrue(removal["other_connections_unchanged"])
+        self.assertFalse(removal["broad_external_access_cleared"])
+        self.assertTrue(removal["cleanup_ready"])
+        self.assertFalse(removal["cloud_deletion_verified_by_this_receipt"])
+
+    def test_current_accesskey_cleanup_is_distinct_and_preserves_governance(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "search-accesskey-cleanup.json"
+        cleanup = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(cleanup["complete"])
+        self.assertEqual(cleanup["owned_child_projects"], 1)
+        self.assertEqual(cleanup["owned_scoped_roles"], 1)
+        self.assertEqual(set(cleanup["independent_get_http_statuses"]), {
+            "project", "role", "group", "search", "account", "embedding"
+        })
+        self.assertTrue(all(status == 404 for status in cleanup["independent_get_http_statuses"].values()))
+        self.assertTrue(cleanup["external_governance_destination_http200_before_and_after"])
+        self.assertFalse(cleanup["unrelated_principals_groups_resources_modified"])
+        self.assertTrue(cleanup["private_secret_handoff_removed"])
+        self.assertTrue(cleanup["ephemeral_project_endpoint_handoff_removed"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

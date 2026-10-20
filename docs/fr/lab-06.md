@@ -53,6 +53,14 @@ Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas r
 
 ## 1. Confirmer les prérequis et choisir la bonne expérience
 
+La vraie tentative ultérieure de connexion Foundry de premier niveau a utilisé
+un projet dédié réel, mais la fenêtre de consentement était bloquée par le
+navigateur hôte. Un seul essai, sans consentement ni connexion sauvegardée.
+Aucune conversation Activity connectée n'est comptée. L'environnement jetable
+a ensuite été supprimé avec contrôles indépendants. Voir
+[l'échec d'authentification](backend-live-2026-10-20.md#authentification-formelle-foundry-toujours-bloquée)
+et le [nettoyage](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
+
 Après prolongation approuvée de l'essai, la vraie fenêtre Microsoft Foundry du
 brouillon Standard isolé proposait **Microsoft Entra ID User Login** et exigeait
 un Azure AI Project Endpoint, sans champ de clé. Les exigences officielles

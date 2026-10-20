@@ -1,0 +1,25 @@
+{
+  "remote_absence_verified_utc": "2026-10-20T23:15:35.805Z",
+  "cleanup_started_utc": "2026-10-20T23:18:06.434641+00:00",
+  "cleanup_completed_utc": "2026-10-20T23:20:01.556060+00:00",
+  "complete": true,
+  "owned_parent_resources": 2,
+  "owned_embedding_deployments": 1,
+  "owned_child_projects": 1,
+  "owned_scoped_roles": 1,
+  "independent_get_http_statuses": {
+    "project": 404,
+    "role": 404,
+    "group": 404,
+    "search": 404,
+    "account": 404,
+    "embedding": 404
+  },
+  "external_governance_destination_http200_before_and_after": true,
+  "external_policy_destinations_preserved": true,
+  "private_secret_handoff_removed": true,
+  "ephemeral_project_endpoint_handoff_removed": true,
+  "unrelated_principals_groups_resources_modified": false,
+  "new_provisioning_or_model_search_queries": false,
+  "cost_caveat": "Historical Search, embedding and policy-routed diagnostic charges may settle later. Deletion does not erase accrued costs."
+}

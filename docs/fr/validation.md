@@ -84,6 +84,24 @@ réussies. Le nettoyage a ensuite vérifié HTTP 404 pour le groupe, Search,
 compte IA, déploiement et quatre attributions de rôles dédiés. Aucune ressource
 active de ce test ne subsiste ; des frais antérieurs peuvent encore apparaître.
 
+Une nouvelle connexion AccessKey formelle a ensuite réussi sans fenêtre OAuth,
+sur un autre service Search jetable, en conservant Cognitive sans clé.
+Parmi **neuf vraies questions Search connectées**, la spéculation de licences
+initiale a échoué, puis les instructions natives et la branche d'abstention
+explicite ont corrigé le comportement. Les régressions finales négative et
+positive ont réussi ; la réponse hôtelière correspondait à la localisation
+source et le cas négatif s'est abstenu. La
+[chronologie complète](backend-live-2026-10-20.md#traitement-explicite-de-labsence-de-réponse-réussi)
+conserve chaque échec. Navigation PDF externe non vérifiée et URL hôtelières
+absentes. Une vraie tentative formelle Foundry Entra a aussi rencontré la
+fenêtre bloquée ; aucune conversation Activity. Ce nouvel environnement a
+ensuite été déconnecté et supprimé avec contrôle indépendant :
+[suppression distante](../assets/runtime-2026-10-20/search-accesskey-removal.json) et
+[nettoyage actuel](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
+Projet, rôle dédié, groupe, Search, compte IA et déploiement ont renvoyé HTTP 404
+à 23:20 UTC ; la destination de gouvernance externe est restée intacte.
+La rubrique corrigée non publiée subsiste sans connexion Search active.
+
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.
 Le lab 1 dispose de preuves utilisateur et d'une nouvelle exécution de son parcours

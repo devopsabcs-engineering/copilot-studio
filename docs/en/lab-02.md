@@ -1,7 +1,7 @@
 ---
 title: "Lab 02: Ground an agent with Azure AI Search"
 description: "Build a vector retrieval pipeline, connect it to a standard Copilot Studio agent, and verify grounding without claiming an unperformed live test."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -32,6 +32,13 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 > checks are not runtime passes. The original review created no resources or agent changes.
 
 ### Objectives and acceptance criteria
+
+Latest result: the later formal AccessKey route did connect. Actual licensing
+answer/edition/quotation/page/source-target checks and final source-aware
+abstention passed after a recorded initial failure and two native corrections.
+The [nine-question chronology](backend-live-2026-10-20.md#source-aware-no-answer-handling-passed)
+does not certify external PDF viewer navigation. The keyless Cognitive policy
+remained enforced; Search keys were permitted on this isolated service.
 
 The later October 20 attempt created a licensing-only index of 30 source pages,
 separate from the hotel index, and passed an actual query vectorizer check.

@@ -1,7 +1,7 @@
 ---
 title: "Lab 5: Advanced retrieval with Azure AI Search"
 description: "Build a chunked search index, compare retrieval methods, and connect a standard Copilot Studio agent with measurable acceptance criteria."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -35,6 +35,13 @@ so navigation would require separate proof even after sign-in recovery.
 See the [connection record](backend-live-2026-10-20.md#keyless-search-connection-blocked-by-the-hosting-browser).
 
 ## Architecture and prerequisites
+
+The subsequent formal AccessKey connection did run two actual isolated hotel
+questions. The answer **Qatar** matched the source's location field; the
+interplanetary-shuttle question abstained. The original fixture's city expectation
+was corrected to a source-stated location, not by rewriting the corpus.
+The [connected results](backend-live-2026-10-20.md#formal-access-key-connection-executed-four-real-questions)
+prove source grounding, not navigation to an original hotel PDF.
 
 ![Original bilingual diagram of ingestion, vectorization, retrieval and grounded answers](../assets/lab-05/architecture.svg)
 

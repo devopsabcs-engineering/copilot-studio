@@ -1,7 +1,7 @@
 ---
 title: "Atelier 5 : Recherche avancée avec Azure AI Search"
 description: "Créez un index découpé en passages, comparez les méthodes de recherche et reliez un agent standard Copilot Studio avec des critères d'acceptation mesurables."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -35,6 +35,13 @@ aussi indisponibles : leur navigation exige une preuve distincte même après re
 Voir le [registre de connexion](backend-live-2026-10-20.md#connexion-search-sans-clé-bloquée-par-le-navigateur-hôte).
 
 ## Architecture et prérequis
+
+La connexion AccessKey formelle ultérieure a exécuté deux vraies questions sur
+les hôtels isolés. **Qatar** correspondait au champ de localisation source ;
+la question de navette interplanétaire a provoqué une abstention. L'attente de
+ville a été corrigée en localisation source, sans réécriture du corpus.
+Les [résultats connectés](backend-live-2026-10-20.md#connexion-formelle-par-clé-et-quatre-vraies-questions-exécutées)
+prouvent l'ancrage source, non la navigation vers un PDF hôtelier original.
 
 ![Schéma bilingue original de l'ingestion, de la vectorisation, de la recherche et des réponses sourcées](../assets/lab-05/architecture.svg)
 

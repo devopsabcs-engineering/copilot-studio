@@ -81,6 +81,23 @@ queries. Cleanup subsequently verified HTTP 404 for the owned group, Search,
 AI account, embedding deployment and four scoped role assignments. No active
 resources from this test remain; historical charges may still settle.
 
+A newer formal AccessKey connection subsequently succeeded without an OAuth
+pop-up, on a different disposable Search service with Cognitive keyless security
+preserved. Across **nine actual connected Search questions**, the original
+licensing speculation failed, then native grounding instructions and a
+source-aware empty-answer branch corrected it. Final negative and positive
+regressions passed; the hotel answer matched its real location field and its
+negative abstained. The [complete chronology](backend-live-2026-10-20.md#source-aware-no-answer-handling-passed)
+retains every failure. External PDF navigation remains unverified and hotel
+document URLs remain absent. One real formal Foundry Entra connection attempt
+also hit the pop-up restriction; no Activity conversation ran. This newer
+environment was subsequently disconnected and independently deleted:
+[remote removal](../assets/runtime-2026-10-20/search-accesskey-removal.json) and
+[current-run cleanup](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
+Project, scoped role, group, Search, AI account and embedding deployment returned
+HTTP 404 at 23:20 UTC; the external governance destination remained untouched.
+The revised unpublished topic persists without a live Search binding.
+
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence
 of its email outcome plus a fresh core-path rerun. Other labs now have real cloud

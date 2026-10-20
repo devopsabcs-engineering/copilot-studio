@@ -389,6 +389,136 @@ Aucune ressource active de ce test ne subsiste ; des frais horaires Search et de
 jetons d'embeddings antérieurs peuvent encore apparaître. Le nettoyage ne
 transforme pas les tests Copilot bloqués en réussites.
 
+## Connexion formelle par clé et quatre vraies questions exécutées
+
+Une autre voie prise en charge a utilisé le formulaire normal **Power Apps >
+Connections > New connection > Azure AI Search**. Les règles héritées examinées
+n'interdisaient pas les clés Search ; l'obligation sans clé Cognitive Services
+est restée active. Un nouveau service jetable isolait l'accès administrateur
+aux données de ce seul service. Les vecteurs en cache ont été réutilisés, sans
+nouveaux jetons d'embedding documentaire. Aucune écriture manuelle YAML/API
+de connexion, nouveau consentement ou modification de sécurité du navigateur.
+
+La connexion formelle affichait **Connected** sans fenêtre OAuth, et la source
+Search a atteint **Ready**. Quatre vraies questions ont été exécutées :
+
+| Cas | Résultat réel | Limite restante |
+|-----|---------------|-----------------|
+| Citation de licences | Phrase complète auditée, édition octobre 2026, page physique 3 et cible PDF/page authentique conformes | Navigation par clic et page du lecteur non vérifiées |
+| Produit de licences absent | Échec : absence reconnue puis droits probables extrapolés avec citations sans rapport | Corriger et retester l'exigence de preuves sources |
+| Localisation hôtelière | Qatar correspond au véritable champ de localisation source | Le jeu de test attendait la ville Doha ; écart source/attente, non Qatar inventé |
+| Navette hôtelière non documentée | Abstention réussie sans horaire inventé | Aucune URL externe authentique du document hôtelier |
+
+La citation hôtelière a ouvert le contenu source interne, non un lecteur PDF
+original. L'index hôtelier a été sauvegardé séparément, avec l'index de licences
+exclu ; aucune contamination observée. Le portail n'exposait pas le mappage :
+le schéma Azure n'est donc pas présenté comme une relecture du portail.
+
+L'[exécution nettoyée](../assets/runtime-2026-10-20/search-accesskey-execution.json)
+conserve l'échec d'origine. L'acceptation globale reste échouée en attente de
+correction. À cette observation, source, connexion formelle et ressources étaient
+conservées. Les preuves de suppression antérieures ne concernent que les
+environnements précédents.
+
+## Correction native de l'ancrage et trois questions de régression
+
+L'auteur a réconcilié le brouillon réel avec PAC officiel avant de proposer
+une seule propriété `additionalInstructions` sur le vrai nœud génératif classique.
+Douze contrôles de schéma ont réussi, mais l'empaquetage PAC 2.13.1 a rejeté le
+dossier de connaissances et le fichier de références de connexion légitimes.
+Aucun fichier n'a été retiré et aucune poussée CLI effectuée.
+
+La propriété native de personnalisation du prompt a fourni une autre voie.
+Les trois paragraphes généraux exigeant des preuves ont été sauvegardés à
+**22:35:50 UTC**, puis relus après navigation et réouverture à **22:37:49 UTC**.
+Références sources et orchestration conservées. Trois nouvelles conversations
+sur l'index de licences seul ont ensuite été exécutées :
+
+* Le produit fictif n'a plus entraîné de droits inventés, mais un repli générique
+  demandant de reformuler, sans explication spécifique aux sources.
+* Une autre question sur des minutes de téléphone satellite non documentées a
+  provoqué une abstention explicite, sans capacité inventée.
+* La régression positive a conservé la phrase auditée complète, l'édition
+  octobre 2026, la page physique 3 et la cible PDF/page authentique.
+
+Les [preuves de correction](../assets/runtime-2026-10-20/search-portal-rework.json)
+conservent l'échec d'origine, les sept questions connectées et les limites.
+Le jeu hôtelier demande désormais la **localisation source, Qatar**, non une
+ville déduite ; le corpus d'origine est inchangé et aucune question hôtelière
+supplémentaire n'est comptée. L'ouverture directe du PDF authentique a expiré :
+la navigation dans le lecteur reste non vérifiée. Le traitement de l'absence
+de réponse doit encore préciser les limites des preuves sources. Ces résultats
+ne certifient pas l'atelier complet ni la suppression des ressources conservées.
+
+## Traitement explicite de l'absence de réponse réussi
+
+La dernière correction a ajouté uniquement une branche `elseActions` à la
+condition de réponse existante dans Conversational boosting. Une réponse vide
+déclenche l'abstention précisant les limites des sources, puis termine le dialogue.
+Réponse automatique non vide, citations, trois paragraphes d'ancrage, références
+sources et réglages conservés. Repli global et traitement d'erreurs inchangés.
+La sauvegarde native à **22:52:26 UTC** et la réouverture à **22:53:55 UTC**
+ont vérifié la persistance ; aucune poussée CLI.
+
+Deux nouvelles conversations sur les licences seules ont réussi. La demande
+non documentée d'origine a reçu :
+
+> I could not establish the requested information from the configured source
+> evidence. I will not infer an answer.
+
+Aucune citation ni droit inventé. La régression positive a conservé phrase exacte,
+édition octobre 2026, page physique 3 et cible PDF/page authentique, avec une
+seule réponse finale sans message d'abstention. Les
+[preuves finales](../assets/runtime-2026-10-20/search-source-noanswer.json)
+comptent **neuf questions Search connectées**, avec l'échec d'origine et le
+repli générique intermédiaire conservés. Cela valide le traitement de l'absence
+de preuve, non la navigation PDF externe ni l'atelier complet.
+
+## Authentification formelle Foundry toujours bloquée
+
+Le compte IA jetable existant ne gérait initialement pas les projets. Un PATCH
+de fonctionnalité pris en charge l'a activé sans modifier l'authentification
+sans clé imposée ni la sécurité réseau. Un seul projet enfant dédié avec identité
+managée a été créé ; aucun nouveau rôle de projet, modèle, agent ou appel.
+
+Avec le véritable point de terminaison renvoyé par ARM, une seule tentative
+formelle **Power Apps > Connections > Azure AI Foundry Agent Service >
+Microsoft Entra ID User Login** a échoué à **23:01:40 UTC**, avec la même erreur
+de fenêtre bloquée. Après annulation, l'actualisation native à **23:02:28 UTC**
+affichait zéro connexion Foundry, sans référence ni point enregistré dans le
+brouillon. Aucun consentement, nouvel essai, extraction de jeton ou contournement
+de sécurité.
+
+La [preuve d'authentification](../assets/runtime-2026-10-20/foundry-formal-auth.json)
+distingue cet échec observé des appels modèle ou Activity, non exécutés.
+La suppression prise en charge de la nouvelle source/connexion Search et le
+nettoyage dédié ont ensuite été autorisés. Leur suppression exige une nouvelle
+preuve ; les anciens nettoyages ne couvrent pas cet environnement.
+
+## Environnement actuel par clé déconnecté
+
+À **23:15:35 UTC**, la relecture du portail a vérifié la source Search absente
+après navigation, Tools vide et aucune permission de connexion de l'agent.
+Les instructions corrigées et les deux branches de réponse restaient sauvegardées,
+sans référence dédiée de point de terminaison, source ou connexion dans la rubrique.
+
+Avant suppression, la vue native des dépendances indiquait qu'aucune application
+ou aucun flux n'utilisait la connexion. Seule la connexion Search jetable nommée
+a été supprimée. L'actualisation native à **23:13:27 UTC** montrait zéro connexion
+Search dédiée et zéro Foundry ; les autres connexions ont été préservées.
+La [preuve de suppression distante](../assets/runtime-2026-10-20/search-accesskey-removal.json)
+est limitée au portail, non à un inventaire backend brut ni à une suppression
+Azure. Aucune nouvelle question, authentification, navigation PDF ou publication.
+
+Le [nettoyage Azure de cette exécution](../assets/runtime-2026-10-20/search-accesskey-cleanup.json)
+a terminé à **23:20:01 UTC**. Des lectures indépendantes ont renvoyé HTTP 404
+pour projet enfant, rôle dédié unique, groupe, Search, compte IA et déploiement.
+La destination de gouvernance externe renvoyait HTTP 200 avant et après, sans
+modification. Les fichiers éphémères de secret et de point de projet ont été
+supprimés. Aucune ressource dédiée active de ce test ne subsiste ; les frais
+mesurés et de diagnostics imposés peuvent encore apparaître. La rubrique
+corrigée non publiée et tous les résultats historiques sont préservés.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

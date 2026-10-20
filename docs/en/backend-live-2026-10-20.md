@@ -370,6 +370,133 @@ external policy destinations were untouched. No active resources from this test
 remain, although historical hourly Search and embedding-token charges may settle
 later. Cleanup does not turn the blocked Copilot tests into passes.
 
+## Formal access-key connection executed four real questions
+
+A later supported alternative used the normal top-level **Power Apps >
+Connections > New connection > Azure AI Search** form. The reviewed inherited
+rules did not prohibit Search key authentication; the Cognitive Services
+keyless requirement remained enabled. A new disposable Search service isolated
+the admin key's service-wide data-plane access. Cached vectors were reused,
+with zero new document-embedding tokens. No manual YAML/API connection writes,
+new consent or browser-security override was used.
+
+The formal connection read back **Connected** without an OAuth pop-up, and the
+Search knowledge source reached **Ready**. Four actual questions ran:
+
+| Case | Actual result | Remaining boundary |
+|------|---------------|--------------------|
+| Licensing quotation | Complete audited sentence, October 2026 edition, physical page 3 and authentic publisher PDF/page target matched | Browser click-through and viewer page not verified |
+| Unsupported licensing product | Failed: acknowledged absence, then guessed likely entitlements with unrelated guide citations | Source-evidence-only behavior needs correction and retest |
+| Hotel location | Answer Qatar matched the source's actual location field | Original fixture expected city Doha; source/fixture mismatch, not fabricated Qatar |
+| Unsupported hotel shuttle | Passed abstention without invented departure times | No authentic external hotel document URL |
+
+The hotel citation opened an in-product source-content dialog, not an original
+PDF viewer. The hotel index was saved separately with the licensing index
+excluded; no licensing contamination was observed. Field mapping was not exposed
+in the portal, so Azure schema evidence is not presented as portal readback.
+
+The [sanitized execution](../assets/runtime-2026-10-20/search-accesskey-execution.json)
+retains the original failure. Overall acceptance remains failed pending rework.
+At this observation, the new source, formal connection and resources were still
+retained. Earlier deletion receipts apply only to the previous environments.
+
+## Native grounding correction and three regression questions
+
+The author reconciled the live draft with official PAC before proposing a
+single `additionalInstructions` property on the actual classic generative-answer
+node. Twelve schema checks passed, but PAC 2.13.1 offline packaging rejected
+the legitimate connected workspace's knowledge directory and connection-reference
+file. No files were stripped and no CLI push occurred.
+
+The supported native portal prompt property provided another authoring route.
+The three general evidence-only instruction paragraphs were saved at
+**22:35:50 UTC** and verified after navigating away and reopening at
+**22:37:49 UTC**. Source references and orchestration were preserved.
+Three fresh licensing-only questions then ran:
+
+* The original fictional-product negative stopped inventing entitlements, but
+  returned a generic rephrasing fallback rather than a source-specific explanation.
+* A distinct unsupported satellite-phone entitlement explicitly abstained and
+  invented no capacity.
+* The positive regression preserved the full audited sentence, October 2026
+  edition, physical page 3 and authentic publisher PDF/page target.
+
+The [rework evidence](../assets/runtime-2026-10-20/search-portal-rework.json)
+keeps the original failure, seven total connected questions and remaining
+limitations separate. The hotel fixture now asks for the source-stated
+**location, Qatar**, not an inferred city; the original corpus was not edited
+and no additional hotel question was counted. A separate direct browser open
+of the authentic PDF timed out, so viewer navigation remains unverified.
+Source-aware no-answer handling still needs correction. These outcomes do not
+certify the entire workshop or imply that the retained resources were deleted.
+
+## Source-aware no-answer handling passed
+
+The final correction added only an `elseActions` branch to the existing
+answer condition in the real Conversational boosting topic. It sends a
+source-aware abstention for an empty answer, then ends the dialog. The nonempty
+automatic-answer path, citations, three grounding paragraphs, source references
+and settings were preserved. Global fallback and error handling were not changed.
+Native save at **22:52:26 UTC** and reopening at **22:53:55 UTC** verified
+persistence; no CLI push occurred.
+
+Two fresh licensing-only tests passed. The original unsupported request received:
+
+> I could not establish the requested information from the configured source
+> evidence. I will not infer an answer.
+
+It had zero citations and no invented entitlement. The positive regression
+retained the exact audited sentence, October 2026 edition, physical page 3 and
+authentic publisher PDF/page target, with one final answer and no abstention
+message. The [final no-answer evidence](../assets/runtime-2026-10-20/search-source-noanswer.json)
+records **nine total connected Search questions**, retaining the original failure
+and intermediate generic fallback. This passes the source-aware no-answer gate,
+not external PDF navigation or the whole workshop.
+
+## Foundry formal authentication remained blocked
+
+The existing disposable AI account initially lacked project management. A
+supported feature-only PATCH enabled it while preserving enforced keyless
+authentication and network security. One owned child project with managed
+identity was created; no new project roles, models, agents or inference queries.
+
+Using the actual ARM-returned project endpoint, exactly one formal **Power Apps >
+Connections > Azure AI Foundry Agent Service > Microsoft Entra ID User Login**
+attempt failed at **23:01:40 UTC** with the same hosting-browser pop-up error.
+The dialog was canceled. Native refresh at **23:02:28 UTC** showed zero Foundry
+connection rows, with no saved Foundry reference or endpoint in the draft.
+No consent, retry, token extraction or browser-security override followed.
+
+The [Foundry authentication receipt](../assets/runtime-2026-10-20/foundry-formal-auth.json)
+distinguishes this observed failure from model or Activity-protocol execution,
+neither of which ran. The new Search source/connection and owned environment
+were then released for supported removal and scoped cleanup. Their deletion
+requires a fresh receipt; earlier cleanup records do not cover this environment.
+
+## Current access-key environment disconnected
+
+At **23:15:35 UTC**, supported portal readback verified the owned Search knowledge
+source absent after navigation, Tools empty and no agent connection permissions.
+The revised grounding instructions and both answer branches remained saved,
+without owned endpoint/source/connection references in that topic.
+
+Before deletion, the formal connection's native dependency view stated it was
+not used by any apps or flows. Only the named disposable Search connection was
+deleted. Native refresh at **23:13:27 UTC** showed zero owned Search matches and
+zero Foundry rows; other connections were preserved. The
+[removal receipt](../assets/runtime-2026-10-20/search-accesskey-removal.json)
+is portal-scoped evidence, not raw backend enumeration or proof of Azure deletion.
+No new prompt, sign-in attempt, PDF navigation or publication occurred.
+
+The separate [current-run Azure cleanup](../assets/runtime-2026-10-20/search-accesskey-cleanup.json)
+completed at **23:20:01 UTC**. Independent GETs returned HTTP 404 for the owned
+child project, sole scoped role, group, Search service, AI account and embedding
+deployment. The external governance destination returned HTTP 200 before and
+after and was untouched. Ephemeral secret and project-endpoint handoffs were
+removed. No owned active resources from this run remain; historical metered
+and policy-routed diagnostic charges may still settle. The corrected unpublished
+topic and all historical results remain preserved.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

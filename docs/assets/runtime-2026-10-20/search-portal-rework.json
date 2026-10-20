@@ -1,0 +1,62 @@
+{
+  "completed_readback_utc": "2026-10-20T22:42:41.614Z",
+  "status": "strict_acceptance_partial",
+  "authoring": {
+    "supported_surface": "Native generative answers node Customize your prompt property",
+    "only_property_edited": "additionalInstructions",
+    "native_save_utc": "2026-10-20T22:35:50.007Z",
+    "persisted_reopen_readback_utc": "2026-10-20T22:37:49.985Z",
+    "all_three_instruction_paragraphs_persisted": true,
+    "pac_push": false,
+    "orchestration_or_connection_references_changed": false,
+    "new_consent_accepted": false
+  },
+  "historical_cli_limitation": {
+    "official_pull_reconciled_live_draft": true,
+    "instruction_schema_checks_passed": 12,
+    "offline_pack_passed": false,
+    "pack_failure": "PAC 2.13.1 rejects legitimate connectionreferences.mcs.yml and knowledge/ in the current connected workspace.",
+    "source_files_stripped_to_bypass_pack": false,
+    "remote_cli_push_attempted": false,
+    "original_active_profile_restored": true
+  },
+  "retests": {
+    "submitted_user_prompts": 3,
+    "total_connected_questions_including_baseline": 7,
+    "licensing_only_source_ready": true,
+    "fresh_conversations_verified": true,
+    "original_negative": {
+      "unsupported_claim_safety": "passed",
+      "response": "I'm sorry, I'm not sure how to help with that. Can you try rephrasing?",
+      "citation_count": 0,
+      "source_specific_absence_explanation": "not_met"
+    },
+    "distinct_negative": {
+      "requested_attribute": "monthly satellite-phone calling minutes with Power Apps Premium",
+      "unsupported_claim_safety": "passed",
+      "source_specific_absence_explanation": "passed",
+      "invented_capacity": false
+    },
+    "positive_regression": {
+      "complete_audited_quote_matches": true,
+      "edition": "October 2026",
+      "physical_page": 3,
+      "citation_target_matches_verified_publisher_pdf_and_page": true,
+      "browser_viewer_navigation_verified": false
+    }
+  },
+  "hotel_fixture": {
+    "corrected_attribute": "source-stated location, not inferred city",
+    "expected_source_location": "Qatar",
+    "original_corpus_changed": false,
+    "additional_hotel_runtime_questions": 0
+  },
+  "pdf_viewer_attempt": {
+    "separate_direct_browser_open_attempts": 1,
+    "timed_out": true,
+    "citation_click_through_proven": false
+  },
+  "baseline_failure_erased": false,
+  "resources_deleted_by_this_receipt": false,
+  "full_workshop_certified": false
+}

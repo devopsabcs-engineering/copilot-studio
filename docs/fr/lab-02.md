@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 : Ancrer les réponses d’un agent avec Azure AI Search"
 description: "Créer une chaîne de recherche vectorielle, la connecter à un agent Copilot Studio standard et vérifier l’ancrage sans prétendre avoir exécuté des tests."
-ms.date: 2026-10-19
+ms.date: 2026-10-20
 ms.topic: tutorial
 ---
 
@@ -36,6 +36,13 @@ hors autorisations et délais d’indexation.
 > d’exécution réussi. La revue initiale n'a créé aucune ressource ni modifié d'agent.
 
 ### Objectifs et critères d’acceptation
+
+Dernier résultat : la voie AccessKey formelle a réellement connecté Search.
+Réponse/édition/citation/page/cible et abstention finale explicite ont réussi,
+après un échec consigné et deux corrections natives. La
+[chronologie des neuf questions](backend-live-2026-10-20.md#traitement-explicite-de-labsence-de-réponse-réussi)
+ne certifie pas la navigation du lecteur PDF externe. Cognitive est resté
+sans clé ; les clés Search étaient permises sur ce service isolé.
 
 La tentative ultérieure du 20 octobre a créé un index de licences de 30 pages,
 distinct de l'index hôtelier, avec un vrai test du vectoriseur réussi.
