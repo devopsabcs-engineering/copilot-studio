@@ -1,0 +1,291 @@
+{
+  "schema_version": 1,
+  "run_id": "af-lab6-citations-20261020T173438Z",
+  "started_utc": "2026-10-20T17:34:38.1725160Z",
+  "scope": "ONE supported-format native citation retest; not full workshop certification",
+  "passed": false,
+  "prior_group_independently_absent": true,
+  "configuration": {
+    "new_resources_only": true,
+    "foundry_region": "swedencentral",
+    "search_region": "westus2",
+    "search_tier": "basic",
+    "gpt4o_capacity": 10,
+    "ada002_capacity": 10,
+    "keyless": true,
+    "existing_projects_sdk": "2.3.0",
+    "agent_api": "v1",
+    "search_mcp_api": "2026-08-01-preview",
+    "retrieval_reasoning": "minimal",
+    "reason": "Bounded extractive lookup avoids failed low-effort planner dependency",
+    "prior_attempt_cleaned": true,
+    "output_contract": "Natural-language source sections; native citation outside unchanged quotation",
+    "max_cross_source_final_answers": 2,
+    "max_unsupported_final_answers": 1,
+    "old_json_native_title_regex_not_applied": true
+  },
+  "cases": [
+    {
+      "name": "cross-source",
+      "passed": false,
+      "initial_usage": {
+        "input_tokens": 653,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 40,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 693
+      },
+      "final_usage": {
+        "input_tokens": 4875,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 192,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 5067
+      },
+      "transport_passed": true,
+      "actual_tool_documents": 24,
+      "native_annotation_count": 0,
+      "native_annotation_types": [],
+      "all_tool_documents_exact_originals": true,
+      "source_checks": [
+        {
+          "source": 1,
+          "exact_original_title": true,
+          "exact_original_id": true,
+          "actual_tool_document_url": false,
+          "unique_tool_original_join": true,
+          "unchanged_opening_sentence": false,
+          "quote_length_40_to_160": true,
+          "exact_original_substring": false,
+          "native_annotation_association": false
+        },
+        {
+          "source": 2,
+          "exact_original_title": true,
+          "exact_original_id": true,
+          "actual_tool_document_url": false,
+          "unique_tool_original_join": true,
+          "unchanged_opening_sentence": false,
+          "quote_length_40_to_160": true,
+          "exact_original_substring": false,
+          "native_annotation_association": false
+        },
+        {
+          "source": 3,
+          "exact_original_title": true,
+          "exact_original_id": true,
+          "actual_tool_document_url": false,
+          "unique_tool_original_join": true,
+          "unchanged_opening_sentence": false,
+          "quote_length_40_to_160": true,
+          "exact_original_substring": false,
+          "native_annotation_association": false
+        }
+      ],
+      "requested_source_sections_only": true,
+      "exact_quote_title_id_url_passed": false,
+      "native_citation_passed": false
+    },
+    {
+      "name": "unsupported",
+      "passed": true,
+      "initial_usage": {
+        "input_tokens": 633,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 31,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 664
+      },
+      "final_usage": {
+        "input_tokens": 1894,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 6,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1900
+      },
+      "transport_passed": true,
+      "actual_tool_documents": 7,
+      "native_annotation_count": 0,
+      "native_annotation_types": [],
+      "model_abstention_passed": true,
+      "zero_document_retrieval_passed": false
+    }
+  ],
+  "cleanup": {
+    "attempted": true,
+    "group_absent": true,
+    "inventory_resources": 3,
+    "owned_only": true
+  },
+  "usage": {
+    "agent_responses": {
+      "agent_response_api_calls": 4,
+      "input_tokens": 8055,
+      "output_tokens": 269,
+      "total_tokens": 8324,
+      "cached_input_tokens": 0
+    },
+    "embedding": {
+      "prompt_tokens": 3322,
+      "total_tokens": 3322
+    },
+    "direct_mcp_agenticReasoningTokens": 3466,
+    "hidden_planning_calls_complete_usage": "Not observable",
+    "billed_amount": "Unknown; no monetary estimate"
+  },
+  "copilot_or_activity_executed": false,
+  "production_or_user_agent_modified": false,
+  "prior_environments_absent_before": [
+    {
+      "environment": 1,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 2,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 3,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 4,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    }
+  ],
+  "foundation": {
+    "passed": true,
+    "checks_passed": 25,
+    "exact_source_matches": 22
+  },
+  "connection_keyless_target_readback_passed": true,
+  "finished_utc": "2026-10-20T17:52:01.2004460Z",
+  "new_environment_independent_absence": [
+    {
+      "environment": 1,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    }
+  ],
+  "prior_environments_absent_after": [
+    {
+      "environment": 1,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 2,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 3,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    },
+    {
+      "environment": 4,
+      "group_absent": true,
+      "resource_get_status": {
+        "account": 404,
+        "search": 404
+      }
+    }
+  ],
+  "old_criterion_correction": "No JSON/native-label title regex; exact original title/ID/URL/quotation plus actual native annotation metadata required",
+  "stop_decision": "No further environments or repair prompting; provider/configuration limitation if native metadata remains absent",
+  "independent_actual_payload_replay": {
+    "evidence": "Actual retained final Responses, MCP documents, original records, and source comparisons; no synthesized answer",
+    "cross_source_final_answers": 1,
+    "unsupported_final_answers": 1,
+    "retrieved_documents_exact_original_records": 24,
+    "actual_native_annotation_count": 0,
+    "source_checks": [
+      {
+        "source": 1,
+        "original_title_and_id_passed": true,
+        "quote_sentence_exact_before_markdown_hard_break": true,
+        "original_substring_present": true,
+        "strict_entire_blockquote_line_equal": false,
+        "trailing_markdown_hard_break_spaces": 2,
+        "actual_tool_url_in_source_section": false,
+        "native_annotation_association": false
+      },
+      {
+        "source": 2,
+        "original_title_and_id_passed": true,
+        "quote_sentence_exact_before_markdown_hard_break": true,
+        "original_substring_present": true,
+        "strict_entire_blockquote_line_equal": false,
+        "trailing_markdown_hard_break_spaces": 2,
+        "actual_tool_url_in_source_section": false,
+        "native_annotation_association": false
+      },
+      {
+        "source": 3,
+        "original_title_and_id_passed": true,
+        "quote_sentence_exact_before_markdown_hard_break": true,
+        "original_substring_present": true,
+        "strict_entire_blockquote_line_equal": false,
+        "trailing_markdown_hard_break_spaces": 2,
+        "actual_tool_url_in_source_section": false,
+        "native_annotation_association": false
+      }
+    ],
+    "quote_format_distinction": "All three sentences are unchanged original substrings followed by two Markdown hard-break spaces. Original strict blockquote-line equality failures remain recorded; no source attribution criterion was waived.",
+    "actual_tool_url_matches": 0,
+    "limitation": "Supported natural-language output still has no native annotation metadata and uses invented document URLs instead of actual tool URLs. Provider/configuration limitation remains unresolved; exact source-attribution acceptance FAIL.",
+    "unsupported_control": "Model abstained; retrieval returned seven documents, so zero-document retrieval FAIL.",
+    "full_acceptance": "FAIL",
+    "stop": "No repeat after absent metadata; no further environments or repair prompts",
+    "cleanup": "One new and four prior groups absent; account and Search GETs all 404"
+  }
+}

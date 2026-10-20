@@ -47,6 +47,10 @@ reads returned HTTP 200 for the same provisioned environment, identity and saved
 bot. That portal message does not prove deletion or justify a replacement database.
 An offline Foundry citation-contract diagnosis also passed 45 checks, identifying
 unsupported JSON/title-binding assumptions without inventing missing native annotations.
+One supported-format live retest then preserved source sentences but invented
+all three document URLs and still produced zero native annotations.
+It stopped without repair prompting. The fifth owned environment was deleted;
+all five groups and ten account/Search ARM 404s were independently verified.
 The tables below retain the original review baseline unless superseded by those records.
 
 Documentation review and publication are separate from live lab validation.

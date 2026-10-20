@@ -33,6 +33,11 @@ Les quatre environnements jetables successifs ont été supprimés, avec absence
 vérifiée indépendamment. Consultez les
 [limites de la reprise](foundry-live-2026-10-20.md#8-reprise-approuvée-des-citations-exactes-et-échec-des-références-natives) ;
 cela ne certifie pas l'acceptation Copilot/Activity connecté.
+Le dernier test au format pris en charge a encore produit zéro annotation
+native et trois URL de documents inventées. Les phrases sources restaient
+fidèles, avec des espaces Markdown finaux. Le cinquième environnement a aussi
+été supprimé ; les cinq groupes et dix lectures ARM compte/Search ont été
+vérifiés absents/404 indépendamment. Aucune correction répétée n'a suivi.
 
 Copilot Studio est devenu utilisable pour les véritables tests de recherche et
 d'envoi du Lab 1, puis Preview est redevenu vide par intermittence. Un inventaire

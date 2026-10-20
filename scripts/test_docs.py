@@ -238,6 +238,32 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(sum(case["blank_citation_fields"] for case in result["cases"]), 6)
         self.assertEqual(result["live_native_citation_acceptance"], "failed_unrecovered")
 
+    def test_supported_format_retest_keeps_url_and_annotation_failures(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-supported-citation-retest.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertFalse(result["passed"])
+        self.assertTrue(result["configuration"]["old_json_native_title_regex_not_applied"])
+        replay = result["independent_actual_payload_replay"]
+        self.assertEqual(replay["cross_source_final_answers"], 1)
+        self.assertEqual(replay["unsupported_final_answers"], 1)
+        self.assertEqual(replay["actual_native_annotation_count"], 0)
+        self.assertEqual(replay["actual_tool_url_matches"], 0)
+        self.assertEqual(len(replay["source_checks"]), 3)
+        for source in replay["source_checks"]:
+            self.assertTrue(source["original_title_and_id_passed"])
+            self.assertTrue(source["quote_sentence_exact_before_markdown_hard_break"])
+            self.assertFalse(source["strict_entire_blockquote_line_equal"])
+            self.assertFalse(source["actual_tool_url_in_source_section"])
+            self.assertFalse(source["native_annotation_association"])
+        environments = result["new_environment_independent_absence"] + result["prior_environments_absent_after"]
+        self.assertEqual(len(environments), 5)
+        for environment in environments:
+            self.assertTrue(environment["group_absent"])
+            self.assertEqual(environment["resource_get_status"], {"account": 404, "search": 404})
+        self.assertFalse(result["production_or_user_agent_modified"])
+        self.assertFalse(result["copilot_or_activity_executed"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

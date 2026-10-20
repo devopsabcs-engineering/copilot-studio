@@ -49,6 +49,10 @@ provisionné, l'identité et l'agent enregistré. Ce message ne prouve pas une s
 et ne justifie pas une base de remplacement. Un diagnostic hors ligne du contrat
 de citation Foundry a aussi réussi 45 contrôles : il identifie des hypothèses
 JSON/titre non prises en charge, sans inventer les annotations natives absentes.
+Un nouveau test réel au format pris en charge a ensuite conservé les phrases
+sources, mais inventé les trois URL et encore produit zéro annotation native.
+Il s'est arrêté sans correction répétée. Le cinquième environnement a été
+supprimé ; les cinq groupes et dix réponses ARM 404 ont été vérifiés indépendamment.
 Les tableaux suivants conservent l'état de la revue initiale,
 sauf mise à jour apportée par ces registres.
 

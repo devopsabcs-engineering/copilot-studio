@@ -331,6 +331,54 @@ la correction proposée en réussite réelle.
 * [Chaîne de recherche minimal/extractive](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-pipeline)
 * [Contrat d'effort de raisonnement](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
 
+## 10. Nouveau test réel au format pris en charge, échec et arrêt
+
+La correction issue du diagnostic hors ligne a été testée dans **un seul**
+nouvel environnement jetable, avec la configuration minimal/extractive
+fonctionnelle et le SDK installé. Seuls les instructions de sortie de l'agent
+de test et le validateur ont changé : sections en langue naturelle, titre et
+identifiant originaux exacts, vraie URL d'outil, phrase d'ouverture inchangée
+et référence native hors de chaque extrait. L'ancienne hypothèse imposant
+un libellé natif lié au titre interne dans du JSON n'a pas été appliquée.
+
+Une réponse multisource et un contrôle non couvert ont été exécutés.
+Le transport multisource a réussi et les 24 documents récupérés correspondaient
+au corpus original. Les trois titres demandés et identifiants étaient corrects.
+La relecture indépendante a confirmé les phrases d'ouverture comme sous-chaînes
+originales inchangées, chacune suivie de deux espaces de saut de ligne Markdown.
+Ces espaces expliquent l'échec de comparaison stricte de la ligne entière ;
+les échecs stricts ont été conservés, pas convertis silencieusement en réussites.
+
+Les échecs substantiels d'attribution persistent :
+
+* **0/3** URL de la réponse correspondent aux véritables URL d'outil ;
+  les trois adresses de documents ont été inventées par le modèle.
+* Les annotations natives réelles Responses restent à **0**, avec **0/3**
+  associations natives aux sources. Aucun lien ou marqueur rédigé par le modèle
+  n'a été compté comme métadonnée.
+* Le contrôle non couvert s'est abstenu, mais l'outil a encore renvoyé
+  **sept** documents. La recherche sans résultat n'a pas réussi.
+
+Les [résultats au format pris en charge](../assets/runtime-2026-10-20/foundry-supported-citation-retest.json)
+conservent donc **FAIL** pour l'acceptation complète des sources et références
+natives. Cela établit un échec pour la configuration/fournisseur testés,
+pas une absence globale de prise en charge ni une cause interne prouvée.
+Aucune nouvelle réponse multisource, correction de prompt ou création
+d'environnement n'a suivi le constat de métadonnées absentes.
+
+Le nouveau groupe dédié a été supprimé. Des contrôles indépendants ont confirmé
+son absence et celle des quatre groupes précédents, plus **dix réponses ARM 404**
+pour les comptes/Search. Aucune ressource étrangère ni aucun agent utilisateur
+existant n'a été modifié. Aucune conversation Activity ou Copilot connecté
+n'a été exécutée. L'usage observé de ce test est de **8 324 jetons Responses**
+et **3 322 jetons d'embeddings**. Le MCP direct a signalé séparément
+**3 466 jetons de raisonnement** ; l'usage interne complet et le montant
+facturé n'étaient pas observables. Ce n'est pas un total de facturation.
+
+La suite exige une investigation fournisseur/configuration distincte et bornée,
+fondée sur les vraies réponses conservées, pas de nouveaux tests payants
+identiques. Les critères d'agent connecté et de l'atelier complet restent ouverts.
+
 ## Références actuelles
 
 - [Création de base Search et distinctions entre API](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-knowledge-base)

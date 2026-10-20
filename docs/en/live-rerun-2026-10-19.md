@@ -17,7 +17,7 @@ ms.date: 2026-10-20
 | 4 | New dedicated GPT-4o deployment invoked successfully with Entra ID | Loaded standard-agent destination and connected prompt |
 | 5 | Free checks, 14 paid retrieval/model checks and 25 private ingestion/projection checks passed | Grounded Copilot answer |
 | 5.1 | Paid 15-instance deployment completed after model/security corrections | Not an unchanged-source apply or production network certification |
-| 6 | Authenticated MCP and Foundry calls passed; later recovery verified 3/3 exact quotations twice; four new test environments deleted | Native citation fields blank; unsupported retrieval returned seven off-topic documents; Activity/Copilot conversation not run |
+| 6 | Authenticated MCP/Foundry calls passed; 3/3 exact quotations twice; supported-format retest executed; five groups deleted | Zero native annotations; latest answer invented 3/3 document URLs; seven off-topic unsupported hits; Activity/Copilot not run |
 
 This is the execution follow-up requested after the original documentation review.
 The checks below actually ran. They are not a claim that the whole workshop passed.

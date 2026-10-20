@@ -37,6 +37,9 @@ A later [approved quotation-recovery test](#8-approved-quotation-recovery-and-re
 recovered exact quotations twice. It did not pass native citation output or
 the unsupported query's zero-document criterion. The original run below is
 preserved separately from that continuation.
+The final [supported-format retest](#10-supported-format-live-retest-failed-and-stopped)
+also failed native citation and tool-URL attribution. No further environment
+or repair prompting followed that result.
 
 ## 1. Keep the test isolated and keyless
 
@@ -317,6 +320,51 @@ not turn this proposed correction into a live pass.
 * [Connect Foundry agents to IQ](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/foundry-iq-connect)
 * [Minimal/extractive retrieval pipeline](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-create-pipeline)
 * [Retrieval reasoning-effort contract](https://learn.microsoft.com/en-us/azure/search/agentic-retrieval-how-to-set-retrieval-reasoning-effort)
+
+## 10. Supported-format live retest failed and stopped
+
+The correction from the offline diagnosis was tested in **one** new disposable
+environment, using the working minimal/extractive setup and installed SDK.
+Only the test agent's output instructions and acceptance validator changed:
+natural-language source sections, exact original title and ID, actual tool URL,
+unchanged opening sentence and a native citation outside each quotation.
+The unsupported JSON/native-label title-binding requirement was not applied.
+
+One cross-source answer and one unsupported control were executed.
+The cross-source transport passed and all 24 retrieved documents matched the
+original corpus. All three requested titles and original IDs were correct.
+Independent replay confirmed the original opening sentences as unchanged
+substrings, each followed by two Markdown hard-break spaces. Those spaces
+explain the strict whole-blockquote-line comparison failures; the original
+strict results were preserved rather than silently converted to passes.
+
+The substantive attribution failures remained:
+
+* **0/3** answer URLs matched the actual tool-document URLs; all three
+  document URLs were invented by the model.
+* Actual Responses native annotations remained **0**, with **0/3** native
+  source associations. No model-written URL or marker was counted as metadata.
+* The unsupported control abstained, but its tool still returned **seven**
+  documents. Zero-document retrieval did not pass.
+
+The [supported-format results](../assets/runtime-2026-10-20/foundry-supported-citation-retest.json)
+therefore retain **FAIL** for full exact-source/native-citation acceptance.
+This establishes a failure for the tested provider/configuration, not global
+lack of native-citation support or a proven internal root cause.
+There was no repeated cross-source answer, repair prompting or additional
+environment after the missing metadata was observed.
+
+The new owned group was deleted. Independent checks confirmed it and all
+four prior groups absent, plus **ten account/Search ARM 404 responses**.
+No unrelated resource or existing user agent was changed. No Activity or
+connected Copilot conversation ran. Observed consumption for this retest was
+**8,324 Responses tokens** and **3,322 embedding tokens**. Direct MCP separately
+reported **3,466 reasoning tokens**; hidden planning usage and the billed amount
+were not observable. These are not a complete billing total.
+
+Further native-citation recovery needs a separately scoped provider/configuration
+investigation using the retained actual payloads, not more identical paid tests.
+The connected-agent and full workshop gates remain incomplete.
 
 ## Current references
 

@@ -32,6 +32,11 @@ abstained despite seven off-topic retrieved documents. All four sequential
 disposable environments were deleted and independently verified absent.
 See the [recovery boundary](foundry-live-2026-10-20.md#8-approved-quotation-recovery-and-remaining-citation-failure);
 this does not certify connected Copilot/Activity acceptance.
+The final supported-format test still returned zero native annotations and
+invented all three document URLs. Its source sentences remained faithful
+apart from Markdown trailing spaces. That fifth test environment was also
+deleted; all five groups and ten account/Search ARM reads were independently
+verified absent/404. No further repair prompting followed.
 
 Copilot Studio became usable for the actual Lab 1 retrieval/email run, then Preview
 became intermittently blank again. A later explicit-subscription inventory found

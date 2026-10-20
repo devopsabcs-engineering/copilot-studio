@@ -17,7 +17,7 @@ ms.date: 2026-10-20
 | 4 | Nouveau déploiement GPT-4o dédié appelé avec Entra ID | Destination standard chargée et prompt connecté |
 | 5 | Tests Free, 14 contrôles payants modèle/recherche et 25 contrôles d'ingestion/projections privées réussis | Réponse Copilot sourcée |
 | 5.1 | Déploiement payant de 15 instances terminé après corrections de modèle/sécurité | Ne valide ni les sources inchangées ni un réseau de production |
-| 6 | MCP authentifié et appels Foundry réussis ; reprise de 3/3 citations exactes deux fois ; quatre nouveaux environnements supprimés | Références natives vides ; sept documents hors sujet pour la question non couverte ; conversation Activity/Copilot non exécutée |
+| 6 | MCP/Foundry authentifiés réussis ; 3/3 extraits exacts deux fois ; nouveau format testé ; cinq groupes supprimés | Zéro annotation native ; dernière réponse avec 3/3 URL inventées ; sept résultats hors sujet ; Activity/Copilot non exécuté |
 
 Il s'agit du suivi d'exécution demandé après la première revue documentaire.
 Les contrôles ci-dessous ont réellement été exécutés. Ils ne signifient pas que
