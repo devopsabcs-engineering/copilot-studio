@@ -11,11 +11,13 @@ ms.date: 2026-10-20
 > [!IMPORTANT]
 > Dernière poursuite : connexion Foundry externe manuelle **Connected**,
 > rattachement natif et rubrique explicite persistants, inférence Responses directe
-> réussie. Le test Activity natif correctif a prouvé la liaison de cible, mais sans
-> réponse observée ; acceptation connectée non vérifiée. Ce nouveau compte/projet/
-> modèle/agent est **actif et conservé pour diagnostic**, contrairement aux anciennes
+> réussie. Le premier test Activity correctif n'a pas reçu de réponse ; un test
+> natif instrumenté ultérieur a reçu la vraie réponse en **6,864 secondes**.
+> Transport synthétique connecté validé, non recherche/citations. L'observateur
+> temporaire a été supprimé avec contrôles 404. Ce nouveau compte/projet/
+> modèle/agent est **actif et conservé**, contrairement aux anciennes
 > exécutions supprimées. Le tag d'expiration ne supprime rien.
-> Voir les [preuves actuelles connexion/runtime](backend-live-2026-10-20.md#connexion-externe-manuelle-réussie-réponse-activity-non-vérifiée).
+> Voir le [résultat Activity actuel](backend-live-2026-10-20.md#test-synthétique-activity-connecté-instrumenté-réussi).
 
 Preuves antérieures : [registre de réexécution réelle](live-rerun-2026-10-19.md).
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de

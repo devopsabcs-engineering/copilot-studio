@@ -11,11 +11,13 @@ ms.date: 2026-10-20
 > [!IMPORTANT]
 > Latest continuation: the manual external Foundry connection is **Connected**,
 > its native attachment and explicit topic persist, and direct Responses inference
-> passed. The corrective native Activity test proved route/target binding but
-> returned no response during observation; connected runtime acceptance remains
-> unverified. This new account/project/model/agent is **live and held for diagnosis**,
+> passed. The first corrective Activity test returned no response; a later
+> instrumented native test received the genuine reply in **6.864 seconds**,
+> passing synthetic connected transport, not retrieval/citation acceptance.
+> The temporary diagnostic observer was deleted with independent 404s.
+> This new account/project/model/agent is **live and retained**,
 > unlike the earlier deleted runs. Its expiry tag does not delete resources.
-> See the [current connection/runtime evidence](backend-live-2026-10-20.md#manual-external-connection-succeeded-activity-response-remains-unverified).
+> See the [current Activity result](backend-live-2026-10-20.md#instrumented-connected-activity-smoke-passed).
 
 Earlier execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,

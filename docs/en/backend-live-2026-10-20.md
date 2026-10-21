@@ -651,6 +651,52 @@ is server-side connector/runtime correlation for conversation
 `0da156dc-11ae-4f3a-98d8-2b81be3e3c2b`, at **01:41:26 UTC**. The stall's root
 cause is unknown. The full workshop remains incomplete.
 
+## Instrumented connected Activity smoke passed
+
+Read-only server correlation found a Projects POST accepted with **HTTP 202**
+at **01:41:30.591 UTC**, correlation
+`362a8914-f06a-4b9e-877a-ce407d2eeae5`. Its timing matches the earlier stalled
+test, but it lacks the native identifiers, endpoint path and effective caller.
+It is a temporal candidate, not proof of that Activity dispatch or its outcome.
+
+The owned project exposed Audit/Trace categories but had no project diagnostic
+setting. One isolated Pay-as-you-go workspace with 30-day retention and a
+provider-read-back **0.023 GB/day** cap was therefore created in the same owned
+group, and only the project's Audit/Trace collection was enabled. The cap is
+best effort, not a hard spending limit; account policy logging was untouched.
+
+One new instrumented native conversation, `84c7430d-3e15-4832-996e-1d36f82349fc`,
+sent the exact trigger once at **02:27:09.715 UTC**. Native tracing again proved
+the explicit topic and connected target binding. At **02:27:16.579 UTC** the
+actual chat received **I am the workshop validation specialist. Foundry connection
+verified.**, independently confirmed visible. Elapsed time: **6.864 seconds**.
+The parent topic contains no hardcoded success response. This passes the
+synthetic connected Activity smoke; it does not certify retrieval or citations.
+
+A browser `net::ERR_ABORTED` event preceded the reply, so it is not treated as
+a failed final result. The scoped Audit/Trace query succeeded but still returned
+zero matching rows after bounded ingestion observation. Diagnostic ingestion
+and a causal role for logging in the recovery remain unverified. The earlier
+no-reply test is retained as a real historical failure.
+
+At **02:39:14 UTC**, observer-only cleanup independently verified **404** for
+the temporary workspace and project diagnostic setting. Account policy logging
+remained unchanged. The working account, project, small model, agent and formal
+connection remain **live and retained**; this is not full environment cleanup.
+
+A separate current-provenance preflight passed **117 evidence checks**, but
+found no distinct supported repair for the earlier native annotation and source
+association failures. Original inline documents have no verified publisher URLs:
+these remain `null`. A documented authenticated `citationUrl` lookup is not a
+publisher URL or proof of native metadata forwarding through Activity. No new
+retrieval environment, embedding call or connected retrieval prompt was created
+merely to repeat that failed strategy.
+
+The [Activity success and observer-cleanup receipt](../assets/runtime-2026-10-20/foundry-connected-activity-success.json)
+separates working synthetic transport from the still-open multi-source quotation/
+native-citation gate and the BYOM keyless-policy mismatch. The workshop remains
+incomplete; no original agent or security policy was changed.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

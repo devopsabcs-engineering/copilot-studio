@@ -1,0 +1,63 @@
+{
+  "observed_date_utc": "2026-10-21",
+  "connection": "Workshop Foundry Validation",
+  "agent": "workshop-validation-specialist",
+  "operation": "SendActivityV2",
+  "instrumented_test": {
+    "fresh_conversation": true,
+    "conversation_id": "84c7430d-3e15-4832-996e-1d36f82349fc",
+    "prompt_count": 1,
+    "prompt": "workshop foundry connection check",
+    "prompt_activity_id": "442dba0d-1d77-4094-90b2-0699da2341a7",
+    "prompt_utc": "2026-10-21T02:27:09.7151475+00:00",
+    "begin_dialog_and_target_binding_verified": true,
+    "reply_activity_id": "a04cea49-b09a-46bf-9361-5c9410e51a6b",
+    "reply_utc": "2026-10-21T02:27:16.5790391+00:00",
+    "reply": "I am the workshop validation specialist. Foundry connection verified.",
+    "reply_latency_seconds": 6.8638916,
+    "reply_confirmed_visible": true,
+    "parent_topic_hardcoded_success_response": false,
+    "connected_synthetic_smoke_passed": true,
+    "browser_net_err_aborted_observed": true,
+    "later_reply_preserved_despite_browser_transport_event": true
+  },
+  "server_correlation": {
+    "earlier_candidate_projects_post_status": 202,
+    "earlier_candidate_correlation_id": "362a8914-f06a-4b9e-877a-ce407d2eeae5",
+    "earlier_candidate_definitively_joined_to_native_activity": false
+  },
+  "temporary_observability": {
+    "owned_project_audit_trace_enabled_for_one_test": true,
+    "isolated_workspace_retention_days": 30,
+    "daily_cap_gb_readback": 0.023,
+    "cap_is_hard_billing_limit": false,
+    "scoped_query_succeeded": true,
+    "matching_rows_after_bounded_ingestion_wait": 0,
+    "ingestion_verified": false,
+    "logging_caused_runtime_recovery_proven": false,
+    "cleanup_completed_utc": "2026-10-21T02:39:14.578114+00:00",
+    "workspace_get_after_cleanup": 404,
+    "project_diagnostic_get_after_cleanup": 404,
+    "account_policy_diagnostics_unchanged": true
+  },
+  "current_provenance_preflight": {
+    "checks_passed": 117,
+    "new_retrieval_resources": 0,
+    "new_retrieval_or_embedding_calls": 0,
+    "new_connected_retrieval_prompts": 0,
+    "distinct_supported_native_citation_repair_confirmed": false,
+    "original_inline_publisher_urls": null,
+    "authenticated_citation_lookup_is_publisher_url": false,
+    "retrieval_acceptance_passed": false
+  },
+  "preservation": {
+    "earlier_native_no_reply_failure_retained": true,
+    "earlier_direct_responses_success_retained": true,
+    "original_agents_modified": false,
+    "orchestration_or_topic_changed_for_instrumented_test": false,
+    "policies_roles_or_consent_changed": false,
+    "account_project_model_agent_connection_retained": true,
+    "retained_resource_expiry_is_automatic_deletion": false,
+    "overall_workshop_certified": false
+  }
+}

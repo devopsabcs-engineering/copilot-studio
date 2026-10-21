@@ -13,11 +13,12 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 
 > [!WARNING]
 > La nouvelle connexion externe manuelle est **Connected** et l'inférence Responses
-> directe réussit. La liaison de cible Activity native a réussi, sans réponse
-> connectée observée. Le nouveau compte/projet, modèle Standard capacité 1 et agent
-> restent **actifs pour diagnostic** ; le tag d'expiration ne supprime rien.
+> directe réussit. Après un premier échec sans réponse, un test Activity natif
+> instrumenté a reçu la vraie réponse en **6,864 secondes**. Recherche/citations
+> natives non vérifiées. L'observateur a été supprimé. Le nouveau compte/projet,
+> modèle Standard capacité 1 et agent restent **actifs** ; le tag ne supprime rien.
 > Les anciennes preuves de suppression ne couvrent pas cette exécution.
-> Voir les [limites actuelles](backend-live-2026-10-20.md#connexion-externe-manuelle-réussie-réponse-activity-non-vérifiée).
+> Voir les [limites actuelles](backend-live-2026-10-20.md#test-synthétique-activity-connecté-instrumenté-réussi).
 
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.

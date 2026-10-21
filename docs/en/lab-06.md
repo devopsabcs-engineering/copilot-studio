@@ -13,11 +13,12 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 
 > [!WARNING]
 > The newest manual external connection is **Connected** and its Foundry agent
-> passes direct Responses inference. Native Activity target binding passed, but
-> no connected reply arrived during observation. The new owned account/project,
-> Standard capacity-1 model and agent remain **live for diagnosis**; their expiry
+> passes direct Responses inference. After an initial no-reply failure, one
+> instrumented native Activity test received the genuine reply in **6.864 seconds**.
+> Retrieval/native citations remain unverified. The diagnostic observer was deleted.
+> The new owned account/project, Standard capacity-1 model and agent remain **live**; their expiry
 > tag is not automatic cleanup. Earlier deletion receipts do not cover this run.
-> See the [current runtime boundary](backend-live-2026-10-20.md#manual-external-connection-succeeded-activity-response-remains-unverified).
+> See the [current runtime boundary](backend-live-2026-10-20.md#instrumented-connected-activity-smoke-passed).
 
 > [!IMPORTANT]
 > Actual dependency testing now supplements the initial syntax-only review.

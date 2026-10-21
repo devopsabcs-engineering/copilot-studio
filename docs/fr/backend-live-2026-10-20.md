@@ -677,6 +677,52 @@ corrélation serveur connecteur/runtime pour la conversation
 `0da156dc-11ae-4f3a-98d8-2b81be3e3c2b`, à **01:41:26 UTC**.
 La cause du blocage reste inconnue. L'atelier complet reste incomplet.
 
+## Test synthétique Activity connecté instrumenté réussi
+
+La corrélation serveur en lecture seule a trouvé un POST Projects accepté avec
+**HTTP 202** à **01:41:30.591 UTC**, corrélation
+`362a8914-f06a-4b9e-877a-ce407d2eeae5`. L'heure correspond au test bloqué,
+sans identifiants natifs, chemin précis ni appelant effectif. Candidat temporel,
+non preuve de cet envoi Activity ni de son résultat.
+
+Le projet proposait Audit/Trace, sans paramètre de diagnostic. Un espace isolé
+Pay-as-you-go, rétention 30 jours et plafond relu **0,023 Go/jour**, a été créé
+dans le même groupe dédié ; seuls Audit/Trace du projet ont été activés.
+Ce plafond n'est pas une limite de facturation stricte. Les diagnostics imposés
+du compte n'ont pas été modifiés.
+
+Une seule nouvelle conversation native instrumentée,
+`84c7430d-3e15-4832-996e-1d36f82349fc`, a envoyé le déclencheur exact une fois
+à **02:27:09.715 UTC**. Les traces prouvent encore la rubrique et la liaison
+de cible. À **02:27:16.579 UTC**, le chat a reçu **I am the workshop validation
+specialist. Foundry connection verified.**, avec visibilité confirmée.
+Durée : **6,864 secondes**. La rubrique parente ne contient pas cette réponse
+en dur. Le test synthétique Activity connecté réussit, non les citations/recherches.
+
+Un événement navigateur `net::ERR_ABORTED` précédait la réponse ; il n'est donc
+pas interprété comme un échec final. La requête Audit/Trace ciblée réussissait
+mais renvoyait zéro ligne après observation bornée. L'ingestion et un lien causal
+entre journalisation et reprise restent non vérifiés. L'ancien test sans réponse
+reste conservé comme échec historique réel.
+
+À **02:39:14 UTC**, le nettoyage du seul observateur a vérifié **404** pour
+l'espace temporaire et le paramètre de diagnostic du projet. Les diagnostics
+imposés du compte sont inchangés. Compte, projet, petit modèle, agent et connexion
+fonctionnels restent **actifs et conservés** : pas de nettoyage complet.
+
+Un précontrôle actuel de provenance a réussi **117 vérifications de preuve**,
+sans trouver de correction distincte prise en charge pour les anciens échecs
+d'annotations et d'association aux sources. Les documents intégrés n'ont pas
+d'URL éditeur vérifiée : ces champs restent `null`. Une URL `citationUrl`
+authentifiée n'est ni une URL éditeur ni une preuve de transmission native
+par Activity. Aucun environnement de recherche, embedding ou nouveau test
+connecté n'a été créé pour répéter cette stratégie en échec.
+
+La [preuve de réussite Activity et de nettoyage observateur](../assets/runtime-2026-10-20/foundry-connected-activity-success.json)
+distingue transport synthétique fonctionnel, critères multisources/citations
+natives encore ouverts et conflit BYOM avec la politique sans clé.
+L'atelier reste incomplet ; aucun agent d'origine ni politique modifié.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

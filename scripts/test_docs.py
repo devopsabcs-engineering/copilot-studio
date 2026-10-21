@@ -630,6 +630,37 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["original_agents_modified"])
         self.assertFalse(result["overall_workshop_certified"])
 
+    def test_connected_activity_success_does_not_erase_failures_or_certify_retrieval(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-connected-activity-success.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        native = result["instrumented_test"]
+        self.assertEqual(native["prompt_count"], 1)
+        self.assertTrue(native["begin_dialog_and_target_binding_verified"])
+        self.assertTrue(native["reply_confirmed_visible"])
+        self.assertTrue(native["connected_synthetic_smoke_passed"])
+        self.assertFalse(native["parent_topic_hardcoded_success_response"])
+        self.assertEqual(native["reply"],
+                         "I am the workshop validation specialist. Foundry connection verified.")
+        self.assertLess(native["reply_latency_seconds"], 90)
+        self.assertFalse(result["server_correlation"]["earlier_candidate_definitively_joined_to_native_activity"])
+        diagnostics = result["temporary_observability"]
+        self.assertFalse(diagnostics["ingestion_verified"])
+        self.assertFalse(diagnostics["logging_caused_runtime_recovery_proven"])
+        self.assertEqual(diagnostics["workspace_get_after_cleanup"], 404)
+        self.assertEqual(diagnostics["project_diagnostic_get_after_cleanup"], 404)
+        self.assertTrue(diagnostics["account_policy_diagnostics_unchanged"])
+        preflight = result["current_provenance_preflight"]
+        self.assertEqual(preflight["checks_passed"], 117)
+        self.assertEqual(preflight["new_retrieval_resources"], 0)
+        self.assertFalse(preflight["distinct_supported_native_citation_repair_confirmed"])
+        self.assertIsNone(preflight["original_inline_publisher_urls"])
+        self.assertFalse(preflight["retrieval_acceptance_passed"])
+        preservation = result["preservation"]
+        self.assertTrue(preservation["earlier_native_no_reply_failure_retained"])
+        self.assertTrue(preservation["account_project_model_agent_connection_retained"])
+        self.assertFalse(preservation["overall_workshop_certified"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"
