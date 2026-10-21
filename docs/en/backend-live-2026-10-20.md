@@ -839,7 +839,7 @@ failure's cause, not the cause of every earlier stall. A native greeting also
 passed in **0.204489 seconds**, with Greeting SendActivity/CancelAllDialogs and
 no Foundry binding.
 
-The subsequent four-category browser batch used explicit classic routing
+That subsequent four-category browser batch used explicit classic routing
 prefixes, fresh sessions, no resubmits and a 450-second observation limit.
 After continuation, its deferred execution handle was unavailable. Read-only
 recovery showed the second regulatory prompt only as an optimistic user activity,
@@ -861,13 +861,155 @@ reported: "The file's content is either confidential or empty." This is an
 actual ingestion failure, not proof of its precise protection/format cause.
 One upload, zero reuploads; no decryption, label removal or reconstruction.
 The failed source remains in the isolated unpublished draft for owner inspection
-or authorized replacement. A readable copy approved for this environment is
-needed before original local/hybrid acceptance can proceed.
+or authorized replacement. At that checkpoint, a readable source approved for
+this environment was still needed. The later publisher-source recovery below
+addresses that prerequisite without repairing or converting the DOCX.
 
 Original native prompt BYOM still needs an approved compatible
 environment/authentication route. PAC's delegated scope remains a separate
 authorization issue. The working connection and owned resources remain live;
 expiry tags do not delete them. No policy, role or consent was changed.
+
+## Native categories recovered and licensed local knowledge ready
+
+A later, separate browser run recovered genuine native delivery without an
+external-browser action. Version 3 answered all four original notebook questions,
+using explicit classic routing prefixes. Sixteen excerpts were authentic, but
+the fraud reply left two bullets without their own source markers: **3/4**
+displayed-content and attribution passes, not four. This does not recover the
+missing results of the earlier interrupted batch.
+
+One targeted instructions-only clarification created retrieval agent version 4:
+repeat the correct canonical source marker for every bullet. Model, tools,
+temperature, endpoint, authentication, smoke agent and earlier versions were
+preserved. The update made no model calls. Its actual native regression passed
+**4/4** questions, with **13 authentic, individually attributed excerpts** and
+manual review of relevance and material conditions:
+
+| Category | Server activity latency | Authentic attributed excerpts |
+|----------|-------------------------|-------------------------------|
+| Fraud | 15.718720 s | 1 |
+| Regulatory | 16.774088 s | 3 |
+| Investigation | 16.187563 s | 1 |
+| Combined | 26.940827 s | 8 |
+
+There were **five expertise submissions**, not four uninterrupted first-attempt
+passes. The first combined submission remained optimistic, without a server
+timestamp, through 17:11:09 UTC. Its capture is retained; absence of server
+acknowledgement does not prove the backend never received it. One bounded
+reattempt, in a fresh session after a server-acknowledged Hello, received the
+combined reply. Every passing case has native user/reply IDs, BeginDialog and
+target binding. The underlying native MCP response/tool IDs remain unexposed.
+Matching excerpts to the original corpus is not an independent join to that
+native invocation's retrieval membership. No SDK proxy fills that gap.
+
+### Actual publisher guide ingested
+
+The official [Microsoft workshop repository](https://github.com/Azure/Copilot-Studio-and-Azure)
+provides the missing Markdown guide under an MIT license. Public source and
+license reads succeeded despite the authenticated CLI token's separate SAML
+error; no SSO, consent or organization policy was changed.
+Revision `e9ecd00dba2c25dbc8306b5be6818d22645607a3` was pinned. Static parsing
+of the publisher notebook, without executing its code, verified exact `id/title/content` matches for
+all **24** original records and exact matches for all **four full test-query
+objects**. The original notebook hash was independently checked.
+
+The licensed upload preserves the guide body, moves its title to frontmatter,
+and appends publisher provenance and the complete MIT notice. Three offline
+verification tests pass. One normal native upload, zero reuploads, reached
+**Ready**, observed at **17:31:26 UTC**. This is an upstream-source adaptation,
+not a decrypted or reconstructed DOCX, and equivalence to that unreadable file
+is not claimed. The original failed DOCX source remains available for inspection.
+
+### Natural local-knowledge canary
+
+The isolated unpublished parent now uses generative orchestration and saved
+routing/source instructions. Web search, ungrounded responses and deep reasoning
+remain off. A real native intake reply asked for activity, patterns, amounts and
+timing, without calling Foundry, but also searched local knowledge. It does not
+demonstrate the intended pure no-knowledge greeting path.
+
+A subsequent natural CTR lookup answered the cash threshold and daily aggregation
+correctly in **7.247947 seconds**. Native search tracing includes the exact
+uploaded source ID; the final native reply citation identifies the uploaded
+filename. No Foundry invocation was observed for these two canary questions.
+This is genuine local retrieval, not an answer copied into parent instructions.
+It does not replace the eleven expanded scenarios or certify hybrid coverage.
+
+The [sanitized native recovery receipt](../assets/runtime-2026-10-20/foundry-native-category-recovery.json)
+preserves the failed citation case, unacknowledged submission, successful
+regression and licensed-source provenance separately. Earlier failures, the
+native trace boundary, original BYOM blocker and live-resource charges remain
+visible. The full workshop is not certified complete.
+
+## Expanded scenario checks and focused intake rework
+
+All **eleven expanded question texts** match the accessible original setup
+document after whitespace normalization. A separate native QA attempt used those
+questions, not the shorter canary substitutes. It stopped after **three
+submissions, zero replays**, preserving these results:
+
+| Original scenario | Actual outcome |
+|-------------------|----------------|
+| 1: Vague suspicious-account intake | Refusal instead of clarification; unnecessary local search |
+| 2: CTR filing threshold | Genuine local retrieval and citation, but missing expected deadline and form |
+| 3: SAR deadline | No server acknowledgement within the 120-second observation window |
+| 4–11 | Not submitted after the delivery stop |
+
+The [expanded QA receipt](../assets/runtime-2026-10-20/foundry-native-natural-matrix.json)
+records two acknowledged final replies, compliant quota pacing and the failed
+acceptance gate. The SAR observation proves unconfirmed delivery, not backend
+absence or a Foundry authentication failure. Matching the accessible setup
+questions does not reveal additional requirements in the unreadable main DOCX.
+
+The targeted rework registers a guarded, nonfactual intake topic containing only
+a clarification message and dialog cancellation, and extends parent instructions
+to request complete retrieved table fields. Three offline guard tests cover
+vague intake and prevent interception of specific financial questions. No
+financial answers were embedded in the topic or instructions, and the Foundry
+model, tools and corpus were unchanged.
+
+A subsequent implementation regression used the exact original scenarios 1–3,
+once each in one native conversation. All received real server-acknowledged
+final replies:
+
+| Scenario | Latency | Verified behavior |
+|----------|---------|-------------------|
+| Intake | 5.390803 s | Requests activity, patterns, amounts and timing; no local-search event or Foundry route marker |
+| CTR | 10.748131 s | Threshold, aggregation, deadline, form and conditional exemptions; actual local source trace and citation |
+| SAR | 8.945610 s | Standard/no-suspect deadlines, retention, confidentiality and form; actual local source trace and citation |
+
+The clarification wording differs from the registered topic's exact message.
+Its source-free behavior is observed, but execution of that particular topic
+is not established. The
+[focused rework receipt](../assets/runtime-2026-10-20/foundry-native-intake-rework.json)
+preserves that distinction. No external-browser result was obtained because the
+operator was unavailable; the later embedded SAR reply was genuinely received.
+These three implementation checks do not certify the full eleven-scenario
+natural/local/connected/hybrid matrix or the original BYOM lab.
+
+### Fresh-session retest stopped before scoring
+
+The independent R2 acceptance attempt then used a fresh test session and one
+literal Hello transport preflight. It remained client-optimistic without server
+acknowledgement or final reply for **120.161 seconds**, so the mandatory stop
+occurred **before any scored question**. The startup greeting is not an
+acknowledgement of that preflight.
+
+The [R2 QA receipt](../assets/runtime-2026-10-20/foundry-native-natural-matrix-rework.json)
+records **one preflight, zero target submissions, zero target replays and eleven
+unassessed scenarios**. Null route/citation fields mean unassessed, not absent.
+The three earlier implementation successes remain valid observations but are
+not R2 passes. This interruption establishes neither a regression nor backend
+absence. No configuration changes or additional paid target retries followed.
+
+An external-browser check was requested again, but the operator was unavailable;
+there is no external validation result. To unblock transport, open the isolated
+draft in a regular Edge session, open Test, start a new test session and send
+the original suspicious-account intake once. Wait up to two minutes without
+resending, then retain the final reply or error. Do not publish the draft or
+change consent or security settings for this check. Full acceptance remains
+blocked, independently of the original BYOM policy/authentication mismatch.
 
 ## Official references
 

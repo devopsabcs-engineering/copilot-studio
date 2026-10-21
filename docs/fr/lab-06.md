@@ -18,17 +18,25 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > supprimé. Les critères d'annotations natives/URL éditeur avaient été ajoutés
 > par l'assistant. La recherche joint 24 originaux. La provenance canonique
 > réparée permet **4/4 questions originales inchangées réussies en contenu
-> extractif et attribution backend**. Une vraie réponse native de procédure
-> réussit en **352,940 secondes**. Le lot natif a perdu son résultat différé ;
-> couverture native/locale/hybride complète et synthèse libre non certifiées.
-> L'ingestion native du guide original échoue : « The file's content is either
-> confidential or empty. » Une copie lisible autorisée est nécessaire pour
-> les cas locaux/hybrides.
+> extractif et attribution backend**. Une régression native indépendante réussit
+> **4/4 questions originales** après correction ciblée des citations par puce en v4.
+> Un envoi combiné non acquitté est conservé ; une relance bornée réussit.
+> L'ancien lot perdu n'est pas reconstitué. Couverture native/locale/hybride
+> complète et synthèse libre non certifiées.
+> Le DOCX original échoue à l'ingestion, mais le guide éditeur MIT vérifié atteint
+> **Ready**. Le notebook éditeur correspond aux 24 enregistrements et quatre
+> questions de l'original ; aucune équivalence au DOCX illisible n'est affirmée.
+> Une vraie réponse CTR naturelle cite la source
+> locale sans Foundry. Après échec QA étendu puis correction ciblée, les trois
+> premiers scénarios exacts reçoivent accueil sans source et réponses CTR/SAR
+> complètes. La couverture des onze scénarios reste un contrôle distinct.
+> La tentative R2 suivante en nouvelle session s'arrête avant notation sur un
+> Hello non acquitté ; la confirmation du transport en navigateur externe manque.
 > Une limitation directe prouvée a été corrigée :
 > Standard capacité 26. Search Basic, embeddings, compte/projet et deux agents
 > restent **actifs** ; le tag ne supprime rien.
 > Les anciennes preuves de suppression ne couvrent pas cette exécution.
-> Voir les [limites de récupération actuelles](backend-live-2026-10-20.md#provenance-réparée-et-questions-backend-originales-réussies).
+> Voir les [limites de récupération actuelles](backend-live-2026-10-20.md#catégories-natives-récupérées-et-référence-locale-sous-licence-prête).
 
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.
@@ -131,6 +139,14 @@ Le package examiné contient `requirements.txt` et `.env.example` à la racine, 
 5. Copiez `.env.example` vers un `.env` privé uniquement dans une copie de travail autorisée. Ne placez ni secrets ni adresses privées dans une sortie partagée.
 6. Vérifiez le répertoire de travail du noyau. Le chargeur lit `.env` dans le parent du répertoire courant, et non de manière fiable à partir du fichier notebook. Un noyau démarré à la racine peut chercher un niveau trop haut.
 7. Positionnez le noyau dans le dossier `notebooks` autorisé avant le chargement, ou faites revoir une correction du chemin dans la copie de travail. Vérifiez le chemin résolu sans afficher les valeurs.
+
+Pour une alternative amont autorisée, obtenez le
+[guide Markdown éditeur à la révision vérifiée](https://github.com/Azure/Copilot-Studio-and-Azure/blob/e9ecd00dba2c25dbc8306b5be6818d22645607a3/labs/2.4-microsoft-foundry-agentic-retrieval/data/copilot_knowledge/quick_reference_guide.md).
+Conservez attribution éditeur et avis MIT, comparez le notebook éditeur à votre
+vraie version du lab et signalez l'adaptation de source. Ne renommez, déchiffrez
+ni reconstruisez un DOCX illisible. La
+[vraie ingestion sous licence](backend-live-2026-10-20.md#guide-éditeur-réellement-ingéré)
+atteint Ready dans le brouillon isolé, sans prouver l'identité des octets du DOCX.
 
 | Variable                          | Signification et validation                                                                           |
 | --------------------------------- | ----------------------------------------------------------------------------------------------------- |

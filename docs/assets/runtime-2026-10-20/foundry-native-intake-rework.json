@@ -1,0 +1,78 @@
+{
+  "observed_date": "2026-10-21",
+  "reason": "Expanded-matrix intake refusal and incomplete CTR lookup",
+  "changes": {
+    "isolated_unpublished_parent_only": true,
+    "nonfactual_guarded_intake_topic_saved": true,
+    "intake_topic_has_no_search_or_foundry_actions": true,
+    "specific_domain_questions_excluded_from_intake_guard": true,
+    "parent_instructions_previous_characters": 2054,
+    "parent_instructions_current_characters": 2622,
+    "complete_retrieved_table_fields_requested": true,
+    "financial_answers_hardcoded_into_parent_or_intake_topic": false,
+    "native_save_and_instruction_readback_verified": true,
+    "web_search_ungrounded_responses_and_deep_reasoning_remain_off": true,
+    "foundry_agent_model_tools_and_corpus_changed": false,
+    "offline_intake_guard_tests_passed": 3
+  },
+  "focused_native_regression": {
+    "conversation_id": "0cdb15fa-4813-424a-97d1-695c0d2e1ca2",
+    "submissions": 3,
+    "replays": 0,
+    "server_acknowledged_final_replies": 3,
+    "same_conversation_used": true,
+    "exact_original_expanded_questions_1_2_3": true,
+    "cases": [
+      {
+        "scenario": 1,
+        "user_activity_id": "f1f888d6-f9c7-4253-ac78-0cca66be8b26",
+        "reply_activity_id": "bc26d37e-9845-48f8-9896-0331e0dcbf62",
+        "latency_seconds": 5.390803,
+        "activity_patterns_amounts_and_timeframes_requested": true,
+        "local_search_event_observed": false,
+        "foundry_domain_route_marker_observed": false,
+        "specific_registered_intake_topic_execution_established": false
+      },
+      {
+        "scenario": 2,
+        "user_activity_id": "7ef099ac-8ce1-4bde-a946-abb054b058fc",
+        "reply_activity_id": "938a3766-00de-4ee4-adb6-c0a3f8317e92",
+        "latency_seconds": 10.748131,
+        "threshold_aggregation_deadline_form_and_conditional_exemptions_correct": true,
+        "actual_uploaded_source_id_in_native_search_trace": true,
+        "native_reply_citation_identifies_uploaded_filename": true,
+        "foundry_domain_route_marker_observed": false
+      },
+      {
+        "scenario": 3,
+        "user_activity_id": "6d5fb1ef-9e7e-46d1-b2ca-84820d004bb7",
+        "reply_activity_id": "be19bf64-3622-4260-a338-4748f2b6a205",
+        "latency_seconds": 8.945610,
+        "standard_and_no_suspect_deadline_conditions_correct": true,
+        "retention_confidentiality_and_form_correct": true,
+        "actual_uploaded_source_id_in_native_search_trace": true,
+        "native_reply_citation_identifies_uploaded_filename": true,
+        "foundry_domain_route_marker_observed": false
+      }
+    ],
+    "route_events_scoped_between_each_server_user_and_reply": true,
+    "observed_clarification_text_differs_from_registered_topic_message": true,
+    "behavior_pass_not_claimed_proof_of_specific_topic_execution": true,
+    "sdk_proxy_or_model_only_substitute_used": false,
+    "expanded_eleven_scenarios_replaced_by_focused_regression": false
+  },
+  "external_browser": {
+    "sar_check_requested": true,
+    "user_available": false,
+    "external_test_result_obtained": false,
+    "later_embedded_sar_reply_actually_received": true
+  },
+  "preservation": {
+    "initial_expanded_matrix_failure_retained": true,
+    "earlier_unacknowledged_delivery_not_erased_by_later_success": true,
+    "full_natural_local_hybrid_matrix_certified": false,
+    "original_native_prompt_byom_completed": false,
+    "private_answers_passages_or_signed_urls_published": false,
+    "overall_workshop_certified": false
+  }
+}

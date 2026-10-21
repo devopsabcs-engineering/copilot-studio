@@ -19,16 +19,24 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > assistant-added native-annotation/publisher-URL gates; genuine retrieval joins
 > 24 originals. Source-provenance metadata repair now gives **4/4 unchanged
 > notebook questions passing extractive backend content and attribution**.
-> One genuine native procedure reply passed in **352.940 seconds**.
-> The native category batch lost its deferred result; full native/local/hybrid
-> coverage and unrestricted narrative synthesis are not certified.
-> Native ingestion of the original quick reference failed with
-> "The file's content is either confidential or empty." An authorized readable
-> replacement is needed for the local/hybrid cases.
+> A later independent native regression passes **4/4 original questions** after
+> a targeted per-bullet citation correction in version 4. One combined delivery
+> was unacknowledged; one bounded reattempt passed. The earlier lost batch remains
+> historical, not reconstructed. Full native/local/hybrid coverage and unrestricted
+> narrative synthesis are not certified.
+> Original quick-reference DOCX ingestion failed, but the verified MIT publisher
+> guide now reaches **Ready**. The publisher notebook matches the original's
+> 24 records and four questions; no unreadable DOCX equivalence is claimed.
+> A real natural CTR answer cites
+> the local source without Foundry. After an expanded QA failure and targeted
+> rework, the first three exact scenarios receive source-free intake and complete
+> CTR/SAR replies. Full eleven-scenario coverage remains a separate acceptance check.
+> A subsequent fresh-session R2 attempt stops before scoring on an unacknowledged
+> Hello preflight; external-browser transport confirmation remains outstanding.
 > A proven direct rate limit was corrected to Standard capacity 26.
 > Search Basic, embeddings, account/project and both agents remain **live**; their expiry
 > tag is not automatic cleanup. Earlier deletion receipts do not cover this run.
-> See the [current recovery boundary](backend-live-2026-10-20.md#source-provenance-repaired-and-original-backend-questions-passed).
+> See the [current recovery boundary](backend-live-2026-10-20.md#native-categories-recovered-and-licensed-local-knowledge-ready).
 
 > [!IMPORTANT]
 > Actual dependency testing now supplements the initial syntax-only review.
@@ -129,6 +137,14 @@ The inspected package contains a root `requirements.txt`, root `.env.example`, `
 5. Copy `.env.example` to a private `.env` only in an approved working copy. Never place secrets or private endpoints in a shared notebook output.
 6. Review the notebook working directory. Its environment loader reads `.env` from the parent of the current directory, not reliably from the notebook file's own location. A kernel started at the lab root can therefore look one directory too high.
 7. Set the kernel's working directory to the authorized `notebooks` folder before loading configuration, or have the instructor review a path correction in the working copy. Verify the resolved path without printing environment values.
+
+For an authorized upstream-source alternative, obtain the
+[publisher's Markdown guide at the verified revision](https://github.com/Azure/Copilot-Studio-and-Azure/blob/e9ecd00dba2c25dbc8306b5be6818d22645607a3/labs/2.4-microsoft-foundry-agentic-retrieval/data/copilot_knowledge/quick_reference_guide.md).
+Preserve publisher attribution and the MIT notice, compare the publisher notebook
+with your actual lab revision, and label the source adaptation. Do not rename,
+decrypt or reconstruct an unreadable DOCX. The
+[actual licensed-source ingestion](backend-live-2026-10-20.md#actual-publisher-guide-ingested)
+reached Ready in the isolated draft; it does not establish DOCX byte equivalence.
 
 | Variable                          | Meaning and validation                                                                                           |
 | --------------------------------- | ---------------------------------------------------------------------------------------------------------------- |

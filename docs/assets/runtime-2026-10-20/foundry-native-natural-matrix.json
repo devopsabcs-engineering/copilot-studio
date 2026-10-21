@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "1",
+  "scope": "Bounded native Copilot Studio Test-pane QA; incomplete execution",
+  "primarySourceProvenance": {
+    "publisher": "Azure/Copilot-Studio-and-Azure",
+    "revision": "e9ecd00dba2c25dbc8306b5be6818d22645607a3",
+    "pinnedPublisherUrl": "https://github.com/Azure/Copilot-Studio-and-Azure/tree/e9ecd00dba2c25dbc8306b5be6818d22645607a3",
+    "pinnedPublicGuideUrl": "https://github.com/Azure/Copilot-Studio-and-Azure/blob/e9ecd00dba2c25dbc8306b5be6818d22645607a3/labs/2.4-microsoft-foundry-agentic-retrieval/data/copilot_knowledge/quick_reference_guide.md"
+  },
+  "sourceVerification": {
+    "originalScenarioQuestionsChecked": 11,
+    "originalScenarioQuestionsMatched": 11,
+    "comparison": "Whitespace-normalized equality against the accessible original setup document",
+    "nativeMcpCorpusMembershipEstablishedByThisCheck": false
+  },
+  "execution": {
+    "targetSubmissions": 3,
+    "replays": 0,
+    "serverAcknowledgedTargets": 2,
+    "finalTargetReplies": 2,
+    "unsubmittedScenarios": 8,
+    "minimumQuotaPacingSeconds": 70,
+    "observedSubmissionIntervalsSeconds": [148.420, 122.423],
+    "quotaPacingCompliant": true,
+    "stoppedAtCase": 3,
+    "stopReason": "Target delivery unconfirmed after the 120-second server-acknowledgement window",
+    "backendAbsenceConclusion": false,
+    "additionalSubmissionsDuringSummaryPreparation": 0
+  },
+  "interpretation": {
+    "routeEvidenceWindow": "Acknowledged target user activity through final target reply, using native server timestamps; initial greetings excluded",
+    "booleans": "True means observed native evidence; false means not observed within an acknowledged target interval, not proof of backend absence; null means unassessed",
+    "localSearchAttempt": "A search attempt alone does not establish successful retrieval or citation",
+    "foundryEvidence": "Domain-agent marker observation only; no underlying MCP or Foundry response ID is claimed"
+  },
+  "cases": [
+    {
+      "case": 1,
+      "result": "fail",
+      "executionStatus": "completed",
+      "submissionCount": 1,
+      "nativeMetadata": {
+        "conversationId": "ebd719ad-29f3-4625-89de-241e76ce6969",
+        "submittedAt": "2026-10-21T17:45:45.645Z",
+        "serverAcknowledged": true,
+        "userActivityId": "a638d0f5-0d54-4006-81c7-82c644ce9737",
+        "userTimestamp": "2026-10-21T17:45:49.5503861Z",
+        "finalReply": true,
+        "replyActivityId": "d2c8f700-ed51-4256-9b03-b6a333bacf16",
+        "replyTimestamp": "2026-10-21T17:45:57.6898765Z"
+      },
+      "latencySeconds": {
+        "submissionToAcknowledgement": 3.905386,
+        "acknowledgedUserToFinalReply": 8.139490,
+        "submissionToFinalReply": 12.044876
+      },
+      "localSearchAttemptObserved": true,
+      "localRetrievalFilenameObserved": false,
+      "localRetrievalSourceIdObserved": false,
+      "finalLocalCitationObserved": false,
+      "foundryDomainRouteMarkerObserved": false,
+      "missingAcceptanceElements": [
+        "Suspicious-activity clarification",
+        "Transaction-pattern clarification",
+        "Amount and timeframe clarification",
+        "Intake without unnecessary knowledge search"
+      ]
+    },
+    {
+      "case": 2,
+      "result": "partial",
+      "executionStatus": "completed",
+      "submissionCount": 1,
+      "nativeMetadata": {
+        "conversationId": "c77eab3f-fa1d-47a6-9f09-8c4b756631c5",
+        "submittedAt": "2026-10-21T17:48:14.065Z",
+        "serverAcknowledged": true,
+        "userActivityId": "320af058-1423-41cd-a624-4cb0d9f4ec21",
+        "userTimestamp": "2026-10-21T17:48:21.5581375Z",
+        "finalReply": true,
+        "replyActivityId": "c5f3eaaf-84ee-4866-81ba-7a26b435480a",
+        "replyTimestamp": "2026-10-21T17:48:30.315685Z"
+      },
+      "latencySeconds": {
+        "submissionToAcknowledgement": 7.493138,
+        "acknowledgedUserToFinalReply": 8.757548,
+        "submissionToFinalReply": 16.250685
+      },
+      "localSearchAttemptObserved": true,
+      "localRetrievalFilenameObserved": true,
+      "localRetrievalSourceIdObserved": true,
+      "finalLocalCitationObserved": true,
+      "foundryDomainRouteMarkerObserved": false,
+      "missingAcceptanceElements": [
+        "Expected filing deadline",
+        "Expected regulatory form identification"
+      ]
+    },
+    {
+      "case": 3,
+      "result": "delivery_unconfirmed",
+      "executionStatus": "stopped",
+      "submissionCount": 1,
+      "nativeMetadata": {
+        "conversationId": "316658f6-5ebc-403c-9a54-0501542cb60b",
+        "submittedAt": "2026-10-21T17:50:16.488Z",
+        "serverAcknowledged": false,
+        "userActivityId": null,
+        "userTimestamp": null,
+        "finalReply": false,
+        "replyActivityId": null,
+        "replyTimestamp": null,
+        "optimisticClientActivityPresent": true,
+        "freshSessionGreetingAcknowledged": true,
+        "greetingProvesTargetDelivery": false
+      },
+      "latencySeconds": {
+        "submissionToAcknowledgement": null,
+        "acknowledgedUserToFinalReply": null,
+        "submissionToFinalReply": null,
+        "acknowledgementWindow": 120,
+        "elapsedAtStopCapture": 120.747
+      },
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed because target delivery was unconfirmed; no backend-absence inference"
+    },
+    {
+      "case": 4,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 5,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 6,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 7,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 8,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 9,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 10,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    },
+    {
+      "case": 11,
+      "result": "not_run",
+      "executionStatus": "not_submitted_stop_rule",
+      "submissionCount": 0,
+      "nativeMetadata": null,
+      "latencySeconds": null,
+      "localSearchAttemptObserved": null,
+      "localRetrievalFilenameObserved": null,
+      "localRetrievalSourceIdObserved": null,
+      "finalLocalCitationObserved": null,
+      "foundryDomainRouteMarkerObserved": null,
+      "missingAcceptanceElements": [],
+      "acceptanceAssessment": "Unassessed; mandatory stop after case 3"
+    }
+  ],
+  "claims": {
+    "fullMatrixExecuted": false,
+    "workshopCertified": false,
+    "acceptanceGatePassed": false,
+    "deepHybridBehaviorValidated": false,
+    "backendAbsenceEstablished": false
+  },
+  "publicationSafety": {
+    "fullQuestionsIncluded": false,
+    "fullAnswersIncluded": false,
+    "sourcePassagesIncluded": false,
+    "privatePathsIncluded": false,
+    "signedUrlsIncluded": false,
+    "authenticationOrVariableStateIncluded": false
+  }
+}

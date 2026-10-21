@@ -1,0 +1,119 @@
+{
+  "observed_date": "2026-10-21",
+  "native_version_3_recovery": {
+    "original_question_bodies_unchanged": true,
+    "explicit_classic_routing_prefixes": true,
+    "actual_native_replies": 4,
+    "displayed_content_and_individual_attribution_passes": 3,
+    "authentic_original_excerpts": 16,
+    "first_fraud_answer_uncited_excerpts": 2,
+    "latency_seconds": [20.570923, 19.213644, 14.564085, 27.980531],
+    "earlier_interrupted_batch_results_reconstructed": false
+  },
+  "targeted_version_4_correction": {
+    "changed_fields": ["definition.instructions"],
+    "change": "Repeat the correct canonical source marker for every evidence bullet.",
+    "model_tools_temperature_endpoint_and_auth_preserved": true,
+    "versions_1_through_3_and_smoke_agent_retained": true,
+    "model_calls_during_update": 0,
+    "native_expertise_submissions": 5,
+    "unacknowledged_combined_submission_retained": true,
+    "unacknowledged_submission_observed_through_utc": "2026-10-21T17:11:09.662Z",
+    "unacknowledged_submission_proves_backend_absence": false,
+    "bounded_combined_transport_reattempts": 1,
+    "reattempt_used_fresh_session_and_server_acknowledged_hello": true,
+    "confirmed_native_replies": 4,
+    "displayed_content_and_individual_attribution_passes": 4,
+    "authentic_original_excerpts": 13,
+    "semantic_relevance_and_material_conditions_reviewed": true,
+    "original_question_bodies_unchanged": true,
+    "explicit_classic_routing_prefixes": true,
+    "cases": [
+      {
+        "category": "fraud",
+        "conversation_id": "f780c9f2-2935-4aab-822b-55f9a6d09884",
+        "reply_activity_id": "2f80602c-d8cd-4bd9-a9b0-fe9559662379",
+        "latency_seconds": 15.718720,
+        "authentic_correctly_attributed_excerpts": 1
+      },
+      {
+        "category": "regulatory",
+        "conversation_id": "846caf6d-c1b6-4f6c-ae32-8fe85bccc279",
+        "reply_activity_id": "a26db5a1-c834-4159-adba-6cc51ddc7b48",
+        "latency_seconds": 16.774088,
+        "authentic_correctly_attributed_excerpts": 3
+      },
+      {
+        "category": "investigation",
+        "conversation_id": "a7712046-5a8d-4eac-aa40-e703ad6fdf71",
+        "reply_activity_id": "df2ae642-4e65-4a59-b591-8fb2f52b8f54",
+        "latency_seconds": 16.187563,
+        "authentic_correctly_attributed_excerpts": 1
+      },
+      {
+        "category": "combined",
+        "conversation_id": "8b268aef-5716-466d-b7fc-3b69902213ee",
+        "reply_activity_id": "01d992a6-bc97-490f-a005-d64ad2c52797",
+        "latency_seconds": 26.940827,
+        "authentic_correctly_attributed_excerpts": 8
+      }
+    ],
+    "native_begin_dialog_and_target_binding_in_all_four": true,
+    "native_mcp_trace_independently_joined": false,
+    "original_corpus_match_not_called_native_retrieval_membership": true,
+    "sdk_proxy_used": false,
+    "native_credit_usage_measured": false
+  },
+  "licensed_publisher_reference": {
+    "repository": "https://github.com/Azure/Copilot-Studio-and-Azure",
+    "revision": "e9ecd00dba2c25dbc8306b5be6818d22645607a3",
+    "guide_path": "labs/2.4-microsoft-foundry-agentic-retrieval/data/copilot_knowledge/quick_reference_guide.md",
+    "license": "MIT, Microsoft Corporation",
+    "public_license_and_sources_verified": true,
+    "ordinary_public_read_available_despite_authenticated_cli_saml_error": true,
+    "original_notebook_unchanged_hash_verified": true,
+    "exact_original_record_id_title_content_matches": 24,
+    "exact_original_full_test_question_matches": 4,
+    "guide_body_preserved": true,
+    "guide_title_moved_to_frontmatter": true,
+    "publisher_provenance_and_complete_mit_notice_appended": true,
+    "upstream_guide_sha256": "04d9d88150742432e7395160da5b3c2aa335ee2826556213c7442c18d860e341",
+    "uploaded_artifact_sha256": "1251bd790e1aee586d34a5bccb1cb4eedc02fa25b087556e6c9df2798bf38fed",
+    "native_upload_attempts": 1,
+    "native_reuploads": 0,
+    "native_status": "Ready",
+    "ready_observed_utc": "2026-10-21T17:31:26.601Z",
+    "protected_docx_converted_decrypted_or_reconstructed": false,
+    "equivalence_to_unreadable_docx_claimed": false,
+    "original_failed_docx_source_retained": true,
+    "offline_verifier_tests_passed": 3
+  },
+  "natural_routing_canary": {
+    "parent_previous_orchestration": "classic",
+    "parent_current_orchestration": "generative",
+    "previous_instructions_empty": true,
+    "saved_instruction_characters": 2054,
+    "web_search_ungrounded_responses_and_deep_reasoning_remain_off": true,
+    "draft_remains_unpublished": true,
+    "conversation_id": "8be073fd-dbfd-484e-9b4e-81a9f3329ce1",
+    "real_server_acknowledged_greeting_and_ctr_replies": true,
+    "greeting_asked_for_activity_patterns_amounts_and_timing": true,
+    "greeting_also_searched_local_knowledge": true,
+    "pure_no_knowledge_greeting_demonstrated_by_this_canary": false,
+    "ctr_answer_correct_cash_threshold_and_daily_aggregation": true,
+    "ctr_reply_latency_seconds": 7.247947,
+    "actual_uploaded_source_id_in_native_search_trace": true,
+    "native_reply_citation_identifies_uploaded_filename": true,
+    "foundry_invocation_observed": false,
+    "expanded_eleven_scenarios_replaced_by_canary": false
+  },
+  "preservation": {
+    "earlier_failed_and_interrupted_runs_retained": true,
+    "console_err_aborted_not_treated_as_inference_failure": true,
+    "azure_arm_resources_roles_policies_and_consent_changes": 0,
+    "private_passages_answers_and_authenticated_lookup_urls_published": false,
+    "unrestricted_narrative_synthesis_certified": false,
+    "original_native_prompt_byom_completed": false,
+    "overall_workshop_certified": false
+  }
+}

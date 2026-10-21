@@ -18,13 +18,24 @@ ms.date: 2026-10-21
 > Original-source review found native annotation/publisher-URL gates were added
 > by the assistant. Canonical source metadata now preserves all 24 originals;
 > **4/4 unchanged notebook questions pass extractive backend content and attribution**.
-> One genuine native procedure reply passed in **352.940 seconds**, without
-> exposing its underlying MCP trace. The four-category native batch lost its
-> deferred result; its current prompt has no confirmed server receipt.
-> Natural routing and the connected/local/hybrid matrix remain unvalidated.
-> Normal ingestion of the unmodified quick-reference file ended in **Error**:
-> "The file's content is either confidential or empty." An authorized readable
-> replacement is needed; no protection was removed.
+> A later independent native run gives **4/4 original questions passing displayed
+> content and individual canonical attribution** after one targeted version-4
+> instruction fix. Five submissions include one unacknowledged combined attempt
+> and one bounded transport reattempt. The earlier lost batch remains historical;
+> its missing results were not reconstructed. Native MCP IDs remain unexposed.
+> The original DOCX ingestion error remains, but an MIT-licensed official publisher
+> guide now reaches **Ready**, with exact 24-record/four-query notebook equivalence.
+> No protection was removed or DOCX equivalence claimed. Generative parent routing
+> is enabled; a real CTR lookup cites the uploaded source without Foundry.
+> An expanded QA attempt then failed intake, found incomplete CTR coverage and
+> stopped on unacknowledged SAR delivery. After targeted rework, the exact first
+> three scenarios receive real final replies: source-free intake, complete CTR
+> and conditional SAR lookups with native local citations. The earlier failures
+> remain recorded; these focused checks do not certify the full eleven-scenario
+> natural/local/hybrid matrix or prove which intake topic executed.
+> The independent fresh-session R2 retest stops on one unacknowledged Hello
+> preflight before any scored target: all eleven cases remain unassessed in R2.
+> An external-browser check is requested; none has been obtained.
 > Standard capacity
 > was corrected to 26,000 TPM / 26 RPM after a proven direct rate-limit failure.
 > A separate GPT-4.1 comparison completed with 6,357 measured tokens but still
@@ -35,8 +46,8 @@ ms.date: 2026-10-21
 > See the [current original-requirement validation](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
 > The [model-only comparison](backend-live-2026-10-20.md#full-model-comparison-completed-but-did-not-resolve-grounding)
 > did not resolve narrative synthesis. See the later
-> [source-provenance recovery](backend-live-2026-10-20.md#source-provenance-repaired-and-original-backend-questions-passed)
-> for the genuine extractive and focused native passes, not full-workshop certification.
+> [native and licensed-reference recovery](backend-live-2026-10-20.md#native-categories-recovered-and-licensed-local-knowledge-ready)
+> for the genuine native and local passes, not full-workshop certification.
 
 Earlier execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,

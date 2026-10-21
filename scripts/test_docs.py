@@ -793,6 +793,99 @@ class WikiTests(unittest.TestCase):
             report = root / "docs" / language / "backend-live-2026-10-20.md"
             self.assertIn(filename, report.read_text(encoding="utf-8"))
 
+    def test_native_category_recovery_preserves_retry_and_source_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "foundry-native-category-recovery.json"
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-20" / filename)
+                            .read_text(encoding="utf-8"))
+        before = result["native_version_3_recovery"]
+        self.assertEqual(before["actual_native_replies"], 4)
+        self.assertEqual(before["displayed_content_and_individual_attribution_passes"], 3)
+        self.assertEqual(before["first_fraud_answer_uncited_excerpts"], 2)
+        after = result["targeted_version_4_correction"]
+        self.assertEqual(after["changed_fields"], ["definition.instructions"])
+        self.assertEqual(after["native_expertise_submissions"], 5)
+        self.assertEqual(after["bounded_combined_transport_reattempts"], 1)
+        self.assertEqual(after["displayed_content_and_individual_attribution_passes"], 4)
+        self.assertEqual(sum(case["authentic_correctly_attributed_excerpts"]
+                             for case in after["cases"]), 13)
+        self.assertTrue(all(0 < case["latency_seconds"] < 30 for case in after["cases"]))
+        self.assertFalse(after["unacknowledged_submission_proves_backend_absence"])
+        self.assertFalse(after["native_mcp_trace_independently_joined"])
+        self.assertTrue(after["original_corpus_match_not_called_native_retrieval_membership"])
+        guide = result["licensed_publisher_reference"]
+        self.assertEqual(guide["exact_original_record_id_title_content_matches"], 24)
+        self.assertEqual(guide["exact_original_full_test_question_matches"], 4)
+        self.assertEqual(guide["native_status"], "Ready")
+        self.assertEqual(guide["native_upload_attempts"], 1)
+        self.assertTrue(guide["publisher_provenance_and_complete_mit_notice_appended"])
+        self.assertFalse(guide["equivalence_to_unreadable_docx_claimed"])
+        self.assertFalse(guide["protected_docx_converted_decrypted_or_reconstructed"])
+        canary = result["natural_routing_canary"]
+        self.assertTrue(canary["actual_uploaded_source_id_in_native_search_trace"])
+        self.assertTrue(canary["native_reply_citation_identifies_uploaded_filename"])
+        self.assertTrue(canary["greeting_also_searched_local_knowledge"])
+        self.assertFalse(canary["pure_no_knowledge_greeting_demonstrated_by_this_canary"])
+        self.assertFalse(canary["foundry_invocation_observed"])
+        self.assertFalse(canary["expanded_eleven_scenarios_replaced_by_canary"])
+        self.assertFalse(result["preservation"]["overall_workshop_certified"])
+        self.assertFalse(result["preservation"][
+            "private_passages_answers_and_authenticated_lookup_urls_published"])
+        for language in ("en", "fr"):
+            self.assertIn(filename, (root / "docs" / language / "backend-live-2026-10-20.md")
+                          .read_text(encoding="utf-8"))
+
+    def test_expanded_matrix_failure_is_not_erased_by_focused_rework(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-20"
+        matrix_name = "foundry-native-natural-matrix.json"
+        matrix = json.loads((assets / matrix_name).read_text(encoding="utf-8"))
+        source = matrix["sourceVerification"]
+        self.assertEqual(source["originalScenarioQuestionsChecked"], 11)
+        self.assertEqual(source["originalScenarioQuestionsMatched"], 11)
+        execution = matrix["execution"]
+        self.assertEqual(execution["targetSubmissions"], 3)
+        self.assertEqual(execution["replays"], 0)
+        self.assertEqual(execution["unsubmittedScenarios"], 8)
+        self.assertFalse(execution["backendAbsenceConclusion"])
+        self.assertEqual([case["result"] for case in matrix["cases"][:2]],
+                         ["fail", "partial"])
+        self.assertFalse(matrix["claims"]["fullMatrixExecuted"])
+        self.assertFalse(matrix["claims"]["workshopCertified"])
+        self.assertTrue(all(not value for value in matrix["publicationSafety"].values()))
+        rework_name = "foundry-native-intake-rework.json"
+        rework = json.loads((assets / rework_name).read_text(encoding="utf-8"))
+        self.assertEqual(rework["changes"]["parent_instructions_current_characters"], 2622)
+        focused = rework["focused_native_regression"]
+        self.assertEqual(focused["submissions"], 3)
+        self.assertEqual(focused["server_acknowledged_final_replies"], 3)
+        self.assertEqual(focused["replays"], 0)
+        self.assertFalse(focused["cases"][0]["specific_registered_intake_topic_execution_established"])
+        self.assertFalse(focused["cases"][0]["local_search_event_observed"])
+        self.assertTrue(all(case["actual_uploaded_source_id_in_native_search_trace"]
+                            for case in focused["cases"][1:]))
+        self.assertFalse(focused["expanded_eleven_scenarios_replaced_by_focused_regression"])
+        self.assertFalse(rework["preservation"]["overall_workshop_certified"])
+        self.assertFalse(rework["external_browser"]["external_test_result_obtained"])
+        retest_name = "foundry-native-natural-matrix-rework.json"
+        retest = json.loads((assets / retest_name).read_text(encoding="utf-8"))
+        self.assertEqual(retest["counts"]["preflightSubmissions"], 1)
+        self.assertEqual(retest["counts"]["targetSubmissions"], 0)
+        self.assertEqual(retest["counts"]["targetReplays"], 0)
+        self.assertEqual(retest["counts"]["notRunTargets"], 11)
+        self.assertFalse(retest["stop"]["backendAbsenceConclusion"])
+        self.assertFalse(retest["claims"]["acceptanceGatePassed"])
+        self.assertFalse(retest["claims"]["targetedReworkValidatedByThisRound"])
+        self.assertTrue(all(case["result"] == "not_run" for case in retest["cases"]))
+        self.assertTrue(all(case["localSearchAttemptObserved"] is None
+                            for case in retest["cases"]))
+        self.assertTrue(all(not value for value in retest["publicationSafety"].values()))
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "backend-live-2026-10-20.md").read_text("utf-8")
+            self.assertIn(matrix_name, text)
+            self.assertIn(rework_name, text)
+            self.assertIn(retest_name, text)
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

@@ -893,14 +893,161 @@ confidential or empty. » C'est un échec réel d'ingestion, sans preuve de sa c
 exacte de protection/format. Un téléversement, zéro nouvel essai ; aucun
 déchiffrement, retrait d'étiquette ni reconstruction. La source en erreur reste
 dans le brouillon isolé non publié pour inspection ou remplacement autorisé.
-Une copie lisible approuvée pour cet environnement est nécessaire avant les
-contrôles locaux/hybrides originaux.
+À ce stade, une source lisible approuvée pour cet environnement était encore
+nécessaire. La récupération éditeur ci-dessous lève ce prérequis sans réparer
+ni convertir le DOCX.
 
 Le vrai BYOM natif
 nécessite encore un environnement et une authentification compatibles approuvés.
 Le scope délégué PAC reste un problème distinct. Connexion et ressources
 possédées restent actives ; les tags d'expiration ne les suppriment pas.
 Aucun changement de politique, rôle ou consentement.
+
+## Catégories natives récupérées et référence locale sous licence prête
+
+Une exécution navigateur distincte a ensuite rétabli la livraison native réelle,
+sans action dans un navigateur externe. La version 3 a répondu aux quatre
+questions originales du notebook avec préfixes classiques explicites. Les
+seize extraits étaient authentiques, mais deux puces de la réponse fraude
+n'avaient pas leur propre attribution : **3/4** réussites du contenu affiché
+et de l'attribution, non quatre. Les résultats perdus de l'ancien lot interrompu
+ne sont pas reconstitués.
+
+Une clarification ciblée des seules instructions crée la version 4 : répéter
+le bon marqueur canonique pour chaque puce. Modèle, outils, température, point
+de terminaison, authentification, agent de test et versions antérieures sont
+conservés. Aucun appel de modèle pendant la mise à jour. La régression native
+réelle réussit **4/4** questions, avec **13 extraits authentiques attribués
+individuellement**, après revue de pertinence et des conditions déterminantes :
+
+| Catégorie | Latence des activités serveur | Extraits authentiques attribués |
+|-----------|-------------------------------|---------------------------------|
+| Fraude | 15,718720 s | 1 |
+| Réglementation | 16,774088 s | 3 |
+| Enquête | 16,187563 s | 1 |
+| Cas combiné | 26,940827 s | 8 |
+
+Il y a eu **cinq soumissions métier**, pas quatre réussites au premier essai.
+La première soumission combinée reste optimiste, sans horodatage serveur,
+jusqu'à 17:11:09 UTC. Sa capture est conservée ; l'absence d'accusé serveur
+ne prouve pas que le backend ne l'a jamais reçue. Une relance bornée, dans une
+session neuve après un Hello acquitté par le serveur, reçoit la réponse combinée.
+Chaque cas réussi possède identifiants utilisateur/réponse natifs, BeginDialog
+et liaison cible. Les identifiants MCP/d'outil natifs sous-jacents ne sont pas
+exposés. Comparer un extrait au corpus original n'est pas une jointure
+indépendante aux résultats de recherche de cet appel natif. Aucun substitut SDK.
+
+### Guide éditeur réellement ingéré
+
+Le [dépôt officiel Microsoft](https://github.com/Azure/Copilot-Studio-and-Azure)
+fournit le guide Markdown absent sous licence MIT. Sources et licence publiques
+sont accessibles malgré l'erreur SAML distincte du jeton CLI authentifié.
+Aucun changement SSO, de consentement ou de politique organisationnelle.
+La révision `e9ecd00dba2c25dbc8306b5be6818d22645607a3` est figée. Une analyse
+statique du notebook éditeur, sans exécuter son code, confirme les `id/title/content` exacts
+des **24** originaux et les **quatre objets complets de questions de test**.
+Le hash du notebook original a aussi été contrôlé.
+
+La copie sous licence préserve le corps du guide, déplace son titre dans les
+métadonnées initiales et ajoute provenance éditeur et avis MIT complet.
+Trois tests hors ligne de vérification passent. Un téléversement natif normal,
+zéro nouvel envoi, atteint **Ready**, observé à **17:31:26 UTC**. C'est une
+adaptation de source amont, pas un DOCX déchiffré ou reconstruit ; aucune
+équivalence au fichier illisible n'est affirmée. La source DOCX en erreur reste
+disponible pour inspection.
+
+### Test ciblé du langage naturel et des connaissances locales
+
+Le parent isolé non publié emploie désormais l'orchestration générative et des
+instructions enregistrées de routage/ancrage. Recherche web, réponses non ancrées
+et raisonnement approfondi restent désactivés. Une vraie réponse native d'accueil
+demande activité, tendances, montants et dates sans appeler Foundry, mais cherche
+aussi les connaissances locales. Le chemin d'accueil pur sans connaissance
+n'est donc pas démontré.
+
+Une question CTR naturelle reçoit ensuite le bon seuil en espèces et
+l'agrégation quotidienne en **7,247947 secondes**. La trace native de recherche
+contient l'identifiant exact de la source téléversée ; la citation finale native
+identifie son nom de fichier. Aucun appel Foundry n'est observé pour ces deux
+questions ciblées. C'est une recherche locale réelle, pas une réponse inscrite
+dans les instructions du parent. Les onze scénarios étendus et la couverture
+hybride ne sont pas remplacés ni certifiés par ces deux tests.
+
+La [preuve expurgée de récupération native](../assets/runtime-2026-10-20/foundry-native-category-recovery.json)
+distingue échec d'attribution, soumission non acquittée, régression réussie et
+provenance de la source sous licence. Échecs antérieurs, limites des traces
+natives, blocage BYOM original et coûts des ressources actives restent visibles.
+L'atelier complet n'est pas certifié terminé.
+
+## Scénarios étendus et correction ciblée de l'accueil
+
+Les **onze questions étendues** correspondent au document d'installation original
+accessible après normalisation des espaces. Une tentative QA native distincte
+emploie ces questions, pas les tests ciblés abrégés. Elle s'arrête après **trois
+soumissions, zéro relance**, avec les résultats conservés suivants :
+
+| Scénario original | Résultat réel |
+|-------------------|---------------|
+| 1 : Accueil vague de compte suspect | Refus au lieu de clarification ; recherche locale inutile |
+| 2 : Seuil de déclaration CTR | Vraie recherche locale et citation, mais délai et formulaire attendus absents |
+| 3 : Délai SAR | Aucun accusé serveur dans la fenêtre d'observation de 120 secondes |
+| 4–11 | Non soumis après l'arrêt de livraison |
+
+La [preuve QA étendue](../assets/runtime-2026-10-20/foundry-native-natural-matrix.json)
+conserve deux réponses finales acquittées, le respect des quotas et l'échec
+d'acceptation. Le cas SAR prouve une livraison non confirmée, pas une absence
+backend ni un échec d'authentification Foundry. L'égalité des questions du support
+accessible ne révèle pas d'autres exigences du document principal illisible.
+
+La correction ciblée enregistre une rubrique d'accueil gardée et non factuelle,
+avec seulement message de clarification et annulation des dialogues, puis étend
+les instructions du parent pour demander les champs complets des tableaux
+récupérés. Trois tests hors ligne couvrent l'accueil vague et excluent les
+questions financières précises. Aucune réponse financière n'est inscrite dans
+la rubrique ou les instructions ; modèle, outils et corpus Foundry inchangés.
+
+Une régression d'implémentation ultérieure emploie les scénarios originaux 1–3,
+une fois chacun dans une même conversation native. Tous reçoivent une vraie
+réponse finale acquittée :
+
+| Scénario | Latence | Comportement vérifié |
+|----------|---------|----------------------|
+| Accueil | 5,390803 s | Demande activité, tendances, montants et dates ; aucun événement de recherche locale ni marqueur de routage Foundry |
+| CTR | 10,748131 s | Seuil, agrégation, délai, formulaire et exemptions conditionnelles ; vraie trace et citation de source locale |
+| SAR | 8,945610 s | Délais normal/sans suspect, conservation, confidentialité et formulaire ; vraie trace et citation locale |
+
+Le texte de clarification diffère du message exact de la rubrique enregistrée.
+Le comportement sans source est observé, mais l'exécution de cette rubrique
+précise n'est pas établie. La
+[preuve ciblée de correction](../assets/runtime-2026-10-20/foundry-native-intake-rework.json)
+conserve cette distinction. Aucun résultat navigateur externe n'a été obtenu,
+l'opérateur étant indisponible ; la réponse SAR intégrée ultérieure a réellement
+été reçue. Ces trois contrôles d'implémentation ne certifient ni les onze
+scénarios naturels/locaux/connectés/hybrides ni le lab BYOM original.
+
+### Retest en nouvelle session arrêté avant notation
+
+La tentative d'acceptation R2 indépendante ouvre ensuite une nouvelle session et
+emploie un seul Hello comme prétest de transport. Il reste optimiste côté client,
+sans accusé serveur ni réponse finale pendant **120,161 secondes**. L'arrêt
+obligatoire intervient donc **avant toute question notée**. Le message d'accueil
+initial ne vaut pas accusé de réception de ce prétest.
+
+La [preuve QA R2](../assets/runtime-2026-10-20/foundry-native-natural-matrix-rework.json)
+conserve **un prétest, zéro soumission cible, zéro relance cible et onze scénarios
+non évalués**. Les champs de routage/citation nuls signifient non évalués, pas
+absents. Les trois succès d'implémentation précédents restent réels mais ne sont
+pas des réussites R2. Cette interruption n'établit ni régression ni absence
+backend. Aucune configuration ni nouvelle relance cible payante n'a suivi.
+
+Un contrôle navigateur externe a de nouveau été demandé, mais l'opérateur était
+indisponible ; aucun résultat externe n'existe. Pour débloquer le transport,
+ouvrir le brouillon isolé dans une session Edge normale, ouvrir Test, démarrer une
+nouvelle session et envoyer une seule fois l'accueil original de compte suspect.
+Attendre deux minutes au maximum sans renvoyer, puis conserver réponse finale ou
+erreur. Ne pas publier le brouillon ni changer consentements ou paramètres de
+sécurité pour ce contrôle. L'acceptation complète reste bloquée, indépendamment
+du conflit politique/authentification BYOM original.
 
 ## Références officielles
 

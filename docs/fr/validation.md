@@ -17,14 +17,25 @@ ms.date: 2026-10-21
 > temporaire a été supprimé avec contrôles 404. Les critères d'annotations natives/
 > URL éditeur avaient été ajoutés par l'assistant. La vraie recherche joint les
 > 24 originaux. Après ajout de provenance canonique, **4/4 questions inchangées
-> passent le contenu extractif et l'attribution backend**. Une vraie réponse native
-> de procédure réussit en **352,940 secondes**, sans trace MCP sous-jacente exposée.
-> Le lot natif a perdu son résultat différé ; sa question actuelle n'a pas de
-> réception serveur confirmée. Routage naturel et matrice connectée/locale/hybride
-> restent non validés.
-> L'ingestion native du guide original non transformé termine en **Error** :
-> « The file's content is either confidential or empty. » Une copie lisible
-> autorisée est nécessaire ; aucune protection n'a été retirée.
+> passent le contenu extractif et l'attribution backend**. Une exécution native
+> indépendante réussit ensuite **4/4 questions originales en contenu affiché
+> et attribution individuelle**, après correction ciblée des instructions v4.
+> Cinq soumissions incluent un essai combiné non acquitté et une relance de transport
+> bornée. Les résultats perdus de l'ancien lot ne sont pas reconstitués.
+> Les identifiants MCP natifs restent non exposés. L'échec du DOCX original reste,
+> mais le guide officiel éditeur sous licence MIT atteint **Ready**, avec égalité
+> exacte des 24 enregistrements et quatre questions du notebook.
+> Aucune protection retirée ni équivalence DOCX affirmée. Orchestration générative
+> activée ; une vraie question CTR cite la source locale sans Foundry.
+> Une QA étendue échoue ensuite sur l'accueil, trouve le CTR incomplet et s'arrête
+> sur un SAR non acquitté. Après correction ciblée, les trois premiers scénarios
+> exacts reçoivent une vraie réponse finale : accueil sans source, CTR complet et
+> SAR conditionnel avec citations locales natives. Les échecs sont conservés ;
+> ces contrôles ne certifient ni les onze scénarios naturels/locaux/hybrides ni
+> l'exécution d'une rubrique d'accueil précise.
+> Le retest R2 indépendant en nouvelle session s'arrête sur un Hello non
+> acquitté avant toute cible notée : ses onze cas restent non évalués.
+> Un contrôle navigateur externe est demandé ; aucun n'a été obtenu.
 > Capacité corrigée à 26 000 TPM / 26 RPM après une limitation directe prouvée.
 > Une comparaison distincte GPT-4.1 a consommé 6 357 jetons mesurés, sans corriger
 > l'ancrage des obligations conditionnelles. Agent/déploiement temporaires supprimés
@@ -35,8 +46,8 @@ ms.date: 2026-10-21
 > Voir la [validation actuelle des critères d'origine](backend-live-2026-10-20.md#critères-dorigine-réconciliés-et-recherche-réelle-exercée).
 > La [comparaison de modèle](backend-live-2026-10-20.md#comparaison-avec-le-modèle-complet-sans-résolution-de-lancrage)
 > n'a pas corrigé la synthèse narrative. Voir la
-> [réparation de provenance ultérieure](backend-live-2026-10-20.md#provenance-réparée-et-questions-backend-originales-réussies)
-> pour les réussites extractives et native ciblée, sans certification globale.
+> [récupération native et référence sous licence](backend-live-2026-10-20.md#catégories-natives-récupérées-et-référence-locale-sous-licence-prête)
+> pour les réussites natives et locales, sans certification globale.
 
 Preuves antérieures : [registre de réexécution réelle](live-rerun-2026-10-19.md).
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de
