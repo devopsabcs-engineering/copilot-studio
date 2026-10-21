@@ -558,6 +558,24 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["soft_delete_purge_attempted"])
         self.assertFalse(result["power_apps_tab_closed"])
 
+    def test_unreached_legacy_probe_does_not_claim_unsupported_input(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-native-input-prerequisite.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(result["status"], "blocked_before_legacy_input_probe")
+        self.assertFalse(result["exact_window_foreground_guard_passed"])
+        self.assertTrue(result["stopped_on_foreground_guard_failure"])
+        self.assertFalse(result["endpoint_control_reached"])
+        self.assertEqual(result["legacy_pattern_support"], "unverified")
+        for key in ("legacy_setvalue_invocations", "create_invocations",
+                    "authentication_submissions", "resources_provisioned"):
+            self.assertEqual(result[key], 0)
+        for key in ("public_probe_entered", "prior_endpoint_input_methods_retried",
+                    "clipboard_access", "consent_granted", "browser_security_changed",
+                    "unrelated_tabs_inspected_or_altered", "overall_workshop_certified"):
+            self.assertFalse(result[key])
+        self.assertTrue(result["fresh_unfiltered_native_connection_absence_verified"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

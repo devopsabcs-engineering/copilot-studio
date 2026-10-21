@@ -38,6 +38,13 @@ do not enable local authentication or substitute a built-in model and call it
 a BYOM pass. The Search action separately offers Entra Integrated authentication.
 See the [observed contracts](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
 
+The [official Azure AI Foundry Inference connector reference](https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/)
+also lists only **Default** authentication, with required **Target Uri** and
+**API Key** fields. It does not document an Entra authentication alternative for
+that connector. Its availability in Copilot Studio does not establish that an
+existing connector connection can be selected by native prompt BYOM. This
+published contract is separate from the inconclusive native form inspection.
+
 * Distinguish the embedding model used by Search from the chat model used by a prompt.
 * Connect an approved model using its supported chat-completions endpoint.
 * Retrieve and normalize the actual Search connector response rather than assuming

@@ -41,6 +41,13 @@ l'authentification locale et ne comptez pas un modèle intégré comme réussite
 BYOM. L'action Search propose séparément Entra Integrated.
 Voir les [contrats observés](../assets/runtime-2026-10-20/advanced-integration-contracts.json).
 
+La [référence officielle du connecteur Azure AI Foundry Inference](https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/)
+ne liste aussi que l'authentification **Default**, avec **Target Uri** et
+**API Key** obligatoires. Elle ne documente pas d'alternative Entra pour ce
+connecteur. Sa disponibilité dans Copilot Studio ne prouve pas qu'une connexion
+existante est sélectionnable par le prompt BYOM natif. Ce contrat publié est
+distinct de l'inspection native du formulaire, restée non concluante.
+
 * Distinguer le modèle d’embeddings de Search du modèle de conversation du prompt.
 * Connecter un modèle approuvé par son point de terminaison de complétion compatible.
 * Récupérer et normaliser la réponse réelle du connecteur Search sans supposer

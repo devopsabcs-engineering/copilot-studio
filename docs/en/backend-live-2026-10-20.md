@@ -541,6 +541,13 @@ the observed key-only prompt dialog or the enforced keyless-policy limitation.
 The requested manual handoff was unavailable; no further authentication or
 model provisioning was attempted.
 
+A subsequent read of the [official Inference connector reference](https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/)
+found only **Default** authentication with required **Target Uri** and **API
+Key** fields. This published contract does not document an Entra alternative.
+It resolves the documentation question without inventing a native form readback
+or proving compatibility with the prompt's model selector. No replacement model
+or gateway was provisioned on that basis.
+
 Normal navigation recovered the exact Connections document. At **23:55:42 UTC**,
 a fresh unfiltered list in the intended environment contained no owned Foundry
 connection. This supersedes the earlier unverified-list disposition; it is
@@ -556,6 +563,27 @@ resources remain. A **soft-deleted account recovery record remains** with HTTP
 200; no purge was authorized or attempted. Historical charges may still settle.
 Any future manual connection requires a fresh approved project endpoint, not
 the deleted endpoint. The full workshop remains incomplete.
+
+## Additional native input prerequisite remained blocked
+
+After the request to continue autonomously, a separate no-resource check was
+authorized for the normal **LegacyIAccessiblePattern.SetValue** input method.
+That method had no recorded earlier attempt. Native New connection requests
+did not open the form, and the exact-window foreground guard failed. The check
+stopped before reaching the endpoint control: **zero Legacy input probes**,
+Create invocations, authentication submissions or new resources.
+
+At **00:06:08 UTC on 21 October**, fresh unfiltered native readback still showed
+the correct Connections document, blank search, no Foundry rows and no open
+form. The [prerequisite receipt](../assets/runtime-2026-10-20/foundry-native-input-prerequisite.json)
+does not label Legacy input unsupported or claim it was tested. No clipboard,
+browser internals, security settings or unrelated tabs were accessed.
+
+The required next action is to manually foreground the existing authorized
+Power Apps tab and open the blank Agent Service form. The requested intervention
+was unavailable. No fresh project was provisioned merely to repeat this blocker;
+the previously verified cleanup remains valid. Full runtime acceptance is still
+blocked, not complete.
 
 ## Official references
 

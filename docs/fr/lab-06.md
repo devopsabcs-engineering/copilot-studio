@@ -71,6 +71,12 @@ Le [nettoyage d'authentification seule](../assets/runtime-2026-10-20/foundry-ext
 a vérifié projet/compte/groupe à 404 ; l'enregistrement de récupération du compte
 reste présent sans purge. Un futur essai exige un nouveau point approuvé.
 
+Un [contrôle supplémentaire de saisie sans ressource](backend-live-2026-10-20.md#prérequis-supplémentaire-de-saisie-native-toujours-bloqué)
+n'a pu mettre le navigateur au premier plan ni ouvrir le formulaire. Arrêt
+avant toute sonde Legacy, sans soumission d'authentification. Il faut mettre
+manuellement l'onglet au premier plan et ouvrir le formulaire vide avant
+d'évaluer cette méthode.
+
 Après prolongation approuvée de l'essai, la vraie fenêtre Microsoft Foundry du
 brouillon Standard isolé proposait **Microsoft Entra ID User Login** et exigeait
 un Azure AI Project Endpoint, sans champ de clé. Les exigences officielles

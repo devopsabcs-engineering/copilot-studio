@@ -565,6 +565,13 @@ observé exigeant une clé ni sa limitation face à la politique sans clé impos
 Le relais manuel demandé n'était pas disponible ; aucune autre authentification
 ni création de modèle n'a été tentée.
 
+Une lecture ultérieure de la [référence officielle du connecteur Inference](https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/)
+n'a trouvé que l'authentification **Default**, avec **Target Uri** et **API Key**
+obligatoires. Ce contrat publié ne documente pas d'alternative Entra. Il répond
+à la question documentaire sans inventer de lecture native du formulaire ni
+prouver la compatibilité avec le sélecteur de modèle du prompt. Aucun modèle
+de remplacement ni passerelle n'a été provisionné sur cette base.
+
 La navigation normale a retrouvé le document exact Connections. À **23:55:42 UTC**,
 une liste actualisée non filtrée du bon environnement ne contenait aucune
 connexion Foundry dédiée. Cela remplace l'ancien constat non vérifié : preuve
@@ -581,6 +588,28 @@ de récupération du compte supprimé reste présent**, avec HTTP 200 ; aucune p
 autorisée ni tentée. Des frais antérieurs peuvent encore apparaître.
 Toute future connexion manuelle exige un nouveau point de projet approuvé, non
 celui supprimé. L'atelier complet reste incomplet.
+
+## Prérequis supplémentaire de saisie native toujours bloqué
+
+Après la demande de poursuite autonome, un contrôle distinct sans ressource a
+été autorisé pour la méthode normale **LegacyIAccessiblePattern.SetValue**.
+Aucun essai antérieur de cette méthode n'était consigné. Les demandes natives
+New connection n'ont pas ouvert le formulaire et le contrôle de premier plan
+de la fenêtre exacte a échoué. Arrêt avant d'atteindre le champ : **zéro sonde
+de saisie Legacy**, invocation de Create, soumission ou nouvelle ressource.
+
+À **00:06:08 UTC le 21 octobre**, une lecture native actualisée et non filtrée
+montrait toujours le bon document Connections, recherche vide, aucune ligne
+Foundry et aucun formulaire ouvert. La [preuve du prérequis](../assets/runtime-2026-10-20/foundry-native-input-prerequisite.json)
+ne déclare pas Legacy non pris en charge ni testé. Aucun accès au presse-papiers,
+aux mécanismes internes du navigateur, aux réglages de sécurité ou aux autres
+onglets.
+
+L'action requise est de mettre manuellement au premier plan l'onglet Power Apps
+autorisé et d'ouvrir le formulaire Agent Service vide. L'intervention demandée
+n'était pas disponible. Aucun nouveau projet n'a été créé pour répéter ce
+blocage ; le nettoyage vérifié reste valide. L'acceptation réelle complète
+reste bloquée, non terminée.
 
 ## Références officielles
 

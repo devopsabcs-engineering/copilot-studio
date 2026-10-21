@@ -69,6 +69,11 @@ Fresh native list readback verified no owned connection. The
 verified project/account/group 404; a soft-deleted account recovery record
 remains without purge. A future attempt needs a fresh approved endpoint.
 
+An additional [no-resource native input check](backend-live-2026-10-20.md#additional-native-input-prerequisite-remained-blocked)
+could not foreground the browser or open the form. It stopped before testing
+Legacy input, with zero authentication submissions. Manual foregrounding and
+opening the blank form are required before that input method can be evaluated.
+
 After the approved trial extension, the isolated Standard draft's actual
 Microsoft Foundry connection dialog offered **Microsoft Entra ID User Login**
 and required an Azure AI Project Endpoint, without a key field. The official

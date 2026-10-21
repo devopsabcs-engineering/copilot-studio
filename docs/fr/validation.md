@@ -112,6 +112,11 @@ Une nouvelle lecture native a ensuite vérifié l'absence de connexion dédiée.
 Les [ressources d'authentification ont été supprimées](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
 à 23:58:49 UTC, avec projet/compte/groupe à 404 et gouvernance préservée.
 L'enregistrement de récupération du compte supprimé reste présent, sans purge.
+Un [contrôle supplémentaire du prérequis de saisie sans ressource](backend-live-2026-10-20.md#prérequis-supplémentaire-de-saisie-native-toujours-bloqué)
+s'est arrêté avant la sonde Legacy : navigateur non mis au premier plan et
+formulaire non ouvert. L'intervention manuelle reste requise. Le
+[contrat publié du connecteur Inference](lab-04.md#objectifs-et-prérequis)
+exige aussi une clé API, sans alternative Entra documentée pour ce connecteur.
 
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.
