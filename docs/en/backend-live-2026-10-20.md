@@ -697,6 +697,68 @@ separates working synthetic transport from the still-open multi-source quotation
 native-citation gate and the BYOM keyless-policy mismatch. The workshop remains
 incomplete; no original agent or security policy was changed.
 
+## Original lab acceptance reconciled and real retrieval exercised
+
+The accessible original Lab 6 notebook and setup guide require source-grounded
+answers with visible source attribution, domain-specific and combined retrieval,
+and connected direct/quick-reference/expertise/hybrid scenarios. They do not
+explicitly require native annotation arrays, external publisher URLs for the
+synthetic records, or verbatim quotations. Those earlier assistant-added gates
+remain useful enhancement evidence, not substitutes for original lab acceptance.
+The protected main Lab 6 document remained unreadable and was not bypassed;
+additional requirements there are unknown. Genuine custom Foundry prompt
+execution in Lab 4 remains an original requirement, not an optional enhancement.
+
+Under that corrected scope, a separate **workshop-retrieval-specialist** was
+created in the current owned project, preserving the working synthetic smoke
+agent. Minimal Search **Basic, one unit**, a small embedding deployment
+**GlobalStandard, capacity 1**, three source indexes and an authenticated
+knowledge-base MCP tool were provisioned. The 24 original records joined
+exactly to their source data, eight per knowledge source. Scoped managed-identity
+roles and every added resource/version were added to ownership/cleanup tracking.
+Keyless Cognitive authentication and existing governance were preserved.
+
+A second native attachment and explicit classic topic were saved and reopened.
+Four domain submission attempts produced three confirmed native messages.
+Fraud, investigation and combined cases reached the retrieval-agent target but
+returned no answer during bounded observation; regulatory delivery was
+unconfirmed with **Unable to connect** visible. No grounded connected-domain
+pass was claimed.
+
+A distinct direct-agent diagnostic proved completed MCP retrieval of all 24
+original records, then failed final generation with **rate_limit_exceeded**.
+The actual deployment limit was only **1,000 TPM / 1 RPM**. This error is
+proven for that direct call, not definitively correlated to the native stalls.
+Available regional quota was verified, then only Standard capacity changed
+**1 to 26**, independently read back as **26,000 TPM / 26 RPM**. The conservative
+planning estimate was 25,529 tokens/minute for context, multiple model requests
+and output margin; it is not measured token consumption. No provisioned
+throughput, model/version, MCP, authentication or security change accompanied it.
+
+Three bounded direct regressions each completed without retries and with 24
+exact source joins:
+
+| Retrieval version | Actual usage | Result |
+|-------------------|--------------|--------|
+| 1, capacity-only fix | 5,244 input + 564 output = 5,808 tokens | Rate error resolved; five unsupported/overbroad assertion families |
+| 2, generic evidence/condition rules | 5,643 input + 740 output = 6,383 tokens | Four remaining scope/record-attribution failure families |
+| 3, extractive evidence adaptation | 5,541 input + 999 output = 6,540 tokens | Nine unchanged complete source sentences; conditions preserved, but some irrelevant material and incomplete applicability limits |
+
+Version 3 displayed original document titles rather than the requested
+knowledge-source labels. That mismatch is recorded separately from quotation
+authenticity: it did not fabricate record IDs or URLs. Extractive output is not
+certified as the full requested narrative synthesis. Earlier unsupported
+obligation, deadline, retention-scope and attribution findings remain failures;
+completed inference or correct source-name keywords alone do not pass grounding.
+
+The [retrieval validation receipt](../assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json)
+records the actual scope correction, capacity fix and failed grounding gates.
+Further paid prompt retries stopped. The Search service, account/project,
+chat and embedding deployments, both Foundry agents and native connections/topics
+remain **live and retained**, with cleanup ownership recorded. Expiry tags do not
+delete them. Full connected scenario coverage and original BYOM execution remain
+incomplete; no original agent or security policy was changed.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

@@ -14,11 +14,14 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > [!WARNING]
 > La nouvelle connexion externe manuelle est **Connected** et l'inférence Responses
 > directe réussit. Après un premier échec sans réponse, un test Activity natif
-> instrumenté a reçu la vraie réponse en **6,864 secondes**. Recherche/citations
-> natives non vérifiées. L'observateur a été supprimé. Le nouveau compte/projet,
-> modèle Standard capacité 1 et agent restent **actifs** ; le tag ne supprime rien.
+> instrumenté a reçu la vraie réponse en **6,864 secondes**. L'observateur a été
+> supprimé. Les critères d'annotations natives/URL éditeur avaient été ajoutés
+> par l'assistant. La recherche joint 24 originaux, mais l'acceptation ancrée
+> reste en échec/non vérifiée. Une limitation directe prouvée a été corrigée :
+> Standard capacité 26. Search Basic, embeddings, compte/projet et deux agents
+> restent **actifs** ; le tag ne supprime rien.
 > Les anciennes preuves de suppression ne couvrent pas cette exécution.
-> Voir les [limites actuelles](backend-live-2026-10-20.md#test-synthétique-activity-connecté-instrumenté-réussi).
+> Voir les [limites actuelles](backend-live-2026-10-20.md#critères-dorigine-réconciliés-et-recherche-réelle-exercée).
 
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.

@@ -13,11 +13,15 @@ ms.date: 2026-10-20
 > its native attachment and explicit topic persist, and direct Responses inference
 > passed. The first corrective Activity test returned no response; a later
 > instrumented native test received the genuine reply in **6.864 seconds**,
-> passing synthetic connected transport, not retrieval/citation acceptance.
+> passing synthetic connected transport, not grounded scenario acceptance.
 > The temporary diagnostic observer was deleted with independent 404s.
-> This new account/project/model/agent is **live and retained**,
+> Original-source review found native annotation/publisher-URL gates were added
+> by the assistant. Real retrieval now joins all 24 records, but connected domain
+> tests and semantic grounding regressions have not passed. Standard capacity
+> was corrected to 26,000 TPM / 26 RPM after a proven direct rate-limit failure.
+> Search Basic, embeddings, account/project and both agents are **live and retained**,
 > unlike the earlier deleted runs. Its expiry tag does not delete resources.
-> See the [current Activity result](backend-live-2026-10-20.md#instrumented-connected-activity-smoke-passed).
+> See the [current original-requirement validation](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
 
 Earlier execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,

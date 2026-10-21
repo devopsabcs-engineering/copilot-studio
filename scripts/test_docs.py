@@ -661,6 +661,47 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(preservation["account_project_model_agent_connection_retained"])
         self.assertFalse(preservation["overall_workshop_certified"])
 
+    def test_original_lab_retrieval_keeps_rate_fix_separate_from_grounding(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-original-lab-retrieval-validation.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        original = result["primary_source_reconciliation"]
+        self.assertTrue(original["accessible_notebook_requires_grounded_source_attribution"])
+        self.assertFalse(original["native_annotation_arrays_explicitly_required"])
+        self.assertFalse(original["publisher_urls_explicitly_required_for_synthetic_records"])
+        self.assertFalse(original["main_protected_document_bypassed"])
+        self.assertTrue(original["byom_custom_foundry_prompt_is_original_requirement"])
+        self.assertEqual(result["owned_retrieval"]["exact_source_joins_verified"], 24)
+        native = result["native_category_tests_before_capacity_fix"]
+        self.assertEqual(native["submission_attempts"], 4)
+        self.assertEqual(native["confirmed_native_user_messages"], 3)
+        self.assertEqual(native["grounded_answer_passes"], 0)
+        self.assertFalse(native["rate_limit_error_definitively_correlated_to_native_tests"])
+        self.assertEqual(result["direct_rate_diagnostic"]["final_generation_error"],
+                         "rate_limit_exceeded")
+        capacity = result["capacity_fix"]
+        self.assertEqual(capacity["new_capacity"], 26)
+        self.assertGreaterEqual(capacity["new_tpm_verified"],
+                                capacity["estimated_required_tokens_per_minute"])
+        self.assertFalse(capacity["estimate_is_measured_usage"])
+        self.assertFalse(capacity["provisioned_throughput_used"])
+        for regression in result["direct_regressions"]:
+            self.assertEqual(regression["attempts"], 1)
+            self.assertEqual(regression["retries"], 0)
+            self.assertTrue(regression["completed"])
+            self.assertEqual(regression["total_tokens"],
+                             regression["input_tokens"] + regression["output_tokens"])
+            self.assertEqual(regression["exact_source_joins"], 24)
+            self.assertFalse(regression["full_grounding_passed"])
+        extractive = result["direct_regressions"][-1]
+        self.assertEqual(extractive["displayed_extracts"],
+                         extractive["unchanged_complete_source_sentences"])
+        self.assertFalse(extractive["all_selected_material_relevant"])
+        self.assertFalse(extractive["fabricated_record_ids_or_urls_present"])
+        self.assertTrue(result["preservation"]["working_synthetic_smoke_agent_unchanged"])
+        self.assertTrue(result["preservation"]["search_project_account_models_agents_connections_still_live"])
+        self.assertFalse(result["preservation"]["overall_workshop_certified"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

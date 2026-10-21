@@ -723,6 +723,66 @@ distingue transport synthétique fonctionnel, critères multisources/citations
 natives encore ouverts et conflit BYOM avec la politique sans clé.
 L'atelier reste incomplet ; aucun agent d'origine ni politique modifié.
 
+## Critères d'origine réconciliés et recherche réelle exercée
+
+Le notebook et le guide d'installation accessibles du Lab 6 exigent des réponses
+ancrées avec attribution visible, recherche par domaine et combinée, et scénarios
+connectés direct/référence rapide/expertise/hybride. Ils n'exigent pas explicitement
+de tableaux d'annotations natives, d'URL éditeur pour les données synthétiques
+ni de citations verbatim. Ces anciens critères ajoutés par l'assistant restent
+des preuves d'amélioration, non les critères d'origine. Le document principal
+protégé est resté illisible, sans contournement ; ses éventuelles exigences
+supplémentaires sont inconnues. L'exécution d'un vrai prompt Foundry personnalisé
+au Lab 4 reste une exigence d'origine, non une amélioration facultative.
+
+Dans ce périmètre corrigé, **workshop-retrieval-specialist** a été créé dans le
+projet dédié actuel, en préservant l'agent synthétique fonctionnel. Search
+**Basic, une unité**, un petit déploiement d'embeddings **GlobalStandard,
+capacité 1**, trois index et un outil MCP de base de connaissances authentifié
+ont été provisionnés. Les 24 enregistrements ont été joints exactement aux
+originaux, huit par source. Rôles d'identité managée ciblés, ressources et versions
+figurent dans le suivi de propriété/nettoyage. Authentification Cognitive sans
+clé et gouvernance existante préservées.
+
+Un second rattachement natif et une rubrique classique explicite ont été
+sauvegardés puis rouverts. Quatre tentatives par domaine ont produit trois
+messages natifs confirmés. Fraude, investigation et cas combiné ont atteint la
+cible, sans réponse dans l'observation bornée. Livraison réglementaire non
+confirmée, avec **Unable to connect** visible. Aucune réussite connectée ancrée.
+
+Un diagnostic direct distinct a prouvé la recherche MCP des 24 originaux, puis
+échoué en génération avec **rate_limit_exceeded** : limites réelles
+**1 000 TPM / 1 RPM**. Erreur prouvée pour cet appel direct, non corrélée
+définitivement aux blocages natifs. Après vérification du quota régional, seule
+la capacité Standard est passée de **1 à 26**, relue indépendamment comme
+**26 000 TPM / 26 RPM**. L'estimation prudente était de 25 529 jetons/minute pour
+contexte, appels multiples et marge de sortie, non une consommation mesurée.
+Aucun débit provisionné, changement de modèle/version, MCP, droits ou sécurité.
+
+Trois régressions directes bornées ont chacune terminé sans reprise, avec
+24 jointures exactes :
+
+| Version recherche | Consommation réelle | Résultat |
+|-------------------|---------------------|----------|
+| 1, correction de capacité seule | 5 244 entrée + 564 sortie = 5 808 jetons | Limitation résolue ; cinq familles d'affirmations non étayées/trop larges |
+| 2, règles de preuve et conditions | 5 643 entrée + 740 sortie = 6 383 jetons | Quatre familles d'erreurs de portée/attribution restantes |
+| 3, adaptation extractive | 5 541 entrée + 999 sortie = 6 540 jetons | Neuf phrases sources complètes inchangées et conditions préservées ; contenu parfois non pertinent et limites d'applicabilité incomplètes |
+
+La version 3 affichait les titres des documents d'origine, non les noms de
+sources demandés. Cet écart est distinct de l'authenticité des extraits : aucun
+identifiant ni URL inventé. La sortie extractive n'est pas certifiée comme
+synthèse narrative complète. Les anciens échecs d'obligations, délais,
+conservation et attribution restent conservés ; une génération terminée ou des
+mots-clés de sources corrects ne suffisent pas à valider l'ancrage.
+
+La [preuve de validation recherche](../assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json)
+consigne périmètre corrigé, capacité et échecs d'ancrage. Les reprises payantes
+ont été arrêtées. Search, compte/projet, modèles de conversation/embeddings,
+deux agents Foundry et connexions/rubriques natives restent **actifs et conservés**,
+avec propriété et nettoyage suivis. Les tags ne suppriment rien. Couverture
+connectée complète et vrai BYOM restent incomplets ; aucun agent d'origine ni
+politique de sécurité modifié.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

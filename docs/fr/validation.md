@@ -13,11 +13,15 @@ ms.date: 2026-10-20
 > rattachement natif et rubrique explicite persistants, inférence Responses directe
 > réussie. Le premier test Activity correctif n'a pas reçu de réponse ; un test
 > natif instrumenté ultérieur a reçu la vraie réponse en **6,864 secondes**.
-> Transport synthétique connecté validé, non recherche/citations. L'observateur
-> temporaire a été supprimé avec contrôles 404. Ce nouveau compte/projet/
-> modèle/agent est **actif et conservé**, contrairement aux anciennes
+> Transport synthétique connecté validé, non scénarios ancrés. L'observateur
+> temporaire a été supprimé avec contrôles 404. Les critères d'annotations natives/
+> URL éditeur avaient été ajoutés par l'assistant. La vraie recherche joint les
+> 24 originaux, mais tests connectés et ancrage sémantique n'ont pas réussi.
+> Capacité corrigée à 26 000 TPM / 26 RPM après une limitation directe prouvée.
+> Search Basic, embeddings, compte/projet et deux agents sont **actifs et conservés**,
+> contrairement aux anciennes
 > exécutions supprimées. Le tag d'expiration ne supprime rien.
-> Voir le [résultat Activity actuel](backend-live-2026-10-20.md#test-synthétique-activity-connecté-instrumenté-réussi).
+> Voir la [validation actuelle des critères d'origine](backend-live-2026-10-20.md#critères-dorigine-réconciliés-et-recherche-réelle-exercée).
 
 Preuves antérieures : [registre de réexécution réelle](live-rerun-2026-10-19.md).
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de

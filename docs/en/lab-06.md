@@ -15,10 +15,13 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > The newest manual external connection is **Connected** and its Foundry agent
 > passes direct Responses inference. After an initial no-reply failure, one
 > instrumented native Activity test received the genuine reply in **6.864 seconds**.
-> Retrieval/native citations remain unverified. The diagnostic observer was deleted.
-> The new owned account/project, Standard capacity-1 model and agent remain **live**; their expiry
+> The diagnostic observer was deleted. Original-source reconciliation removed
+> assistant-added native-annotation/publisher-URL gates; genuine retrieval joins
+> 24 originals, but grounded domain acceptance remains failed/unverified.
+> A proven direct rate limit was corrected to Standard capacity 26.
+> Search Basic, embeddings, account/project and both agents remain **live**; their expiry
 > tag is not automatic cleanup. Earlier deletion receipts do not cover this run.
-> See the [current runtime boundary](backend-live-2026-10-20.md#instrumented-connected-activity-smoke-passed).
+> See the [current runtime boundary](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
 
 > [!IMPORTANT]
 > Actual dependency testing now supplements the initial syntax-only review.
