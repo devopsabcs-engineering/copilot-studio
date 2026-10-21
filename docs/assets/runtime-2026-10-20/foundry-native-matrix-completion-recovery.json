@@ -1,0 +1,739 @@
+{
+  "observed_date": "2026-10-21",
+  "scope": "Latest preserved complete turns combined across named rounds, not a single fresh eleven-case run",
+  "current_parent_instruction_characters": 3005,
+  "cases": [
+    {
+      "scenario": 1,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "73b9b4e8-facd-479d-b828-bb80b0a62dae",
+      "user_activity_id": "27d41746-6432-4de7-a722-dd166b37f4ea",
+      "reply_activity_id": "e61cc6fc-3ede-471b-9c54-b68407a6ca05",
+      "displayed_response_activity_ids": [
+        "e61cc6fc-3ede-471b-9c54-b68407a6ca05"
+      ],
+      "user_activity_utc": "2026-10-21T20:48:25.6584298+00:00",
+      "reply_activity_utc": "2026-10-21T20:48:25.6767894+00:00",
+      "latency_seconds": 0.01836,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": false,
+      "direct_intake_topic_action_proven": true,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": false,
+      "local_source_id_in_completed_step": false,
+      "final_reply_local_filename_citation": false,
+      "displayed_response_local_filename_citation": false,
+      "foundry_step_triggered": false,
+      "foundry_step_finished": false,
+      "foundry_trigger_event_count": 0,
+      "foundry_finish_event_count": 0,
+      "displayed_response_canonical_markers": [],
+      "fully_quoted_block_audit_only": [],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 2,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "a8764aa4-cf91-4562-82f3-6cf7df7366e2",
+      "user_activity_id": "db2c4201-9c7e-47e0-9abc-7fbd4aed75ea",
+      "reply_activity_id": "ebb0c1b5-acfc-4b49-901a-aea3de68681a",
+      "displayed_response_activity_ids": [
+        "ebb0c1b5-acfc-4b49-901a-aea3de68681a"
+      ],
+      "user_activity_utc": "2026-10-21T20:32:53.0216538+00:00",
+      "reply_activity_utc": "2026-10-21T20:33:02.6937009+00:00",
+      "latency_seconds": 9.672047,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": false,
+      "foundry_step_finished": false,
+      "foundry_trigger_event_count": 0,
+      "foundry_finish_event_count": 0,
+      "displayed_response_canonical_markers": [],
+      "fully_quoted_block_audit_only": [],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 3,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "1e5d9456-0ba9-4e21-b5da-051fd7de4872",
+      "user_activity_id": "41dbea44-9fad-45ea-bb39-2b0f0167705e",
+      "reply_activity_id": "5885767e-ada6-44da-958f-9774d839b88b",
+      "displayed_response_activity_ids": [
+        "5885767e-ada6-44da-958f-9774d839b88b"
+      ],
+      "user_activity_utc": "2026-10-21T20:35:44.5836738+00:00",
+      "reply_activity_utc": "2026-10-21T20:35:52.9438905+00:00",
+      "latency_seconds": 8.360217,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": false,
+      "foundry_step_finished": false,
+      "foundry_trigger_event_count": 0,
+      "foundry_finish_event_count": 0,
+      "displayed_response_canonical_markers": [],
+      "fully_quoted_block_audit_only": [],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 4,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "e1f4c32c-81c3-4fb1-9eff-a5d2fd9b17cd",
+      "user_activity_id": "cfe86a68-f74c-4a17-9232-0482b371fbad",
+      "reply_activity_id": "2af95ad5-7a07-4a62-b84b-88282c3c8c02",
+      "displayed_response_activity_ids": [
+        "2af95ad5-7a07-4a62-b84b-88282c3c8c02"
+      ],
+      "user_activity_utc": "2026-10-21T20:38:11.658542+00:00",
+      "reply_activity_utc": "2026-10-21T20:38:19.5141684+00:00",
+      "latency_seconds": 7.855626,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": false,
+      "foundry_step_finished": false,
+      "foundry_trigger_event_count": 0,
+      "foundry_finish_event_count": 0,
+      "displayed_response_canonical_markers": [],
+      "fully_quoted_block_audit_only": [],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 5,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "bd253985-53e0-40ad-8e4e-f9221a4e909d",
+      "user_activity_id": "d704bf5e-5428-4969-8459-85661ab8cf08",
+      "reply_activity_id": "69b4d27a-e347-4b1f-9e03-60814d0c3e54",
+      "displayed_response_activity_ids": [
+        "ad6e1cf2-e84f-4cd3-b8e8-0f5f30647cb1",
+        "69b4d27a-e347-4b1f-9e03-60814d0c3e54"
+      ],
+      "user_activity_utc": "2026-10-21T20:40:27.3207027+00:00",
+      "reply_activity_utc": "2026-10-21T20:40:50.4266361+00:00",
+      "latency_seconds": 23.105934,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": false,
+      "local_source_id_in_completed_step": false,
+      "final_reply_local_filename_citation": false,
+      "displayed_response_local_filename_citation": false,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "fraud-patterns-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 6,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "c1278f8d-44d3-46f8-be49-0927f9eb8c4c",
+      "user_activity_id": "2929a5b3-3f15-4fa1-ba6f-9efaa88c6737",
+      "reply_activity_id": "4de96516-a459-4ab0-b341-7ea27f043874",
+      "displayed_response_activity_ids": [
+        "d6dcbff0-60de-4eef-8b64-307c1e0d0fe8",
+        "91da8514-ac4b-407f-abbf-e1e7fb325a42",
+        "4de96516-a459-4ab0-b341-7ea27f043874"
+      ],
+      "user_activity_utc": "2026-10-21T20:29:37.6777818+00:00",
+      "reply_activity_utc": "2026-10-21T20:30:26.4406557+00:00",
+      "latency_seconds": 48.762874,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": false,
+      "local_source_id_in_completed_step": false,
+      "final_reply_local_filename_citation": false,
+      "displayed_response_local_filename_citation": false,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 2,
+      "foundry_finish_event_count": 2,
+      "displayed_response_canonical_markers": [
+        "investigation-procedures-ks",
+        "regulatory-compliance-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": false,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": false,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": false,
+          "correct_canonical_marker": false
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 7,
+      "evidence_round": "native-natural-matrix-routing-revalidation-20261021",
+      "conversation_id": "94187e0a-73e1-4281-8e27-21159d7fd540",
+      "user_activity_id": "a16953fa-bc0e-4362-8301-8d13e9a10317",
+      "reply_activity_id": "25540114-8458-4532-b75c-6badd57e0455",
+      "displayed_response_activity_ids": [
+        "25540114-8458-4532-b75c-6badd57e0455"
+      ],
+      "user_activity_utc": "2026-10-21T20:16:53.8206769+00:00",
+      "reply_activity_utc": "2026-10-21T20:17:16.5681662+00:00",
+      "latency_seconds": 22.74749,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": false,
+      "local_source_id_in_completed_step": false,
+      "final_reply_local_filename_citation": false,
+      "displayed_response_local_filename_citation": false,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "investigation-procedures-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "pass"
+    },
+    {
+      "scenario": 8,
+      "evidence_round": "native-rollback-canary-20261021",
+      "conversation_id": "b73cd96c-7a1c-42af-acd3-3af664d9ce66",
+      "user_activity_id": "1584525c-e13f-4773-be75-04c3ebd88581",
+      "reply_activity_id": "6d35997d-cd74-4bfd-8e59-867ac9e56878",
+      "displayed_response_activity_ids": [
+        "a6bc32c8-873a-4360-afd7-d5895916d9d3",
+        "6d35997d-cd74-4bfd-8e59-867ac9e56878"
+      ],
+      "user_activity_utc": "2026-10-21T21:11:00.7682212+00:00",
+      "reply_activity_utc": "2026-10-21T21:11:43.3853724+00:00",
+      "latency_seconds": 42.617151,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "fraud-patterns-ks",
+        "investigation-procedures-ks",
+        "regulatory-compliance-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": false,
+          "correct_canonical_marker": false
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "partial_or_unconfirmed"
+    },
+    {
+      "scenario": 9,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "b6aba940-9a83-47fe-ae81-d21a4fa59184",
+      "user_activity_id": "563ad3dd-f8ca-47a4-84a9-2b218fc5e532",
+      "reply_activity_id": "a09e37b5-ef4b-465c-9a27-920a2ebfb605",
+      "displayed_response_activity_ids": [
+        "be6e4e90-986f-4026-b1c8-57b3d487f86b",
+        "a09e37b5-ef4b-465c-9a27-920a2ebfb605"
+      ],
+      "user_activity_utc": "2026-10-21T20:46:56.3842281+00:00",
+      "reply_activity_utc": "2026-10-21T20:47:41.1524633+00:00",
+      "latency_seconds": 44.768235,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "fraud-patterns-ks",
+        "investigation-procedures-ks",
+        "regulatory-compliance-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "partial_or_unconfirmed"
+    },
+    {
+      "scenario": 10,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "0726033f-fa85-43ac-8929-47f57163b985",
+      "user_activity_id": "9aabaf62-74b7-42b4-86a6-7067a4d8aad3",
+      "reply_activity_id": "90335be9-5a9a-4394-b653-c409f391905e",
+      "displayed_response_activity_ids": [
+        "753bfa2f-bf44-4f0e-b18c-15f1ec4b325d",
+        "90335be9-5a9a-4394-b653-c409f391905e"
+      ],
+      "user_activity_utc": "2026-10-21T20:26:27.6393378+00:00",
+      "reply_activity_utc": "2026-10-21T20:27:07.8909423+00:00",
+      "latency_seconds": 40.251605,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "fraud-patterns-ks",
+        "investigation-procedures-ks",
+        "regulatory-compliance-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "partial_or_unconfirmed"
+    },
+    {
+      "scenario": 11,
+      "evidence_round": "native-natural-matrix-single-capture-20261021",
+      "conversation_id": "ff187fc7-3341-4a28-a5ed-ac9255277937",
+      "user_activity_id": "7ad16ee9-2fb5-4772-af38-92f53395783d",
+      "reply_activity_id": "f1d12457-1584-4edc-a629-b56f4b0816c1",
+      "displayed_response_activity_ids": [
+        "8144db59-6ba4-46bc-883a-34e7af62d630",
+        "f1d12457-1584-4edc-a629-b56f4b0816c1"
+      ],
+      "user_activity_utc": "2026-10-21T20:23:00.248698+00:00",
+      "reply_activity_utc": "2026-10-21T20:23:41.6764297+00:00",
+      "latency_seconds": 41.427731,
+      "original_question_exact_match": true,
+      "native_response_received": true,
+      "whole_generative_plan_finished": true,
+      "direct_intake_topic_action_proven": false,
+      "completed_native_turn": true,
+      "knowledge_search_event_observed": true,
+      "local_source_id_in_completed_step": true,
+      "final_reply_local_filename_citation": true,
+      "displayed_response_local_filename_citation": true,
+      "foundry_step_triggered": true,
+      "foundry_step_finished": true,
+      "foundry_trigger_event_count": 1,
+      "foundry_finish_event_count": 1,
+      "displayed_response_canonical_markers": [
+        "fraud-patterns-ks",
+        "investigation-procedures-ks",
+        "regulatory-compliance-ks"
+      ],
+      "fully_quoted_block_audit_only": [
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        },
+        {
+          "authentic_original_excerpt": true,
+          "correct_canonical_marker": true
+        }
+      ],
+      "quoted_block_audit_covers_all_displayed_messages": true,
+      "inline_quotes_and_paraphrases_require_semantic_review": true,
+      "native_mcp_membership_or_version_join_claimed": false,
+      "routing_result": "pass",
+      "original_example_content_review": "partial_or_unconfirmed"
+    }
+  ],
+  "complete_native_turns": 11,
+  "original_exact_question_matches": 11,
+  "quoted_block_count": 67,
+  "nonliteral_quoted_block_count": 4,
+  "blocks_without_correct_individual_marker": 20,
+  "all_audited_blocks_authentic": false,
+  "all_audited_blocks_individually_attributed": false,
+  "execution_accounting": {
+    "r3_targets": 11,
+    "r3_preflights": 11,
+    "r3_child_stage_only_captures": 6,
+    "r4_configured_targets": 8,
+    "r4_reached_last_configured_case": true,
+    "r4_eight_completed_targets_inferred_from_sequential_control_flow": true,
+    "r4_individual_case_metadata_recovered": [
+      7
+    ],
+    "r4_seven_earlier_answer_bodies_not_recovered": true,
+    "r4_deferred_batch_handle_expired": true,
+    "r4_preflights_inferred_from_reached_last_case": 8,
+    "r5_individually_preserved_targets": 10,
+    "r5_preflights": 10,
+    "r6_incident_targets": 2,
+    "r6_preflights": 2,
+    "r6_planned_case10_not_submitted_after_failure": true,
+    "r7_post_rollback_targets": 1,
+    "r7_preflights": 1,
+    "total_targets_since_r3_including_control_flow_inferred_r4": 32,
+    "reexecuted_targets_after_r3": 21,
+    "within_round_target_retries": 0,
+    "target_counts_are_not_model_invocation_counts": true,
+    "historical_initial_qa_and_focused_checks_not_included_in_these_totals": true
+  },
+  "discarded_incident_rework": {
+    "saved_parent_instruction_characters": 3340,
+    "failed_original_scenario": 8,
+    "multiple_daily_deposits_incorrectly_collapsed_to_one_per_day": true,
+    "unsupported_exact_aggregate_total_invented": true,
+    "change_not_promoted": true,
+    "prior_3005_character_configuration_restored": true,
+    "full_reload_rollback_readback_matches_prior_configuration": true,
+    "rollback_verified_at_utc": "2026-10-21T21:06:01.822Z",
+    "post_rollback_canary_did_not_invent_a_deposit_count_or_total": true,
+    "failure_and_both_native_captures_retained": true,
+    "sole_causal_claim_about_instruction_change": false
+  },
+  "acceptance_boundary": {
+    "all_eleven_original_questions_have_complete_native_turns": true,
+    "all_eleven_expected_handler_routes_observed": true,
+    "standalone_foundry_native_mcp_membership_independently_joined": false,
+    "all_original_expected_response_items_certified": false,
+    "all_displayed_quotes_certified_verbatim": false,
+    "every_displayed_excerpt_individually_attributed": false,
+    "full_matrix_acceptance_passed": false,
+    "original_native_prompt_byom_completed": false,
+    "protected_main_lab6_additional_requirements_readable": false,
+    "overall_workshop_certified": false
+  },
+  "publication_safety": {
+    "answer_text_published": false,
+    "source_passages_published": false,
+    "private_question_text_published": false,
+    "signed_urls_or_credentials_published": false
+  }
+}

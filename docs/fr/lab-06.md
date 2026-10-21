@@ -31,7 +31,17 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > premiers scénarios exacts reçoivent accueil sans source et réponses CTR/SAR
 > complètes. La couverture des onze scénarios reste un contrôle distinct.
 > La tentative R2 suivante en nouvelle session s'arrête avant notation sur un
-> Hello non acquitté ; la confirmation du transport en navigateur externe manque.
+> Hello non acquitté. Une lecture ultérieure révèle puis répare une définition
+> d'accueil vide ; les traces rubrique/actions prouvent désormais son exécution.
+> Préparation initiale vérifiée et bouton Send normal récupèrent le transport,
+> sans succès externe supposé. Les onze questions R3 reçoivent une réponse ; six
+> captures enfant exigent une revalidation de fin du parent.
+> Voir la [récupération de persistance](backend-live-2026-10-20.md#persistance-de-laccueil-et-livraison-native-récupérées).
+> Les [dernières preuves complètes](backend-live-2026-10-20.md#tours-natifs-complets-récupérés-acceptation-encore-incomplète)
+> couvrent les onze questions originales avec les routages attendus entre
+> exécutions nommées. Fidélité des citations et couverture détaillée restent
+> insuffisantes. La variante incident est rejetée ; la configuration précédente
+> est rétablie et contrôlée une fois. L'atelier n'est pas terminé.
 > Une limitation directe prouvée a été corrigée :
 > Standard capacité 26. Search Basic, embeddings, compte/projet et deux agents
 > restent **actifs** ; le tag ne supprime rien.

@@ -962,9 +962,10 @@ acceptance gate. The SAR observation proves unconfirmed delivery, not backend
 absence or a Foundry authentication failure. Matching the accessible setup
 questions does not reveal additional requirements in the unreadable main DOCX.
 
-The targeted rework registers a guarded, nonfactual intake topic containing only
-a clarification message and dialog cancellation, and extends parent instructions
-to request complete retrieved table fields. Three offline guard tests cover
+The initial targeted rework saves the intake topic component name and attempts
+a guarded, nonfactual definition containing only a clarification message and
+dialog cancellation. It extends parent instructions to request complete
+retrieved table fields. Three offline tests of the intended guard cover
 vague intake and prevent interception of specific financial questions. No
 financial answers were embedded in the topic or instructions, and the Foundry
 model, tools and corpus were unchanged.
@@ -1001,15 +1002,112 @@ records **one preflight, zero target submissions, zero target replays and eleven
 unassessed scenarios**. Null route/citation fields mean unassessed, not absent.
 The three earlier implementation successes remain valid observations but are
 not R2 passes. This interruption establishes neither a regression nor backend
-absence. No configuration changes or additional paid target retries followed.
+absence. No configuration changes or additional paid target retries occurred
+during R2.
 
 An external-browser check was requested again, but the operator was unavailable;
-there is no external validation result. To unblock transport, open the isolated
-draft in a regular Edge session, open Test, start a new test session and send
-the original suspicious-account intake once. Wait up to two minutes without
-resending, then retain the final reply or error. Do not publish the draft or
-change consent or security settings for this check. Full acceptance remains
-blocked, independently of the original BYOM policy/authentication mismatch.
+there is no external validation result. That transport request is superseded by
+the genuine internal recovery below, not by an assumed external success.
+
+### Intake persistence and native delivery recovered
+
+Later native readback exposed an empty default `OnRecognizedIntent` definition.
+The earlier component-name save did not prove that guarded YAML persisted; that
+claim is retracted in the historical receipt. Multiline keyboard entry had
+accumulated indentation and produced explicit parse errors.
+
+Normal line-by-line keyboard editing repaired the definition. After saving,
+leaving and reopening, the native editor returned the intended 21-line
+`OnActivity` definition, zero parse errors and a disabled Save button. The topic
+is enabled. Its only actions send a nonfactual clarification and cancel further
+dialog processing; five offline guard/readback tests preserve that boundary.
+The [persistence recovery receipt](../assets/runtime-2026-10-20/foundry-native-persistence-recovery.json)
+records the retraction and the genuine repair separately.
+
+An immediate post-save Hello still received no reply. A distinct UI workflow
+then recovered delivery: require a new server greeting and final startup typing,
+wait ten seconds, fill the input, wait 500 milliseconds, and activate the normal
+Send button with Enter. Both the real Hello preflight and the exact original
+intake scenario received the registered literal response and native topic/action
+traces. Execution of this particular topic is now proven for those later turns,
+not retroactively for the earlier focused regression. Neither the delay nor the
+Send button alone is established as the cause of recovery.
+
+### Expanded captures require whole-parent completion
+
+R3 submitted each of the eleven original questions once, with one real Hello
+preflight per conversation. All received native responses. Six early captures
+stopped on a child message's stream-final marker, however, which does not prove
+that the parent turn finished. Those captures are retained, not certified as
+complete acceptance results. Later captures require `DynamicPlanFinished`;
+direct nonfactual intake instead has its actual topic/action trace.
+
+Completed hybrid turns 8 and 9 include local and connected evidence. Case 10
+has a local-source reference in a completed search step and a completed Foundry
+step, but the final displayed message does not integrate the local table facts.
+It is not evidence of absent local retrieval. Case 11 completes with Foundry
+alone. The routing clarification orders hybrid cases before standalone and
+quick lookups, explicitly includes named-fraud SAR narratives, and separates
+SAR filing requirements from deadline-only questions. Its 3,005 characters were
+read back after a full reload. No financial answers, Foundry configuration,
+authentication policy or permissions were changed.
+
+### Complete native turns recovered, acceptance still incomplete
+
+The [complete-turn ledger](../assets/runtime-2026-10-20/foundry-native-matrix-completion-recovery.json)
+now preserves matching server user/reply identifiers for **all eleven original
+questions**. These are selected complete turns across named rounds, not a
+single fresh eleven-case run. All expected handler combinations are observed:
+
+| Original scenarios | Observed handler | Coverage boundary |
+|--------------------|------------------|-------------------|
+| 1 | Registered nonfactual intake, no search or Foundry | Exact topic/action trace |
+| 2–4 | Local knowledge, no Foundry | Uploaded-filename citations and completed search steps |
+| 5–7 | Connected Foundry | Native triggered and finished execution steps |
+| 8–11 | Local knowledge and Foundry | Both actual routes and displayed local/source evidence |
+
+The original example content for 1–7 is observed; the detailed examples for
+8–11 remain partial or unconfirmed. Do not force unsupported legal references,
+automatic SAR conclusions, priorities or account restrictions merely to imitate
+an example. The unreadable main Lab 6 document may contain additional criteria.
+Native MCP membership/version joins are still not independently exposed.
+
+The audit evaluates **all displayed child and parent messages**, not only the
+last message, which can contain just a source note. Across 67 fully quoted
+blocks, **four are paraphrased or shortened rather than verbatim originals**;
+**20 lack a correct individual canonical marker**. Grouped attribution is not
+called per-block attribution. Inline quotations and paraphrases still require
+semantic review. The earlier four-category success is retained, but it does
+not certify these expanded responses.
+
+Execution accounting remains explicit: R3 has 11 targets; the eight-case R4
+batch reached its final case, but its deferred result expired before retrieval.
+That batch count follows the recorded sequential control flow; only case 7's
+individual metadata was recovered from the still-active native session, without
+replay. The seven other answer bodies were not reconstructed. R5 then preserved
+ten individually captured targets.
+
+A narrowly scoped incident-completeness attempt subsequently ran two targets,
+then stopped before its planned third. Its case 8 incorrectly collapsed
+multiple daily deposits into one per day and invented an exact aggregate total.
+The 3,340-character variant was discarded. Full-reload readback verified
+restoration of the prior **3,005-character** configuration; one exact post-rollback
+case 8 canary completed with both sources and without inventing a deposit count
+or total. This is not a claim that the instruction alone caused the regression
+or that future model behavior is guaranteed.
+
+These rounds account for **32 target submissions**, including the eight inferred
+from R4 control flow, and **21 reexecuted targets after R3**. There were no
+within-round target retries. Targets are not model-invocation or billing counts;
+historical initial QA and focused checks are outside these totals. Original
+failures, expired captures and the rejected variant remain recorded.
+
+Delivery and routing are recovered, **not full matrix acceptance**. Remaining
+work includes complete source-backed example coverage and reliable quotation/
+attribution handling. Original native prompt BYOM still requires an approved
+authentication-compatible environment, and protected original documents require
+an authorized readable source. No policy, role or consent change was made.
+The draft remains unpublished and existing Azure resources remain billable.
 
 ## Official references
 

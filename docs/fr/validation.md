@@ -35,7 +35,20 @@ ms.date: 2026-10-21
 > l'exécution d'une rubrique d'accueil précise.
 > Le retest R2 indépendant en nouvelle session s'arrête sur un Hello non
 > acquitté avant toute cible notée : ses onze cas restent non évalués.
-> Un contrôle navigateur externe est demandé ; aucun n'a été obtenu.
+> Une lecture native ultérieure révèle une définition d'accueil vide. La saisie
+> clavier normale la répare ; lecture après réouverture et vraies traces
+> rubrique/actions prouvent désormais son exécution. Attente de préparation
+> initiale et bouton Send normal récupèrent la livraison native, sans résultat
+> navigateur externe. Les onze questions R3 reçoivent une réponse, mais six
+> captures enfant ne prouvent pas la fin du parent. Les suivantes exigent
+> `DynamicPlanFinished` ; les cibles répétées sont comptées séparément.
+> Voir la [récupération de persistance](backend-live-2026-10-20.md#persistance-de-laccueil-et-livraison-native-récupérées).
+> Le [dernier registre complet](backend-live-2026-10-20.md#tours-natifs-complets-récupérés-acceptation-encore-incomplète)
+> contient les onze questions originales et leurs gestionnaires attendus.
+> Preuves fusionnées, non nouvelle exécution unique des onze cas. L'audit des
+> tours complets trouve citations non verbatim et marqueurs groupés ; couverture
+> détaillée encore incomplète. Une variante incident échoue puis est retirée,
+> avec vrai contrôle après retour. L'acceptation complète reste en échec.
 > Capacité corrigée à 26 000 TPM / 26 RPM après une limitation directe prouvée.
 > Une comparaison distincte GPT-4.1 a consommé 6 357 jetons mesurés, sans corriger
 > l'ancrage des obligations conditionnelles. Agent/déploiement temporaires supprimés

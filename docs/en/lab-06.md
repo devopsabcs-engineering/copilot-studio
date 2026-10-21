@@ -32,7 +32,17 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > rework, the first three exact scenarios receive source-free intake and complete
 > CTR/SAR replies. Full eleven-scenario coverage remains a separate acceptance check.
 > A subsequent fresh-session R2 attempt stops before scoring on an unacknowledged
-> Hello preflight; external-browser transport confirmation remains outstanding.
+> Hello preflight. Later readback exposes and repairs an empty intake definition;
+> genuine topic/action traces now prove the saved clarification executes.
+> Native delivery recovers with verified startup readiness and the normal Send
+> button, not an assumed external-browser success. All eleven R3 questions receive
+> responses; six early child-stage captures require whole-parent revalidation.
+> See the [persistence recovery](backend-live-2026-10-20.md#intake-persistence-and-native-delivery-recovered).
+> [Latest complete-turn evidence](backend-live-2026-10-20.md#complete-native-turns-recovered-acceptance-still-incomplete)
+> covers all eleven original questions with the expected routes across named
+> rounds. Quotation fidelity and full detailed-example coverage still fail
+> acceptance. The failed incident variant was discarded; the prior configuration
+> is restored and checked once. This is not a completed workshop.
 > A proven direct rate limit was corrected to Standard capacity 26.
 > Search Basic, embeddings, account/project and both agents remain **live**; their expiry
 > tag is not automatic cleanup. Earlier deletion receipts do not cover this run.

@@ -999,10 +999,11 @@ d'acceptation. Le cas SAR prouve une livraison non confirmée, pas une absence
 backend ni un échec d'authentification Foundry. L'égalité des questions du support
 accessible ne révèle pas d'autres exigences du document principal illisible.
 
-La correction ciblée enregistre une rubrique d'accueil gardée et non factuelle,
-avec seulement message de clarification et annulation des dialogues, puis étend
-les instructions du parent pour demander les champs complets des tableaux
-récupérés. Trois tests hors ligne couvrent l'accueil vague et excluent les
+La première correction enregistre le nom du composant d'accueil et tente une
+définition gardée non factuelle, avec seulement clarification et annulation des
+dialogues. Elle étend les instructions du parent pour demander les champs
+complets des tableaux récupérés. Trois tests hors ligne du garde prévu couvrent
+l'accueil vague et excluent les
 questions financières précises. Aucune réponse financière n'est inscrite dans
 la rubrique ou les instructions ; modèle, outils et corpus Foundry inchangés.
 
@@ -1038,16 +1039,114 @@ conserve **un prétest, zéro soumission cible, zéro relance cible et onze scé
 non évalués**. Les champs de routage/citation nuls signifient non évalués, pas
 absents. Les trois succès d'implémentation précédents restent réels mais ne sont
 pas des réussites R2. Cette interruption n'établit ni régression ni absence
-backend. Aucune configuration ni nouvelle relance cible payante n'a suivi.
+backend. Aucune configuration ni nouvelle relance cible payante n'a lieu
+pendant R2.
 
 Un contrôle navigateur externe a de nouveau été demandé, mais l'opérateur était
-indisponible ; aucun résultat externe n'existe. Pour débloquer le transport,
-ouvrir le brouillon isolé dans une session Edge normale, ouvrir Test, démarrer une
-nouvelle session et envoyer une seule fois l'accueil original de compte suspect.
-Attendre deux minutes au maximum sans renvoyer, puis conserver réponse finale ou
-erreur. Ne pas publier le brouillon ni changer consentements ou paramètres de
-sécurité pour ce contrôle. L'acceptation complète reste bloquée, indépendamment
-du conflit politique/authentification BYOM original.
+indisponible ; aucun résultat externe n'existe. Cette demande de transport est
+dépassée par la vraie récupération interne ci-dessous, pas par un succès externe
+supposé.
+
+### Persistance de l'accueil et livraison native récupérées
+
+Une lecture native ultérieure révèle une définition `OnRecognizedIntent` vide.
+L'enregistrement du nom du composant ne prouvait pas la persistance du YAML
+gardé ; cette affirmation est retirée de la preuve historique. La saisie clavier
+multiligne avait accumulé l'indentation et produit des erreurs explicites.
+
+Une saisie clavier normale ligne par ligne répare la définition. Après
+enregistrement, sortie et réouverture, l'éditeur natif renvoie les 21 lignes
+`OnActivity` prévues, zéro erreur et un bouton Save désactivé. La rubrique est
+activée. Ses seules actions envoient une clarification non factuelle et annulent
+les dialogues suivants ; cinq tests hors ligne du garde et de la lecture
+préservent cette limite. La [preuve de récupération de persistance](../assets/runtime-2026-10-20/foundry-native-persistence-recovery.json)
+distingue le retrait historique et la vraie réparation.
+
+Un Hello immédiatement après enregistrement reste sans réponse. Un flux UI
+distinct récupère ensuite la livraison : attendre un nouvel accueil serveur et
+la frappe initiale finale, patienter dix secondes, saisir le texte, patienter
+500 millisecondes puis activer le bouton Send normal avec Entrée. Le vrai Hello
+et l'accueil original exact reçoivent le message enregistré et ses traces
+natives de rubrique/actions. L'exécution de cette rubrique précise est désormais
+prouvée pour ces tours ultérieurs, pas rétroactivement pour la première
+régression. Ni le délai ni le bouton Send seul n'est établi comme cause.
+
+### Les captures étendues exigent la fin du parent
+
+R3 soumet une fois chacune des onze questions originales, avec un vrai Hello
+par conversation. Toutes reçoivent une réponse native. Six captures initiales
+s'arrêtent cependant au marqueur final d'un message enfant, sans prouver la fin
+du parent. Elles sont conservées, non certifiées comme résultats d'acceptation
+complets. Les captures suivantes exigent `DynamicPlanFinished` ; l'accueil
+non factuel direct est prouvé par sa trace de rubrique/actions.
+
+Les tours hybrides complets 8 et 9 incluent les preuves locales et connectées.
+Le cas 10 contient une référence locale dans une étape de recherche terminée et
+une étape Foundry terminée, mais le message final n'intègre pas les champs du
+tableau local. Il ne prouve pas une absence de recherche locale. Le cas 11 se
+termine avec Foundry seul. La clarification place les cas hybrides avant les
+questions autonomes et rapides, inclut explicitement les récits SAR pour des
+fraudes nommées, et distingue exigences SAR et simple délai. Ses 3 005 caractères
+sont relus après rechargement complet. Aucune réponse financière, configuration
+Foundry, politique d'authentification ou permission n'est modifiée.
+
+### Tours natifs complets récupérés, acceptation encore incomplète
+
+Le [registre des tours complets](../assets/runtime-2026-10-20/foundry-native-matrix-completion-recovery.json)
+conserve désormais les identifiants serveur utilisateur/réponse pour les
+**onze questions originales**. Ce sont des tours complets sélectionnés entre
+exécutions nommées, pas une nouvelle exécution unique des onze cas. Toutes les
+combinaisons de gestionnaires attendues sont observées :
+
+| Scénarios originaux | Gestionnaire observé | Limite de couverture |
+|---------------------|----------------------|----------------------|
+| 1 | Accueil non factuel enregistré, sans recherche ni Foundry | Trace exacte de rubrique/actions |
+| 2–4 | Connaissance locale, sans Foundry | Citations du fichier chargé et étapes de recherche terminées |
+| 5–7 | Foundry connecté | Étapes natives déclenchées et terminées |
+| 8–11 | Connaissance locale et Foundry | Deux vrais routages et preuves locales/connectées affichées |
+
+Le contenu des exemples 1–7 est observé ; les exemples détaillés 8–11 restent
+partiels ou non confirmés. Ne pas imposer de références légales non étayées,
+d'obligations SAR automatiques, de priorités ou de restrictions de compte pour
+imiter un exemple. Le document principal Lab 6 illisible peut contenir d'autres
+critères. Les jointures indépendantes d'appartenance/version MCP restent absentes.
+
+L'audit examine **tous les messages enfant et parent affichés**, pas seulement
+le dernier, parfois réduit à une note de source. Sur 67 blocs entièrement entre
+guillemets, **quatre sont reformulés ou raccourcis, non des originaux verbatim** ;
+**20 n'ont pas de marqueur canonique individuel correct**. Une attribution groupée
+n'est pas une attribution par bloc. Citations intégrées et paraphrases exigent
+encore une revue sémantique. Le succès antérieur des quatre catégories est
+conservé, sans certifier ces réponses étendues.
+
+Le comptage reste explicite : R3 soumet 11 cibles ; le lot R4 de huit cas atteint
+son dernier cas, mais son résultat différé expire avant récupération. Ce nombre
+découle du flux séquentiel enregistré ; seules les métadonnées individuelles du
+cas 7 sont récupérées dans la session native encore active, sans relance. Les
+sept autres réponses ne sont pas reconstituées. R5 conserve ensuite dix cibles
+capturées individuellement.
+
+Une correction ciblée de complétude des incidents exécute ensuite deux cibles,
+puis s'arrête avant la troisième prévue. Son cas 8 réduit à tort plusieurs
+dépôts quotidiens à un par jour et invente un total agrégé exact. La variante de
+3 340 caractères est rejetée. Une lecture après rechargement complet confirme
+le retour à la configuration de **3 005 caractères** ; un seul contrôle exact
+du cas 8 après retour reçoit les deux sources sans inventer nombre de dépôts ni
+total. Cela n'établit ni causalité unique de l'instruction ni comportement futur
+garanti du modèle.
+
+Ces exécutions comptent **32 soumissions cibles**, dont les huit déduites du flux
+R4, et **21 cibles réexécutées après R3**. Aucune cible n'est relancée dans une même
+exécution. Les cibles ne comptent ni invocations modèle ni facturation ; QA
+initiale et contrôles ciblés historiques sont exclus. Échecs originaux, captures
+expirées et variante rejetée restent enregistrés.
+
+Livraison et routage sont récupérés, **pas l'acceptation de la matrice complète**.
+Il reste la couverture complète étayée et la fiabilité des citations/attributions.
+Le prompt BYOM original exige toujours un environnement approuvé compatible
+avec l'authentification ; les documents protégés exigent une source lisible
+autorisée. Aucune politique, permission ou consentement n'est modifié.
+Le brouillon reste non publié et les ressources Azure existantes facturables.
 
 ## Références officielles
 

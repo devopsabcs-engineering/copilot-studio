@@ -35,7 +35,20 @@ ms.date: 2026-10-21
 > natural/local/hybrid matrix or prove which intake topic executed.
 > The independent fresh-session R2 retest stops on one unacknowledged Hello
 > preflight before any scored target: all eleven cases remain unassessed in R2.
-> An external-browser check is requested; none has been obtained.
+> Later native readback exposed an empty intake definition. Normal keyboard
+> editing repaired it, and a saved/reopened readback plus actual topic/action
+> traces now prove its execution. A startup-readiness barrier and normal Send
+> button recovered native delivery without an external-browser result.
+> All eleven R3 questions received responses, but six child-stage captures are
+> not whole-parent acceptance evidence. Later captures require
+> `DynamicPlanFinished`; repeated validation targets are counted separately.
+> See the [persistence recovery](backend-live-2026-10-20.md#intake-persistence-and-native-delivery-recovered).
+> The [latest complete-turn ledger](backend-live-2026-10-20.md#complete-native-turns-recovered-acceptance-still-incomplete)
+> now contains all eleven original questions with the expected handler routes.
+> This is merged evidence, not one fresh eleven-case run. Complete-turn auditing
+> finds nonliteral quotations and grouped markers; detailed example coverage
+> remains incomplete. An incident-only variant failed and was rolled back,
+> with a genuine post-rollback canary. Full matrix/workshop acceptance remains failed.
 > Standard capacity
 > was corrected to 26,000 TPM / 26 RPM after a proven direct rate-limit failure.
 > A separate GPT-4.1 comparison completed with 6,357 measured tokens but still

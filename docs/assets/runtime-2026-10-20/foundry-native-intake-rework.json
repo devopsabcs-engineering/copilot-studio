@@ -1,16 +1,21 @@
 {
   "observed_date": "2026-10-21",
   "reason": "Expanded-matrix intake refusal and incomplete CTR lookup",
+  "historical_scope": "Initial implementation attempt and focused regression, before the later native persistence repair",
   "changes": {
     "isolated_unpublished_parent_only": true,
-    "nonfactual_guarded_intake_topic_saved": true,
+    "topic_component_created_and_saved": true,
+    "nonfactual_guarded_intake_topic_yaml_persistence_initially_established": false,
+    "earlier_yaml_persistence_claim_retracted_after_native_readback": true,
+    "action_and_guard_checks_describe_intended_yaml_not_initial_native_readback": true,
     "intake_topic_has_no_search_or_foundry_actions": true,
     "specific_domain_questions_excluded_from_intake_guard": true,
     "parent_instructions_previous_characters": 2054,
     "parent_instructions_current_characters": 2622,
     "complete_retrieved_table_fields_requested": true,
     "financial_answers_hardcoded_into_parent_or_intake_topic": false,
-    "native_save_and_instruction_readback_verified": true,
+    "topic_component_save_and_instruction_readback_verified": true,
+    "topic_yaml_readback_performed_during_initial_rework": false,
     "web_search_ungrounded_responses_and_deep_reasoning_remain_off": true,
     "foundry_agent_model_tools_and_corpus_changed": false,
     "offline_intake_guard_tests_passed": 3

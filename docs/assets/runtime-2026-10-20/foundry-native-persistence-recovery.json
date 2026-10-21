@@ -1,0 +1,77 @@
+{
+  "observed_date": "2026-10-21",
+  "scope": "Owned isolated unpublished workshop draft only",
+  "persistence_repair": {
+    "initial_topic_readback_was_empty_on_recognized_intent": true,
+    "earlier_yaml_persistence_claim_retracted": true,
+    "component_name_save_was_not_yaml_persistence_proof": true,
+    "multiline_keyboard_autoindent_produced_explicit_parse_errors": true,
+    "normal_line_by_line_keyboard_editing_used": true,
+    "dom_or_monaco_model_mutation_used": false,
+    "saved_and_reopened_at_utc": "2026-10-21T18:56:51.375Z",
+    "canonical_readback_lines": 21,
+    "parse_errors": 0,
+    "save_disabled_after_readback": true,
+    "topic_enabled": true,
+    "on_activity_message_guard_verified": true,
+    "only_send_activity_and_cancel_all_dialogs_actions": true,
+    "bare_greetings_and_vague_intake_guarded": true,
+    "specific_original_domain_questions_not_intercepted": true,
+    "offline_guard_and_readback_tests_passed": 5
+  },
+  "native_recovery_preflight": {
+    "conversation_id": "43d3564a-b18e-4930-a6fa-94047764fd64",
+    "user_activity_id": "82bae562-e1b9-41af-98c2-d304f4595b52",
+    "reply_activity_id": "e5e5c939-db54-47cf-94c9-e8b0aae4d30e",
+    "user_activity_utc": "2026-10-21T19:09:27.9013908+00:00",
+    "reply_activity_utc": "2026-10-21T19:09:27.952537+00:00",
+    "exact_registered_clarification_reply_received": true,
+    "native_topic_and_action_trace_observed": true
+  },
+  "original_intake_scenario": {
+    "user_activity_id": "9b7545db-90b4-40c0-81e5-a3dd587359b8",
+    "reply_activity_id": "e9945b1f-06d4-4093-ae4c-b5599589df2d",
+    "user_activity_utc": "2026-10-21T19:15:35.8825121+00:00",
+    "reply_activity_utc": "2026-10-21T19:15:35.9199834+00:00",
+    "registered_intake_execution_proven": true,
+    "nonfactual_source_free_response": true
+  },
+  "verified_delivery_workflow": {
+    "new_server_greeting_and_startup_final_required": true,
+    "startup_settle_seconds": 10,
+    "input_settle_milliseconds": 500,
+    "normal_send_button_activated_with_enter": true,
+    "immediate_post_persistence_hello_also_failed": true,
+    "repair_alone_claimed_to_explain_transport_recovery": false,
+    "sole_causal_attribution_to_delay_or_send_button": false,
+    "external_browser_test_result_obtained": false
+  },
+  "routing_clarification": {
+    "previous_parent_instruction_characters": 2622,
+    "saved_parent_instruction_characters": 3005,
+    "full_reload_readback_at_utc": "2026-10-21T20:06:39.678Z",
+    "hybrid_rule_precedes_standalone_and_quick_lookup_rules": true,
+    "hybrid_does_not_require_amount_timeframe_or_question_mark": true,
+    "named_fraud_sar_narrative_requests_explicitly_hybrid": true,
+    "sar_requirements_distinguished_from_deadline_only_lookup": true,
+    "financial_answers_hardcoded": false
+  },
+  "capture_boundary": {
+    "child_stream_final_is_not_parent_completion": true,
+    "dynamic_plan_finished_required_for_generative_turns": true,
+    "direct_nonfactual_intake_verified_by_topic_action_trace": true,
+    "earlier_six_child_stage_captures_not_certified_as_whole_turns": true,
+    "absence_of_source_id_in_narrow_trace_not_called_retrieval_absence": true
+  },
+  "preservation": {
+    "historical_failures_and_unacknowledged_attempts_retained": true,
+    "foundry_agent_model_tools_corpus_and_endpoint_unchanged": true,
+    "original_failed_protected_docx_retained": true,
+    "public_reference_not_claimed_equivalent_to_protected_docx": true,
+    "authentication_policy_roles_and_consent_unchanged": true,
+    "native_mcp_membership_or_version_join_claimed": false,
+    "new_arm_resources_created": false,
+    "existing_billable_resources_retained": true,
+    "overall_workshop_certified": false
+  }
+}

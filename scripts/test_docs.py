@@ -886,6 +886,97 @@ class WikiTests(unittest.TestCase):
             self.assertIn(rework_name, text)
             self.assertIn(retest_name, text)
 
+    def test_native_persistence_recovery_does_not_rewrite_earlier_evidence(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-20"
+        old = json.loads((assets / "foundry-native-intake-rework.json").read_text("utf-8"))
+        self.assertFalse(old["changes"]["nonfactual_guarded_intake_topic_yaml_persistence_initially_established"])
+        self.assertTrue(old["changes"]["earlier_yaml_persistence_claim_retracted_after_native_readback"])
+        self.assertFalse(old["changes"]["topic_yaml_readback_performed_during_initial_rework"])
+        filename = "foundry-native-persistence-recovery.json"
+        receipt = json.loads((assets / filename).read_text("utf-8"))
+        repair = receipt["persistence_repair"]
+        self.assertTrue(repair["initial_topic_readback_was_empty_on_recognized_intent"])
+        self.assertTrue(repair["normal_line_by_line_keyboard_editing_used"])
+        self.assertFalse(repair["dom_or_monaco_model_mutation_used"])
+        self.assertEqual(repair["parse_errors"], 0)
+        self.assertTrue(repair["topic_enabled"])
+        self.assertEqual(repair["offline_guard_and_readback_tests_passed"], 5)
+        self.assertTrue(receipt["native_recovery_preflight"]["native_topic_and_action_trace_observed"])
+        self.assertTrue(receipt["original_intake_scenario"]["registered_intake_execution_proven"])
+        workflow = receipt["verified_delivery_workflow"]
+        self.assertTrue(workflow["immediate_post_persistence_hello_also_failed"])
+        self.assertFalse(workflow["sole_causal_attribution_to_delay_or_send_button"])
+        self.assertFalse(workflow["external_browser_test_result_obtained"])
+        routing = receipt["routing_clarification"]
+        self.assertEqual(routing["saved_parent_instruction_characters"], 3005)
+        self.assertFalse(routing["financial_answers_hardcoded"])
+        boundary = receipt["capture_boundary"]
+        self.assertTrue(boundary["child_stream_final_is_not_parent_completion"])
+        self.assertTrue(boundary["dynamic_plan_finished_required_for_generative_turns"])
+        self.assertTrue(boundary["absence_of_source_id_in_narrow_trace_not_called_retrieval_absence"])
+        self.assertFalse(receipt["preservation"]["overall_workshop_certified"])
+        self.assertFalse(receipt["preservation"]["native_mcp_membership_or_version_join_claimed"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "backend-live-2026-10-20.md").read_text("utf-8")
+            self.assertIn(filename, text)
+            self.assertIn("DynamicPlanFinished", text)
+
+    def test_complete_native_turns_do_not_certify_failed_quotation_or_example_gates(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "foundry-native-matrix-completion-recovery.json"
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / filename
+        receipt = json.loads(path.read_text("utf-8"))
+        self.assertEqual(receipt["current_parent_instruction_characters"], 3005)
+        self.assertEqual(receipt["complete_native_turns"], 11)
+        self.assertEqual(receipt["original_exact_question_matches"], 11)
+        self.assertEqual([row["scenario"] for row in receipt["cases"]], list(range(1, 12)))
+        for row in receipt["cases"]:
+            number = row["scenario"]
+            self.assertTrue(row["completed_native_turn"])
+            self.assertTrue(row["original_question_exact_match"])
+            self.assertIn(row["reply_activity_id"], row["displayed_response_activity_ids"])
+            self.assertFalse(row["native_mcp_membership_or_version_join_claimed"])
+            self.assertTrue(row["quoted_block_audit_covers_all_displayed_messages"])
+            self.assertEqual(row["knowledge_search_event_observed"],
+                             number in (2, 3, 4, 8, 9, 10, 11))
+            self.assertEqual(row["foundry_step_triggered"], number >= 5)
+            self.assertEqual(row["foundry_step_finished"], number >= 5)
+            if number == 1:
+                self.assertTrue(row["direct_intake_topic_action_proven"])
+            else:
+                self.assertTrue(row["whole_generative_plan_finished"])
+            if number >= 8:
+                self.assertTrue(row["displayed_response_local_filename_citation"])
+                self.assertEqual(row["original_example_content_review"], "partial_or_unconfirmed")
+        self.assertEqual(receipt["quoted_block_count"], 67)
+        self.assertEqual(receipt["nonliteral_quoted_block_count"], 4)
+        self.assertEqual(receipt["blocks_without_correct_individual_marker"], 20)
+        self.assertFalse(receipt["all_audited_blocks_authentic"])
+        self.assertFalse(receipt["all_audited_blocks_individually_attributed"])
+        counts = receipt["execution_accounting"]
+        self.assertEqual(counts["total_targets_since_r3_including_control_flow_inferred_r4"], 32)
+        self.assertEqual(counts["reexecuted_targets_after_r3"], 21)
+        self.assertTrue(counts["r4_deferred_batch_handle_expired"])
+        self.assertEqual(counts["r4_individual_case_metadata_recovered"], [7])
+        self.assertTrue(counts["r4_seven_earlier_answer_bodies_not_recovered"])
+        self.assertEqual(counts["within_round_target_retries"], 0)
+        rollback = receipt["discarded_incident_rework"]
+        self.assertTrue(rollback["unsupported_exact_aggregate_total_invented"])
+        self.assertTrue(rollback["change_not_promoted"])
+        self.assertTrue(rollback["prior_3005_character_configuration_restored"])
+        self.assertTrue(rollback["post_rollback_canary_did_not_invent_a_deposit_count_or_total"])
+        claims = receipt["acceptance_boundary"]
+        self.assertTrue(claims["all_eleven_expected_handler_routes_observed"])
+        self.assertFalse(claims["full_matrix_acceptance_passed"])
+        self.assertFalse(claims["all_original_expected_response_items_certified"])
+        self.assertFalse(claims["original_native_prompt_byom_completed"])
+        self.assertFalse(claims["overall_workshop_certified"])
+        self.assertTrue(all(not value for value in receipt["publication_safety"].values()))
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "backend-live-2026-10-20.md").read_text("utf-8")
+            self.assertIn(filename, text)
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"
