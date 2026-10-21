@@ -576,6 +576,23 @@ class WikiTests(unittest.TestCase):
             self.assertFalse(result[key])
         self.assertTrue(result["fresh_unfiltered_native_connection_absence_verified"])
 
+    def test_shared_browser_input_is_not_external_authentication_recovery(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-shared-browser-input.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["normal_keyboard_activation_opened_form"])
+        self.assertTrue(result["probe_persisted_after_blur"])
+        self.assertTrue(result["create_enabled_after_probe"])
+        self.assertTrue(result["form_canceled_and_dialog_closed"])
+        self.assertTrue(result["returned_to_saved_connections_page"])
+        for key in ("create_invocations", "authentication_submissions", "resources_provisioned"):
+            self.assertEqual(result[key], 0)
+        for key in ("external_edge_input_recovery_proven",
+                    "integrated_browser_popup_restriction_resolved", "consent_granted",
+                    "browser_security_changed", "tokens_or_cookies_extracted",
+                    "overall_workshop_certified"):
+            self.assertFalse(result[key])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

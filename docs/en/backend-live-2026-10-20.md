@@ -585,6 +585,25 @@ was unavailable. No fresh project was provisioned merely to repeat this blocker;
 the previously verified cleanup remains valid. Full runtime acceptance is still
 blocked, not complete.
 
+## Shared browser recovered form input, not external authentication
+
+The subsequently shared Connections page was readable through the integrated
+browser tools. Pointer clicks timed out even after normal bring-to-front.
+Ordinary keyboard activation opened New connection and the real Agent Service
+form. The harmless `https://example.invalid` endpoint probe persisted after
+blur and enabled Create. The form still selected **Microsoft Entra ID User
+Login**.
+
+The [shared-browser receipt](../assets/runtime-2026-10-20/foundry-shared-browser-input.json)
+therefore proves working input on this shared integrated page, superseding the
+need for manual foregrounding on that route only. It does not prove recovered
+external Edge input or removal of the previously observed integrated-browser
+authentication pop-up restriction. Create was never invoked. The form was
+canceled, its dialog closed, and normal navigation returned to saved Connections.
+No resource, consent, authentication submission or security change occurred.
+The working input alone does not justify another paid environment or count as
+a connected Activity conversation.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

@@ -611,6 +611,25 @@ n'était pas disponible. Aucun nouveau projet n'a été créé pour répéter ce
 blocage ; le nettoyage vérifié reste valide. L'acceptation réelle complète
 reste bloquée, non terminée.
 
+## Saisie rétablie dans le navigateur partagé, non authentification externe
+
+La page Connections partagée ensuite était lisible avec les outils du navigateur
+intégré. Les clics expiraient même après la mise au premier plan normale.
+L'activation clavier ordinaire a ouvert New connection et le vrai formulaire
+Agent Service. La sonde inoffensive `https://example.invalid` persistait après
+perte du focus et activait Create. Le formulaire sélectionnait toujours
+**Microsoft Entra ID User Login**.
+
+La [preuve du navigateur partagé](../assets/runtime-2026-10-20/foundry-shared-browser-input.json)
+prouve donc la saisie sur cette page intégrée et lève le besoin de mise au premier
+plan manuelle pour cette seule voie. Elle ne prouve ni la reprise de saisie dans
+Edge externe ni la levée du blocage de fenêtre d'authentification déjà observé
+dans le navigateur intégré. Create n'a jamais été invoqué. Le formulaire a été
+annulé, sa fenêtre fermée et la navigation normale est revenue aux connexions
+sauvegardées. Aucune ressource, consentement, soumission ou modification de
+sécurité. La seule saisie ne justifie pas un autre environnement payant et ne
+compte pas comme conversation Activity connectée.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

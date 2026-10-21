@@ -110,7 +110,10 @@ at 23:58:49 UTC, with project/account/group 404 and governance preserved.
 A soft-deleted account recovery record remains; no purge was attempted.
 An [additional no-resource input prerequisite check](backend-live-2026-10-20.md#additional-native-input-prerequisite-remained-blocked)
 stopped before the Legacy probe because the browser could not be foregrounded
-and the form did not open. Manual foregrounding remains required. The
+and the form did not open. A later [shared integrated-browser input check](backend-live-2026-10-20.md#shared-browser-recovered-form-input-not-external-authentication)
+opened the form with normal keyboard activation and verified a harmless endpoint
+probe, then canceled without submission. External Edge recovery and removal of
+the integrated authentication pop-up restriction remain unproven. The
 [published Inference connector contract](lab-04.md#objectives-and-prerequisites)
 also requires an API key; it documents no Entra alternative for that connector.
 

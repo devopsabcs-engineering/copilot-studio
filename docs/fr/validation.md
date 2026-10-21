@@ -114,7 +114,10 @@ Les [ressources d'authentification ont été supprimées](../assets/runtime-2026
 L'enregistrement de récupération du compte supprimé reste présent, sans purge.
 Un [contrôle supplémentaire du prérequis de saisie sans ressource](backend-live-2026-10-20.md#prérequis-supplémentaire-de-saisie-native-toujours-bloqué)
 s'est arrêté avant la sonde Legacy : navigateur non mis au premier plan et
-formulaire non ouvert. L'intervention manuelle reste requise. Le
+formulaire non ouvert. Un [contrôle ultérieur dans le navigateur intégré partagé](backend-live-2026-10-20.md#saisie-rétablie-dans-le-navigateur-partagé-non-authentification-externe)
+a ouvert le formulaire au clavier et vérifié une sonde inoffensive, puis annulé
+sans soumission. La reprise Edge externe et la levée du blocage de fenêtre
+d'authentification intégré restent non prouvées. Le
 [contrat publié du connecteur Inference](lab-04.md#objectifs-et-prérequis)
 exige aussi une clé API, sans alternative Entra documentée pour ce connecteur.
 

@@ -1,0 +1,23 @@
+{
+  "observed_date_utc": "2026-10-21",
+  "route": "Explicitly shared VS Code integrated browser Connections page",
+  "normal_pointer_click_completed": false,
+  "normal_bring_to_front_invoked": true,
+  "normal_keyboard_activation_opened_form": true,
+  "connector": "Azure AI Foundry Agent Service",
+  "authentication_selection": "Microsoft Entra ID User Login",
+  "probe": "https://example.invalid",
+  "probe_persisted_after_blur": true,
+  "create_enabled_after_probe": true,
+  "create_invocations": 0,
+  "authentication_submissions": 0,
+  "form_canceled_and_dialog_closed": true,
+  "returned_to_saved_connections_page": true,
+  "resources_provisioned": 0,
+  "external_edge_input_recovery_proven": false,
+  "integrated_browser_popup_restriction_resolved": false,
+  "consent_granted": false,
+  "browser_security_changed": false,
+  "tokens_or_cookies_extracted": false,
+  "overall_workshop_certified": false
+}

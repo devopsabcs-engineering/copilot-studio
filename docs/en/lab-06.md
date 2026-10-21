@@ -71,8 +71,11 @@ remains without purge. A future attempt needs a fresh approved endpoint.
 
 An additional [no-resource native input check](backend-live-2026-10-20.md#additional-native-input-prerequisite-remained-blocked)
 could not foreground the browser or open the form. It stopped before testing
-Legacy input, with zero authentication submissions. Manual foregrounding and
-opening the blank form are required before that input method can be evaluated.
+Legacy input, with zero authentication submissions. A later
+[shared integrated-browser check](backend-live-2026-10-20.md#shared-browser-recovered-form-input-not-external-authentication)
+opened the form through ordinary keyboard activation and verified harmless
+endpoint input, then canceled. This does not prove external Edge recovery or
+resolve the integrated-browser authentication pop-up restriction.
 
 After the approved trial extension, the isolated Standard draft's actual
 Microsoft Foundry connection dialog offered **Microsoft Entra ID User Login**
