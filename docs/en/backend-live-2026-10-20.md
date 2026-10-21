@@ -604,6 +604,53 @@ No resource, consent, authentication submission or security change occurred.
 The working input alone does not justify another paid environment or count as
 a connected Activity conversation.
 
+## Manual external connection succeeded; Activity response remains unverified
+
+The user's external Edge screenshot at **01:07:15 UTC on 21 October** showed
+**Workshop Foundry Validation**, Azure AI Foundry Agent Service (Preview),
+**Connected** in the intended environment. This supersedes the authentication
+blocker for this connection only. Consent details are not inferred.
+
+A fresh owned keyless account/project was prepared for that manual form, then
+extended with one **GPT-4.1-mini 2025-04-14 Standard capacity 1** deployment and
+one enabled **workshop-validation-specialist**, version **1**, supporting
+Activity and Responses. No new roles or retrieval sources were added.
+These resources are **currently live and held for diagnosis**. Their
+**04:58:55 UTC on 21 October** expiry tag is not automatic deletion. Earlier
+cleanup receipts concern different runs and do not prove this run deleted.
+
+The connected agent was added through the existing connection in the isolated
+draft, then reopened to verify persistence. The native action is
+`InvokeExternalAgentTaskAction`, `ActivityProtocolMetadata`, `SendActivityV2`,
+with the correct agent ID and Invoker credentials. Classic orchestration,
+existing Search/telemetry topics and unpublished status were preserved.
+
+The first generic prompt produced the existing source-aware Search abstention,
+not a connected invocation. A dedicated **Workshop Foundry connection check**
+topic was then saved and reopened with zero checker errors/warnings. Its exact
+trigger, `workshop foundry connection check`, invokes the existing connected
+action through `BeginDialog`; it contains no hardcoded success response.
+
+One fresh corrective test at **01:41:26 UTC** proved topic execution and target
+binding through native `DialogTracing` and `DynamicPlanStepBindUpdate`.
+At **01:50:45 UTC**, no response or error had appeared. This is a failed runtime
+acceptance observation, not a platform-returned timeout or proven authentication
+failure. Dispatch, downstream execution and callback delivery remain unverified.
+
+One distinct direct Responses diagnostic completed in **5.78 seconds** and
+returned **I am the workshop validation specialist. Foundry connection verified.**
+It consumed **75 input + 13 output = 88 tokens**, with zero retries. This verifies
+backend inference for the CLI identity, not the connector identity or Activity
+transport. Live metadata already showed enabled Activity/Responses; no evidence
+supports a missing publish step or a speculative role/protocol change.
+
+The [connected runtime receipt](../assets/runtime-2026-10-20/foundry-manual-connection-runtime.json)
+preserves these boundaries and the historical initial failure. The next diagnostic
+is server-side connector/runtime correlation for conversation
+`46bdd592-bb45-40ae-adaf-e031960c70fa`, prompt activity
+`0da156dc-11ae-4f3a-98d8-2b81be3e3c2b`, at **01:41:26 UTC**. The stall's root
+cause is unknown. The full workshop remains incomplete.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

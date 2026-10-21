@@ -11,6 +11,14 @@ ms.topic: tutorial
 
 Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un agent Foundry connecté effectue le travail approfondi ; une base de connaissances Search récupère des passages de plusieurs sources ; un modèle rédige la réponse. Model Context Protocol (MCP) expose l'outil de recherche à l'agent Foundry. Prévoyez 120 à 180 minutes après la fourniture des ressources et la revue de compatibilité par un administrateur.
 
+> [!WARNING]
+> La nouvelle connexion externe manuelle est **Connected** et l'inférence Responses
+> directe réussit. La liaison de cible Activity native a réussi, sans réponse
+> connectée observée. Le nouveau compte/projet, modèle Standard capacité 1 et agent
+> restent **actifs pour diagnostic** ; le tag d'expiration ne supprime rien.
+> Les anciennes preuves de suppression ne couvrent pas cette exécution.
+> Voir les [limites actuelles](backend-live-2026-10-20.md#connexion-externe-manuelle-réussie-réponse-activity-non-vérifiée).
+
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.
 > L'environnement actuel a échoué sur une importation parmi 15 : la classe de

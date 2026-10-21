@@ -1,0 +1,85 @@
+{
+  "recorded_date_utc": "2026-10-21",
+  "manual_connection": {
+    "display_name": "Workshop Foundry Validation",
+    "connector": "Azure AI Foundry Agent Service (Preview)",
+    "status": "Connected",
+    "evidence": "User-provided external Edge screenshot at 2026-10-21T01:07:15Z.",
+    "consent_details_inferred": false
+  },
+  "owned_runtime": {
+    "lifecycle": "live_held_for_connected_diagnosis",
+    "model": "gpt-4.1-mini",
+    "model_version": "2025-04-14",
+    "deployment_sku": "Standard",
+    "deployment_capacity": 1,
+    "agent": "workshop-validation-specialist",
+    "agent_version": "1",
+    "protocols": ["activity", "responses"],
+    "keyless_preserved": true,
+    "new_role_grants": 0,
+    "retrieval_sources_added": 0,
+    "expiry_tag_utc": "2026-10-21T04:58:55Z",
+    "expiry_tag_is_automatic_cleanup": false,
+    "prior_deleted_run_reused": false
+  },
+  "native_attachment": {
+    "enabled": true,
+    "saved_and_reopened": true,
+    "action_kind": "InvokeExternalAgentTaskAction",
+    "protocol_kind": "ActivityProtocolMetadata",
+    "operation": "SendActivityV2",
+    "credentials": "Invoker",
+    "correct_agent_id_verified": true,
+    "classic_orchestration_preserved": true,
+    "published": false
+  },
+  "initial_generic_prompt": {
+    "prompt_count": 1,
+    "result": "Source-aware Search abstention; no connected-agent invocation evidenced.",
+    "passed": false
+  },
+  "corrective_topic": {
+    "trigger": "workshop foundry connection check",
+    "saved_and_reopened": true,
+    "checker_errors": 0,
+    "checker_warnings": 0,
+    "begin_dialog_target": "new_WorkshopValidation20261020.action.workshop-validation-specialist",
+    "hardcoded_success_response": false
+  },
+  "corrective_native_test": {
+    "conversation_id": "46bdd592-bb45-40ae-adaf-e031960c70fa",
+    "prompt_activity_id": "0da156dc-11ae-4f3a-98d8-2b81be3e3c2b",
+    "prompt_utc": "2026-10-21T01:41:26.8280887+00:00",
+    "prompt_count": 1,
+    "begin_dialog_trace_verified": true,
+    "target_binding_trace_verified": true,
+    "downstream_dispatch_verified": false,
+    "downstream_execution_verified": false,
+    "response_received": false,
+    "last_observation_utc": "2026-10-21T01:50:45Z",
+    "platform_timeout_or_authentication_error_observed": false,
+    "runtime_passed": false
+  },
+  "direct_responses_diagnostic": {
+    "attempts": 1,
+    "retries": 0,
+    "completed": true,
+    "elapsed_seconds": 5.78,
+    "output": "I am the workshop validation specialist. Foundry connection verified.",
+    "input_tokens": 75,
+    "output_tokens": 13,
+    "total_tokens": 88,
+    "connector_identity_verified": false,
+    "activity_transport_verified": false
+  },
+  "diagnosis": {
+    "root_cause": "unknown",
+    "boundary": "Invoker connection resolution, Activity dispatch or reply callback; available traces do not distinguish these stages.",
+    "next": "Obtain server-side connector/runtime correlation for the recorded conversation and activity before changing configuration.",
+    "speculative_fix_applied": false
+  },
+  "original_agents_modified": false,
+  "policy_or_consent_changes_by_automation": false,
+  "overall_workshop_certified": false
+}

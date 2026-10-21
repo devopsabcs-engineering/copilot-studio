@@ -593,6 +593,43 @@ class WikiTests(unittest.TestCase):
                     "overall_workshop_certified"):
             self.assertFalse(result[key])
 
+    def test_manual_connection_and_direct_smoke_do_not_imply_activity_success(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-manual-connection-runtime.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(result["manual_connection"]["status"], "Connected")
+        self.assertFalse(result["manual_connection"]["consent_details_inferred"])
+        runtime = result["owned_runtime"]
+        self.assertEqual(runtime["lifecycle"], "live_held_for_connected_diagnosis")
+        self.assertEqual(runtime["deployment_sku"], "Standard")
+        self.assertEqual(runtime["deployment_capacity"], 1)
+        self.assertTrue(runtime["keyless_preserved"])
+        self.assertFalse(runtime["expiry_tag_is_automatic_cleanup"])
+        self.assertEqual(runtime["new_role_grants"], 0)
+        self.assertEqual(result["native_attachment"]["operation"], "SendActivityV2")
+        self.assertTrue(result["native_attachment"]["saved_and_reopened"])
+        self.assertFalse(result["initial_generic_prompt"]["passed"])
+        self.assertFalse(result["corrective_topic"]["hardcoded_success_response"])
+        native = result["corrective_native_test"]
+        self.assertEqual(native["prompt_count"], 1)
+        self.assertTrue(native["begin_dialog_trace_verified"])
+        self.assertTrue(native["target_binding_trace_verified"])
+        for key in ("downstream_dispatch_verified", "downstream_execution_verified",
+                    "response_received", "platform_timeout_or_authentication_error_observed",
+                    "runtime_passed"):
+            self.assertFalse(native[key])
+        direct = result["direct_responses_diagnostic"]
+        self.assertTrue(direct["completed"])
+        self.assertEqual(direct["attempts"], 1)
+        self.assertEqual(direct["retries"], 0)
+        self.assertEqual(direct["total_tokens"], direct["input_tokens"] + direct["output_tokens"])
+        self.assertFalse(direct["activity_transport_verified"])
+        self.assertFalse(direct["connector_identity_verified"])
+        self.assertEqual(result["diagnosis"]["root_cause"], "unknown")
+        self.assertFalse(result["diagnosis"]["speculative_fix_applied"])
+        self.assertFalse(result["original_agents_modified"])
+        self.assertFalse(result["overall_workshop_certified"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

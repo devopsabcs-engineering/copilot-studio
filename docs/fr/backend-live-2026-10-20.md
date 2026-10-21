@@ -630,6 +630,53 @@ sauvegardées. Aucune ressource, consentement, soumission ou modification de
 sécurité. La seule saisie ne justifie pas un autre environnement payant et ne
 compte pas comme conversation Activity connectée.
 
+## Connexion externe manuelle réussie, réponse Activity non vérifiée
+
+La capture Edge externe fournie à **01:07:15 UTC le 21 octobre** affichait
+**Workshop Foundry Validation**, Azure AI Foundry Agent Service (Preview),
+**Connected** dans le bon environnement. Le blocage d'authentification est levé
+pour cette connexion seulement, sans déduire les détails du consentement.
+
+Un nouveau compte/projet dédié sans clé a été préparé pour ce formulaire, puis
+complété par un déploiement **GPT-4.1-mini 2025-04-14 Standard capacité 1** et
+un agent activé **workshop-validation-specialist**, version **1**, avec Activity
+et Responses. Aucun rôle ni source de recherche ajouté. Ces ressources sont
+**actuellement actives et conservées pour diagnostic**. Le tag d'expiration
+**04:58:55 UTC le 21 octobre** ne supprime rien automatiquement. Les preuves
+de nettoyage antérieures concernent d'autres exécutions, non celle-ci.
+
+L'agent connecté a été ajouté via la connexion existante au brouillon isolé,
+puis rouvert pour vérifier la persistance. Action native :
+`InvokeExternalAgentTaskAction`, `ActivityProtocolMetadata`, `SendActivityV2`,
+avec le bon identifiant et les droits Invoker. Orchestration classique,
+rubriques Search/télémétrie existantes et état non publié préservés.
+
+La première question générique a produit l'abstention Search existante, non
+un appel connecté. Une rubrique dédiée **Workshop Foundry connection check**
+a ensuite été sauvegardée et rouverte avec zéro erreur/avertissement.
+Son déclencheur exact, `workshop foundry connection check`, appelle l'action
+connectée via `BeginDialog`, sans réponse de réussite codée en dur.
+
+Un seul test correctif neuf à **01:41:26 UTC** a prouvé l'exécution de rubrique
+et la liaison de cible via `DialogTracing` et `DynamicPlanStepBindUpdate`.
+À **01:50:45 UTC**, aucune réponse ni erreur. C'est un échec d'observation
+d'acceptation réelle, non un délai renvoyé par la plateforme ni une erreur
+d'authentification établie. Envoi, exécution distante et retour restent non vérifiés.
+
+Un diagnostic Responses direct distinct a réussi en **5,78 secondes**, avec
+**I am the workshop validation specialist. Foundry connection verified.**
+Coût mesuré : **75 jetons d'entrée + 13 de sortie = 88**, sans reprise.
+Cela valide l'inférence pour l'identité CLI, non celle du connecteur ni le
+transport Activity. Les métadonnées confirmaient déjà Activity/Responses actifs ;
+aucune preuve ne justifie publication, rôle ou protocole supplémentaire.
+
+La [preuve d'exécution connectée](../assets/runtime-2026-10-20/foundry-manual-connection-runtime.json)
+préserve ces limites et l'échec initial. Le prochain diagnostic exige une
+corrélation serveur connecteur/runtime pour la conversation
+`46bdd592-bb45-40ae-adaf-e031960c70fa`, activité
+`0da156dc-11ae-4f3a-98d8-2b81be3e3c2b`, à **01:41:26 UTC**.
+La cause du blocage reste inconnue. L'atelier complet reste incomplet.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

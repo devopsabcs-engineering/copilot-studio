@@ -8,7 +8,16 @@ ms.date: 2026-10-20
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
-Dernières preuves : [registre de réexécution réelle](live-rerun-2026-10-19.md).
+> [!IMPORTANT]
+> Dernière poursuite : connexion Foundry externe manuelle **Connected**,
+> rattachement natif et rubrique explicite persistants, inférence Responses directe
+> réussie. Le test Activity natif correctif a prouvé la liaison de cible, mais sans
+> réponse observée ; acceptation connectée non vérifiée. Ce nouveau compte/projet/
+> modèle/agent est **actif et conservé pour diagnostic**, contrairement aux anciennes
+> exécutions supprimées. Le tag d'expiration ne supprime rien.
+> Voir les [preuves actuelles connexion/runtime](backend-live-2026-10-20.md#connexion-externe-manuelle-réussie-réponse-activity-non-vérifiée).
+
+Preuves antérieures : [registre de réexécution réelle](live-rerun-2026-10-19.md).
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de
 15 instances, 14 contrôles modèle/recherche sans clé et un événement synthétique
 Application Insights réellement corrélé par KQL ont réussi. Les ressources ont
