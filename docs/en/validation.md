@@ -19,9 +19,14 @@ ms.date: 2026-10-20
 > by the assistant. Real retrieval now joins all 24 records, but connected domain
 > tests and semantic grounding regressions have not passed. Standard capacity
 > was corrected to 26,000 TPM / 26 RPM after a proven direct rate-limit failure.
+> A separate GPT-4.1 comparison completed with 6,357 measured tokens but still
+> failed conditional-duty grounding. Its temporary agent/deployment were deleted
+> with independent 404 checks; it was not promoted to the native agent.
 > Search Basic, embeddings, account/project and both agents are **live and retained**,
 > unlike the earlier deleted runs. Its expiry tag does not delete resources.
 > See the [current original-requirement validation](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
+> The [model-only comparison](backend-live-2026-10-20.md#full-model-comparison-completed-but-did-not-resolve-grounding)
+> did not resolve the remaining acceptance failures.
 
 Earlier execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,

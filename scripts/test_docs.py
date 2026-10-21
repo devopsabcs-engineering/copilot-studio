@@ -702,6 +702,43 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(result["preservation"]["search_project_account_models_agents_connections_still_live"])
         self.assertFalse(result["preservation"]["overall_workshop_certified"])
 
+    def test_model_comparison_preserves_failure_and_cleanup_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "foundry-model-comparison.json"
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / filename
+        result = json.loads(path.read_text(encoding="utf-8"))
+        initial = result["initial_request_validation"]
+        self.assertEqual(initial["http_status"], 400)
+        self.assertFalse(initial["completion_returned"])
+        comparison = result["isolated_comparison"]
+        self.assertEqual(comparison["changed_definition_fields"], ["model"])
+        self.assertTrue(comparison["instructions_tools_temperature_and_prompt_unchanged"])
+        self.assertEqual(comparison["inference_attempts"], 1)
+        self.assertEqual(comparison["retries"], 0)
+        self.assertTrue(comparison["completed"])
+        self.assertEqual(comparison["total_tokens"],
+                         comparison["input_tokens"] + comparison["output_tokens"])
+        self.assertEqual(comparison["exact_original_source_joins"], 24)
+        self.assertEqual(sum(comparison["source_counts"].values()), 24)
+        self.assertTrue(comparison["displayed_record_source_locators_exist_and_match_actual_source"])
+        self.assertFalse(comparison["semantic_grounding_passed"])
+        self.assertEqual(len(comparison["failure_families"]), 3)
+        self.assertFalse(comparison["connected_acceptance_passed"])
+        self.assertFalse(comparison["failed_configuration_promoted_to_native_agent"])
+        cleanup = result["cleanup"]
+        self.assertEqual(cleanup["temporary_agent_get_after_delete"], 404)
+        self.assertEqual(cleanup["temporary_deployment_get_after_delete"], 404)
+        self.assertTrue(cleanup["both_temporary_resource_deletions_verified"])
+        preservation = result["preservation"]
+        self.assertTrue(preservation["existing_retrieval_and_smoke_agents_unchanged"])
+        self.assertTrue(preservation["existing_search_project_models_and_agents_still_live"])
+        self.assertEqual(preservation["security_policy_role_and_consent_changes"], 0)
+        self.assertFalse(preservation["private_answers_and_source_excerpts_published"])
+        self.assertFalse(preservation["overall_workshop_certified"])
+        for language in ("en", "fr"):
+            report = root / "docs" / language / "backend-live-2026-10-20.md"
+            self.assertIn(filename, report.read_text(encoding="utf-8"))
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

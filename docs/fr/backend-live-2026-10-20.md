@@ -783,6 +783,47 @@ avec propriété et nettoyage suivis. Les tags ne suppriment rien. Couverture
 connectée complète et vrai BYOM restent incomplets ; aucun agent d'origine ni
 politique de sécurité modifié.
 
+## Comparaison avec le modèle complet sans résolution de l'ancrage
+
+Une comparaison portant uniquement sur le modèle a testé si les échecs de
+synthèse provenaient du petit modèle. Le service a rejeté la première tentative
+de remplacement avec HTTP 400 `invalid_payload` : le modèle demandé doit
+correspondre à celui de l'agent référencé. Aucune réponse ni consommation
+retournée. Le déploiement temporaire a été supprimé, avec absence vérifiée ;
+l'agent existant n'a pas été modifié.
+
+L'alternative prise en charge utilisait un agent temporaire distinct, copié de
+la version de recherche 2, en ne changeant que son déploiement vers
+**GPT-4.1 2025-04-14**. Instructions, température, outil MCP, données sources et
+question combinée restaient identiques. Le quota Standard régional a été vérifié
+avant création d'un déploiement à la consommation de capacité 26, sans débit
+provisionné.
+
+Un appel, sans reprise, a terminé en **24,539 secondes**, avec
+**5 627 entrée + 730 sortie = 6 357 jetons**. Le résultat MCP persisté joint les
+24 originaux. Les identifiants et domaines sources affichés existaient et
+correspondaient aux vrais résultats, sans prouver l'ancrage de chaque affirmation.
+La comparaison manuelle avec ces passages a relevé trois familles bloquantes :
+
+* Diligence et approbations limitées aux clients/relations étendues aux transactions.
+* Délai de déclaration des transactions bloquées étendu aux correspondances confirmées.
+* Obligation de déclaration privée de seuils et conditions temporelles déterminants.
+
+Les réserves générales ne corrigeaient pas les obligations affirmées trop
+largement. Le grand modèle seul n'a pas résolu ces erreurs ; la configuration
+n'a donc **pas été promue** vers l'agent connecté. Aucun nouvel essai payant
+identique de synthèse n'a suivi.
+
+Agent et déploiement temporaires ont été supprimés, avec contrôles indépendants
+GET après suppression à 404, vérifiés le **2026-10-21 à 13:12:41 UTC**.
+Version de recherche 3, agent de vérification fonctionnel, rubriques/rattachements
+natifs et connexion formelle restent inchangés. Search/projet/modèles antérieurs
+restent actifs ; ce nettoyage ne les a pas supprimés. Le vrai BYOM nécessite
+toujours un environnement compatible approuvé par la gouvernance ; aucun
+changement de politique, rôle ou consentement. La
+[preuve de comparaison](../assets/runtime-2026-10-20/foundry-model-comparison.json)
+conserve cet échec sans publier de passages privés.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

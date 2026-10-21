@@ -18,10 +18,15 @@ ms.date: 2026-10-20
 > URL éditeur avaient été ajoutés par l'assistant. La vraie recherche joint les
 > 24 originaux, mais tests connectés et ancrage sémantique n'ont pas réussi.
 > Capacité corrigée à 26 000 TPM / 26 RPM après une limitation directe prouvée.
+> Une comparaison distincte GPT-4.1 a consommé 6 357 jetons mesurés, sans corriger
+> l'ancrage des obligations conditionnelles. Agent/déploiement temporaires supprimés
+> avec contrôles 404 indépendants ; aucune promotion vers l'agent natif.
 > Search Basic, embeddings, compte/projet et deux agents sont **actifs et conservés**,
 > contrairement aux anciennes
 > exécutions supprimées. Le tag d'expiration ne supprime rien.
 > Voir la [validation actuelle des critères d'origine](backend-live-2026-10-20.md#critères-dorigine-réconciliés-et-recherche-réelle-exercée).
+> La [comparaison de modèle](backend-live-2026-10-20.md#comparaison-avec-le-modèle-complet-sans-résolution-de-lancrage)
+> n'a pas résolu les échecs d'acceptation restants.
 
 Preuves antérieures : [registre de réexécution réelle](live-rerun-2026-10-19.md).
 Le propriétaire a approuvé les tests payants. Le déploiement Terraform corrigé de

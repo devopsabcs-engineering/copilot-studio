@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETED_INFERENCE_FAILED_GROUNDING",
+  "observed_date_utc": "2026-10-21",
+  "purpose": "Bounded model-only comparison, not another prompt correction",
+  "initial_request_validation": {
+    "requests": 1,
+    "http_status": 400,
+    "error_code": "invalid_payload",
+    "reason": "The requested model must match the referenced agent model",
+    "completion_returned": false,
+    "token_usage_returned": false,
+    "temporary_deployment_cleanup_verified": true,
+    "existing_agent_changed": false
+  },
+  "isolated_comparison": {
+    "baseline_agent_version": "2",
+    "baseline_model": "gpt-4.1-mini",
+    "comparison_model": "gpt-4.1",
+    "model_version": "2025-04-14",
+    "changed_definition_fields": ["model"],
+    "instructions_tools_temperature_and_prompt_unchanged": true,
+    "temporary_agent_created": true,
+    "deployment_sku": "Standard",
+    "capacity": 26,
+    "provisioned_throughput_used": false,
+    "model_selection_verified_from_deployment_agent_and_response": true,
+    "inference_attempts": 1,
+    "retries": 0,
+    "completed": true,
+    "elapsed_seconds": 24.539,
+    "input_tokens": 5627,
+    "output_tokens": 730,
+    "total_tokens": 6357,
+    "usage_is_measured": true,
+    "mcp_tool_completed_and_persisted": true,
+    "exact_original_source_joins": 24,
+    "source_counts": {
+      "fraud-patterns-ks": 8,
+      "regulatory-compliance-ks": 8,
+      "investigation-procedures-ks": 8
+    },
+    "displayed_record_source_locators_exist_and_match_actual_source": true,
+    "semantic_grounding_passed": false,
+    "failure_families": [
+      "Customer/relationship-scoped due diligence and approval generalized to transactions",
+      "Blocked-transaction reporting deadline extended to confirmed screening matches",
+      "Conditional filing thresholds and timing context omitted"
+    ],
+    "general_limitations_do_not_retract_affirmative_overbroad_duties": true,
+    "connected_native_test_submissions": 0,
+    "connected_acceptance_passed": false,
+    "failed_configuration_promoted_to_native_agent": false
+  },
+  "cleanup": {
+    "temporary_agent_get_after_delete": 404,
+    "temporary_deployment_get_after_delete": 404,
+    "verified_utc": "2026-10-21T13:12:41.161441+00:00",
+    "ownership_manifest_updated": true,
+    "both_temporary_resource_deletions_verified": true
+  },
+  "preservation": {
+    "existing_retrieval_agent_latest_version": "3",
+    "existing_retrieval_and_smoke_agents_unchanged": true,
+    "native_topics_attachments_and_formal_connection_unchanged": true,
+    "existing_search_project_models_and_agents_still_live": true,
+    "expiry_tags_are_not_automatic_cleanup": true,
+    "security_policy_role_and_consent_changes": 0,
+    "private_answers_and_source_excerpts_published": false,
+    "model_only_upgrade_sufficient": false,
+    "byom_policy_conflict_resolved": false,
+    "overall_workshop_certified": false
+  }
+}

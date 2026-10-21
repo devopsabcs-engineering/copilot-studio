@@ -759,6 +759,43 @@ remain **live and retained**, with cleanup ownership recorded. Expiry tags do no
 delete them. Full connected scenario coverage and original BYOM execution remain
 incomplete; no original agent or security policy was changed.
 
+## Full-model comparison completed but did not resolve grounding
+
+A model-only comparison tested whether the remaining synthesis failures came
+from the smaller model. The service rejected an initial override request with
+HTTP 400 `invalid_payload`: a request model must match its referenced agent.
+No completion or usage was returned. Its temporary deployment was deleted and
+absence verified; the existing agent was not changed.
+
+The supported alternative used a separate temporary agent copied from retrieval
+version 2, changing only its model deployment to **GPT-4.1 2025-04-14**.
+Instructions, temperature, MCP tool, source data and the combined-case prompt
+were unchanged. Regional Standard quota was checked before creating a
+capacity-26 pay-per-token deployment; no provisioned throughput was used.
+
+One invocation, with no retries, completed in **24.539 seconds** and used
+**5,627 input + 730 output = 6,357 tokens**. Persisted MCP output joined all
+24 original records. Displayed record/source locators existed and matched the
+actual source domains, but that did not establish claim-level grounding.
+Manual comparison with those actual passages found three blocking families:
+
+* Customer/relationship-scoped due diligence and approval were generalized to transactions.
+* A blocked-transaction reporting deadline was extended to confirmed screening matches.
+* Mandatory filing lost material institution/amount thresholds and timing context.
+
+General caveats did not retract the affirmative overbroad duties. A larger model
+alone did not resolve these failures, so the configuration was **not promoted**
+to the connected agent. No further identical paid synthesis attempts followed.
+
+Both the temporary comparison agent and deployment were deleted, with independent
+GET-after-delete 404 checks verified at **13:12:41 UTC on 2026-10-21**.
+Existing retrieval version 3, the working smoke agent, native topics/attachments
+and formal connection were unchanged. The earlier Search/project/models remain
+live, not deleted by this comparison cleanup. Original BYOM still requires a
+governance-approved compatible environment; no policy, role or consent was changed.
+The [model-comparison receipt](../assets/runtime-2026-10-20/foundry-model-comparison.json)
+preserves this failed acceptance result without publishing private passages.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)
