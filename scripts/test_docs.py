@@ -499,6 +499,65 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(cleanup["private_secret_handoff_removed"])
         self.assertTrue(cleanup["ephemeral_project_endpoint_handoff_removed"])
 
+    def test_native_pdf_viewer_does_not_invent_original_clickthrough(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "native-pdf-viewer.json"
+        viewer = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(viewer["browser_address_matches_verified_publisher_pdf_page3"])
+        self.assertEqual(viewer["native_document_label"], "PDF document containing 30 pages")
+        self.assertEqual(viewer["native_page_number"], 3)
+        self.assertTrue(viewer["using_this_guide_heading_found"])
+        self.assertTrue(viewer["complete_audited_sentence_found"])
+        self.assertFalse(viewer["original_chat_citation_clickthrough_proven"])
+        self.assertFalse(viewer["pdf_bytes_hash_recomputed_from_native_viewer"])
+        self.assertFalse(viewer["screenshot_evidence_published"])
+        self.assertFalse(viewer["browser_security_or_policy_changed"])
+
+    def test_external_native_input_blocker_is_not_an_authentication_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-external-native-auth.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual(result["status"], "blocked_before_authentication_submission")
+        self.assertTrue(result["external_power_apps_document_verified"])
+        self.assertTrue(result["existing_sso_session_reached_connections"])
+        self.assertEqual(result["authentication_type"], "Microsoft Entra ID User Login")
+        self.assertFalse(result["project_endpoint_native_value_verified"])
+        self.assertEqual(result["endpoint_field_length_at_readback"], 0)
+        self.assertFalse(result["create_enabled_at_readback"])
+        for key in ("create_invocations", "authentication_submissions", "new_models",
+                    "new_agents", "new_roles", "new_inference_calls"):
+            self.assertEqual(result[key], 0)
+        for key in ("connection_created_by_automation", "authentication_rejection_observed",
+                    "external_browser_popup_behavior_tested", "root_cause_established",
+                    "browser_security_changed", "tokens_cookies_or_oauth_urls_extracted",
+                    "unrelated_browser_tabs_inspected_or_altered", "overall_workshop_certified"):
+            self.assertFalse(result[key])
+        model = result["model_connector_inspection"]
+        self.assertFalse(model["authentication_choices_verified"])
+        self.assertFalse(model["native_prompt_byom_entra_support_established"])
+        self.assertEqual(model["create_invocations"], 0)
+
+    def test_external_foundry_cleanup_preserves_soft_delete_and_ui_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs" / "assets" / "runtime-2026-10-20" / "foundry-external-auth-cleanup.json"
+        result = json.loads(path.read_text(encoding="utf-8"))
+        self.assertTrue(result["complete"])
+        self.assertEqual(result["actual_formal_authentication_submissions"], 0)
+        self.assertTrue(result["final_saved_connection_list_absence_verified"])
+        self.assertTrue(result["earlier_unverified_saved_list_disposition_superseded"])
+        self.assertEqual(result["independent_get_http_statuses"],
+                         {"project": 404, "account": 404, "group": 404})
+        self.assertEqual(result["residual_live_owned_resources"], [])
+        self.assertTrue(result["private_endpoint_handoff_removed"])
+        self.assertEqual(result["external_governance_destination_http_status_before"], 200)
+        self.assertEqual(result["external_governance_destination_http_status_after"], 200)
+        self.assertFalse(result["external_governance_resources_modified"])
+        self.assertFalse(result["unrelated_principals_groups_resources_modified"])
+        self.assertEqual(result["soft_deleted_account_recovery_record_http_status"], 200)
+        self.assertTrue(result["soft_deleted_account_recovery_record_retained"])
+        self.assertFalse(result["soft_delete_purge_attempted"])
+        self.assertFalse(result["power_apps_tab_closed"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

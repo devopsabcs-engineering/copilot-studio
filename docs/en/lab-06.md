@@ -59,6 +59,16 @@ then deleted with independent absence checks. See the
 [actual authentication failure](backend-live-2026-10-20.md#foundry-formal-authentication-remained-blocked)
 and [cleanup](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
 
+A later [external Edge recovery](backend-live-2026-10-20.md#external-edge-foundry-recovery-stopped-before-submission)
+reached the real Entra form, but native endpoint input remained empty and Create
+disabled. No authentication submission occurred. This is an input-automation
+blocker, not an external authentication rejection or a connected-agent pass.
+The manual handoff was unavailable; no model or inference was added.
+Fresh native list readback verified no owned connection. The
+[auth-only cleanup](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+verified project/account/group 404; a soft-deleted account recovery record
+remains without purge. A future attempt needs a fresh approved endpoint.
+
 After the approved trial extension, the isolated Standard draft's actual
 Microsoft Foundry connection dialog offered **Microsoft Entra ID User Login**
 and required an Azure AI Project Endpoint, without a key field. The official

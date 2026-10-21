@@ -88,8 +88,9 @@ licensing speculation failed, then native grounding instructions and a
 source-aware empty-answer branch corrected it. Final negative and positive
 regressions passed; the hotel answer matched its real location field and its
 negative abstained. The [complete chronology](backend-live-2026-10-20.md#source-aware-no-answer-handling-passed)
-retains every failure. External PDF navigation remains unverified and hotel
-document URLs remain absent. One real formal Foundry Entra connection attempt
+retains every failure. A later [native viewer check](backend-live-2026-10-20.md#native-host-confirmed-the-publisher-pdf-viewer)
+verified the authentic PDF at page 3, but not the original chat citation's
+click-through. Hotel document URLs remain absent. One real formal Foundry Entra connection attempt
 also hit the pop-up restriction; no Activity conversation ran. This newer
 environment was subsequently disconnected and independently deleted:
 [remote removal](../assets/runtime-2026-10-20/search-accesskey-removal.json) and
@@ -97,6 +98,16 @@ environment was subsequently disconnected and independently deleted:
 Project, scoped role, group, Search, AI account and embedding deployment returned
 HTTP 404 at 23:20 UTC; the external governance destination remained untouched.
 The revised unpublished topic persists without a live Search binding.
+
+A later [external Edge recovery](backend-live-2026-10-20.md#external-edge-foundry-recovery-stopped-before-submission)
+reached the real Foundry Entra form, but native endpoint input did not persist
+and Create remained disabled. Zero authentication submissions occurred; neither
+an authentication rejection nor external pop-up behavior was tested. The
+requested manual handoff was unavailable. No model or inference was added.
+Fresh native list readback then verified no owned connection. The
+[auth-only resources were deleted](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+at 23:58:49 UTC, with project/account/group 404 and governance preserved.
+A soft-deleted account recovery record remains; no purge was attempted.
 
 Documentation review and publication are separate from live lab validation.
 The workshop is **not certified as fully rerun**. Lab 1 has user-provided evidence

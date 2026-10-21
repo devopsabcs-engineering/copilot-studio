@@ -61,6 +61,16 @@ a ensuite été supprimé avec contrôles indépendants. Voir
 [l'échec d'authentification](backend-live-2026-10-20.md#authentification-formelle-foundry-toujours-bloquée)
 et le [nettoyage](../assets/runtime-2026-10-20/search-accesskey-cleanup.json).
 
+Une [reprise via Edge externe](backend-live-2026-10-20.md#reprise-foundry-via-edge-externe)
+a atteint le vrai formulaire Entra, mais la saisie du point restait vide et
+Create désactivé. Aucune soumission d'authentification. Il s'agit d'un blocage
+de saisie automatisée, non d'un rejet externe ou d'une réussite d'agent connecté.
+Le relais manuel était indisponible ; aucun modèle ni appel d'inférence ajouté.
+Une nouvelle lecture native a vérifié l'absence de connexion dédiée.
+Le [nettoyage d'authentification seule](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+a vérifié projet/compte/groupe à 404 ; l'enregistrement de récupération du compte
+reste présent sans purge. Un futur essai exige un nouveau point approuvé.
+
 Après prolongation approuvée de l'essai, la vraie fenêtre Microsoft Foundry du
 brouillon Standard isolé proposait **Microsoft Entra ID User Login** et exigeait
 un Azure AI Project Endpoint, sans champ de clé. Les exigences officielles

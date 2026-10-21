@@ -1,0 +1,30 @@
+{
+  "run_id": "workshop-foundryauth-20261020T233408Z-b04205",
+  "complete": true,
+  "cleanup_completed_utc": "2026-10-20T23:58:49.410013+00:00",
+  "actual_formal_authentication_submissions": 0,
+  "final_saved_connection_list_absence_verified": true,
+  "fresh_saved_connection_absence_verified_utc": "2026-10-20T23:55:42.8229943Z",
+  "final_saved_connection_absence_scope": "Fresh unfiltered correct-environment native Connections UI; not raw backend enumeration.",
+  "earlier_unverified_saved_list_disposition_superseded": true,
+  "owned_deployments": 0,
+  "owned_scoped_roles": 0,
+  "independent_get_http_statuses": {
+    "project": 404,
+    "account": 404,
+    "group": 404
+  },
+  "private_endpoint_handoff_removed": true,
+  "external_governance_destination_http_status_before": 200,
+  "external_governance_destination_http_status_after": 200,
+  "external_governance_resources_modified": false,
+  "unrelated_principals_groups_resources_modified": false,
+  "residual_live_owned_resources": [],
+  "managed_identity_cleanup": "Resource-associated identities removed through the owned project/account lifecycle; no directory principal deletions.",
+  "soft_deleted_account_recovery_record_http_status": 200,
+  "soft_deleted_account_recovery_record_retained": true,
+  "soft_delete_purge_attempted": false,
+  "power_apps_tab_closed": false,
+  "tab_disposition_reason": "Exact individual close control could not be confidently identified; left open rather than risking unrelated tabs.",
+  "cost_caveat": "No models deployed or inference performed. Historical accrued charges may settle after deletion; no zero-cost claim."
+}

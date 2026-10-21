@@ -519,6 +519,69 @@ supprimés. Aucune ressource dédiée active de ce test ne subsiste ; les frais
 mesurés et de diagnostics imposés peuvent encore apparaître. La rubrique
 corrigée non publiée et tous les résultats historiques sont préservés.
 
+## Le navigateur natif a confirmé le lecteur PDF de l'éditeur
+
+Un contrôle ultérieur en lecture seule, via les contrôles d'accessibilité Windows
+normaux, a trouvé le PDF déjà chargé dans la fenêtre exacte de l'espace VS Code.
+L'adresse correspondait à l'URL publique vérifiée avec `#page=3`. Le document
+natif indiquait **30 pages**, le numéro courant **3**, et le groupe **Page 3**
+contenait **Using This Guide** et la phrase auditée complète.
+
+La [preuve du lecteur natif](../assets/runtime-2026-10-20/native-pdf-viewer.json)
+lève l'ancienne impossibilité d'observer le lecteur sans effacer les expirations.
+Elle prouve le contenu accessible à la cible authentique, non l'origine de
+l'onglet ni le clic initial sur la citation du chat. Aucune nouvelle question,
+ressource, affirmation de hachage natif, capture publiée, extraction de jeton
+ou modification de sécurité du navigateur.
+
+## Reprise Foundry via Edge externe
+
+Le navigateur Edge externe normal a atteint **Power Apps | Connections** via la
+session SSO professionnelle existante. Le compte prévu a été vérifié sans
+publier son identité. Il s'agissait d'une autre voie de navigation prise en
+charge, sans contournement des fenêtres ni répétition de l'échec du navigateur
+intégré.
+
+Un nouveau compte S0 sans clé et son projet enfant à identité managée ont été
+créés uniquement pour l'authentification. Aucun modèle, agent, rôle ni appel
+d'inférence ajouté. Le vrai formulaire **Azure AI Foundry Agent Service**
+proposait **Microsoft Entra ID User Login** et exigeait un **Azure AI Project
+Endpoint**. Le nom persistait, mais le focus natif, la saisie clavier normale et
+ValuePattern d'UI Automation ne conservaient pas le point de projet réel.
+À **23:44:08 UTC**, le champ était vide et **Create** désactivé. Le formulaire
+non soumis a été annulé.
+
+La [preuve d'authentification native externe](../assets/runtime-2026-10-20/foundry-external-native-auth.json)
+consigne **zéro invocation de Create et zéro soumission d'authentification**.
+Aucun rejet d'authentification, comportement de fenêtre externe ni cause racine
+n'a été établi. L'absence de connexion sauvegardée n'était pas vérifiée
+indépendamment à l'arrêt de la saisie. Aucun consentement, mot de passe, MFA,
+extraction de jeton, changement de sécurité ni inspection d'autres onglets.
+
+Une inspection en lecture seule a trouvé **Azure AI Foundry Inference**, sans
+exposer ses champs d'authentification. Ses choix et sa compatibilité avec le
+prompt BYOM natif restent non vérifiés. Cela ne change ni le formulaire natif
+observé exigeant une clé ni sa limitation face à la politique sans clé imposée.
+Le relais manuel demandé n'était pas disponible ; aucune autre authentification
+ni création de modèle n'a été tentée.
+
+La navigation normale a retrouvé le document exact Connections. À **23:55:42 UTC**,
+une liste actualisée non filtrée du bon environnement ne contenait aucune
+connexion Foundry dédiée. Cela remplace l'ancien constat non vérifié : preuve
+d'interface native, non inventaire brut du backend. Le contrôle de fermeture de
+l'onglet exact n'a pas pu être identifié avec certitude ; l'onglet Power Apps
+est resté ouvert pour ne pas risquer de fermer un onglet sans rapport.
+
+Le [nettoyage d'authentification seule](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+s'est terminé à **23:58:49 UTC**. Les GET indépendants du projet, du compte et du
+groupe ont tous renvoyé **404**. L'espace de gouvernance externe est resté à
+**200** avant et après, sans modification. Le fichier privé de point de projet
+a été supprimé et aucune ressource dédiée active ne subsiste. Un **enregistrement
+de récupération du compte supprimé reste présent**, avec HTTP 200 ; aucune purge
+autorisée ni tentée. Des frais antérieurs peuvent encore apparaître.
+Toute future connexion manuelle exige un nouveau point de projet approuvé, non
+celui supprimé. L'atelier complet reste incomplet.
+
 ## Références officielles
 
 * [Installation PAC](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

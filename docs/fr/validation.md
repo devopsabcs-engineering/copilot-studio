@@ -92,8 +92,9 @@ explicite ont corrigé le comportement. Les régressions finales négative et
 positive ont réussi ; la réponse hôtelière correspondait à la localisation
 source et le cas négatif s'est abstenu. La
 [chronologie complète](backend-live-2026-10-20.md#traitement-explicite-de-labsence-de-réponse-réussi)
-conserve chaque échec. Navigation PDF externe non vérifiée et URL hôtelières
-absentes. Une vraie tentative formelle Foundry Entra a aussi rencontré la
+conserve chaque échec. Un [contrôle natif ultérieur](backend-live-2026-10-20.md#le-navigateur-natif-a-confirmé-le-lecteur-pdf-de-léditeur)
+a vérifié le PDF authentique à la page 3, mais pas le clic initial sur la citation
+du chat. Les URL hôtelières restent absentes. Une vraie tentative formelle Foundry Entra a aussi rencontré la
 fenêtre bloquée ; aucune conversation Activity. Ce nouvel environnement a
 ensuite été déconnecté et supprimé avec contrôle indépendant :
 [suppression distante](../assets/runtime-2026-10-20/search-accesskey-removal.json) et
@@ -101,6 +102,16 @@ ensuite été déconnecté et supprimé avec contrôle indépendant :
 Projet, rôle dédié, groupe, Search, compte IA et déploiement ont renvoyé HTTP 404
 à 23:20 UTC ; la destination de gouvernance externe est restée intacte.
 La rubrique corrigée non publiée subsiste sans connexion Search active.
+
+Une [reprise via Edge externe](backend-live-2026-10-20.md#reprise-foundry-via-edge-externe)
+a atteint le vrai formulaire Foundry Entra, mais la saisie du point de projet
+ne persistait pas et Create restait désactivé. Zéro soumission d'authentification ;
+ni rejet ni comportement de fenêtre externe testé. Le relais manuel demandé
+n'était pas disponible. Aucun modèle ni appel d'inférence ajouté.
+Une nouvelle lecture native a ensuite vérifié l'absence de connexion dédiée.
+Les [ressources d'authentification ont été supprimées](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+à 23:58:49 UTC, avec projet/compte/groupe à 404 et gouvernance préservée.
+L'enregistrement de récupération du compte supprimé reste présent, sans purge.
 
 La revue et la publication de la documentation sont distinctes de la validation
 réelle des labs. L'atelier **n'est pas certifié comme entièrement réexécuté**.

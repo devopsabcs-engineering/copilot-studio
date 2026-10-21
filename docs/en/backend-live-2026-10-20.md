@@ -497,6 +497,66 @@ removed. No owned active resources from this run remain; historical metered
 and policy-routed diagnostic charges may still settle. The corrected unpublished
 topic and all historical results remain preserved.
 
+## Native host confirmed the publisher PDF viewer
+
+A later read-only check through normal Windows accessibility controls found the
+publisher PDF already loaded in the exact VS Code workspace host. The browser
+address matched the previously verified public PDF URL with `#page=3`. Its native
+document reported **30 pages**, its page-number control was **3**, and the
+**Page 3** group contained **Using This Guide** and the complete audited sentence.
+
+The [native viewer receipt](../assets/runtime-2026-10-20/native-pdf-viewer.json)
+supersedes the earlier inability to observe the PDF viewer, without erasing those
+timeouts. It proves accessible viewer content at the authentic target, not the
+origin of that tab or the original chat citation's click-through. No new agent
+question, resource, byte-hash claim, published screenshot, token extraction or
+browser-security change was involved.
+
+## External Edge Foundry recovery stopped before submission
+
+The normal external Edge browser reached **Power Apps | Connections** through
+the existing organizational SSO session. The intended account matched without
+publishing its identity. This was a different supported browser route, not a
+pop-up override or a repeat of the integrated-browser authentication failure.
+
+One new keyless S0 account and managed-identity child project were provisioned
+for authentication only. No models, agents, roles or inference calls were added.
+The real **Azure AI Foundry Agent Service** form offered **Microsoft Entra ID User
+Login** and required an **Azure AI Project Endpoint**. The display name persisted,
+but normal native focus, keyboard input and UI Automation ValuePattern did not
+retain the actual endpoint. At **23:44:08 UTC**, the endpoint readback was empty
+and **Create** was disabled. The unsubmitted form was canceled.
+
+The [external native-auth receipt](../assets/runtime-2026-10-20/foundry-external-native-auth.json)
+records **zero Create invocations and zero authentication submissions**. No
+authentication rejection, external-browser pop-up behavior or root cause was
+established. Saved-connection absence was not independently verified when input
+stopped. No consent, password, MFA, token extraction, browser-security change or
+inspection of unrelated tabs occurred.
+
+A read-only inspection found an **Azure AI Foundry Inference** candidate, but its
+authentication fields were not exposed. Its authentication choices and
+compatibility with native prompt BYOM remain unverified. This does not overturn
+the observed key-only prompt dialog or the enforced keyless-policy limitation.
+The requested manual handoff was unavailable; no further authentication or
+model provisioning was attempted.
+
+Normal navigation recovered the exact Connections document. At **23:55:42 UTC**,
+a fresh unfiltered list in the intended environment contained no owned Foundry
+connection. This supersedes the earlier unverified-list disposition; it is
+native UI evidence, not a raw backend enumeration. The exact individual tab
+close control could not be confidently identified, so the Power Apps tab was
+left open rather than risking unrelated tabs.
+
+The [auth-only cleanup](../assets/runtime-2026-10-20/foundry-external-auth-cleanup.json)
+completed at **23:58:49 UTC**. Independent project, account and group GETs all
+returned **404**. The external governance workspace remained **200** before and
+after, untouched. The private endpoint handoff was removed and no live owned
+resources remain. A **soft-deleted account recovery record remains** with HTTP
+200; no purge was authorized or attempted. Historical charges may still settle.
+Any future manual connection requires a fresh approved project endpoint, not
+the deleted endpoint. The full workshop remains incomplete.
+
 ## Official references
 
 * [PAC installation](https://learn.microsoft.com/en-us/power-platform/developer/howto/install-cli-net-tool)

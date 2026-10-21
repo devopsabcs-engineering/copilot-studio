@@ -1,0 +1,19 @@
+{
+  "observed_date_utc": "2026-10-20",
+  "method": "Read-only standard Windows UI Automation on the exact copilot-studio VS Code host and its already loaded publisher PDF.",
+  "browser_address_matches_verified_publisher_pdf_page3": true,
+  "native_document_label": "PDF document containing 30 pages",
+  "native_page_number": 3,
+  "native_page_group": "Page 3",
+  "using_this_guide_heading_found": true,
+  "complete_audited_sentence_found": true,
+  "native_viewer_accessibility_verified": true,
+  "original_chat_citation_clickthrough_proven": false,
+  "pdf_bytes_hash_recomputed_from_native_viewer": false,
+  "screenshot_evidence_published": false,
+  "new_agent_questions": 0,
+  "new_azure_resources_required_for_viewer_check": 0,
+  "browser_security_or_policy_changed": false,
+  "oauth_urls_tokens_or_cookies_extracted": false,
+  "historical_timeout_receipts_preserved": true
+}
