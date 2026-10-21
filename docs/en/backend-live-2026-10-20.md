@@ -1,7 +1,7 @@
 ---
 title: Copilot backend and CLI validation - 2026-10-20
 description: Actual authenticated Dataverse reads, official PAC recovery, saved-agent clone, and the remaining conversation and evaluation barriers.
-ms.date: 2026-10-20
+ms.date: 2026-10-21
 ---
 
 ## Result and boundaries
@@ -795,6 +795,79 @@ live, not deleted by this comparison cleanup. Original BYOM still requires a
 governance-approved compatible environment; no policy, role or consent was changed.
 The [model-comparison receipt](../assets/runtime-2026-10-20/foundry-model-comparison.json)
 preserves this failed acceptance result without publishing private passages.
+
+## Source provenance repaired and original backend questions passed
+
+On **2026-10-21**, the four unchanged questions from the original notebook were
+run against retrieval agent version 3. Before the metadata repair, quoted content
+was authentic, but only **2/4** answers passed canonical knowledge-source
+attribution. The other answers used authentic document titles, and one omitted
+some labels. These were attribution gaps, not invented documents.
+
+The repair added retrievable, nonsearchable `source_name` metadata to three owned
+indexes and all **24** records. Independent comparisons verified preservation of
+original `id`, `title` and `content`, semantic configuration and vector fields.
+Vector values were not resubmitted; the update made no embedding or model calls.
+Agent version, instructions, model, tools and authentication were unchanged.
+The requested projection is `id/content/source_name`; MCP also returns the
+original semantic title. Titles were neither removed from context nor replaced.
+
+After repair, **4/4** original questions passed relevant, condition-preserving
+extractive content and canonical claim-level attribution. Actual source joins
+were **19 / 14 / 18 / 24**, not an artificial requirement for 24 on every query.
+Four requests, zero retries, consumed **21,341 Responses tokens**; the baseline
+used 19,242. These are measured response usage, not complete workshop billing
+or a measurement of native Copilot Credits. A local projection guard initially
+rejected the provider's additional title; the already completed response was
+recovered without another inference. Six offline projection tests passed.
+An initial valid HTTP 204 update was recovered using ownership/snapshot/ETag
+guards. Projection backups remain private; removing the additive schema field
+would require an index rebuild, which was not attempted.
+
+### Genuine native success and interrupted category batch
+
+A separate native evidence-preservation question received a real connected
+reply in **352.940 seconds**, measured between server activity timestamps.
+The complete original paragraph, correct source label, relevance, retention and
+legal-hold conditions passed. Native BeginDialog and target binding were captured.
+Its underlying MCP response ID/tool trace was not exposed and was not replaced
+with an SDK proxy. No original 90-second acceptance SLA was established.
+
+The earlier combined conversation later displayed `rate_limit_exceeded`, with
+its conversation ID matching the original capture. This establishes that one
+failure's cause, not the cause of every earlier stall. A native greeting also
+passed in **0.204489 seconds**, with Greeting SendActivity/CancelAllDialogs and
+no Foundry binding.
+
+The subsequent four-category browser batch used explicit classic routing
+prefixes, fresh sessions, no resubmits and a 450-second observation limit.
+After continuation, its deferred execution handle was unavailable. Read-only
+recovery showed the second regulatory prompt only as an optimistic user activity,
+without confirmed server delivery, route trace or domain reply. No completed
+case results were durably recovered. Reaching case two does not certify case
+one; no duplicate paid requests were sent to reconstruct missing evidence.
+
+The [sanitized recovery receipt](../assets/runtime-2026-10-20/foundry-source-provenance-recovery.json)
+records these distinct outcomes. This establishes an extractive backend
+adaptation and one focused native domain success, not unrestricted narrative
+synthesis, natural routing or the full connected/local/hybrid matrix. Earlier
+synthesis and full-model failures remain valid historical results.
+
+The original quick-reference file has an OLE compound header rather than a
+standard DOCX ZIP container. That header alone does not prove encryption.
+The normal native uploader accepted the original unmodified **163,840-byte**
+file. Ingestion changed from **In progress** to **Error**; Status information
+reported: "The file's content is either confidential or empty." This is an
+actual ingestion failure, not proof of its precise protection/format cause.
+One upload, zero reuploads; no decryption, label removal or reconstruction.
+The failed source remains in the isolated unpublished draft for owner inspection
+or authorized replacement. A readable copy approved for this environment is
+needed before original local/hybrid acceptance can proceed.
+
+Original native prompt BYOM still needs an approved compatible
+environment/authentication route. PAC's delegated scope remains a separate
+authorization issue. The working connection and owned resources remain live;
+expiry tags do not delete them. No policy, role or consent was changed.
 
 ## Official references
 

@@ -1,7 +1,7 @@
 ---
 title: "Atelier 6 : Recherche Foundry IQ et évaluation d'agents connectés"
 description: "Examinez un notebook de recherche multisource, adaptez les API Foundry actuelles et évaluez un agent standard Copilot Studio sans confondre contrôle statique et preuve réelle."
-ms.date: 2026-10-20
+ms.date: 2026-10-21
 ms.topic: tutorial
 ---
 
@@ -16,12 +16,19 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > directe réussit. Après un premier échec sans réponse, un test Activity natif
 > instrumenté a reçu la vraie réponse en **6,864 secondes**. L'observateur a été
 > supprimé. Les critères d'annotations natives/URL éditeur avaient été ajoutés
-> par l'assistant. La recherche joint 24 originaux, mais l'acceptation ancrée
-> reste en échec/non vérifiée. Une limitation directe prouvée a été corrigée :
+> par l'assistant. La recherche joint 24 originaux. La provenance canonique
+> réparée permet **4/4 questions originales inchangées réussies en contenu
+> extractif et attribution backend**. Une vraie réponse native de procédure
+> réussit en **352,940 secondes**. Le lot natif a perdu son résultat différé ;
+> couverture native/locale/hybride complète et synthèse libre non certifiées.
+> L'ingestion native du guide original échoue : « The file's content is either
+> confidential or empty. » Une copie lisible autorisée est nécessaire pour
+> les cas locaux/hybrides.
+> Une limitation directe prouvée a été corrigée :
 > Standard capacité 26. Search Basic, embeddings, compte/projet et deux agents
 > restent **actifs** ; le tag ne supprime rien.
 > Les anciennes preuves de suppression ne couvrent pas cette exécution.
-> Voir les [limites actuelles](backend-live-2026-10-20.md#critères-dorigine-réconciliés-et-recherche-réelle-exercée).
+> Voir les [limites de récupération actuelles](backend-live-2026-10-20.md#provenance-réparée-et-questions-backend-originales-réussies).
 
 > [!IMPORTANT]
 > Des tests réels de dépendances complètent désormais la première revue syntaxique.

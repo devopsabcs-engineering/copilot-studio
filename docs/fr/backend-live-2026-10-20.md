@@ -1,7 +1,7 @@
 ---
 title: Validation du backend Copilot et du CLI - 2026-10-20
 description: Lectures Dataverse authentifiées, restauration officielle de PAC, clone de l'agent sauvegardé et blocages de conversation et d'évaluation restants.
-ms.date: 2026-10-20
+ms.date: 2026-10-21
 ---
 
 ## Résultat et limites
@@ -823,6 +823,84 @@ toujours un environnement compatible approuvé par la gouvernance ; aucun
 changement de politique, rôle ou consentement. La
 [preuve de comparaison](../assets/runtime-2026-10-20/foundry-model-comparison.json)
 conserve cet échec sans publier de passages privés.
+
+## Provenance réparée et questions backend originales réussies
+
+Le **2026-10-21**, les quatre questions inchangées du notebook original ont été
+exécutées avec l'agent de recherche version 3. Avant correction, les extraits
+étaient authentiques, mais seulement **2/4** réponses avaient l'attribution
+canonique attendue. Les autres employaient de vrais titres documentaires ; une
+réponse omettait certaines étiquettes. Ce n'étaient pas des documents inventés.
+
+La réparation ajoute la métadonnée récupérable, non recherchable `source_name`
+aux trois index possédés et aux **24** enregistrements. Des comparaisons
+indépendantes confirment la conservation des `id`, `title`, `content`, de la
+configuration sémantique et des champs vectoriels. Aucun vecteur n'a été
+resoumis, aucun appel d'embedding ou de modèle effectué pendant cette mise à jour.
+Version, instructions, modèle, outils et authentification de l'agent restent
+inchangés. Projection demandée : `id/content/source_name`. MCP renvoie aussi le
+titre sémantique original ; les titres n'ont été ni retirés du contexte ni remplacés.
+
+Après correction, **4/4** questions passent le contrôle du contenu extractif
+pertinent, des conditions déterminantes et de l'attribution canonique par
+affirmation. Jointures réelles : **19 / 14 / 18 / 24**, sans imposer artificiellement
+24 résultats à chaque question. Quatre requêtes, zéro relance, **21 341 jetons
+Responses**, contre 19 242 avant correction. Ce n'est ni la facture totale de
+l'atelier ni une mesure des Copilot Credits natifs. Le garde local rejetait
+initialement le titre supplémentaire renvoyé par le fournisseur ; la réponse
+déjà terminée a été récupérée sans nouvelle inférence. Six tests hors ligne
+des projections passent. Une première réponse HTTP 204 valide a été reprise
+avec contrôles de propriété, instantané et ETag. Les sauvegardes des projections
+restent privées ; retirer le champ ajouté nécessiterait de reconstruire l'index,
+ce qui n'a pas été tenté.
+
+### Réussite native réelle et lot de catégories interrompu
+
+Une question native distincte sur la conservation des preuves a reçu une vraie
+réponse connectée en **352,940 secondes**, selon les horodatages serveur.
+Paragraphe original complet, attribution, pertinence, durée de conservation et
+conditions de gel juridique sont préservés. BeginDialog et liaison cible natifs
+ont été capturés. L'identifiant de réponse MCP et la trace d'outil sous-jacents
+ne sont pas exposés ; aucun substitut SDK n'a comblé cette absence. Aucun SLA
+original de 90 secondes n'est établi.
+
+L'ancienne conversation combinée a ensuite affiché `rate_limit_exceeded`, avec
+le même identifiant que la capture initiale. La cause de cet échec est donc
+établie, pas celle de tous les blocages antérieurs. Une salutation native réussit
+aussi en **0,204489 seconde**, avec Greeting SendActivity/CancelAllDialogs et
+sans liaison Foundry.
+
+Le lot navigateur suivant prévoyait quatre catégories, préfixes de routage
+classique explicites, sessions neuves, aucune relance et observation limitée à
+450 secondes. Après reprise, son identifiant d'exécution différée n'était plus
+disponible. La récupération en lecture seule montre la deuxième question
+réglementaire comme activité utilisateur optimiste seulement, sans réception
+serveur, trace de routage ni réponse métier confirmées. Aucun résultat de cas
+terminé n'a été récupéré durablement. Atteindre le deuxième cas ne prouve pas
+la réussite du premier ; aucune requête payante n'a été dupliquée.
+
+La [preuve expurgée de récupération](../assets/runtime-2026-10-20/foundry-source-provenance-recovery.json)
+distingue ces résultats. Adaptation backend extractive et réussite native ciblée
+ne certifient ni synthèse narrative libre, ni routage naturel, ni matrice complète
+connectée/locale/hybride. Les anciens échecs de synthèse et du grand modèle
+restent des résultats historiques valides.
+
+Le guide rapide original porte un en-tête OLE, pas un conteneur ZIP DOCX standard.
+Cela ne prouve pas à lui seul un chiffrement. L'outil natif a accepté le fichier
+original non transformé de **163 840 octets**. L'ingestion est passée de
+**In progress** à **Error** ; le détail indique : « The file's content is either
+confidential or empty. » C'est un échec réel d'ingestion, sans preuve de sa cause
+exacte de protection/format. Un téléversement, zéro nouvel essai ; aucun
+déchiffrement, retrait d'étiquette ni reconstruction. La source en erreur reste
+dans le brouillon isolé non publié pour inspection ou remplacement autorisé.
+Une copie lisible approuvée pour cet environnement est nécessaire avant les
+contrôles locaux/hybrides originaux.
+
+Le vrai BYOM natif
+nécessite encore un environnement et une authentification compatibles approuvés.
+Le scope délégué PAC reste un problème distinct. Connexion et ressources
+possédées restent actives ; les tags d'expiration ne les suppriment pas.
+Aucun changement de politique, rôle ou consentement.
 
 ## Références officielles
 

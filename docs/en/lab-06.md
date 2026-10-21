@@ -1,7 +1,7 @@
 ---
 title: "Lab 6: Foundry IQ retrieval and connected-agent evaluation"
 description: "Review a multi-source retrieval notebook, reconcile current Foundry APIs, and evaluate a standard Copilot Studio agent without confusing static checks with live proof."
-ms.date: 2026-10-20
+ms.date: 2026-10-21
 ms.topic: tutorial
 ---
 
@@ -17,11 +17,18 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > instrumented native Activity test received the genuine reply in **6.864 seconds**.
 > The diagnostic observer was deleted. Original-source reconciliation removed
 > assistant-added native-annotation/publisher-URL gates; genuine retrieval joins
-> 24 originals, but grounded domain acceptance remains failed/unverified.
+> 24 originals. Source-provenance metadata repair now gives **4/4 unchanged
+> notebook questions passing extractive backend content and attribution**.
+> One genuine native procedure reply passed in **352.940 seconds**.
+> The native category batch lost its deferred result; full native/local/hybrid
+> coverage and unrestricted narrative synthesis are not certified.
+> Native ingestion of the original quick reference failed with
+> "The file's content is either confidential or empty." An authorized readable
+> replacement is needed for the local/hybrid cases.
 > A proven direct rate limit was corrected to Standard capacity 26.
 > Search Basic, embeddings, account/project and both agents remain **live**; their expiry
 > tag is not automatic cleanup. Earlier deletion receipts do not cover this run.
-> See the [current runtime boundary](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
+> See the [current recovery boundary](backend-live-2026-10-20.md#source-provenance-repaired-and-original-backend-questions-passed).
 
 > [!IMPORTANT]
 > Actual dependency testing now supplements the initial syntax-only review.

@@ -739,6 +739,60 @@ class WikiTests(unittest.TestCase):
             report = root / "docs" / language / "backend-live-2026-10-20.md"
             self.assertIn(filename, report.read_text(encoding="utf-8"))
 
+    def test_source_provenance_recovery_does_not_certify_missing_native_cases(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "foundry-source-provenance-recovery.json"
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-20" / filename)
+                            .read_text(encoding="utf-8"))
+        repair = result["source_provenance_repair"]
+        self.assertEqual(repair["original_records"], 24)
+        self.assertTrue(repair["original_id_title_content_preserved"])
+        self.assertTrue(repair["agent_model_instructions_tools_unchanged"])
+        self.assertTrue(repair["provider_also_returns_original_title"])
+        self.assertIn("title", repair["actual_mcp_record_fields"])
+        self.assertEqual(repair["new_model_inferences_during_metadata_update"], 0)
+        self.assertEqual(repair["embedding_calls_during_metadata_update"], 0)
+        self.assertEqual(repair["new_resources_roles_policies"], 0)
+        self.assertTrue(repair["completed_first_regression_response_recovered_without_new_inference"])
+        questions = result["original_notebook_questions"]
+        self.assertTrue(questions["questions_unchanged"])
+        self.assertTrue(questions["extractive_adaptation"])
+        self.assertEqual(questions["baseline"]["content_and_canonical_source_attribution_passes"], 2)
+        after = questions["after_metadata_repair"]
+        self.assertEqual(after["content_and_canonical_source_attribution_passes"], 4)
+        self.assertEqual(after["actual_original_record_joins"], [19, 14, 18, 24])
+        for run in (questions["baseline"], after):
+            self.assertEqual(run["attempts"], 4)
+            self.assertEqual(run["retries"], 0)
+            self.assertEqual(sum(run["response_tokens_by_case"]), run["response_tokens_total"])
+        self.assertFalse(after["native_conversations"])
+        native = result["focused_native_procedure"]
+        self.assertTrue(native["real_domain_reply_received"])
+        self.assertTrue(native["source_attribution_relevance_and_material_conditions_passed"])
+        self.assertGreater(native["reply_latency_seconds"], 350)
+        self.assertFalse(native["sdk_proxy_used_to_fill_native_evidence_gap"])
+        self.assertFalse(native["native_tool_trace_independently_joined"])
+        batch = result["native_original_category_batch"]
+        self.assertFalse(batch["current_user_message_delivery_confirmed"])
+        self.assertFalse(batch["reaching_case_two_treated_as_case_one_pass"])
+        self.assertFalse(batch["full_native_matrix_certified"])
+        self.assertEqual(batch["resubmissions_during_recovery"], 0)
+        quick_reference = result["native_quick_reference_ingestion"]
+        self.assertTrue(quick_reference["upload_accepted"])
+        self.assertEqual(quick_reference["observed_status_sequence"], ["In progress", "Error"])
+        self.assertEqual(quick_reference["upload_attempts"], 1)
+        self.assertEqual(quick_reference["reuploads"], 0)
+        self.assertFalse(quick_reference["ready_or_searchable_verified"])
+        self.assertFalse(quick_reference["protection_removed_or_contents_reconstructed"])
+        self.assertFalse(quick_reference["encryption_established_as_root_cause"])
+        self.assertFalse(result["remaining_boundaries"]["original_native_prompt_byom_completed"])
+        self.assertFalse(result["preservation"]["overall_workshop_certified"])
+        self.assertFalse(result["preservation"][
+            "private_answers_source_passages_or_authenticated_lookup_urls_published"])
+        for language in ("en", "fr"):
+            report = root / "docs" / language / "backend-live-2026-10-20.md"
+            self.assertIn(filename, report.read_text(encoding="utf-8"))
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

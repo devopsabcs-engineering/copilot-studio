@@ -1,7 +1,7 @@
 ---
 title: Workshop validation ledger
 description: Evidence, completed checks, runtime limitations, and the acceptance criteria still required for each workshop lab.
-ms.date: 2026-10-20
+ms.date: 2026-10-21
 ---
 
 ## Overall verdict
@@ -16,8 +16,16 @@ ms.date: 2026-10-20
 > passing synthetic connected transport, not grounded scenario acceptance.
 > The temporary diagnostic observer was deleted with independent 404s.
 > Original-source review found native annotation/publisher-URL gates were added
-> by the assistant. Real retrieval now joins all 24 records, but connected domain
-> tests and semantic grounding regressions have not passed. Standard capacity
+> by the assistant. Canonical source metadata now preserves all 24 originals;
+> **4/4 unchanged notebook questions pass extractive backend content and attribution**.
+> One genuine native procedure reply passed in **352.940 seconds**, without
+> exposing its underlying MCP trace. The four-category native batch lost its
+> deferred result; its current prompt has no confirmed server receipt.
+> Natural routing and the connected/local/hybrid matrix remain unvalidated.
+> Normal ingestion of the unmodified quick-reference file ended in **Error**:
+> "The file's content is either confidential or empty." An authorized readable
+> replacement is needed; no protection was removed.
+> Standard capacity
 > was corrected to 26,000 TPM / 26 RPM after a proven direct rate-limit failure.
 > A separate GPT-4.1 comparison completed with 6,357 measured tokens but still
 > failed conditional-duty grounding. Its temporary agent/deployment were deleted
@@ -26,7 +34,9 @@ ms.date: 2026-10-20
 > unlike the earlier deleted runs. Its expiry tag does not delete resources.
 > See the [current original-requirement validation](backend-live-2026-10-20.md#original-lab-acceptance-reconciled-and-real-retrieval-exercised).
 > The [model-only comparison](backend-live-2026-10-20.md#full-model-comparison-completed-but-did-not-resolve-grounding)
-> did not resolve the remaining acceptance failures.
+> did not resolve narrative synthesis. See the later
+> [source-provenance recovery](backend-live-2026-10-20.md#source-provenance-repaired-and-original-backend-questions-passed)
+> for the genuine extractive and focused native passes, not full-workshop certification.
 
 Earlier execution evidence: [actual rerun record](live-rerun-2026-10-19.md).
 The owner approved paid testing. A corrected 15-instance Terraform deployment,
