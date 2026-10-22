@@ -1003,7 +1003,8 @@ class WikiTests(unittest.TestCase):
                              .read_text("utf-8"))
         preservation = receipt["preservation"]
         for key in ("endpoint_authorization_approval_obtained", "endpoint_authorization_changed",
-                    "role_or_consent_changes_made", "original_parent_instructions_changed",
+                    "additional_manual_role_or_consent_changes_during_auth_diagnosis",
+                    "original_parent_instructions_changed",
                     "existing_retrieval_version_changed",
                     "diagnostic_disabled_persistence_independently_verified"):
             self.assertFalse(preservation[key])

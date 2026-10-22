@@ -1130,8 +1130,9 @@ completion was captured, so this control is not a new complete-turn PASS.
 These two additional targets are separate from the historical R3–R7 totals.
 
 An Entra-only test on the isolated endpoint was proposed, retaining Azure RBAC.
-The approval request received no human answer; **no endpoint authentication,
-role or consent change was made**. The diagnostic switch showed Disabled and
+The approval request received no human answer; **no endpoint authentication
+change or additional manual role/consent change was made during diagnosis**.
+The diagnostic switch showed Disabled and
 Save was attempted, but subsequent independent readback failed when browser
 access became unavailable. Confirm its saved Disabled state externally before
 another native test. The original parent instructions and version-4 definition

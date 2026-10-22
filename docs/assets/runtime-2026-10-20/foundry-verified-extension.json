@@ -96,7 +96,7 @@
   "preservation": {
     "original_parent_instructions_changed": false,
     "existing_retrieval_version_changed": false,
-    "role_or_consent_changes_made": false,
+    "additional_manual_role_or_consent_changes_during_auth_diagnosis": false,
     "endpoint_authorization_change_proposed": "Entra-only on the isolated diagnostic endpoint, retaining Azure RBAC",
     "endpoint_authorization_approval_obtained": false,
     "endpoint_authorization_changed": false,

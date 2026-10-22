@@ -1171,8 +1171,9 @@ nouveau succès de tour complet. Ces deux cibles sont distinctes des totaux
 historiques R3–R7.
 
 Un test Entra uniquement sur le point isolé, conservant Azure RBAC, est proposé.
-La demande d'approbation ne reçoit aucune réponse humaine ; **aucune modification
-d'authentification du point, de rôle ou de consentement n'est effectuée**.
+La demande d'approbation ne reçoit aucune réponse humaine ; **aucun changement
+d'authentification du point ni ajout manuel de rôle ou de consentement n'est
+effectué pendant le diagnostic**.
 Le commutateur du diagnostic affiche Disabled et une sauvegarde est tentée,
 mais la lecture indépendante suivante échoue lorsque le navigateur devient
 indisponible. Confirmez l'état Disabled sauvegardé dans un navigateur externe
