@@ -1,7 +1,7 @@
 ---
 title: "Atelier 6 : Recherche Foundry IQ et évaluation d'agents connectés"
 description: "Examinez un notebook de recherche multisource, adaptez les API Foundry actuelles et évaluez un agent standard Copilot Studio sans confondre contrôle statique et preuve réelle."
-ms.date: 2026-10-21
+ms.date: 2026-10-22
 ms.topic: tutorial
 ---
 
@@ -89,6 +89,13 @@ autorisé ; aucune adresse active n'est volontairement conservée.
 Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas republiés. Les quatre figures proviennent uniquement du document d'accompagnement non protégé consacré à Copilot, avec masquage des données sensibles. Ce sont des captures historiques du support, pas des preuves d'exécution nouvellement capturées.
 
 ## 1. Confirmer les prérequis et choisir la bonne expérience
+
+L'[extension de rendu vérifié](backend-live-2026-10-20.md#extension-de-vérification-déterministe-des-sources)
+réussit 30 tests et quatre cas backend réels, mais son diagnostic natif échoue
+sur l'autorisation BotServiceRbac liée à l'identifiant de locataire. Ce n'est
+pas un remplacement certifié du spécialiste fonctionnel. La sauvegarde de
+son état désactivé exige une confirmation externe après la perte du navigateur.
+Aucun changement d'authentification du point n'est approuvé ni appliqué.
 
 La vraie tentative ultérieure de connexion Foundry de premier niveau a utilisé
 un projet dédié réel, mais la fenêtre de consentement était bloquée par le

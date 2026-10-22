@@ -1,0 +1,10 @@
+.env.example
+.env
+.venv/
+__pycache__/
+*.pyc
+*.private.json
+test_*.py
+appPackage.zip
+.appPackage.zip.azd-generated
+TEAMS_APP_SETUP.md

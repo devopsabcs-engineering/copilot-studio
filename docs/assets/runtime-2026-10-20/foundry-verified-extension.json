@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-22T01:41:39Z",
+  "status": "blocked_native_activity_authorization",
+  "overall_workshop_certified": false,
+  "implementation": {
+    "source": "examples/verified-retrieval/workshop-verified-retrieval",
+    "unit_tests_passed": 30,
+    "syntax_check_passed": true,
+    "dependency_compatibility_check_passed": true,
+    "retrieval_stage_configuration_verified_without_changes": true,
+    "hosted_agent_version": "workshop-verified-retrieval:1",
+    "hosted_version_active": true,
+    "later_local_dotenv_helper_tests_and_license_packaging_changes_redeployed": false,
+    "native_verified_evidence_delivery_passed": false
+  },
+  "source_boundary": {
+    "publisher_revision": "e9ecd00dba2c25dbc8306b5be6818d22645607a3",
+    "notebook_sha256": "45664948b2e915eebe667816cbc957c89e6b7c34fa61f6b1365d0267ad8e69f2",
+    "record_count": 24,
+    "license": "MIT",
+    "notebook_code_executed": false,
+    "model_draft_answer_forwarded": false,
+    "selector_output": "Only IDs from actual verified retrieval",
+    "renderer": "Whole pinned source records and one canonical marker per bullet",
+    "protected_document_equivalence_claimed": false,
+    "semantic_or_legal_completeness_certified": false
+  },
+  "backend_cases": [
+    {
+      "original_case": 6,
+      "attempt": 4,
+      "retrieval_stage": "workshop-retrieval-specialist:4",
+      "selected_record_ids": ["rc-002", "ip-006"],
+      "literal_individually_attributed_quotes": 2,
+      "native_delivery_claimed": false
+    },
+    {
+      "original_case": 8,
+      "attempt": 1,
+      "retrieval_stage": "workshop-retrieval-specialist:4",
+      "selected_record_ids": ["fp-003", "rc-005", "rc-001"],
+      "literal_individually_attributed_quotes": 3,
+      "native_delivery_claimed": false
+    },
+    {
+      "original_case": 9,
+      "attempt": 2,
+      "retrieval_stage": "workshop-record-retriever-cba2af:1",
+      "selected_record_ids": ["fp-002", "ip-001", "ip-002", "ip-005"],
+      "literal_individually_attributed_quotes": 4,
+      "native_delivery_claimed": false
+    },
+    {
+      "original_case": 11,
+      "attempt": 1,
+      "retrieval_stage": "workshop-record-retriever-cba2af:1",
+      "selected_record_ids": ["ip-006", "fp-004", "fp-008"],
+      "literal_individually_attributed_quotes": 3,
+      "native_delivery_claimed": false
+    }
+  ],
+  "native_diagnostic": {
+    "target_submissions": 1,
+    "hello_preflight_acknowledged": true,
+    "exact_unchanged_original_question": false,
+    "conversation_id": "7720e1c9-57d5-4802-841b-f76e038e8e1d",
+    "user_activity_id": "61674bba-9613-4132-9850-f43413a82a47",
+    "user_activity_utc": "2026-10-21T22:56:52.9767201+00:00",
+    "diagnostic_action_triggered": true,
+    "diagnostic_action_finished_event_observed": true,
+    "http_status": 403,
+    "error_code": "ConnectorRequestFailure",
+    "inner_error": "BotServiceRbac authorization requires a valid Entra tenant id for the activity caller.",
+    "request_id": "4bdbd3635d267aa1447579cadf9bdc92",
+    "error_activity_id": "e9d8e4b6-cc77-488d-b4c6-f3bbc764bf3c",
+    "hosted_session_observed": false,
+    "verified_pipeline_execution_claimed": false,
+    "whole_plan_completion_observed": false,
+    "acceptance_passed": false
+  },
+  "existing_route_control": {
+    "target_submissions": 1,
+    "original_case": 6,
+    "exact_unchanged_original_question": true,
+    "hello_preflight_acknowledged": true,
+    "conversation_id": "cc940ef8-b84a-4e09-adc0-667f7de53a9a",
+    "user_activity_id": "015658ac-7396-4e51-808d-34593905e79a",
+    "user_activity_utc": "2026-10-21T23:05:13.3334913+00:00",
+    "existing_specialist_trigger_count": 2,
+    "displayed_source_response_count": 2,
+    "whole_plan_completion_observed": false,
+    "last_capture_utc": "2026-10-21T23:09:25.281Z",
+    "new_full_turn_or_content_acceptance_claimed": false
+  },
+  "preservation": {
+    "original_parent_instructions_changed": false,
+    "existing_retrieval_version_changed": false,
+    "role_or_consent_changes_made": false,
+    "endpoint_authorization_change_proposed": "Entra-only on the isolated diagnostic endpoint, retaining Azure RBAC",
+    "endpoint_authorization_approval_obtained": false,
+    "endpoint_authorization_changed": false,
+    "diagnostic_disabled_observed_in_ui": true,
+    "diagnostic_disable_save_attempted": true,
+    "diagnostic_disabled_persistence_independently_verified": false,
+    "persistence_readback_blocker": "Browser became unavailable; connectOverCDP timed out",
+    "emails_resent": 0,
+    "new_service_generated_agent_identities_created": true,
+    "new_azure_bot_resource_created": true,
+    "new_resources_remain_live_and_billable": true
+  }
+}

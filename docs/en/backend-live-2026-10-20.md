@@ -1,7 +1,7 @@
 ---
 title: Copilot backend and CLI validation - 2026-10-20
 description: Actual authenticated Dataverse reads, official PAC recovery, saved-agent clone, and the remaining conversation and evaluation barriers.
-ms.date: 2026-10-21
+ms.date: 2026-10-22
 ---
 
 ## Result and boundaries
@@ -1108,6 +1108,41 @@ attribution handling. Original native prompt BYOM still requires an approved
 authentication-compatible environment, and protected original documents require
 an authorized readable source. No policy, role or consent change was made.
 The draft remains unpublished and existing Azure resources remain billable.
+
+## Deterministic source-verification extension
+
+The [isolated implementation](https://github.com/devopsabcs-engineering/copilot-studio/tree/main/examples/verified-retrieval/workshop-verified-retrieval)
+now verifies actual retrieval against the pinned public MIT notebook, constrains
+the model to selecting retrieved record IDs, and renders whole source records
+with individual source markers in code. It does not forward model-written
+quotations. All **30 extension tests**, syntax checks and dependency compatibility
+checks pass. Four real backend cases render **12 exact attributed records**.
+Selection relevance and complete incident coverage are not thereby certified.
+
+The [extension receipt](../assets/runtime-2026-10-20/foundry-verified-extension.json)
+distinguishes backend proof from native failure. Hosted version 1 is active.
+One explicit diagnostic, after a genuine intake preflight, reached its new
+connected-agent action but returned **HTTP 403**:
+`BotServiceRbac authorization requires a valid Entra tenant id for the activity caller.`
+No hosted session was observed. A separate unchanged original case 6 still
+invoked the existing specialist and displayed two source replies; no whole-plan
+completion was captured, so this control is not a new complete-turn PASS.
+These two additional targets are separate from the historical R3–R7 totals.
+
+An Entra-only test on the isolated endpoint was proposed, retaining Azure RBAC.
+The approval request received no human answer; **no endpoint authentication,
+role or consent change was made**. The diagnostic switch showed Disabled and
+Save was attempted, but subsequent independent readback failed when browser
+access became unavailable. Confirm its saved Disabled state externally before
+another native test. The original parent instructions and version-4 definition
+were not changed.
+
+This continuation created an isolated retrieval stage, a hosted agent and a new
+Azure Bot resource, with service-generated identities recorded privately for
+cleanup. These resources remain live and billable. Later local helper, dotenv
+and license-packaging changes have not been redeployed. Neither the native
+extension nor the full workshop is certified complete; original BYOM
+compatibility and authorized access to protected originals remain unresolved.
 
 ## Official references
 

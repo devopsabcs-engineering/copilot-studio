@@ -977,6 +977,40 @@ class WikiTests(unittest.TestCase):
             text = (root / "docs" / language / "backend-live-2026-10-20.md").read_text("utf-8")
             self.assertIn(filename, text)
 
+    def test_verified_extension_does_not_promote_backend_proof_to_native_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "foundry-verified-extension.json"
+        receipt = json.loads((root / "docs/assets/runtime-2026-10-20" / filename).read_text("utf-8"))
+        self.assertFalse(receipt["overall_workshop_certified"])
+        self.assertEqual(receipt["implementation"]["unit_tests_passed"], 30)
+        self.assertFalse(receipt["implementation"]["native_verified_evidence_delivery_passed"])
+        cases = receipt["backend_cases"]
+        self.assertEqual([case["original_case"] for case in cases], [6, 8, 9, 11])
+        self.assertEqual(sum(case["literal_individually_attributed_quotes"] for case in cases), 12)
+        self.assertTrue(all(not case["native_delivery_claimed"] for case in cases))
+        native = receipt["native_diagnostic"]
+        self.assertEqual(native["http_status"], 403)
+        self.assertFalse(native["acceptance_passed"])
+        self.assertFalse(native["verified_pipeline_execution_claimed"])
+        self.assertFalse(receipt["existing_route_control"]["whole_plan_completion_observed"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "backend-live-2026-10-20.md").read_text("utf-8")
+            self.assertIn(filename, text)
+
+    def test_verified_extension_preserves_unapproved_authentication_and_readback_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "docs/assets/runtime-2026-10-20/foundry-verified-extension.json")
+                             .read_text("utf-8"))
+        preservation = receipt["preservation"]
+        for key in ("endpoint_authorization_approval_obtained", "endpoint_authorization_changed",
+                    "role_or_consent_changes_made", "original_parent_instructions_changed",
+                    "existing_retrieval_version_changed",
+                    "diagnostic_disabled_persistence_independently_verified"):
+            self.assertFalse(preservation[key])
+        self.assertTrue(preservation["diagnostic_disabled_observed_in_ui"])
+        self.assertTrue(preservation["new_azure_bot_resource_created"])
+        self.assertTrue(preservation["new_resources_remain_live_and_billable"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

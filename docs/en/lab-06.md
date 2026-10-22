@@ -1,7 +1,7 @@
 ---
 title: "Lab 6: Foundry IQ retrieval and connected-agent evaluation"
 description: "Review a multi-source retrieval notebook, reconcile current Foundry APIs, and evaluate a standard Copilot Studio agent without confusing static checks with live proof."
-ms.date: 2026-10-21
+ms.date: 2026-10-22
 ms.topic: tutorial
 ---
 
@@ -87,6 +87,13 @@ environment; no live endpoint is intentionally retained.
 The workshop's protected text, notebook code and embedded examples are not republished. The four figures below come only from the unprotected supporting Copilot setup document, with sensitive details redacted. They are historical source screenshots, not newly captured execution evidence.
 
 ## 1. Confirm prerequisites and choose the right experience
+
+The later [verified-rendering extension](backend-live-2026-10-20.md#deterministic-source-verification-extension)
+passes 30 tests and four real backend cases, but its native diagnostic fails
+with a BotServiceRbac tenant-ID authorization error. It is not a certified
+replacement for the working specialist. Its disabled-state persistence requires
+external confirmation after browser access failed. No endpoint-authentication
+change was approved or applied.
 
 The later actual top-level Foundry connection attempt used a real owned project
 endpoint but failed on the hosting browser's blocked consent pop-up. Exactly

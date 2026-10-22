@@ -1,7 +1,7 @@
 ---
 title: Validation du backend Copilot et du CLI - 2026-10-20
 description: Lectures Dataverse authentifiées, restauration officielle de PAC, clone de l'agent sauvegardé et blocages de conversation et d'évaluation restants.
-ms.date: 2026-10-21
+ms.date: 2026-10-22
 ---
 
 ## Résultat et limites
@@ -1147,6 +1147,45 @@ Le prompt BYOM original exige toujours un environnement approuvé compatible
 avec l'authentification ; les documents protégés exigent une source lisible
 autorisée. Aucune politique, permission ou consentement n'est modifié.
 Le brouillon reste non publié et les ressources Azure existantes facturables.
+
+## Extension de vérification déterministe des sources
+
+L'[implémentation isolée](https://github.com/devopsabcs-engineering/copilot-studio/tree/main/examples/verified-retrieval/workshop-verified-retrieval)
+vérifie la recherche réelle contre le notebook public MIT épinglé. Le modèle ne
+sélectionne que des identifiants récupérés ; le code affiche les enregistrements
+entiers et leurs marqueurs individuels, sans transmettre de citations rédigées
+par le modèle. Les **30 tests de l'extension**, contrôles de syntaxe et de
+compatibilité des dépendances réussissent. Quatre cas backend réels affichent
+**12 passages exacts et attribués**. La pertinence de la sélection et la
+complétude des incidents ne sont pas certifiées pour autant.
+
+Le [résultat de l'extension](../assets/runtime-2026-10-20/foundry-verified-extension.json)
+distingue preuve backend et échec natif. La version hébergée 1 est active.
+Un diagnostic explicite, après un véritable précontrôle d'accueil, atteint sa
+nouvelle action d'agent connecté, mais reçoit **HTTP 403** :
+`BotServiceRbac authorization requires a valid Entra tenant id for the activity caller.`
+Aucune session hébergée n'est observée. Un contrôle séparé avec le cas original 6
+inchangé appelle toujours le spécialiste existant et affiche deux réponses
+sourcées. Aucune fin de plan n'est capturée ; ce contrôle n'est donc pas un
+nouveau succès de tour complet. Ces deux cibles sont distinctes des totaux
+historiques R3–R7.
+
+Un test Entra uniquement sur le point isolé, conservant Azure RBAC, est proposé.
+La demande d'approbation ne reçoit aucune réponse humaine ; **aucune modification
+d'authentification du point, de rôle ou de consentement n'est effectuée**.
+Le commutateur du diagnostic affiche Disabled et une sauvegarde est tentée,
+mais la lecture indépendante suivante échoue lorsque le navigateur devient
+indisponible. Confirmez l'état Disabled sauvegardé dans un navigateur externe
+avant tout nouveau test natif. Les instructions du parent original et la
+définition version 4 ne sont pas modifiées.
+
+Cette continuation crée une étape de recherche isolée, un agent hébergé et une
+nouvelle ressource Azure Bot. Les identités générées par le service sont
+consignées en privé pour nettoyage. Ces ressources restent actives et
+facturables. Les ajouts locaux ultérieurs du script, du chargement dotenv et
+du fichier de licence n'ont pas été redéployés. Ni l'extension native ni
+l'atelier complet ne sont certifiés terminés ; compatibilité BYOM originale
+et accès autorisé aux originaux protégés restent non résolus.
 
 ## Références officielles
 
