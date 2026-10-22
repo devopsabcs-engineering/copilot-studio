@@ -89,11 +89,12 @@ The workshop's protected text, notebook code and embedded examples are not repub
 ## 1. Confirm prerequisites and choose the right experience
 
 The later [verified-rendering extension](backend-live-2026-10-20.md#deterministic-source-verification-extension)
-passes 30 tests and four real backend cases, but its native diagnostic fails
+passes 33 tests and four real backend cases, but its native diagnostic fails
 with a BotServiceRbac tenant-ID authorization error. It is not a certified
-replacement for the working specialist. Its disabled-state persistence requires
-external confirmation after browser access failed. No endpoint-authentication
-change was approved or applied.
+replacement for the working specialist. Its saved Inactive state is now
+independently verified. A separate authenticated direct Activity request reached
+hosting but exposed an SDK incompatibility; the tested local repair has not
+been deployed. No endpoint-authentication change was approved or applied.
 
 The later actual top-level Foundry connection attempt used a real owned project
 endpoint but failed on the hosting browser's blocked consent pop-up. Exactly

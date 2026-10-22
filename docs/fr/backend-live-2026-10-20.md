@@ -1154,8 +1154,8 @@ L'[implémentation isolée](https://github.com/devopsabcs-engineering/copilot-st
 vérifie la recherche réelle contre le notebook public MIT épinglé. Le modèle ne
 sélectionne que des identifiants récupérés ; le code affiche les enregistrements
 entiers et leurs marqueurs individuels, sans transmettre de citations rédigées
-par le modèle. Les **30 tests de l'extension**, contrôles de syntaxe et de
-compatibilité des dépendances réussissent. Quatre cas backend réels affichent
+par le modèle. Les **30 tests initiaux de l'extension**, contrôles de syntaxe et de
+compatibilité des dépendances ont réussi. Quatre cas backend réels affichent
 **12 passages exacts et attribués**. La pertinence de la sélection et la
 complétude des incidents ne sont pas certifiées pour autant.
 
@@ -1176,9 +1176,9 @@ d'authentification du point ni ajout manuel de rôle ou de consentement n'est
 effectué pendant le diagnostic**.
 Le commutateur du diagnostic affiche Disabled et une sauvegarde est tentée,
 mais la lecture indépendante suivante échoue lorsque le navigateur devient
-indisponible. Confirmez l'état Disabled sauvegardé dans un navigateur externe
-avant tout nouveau test natif. Les instructions du parent original et la
-définition version 4 ne sont pas modifiées.
+indisponible. Une lecture authentifiée ultérieure récupère cette vérification,
+comme détaillé ci-dessous. Les instructions du parent original et la définition
+version 4 ne sont pas modifiées.
 
 Cette continuation crée une étape de recherche isolée, un agent hébergé et une
 nouvelle ressource Azure Bot. Les identités générées par le service sont
@@ -1187,6 +1187,38 @@ facturables. Les ajouts locaux ultérieurs du script, du chargement dotenv et
 du fichier de licence n'ont pas été redéployés. Ni l'extension native ni
 l'atelier complet ne sont certifiés terminés ; compatibilité BYOM originale
 et accès autorisé aux originaux protégés restent non résolus.
+
+### État sauvegardé récupéré et correction du SDK Activity
+
+Une inspection Dataverse authentifiée en lecture seule vérifie maintenant le
+rattachement du diagnostic au parent attendu et son état sauvegardé
+`statecode=1`, `statuscode=2`. Les métadonnées réelles nomment cet état
+**Inactive** ; une nouvelle capture de l'interface montre aussi Disabled avec
+Save désactivé. Une confirmation dans un navigateur externe n'est donc plus
+nécessaire uniquement pour établir que ce diagnostic reste désactivé.
+
+Une requête Activity directe authentifiée atteint l'hébergement et crée une
+session, mais reçoit **HTTP 500** avant le gestionnaire de messages applicatif.
+Les journaux identifient
+`ClaimsIdentity.__init__() got an unexpected keyword argument 'is_authenticated'`.
+Cette requête directe n'est pas un tour natif Copilot Studio. Elle utilise le
+locataire et l'appelant réels du jeton Entra obtenu ; authentification du point,
+rôles manuels et consentement restent inchangés.
+
+Le pont Activity déployé `1.0.0b1` utilise un argument de constructeur supprimé.
+La correction locale épingle Activity `1.0.0b4` et Microsoft Agents `1.9.0`.
+Le test de régression reproduit d'abord l'erreur à la frontière réelle du SDK,
+puis réussit après correction. Les **33 tests de l'extension**, contrôles de
+syntaxe Python et `pip check` réussissent. Deux tests ASGI exercent le vrai
+point d'entrée et l'adaptateur SDK : ils conservent exactement les preuves
+affichées et signalent explicitement un rejet. Le chargement du corpus et la
+génération Azure sont simulés dans ces tests locaux de transport. Ils établissent
+aussi que l'enveloppe Activity exige `serviceUrl`.
+
+Aucune version cloud corrigée n'est déployée ni retestée. La réussite locale ne
+résout pas le 403 natif antérieur et ne certifie ni les permissions hébergées en
+aval ni l'atelier complet. Approbations de publication et acceptation réelle
+hébergée/native restent en attente.
 
 ## Références officielles
 

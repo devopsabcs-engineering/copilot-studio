@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "recorded_utc": "2026-10-22T01:41:39Z",
-  "status": "blocked_native_activity_authorization",
+  "status": "blocked_native_authorization_and_hosted_sdk_compatibility",
   "overall_workshop_certified": false,
   "implementation": {
     "source": "examples/verified-retrieval/workshop-verified-retrieval",
@@ -92,6 +92,50 @@
     "whole_plan_completion_observed": false,
     "last_capture_utc": "2026-10-21T23:09:25.281Z",
     "new_full_turn_or_content_acceptance_claimed": false
+  },
+  "followup_recovery": {
+    "diagnostic_saved_state": {
+      "independently_verified": true,
+      "verification": "Authenticated read-only Dataverse component and state metadata, plus fresh saved UI snapshot",
+      "parent_bot_binding_verified": true,
+      "statecode": 1,
+      "statuscode": 2,
+      "state_label": "Inactive",
+      "definition_sha256": "6fbc8d501171570d4221309fbcb57fcf7789903bdebf69d9a946d21c9ef38e47"
+    },
+    "authenticated_direct_activity": {
+      "attempt": 1,
+      "http_status": 500,
+      "request_id": "946d6c72-1ee8-407c-b357-40975ecfde8a",
+      "hosted_session_observed": true,
+      "copilot_studio_native": false,
+      "caller_metadata_matches_acquired_entra_token": true,
+      "pipeline_execution_claimed": false,
+      "error_code": "internal_error",
+      "root_error": "ClaimsIdentity.__init__() got an unexpected keyword argument 'is_authenticated'",
+      "failure_stage": "Vendor Activity SDK bridge before application message handler"
+    },
+    "local_sdk_repair": {
+      "deployed_activity_version": "1.0.0b1",
+      "tested_activity_version": "1.0.0b4",
+      "pinned_microsoft_agents_version": "1.9.0",
+      "unit_tests_passed": 33,
+      "syntax_check_passed": true,
+      "dependency_compatibility_check_passed": true,
+      "real_hosted_identity_regression_passed": true,
+      "real_entry_point_and_adapter_asgi_tests_passed": 2,
+      "transport_evidence_unchanged": true,
+      "transport_validation_failure_explicit": true,
+      "asgi_corpus_loading_and_azure_answer_stubbed": true,
+      "complete_activity_requires_service_url": true,
+      "vendor_source_modified": false,
+      "redeployed": false,
+      "hosted_repair_retested": false,
+      "downstream_hosted_permissions_certified": false,
+      "native_403_resolved": false
+    },
+    "endpoint_authorization_changed": false,
+    "additional_manual_role_or_consent_changes": false
   },
   "preservation": {
     "original_parent_instructions_changed": false,

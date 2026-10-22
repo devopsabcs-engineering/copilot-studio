@@ -1012,6 +1012,36 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(preservation["new_azure_bot_resource_created"])
         self.assertTrue(preservation["new_resources_remain_live_and_billable"])
 
+    def test_verified_extension_sdk_recovery_preserves_hosted_and_native_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "docs/assets/runtime-2026-10-20/foundry-verified-extension.json")
+                             .read_text("utf-8"))
+        recovery = receipt["followup_recovery"]
+        state = recovery["diagnostic_saved_state"]
+        self.assertTrue(state["independently_verified"])
+        self.assertTrue(state["parent_bot_binding_verified"])
+        self.assertEqual((state["statecode"], state["statuscode"], state["state_label"]),
+                         (1, 2, "Inactive"))
+        direct = recovery["authenticated_direct_activity"]
+        self.assertEqual(direct["http_status"], 500)
+        self.assertTrue(direct["hosted_session_observed"])
+        self.assertTrue(direct["caller_metadata_matches_acquired_entra_token"])
+        self.assertFalse(direct["copilot_studio_native"])
+        self.assertFalse(direct["pipeline_execution_claimed"])
+        repair = recovery["local_sdk_repair"]
+        self.assertEqual(repair["unit_tests_passed"], 33)
+        self.assertEqual(repair["tested_activity_version"], "1.0.0b4")
+        self.assertEqual(repair["pinned_microsoft_agents_version"], "1.9.0")
+        self.assertEqual(repair["real_entry_point_and_adapter_asgi_tests_passed"], 2)
+        for key in ("real_hosted_identity_regression_passed", "transport_evidence_unchanged",
+                    "transport_validation_failure_explicit", "complete_activity_requires_service_url"):
+            self.assertTrue(repair[key])
+        for key in ("vendor_source_modified", "redeployed", "hosted_repair_retested",
+                    "downstream_hosted_permissions_certified", "native_403_resolved"):
+            self.assertFalse(repair[key])
+        self.assertFalse(recovery["endpoint_authorization_changed"])
+        self.assertFalse(recovery["additional_manual_role_or_consent_changes"])
+
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs" / "assets" / "runtime-2026-10-19" / "foundry-results.json"

@@ -1115,8 +1115,8 @@ The [isolated implementation](https://github.com/devopsabcs-engineering/copilot-
 now verifies actual retrieval against the pinned public MIT notebook, constrains
 the model to selecting retrieved record IDs, and renders whole source records
 with individual source markers in code. It does not forward model-written
-quotations. All **30 extension tests**, syntax checks and dependency compatibility
-checks pass. Four real backend cases render **12 exact attributed records**.
+quotations. The initial **30 extension tests**, syntax checks and dependency
+compatibility checks passed. Four real backend cases render **12 exact attributed records**.
 Selection relevance and complete incident coverage are not thereby certified.
 
 The [extension receipt](../assets/runtime-2026-10-20/foundry-verified-extension.json)
@@ -1134,9 +1134,9 @@ The approval request received no human answer; **no endpoint authentication
 change or additional manual role/consent change was made during diagnosis**.
 The diagnostic switch showed Disabled and
 Save was attempted, but subsequent independent readback failed when browser
-access became unavailable. Confirm its saved Disabled state externally before
-another native test. The original parent instructions and version-4 definition
-were not changed.
+access became unavailable. Later authenticated readback recovers that verification,
+as detailed below. The original parent instructions and version-4 definition were
+not changed.
 
 This continuation created an isolated retrieval stage, a hosted agent and a new
 Azure Bot resource, with service-generated identities recorded privately for
@@ -1144,6 +1144,35 @@ cleanup. These resources remain live and billable. Later local helper, dotenv
 and license-packaging changes have not been redeployed. Neither the native
 extension nor the full workshop is certified complete; original BYOM
 compatibility and authorized access to protected originals remain unresolved.
+
+### Saved-state recovery and Activity SDK repair
+
+Read-only authenticated Dataverse inspection now verifies the owned diagnostic's
+parent binding and saved `statecode=1`, `statuscode=2`. Actual state metadata
+labels this **Inactive**; a fresh UI snapshot also shows Disabled with Save
+disabled. External-browser confirmation is no longer needed solely to establish
+that this diagnostic stayed disabled.
+
+One separate authenticated direct Activity request reached hosting and created
+a session, but returned **HTTP 500** before the application message handler.
+Its logs identify
+`ClaimsIdentity.__init__() got an unexpected keyword argument 'is_authenticated'`.
+This direct request is not a Copilot Studio native turn. It used the actual
+tenant and caller from the acquired Entra token; endpoint authentication,
+manual roles and consent remain unchanged.
+
+The deployed Activity bridge `1.0.0b1` uses a removed constructor argument.
+The local repair pins Activity `1.0.0b4` and Microsoft Agents `1.9.0`.
+The exact vendor-boundary regression first reproduced the error and now passes.
+All **33 extension tests**, Python syntax checks and `pip check` pass. Two real
+ASGI tests exercise the application entry point and SDK adapter, preserving
+rendered evidence exactly and reporting a rejected answer explicitly. Corpus
+loading and Azure answer generation are stubbed in these local transport tests.
+They also establish that `serviceUrl` is required in the Activity envelope.
+
+No repaired cloud version has been deployed or retested. Local success does not
+resolve the earlier native 403, certify downstream hosted permissions or complete
+the workshop. Release sign-off and real hosted/native acceptance remain pending.
 
 ## Official references
 
