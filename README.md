@@ -22,6 +22,8 @@ résultats observés et les procédures qui restent à exécuter.
 * [Registre de réexécution réelle](docs/fr/live-rerun-2026-10-19.md)
 * [GitHub wiki](https://github.com/devopsabcs-engineering/copilot-studio/wiki)
 * [Publication and maintenance / Publication et maintenance](docs/publishing.md)
+* [Remaining-work roadmap](docs/en/completion-roadmap.md)
+* [Feuille de route des travaux restants](docs/fr/completion-roadmap.md)
 
 > [!IMPORTANT]
 > Lab 1 has user-supplied execution evidence, including a received email.
