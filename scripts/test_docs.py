@@ -2804,7 +2804,96 @@ class WikiTests(unittest.TestCase):
                 self.assertNotIn("Not run", row)
                 self.assertNotIn("Non exécuté", row)
             denied = next(line for line in lab.splitlines() if line.startswith("| S5-10 "))
-            self.assertIn("Not run" if language == "en" else "Non exécuté", denied)
+            self.assertIn("Failed:" if language == "en" else "Échec :", denied)
+
+    def test_isolated_native_permission_removal_failure_is_not_a_pass(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-isolated-permission-removal.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "NATIVE_PERMISSION_REMOVAL_NO_LEAK_CHECK_FAILED")
+        scope = result["scope"]
+        self.assertEqual(scope["fictionalTrainingDocumentsOnly"], 2)
+        self.assertTrue(scope["sameApprovedAdministratorOnSeparateNewSearchService"])
+        self.assertFalse(scope["independentlyUnprivilegedUserTest"])
+        self.assertFalse(scope["originalAdministratorWorkingPermissionsRemoved"])
+        self.assertTrue(scope["searchLocalAuthenticationDisabled"])
+        self.assertTrue(scope["webAndGeneralKnowledgeDisabled"])
+        self.assertTrue(scope["exactlyOneNativeKnowledgeSource"])
+        self.assertEqual(scope["inheritedSearchDataAssignmentsAtFinalRead"], 0)
+        self.assertTrue(result["authorizedBaseline"]["accepted"])
+        removal = result["permissionRemoval"]
+        self.assertTrue(removal["onlyOwnedIndexScopedReaderRemoved"])
+        self.assertEqual(removal["independentAssignmentGetStatus"], 404)
+        for key in ("directQueryWithBeforeRemovalTokenStatus",
+                    "directQueryWithTokenRequestedAfterRemovalStatus",
+                    "postNativeDirectQueryStatus"):
+            self.assertEqual(removal[key], 403)
+        self.assertTrue(removal["bothTokenRequestsReturnedSameCachedJwt"])
+        self.assertFalse(removal["newlyIssuedTokenClaimed"])
+        denied = result["nativeDeniedAttempt"]
+        self.assertEqual(denied["nativeQuestions"], 1)
+        self.assertEqual(denied["automaticQuestionReplays"], 0)
+        self.assertTrue(denied["distinctConversationFromAuthorizedBaseline"])
+        self.assertTrue(denied["sameQuestionAndFrozenConfiguration"])
+        self.assertTrue(denied["actualNativeSearchSourceAndSnippetsVerified"])
+        self.assertEqual(denied["returnedAndVerifiedSourceRecords"], 2)
+        self.assertEqual(denied["nativeSearchErrorCount"], 0)
+        self.assertEqual(denied["answerOpeningTime"], "07:00")
+        self.assertEqual(denied["actualIndividualCitation"], "Harbor Training Hotel")
+        for key in ("noLeakCheckAccepted", "nativeEffectivePrincipalEstablished",
+                    "rootCauseEstablished", "cachePropagationOrPrivilegeExplanationClaimed"):
+            self.assertFalse(denied[key])
+        for key in ("S5_10Accepted", "independentDeniedIdentityAcceptance",
+                    "originalHotelCorpusAcceptance", "T014Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
+    def test_isolated_denial_capture_and_cleanup_preserve_failure_and_originals(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-isolated-permission-removal.json").read_text("utf-8"))
+        capture = result["captureAndConfiguration"]
+        self.assertTrue(capture["originalPostSubmissionReadTimeoutPreserved"])
+        self.assertTrue(capture["officialSnapshotRecoveredFromExistingConversation"])
+        self.assertEqual(capture["newQuestionsDuringRecovery"], 0)
+        self.assertEqual(capture["officialSnapshotsPreservedPrivately"], 2)
+        self.assertEqual(capture["bothConfigurationPayloadBytes"], 47651)
+        self.assertEqual(capture["independentAfterNativeCloneUnchangedAuthoredFiles"], 17)
+        for key in ("bothConfigurationSha256", "authorizedZipSha256", "deniedZipSha256"):
+            self.assertRegex(capture[key], r"^[0-9a-f]{64}$")
+        self.assertNotEqual(capture["authorizedZipSha256"], capture["deniedZipSha256"])
+        self.assertFalse(capture["modelReasoningInspected"])
+        cleanup = result["cleanup"]
+        for key in ("ownedDraftAndConnectionIndependentlyAbsent", "allFourOwnedRoleAssignmentsAbsent",
+                    "ownedSearchServiceAndIndexIndependentlyAbsent",
+                    "ownedGroupIndependentlyEmptyBeforeDeletionAndNowAbsent",
+                    "cliConnectionDeleteRejectedByEnvironmentRouteFilterMismatch",
+                    "failedCliResponsePreserved", "allFivePriorAgentIdentifiersPreserved",
+                    "allSevenOtherConnectionNameConnectorStatusRowsPreserved",
+                    "originalEmbeddingAccountAndEveryOriginalRoleExactlyPreserved",
+                    "allThreeOriginalSearchSchemaHashesExactlyPreserved", "ownedBrowserClosedNormally"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["correctlyScopedFirstPartyConnectionGetStatus"], 200)
+        self.assertEqual(cleanup["correctlyScopedFirstPartyConnectionDeleteStatus"], 200)
+        self.assertEqual(cleanup["correctlyScopedFirstPartyConnectionAbsenceStatus"], 404)
+        self.assertEqual(cleanup["remainingOwnedTestObjects"], 0)
+        for key in ("successfulAgentDeleteReplayed", "otherBrowsersTouched",
+                    "actualSpendingFinalized", "privateRawEvidencePublished"):
+            self.assertFalse(cleanup[key])
+
+    def test_isolated_denial_failure_is_bilingual_and_keeps_release_open(self):
+        root = Path(__file__).resolve().parents[1]
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md",
+                         "backend-live-2026-10-20.md", "lab-05.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn("lab5-isolated-permission-removal.json", text)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T014", roadmap)
+            self.assertIn("- [ ] T016", roadmap)
+            guide = (root / "docs" / language / "lab-05.md").read_text("utf-8")
+            row = next(line for line in guide.splitlines() if line.startswith("| S5-10 "))
+            self.assertIn("Failed:" if language == "en" else "Échec :", row)
+            self.assertNotIn("Not run" if language == "en" else "Non exécuté", row)
 
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
@@ -3036,7 +3125,7 @@ class WikiTests(unittest.TestCase):
                 row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
                 self.assertIn("Pass:" if language == "en" else "Réussi :", row)
             denied_row = next(line for line in guide.splitlines() if line.startswith("| S5-10 "))
-            self.assertIn("Not run" if language == "en" else "Non exécuté", denied_row)
+            self.assertIn("Failed:" if language == "en" else "Échec :", denied_row)
             self.assertIn("search-security-rbac#grant-access-to-a-single-index", guide)
             roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
             self.assertIn("- [ ] T014", roadmap)

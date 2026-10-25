@@ -116,6 +116,34 @@ formelle et index temporaires supprimés; objets et empreintes initiaux préserv
 Quatre critères fictifs natifs sont clos, pas la navigation PDF hôtelière originale,
 le refus réel d'identité, l'acceptation du corpus original ou le lab complet.
 
+## Échec isolé de retrait d'autorisation du 25 octobre
+
+Le [test isolé de retrait d'autorisation](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+échoue au contrôle S5-10 sans divulgation. Un nouveau service Search sans clé
+contient seulement les deux documents fictifs. Le même administrateur approuvé
+reçoit un nouveau rôle Reader limité à cet index; aucun droit de travail
+initial n'est retiré. Ce n'est pas un test d'utilisateur indépendant non privilégié.
+
+Une question native autorisée renvoie Harbor `07:00` avec sa vraie citation.
+Après retrait du seul rôle Reader possédé, les requêtes documentaires directes
+renvoient HTTP 403 avec les deux demandes de jeton. Le CLI retourne le même JWT
+en cache, pas la preuve d'un jeton nouvellement émis. Dans une conversation
+native distincte, l'unique question de la phase refusée renvoie pourtant `07:00`
+et la citation Harbor. La trace Search officielle contient les deux documents
+réels du jeu fictif, sans erreur Search. Le refus direct ne prouve donc pas
+l'isolation native. Principal natif effectif et cause restent non établis;
+aucune explication par cache, propagation ou privilège n'est affirmée.
+
+La lecture après envoi expire. La reprise exporte cette conversation existante
+sans rejouer la question. Les deux configurations officielles concordent;
+le clone indépendant après essai préserve les 17 fichiers d'auteur.
+Brouillon, connexion, quatre rôles, service/index Search et groupe vérifié
+vide sont supprimés. Le CLI refuse d'abord une divergence route/filtre
+d'environnement pour la connexion; une requête de première partie correctement
+limitée réussit, avec absence vérifiée. Inventaires, compte d'embedding, rôles
+et trois schémas initiaux sont préservés. Navigateur possédé fermé normalement.
+Coût réel non finalisé. S5-10, T014 et acceptation complète restent ouverts.
+
 ## Architecture et prérequis
 
 La connexion AccessKey formelle ultérieure a exécuté deux vraies questions sur
@@ -310,7 +338,7 @@ Les valeurs exactes concernent uniquement le jeu fictif original. La formulation
 | S5-07 | Demander le prix de la navette aéroport du lodge        | Absence de source explicitement signalée ; aucun prix inventé                 | Réussi : abstention native explicite |
 | S5-08 | Examiner la trace connaissances/flux                    | Source ou outil prévu invoqué ; citation accessible au testeur autorisé       | Réussi : trace native et clic source fictive |
 | S5-09 | Répéter en français                                     | Faits `07:00` et `21:00` conservés ; sources correctes                        | Réussi : cohorte française distincte |
-| S5-10 | Retirer l'autorisation du testeur dans un test approuvé | Accès refusé ; aucune fuite par un chemin de repli                            | Non exécuté     |
+| S5-10 | Retirer l'autorisation du testeur dans un test approuvé | Accès refusé ; aucune fuite par un chemin de repli                            | Échec : fait/citation natifs après 403 direct |
 
 Pour au moins dix questions annotées, notez les identifiants de documents pertinents avant les essais. Calculez hit@3 comme le nombre de questions avec un passage pertinent parmi les trois premiers, divisé par le nombre testé. La justesse des citations est le nombre d'affirmations citées étayées divisé par les affirmations citées examinées. Publiez médiane/p95 seulement avec assez de mesures, en précisant leur nombre. Ne produisez pas de pourcentage pour un test non exécuté.
 

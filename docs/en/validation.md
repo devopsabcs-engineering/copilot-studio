@@ -20,6 +20,18 @@ verify all 17 authored files unchanged. The owned draft, connection and index
 are removed and original objects preserved. This is not an original hotel PDF,
 denied-identity or whole-lab pass; T014 stays open.
 
+The separate [isolated permission-removal run](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+fails S5-10. Only a new test Reader grant is removed on a separate keyless
+Search service. Direct queries return 403, but one fresh native conversation
+returns `07:00` with the actual Harbor citation and two fixture records in its
+Search trace. This uses the same approved administrator, not an independently
+unprivileged identity; native effective principal and cause remain unproved.
+The official snapshot is recovered after a read timeout without question replay.
+Both configuration payloads match and all 17 authored files stay unchanged.
+All owned test objects are deleted, originals preserved and browser closed.
+Actual spending is not finalized. The earlier 4/4 is not promoted to an
+isolation pass; T014 and the full roadmap remain open.
+
 The later [original licensing History recovery](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 finds the exact original question but no completed historical answer, even
 after one Refresh. One citation click in a separate completed history exposes

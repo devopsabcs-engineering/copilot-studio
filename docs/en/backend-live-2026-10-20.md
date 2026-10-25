@@ -37,6 +37,26 @@ validator's missing-module error remains; no bundle patch or schema-validation
 success is claimed. Original hotel source URLs and genuine denied identity
 remain unverified. This progress does not close T014 or the workshop.
 
+## October 25 isolated native permission-removal failure
+
+The [separate denial receipt](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+records a failed no-leak check, not an S5-10 pass. An authorized native baseline
+succeeds on a new keyless fictional Search service. After removing only its
+owned index Reader grant, direct queries return 403, but the single denied-phase
+native turn returns Harbor `07:00` and its genuine citation. The actual Search
+trace has two fixture records and no Search error. Both official configuration
+payloads match and an independent clone verifies 17 unchanged authored files.
+The existing conversation's snapshot is recovered after a read timeout,
+without replay. Same administrator, not independently unprivileged identity;
+effective native principal and cause remain unproved.
+
+All owned objects, including the service, empty group and cross-resource
+embedding grant, are removed. The CLI connection-delete route/filter rejection
+is preserved; a correctly scoped first-party deletion and independent 404
+complete that removal. Original agents, connections, embedding account/roles
+and Search schemas remain unchanged. Owned browser closed normally, actual
+spending not finalized. S5-10, T014 and whole-roadmap acceptance stay open.
+
 ## October 25 administrator and candidate recovery
 
 The [latest candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)

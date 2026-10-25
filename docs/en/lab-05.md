@@ -112,6 +112,34 @@ and temporary index are deleted; original objects and schema hashes are preserve
 This closes four fictional native criteria, not original hotel PDF navigation,
 genuine denied identity, original-corpus acceptance or whole-lab certification.
 
+## October 25 isolated permission-removal failure
+
+The later [isolated permission-removal test](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+fails the S5-10 no-leak check. A separate new keyless Search service contains
+only the two fictional records. The same approved administrator has a new
+index-scoped Reader grant; no original working permission is removed.
+This is not an independently unprivileged-user test.
+
+One authorized native question returns Harbor `07:00` with its actual citation.
+After removing only the owned Reader grant, direct document queries return
+HTTP 403 with both token requests. The CLI returns the same cached JWT, not
+proof of a newly issued token. In a distinct native conversation, the one
+denied-phase question nevertheless returns `07:00` and the Harbor citation.
+Its official Search trace contains both actual fixture records and no Search
+error. Direct denial therefore does not establish native isolation.
+The effective native principal and root cause remain unproved; no cache,
+propagation or privilege explanation is asserted.
+
+The post-submission read times out. Recovery exports that existing conversation
+without replaying the question. Both official configuration payloads match;
+the independent after-native clone preserves all 17 authored files.
+The owned draft, connection, four role assignments, Search service/index and
+independently empty group are removed. A CLI connection deletion rejects an
+environment route/filter mismatch; a correctly scoped first-party request
+then succeeds, with absence verified. Original inventories, embedding account,
+roles and three Search schemas are preserved. The owned browser closes normally.
+Actual spending is not finalized. S5-10, T014 and whole-lab acceptance stay open.
+
 ## Architecture and prerequisites
 
 The subsequent formal AccessKey connection did run two actual isolated hotel
@@ -305,7 +333,7 @@ Exact values below belong to the original synthetic fixture only. Natural-langua
 | S5-07 | Ask for the lodge's airport shuttle price               | Explicit lack of source support; no invented price                                | Pass: native explicit abstention |
 | S5-08 | Inspect knowledge/flow trace                            | The intended source or tool was invoked; citation opens for the authorized tester | Pass: native trace and fictional source click |
 | S5-09 | Repeat in French                                        | Supported facts remain `07:00` and `21:00`; sources remain correct                | Pass: separate French-enabled cohort |
-| S5-10 | Remove the tester's data permission in an approved test | Access is denied; no content leaks through a fallback                             | Not run        |
+| S5-10 | Remove the tester's data permission in an approved test | Access is denied; no content leaks through a fallback                             | Failed: native fact/citation after direct 403 |
 
 For at least ten labeled questions, record supporting-document IDs before testing. Calculate hit@3 as questions with a relevant passage in the first three results divided by questions tested. Calculate citation correctness as supported cited claims divided by cited claims inspected. Record median/p95 latency only after collecting enough timed runs, plus the sample count. Do not publish a percentage from an unexecuted test.
 

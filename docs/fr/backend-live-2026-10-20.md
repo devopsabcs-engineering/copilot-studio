@@ -37,6 +37,27 @@ manquant du validateur officiel reste ouverte, sans modification de bundle
 ni validation de schéma prétendue. URL hôtelières originales et refus réel
 d'identité restent non vérifiés. T014 et l'atelier ne sont pas terminés.
 
+## Échec natif isolé de retrait d'autorisation du 25 octobre
+
+Le [reçu distinct de refus](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+enregistre un échec du contrôle sans divulgation, pas une réussite S5-10.
+La référence native autorisée réussit sur un nouveau service Search fictif
+sans clé. Après retrait de son seul rôle Reader d'index possédé, les requêtes
+directes renvoient 403, mais l'unique tour natif de refus renvoie Harbor `07:00`
+et sa vraie citation. La trace Search contient deux documents fictifs sans
+erreur Search. Les deux configurations officielles concordent; un clone
+indépendant vérifie 17 fichiers d'auteur inchangés. L'instantané existant
+est récupéré après expiration de lecture, sans rejeu. Même administrateur,
+pas une identité indépendante non privilégiée; principal effectif et cause
+restent non établis.
+
+Tous les objets possédés, dont service, groupe vide et rôle d'embedding
+sur le compte existant, sont supprimés. Le refus CLI pour divergence route/filtre
+est conservé; une suppression de première partie correctement limitée et
+un 404 indépendant terminent le retrait de connexion. Agents, connexions,
+compte/rôles d'embedding et schémas initiaux inchangés. Navigateur fermé normalement,
+coût réel non finalisé. S5-10, T014 et acceptation complète restent ouverts.
+
 ## Récupération administrateur et candidat du 25 octobre
 
 La [dernière poursuite du candidat](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)

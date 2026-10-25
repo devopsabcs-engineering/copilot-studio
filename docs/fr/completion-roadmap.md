@@ -61,6 +61,26 @@ ARM, aucun rôle, stratégie ou paramètre d'authentification initial modifié.
 URL/corpus hôteliers originaux et test réel d'identité refusée restent ouverts.
 T014, critères de livraison/gouvernance et atelier complet restent non terminés.
 
+## Échec isolé de retrait d'autorisation du 25 octobre
+
+Le [test Search distinct sans clé](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+échoue à S5-10 : la référence native autorisée réussit, mais l'unique question
+native suivante renvoie Harbor `07:00` et sa vraie citation après HTTP 403
+sur les requêtes Search directes. Seul un nouveau rôle Reader possédé sur
+l'index isolé est retiré; aucun droit administrateur initial n'est modifié.
+Le même administrateur est utilisé, pas une identité indépendante non privilégiée.
+La trace native contient deux documents fictifs sans erreur Search.
+Principal natif effectif et cause restent non établis.
+
+L'expiration de lecture est conservée; l'instantané officiel de la conversation
+existante est récupéré sans rejouer la question. Les deux configurations
+concordent; un clone indépendant vérifie les 17 fichiers d'auteur inchangés.
+Tous les objets possédés, dont service Search facturable et rôle d'embedding
+sur le compte existant, sont supprimés avec contrôles indépendants.
+Agents, connexions, compte/rôles d'embedding et schémas Search initiaux préservés;
+navigateur possédé fermé normalement. Coût réel non finalisé.
+La cohorte fictive antérieure 4/4 reste inchangée. S5-10, T014 et T016 restent ouverts.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

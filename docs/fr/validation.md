@@ -20,6 +20,18 @@ confirment les 17 fichiers d'auteur inchangés. Brouillon, connexion et index
 possédés supprimés, objets initiaux préservés. Ni PDF hôtelier original,
 ni identité refusée, ni lab complet validés; T014 reste ouvert.
 
+Le [test isolé de retrait d'autorisation](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+échoue à S5-10. Seul un nouveau rôle Reader de test est retiré sur un service
+Search distinct sans clé. Les requêtes directes renvoient 403, mais une nouvelle
+conversation native renvoie `07:00`, la vraie citation Harbor et deux documents
+fictifs dans sa trace Search. Même administrateur approuvé, pas une identité
+indépendante non privilégiée; principal natif effectif et cause non établis.
+L'instantané officiel est récupéré après expiration de lecture sans rejouer
+la question. Les deux configurations concordent et les 17 fichiers restent
+inchangés. Objets possédés supprimés, originaux préservés et navigateur fermé.
+Coût réel non finalisé. Le 4/4 antérieur ne devient pas une réussite d'isolation;
+T014 et la feuille de route complète restent ouverts.
+
 La [récupération ultérieure de l'historique des licences](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 retrouve la question originale exacte, mais aucune réponse historique complète,
 même après une actualisation. Un clic de citation dans un autre historique

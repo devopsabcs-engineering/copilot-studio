@@ -58,6 +58,26 @@ closes normally; no ARM resource, role, policy or original authentication change
 Original hotel URLs/corpus acceptance and the genuine denied-identity test remain
 open. T014, broader release/governance gates and the workshop remain incomplete.
 
+## October 25 isolated permission-removal failure
+
+The [separate keyless Search test](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
+fails S5-10: an authorized native baseline passes, but the one later native
+question returns Harbor `07:00` with a genuine citation after direct Search
+queries return 403. Only a new owned index Reader grant on the isolated service
+is removed; no original administrator permission changes. This uses the same
+administrator, not an independently unprivileged identity.
+The actual native trace has two fixture records and no Search error.
+Effective native principal and cause remain unproved.
+
+The interrupted read is preserved; the existing conversation's official
+snapshot is recovered without question replay. Both configuration payloads
+match and an independent clone verifies 17 unchanged authored files.
+All owned test objects, including the billable Search service and cross-resource
+embedding grant, are deleted and independently checked. Original agents,
+connections, embedding account/roles and Search schemas are preserved;
+the owned browser closes normally. Actual spending is not finalized.
+The earlier 4/4 fictional cohort is unchanged. S5-10, T014 and T016 stay open.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
