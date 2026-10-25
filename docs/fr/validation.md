@@ -31,9 +31,23 @@ Un [outil MCP local isolé](../assets/runtime-2026-10-25/mcp-evidence-local.json
 réussit désormais la découverte réelle du protocole et une requête SAR inchangée
 avec deux documents exacts et leur provenance corrélée. L'assistant du tenant
 expose OAuth manuel, mais est annulé sans connexion. Les tests locaux de jetons
-signés ne prouvent pas OAuth MCP Entra réel. Hébergement distant, liaison et
-fidélité native complète restent non vérifiés; l'hôte Activity de production
-est inchangé.
+signés ne prouvent pas OAuth MCP Entra réel.
+
+Le [contrôle hébergé suivant](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+réussit maintenant démarrage App Service distinct, HTTPS/TLS et désactivation de
+publication basique, refus **401** sans jeton/avec jeton invalide et découverte
+correcte **200**. Deux applications possédées à tenant unique, la configuration
+sortante d'identité managée limitée et un connecteur MCP officiel avec rappel
+inscrit indépendamment sont persistés. La fenêtre native de consentement est
+bloquée; l'autorisation normale en nouvel onglet atteint la demande de mot de
+passe administrateur. Aucune réponse humaine, réussite de jeton délégué,
+récupération par identité managée, liaison candidat ni question native nouvelle
+n'est revendiquée. Auxiliaire/rappel temporaires sont supprimés. L'hôte B1 reste
+facturable, avec estimation publique de calcul de 0,018 USD/heure, pas une facture
+ni un budget approuvé. La [nouvelle préservation](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+confirme contenus d'origine/candidat, fichiers et liaisons inchangés;
+définition version 5 et identifiants de principal/client correspondent aussi.
+Fidélité complète et feuille de route entière restent ouvertes.
 
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service

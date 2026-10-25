@@ -30,7 +30,32 @@ returns structured, exactly rendered evidence without conversational activities,
 reusing the unchanged retriever. One original SAR tool call returns two exact
 records. Real OAuth, remote MCP hosting and native candidate binding are not
 verified. The tenant onboarding wizard offers manual OAuth but is cancelled
-without creating a connection; no additional Azure resource is provisioned.
+without creating a connection; no additional Azure resource is provisioned
+at that local checkpoint.
+
+The [subsequent hosted MCP preflight](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+deploys a separate Python 3.13 Linux B1 App Service in Sweden Central, with HTTPS,
+TLS 1.2 and no FTP/basic publishing. Live missing/invalid bearer controls return
+401 and correct OAuth resource discovery returns 200. The owned API/client,
+account-scoped outbound identity role, official MCP connector and generated
+callback are created and read back. Local receipt-lock recovery avoids duplicate
+applications; the first PAC title-length validation failure is retained.
+
+Correct browser/PAC administrator identity is verified. The integrated browser
+blocks the connector consent popup; standard new-tab code/PKCE authorization
+instead reaches the administrator password prompt. The user-response tool is
+unavailable. No successful OAuth, outbound retrieval, candidate binding or
+new native question is claimed. The temporary callback/helper are removed,
+and zero user consent grants are observed. The separate host remains billable
+at a published USD 0.018/hour compute estimate, without an established actual
+bill, numerical budget or retention owner/date.
+
+[Fresh native preservation](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+again verifies original 26/candidate 28 rows, authoring, files, bindings and
+Off/On/On states. Readback also matches the protected retriever and current
+version-5 definition/principal/client IDs. An extra identity status field is
+not mistaken for an identity change or whole-object equality. No Storage policy
+change, publication or full-roadmap acceptance occurs.
 
 ## October 25 dual-protocol hosted release
 

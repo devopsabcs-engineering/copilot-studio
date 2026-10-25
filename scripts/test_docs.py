@@ -2125,6 +2125,91 @@ class WikiTests(unittest.TestCase):
                     "wholeRoadmapComplete"):
             self.assertFalse(result[key])
 
+    def test_hosted_mcp_preflight_keeps_positive_oauth_and_native_gates_open(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-hosted-preflight.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "hosted-preflight-pass-delegated-sign-in-blocked")
+        hosting = result["hosting"]
+        self.assertEqual(hosting["runtime"], "PYTHON|3.13")
+        self.assertEqual(hosting["noBearerHttpStatus"], 401)
+        self.assertEqual(hosting["invalidBearerHttpStatus"], 401)
+        self.assertEqual(hosting["protectedResourceDiscoveryHttpStatus"], 200)
+        self.assertTrue(hosting["httpsOnly"])
+        self.assertTrue(hosting["scmAndFtpBasicPublishingDisabled"])
+        self.assertTrue(hosting["completeEntraSettingsReadBack"])
+        self.assertTrue(hosting["managedIdentityCredentialExplicitlyConfigured"])
+        self.assertEqual(hosting["newManagedIdentityRoles"], 1)
+        self.assertFalse(hosting["outboundManagedIdentityRetrievalVerified"])
+        self.assertEqual(result["newOwnedResources"]["singleTenantAppRegistrations"], 2)
+        self.assertEqual(result["newOwnedResources"]["storageAccounts"], 0)
+        self.assertEqual(result["newOwnedResources"]["foundryOrModelDeployments"], 0)
+        self.assertTrue(result["package"]["allowlistIndependentlyVerified"])
+        self.assertFalse(result["package"]["environmentCredentialCacheOrTestFilesIncluded"])
+        self.assertEqual(result["paidMcpToolCalls"], 0)
+        self.assertEqual(result["newNativeQuestionsSubmitted"], 0)
+        self.assertFalse(result["nativeBroadSarWholeOutputFidelityRepaired"])
+        self.assertFalse(result["fullElevenCaseNativeMatrixPassed"])
+        self.assertFalse(result["wholeRoadmapComplete"])
+
+    def test_hosted_mcp_human_boundary_has_no_fabricated_consent_or_orphan_helper(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-hosted-preflight.json").read_text("utf-8"))
+        self.assertFalse(result["unavailableQuestionCountedAsApproval"])
+        connector = result["connector"]
+        self.assertTrue(connector["createdThroughOfficialPac"])
+        self.assertTrue(connector["actualNativeMcpCatalogEntryVisible"])
+        self.assertLessEqual(len(connector["displayName"]), 30)
+        self.assertTrue(connector["generatedUniqueCallbackIndependentlyReadBack"])
+        self.assertTrue(connector["callbackRegisteredOnOwnedClientAndReadBack"])
+        self.assertTrue(connector["transientSecretInputAndRawDownloadedPropertiesRemoved"])
+        self.assertFalse(connector["rawCredentialPrintedOrCommitted"])
+        self.assertEqual(connector["dedicatedDelegatedApiScope"], "Evidence.Read")
+        self.assertEqual(connector["graphPermissionsRequested"], [])
+        self.assertEqual(connector["userConsentGrantsObserved"], 0)
+        self.assertFalse(connector["tenantWideConsentGranted"])
+        self.assertFalse(connector["usableDelegatedConnectionVerified"])
+        self.assertFalse(connector["candidateBindingCreated"])
+        auth = result["authenticationBoundary"]
+        self.assertTrue(auth["nativeConsentPopupBlockedByIntegratedBrowser"])
+        self.assertTrue(auth["standardNewTabAuthorizationCodeWithPkceAttempted"])
+        self.assertTrue(auth["intendedAdministratorPasswordPromptObserved"])
+        self.assertFalse(auth["genuineEntraBearerSuccessVerified"])
+        self.assertTrue(auth["boundedLoopbackHelperStopped"])
+        self.assertTrue(auth["loopbackPortVerifiedClosed"])
+        self.assertTrue(auth["temporaryLoopbackRedirectRemoved"])
+        self.assertTrue(auth["actualConnectorCallbackPreserved"])
+        self.assertFalse(auth["oauthCodeOrTokensPersisted"])
+        self.assertEqual(auth["forcedDomActions"], 0)
+        self.assertEqual(result["billing"]["publishedComputeRetailUsdPerHour"], 0.018)
+        self.assertTrue(result["billing"]["retainedHostRemainsBillable"])
+        self.assertFalse(result["billing"]["numericalBudgetProvided"])
+        self.assertFalse(result["billing"]["retentionOwnerAndReviewDateProvided"])
+
+    def test_hosted_mcp_fresh_native_preservation_matches_prior_draft(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        before = json.loads((assets / "lookup-preservation.json").read_text("utf-8"))
+        after = json.loads((assets / "mcp-hosted-native-preservation.json").read_text("utf-8"))
+        hosted = json.loads((assets / "mcp-hosted-preflight.json").read_text("utf-8"))
+        self.assertEqual(after["result"], "pass")
+        self.assertEqual(after["checks"], before["checks"])
+        self.assertEqual(after["authoringSha256"], before["authoringSha256"])
+        self.assertEqual(after["actionStates"], before["actionStates"])
+        self.assertEqual(after["originalComponentCount"], 26)
+        self.assertEqual(after["candidateComponentCount"], 28)
+        self.assertEqual(after["cloudWritesDuringVerification"], 0)
+        self.assertFalse(after["publicationPerformed"])
+        preserved = hosted["preservation"]
+        self.assertTrue(preserved["protectedRetrieverFullDefinitionExactlyUnchanged"])
+        self.assertEqual(preserved["currentHostedVersion"], "5")
+        self.assertTrue(preserved["currentHostedDefinitionExactlyUnchanged"])
+        self.assertTrue(preserved["currentHostedPrincipalAndClientIdsUnchanged"])
+        self.assertFalse(preserved["wholeIdentityObjectEqualityClaimed"])
+        self.assertEqual(preserved["azurePolicyOrStorageNetworkingChanges"], 0)
+        self.assertFalse(preserved["publicationPerformed"])
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

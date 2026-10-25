@@ -164,9 +164,28 @@ prove a real Entra consent/token flow. One real local MCP request using the
 unchanged original SAR question returned exactly two source records through the
 existing Azure retriever, with no retry and no protected-agent definition change.
 See [local evidence](../../../docs/assets/runtime-2026-10-25/mcp-evidence-local.json).
-Remote MCP deployment, real OAuth, candidate binding and native whole-output
-acceptance remain unverified. A data-only tool does not itself guarantee that
-a parent model will preserve quotations in its later synthesis.
+The [separate hosted preflight](../../../docs/assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+now verifies a Python 3.13 Linux B1 App Service, HTTPS/TLS, disabled FTP/basic
+publishing, missing/invalid bearer 401 and protected-resource discovery 200.
+An owned single-tenant API/client and official MCP connector are created; its
+actual generated callback is registered and read back. Outbound credentials are
+explicitly restricted to managed identity with one existing-account data role.
+The allowlisted deployment package excludes environment files and credentials.
+Client credential lifetime is seven days; local storage uses current-user DPAPI
+and access-restricted transient PAC input is deleted after use.
+
+Genuine delegated OAuth, managed-identity retrieval, candidate binding and
+native whole-output acceptance remain unverified. The integrated VS Code browser
+blocks consent popups; standard authorization in a new tab reaches the intended
+administrator's password prompt. The user-response tool is unavailable, not an
+approval. The bounded helper and temporary loopback callback are removed.
+Use a popup-capable browser for the actual connector connection; approve only the
+dedicated evidence scope for the current user. Do not supply passwords in chat.
+The retained Sweden Central host remains billable at a published compute estimate
+of USD 0.018/hour, not an actual bill or established numerical budget.
+Fresh preservation verifies the original/candidate and current version-5
+definition/principal/client IDs unchanged. A data-only tool does not itself
+guarantee that a parent model will preserve quotations in its later synthesis.
 
 ## Testing and deployment boundaries
 

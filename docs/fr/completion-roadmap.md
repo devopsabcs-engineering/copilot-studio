@@ -99,8 +99,64 @@ Elle renvoie deux documents exacts, `rc-002` et `ip-006`, texte identique au ren
 et provenance structurée; la définition du récupérateur protégé est identique
 avant et après. Cela valide le contrat de données local, pas OAuth MCP Entra réel,
 le déploiement MCP distant, la liaison candidat ou la fidélité native complète.
-Ces points restent les prochains critères d'intégration. Aucune ressource Azure
-supplémentaire n'est créée.
+Aucune ressource Azure supplémentaire n'est créée pour cette preuve locale.
+La poursuite hébergée suivante remplace sa limite de déploiement distant.
+
+### Contrôle MCP hébergé et relais OAuth
+
+Le [contrôle hébergé](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+vérifie maintenant un App Service Python 3.13 distinct : HTTPS uniquement,
+TLS 1.2 minimum, FTP désactivé et deux stratégies de publication basique
+désactivées. Les jetons absents ou invalides reçoivent chacun **401**; la découverte
+de ressource protégée renvoie **200**, avec tenant, ressource et portée
+`Evidence.Read` attendus. Le paquet autorisé contient cinq fichiers Python et
+deux manifestes de dépendances, sans identifiants, environnement, cache ni tests.
+Le déploiement Foundry d'origine reste intact.
+
+Deux inscriptions possédées à tenant unique séparent API et client connecteur.
+Seule la portée déléguée dédiée est demandée, sans permission Graph ni accord
+pour tout le tenant. Le serveur sélectionne explicitement son identité managée
+pour les appels sortants, avec un rôle OpenAI User limité au compte existant.
+La configuration est relue, mais accès délégué réel et récupération par identité
+managée ne sont **pas encore vérifiés**. Le secret client de sept jours reste
+dans DPAPI de l'utilisateur courant; l'entrée PAC est protégée par droits
+d'accès et supprimée après usage.
+
+PAC officiel crée un seul connecteur MCP après correction du premier échec local
+de longueur de titre. Son entrée native réelle et son rappel OAuth unique généré
+sont relus indépendamment; ce rappel est inscrit puis vérifié sur le client
+possédé. La première tentative échouée reste conservée.
+
+L'administrateur du navigateur est confirmé indépendamment, mais la fenêtre de
+consentement de connexion native est bloquée. La
+[documentation du navigateur VS Code](https://code.visualstudio.com/docs/debugtest/integrated-browser#navigation)
+confirme que les fenêtres contextuelles sont bloquées et les nouveaux onglets
+autorisés. Un flux normal code d'autorisation/PKCE dans un nouvel onglet atteint
+la demande de mot de passe de l'administrateur prévu. L'outil de réponse humaine
+signale une indisponibilité, pas un accord ni une connexion réussie.
+L'auxiliaire local borné est arrêté, son port est vérifié fermé et son rappel
+temporaire est supprimé; le rappel réel du connecteur reste préservé.
+Aucun nouvel appel MCP payant, question native ni liaison candidat n'a lieu.
+
+La [nouvelle lecture de préservation](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+vérifie encore les 26 lignes d'origine, les mêmes 28 composants candidat,
+empreintes d'auteur exactes, fichiers, liaisons et états Off/On/On.
+Le récupérateur protégé, la définition hébergée courante en version 5 et ses
+identifiants de principal/client correspondent aussi. Aucune modification
+de stratégie/réseau Storage ni publication n'a lieu.
+
+Le plan Linux B1 distinct en Sweden Central reste actif et facturable.
+L'estimation publique de calcul est de **0,018 USD/heure**, pas une facture
+réelle, un total de crédits Copilot ni un budget numérique approuvé.
+Responsable/date de revue de rétention et accords attribuables restent absents.
+
+La prochaine étape prise en charge est une connexion dans un navigateur
+autorisant les fenêtres contextuelles, pour le même candidat de préparation et
+son connecteur Workshop Verified possédé, avec l'administrateur prévu.
+Consentir uniquement à la portée de preuves pour l'utilisateur courant,
+pas pour l'organisation. Vérifier ensuite découverte/récupération réelles,
+liaison limitée au candidat, fidélité SAR complète et régressions d'origine
+touchées avant la matrice entière. T007/T008 et la feuille de route restent ouverts.
 
 ## Livraison Invocations vérifiée du 25 octobre
 

@@ -31,8 +31,22 @@ An [isolated local MCP tool](../assets/runtime-2026-10-25/mcp-evidence-local.jso
 now passes real protocol discovery and one unchanged SAR request with two exact
 source records and correlated provenance. The actual tenant wizard exposes
 manual OAuth, but was cancelled without a connection. Local signed-token tests
-do not establish real Entra MCP OAuth. Remote hosting, binding and native
-whole-output fidelity remain unverified; the production Activity host is unchanged.
+do not establish real Entra MCP OAuth.
+
+The [subsequent hosted preflight](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+now passes separate App Service startup, HTTPS/TLS and disabled basic publishing,
+missing/invalid bearer **401**, and correct protected-resource discovery **200**.
+Two owned single-tenant apps, the scoped outbound managed-identity configuration
+and an official MCP connector with independently registered callback are persisted.
+The native consent popup is blocked; normal new-tab authorization reaches the
+administrator password prompt. No human response, successful delegated token,
+managed-identity retrieval, candidate binding or new native question is claimed.
+The temporary helper/redirect are removed. The B1 host remains billable at a
+published compute estimate of USD 0.018/hour, not an actual bill or approved budget.
+[Fresh preservation](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+confirms unchanged original/candidate content, files and bindings; the existing
+version-5 definition and principal/client IDs also match. Whole-output fidelity
+and the complete roadmap remain open.
 
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven

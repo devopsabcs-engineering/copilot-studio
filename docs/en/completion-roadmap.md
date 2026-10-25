@@ -95,7 +95,59 @@ It returns two exact records, `rc-002` and `ip-006`, with matching renderer text
 and structured provenance; the protected retriever definition is identical
 before and after. This is local data-contract evidence, not real Entra MCP OAuth,
 remote MCP deployment, candidate binding or native whole-output acceptance.
-Those remain the next integration gates. No additional Azure resource is created.
+No additional Azure resource is created for this local proof. The subsequent
+hosted continuation below supersedes its remote-deployment boundary.
+
+### Hosted MCP preflight and OAuth handoff
+
+The [hosted preflight](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+now verifies a separate Python 3.13 App Service: HTTPS only, TLS 1.2 minimum,
+FTP disabled and both basic publishing policies disabled. Missing and invalid
+bearers each receive **401**; protected-resource discovery returns **200** with
+the intended tenant, resource and `Evidence.Read` scope. The allowlisted source
+package contains five Python files and two dependency manifests, not credentials,
+environment files, caches or tests. The original Foundry deployment is untouched.
+
+Two owned single-tenant registrations separate the API and connector client.
+Only the dedicated delegated scope is requested, with no Graph permission or
+tenant-wide consent. The server explicitly selects managed identity for outbound
+calls and has one existing-account-scoped OpenAI User role. This configuration
+is read back, but genuine delegated access and managed-identity retrieval are
+**not yet verified**. A seven-day client credential is kept in current-user DPAPI;
+the supported PAC input is access-restricted and deleted after use.
+
+Official PAC creates one MCP connector after correcting its first local
+title-length validation failure. Its actual native catalog entry and generated
+unique OAuth callback are independently read back; that callback is registered
+and verified on the owned client. The original failed attempt is retained.
+
+The browser administrator is independently confirmed, but the native connection's
+consent popup is blocked. The
+[VS Code browser documentation](https://code.visualstudio.com/docs/debugtest/integrated-browser#navigation)
+confirms that popups are blocked while new tabs are allowed. A normal new-tab
+authorization-code/PKCE flow reaches the intended administrator's password prompt.
+The user-response tool reports unavailable, not approval or successful sign-in.
+The bounded loopback helper is stopped, its port is verified closed and its
+temporary redirect is removed; the actual connector callback remains.
+There are zero new paid MCP tool calls, native questions or candidate bindings.
+
+The [fresh preservation readback](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+again verifies all 26 original rows, the same 28 candidate components, exact
+authoring hashes, files, bindings and Off/On/On states. The protected retriever,
+current hosted version-5 definition and its principal/client IDs also match.
+No Storage policy/network change or publication occurs.
+
+The separate Sweden Central Linux B1 plan remains running and billable.
+The published compute estimate is **USD 0.018/hour**, not an actual bill,
+Copilot-credit total or approved numerical budget. Retention owner/review date
+and attributable signoffs remain missing.
+
+The next supported step is a popup-capable browser connection for the same staging
+candidate and owned Workshop Verified connector, signed in as the intended
+administrator. Consent only to the evidence scope for the current user, not the
+organization. Then verify real discovery/retrieval, candidate-only binding,
+whole-output SAR fidelity and affected original regressions before the full matrix.
+T007/T008 and the overall roadmap remain open.
 
 ## October 25 verified Invocations delivery
 

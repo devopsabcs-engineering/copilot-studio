@@ -31,7 +31,35 @@ renvoie des preuves structurées au rendu exact sans activités de conversation,
 en réutilisant le récupérateur inchangé. Un appel SAR d'origine renvoie deux
 documents exacts. OAuth réel, hébergement MCP distant et liaison native candidat
 ne sont pas vérifiés. L'assistant du tenant propose OAuth manuel mais est annulé
-sans connexion créée; aucune ressource Azure supplémentaire n'est provisionnée.
+sans connexion créée; aucune ressource Azure supplémentaire n'est provisionnée
+à ce point local.
+
+Le [contrôle MCP hébergé suivant](../assets/runtime-2026-10-25/mcp-hosted-preflight.json)
+déploie un App Service Linux B1 Python 3.13 distinct en Sweden Central, avec
+HTTPS, TLS 1.2 et sans FTP/publication basique. Les contrôles réels sans jeton
+ou avec jeton invalide renvoient 401 et la découverte OAuth correcte renvoie 200.
+API/client possédés, rôle sortant limité au compte existant, connecteur MCP
+officiel et rappel généré sont créés puis relus. La récupération après verrou
+local de reçu évite les applications dupliquées; le premier échec local de
+longueur de titre PAC reste conservé.
+
+L'identité administrateur du navigateur/PAC est vérifiée. Le navigateur intégré
+bloque le consentement contextuel du connecteur; l'autorisation normale code/PKCE
+en nouvel onglet atteint plutôt la demande de mot de passe administrateur.
+L'outil de réponse humaine est indisponible. Aucune réussite OAuth, récupération
+sortante, liaison candidat ni nouvelle question native n'est revendiquée.
+Rappel/auxiliaire temporaires sont supprimés et aucun accord utilisateur n'est
+observé. L'hôte distinct reste facturable selon une estimation publique de calcul
+de 0,018 USD/heure, sans facture établie, budget numérique ou responsable/date
+de rétention.
+
+La [nouvelle préservation native](../assets/runtime-2026-10-25/mcp-hosted-native-preservation.json)
+vérifie encore 26 lignes d'origine/28 du candidat, contenu d'auteur, fichiers,
+liaisons et états Off/On/On. La lecture confirme aussi le récupérateur protégé et
+la définition/les identifiants de principal/client de la version 5 courante.
+Un champ d'état d'identité supplémentaire n'est confondu ni avec un changement
+d'identité ni avec une égalité d'objet entier. Aucune stratégie Storage,
+publication ou acceptation globale n'est modifiée.
 
 ## Livraison hébergée à deux protocoles du 25 octobre
 
