@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-25",
+  "status": "PRIVATE_CHANNEL_PACKAGE_BLOCKED_BY_UNAPPROVED_LEGAL_METADATA",
+  "scope": {
+    "newIsolatedHostedAgentAndBotOnly": true,
+    "copiedUnchangedSourceAndDependencyFiles": 6,
+    "originalAgentOrEndpointWriteRequests": 0,
+    "originalPortalActivityAndInvocationsObservedActive": true,
+    "originalFullAgentAndVersionMatchPrePortalBaselines": true,
+    "ownedPrincipalRoleAssignmentsObserved": 0,
+    "anonymousAccessEnabled": false,
+    "organizationWideSharingEnabled": false
+  },
+  "deployment": {
+    "initialLocalDependencyFailurePreserved": true,
+    "initialFailureReason": "FOUNDRY_PROJECT_ENDPOINT is not set",
+    "initialFailureIndependentlyVerifiedNoCloudObjectsOrRoleChanges": true,
+    "correctedLocalEnvironmentBindingOnly": true,
+    "correctedDeploySubmissions": 1,
+    "supportedMultipartDeploymentSucceeded": true,
+    "ownedAgentVersion": "1",
+    "ownedAgentStatus": "active",
+    "actualBotClientMatchesOwnedInstance": true,
+    "reservedEnvironmentVariablesForwardedIntoRuntime": false,
+    "platformEnvironmentInjectionRuntimeVerified": false
+  },
+  "generatedPackage": {
+    "localPackageGeneratedByAzd": true,
+    "botWebApplicationAndCustomEngineIdsMatchOwnedInstance": true,
+    "defaultDeveloperName": "Azure AI Foundry",
+    "defaultPrivacyAndTermsUrlsPointToProductDocumentation": true,
+    "defaultsEstablishWorkshopLegalApproval": false,
+    "packageUploadedOrInstalled": false
+  },
+  "servicePackagePreparation": {
+    "apiVersion": "v1",
+    "documentedPath": "/agents/{owned-agent}/microsoft365/zip",
+    "postSubmissions": 1,
+    "requestedScope": "Shared",
+    "privacyAndTermsUrlValuesInvented": false,
+    "privacyAndTermsFieldsOmitted": true,
+    "status": 400,
+    "errorCode": "dependency_error",
+    "errorMessageWithoutRequestIdentifier": "PrivacyUrl must be a valid HTTPS URL",
+    "termsValidationReached": false,
+    "validatedServiceZipReturned": false,
+    "publishEndpointCalled": false,
+    "catalogPublicationOrPackageUpload": false
+  },
+  "execution": {
+    "nativeQuestionsSubmitted": 0,
+    "directModelQuestionsSubmitted": 0,
+    "automaticQuestionReplays": 0,
+    "nativeWholeParentOutputCaptured": false,
+    "effectiveNativeCallerIdentityEstablished": false,
+    "nativeAcceptancePassed": false,
+    "publishedChannelAcceptancePassed": false
+  },
+  "cleanup": {
+    "ownedAgentApplicationDeploymentAndBotIndependentlyAbsent": true,
+    "ownedRoleAssignmentsAbsent": true,
+    "ownedDirectoryObjectGetStatuses": [404, 404],
+    "originalBlueprintDirectoryObjectControlGetStatus": 200,
+    "originalFullAgentEndpointAndVersion5ExactlyPreserved": true,
+    "originalArmResourceInventoryExact": true,
+    "originalAccountRoleAssignmentInventoryExact": true,
+    "directoryDeletedItemsPurged": false,
+    "actualSpendingFinalized": false,
+    "privateRawEvidencePublished": false
+  },
+  "references": [
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/publish-copilot-virtual-network"
+  ],
+  "T005Complete": false,
+  "T006Complete": false,
+  "T016Complete": false,
+  "wholeRoadmapComplete": false
+}

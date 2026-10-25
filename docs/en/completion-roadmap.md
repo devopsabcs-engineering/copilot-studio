@@ -597,6 +597,37 @@ directory identities are removed; full original agent/version readbacks,
 ARM/role/application inventories and the original directory control are verified.
 Using an earlier advertised API therefore has not resolved T005/T006.
 
+## Private channel-package preflight
+
+The [private channel-package preflight](../assets/runtime-2026-10-25/native-channel-package-preflight.json)
+checks the documented Microsoft 365/Teams package-only route on another owned
+agent. The approved administrator's first-party portal shows the original
+Activity and Invocations endpoints active. Full original agent/version readbacks
+also match the baselines taken before that read-only portal inspection.
+
+The first deployment stops at a missing local `FOUNDRY_PROJECT_ENDPOINT` binding;
+independent checks prove no agent, ARM resource or role change. One corrected
+multipart deployment then creates active version 1 and its matching Azure Bot
+using six unchanged source/dependency files. No role assignment is added.
+The generated local package's Bot, web application and custom engine identities
+all match the owned instance. Its default developer name and product-documentation
+privacy/terms links are not workshop legal approval.
+
+One documented `/microsoft365/zip` request uses `Shared` scope, not organization-wide
+publication. Unapproved privacy/terms URLs are deliberately omitted rather than
+invented. The service returns HTTP 400, `dependency_error`:
+`PrivacyUrl must be a valid HTTPS URL`. This proves the privacy-field blocker,
+not the outcome of later terms validation. No validated service ZIP, catalog
+publication, package upload, native question or direct model question follows.
+Deployment and local package generation do not establish native or channel acceptance.
+
+The owned agent, Bot and directory identities are independently absent after
+cleanup. Both owned directory reads return 404 and the original blueprint control
+returns 200. The original full endpoint/agent/version, ARM inventory and account
+roles remain exact. Temporary spending is not finalized. Approved workshop legal
+metadata and the separate caller, output, privacy/retention and release gates
+remain necessary; T005/T006/T016 stay open.
+
 ## Policy-compatible fictional ingestion
 
 The [public upload attempt](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)

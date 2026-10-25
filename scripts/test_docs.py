@@ -2988,6 +2988,64 @@ class WikiTests(unittest.TestCase):
             self.assertIn("- [ ] T005", text)
             self.assertIn("- [ ] T006", text)
 
+    def test_private_channel_package_does_not_turn_defaults_into_legal_approval(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "native-channel-package-preflight.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "PRIVATE_CHANNEL_PACKAGE_BLOCKED_BY_UNAPPROVED_LEGAL_METADATA")
+        self.assertEqual(result["scope"]["copiedUnchangedSourceAndDependencyFiles"], 6)
+        self.assertEqual(result["scope"]["originalAgentOrEndpointWriteRequests"], 0)
+        self.assertTrue(result["scope"]["originalFullAgentAndVersionMatchPrePortalBaselines"])
+        self.assertEqual(result["scope"]["ownedPrincipalRoleAssignmentsObserved"], 0)
+        deployment = result["deployment"]
+        self.assertTrue(deployment["initialFailureIndependentlyVerifiedNoCloudObjectsOrRoleChanges"])
+        self.assertEqual(deployment["correctedDeploySubmissions"], 1)
+        self.assertTrue(deployment["supportedMultipartDeploymentSucceeded"])
+        self.assertTrue(deployment["actualBotClientMatchesOwnedInstance"])
+        self.assertFalse(deployment["platformEnvironmentInjectionRuntimeVerified"])
+        package = result["generatedPackage"]
+        self.assertTrue(package["botWebApplicationAndCustomEngineIdsMatchOwnedInstance"])
+        self.assertTrue(package["defaultPrivacyAndTermsUrlsPointToProductDocumentation"])
+        self.assertFalse(package["defaultsEstablishWorkshopLegalApproval"])
+        self.assertFalse(package["packageUploadedOrInstalled"])
+        preparation = result["servicePackagePreparation"]
+        self.assertEqual(preparation["postSubmissions"], 1)
+        self.assertEqual(preparation["requestedScope"], "Shared")
+        self.assertTrue(preparation["privacyAndTermsFieldsOmitted"])
+        self.assertEqual(preparation["status"], 400)
+        self.assertEqual(preparation["errorCode"], "dependency_error")
+        self.assertEqual(preparation["errorMessageWithoutRequestIdentifier"], "PrivacyUrl must be a valid HTTPS URL")
+        for key in ("privacyAndTermsUrlValuesInvented", "termsValidationReached",
+                    "validatedServiceZipReturned", "publishEndpointCalled", "catalogPublicationOrPackageUpload"):
+            self.assertFalse(preparation[key])
+
+    def test_private_channel_cleanup_preserves_original_and_open_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "native-channel-package-preflight.json").read_text("utf-8"))
+        for key in ("nativeQuestionsSubmitted", "directModelQuestionsSubmitted", "automaticQuestionReplays"):
+            self.assertEqual(result["execution"][key], 0)
+        for key in ("nativeWholeParentOutputCaptured", "effectiveNativeCallerIdentityEstablished",
+                    "nativeAcceptancePassed", "publishedChannelAcceptancePassed"):
+            self.assertFalse(result["execution"][key])
+        cleanup = result["cleanup"]
+        for key in ("ownedAgentApplicationDeploymentAndBotIndependentlyAbsent",
+                    "ownedRoleAssignmentsAbsent", "originalFullAgentEndpointAndVersion5ExactlyPreserved",
+                    "originalArmResourceInventoryExact", "originalAccountRoleAssignmentInventoryExact"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["ownedDirectoryObjectGetStatuses"], [404, 404])
+        self.assertEqual(cleanup["originalBlueprintDirectoryObjectControlGetStatus"], 200)
+        for key in ("directoryDeletedItemsPurged", "actualSpendingFinalized", "privateRawEvidencePublished"):
+            self.assertFalse(cleanup[key])
+        for key in ("T005Complete", "T006Complete", "T016Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("native-channel-package-preflight.json", text)
+            self.assertIn("PrivacyUrl must be a valid HTTPS URL", text)
+            for task in ("T005", "T006", "T016"):
+                self.assertIn("- [ ] " + task, text)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

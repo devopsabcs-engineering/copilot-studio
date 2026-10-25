@@ -632,6 +632,41 @@ relectures complètes de l'agent/version d'origine, inventaires ARM/rôles/
 applications et contrôle d'annuaire d'origine sont vérifiés.
 Une API antérieure annoncée ne résout donc pas T005/T006.
 
+## Contrôle préalable du paquet de canal privé
+
+Le [contrôle du paquet de canal privé](../assets/runtime-2026-10-25/native-channel-package-preflight.json)
+examine la route documentée de préparation Microsoft 365/Teams sans publication,
+sur un autre agent possédé. Le portail officiel de l'administrateur approuvé
+affiche les points d'entrée Activity et Invocations d'origine actifs. Les
+relectures complètes de l'agent/version correspondent aussi aux références
+prises avant cette inspection du portail en lecture seule.
+
+Le premier déploiement s'arrête sur la liaison locale `FOUNDRY_PROJECT_ENDPOINT`
+manquante; des contrôles indépendants prouvent l'absence de changement d'agent,
+de ressource ARM ou de rôle. Un déploiement multipart corrigé crée ensuite la
+version 1 active et son Azure Bot correspondant, avec six fichiers sources/
+dépendances inchangés. Aucun rôle n'est ajouté. Les identités Bot, application
+web et moteur personnalisé du paquet local correspondent à l'instance possédée.
+Son nom de développeur et ses liens de documentation produit par défaut pour
+confidentialité/conditions ne constituent pas une approbation juridique de l'atelier.
+
+Une demande documentée `/microsoft365/zip` utilise la portée `Shared`, sans
+publication à l'échelle de l'organisation. Les URL de confidentialité/conditions
+non approuvées sont omises plutôt qu'inventées. Le service renvoie HTTP 400,
+`dependency_error` : `PrivacyUrl must be a valid HTTPS URL`. Ce résultat prouve
+le blocage du champ de confidentialité, pas celui d'une validation ultérieure
+des conditions. Aucun ZIP validé par le service, publication de catalogue,
+chargement de paquet, question native ou question directe au modèle ne suit.
+Déploiement et génération locale ne prouvent pas l'acceptation native ou du canal.
+
+L'agent, le Bot et les identités d'annuaire possédés sont indépendamment absents
+après nettoyage. Les deux lectures possédées renvoient 404 et le contrôle du
+blueprint d'origine renvoie 200. Point d'entrée/agent/version d'origine complets,
+inventaire ARM et rôles du compte restent exacts. Les dépenses temporaires ne
+sont pas finalisées. Métadonnées juridiques approuvées et contrôles distincts
+d'appelant, de sortie, de confidentialité/conservation et de livraison restent
+nécessaires; T005/T006/T016 restent ouverts.
+
 ## Ingestion fictive conforme à la stratégie
 
 L'[essai de chargement public](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
