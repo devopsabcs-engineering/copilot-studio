@@ -106,6 +106,15 @@ allowed verified local context. Final full preservation passes and the owned
 browser closes. T007/current-configuration acceptance remain open; the preceding
 T008 run is not reused to certify this configuration.
 
+The [October 25 scoped inventory](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+reads six owned ARM resources, including the isolated MCP site/B1 plan.
+A retained HTTP 429 billing failure precedes one counted successful recovery.
+Reported pretax cost is USD 11.26126391; only two resource IDs have posted rows,
+so this is not complete current spending or a final invoice, and excludes
+Copilot credits. No configuration writes, inference or native questions occur.
+User-unavailable form placeholders do not supply retention ownership, a review
+date, numerical budget or role-attributed sign-offs. T001/T002 remain open.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

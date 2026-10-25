@@ -2571,6 +2571,50 @@ class WikiTests(unittest.TestCase):
             self.assertIn("mcp-native-control-repair-regression.json", text)
             self.assertIn("10/11", text)
 
+    def test_owned_boundary_refresh_includes_mcp_without_fabricating_governance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "owned-boundary-refresh.json").read_text("utf-8"))
+        self.assertTrue(result["identityTenantAndSubscriptionVerified"])
+        self.assertEqual(result["exactOwnedArmResourceCount"], 6)
+        resources = result["resourceStates"]
+        self.assertEqual(len(resources), 6)
+        self.assertEqual(len({row["type"] for row in resources}), 6)
+        plan = next(row for row in resources if row["type"] == "Microsoft.Web/serverfarms")
+        self.assertEqual(plan["skuName"], "B1")
+        self.assertEqual(plan["capacity"], 1)
+        self.assertEqual(next(row for row in resources
+                              if row["type"] == "Microsoft.Web/sites")["state"], "Running")
+        self.assertEqual(result["cloudConfigurationWritesInferenceOrNativeQuestions"], 0)
+        for key in ("retentionOwnerAssigned", "retentionReviewDateAssigned", "numericalBudgetApproved",
+                    "attributableProductOwnerSecurityAndTechLeadSignoffsRecorded",
+                    "T001Complete", "T002Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        self.assertTrue(result["humanUnavailableFormPlaceholderNotInterpretedAsApproval"])
+
+    def test_owned_billing_refresh_retains_throttle_and_excludes_unposted_costs_and_credits(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "owned-boundary-refresh.json").read_text("utf-8"))
+        self.assertIn("Exact six retained ARM resource IDs", result["costScope"])
+        self.assertEqual(result["readOnlyBillingQueryPosts"], 2)
+        self.assertTrue(result["initialHttp429Retained"])
+        self.assertEqual(result["recoveryHttpStatus"], 200)
+        self.assertFalse(result["automaticThirdBillingQuery"])
+        self.assertEqual(result["currency"], "USD")
+        self.assertAlmostEqual(result["reportedPretaxCost"], 11.26126391, places=8)
+        self.assertEqual(result["reportedCostRows"], 10)
+        self.assertEqual(result["distinctResourceIdsWithReportedCostRows"], 2)
+        self.assertEqual(result["latestReportedUsageDate"], 20261025)
+        self.assertFalse(result["finalInvoiceOrCompleteCurrentSpend"])
+        self.assertFalse(result["copilotCreditsIncluded"])
+        self.assertTrue(result["absentResourceCostRowsDoNotEstablishFreeResources"])
+        self.assertTrue(result["lastReportedUsageDateNotProofAllChargesPosted"])
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                self.assertIn("owned-boundary-refresh.json",
+                              (root / "docs" / language / name).read_text("utf-8"))
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

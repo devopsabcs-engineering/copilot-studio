@@ -20,6 +20,29 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Inventaire détenu et coûts déclarés du 25 octobre
+
+Le [nouvel inventaire ciblé](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+vérifie indépendamment administrateur, locataire et abonnement approuvés, puis
+lit six ressources ARM précisément détenues : compte/projet Foundry, Search et
+Bot conservés, plus l'App Service MCP isolé et son plan B1. Les provisionnements
+réussissent et le site est Running. Ce n'est pas un nouvel audit de chaque
+modèle, définition hébergée, autorisation d'identité ou ressource du locataire.
+
+La requête de facturation filtrée reçoit d'abord HTTP 429. Une reprise distincte,
+enregistrée après temporisation, réussit; l'échec original reste conservé.
+Elle rapporte **11,26126391 USD avant taxes**, du 20 octobre à l'heure limite de
+la requête du 25 octobre. Seuls deux des six identifiants ont des lignes de coûts
+publiées. Ce n'est ni une facture finale ni la dépense actuelle complète;
+l'absence de ligne ne signifie pas gratuité, et les crédits Copilot sont exclus.
+Aucune configuration, inférence ou question native pendant cet inventaire.
+
+Le formulaire de gouvernance renvoie uniquement l'indisponibilité de l'utilisateur,
+pas de responsable, date de revue, budget chiffré ni accords attribuables aux rôles
+Product Owner/Security/Tech Lead. Rien n'est inventé. T001/T002 et les validations
+de livraison dépendantes restent ouverts; l'autorisation générale de déploiement
+et dépenses est conservée, sans nouvelle demande.
+
 ## Correction du candidat authentifié du 25 octobre
 
 La connexion administrateur assistée par l'utilisateur réussit désormais. Le

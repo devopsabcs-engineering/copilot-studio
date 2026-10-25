@@ -130,6 +130,15 @@ instructions/authentication/publication and the protected original are preserved
 The owned browser closes; no backend deployment or policy change occurs.
 T007 and current-configuration acceptance remain open.
 
+The [scoped ownership/cost refresh](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+now reads six owned ARM resources, including the MCP site and B1 plan, using
+the verified approved administrator. Reported pretax cost is USD 11.26126391
+through the October 25 cutoff, after a retained 429 and one successful recovery.
+Only two resource IDs have posted cost rows; absent charges do not imply free
+resources, and Copilot credits are excluded. No configuration/inference/question
+is submitted. Human ownership, review date, numerical budget and attributable
+role sign-offs remain unavailable; T001/T002 are not closed.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

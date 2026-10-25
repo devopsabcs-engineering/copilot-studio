@@ -19,6 +19,28 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 25 owned-resource and reported-cost refresh
+
+The [new scoped inventory](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+independently verifies the approved administrator, tenant and subscription, then
+reads six exactly owned ARM resources: the retained Foundry account/project,
+Search and Bot, plus the isolated MCP App Service and B1 plan. Provisioning
+succeeds and the site is Running. This is not a fresh audit of every model,
+hosted definition, identity permission or tenant resource.
+
+The narrowly filtered billing query initially returns HTTP 429. One separately
+recorded recovery after backoff succeeds; the original failure remains.
+It reports **USD 11.26126391 pretax** for October 20 through the October 25
+query cutoff. Only two of the six resource IDs have posted cost rows. This is
+neither a final invoice nor complete current spending; missing rows do not mean
+free resources, and Copilot credits are excluded. No configuration, inference
+or native question is submitted during this refresh.
+
+The governance form returns only user-unavailable placeholders, not an owner,
+review date, numerical budget or attributable Product Owner/Security/Tech Lead
+sign-offs. None is invented. T001/T002 and dependent release gates remain open;
+general deployment and spending authorization is preserved, not requested again.
+
 ## October 25 authenticated candidate correction
 
 Human-assisted administrator sign-in now succeeds. The

@@ -111,6 +111,15 @@ Préservation finale complète et fermeture du navigateur réussissent.
 T007/l'acceptation de configuration actuelle restent ouverts; l'ancien résultat
 T008 ne certifie pas cette configuration.
 
+L'[inventaire ciblé du 25 octobre](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+lit six ressources ARM détenues, dont le site MCP isolé et son plan B1.
+L'échec de facturation HTTP 429 est conservé avant une reprise réussie comptée.
+Le coût déclaré est de 11,26126391 USD avant taxes; seuls deux identifiants ont
+des lignes publiées. Ce n'est ni la dépense complète ni une facture finale,
+et les crédits Copilot sont exclus. Aucune modification, inférence ou question
+native. L'indisponibilité renvoyée par le formulaire n'attribue aucun responsable,
+date de revue, budget chiffré ou accord de rôle. T001/T002 restent ouverts.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées

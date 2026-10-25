@@ -140,6 +140,15 @@ autres lignes complètes, instructions/authentification/publication et l'origina
 protégé restent préservés. Le navigateur ferme; aucun déploiement backend ni
 changement de stratégie. T007 et l'acceptation de configuration actuelle restent ouverts.
 
+L'[inventaire ciblé des ressources/coûts](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
+lit maintenant six ressources ARM détenues, dont le site MCP et son plan B1,
+avec l'administrateur approuvé vérifié. Le coût déclaré est de 11,26126391 USD
+avant taxes jusqu'à l'heure limite du 25 octobre, après un HTTP 429 conservé
+et une reprise réussie. Seuls deux identifiants ont des lignes publiées;
+l'absence de frais ne signifie pas gratuité et les crédits Copilot sont exclus.
+Aucune configuration/inférence/question. Responsable humain, date de revue,
+budget chiffré et accords attribuables restent indisponibles; T001/T002 ne sont pas clos.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

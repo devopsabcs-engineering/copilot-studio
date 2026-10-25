@@ -1,0 +1,78 @@
+{
+  "observedUtc": "2026-10-25T20:13:38.345776+00:00",
+  "result": "owned-inventory-and-counted-billing-recovery-verified-governance-open",
+  "identityTenantAndSubscriptionVerified": true,
+  "exactOwnedArmResourceCount": 6,
+  "resourceStates": [
+    {
+      "type": "Microsoft.CognitiveServices/accounts",
+      "location": "swedencentral",
+      "state": "Succeeded",
+      "skuName": "S0",
+      "capacity": null
+    },
+    {
+      "type": "Microsoft.CognitiveServices/accounts/projects",
+      "location": "swedencentral",
+      "state": "Succeeded",
+      "skuName": null,
+      "capacity": null
+    },
+    {
+      "type": "Microsoft.Search/searchServices",
+      "location": "West US 2",
+      "state": "succeeded",
+      "skuName": "basic",
+      "capacity": null
+    },
+    {
+      "type": "Microsoft.BotService/botServices",
+      "location": "global",
+      "state": "Succeeded",
+      "skuName": "F0",
+      "capacity": null
+    },
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "location": "Sweden Central",
+      "state": "Succeeded",
+      "skuName": "B1",
+      "capacity": 1
+    },
+    {
+      "type": "Microsoft.Web/sites",
+      "location": "Sweden Central",
+      "state": "Running",
+      "skuName": null,
+      "capacity": null
+    }
+  ],
+  "costScope": "Exact six retained ARM resource IDs; no subscription-wide billing scan",
+  "costPeriod": {
+    "from": "2026-10-20T00:00:00Z",
+    "to": "2026-10-25T20:12:08Z"
+  },
+  "currency": "USD",
+  "reportedPretaxCost": 11.26126391,
+  "reportedCostRows": 10,
+  "latestReportedUsageDate": 20261025,
+  "readOnlyBillingQueryPosts": 2,
+  "initialHttp429Retained": true,
+  "recoveryHttpStatus": 200,
+  "automaticThirdBillingQuery": false,
+  "finalInvoiceOrCompleteCurrentSpend": false,
+  "copilotCreditsIncluded": false,
+  "absentResourceCostRowsDoNotEstablishFreeResources": true,
+  "cloudConfigurationWritesInferenceOrNativeQuestions": 0,
+  "humanRetentionOwnerReviewDateNumericalBudgetAndRoleSignoffsStillRequired": true,
+  "humanUnavailableFormPlaceholderNotInterpretedAsApproval": true,
+  "distinctResourceIdsWithReportedCostRows": 2,
+  "lastReportedUsageDateNotProofAllChargesPosted": true,
+  "retentionOwnerAssigned": false,
+  "retentionReviewDateAssigned": false,
+  "numericalBudgetApproved": false,
+  "attributableProductOwnerSecurityAndTechLeadSignoffsRecorded": false,
+  "T001Complete": false,
+  "T002Complete": false,
+  "wholeRoadmapComplete": false
+}
