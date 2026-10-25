@@ -100,6 +100,74 @@ client with a complete envelope; the inspector is not native Copilot evidence.
 Stop only this service's task after debugging; the configuration deliberately
 does not terminate unrelated workspace tasks.
 
+### Optional evidence-only MCP transport
+
+[mcp_server.py](src/echo-activity/mcp_server.py) adds a separate stateless
+Streamable HTTP data tool at `/mcp`. It reuses the existing retrieval, membership
+validation, record selection and deterministic renderer. It does not start
+the Activity host or send conversational activities. The current Foundry
+manifest and deployed version 5 are unchanged; they do not expose this MCP
+entry point.
+
+From the service directory, install and test the optional dependencies:
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-mcp.txt
+.\.venv\Scripts\python.exe -m unittest discover -s mcp_tests -p test_mcp_transport.py -v
+.\.venv\Scripts\python.exe mcp_server.py
+```
+
+The default listener is `127.0.0.1:8000`. The only tool,
+`retrieve_verified_workshop_evidence`, accepts `question` and returns structured
+`text`, `record_ids`, `records`, `retrieval_response_id`,
+nullable `selection_response_id`, `publisher_url` and `publisher_sha256`.
+Every structured record is copied from the pinned corpus. Delivery rechecks
+the rendered text, selected IDs and response provenance. Source failures,
+upstream failures and timeouts are explicit MCP tool errors, not abstentions.
+The HTTP wrapper rejects malformed UTF-8/JSON and parser resource limits with
+400, and bodies above 150,000 bytes with 413, before retrieval.
+
+Non-loopback binding is refused unless all five Entra settings are configured:
+
+| Variable                    | Required value                                      |
+|-----------------------------|-----------------------------------------------------|
+| `WORKSHOP_MCP_TENANT_ID`     | Intended tenant UUID                                |
+| `WORKSHOP_MCP_AUDIENCE`      | Dedicated API application's UUID audience           |
+| `WORKSHOP_MCP_CLIENT_IDS`    | Comma-separated allowed OAuth client UUIDs           |
+| `WORKSHOP_MCP_USER_IDS`      | Comma-separated allowed delegated user object UUIDs  |
+| `WORKSHOP_MCP_RESOURCE_URL`  | Exact public HTTPS URL ending in `/mcp`              |
+
+Set `WORKSHOP_MCP_HOST` and `WORKSHOP_MCP_PORT` only for the intended listener.
+The [verifier](src/echo-activity/mcp_auth.py) validates RS256 signatures against
+the fixed tenant's Microsoft keys, v2 issuer, exact API audience, expiry and
+not-before time, tenant, allowed client, allowed user and delegated
+`Evidence.Read` scope. It rejects application-only and wrong-audience tokens.
+DNS-rebinding and Origin checks remain enabled. A reverse-proxy header or a
+nonempty bearer string is not authentication.
+
+A production connection needs a dedicated Entra API registration issuing v2
+access tokens, its delegated scope, and an explicitly allowed confidential
+connector client. Store that client's credential in the supported connection,
+not this server's source or environment. The server's outbound Azure calls
+must use an approved managed identity with narrowly scoped existing-resource
+permissions, not a developer login. The
+[Microsoft MCP onboarding procedure](https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent)
+describes manual OAuth configuration and the generated redirect URL.
+Do not choose anonymous/API-key authentication or weaken Storage policy.
+
+The optional suite passes 17 protocol/authentication tests, alongside the
+unchanged 54 service tests and dependency consistency check.
+The actual tenant wizard exposes Streamable HTTP and manual OAuth; inspection
+was cancelled without creating a connector. Local protocol/authentication tests
+use generated fixture keys and mocked Microsoft key retrieval. They do not
+prove a real Entra consent/token flow. One real local MCP request using the
+unchanged original SAR question returned exactly two source records through the
+existing Azure retriever, with no retry and no protected-agent definition change.
+See [local evidence](../../../docs/assets/runtime-2026-10-25/mcp-evidence-local.json).
+Remote MCP deployment, real OAuth, candidate binding and native whole-output
+acceptance remain unverified. A data-only tool does not itself guarantee that
+a parent model will preserve quotations in its later synthesis.
+
 ## Testing and deployment boundaries
 
 The current implementation passes 54 unit, orchestration, configuration and transport tests,

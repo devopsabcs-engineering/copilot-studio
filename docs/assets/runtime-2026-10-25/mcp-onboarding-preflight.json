@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "scope": "Existing isolated candidate's actual native MCP onboarding wizard",
+  "result": "capability-observed-not-connected",
+  "candidateTenantAndUrlMatched": true,
+  "standardHarnessToolsPage": true,
+  "createModelContextProtocolOptionVisible": true,
+  "streamableEndpointFieldVisible": true,
+  "oauth2OptionVisible": true,
+  "oauthTypesVisible": ["Dynamic discovery", "Dynamic", "Manual"],
+  "manualFieldsVisible": [
+    "Client ID",
+    "Client secret",
+    "Authorization URL",
+    "Token URL template",
+    "Refresh URL",
+    "Scopes",
+    "Redirect URL generated after save"
+  ],
+  "serverUrlEntered": false,
+  "credentialsEntered": false,
+  "createSubmitted": false,
+  "connectorOrConnectionCreated": false,
+  "wizardCancelledWithLeaveConfirmation": true,
+  "returnedToCandidateToolsPage": true,
+  "nativeQuestionsSubmitted": 0,
+  "configurationWrites": 0,
+  "cloudResourcesProvisioned": 0,
+  "newHumanDesignChoiceReceived": false,
+  "unavailableFormCountedAsApproval": false,
+  "localIsolatedTransportWorkContinuedUnderExistingAuthorization": true,
+  "officialReferences": [
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp",
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent",
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server"
+  ],
+  "realOAuthOrNativeMcpDeliveryVerified": false,
+  "roadmapComplete": false
+}

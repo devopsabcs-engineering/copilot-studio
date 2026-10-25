@@ -25,6 +25,13 @@ The original native diagnostic/SDK authorization and full matrix remain open;
 this is not acceptance of the hosted renderer through the connected agent.
 The older failures below remain part of the chronological record.
 
+The [later local MCP proof](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+returns structured, exactly rendered evidence without conversational activities,
+reusing the unchanged retriever. One original SAR tool call returns two exact
+records. Real OAuth, remote MCP hosting and native candidate binding are not
+verified. The tenant onboarding wizard offers manual OAuth but is cancelled
+without creating a connection; no additional Azure resource is provisioned.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

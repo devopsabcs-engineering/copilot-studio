@@ -72,6 +72,31 @@ Native hosted-diagnostic authorization, actual Lab 1 navigation, historical
 full-answer provenance, Lab 2 restoration, other connected lab criteria,
 retention ownership/budget and attributable signoffs remain separate gates.
 
+### Isolated non-emitting MCP proof
+
+The [actual tenant onboarding check](../assets/runtime-2026-10-25/mcp-onboarding-preflight.json)
+finds Streamable HTTP and manual OAuth configuration in the candidate's MCP
+wizard. It is cancelled without entering credentials, creating a connection
+or submitting another native question. No unavailable design response is
+counted as human approval; isolated local work continues under existing
+authorization.
+
+An [optional MCP entry point](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/src/echo-activity/mcp_server.py)
+now reuses the existing verified retrieval and renderer as a structured data
+tool, without sending chat activities. Non-loopback exposure requires full
+Entra configuration: tenant, API audience, allowed OAuth clients/users and
+delegated scope. Signed-token and real HTTP protocol tests cover rejection,
+provenance, literal output, abstention, parser/body limits and cancellation.
+The existing Activity/Invocations entry point and production manifest are unchanged.
+
+The [real local MCP proof](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+uses the official client and one unchanged original SAR question, without retry.
+It returns two exact records, `rc-002` and `ip-006`, with matching renderer text
+and structured provenance; the protected retriever definition is identical
+before and after. This is local data-contract evidence, not real Entra MCP OAuth,
+remote MCP deployment, candidate binding or native whole-output acceptance.
+Those remain the next integration gates. No additional Azure resource is created.
+
 ## October 25 verified Invocations delivery
 
 This earlier checkpoint retains its historical browser and authentication

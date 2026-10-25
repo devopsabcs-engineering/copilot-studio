@@ -76,6 +76,32 @@ de onze cas. Autorisation du diagnostic hébergé natif, navigation réelle du L
 provenance de sa réponse historique, restauration du Lab 2, autres critères
 connectés, propriété/budget de rétention et accords attribuables restent distincts.
 
+### Preuve MCP isolée sans émission
+
+Le [contrôle réel de l'assistant du tenant](../assets/runtime-2026-10-25/mcp-onboarding-preflight.json)
+trouve Streamable HTTP et la configuration OAuth manuelle pour le candidat.
+Il est annulé sans identifiants saisis, connexion créée ni autre question native.
+Aucune réponse de conception indisponible n'est comptée comme accord humain;
+le travail local isolé continue sous l'autorisation existante.
+
+Un [point d'entrée MCP facultatif](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/src/echo-activity/mcp_server.py)
+réutilise la récupération et le rendu vérifiés sous forme d'outil de données
+structurées, sans envoyer d'activités de conversation. Toute écoute hors boucle
+locale exige la configuration Entra complète : tenant, audience API, clients
+OAuth/utilisateurs autorisés et portée déléguée. Les tests de jetons signés
+et de protocole HTTP réel couvrent refus, provenance, sortie littérale,
+abstention, limites du parseur/corps et annulation. Le point d'entrée
+Activity/Invocations et le manifeste de production restent inchangés.
+
+La [preuve MCP locale réelle](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+utilise le client officiel et une question SAR d'origine inchangée, sans reprise.
+Elle renvoie deux documents exacts, `rc-002` et `ip-006`, texte identique au rendu
+et provenance structurée; la définition du récupérateur protégé est identique
+avant et après. Cela valide le contrat de données local, pas OAuth MCP Entra réel,
+le déploiement MCP distant, la liaison candidat ou la fidélité native complète.
+Ces points restent les prochains critères d'intégration. Aucune ressource Azure
+supplémentaire n'est créée.
+
 ## Livraison Invocations vérifiée du 25 octobre
 
 Ce point antérieur conserve ses limites historiques de navigateur et

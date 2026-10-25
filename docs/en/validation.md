@@ -27,6 +27,13 @@ T007/T008 and the full roadmap remain open. Earlier unavailable-browser,
 wrong-PAC-tenant and clone-blocked statements below are chronological evidence,
 not current blockers; the plugin dependency-policy failure remains unresolved.
 
+An [isolated local MCP tool](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+now passes real protocol discovery and one unchanged SAR request with two exact
+source records and correlated provenance. The actual tenant wizard exposes
+manual OAuth, but was cancelled without a connection. Local signed-token tests
+do not establish real Entra MCP OAuth. Remote hosting, binding and native
+whole-output fidelity remain unverified; the production Activity host is unchanged.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

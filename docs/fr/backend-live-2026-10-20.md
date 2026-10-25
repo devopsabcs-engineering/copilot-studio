@@ -26,6 +26,13 @@ Aucune publication n'a lieu. Autorisation du diagnostic natif/SDK d'origine et
 matrice complète restent ouvertes; cela ne valide pas le rendu hébergé via
 l'agent connecté. Les échecs plus anciens restent dans l'historique ci-dessous.
 
+La [preuve MCP locale ultérieure](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+renvoie des preuves structurées au rendu exact sans activités de conversation,
+en réutilisant le récupérateur inchangé. Un appel SAR d'origine renvoie deux
+documents exacts. OAuth réel, hébergement MCP distant et liaison native candidat
+ne sont pas vérifiés. L'assistant du tenant propose OAuth manuel mais est annulé
+sans connexion créée; aucune ressource Azure supplémentaire n'est provisionnée.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

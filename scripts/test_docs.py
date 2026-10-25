@@ -2082,6 +2082,49 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["limitations"]["runtimeDynamicPlanFinishedClaimed"])
         self.assertFalse(result["limitations"]["wholeRoadmapComplete"])
 
+    def test_mcp_preflight_is_not_a_connection_or_new_human_approval(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "mcp-onboarding-preflight.json").read_text("utf-8"))
+        self.assertTrue(result["createModelContextProtocolOptionVisible"])
+        self.assertTrue(result["streamableEndpointFieldVisible"])
+        self.assertTrue(result["oauth2OptionVisible"])
+        self.assertIn("Manual", result["oauthTypesVisible"])
+        self.assertTrue(result["wizardCancelledWithLeaveConfirmation"])
+        for key in ("credentialsEntered", "createSubmitted", "connectorOrConnectionCreated",
+                    "newHumanDesignChoiceReceived", "unavailableFormCountedAsApproval",
+                    "realOAuthOrNativeMcpDeliveryVerified", "roadmapComplete"):
+            self.assertFalse(result[key])
+        self.assertEqual(result["cloudResourcesProvisioned"], 0)
+        self.assertEqual(result["nativeQuestionsSubmitted"], 0)
+
+    def test_real_local_mcp_proof_retains_native_and_oauth_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "mcp-evidence-local.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "pass")
+        self.assertTrue(result["officialMcpClientUsed"])
+        self.assertTrue(result["protocolInitializeAndToolDiscoveryPassed"])
+        self.assertTrue(result["unchangedOriginalQuestion"])
+        self.assertEqual(result["originalCaseNumber"], 6)
+        self.assertEqual(result["paidToolCalls"], 1)
+        self.assertEqual(result["automaticRetries"], 0)
+        self.assertEqual(result["recordIds"], ["rc-002", "ip-006"])
+        self.assertEqual(result["recordCount"], len(result["recordIds"]))
+        self.assertTrue(result["textExactlyMatchesDeterministicRenderer"])
+        self.assertTrue(result["allStructuredRecordsExactlyMatchPinnedCorpus"])
+        self.assertTrue(result["protectedRetrieverDefinitionUnchangedBeforeAndAfter"])
+        self.assertTrue(result["loopbackOnly"])
+        self.assertEqual(result["followupParserHardenedTransportAndAuthenticationTests"], 17)
+        self.assertEqual(result["requestByteLimit"], 150000)
+        self.assertTrue(result["exactRequestByteLimitAcceptedInProtocolTest"])
+        self.assertTrue(result["requestByteLimitPlusOneRejectedInProtocolTest"])
+        self.assertTrue(result["loopbackHelperStopped"])
+        for key in ("remoteMcpDeployment", "realEntraMcpOAuthFlowVerified",
+                    "nativeMcpCandidateBindingCreated", "nativeBroadSarFidelityRepaired",
+                    "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

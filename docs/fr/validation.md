@@ -27,6 +27,14 @@ T007/T008 et la feuille de route restent ouverts. Les anciens états de navigate
 indisponible, mauvais tenant PAC et clonage bloqué ci-dessous sont historiques,
 pas des blocages actuels; l'échec de dépendances du plugin reste non résolu.
 
+Un [outil MCP local isolé](../assets/runtime-2026-10-25/mcp-evidence-local.json)
+réussit désormais la découverte réelle du protocole et une requête SAR inchangée
+avec deux documents exacts et leur provenance corrélée. L'assistant du tenant
+expose OAuth manuel, mais est annulé sans connexion. Les tests locaux de jetons
+signés ne prouvent pas OAuth MCP Entra réel. Hébergement distant, liaison et
+fidélité native complète restent non vérifiés; l'hôte Activity de production
+est inchangé.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées
