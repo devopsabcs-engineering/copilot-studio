@@ -49,6 +49,21 @@ confirme contenus d'origine/candidat, fichiers et liaisons inchangés;
 définition version 5 et identifiants de principal/client correspondent aussi.
 Fidélité complète et feuille de route entière restent ouvertes.
 
+La [preuve réelle d'identité managée](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+remplace la limite de récupération sortante ci-dessus. La question SAR inchangée
+renvoie `rc-002` et `ip-006` dans le conteneur applicatif App Service réel;
+documents complets et texte rendu correspondent indépendamment au corpus épinglé.
+Signature Microsoft, tenant/identité prévus, chaîne limitée à l'identité managée,
+code déployé et préservation du récupérateur protégé sont vérifiés.
+Les deux tentatives HTTP 403 antérieures restent des échecs. Un seul rôle
+personnalisé limité au projet reste après suppression de trois attributions
+d'essai possédées. Ses actions exactes de lecture/écriture d'agents permettent
+aussi leur modification; aucune requête de modification d'agent n'est effectuée.
+La [nouvelle lecture native complète](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+réussit encore. OAuth MCP délégué entrant, liaison native, fidélité complète
+et matrice entière de onze cas restent non vérifiés. Aucune question native,
+invocation d'outil MCP ni publication nouvelle n'est comptée.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées

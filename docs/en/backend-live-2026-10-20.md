@@ -57,6 +57,25 @@ version-5 definition/principal/client IDs. An extra identity status field is
 not mistaken for an identity change or whole-object equality. No Storage policy
 change, publication or full-roadmap acceptance occurs.
 
+### Actual outbound managed-identity retrieval
+
+The [app-container runtime proof](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+now verifies real outbound managed identity, the unchanged original SAR question,
+both exact source records and complete renderer output. All five deployed source
+hashes and the configured retriever match; the protected retriever is unchanged
+before and after. Earlier HTTP 403 attempts remain retained. Existing-response
+reads and nonexistent-model probes distinguish authorization from inference.
+One custom assignment with agent read/write data actions remains at project
+scope after the three owned trial assignments are removed. The write action
+also permits agent authoring, but no agent-authoring request is made.
+
+[Fresh full native preservation](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+passes again. No Storage/Search privilege or policy change, token persistence,
+new native question, candidate binding or publication occurs. Missing/invalid
+inbound bearers still receive 401. A real delegated MCP connection and whole
+native SAR acceptance remain open; direct shared retrieval is not a substitute.
+The host remains billable and no numerical budget or retention owner is invented.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

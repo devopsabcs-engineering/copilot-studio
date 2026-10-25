@@ -112,8 +112,10 @@ Two owned single-tenant registrations separate the API and connector client.
 Only the dedicated delegated scope is requested, with no Graph permission or
 tenant-wide consent. The server explicitly selects managed identity for outbound
 calls and has one existing-account-scoped OpenAI User role. This configuration
-is read back, but genuine delegated access and managed-identity retrieval are
-**not yet verified**. A seven-day client credential is kept in current-user DPAPI;
+is read back; at this preflight checkpoint, genuine delegated access and
+managed-identity retrieval are **not yet verified**. The runtime continuation
+below supersedes only the outbound-retrieval boundary.
+A seven-day client credential is kept in current-user DPAPI;
 the supported PAC input is access-restricted and deleted after use.
 
 Official PAC creates one MCP connector after correcting its first local
@@ -148,6 +150,37 @@ administrator. Consent only to the evidence scope for the current user, not the
 organization. Then verify real discovery/retrieval, candidate-only binding,
 whole-output SAR fidelity and affected original regressions before the full matrix.
 T007/T008 and the overall roadmap remain open.
+
+### Actual app-container managed-identity retrieval
+
+The [actual hosted runtime proof](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+now passes the unchanged original SAR question inside the App Service app
+container, not the separate deployment container. Microsoft's signature,
+tenant and owned identity are verified without persisting tokens. The selected
+credential chain contains only managed identity; all five deployed source hashes
+and the retrieval configuration match their baselines. Both returned records,
+`rc-002` and `ip-006`, and the complete rendered text independently match the
+pinned corpus. The protected retriever is unchanged before and after.
+
+Two earlier real retrieval attempts remain recorded as HTTP 403 failures.
+An existing-response read identifies `agents/read`; no-inference authorization
+probes separate permission propagation from actual retrieval success.
+The project Responses route requires the compatibility role's two data actions:
+`Microsoft.CognitiveServices/accounts/AIServices/agents/read` and
+`Microsoft.CognitiveServices/accounts/AIServices/agents/write`.
+The write action also permits agent authoring; no agent-authoring request is made.
+Only this project-scoped custom assignment remains on the owned app identity.
+The account-scoped model role and two trial runtime/consumer assignments are
+removed and independently read back. No Foundry User/Owner, Storage or Search
+permission is added.
+
+[Fresh native preservation](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+again verifies the original 26 rows, candidate 28 components, exact authoring,
+files, bindings, authentication and Off/On/On states. Missing/invalid inbound
+bearers still receive 401. This is shared retrieval under the real outbound
+identity, not a successful delegated MCP connection, candidate binding or native
+whole-output pass. No new native question or MCP tool call is submitted.
+T007/T008, the eleven-case native matrix and the full roadmap remain open.
 
 ## October 25 verified Invocations delivery
 

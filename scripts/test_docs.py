@@ -2210,6 +2210,91 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(preserved["azurePolicyOrStorageNetworkingChanges"], 0)
         self.assertFalse(preserved["publicationPerformed"])
 
+    def test_actual_app_container_identity_proof_checks_complete_records_and_retains_failures(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-managed-identity-runtime.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "pass")
+        for key in ("actualManagedIdentityMicrosoftSignatureVerified",
+                    "actualManagedIdentityPrincipalAndTenantVerified",
+                    "defaultCredentialContainsOnlyManagedIdentity"):
+            self.assertTrue(result["identity"][key])
+        self.assertFalse(result["identity"]["tokensOrIdentityHeadersPersisted"])
+        self.assertTrue(result["source"]["allFiveDeployedSourceHashesVerified"])
+        self.assertTrue(result["source"]["runtimeConfigurationMatchesProtectedBaseline"])
+        self.assertTrue(result["source"]["packageUnchangedFromHostedPreflight"])
+        retrieval = result["retrieval"]
+        self.assertEqual(retrieval["originalCaseNumber"], 6)
+        self.assertTrue(retrieval["unchangedOriginalQuestion"])
+        self.assertEqual(retrieval["actualSharedRetrievalAttempts"], 4)
+        self.assertEqual(retrieval["earlierHttp403Failures"], 2)
+        self.assertEqual(retrieval["successfulOriginalCaseProofs"], 2)
+        self.assertEqual(retrieval["automaticModelRetries"], 0)
+        self.assertEqual(retrieval["recordIds"], ["rc-002", "ip-006"])
+        self.assertEqual(retrieval["recordCount"], len(retrieval["recordIds"]))
+        for key in ("completeRecordsIndependentlyMatchPinnedCorpus",
+                    "completeTextIndependentlyMatchesDeterministicRenderer",
+                    "bothProofsHaveDistinctRetrievalAndSelectionResponseIds",
+                    "confirmationAfterCleanupReceiptAtLeast600Seconds"):
+            self.assertTrue(retrieval[key])
+        self.assertGreaterEqual(retrieval["observedSecondsAfterRoleCleanupReceipt"], 600)
+        self.assertTrue(result["preservation"]
+                        ["protectedRetrieverFullDefinitionUnchangedBeforeAndAfterBothProofs"])
+
+    def test_actual_runtime_role_is_project_scoped_and_acknowledges_authoring_permission(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "mcp-managed-identity-runtime.json").read_text("utf-8"))
+        authorization = result["authorization"]
+        self.assertEqual(authorization["currentOwnedIdentityAssignments"], 1)
+        self.assertEqual(authorization["scope"], "Existing Foundry project only")
+        self.assertEqual(authorization["controlPlaneActions"], [])
+        self.assertEqual(authorization["dataActions"], [
+            "Microsoft.CognitiveServices/accounts/AIServices/agents/read",
+            "Microsoft.CognitiveServices/accounts/AIServices/agents/write",
+        ])
+        self.assertTrue(authorization["agentWritePermissionAlsoAllowsAuthoring"])
+        self.assertEqual(authorization["directAgentAuthoringRequests"], 0)
+        self.assertEqual(authorization["removedOwnedTrialAssignments"], 3)
+        for key in ("accountScopedModelRoleRemoved", "trialResponsesAndConsumerAssignmentsRemoved",
+                    "allRemovedAssignmentsIndependentlyVerifiedOwned"):
+            self.assertTrue(authorization[key])
+        self.assertFalse(authorization["foundryUserOwnerStorageOrSearchRoleGranted"])
+        self.assertFalse(authorization["existingPrincipalRolesChanged"])
+        self.assertFalse(authorization["authorizationOnlyProbesCountedAsRetrievalSuccess"])
+        historical = json.loads((assets / "mcp-hosted-preflight.json").read_text("utf-8"))
+        self.assertTrue(result["historicalPreflightReceiptUnmodified"])
+        self.assertEqual(historical["hosting"]["newManagedIdentityRoles"], 1)
+        self.assertFalse(historical["hosting"]["outboundManagedIdentityRetrievalVerified"])
+
+    def test_actual_runtime_proof_keeps_delegated_native_and_governance_gates_open(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "mcp-managed-identity-runtime.json").read_text("utf-8"))
+        controls = result["inboundControls"]
+        self.assertEqual(controls["missingBearerHttpStatus"], 401)
+        self.assertEqual(controls["invalidBearerHttpStatus"], 401)
+        self.assertEqual(controls["protectedResourceDiscoveryHttpStatus"], 200)
+        self.assertFalse(controls["genuineDelegatedMcpBearerSuccessVerified"])
+        self.assertEqual(result["mcpToolCalls"], 0)
+        self.assertEqual(result["newNativeQuestionsSubmitted"], 0)
+        for key in ("nativeMcpCandidateBindingCreated", "nativeBroadSarWholeOutputFidelityRepaired",
+                    "fullElevenCaseNativeMatrixPassed", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        self.assertEqual(result["completedRoadmapTasks"], [])
+        before = json.loads((assets / "mcp-hosted-native-preservation.json").read_text("utf-8"))
+        after = json.loads((assets / result["preservation"]["freshNativeReceipt"]).read_text("utf-8"))
+        self.assertEqual(after["checks"], before["checks"])
+        self.assertEqual(after["authoringSha256"], before["authoringSha256"])
+        self.assertEqual(after["actionStates"], before["actionStates"])
+        self.assertEqual(after["cloudWritesDuringVerification"], 0)
+        self.assertFalse(after["publicationPerformed"])
+        self.assertTrue(result["preservation"]["currentHostedDefinitionAndPrincipalClientIdsUnchanged"])
+        self.assertTrue(result["billing"]["retainedHostRemainsBillable"])
+        self.assertFalse(result["billing"]["actualModelChargesOrTotalCopilotCreditsEstablished"])
+        self.assertFalse(result["billing"]["numericalBudgetProvided"])
+        self.assertFalse(result["billing"]["retentionOwnerAndReviewDateProvided"])
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

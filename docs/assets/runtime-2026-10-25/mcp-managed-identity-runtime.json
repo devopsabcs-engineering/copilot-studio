@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "result": "pass",
+  "surface": "Shared retrieval inside the actual App Service app container, not inbound MCP",
+  "identity": {
+    "actualManagedIdentityMicrosoftSignatureVerified": true,
+    "actualManagedIdentityPrincipalAndTenantVerified": true,
+    "defaultCredentialContainsOnlyManagedIdentity": true,
+    "tokensOrIdentityHeadersPersisted": false
+  },
+  "source": {
+    "allFiveDeployedSourceHashesVerified": true,
+    "runtimeConfigurationMatchesProtectedBaseline": true,
+    "pinnedPublisherSha256": "45664948b2e915eebe667816cbc957c89e6b7c34fa61f6b1365d0267ad8e69f2",
+    "packageUnchangedFromHostedPreflight": true
+  },
+  "retrieval": {
+    "originalCaseNumber": 6,
+    "unchangedOriginalQuestion": true,
+    "actualSharedRetrievalAttempts": 4,
+    "earlierHttp403Failures": 2,
+    "successfulOriginalCaseProofs": 2,
+    "automaticModelRetries": 0,
+    "recordIds": [
+      "rc-002",
+      "ip-006"
+    ],
+    "recordCount": 2,
+    "completeRecordsIndependentlyMatchPinnedCorpus": true,
+    "completeTextIndependentlyMatchesDeterministicRenderer": true,
+    "bothProofsHaveDistinctRetrievalAndSelectionResponseIds": true,
+    "confirmationAfterCleanupReceiptAtLeast600Seconds": true,
+    "observedSecondsAfterRoleCleanupReceipt": 7340
+  },
+  "authorization": {
+    "currentOwnedIdentityAssignments": 1,
+    "scope": "Existing Foundry project only",
+    "role": "Workshop Evidence Runtime adecc89a",
+    "dataActions": [
+      "Microsoft.CognitiveServices/accounts/AIServices/agents/read",
+      "Microsoft.CognitiveServices/accounts/AIServices/agents/write"
+    ],
+    "controlPlaneActions": [],
+    "removedOwnedTrialAssignments": 3,
+    "accountScopedModelRoleRemoved": true,
+    "trialResponsesAndConsumerAssignmentsRemoved": true,
+    "allRemovedAssignmentsIndependentlyVerifiedOwned": true,
+    "agentWritePermissionAlsoAllowsAuthoring": true,
+    "directAgentAuthoringRequests": 0,
+    "foundryUserOwnerStorageOrSearchRoleGranted": false,
+    "existingPrincipalRolesChanged": false,
+    "authorizationOnlyProbesCountedAsRetrievalSuccess": false,
+    "customRoleCreationGeneratedDifferentIdRecoveredWithoutDuplicate": true
+  },
+  "inboundControls": {
+    "missingBearerHttpStatus": 401,
+    "invalidBearerHttpStatus": 401,
+    "protectedResourceDiscoveryHttpStatus": 200,
+    "discoveredResourceTenantAndEvidenceReadScopeMatch": true,
+    "genuineDelegatedMcpBearerSuccessVerified": false
+  },
+  "preservation": {
+    "protectedRetrieverFullDefinitionUnchangedBeforeAndAfterBothProofs": true,
+    "currentHostedVersion": "5",
+    "currentHostedDefinitionAndPrincipalClientIdsUnchanged": true,
+    "freshNativeReceipt": "mcp-managed-identity-native-preservation.json",
+    "original26AndCandidate28RowsFilesBindingsStatesPreserved": true,
+    "storageNetworkingPolicyOrExistingDeploymentChanged": false,
+    "publicationPerformed": false
+  },
+  "historicalPreflightReceiptUnmodified": true,
+  "billing": {
+    "retainedHostRemainsBillable": true,
+    "publishedComputeRetailUsdPerHour": 0.018,
+    "actualModelChargesOrTotalCopilotCreditsEstablished": false,
+    "numericalBudgetProvided": false,
+    "retentionOwnerAndReviewDateProvided": false
+  },
+  "mcpToolCalls": 0,
+  "newNativeQuestionsSubmitted": 0,
+  "nativeMcpCandidateBindingCreated": false,
+  "nativeBroadSarWholeOutputFidelityRepaired": false,
+  "fullElevenCaseNativeMatrixPassed": false,
+  "completedRoadmapTasks": [],
+  "wholeRoadmapComplete": false
+}

@@ -117,8 +117,10 @@ Deux inscriptions possédées à tenant unique séparent API et client connecteu
 Seule la portée déléguée dédiée est demandée, sans permission Graph ni accord
 pour tout le tenant. Le serveur sélectionne explicitement son identité managée
 pour les appels sortants, avec un rôle OpenAI User limité au compte existant.
-La configuration est relue, mais accès délégué réel et récupération par identité
-managée ne sont **pas encore vérifiés**. Le secret client de sept jours reste
+La configuration est relue; à ce contrôle préalable, accès délégué réel et
+récupération par identité managée ne sont **pas encore vérifiés**. La poursuite
+d'exécution suivante remplace uniquement la limite de récupération sortante.
+Le secret client de sept jours reste
 dans DPAPI de l'utilisateur courant; l'entrée PAC est protégée par droits
 d'accès et supprimée après usage.
 
@@ -157,6 +159,41 @@ Consentir uniquement à la portée de preuves pour l'utilisateur courant,
 pas pour l'organisation. Vérifier ensuite découverte/récupération réelles,
 liaison limitée au candidat, fidélité SAR complète et régressions d'origine
 touchées avant la matrice entière. T007/T008 et la feuille de route restent ouverts.
+
+### Récupération par identité managée dans le conteneur applicatif
+
+La [preuve réelle d'exécution hébergée](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+réussit maintenant la question SAR d'origine inchangée dans le conteneur
+applicatif App Service, pas dans le conteneur de déploiement distinct.
+Signature Microsoft, tenant et identité possédée sont vérifiés sans conserver
+les jetons. La chaîne d'identifiants contient uniquement l'identité managée;
+les cinq empreintes du code déployé et la configuration de récupération
+correspondent aux références. Les deux documents renvoyés, `rc-002` et `ip-006`,
+et leur texte complet correspondent indépendamment au corpus épinglé.
+Le récupérateur protégé reste identique avant et après.
+
+Deux tentatives réelles antérieures restent conservées comme échecs HTTP 403.
+La lecture d'une réponse existante identifie `agents/read`; des sondes sans
+inférence distinguent propagation des droits et réussite réelle.
+La route Responses du projet exige les deux actions de données du rôle de
+compatibilité :
+`Microsoft.CognitiveServices/accounts/AIServices/agents/read` et
+`Microsoft.CognitiveServices/accounts/AIServices/agents/write`.
+L'action d'écriture permet aussi de modifier des agents; aucune requête de
+modification d'agent n'est effectuée. Seule cette attribution personnalisée
+limitée au projet reste sur l'identité applicative possédée. Le rôle de modèle
+limité au compte et les deux attributions d'essai runtime/consumer sont supprimés
+puis relus indépendamment. Aucun droit Foundry User/Owner, Storage ou Search
+n'est ajouté.
+
+La [nouvelle préservation native](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+vérifie encore les 26 lignes d'origine, 28 composants candidat, contenu d'auteur
+exact, fichiers, liaisons, authentification et états Off/On/On.
+Les jetons entrants absents/invalides reçoivent toujours 401. Il s'agit de la
+récupération partagée sous l'identité sortante réelle, pas d'une connexion MCP
+déléguée réussie, d'une liaison candidat ni d'une réussite native complète.
+Aucune question native ni appel d'outil MCP nouveau n'est soumis.
+T007/T008, la matrice native de onze cas et la feuille de route restent ouverts.
 
 ## Livraison Invocations vérifiée du 25 octobre
 

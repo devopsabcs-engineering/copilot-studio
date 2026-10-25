@@ -61,6 +61,27 @@ Un champ d'état d'identité supplémentaire n'est confondu ni avec un changemen
 d'identité ni avec une égalité d'objet entier. Aucune stratégie Storage,
 publication ou acceptation globale n'est modifiée.
 
+### Récupération sortante réelle par identité managée
+
+La [preuve dans le conteneur applicatif](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+vérifie maintenant l'identité managée sortante réelle, la question SAR d'origine
+inchangée, les deux documents exacts et le rendu complet. Les cinq empreintes du
+code déployé et le récupérateur configuré correspondent; le récupérateur protégé
+reste identique avant et après. Les échecs HTTP 403 antérieurs sont conservés.
+Lectures de réponse existante et sondes de modèle inexistant distinguent droits
+et inférence. Une attribution personnalisée de lecture/écriture des données
+d'agents reste limitée au projet après suppression des trois attributions
+d'essai possédées. L'action d'écriture permet aussi de modifier les agents,
+mais aucune requête de modification d'agent n'est effectuée.
+
+La [nouvelle préservation native complète](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+réussit encore. Aucun droit Storage/Search, changement de stratégie, jeton
+conservé, question native, liaison candidat ni publication nouveau n'a lieu.
+Les jetons entrants absents/invalides reçoivent toujours 401. Connexion MCP
+déléguée réelle et acceptation SAR native complète restent ouvertes; la
+récupération partagée directe ne les remplace pas. L'hôte reste facturable et
+aucun budget numérique ni responsable de rétention n'est inventé.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

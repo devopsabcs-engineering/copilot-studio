@@ -169,13 +169,24 @@ now verifies a Python 3.13 Linux B1 App Service, HTTPS/TLS, disabled FTP/basic
 publishing, missing/invalid bearer 401 and protected-resource discovery 200.
 An owned single-tenant API/client and official MCP connector are created; its
 actual generated callback is registered and read back. Outbound credentials are
-explicitly restricted to managed identity with one existing-account data role.
+explicitly restricted to managed identity, initially with one existing-account
+data role. The actual runtime continuation below replaces that assignment.
 The allowlisted deployment package excludes environment files and credentials.
 Client credential lifetime is seven days; local storage uses current-user DPAPI
 and access-restricted transient PAC input is deleted after use.
 
-Genuine delegated OAuth, managed-identity retrieval, candidate binding and
-native whole-output acceptance remain unverified. The integrated VS Code browser
+The [actual app-container proof](../../../docs/assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+now verifies managed-identity retrieval with the original SAR question and two
+exact records. Microsoft's token signature, tenant/identity, credential chain,
+deployed source and unchanged retriever are verified; the full output matches
+the pinned renderer independently. Earlier HTTP 403 failures are retained.
+Only a project-scoped custom role with exact agent read/write data actions remains
+after removing three owned trial assignments. That write permission also permits
+agent authoring; the runtime makes no agent-authoring request. No account-wide
+Foundry User/Owner, Storage or Search permission is added.
+
+Genuine delegated OAuth, candidate binding and native whole-output acceptance
+remain unverified. The integrated VS Code browser
 blocks consent popups; standard authorization in a new tab reaches the intended
 administrator's password prompt. The user-response tool is unavailable, not an
 approval. The bounded helper and temporary loopback callback are removed.

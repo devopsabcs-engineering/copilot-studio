@@ -48,6 +48,20 @@ confirms unchanged original/candidate content, files and bindings; the existing
 version-5 definition and principal/client IDs also match. Whole-output fidelity
 and the complete roadmap remain open.
 
+The [actual managed-identity runtime proof](../assets/runtime-2026-10-25/mcp-managed-identity-runtime.json)
+supersedes the outbound-retrieval boundary above. The unchanged SAR question
+returns `rc-002` and `ip-006` inside the actual App Service app container;
+both full records and rendered text match the pinned corpus independently.
+Microsoft's signature, intended tenant/identity, managed-identity-only credential
+chain, deployed source and protected retriever preservation are verified.
+Two earlier HTTP 403 attempts remain failures. Only one project-scoped custom
+role remains after removing three owned trial assignments. Its exact agent
+read/write actions also permit authoring; no agent-authoring request is made.
+The [fresh full native readback](../assets/runtime-2026-10-25/mcp-managed-identity-native-preservation.json)
+passes again. Inbound delegated MCP OAuth, native binding, whole-output fidelity
+and the full eleven-case matrix remain unverified. No new native question,
+MCP tool invocation or publication is counted.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record
