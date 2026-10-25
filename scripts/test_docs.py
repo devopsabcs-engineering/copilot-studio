@@ -2895,6 +2895,62 @@ class WikiTests(unittest.TestCase):
             self.assertIn("Failed:" if language == "en" else "Échec :", row)
             self.assertNotIn("Not run" if language == "en" else "Non exécuté", row)
 
+    def test_application_activity_preflight_cannot_certify_native_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "native-activity-application-preflight.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "ACTIVITY_APPLICATION_DEPLOYMENT_REJECTED_BEFORE_NATIVE_TEST")
+        self.assertEqual(result["scope"]["copiedUnchangedSourceAndDependencyFiles"], 6)
+        self.assertTrue(result["hostedDeployment"]["supportedMultipartDeploymentSucceeded"])
+        self.assertTrue(result["hostedDeployment"]["jsonRejectionAndZeroObjectCleanupPreserved"])
+        self.assertFalse(result["hostedDeployment"]["platformEnvironmentInjectionRuntimeVerified"])
+        application = result["application"]
+        self.assertEqual(application["explicitTypeDefaultPolicyRejectedStatus"], 400)
+        self.assertTrue(application["documentedMinimumBodyCreateSucceeded"])
+        self.assertEqual(application["readbackAuthorizationScheme"], "Default")
+        self.assertEqual(application["readbackIsolationKeySource"], "Entra")
+        deployment = result["deployment"]
+        self.assertEqual(deployment["createStatus"], 400)
+        self.assertEqual(deployment["requestedProtocol"], "Agent")
+        self.assertTrue(deployment["protocolValueListedByOfficialArmReferenceAndManagementSdk"])
+        self.assertTrue(deployment["serviceRejectedProtocolEnumConversion"])
+        self.assertTrue(deployment["failureAndOriginalRequestPreserved"])
+        self.assertFalse(deployment["actualActivityDeploymentReady"])
+        self.assertFalse(deployment["alternateUndocumentedProtocolNamesTried"])
+        execution = result["execution"]
+        for key in ("nativeQuestionsSubmitted", "directModelQuestionsSubmitted", "automaticQuestionReplays"):
+            self.assertEqual(execution[key], 0)
+        for key in ("nativeWholeParentOutputCaptured", "effectiveNativeCallerIdentityEstablished",
+                    "nativeActivityAcceptancePassed"):
+            self.assertFalse(execution[key])
+        for key in ("T005Complete", "T006Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
+    def test_application_activity_cleanup_and_bilingual_boundary_are_explicit(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "native-activity-application-preflight.json").read_text("utf-8"))
+        cleanup = result["cleanup"]
+        for key in ("ownedAgentApplicationDeploymentAndBotIndependentlyAbsent",
+                    "ownedRoleAssignmentsAbsent", "originalAgentVersion5DefinitionIdentityAndMetadataExact",
+                    "originalArmResourceInventoryExact", "originalAccountRoleAssignmentInventoryExact"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["ownedDirectoryObjectGetStatuses"], [404, 404, 404, 404])
+        self.assertEqual(cleanup["originalBlueprintDirectoryObjectControlGetStatus"], 200)
+        self.assertFalse(cleanup["directoryDeletedItemsPurged"])
+        self.assertFalse(cleanup["actualSpendingFinalized"])
+        self.assertFalse(cleanup["privateRawEvidencePublished"])
+        self.assertFalse(result["scope"]["anonymousAccessEnabled"])
+        self.assertFalse(result["scope"]["broadPermissionsAdded"])
+        self.assertFalse(result["connector"]["nativeActionSavedOrBound"])
+        for language in ("en", "fr"):
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("native-activity-application-preflight.json", roadmap)
+            self.assertIn("SendActivityApplication", roadmap)
+            self.assertIn("authorizationScheme=Default", roadmap)
+            self.assertIn("- [ ] T005", roadmap)
+            self.assertIn("- [ ] T006", roadmap)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

@@ -582,6 +582,43 @@ quatre enregistrements de licences, dont sept plans filtrés liés à la créati
 en provisionnement Success. Ces attributions ne prouvent pas l'ensemble des
 droits premium, les crédits du tenant ou une liaison de facturation de l'environnement.
 
+## Diagnostic Activity avec application isolée
+
+Le [contrôle préalable d'application](../assets/runtime-2026-10-25/native-activity-application-preflight.json)
+examine une autre route prise en charge, sans rejouer le diagnostic natif échoué.
+Les métadonnées actuelles du connecteur authentifié exposent `SendActivityV2`
+et `SendActivityApplication`. Six fichiers sources/dépendances inchangés sont
+copiés dans un agent hébergé isolé. Le premier chargement de code JSON seul est
+refusé et nettoyé; le déploiement multipart pris en charge crée ensuite la version 1
+active et un Azure Bot automatique. Son client correspond à l'instance possédée.
+Ce déploiement ne prouve ni exécution ni acceptation native : aucune question soumise.
+
+La propriété explicite `authorizationPolicy.type=Default` reçoit HTTP 400 pour
+discriminateur `AuthorizationScheme` absent. Le
+[corps minimal documenté de l'application](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications)
+réussit ensuite. Une relecture indépendante HTTP 200 confirme provisionnement
+`Succeeded`, `authorizationScheme=Default` et isolation Entra, avec identités
+de blueprint/instance d'application distinctes. Aucun partage anonyme ni à
+l'échelle de l'organisation n'est activé.
+
+Le déploiement enfant Hosted reçoit HTTP 400 : le service refuse le protocole
+`Agent` lors de la conversion d'énumération et signale aussi un champ de définition
+requis. `Agent` est la valeur publiée dans la
+[référence ARM](https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2026-09-15-preview/accounts/projects/applications/agentdeployments)
+et le SDK de gestion Microsoft. Aucun nom de protocole non documenté,
+affaiblissement d'authentification, liaison native enregistrée ni rejeu de question
+ne masque cet écart. T005/T006 restent ouverts; ni appelant natif effectif ni
+sortie complète du parent ne sont prouvés.
+
+L'agent, l'application, le déploiement enfant, le Bot et les droits possédés sont
+indépendamment absents après nettoyage. Les quatre lectures d'objets d'annuaire
+possédés renvoient 404; le contrôle du blueprint d'origine renvoie 200.
+Cela ne prouve pas une purge des éléments supprimés de l'annuaire.
+Définition, identités et métadonnées de la version 5 d'origine, inventaire ARM
+et inventaire des rôles du compte correspondent exactement. L'authentification
+du point d'entrée original n'est jamais modifiée. Les preuves brutes restent
+privées; les dépenses temporaires ne sont pas finalisées.
+
 ## Ingestion fictive conforme à la stratégie
 
 L'[essai de chargement public](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)

@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-25",
+  "status": "ACTIVITY_APPLICATION_DEPLOYMENT_REJECTED_BEFORE_NATIVE_TEST",
+  "scope": {
+    "isolatedDisposableHostedAgent": true,
+    "originalAgentUsedOnlyForReadback": true,
+    "copiedUnchangedSourceAndDependencyFiles": 6,
+    "originalEndpointAuthenticationNeverModified": true,
+    "anonymousAccessEnabled": false,
+    "broadPermissionsAdded": false
+  },
+  "connector": {
+    "liveAuthenticatedMetadataRead": true,
+    "agentOperation": "SendActivityV2",
+    "applicationOperation": "SendActivityApplication",
+    "nativeActionSavedOrBound": false
+  },
+  "hostedDeployment": {
+    "jsonCodeConfigurationAttemptRejected": true,
+    "jsonRejectionAndZeroObjectCleanupPreserved": true,
+    "supportedMultipartDeploymentSucceeded": true,
+    "ownedAgentVersion": "1",
+    "ownedAgentReadbackStatus": "active",
+    "automaticAzureBotResourceIndependentlyIdentified": true,
+    "automaticBotClientMatchedOwnedAgentInstance": true,
+    "ownedPrincipalRoleAssignmentsAtPostDeploymentRead": 0,
+    "platformReservedEnvironmentVariableForwardingOmitted": true,
+    "platformEnvironmentInjectionRuntimeVerified": false
+  },
+  "application": {
+    "managementApiVersion": "2026-09-15-preview",
+    "explicitTypeDefaultPolicyRejectedStatus": 400,
+    "explicitPolicyError": "Missing discriminator property [AuthorizationScheme] in request body.",
+    "documentedMinimumBodyCreateSucceeded": true,
+    "readbackStatus": 200,
+    "readbackProvisioningState": "Succeeded",
+    "readbackAuthorizationScheme": "Default",
+    "readbackIsolationKeySource": "Entra",
+    "separateApplicationBlueprintAndInstanceReadBack": true
+  },
+  "deployment": {
+    "deploymentType": "Hosted",
+    "minReplicas": 0,
+    "maxReplicas": 1,
+    "requestedProtocol": "Agent",
+    "requestedProtocolVersion": "2.0.0",
+    "protocolValueListedByOfficialArmReferenceAndManagementSdk": true,
+    "createStatus": 400,
+    "serviceRejectedProtocolEnumConversion": true,
+    "serviceAlsoReportedDefinitionFieldRequired": true,
+    "failureAndOriginalRequestPreserved": true,
+    "actualActivityDeploymentReady": false,
+    "alternateUndocumentedProtocolNamesTried": false
+  },
+  "execution": {
+    "nativeQuestionsSubmitted": 0,
+    "directModelQuestionsSubmitted": 0,
+    "automaticQuestionReplays": 0,
+    "nativeWholeParentOutputCaptured": false,
+    "effectiveNativeCallerIdentityEstablished": false,
+    "nativeActivityAcceptancePassed": false
+  },
+  "cleanup": {
+    "ownedAgentApplicationDeploymentAndBotIndependentlyAbsent": true,
+    "ownedRoleAssignmentsAbsent": true,
+    "originalAgentVersion5DefinitionIdentityAndMetadataExact": true,
+    "originalArmResourceInventoryExact": true,
+    "originalAccountRoleAssignmentInventoryExact": true,
+    "ownedDirectoryObjectGetStatuses": [404, 404, 404, 404],
+    "originalBlueprintDirectoryObjectControlGetStatus": 200,
+    "directoryDeletedItemsPurged": false,
+    "actualSpendingFinalized": false,
+    "privateRawEvidencePublished": false
+  },
+  "references": {
+    "documentedMinimumApplicationBody": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications",
+    "armDeploymentProtocolEnum": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2026-09-15-preview/accounts/projects/applications/agentdeployments",
+    "managementSdkProtocolEnum": "https://github.com/Azure/azure-sdk-for-net/blob/3dad0bc9bf0cc04b81149aa5aefb7b08718fd597/sdk/cognitiveservices/Azure.ResourceManager.CognitiveServices/src/Generated/Models/CognitiveServicesAgentProtocol.cs"
+  },
+  "T005Complete": false,
+  "T006Complete": false,
+  "wholeRoadmapComplete": false
+}

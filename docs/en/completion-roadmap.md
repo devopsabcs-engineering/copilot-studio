@@ -551,6 +551,40 @@ four license records with seven filtered maker-related plans in provisioning
 status Success. This is assignment evidence, not proof of complete premium
 entitlement, tenant credits or an environment billing binding.
 
+## Isolated application Activity diagnostic
+
+The [application preflight](../assets/runtime-2026-10-25/native-activity-application-preflight.json)
+checks a separate supported route rather than replaying the failed native
+diagnostic. Current authenticated connector metadata exposes both `SendActivityV2`
+and `SendActivityApplication`. Six unchanged source/dependency files are copied
+to an isolated hosted agent. The first JSON-only code upload is rejected and
+cleaned; supported multipart deployment then produces active version 1 and an
+automatically created Azure Bot. Its client matches the owned agent instance.
+Deployment is not runtime or native acceptance: zero questions are submitted.
+
+An explicit `authorizationPolicy.type=Default` receives HTTP 400 for a missing
+`AuthorizationScheme` discriminator. The
+[documented minimum application body](https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/agent-applications)
+then succeeds. Independent HTTP 200 readback confirms provisioning `Succeeded`,
+`authorizationScheme=Default` and Entra isolation, with separate application
+blueprint/instance identities. No anonymous or organization-wide sharing is enabled.
+
+The Hosted child deployment receives HTTP 400: the service rejects protocol
+`Agent` during enum conversion and also reports a required definition field.
+`Agent` is the value listed by the
+[ARM reference](https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2026-09-15-preview/accounts/projects/applications/agentdeployments)
+and Microsoft's management SDK. No undocumented protocol name, authentication
+relaxation, saved native binding or question replay is used to mask that mismatch.
+T005/T006 remain open; no effective native caller or whole-parent output is proved.
+
+The owned agent, application, child deployment, Bot and grants are independently
+absent after cleanup. All four owned directory-object reads return 404, while
+the original blueprint control returns 200. This does not claim deleted-directory
+tombstones were purged. The original version-5 definition, identities and metadata,
+ARM inventory and account role inventory match exactly. Original endpoint
+authentication is never modified. Raw evidence remains private; temporary-resource
+spending is not finalized.
+
 ## Policy-compatible fictional ingestion
 
 The [public upload attempt](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
