@@ -2497,6 +2497,80 @@ class WikiTests(unittest.TestCase):
             self.assertIn("- [x] T008 [Plan:4.1]", text)
             self.assertIn("- [ ] T007 [Plan:4.1]", text)
 
+    def test_control_repair_regression_counts_failed_actual_calls_without_claiming_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-control-repair-regression.json").read_text("utf-8"))
+        self.assertFalse(result["fullElevenCaseNativeMatrixPassed"])
+        self.assertEqual(result["acceptedDistinctOriginalCases"], 10)
+        self.assertEqual(result["unacceptedOriginalCases"], [9])
+        attempts = result["attempts"]
+        self.assertEqual(len(attempts), 15)
+        self.assertEqual(sum(item["caseNumber"] != 0 for item in attempts), 13)
+        self.assertEqual(sum(item["caseNumber"] == 0 for item in attempts), 2)
+        self.assertEqual(sum(item["officialExportRetained"] for item in attempts), 14)
+        self.assertEqual(sum(item["actualSuccessfulMcpEvidenceInvocations"] for item in attempts), 7)
+        self.assertEqual(result["totalKnownNativeQuestionsAcrossHistoricalCohortsAndControl"], 37)
+        self.assertEqual(result["automaticQuestionRetries"], 0)
+        self.assertEqual(result["knownFailedCaptureOrAnswerAttemptsRetained"], 4)
+        cases = result["cases"]
+        self.assertEqual([case["number"] for case in cases], list(range(1, 12)))
+        self.assertEqual(sum(case["result"] == "pass" for case in cases), 10)
+        failed = cases[8]
+        self.assertEqual(failed["actualSuccessfulMcpEvidenceInvocations"], 1)
+        self.assertFalse(failed["parentAnswerAcceptance"])
+        self.assertFalse(failed["rootCauseEstablished"])
+        self.assertFalse(failed["thirdAttemptSubmitted"])
+        self.assertEqual(len(failed["attemptFailures"]), 2)
+        self.assertTrue(failed["completedEvidenceAndPlanNotCountedAsParentAnswer"])
+        self.assertEqual(cases[6]["sourceQuotationCount"], 2)
+        self.assertTrue(cases[6]["actualIntendedLocalSearchObserved"])
+
+    def test_control_repair_has_one_real_invocation_not_two_cancellation_trace_records(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-control-repair-regression.json").read_text("utf-8"))
+        control = result["controlRepair"]
+        for key in ("actualValidationBeginDialogInvocations", "actualConnectedValidationTaskBindings",
+                    "exactConstantValidationReplies", "nativeSaveClicks"):
+            self.assertEqual(control[key], 1)
+        self.assertEqual(control["cancellationTraceRecords"], 2)
+        self.assertFalse(control["cancellationTraceRecordsCountedAsAgentInvocations"])
+        self.assertFalse(control["hardcodedSuccessReplyAdded"])
+        self.assertTrue(control["firstBoundedNoAnswerAttemptAndOfficialExportRetained"])
+        self.assertTrue(result["allAvailableNativeAgentContentExportsByteIdentical"])
+        self.assertEqual(result["nativeAgentContentSha256"],
+                         "ba967713ddd94f78a80e917593559b5fae313f24bf5ad45480bf2d5dad8a8132")
+        self.assertTrue(all(result["boundaries"][key] for key in (
+            "case2FirstVisibleReplyNotAcceptedWithoutOfficialExport",
+            "case2StrandedUnreadExportCommandQuarantinedNeverReplayed",
+            "queuePermissionRetryLimitedToFilesystemIoNotBrowserActions",
+            "previousElevenCasePassNotCombinedWithCurrentConfiguration",
+            "historicalDuplicateControlAndAllEarlierFailuresPreserved",
+        )))
+        self.assertEqual(result["preservation"]["candidateComponentCount"], 29)
+        self.assertTrue(result["preservation"]["protectedOriginalRootAnd26CompleteRowsExactlyUnchanged"])
+        self.assertTrue(result["preservation"]["allOtherCompleteCandidateRowsExactlyUnchanged"])
+        self.assertFalse(result["preservation"]["publicationPerformed"])
+        self.assertTrue(result["execution"]["ownedBrowserClosedNormally"])
+        self.assertFalse(result["execution"]["otherBrowsersTouched"])
+        self.assertEqual(result["execution"]["newAzureDeploymentsResourcesRolesGrantsOrPolicyChanges"], 0)
+        self.assertFalse(result["roadmap"]["T007Complete"])
+        self.assertTrue(result["roadmap"]["T008PriorAcceptedRunRetained"])
+        self.assertFalse(result["roadmap"]["currentConfigurationElevenCaseAcceptanceComplete"])
+        self.assertFalse(result["roadmap"]["wholeRoadmapComplete"])
+
+    def test_control_repair_partial_regression_is_linked_in_both_languages_and_example(self):
+        root = Path(__file__).resolve().parents[1]
+        documents = [root / "docs" / language / name
+                     for language in ("en", "fr")
+                     for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md")]
+        documents.append(root / "examples" / "verified-retrieval" / "workshop-verified-retrieval" / "README.md")
+        for path in documents:
+            text = path.read_text("utf-8")
+            self.assertIn("mcp-native-control-repair-regression.json", text)
+            self.assertIn("10/11", text)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

@@ -118,6 +118,18 @@ Original 26 rows and candidate 29 components remain preserved. T008 closes;
 T007 retains the separately observed duplicate validation control. No deployment,
 publication, new role or policy change is inferred from this native acceptance.
 
+The later [control-only repair](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+is saved once through native UI and independently read back. Its counted recovery
+proves one validation invocation, binding and reply. The new regression accepts
+10/11 cases: case 9 has completed evidence/plan without a reply, then a counted
+retry without plan or reply. Neither failure is hidden or accepted. Fifteen
+submissions, fourteen matching agent-content exports and seven actual MCP calls
+are retained; one of those calls belongs to the failed parent-answer attempt.
+Current case 7 has two exact MCP quotations, not zero. All other complete rows,
+instructions/authentication/publication and the protected original are preserved.
+The owned browser closes; no backend deployment or policy change occurs.
+T007 and current-configuration acceptance remain open.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

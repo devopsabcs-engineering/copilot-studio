@@ -97,6 +97,20 @@ guillemets, attribuées individuellement. T008 est clos pour cette exécution, p
 feuille de route. Le contrôle de validation distinct produit deux réponses
 identiques par topic puis action directe; sa correction T007 reste ouverte.
 
+La [correction et régression suivantes](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+prouvent une invocation/liaison/réponse réelle de validation après une reprise
+comptée, sans réponse codée en dur. La nouvelle régression accepte 10/11 cas.
+Le cas 9 termine recherches et plan sans réponse parent; sa reprise ne produit
+ni plan ni réponse. Les deux échecs restent conservés. Quinze soumissions
+comprennent treize questions d'origine et deux contrôles. Les quatorze exports
+disponibles du contenu agent concordent; les sept appels MCP réels incluent
+la recherche réussie sans réponse finale. L'export perdu du cas 2 n'est accepté
+qu'après sa reprise distincte. Le cas 7 actuel comporte deux citations MCP
+exactes attribuées et un contexte local supplémentaire permis et vérifié.
+Préservation finale complète et fermeture du navigateur réussissent.
+T007/l'acceptation de configuration actuelle restent ouverts; l'ancien résultat
+T008 ne certifie pas cette configuration.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées

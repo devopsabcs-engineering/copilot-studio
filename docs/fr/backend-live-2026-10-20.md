@@ -128,6 +128,18 @@ T008 est clos; T007 conserve le contrôle de validation dupliqué observé sépa
 Aucun déploiement, publication, nouveau rôle ou changement de stratégie n'est
 déduit de cette acceptation native.
 
+La [correction du seul contrôle](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+est enregistrée une fois par l'UI native et relue indépendamment. Sa reprise
+comptée prouve une invocation, liaison et réponse de validation. La nouvelle
+régression accepte 10/11 cas : le cas 9 termine preuves/plan sans réponse, puis
+sa reprise comptée ne produit ni plan ni réponse. Aucun échec n'est masqué ou
+accepté. Quinze soumissions, quatorze exports identiques du contenu agent et sept
+appels MCP réels sont conservés; un appel appartient à la tentative sans réponse
+parent. Le cas 7 actuel contient deux citations MCP exactes, pas zéro. Toutes les
+autres lignes complètes, instructions/authentification/publication et l'original
+protégé restent préservés. Le navigateur ferme; aucun déploiement backend ni
+changement de stratégie. T007 et l'acceptation de configuration actuelle restent ouverts.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

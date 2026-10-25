@@ -1,0 +1,333 @@
+{
+  "observedUtc": "2026-10-25T20:08:49.328870+00:00",
+  "result": "single-invocation-control-repair-verified-current-regression-incomplete",
+  "fullElevenCaseNativeMatrixPassed": false,
+  "acceptedDistinctOriginalCases": 10,
+  "unacceptedOriginalCases": [
+    9
+  ],
+  "nativeOriginalQuestionSubmissions": 13,
+  "nativeControlQuestionSubmissions": 2,
+  "totalNativeQuestionSubmissions": 15,
+  "separatelyCountedOriginalQuestionRetries": 2,
+  "separatelyCountedControlRetries": 1,
+  "automaticQuestionRetries": 0,
+  "knownFailedCaptureOrAnswerAttemptsRetained": 4,
+  "officialNativeExportsRetained": 14,
+  "allAvailableNativeAgentContentExportsByteIdentical": true,
+  "nativeAgentContentSha256": "ba967713ddd94f78a80e917593559b5fae313f24bf5ad45480bf2d5dad8a8132",
+  "nativeMcpEvidenceToolInvocationsIncludingFailedAnswers": 7,
+  "totalKnownNativeQuestionsAcrossHistoricalCohortsAndControl": 37,
+  "controlRepair": {
+    "authorNativeIndentedYamlSha256": "8070a4e4617b4034d3d689c3508b7d270f0778aaeb6e7f47c8df2d1675b6db00",
+    "exactMessageGateRetainsExistingValidationBinding": true,
+    "processedCancellationStopsSecondPlannerInvocation": true,
+    "nativeSaveClicks": 1,
+    "nativeCheckerAndExactDisplayedSourceVerifiedBeforeSave": true,
+    "independentCloudReadbackConfirmsOnlyIntendedControlDefinitionChanged": true,
+    "hardcodedSuccessReplyAdded": false,
+    "successfulAttempt": 2,
+    "actualValidationBeginDialogInvocations": 1,
+    "actualConnectedValidationTaskBindings": 1,
+    "exactConstantValidationReplies": 1,
+    "cancellationTraceRecords": 2,
+    "cancellationTraceRecordsCountedAsAgentInvocations": false,
+    "firstBoundedNoAnswerAttemptAndOfficialExportRetained": true,
+    "nativeDynamicPlanFinishedRequiredForDeterministicControl": false
+  },
+  "cases": [
+    {
+      "number": 1,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 0,
+      "actuallyReturnedRecordIds": [],
+      "actualIntendedLocalSearchObserved": false,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 2,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 2,
+      "successfulAttempt": 2,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 0,
+      "actuallyReturnedRecordIds": [],
+      "actualIntendedLocalSearchObserved": false,
+      "sourceQuotationCount": 5
+    },
+    {
+      "number": 3,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 0,
+      "actuallyReturnedRecordIds": [],
+      "actualIntendedLocalSearchObserved": false,
+      "sourceQuotationCount": 7
+    },
+    {
+      "number": 4,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 0,
+      "actuallyReturnedRecordIds": [],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 5,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "fp-002"
+      ],
+      "actualIntendedLocalSearchObserved": false,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 6,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "rc-002",
+        "ip-006"
+      ],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 7,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "ip-002",
+        "rc-007"
+      ],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 2
+    },
+    {
+      "number": 8,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "fp-003",
+        "rc-005",
+        "rc-002"
+      ],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 9,
+      "result": "fail-no-parent-answer",
+      "nativeOriginalQuestionSubmissions": 2,
+      "parentAnswerAcceptance": false,
+      "attemptFailures": [
+        "fail-parent-response-absent-after-completed-evidence-and-plan",
+        "fail-native-response-timeout-before-any-plan-or-evidence-step"
+      ],
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "completedEvidenceAndPlanNotCountedAsParentAnswer": true,
+      "rootCauseEstablished": false,
+      "thirdAttemptSubmitted": false
+    },
+    {
+      "number": 10,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "fp-004",
+        "ip-001",
+        "ip-003"
+      ],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 0
+    },
+    {
+      "number": 11,
+      "result": "pass",
+      "nativeOriginalQuestionSubmissions": 1,
+      "successfulAttempt": 1,
+      "expectedRouteAndCompletionVerified": true,
+      "sourceFidelityAttributionCoverageAndApplicabilityVerified": true,
+      "actualSuccessfulMcpEvidenceInvocations": 1,
+      "actuallyReturnedRecordIds": [
+        "ip-006",
+        "fp-004",
+        "fp-008",
+        "rc-002"
+      ],
+      "actualIntendedLocalSearchObserved": true,
+      "sourceQuotationCount": 0
+    }
+  ],
+  "attempts": [
+    {
+      "caseNumber": 1,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "4a7579186c72d35c0382f5fa49f4277f88b126a11dcc65664881bc7e12c5434c",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 2,
+      "attempt": 2,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "1dbc35908069b3cd4aba0147a85123f5cc0b1f3e15c1fce12d20cd7cf423ebca",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 2,
+      "attempt": 1,
+      "officialExportRetained": false,
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 3,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "3313a2906ee27123d6053fdb1a8655a5bdf6ae61dca3a7e3a21b5e63fbd28d10",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 4,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "9c32e560f066b877522fb521c4ebf375c986daf3e104749ff414915a8593bb0a",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 5,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "c2c765ecccff2db34807ae59106365b6ce186156815a536294b1d9222bacefce",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 6,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "1e15399bd55fb3a5969a16617419bc64766d6aef8f73eb08d0de6557560aef55",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 7,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "c0af9b81e6d5c823375ff751a147fc0a1794733fc18594efd1f0dc2642d39a56",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 8,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "0475a037cb9a62c3d0f9706e51ff56cbc6b4f06434b5d8dc5afcd77ca019532a",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 9,
+      "attempt": 2,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "1818e8483fe787d2eee9b6ff1fd27a9dcabc83015dc57e72afa55a3e141ddcb9",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 9,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "e48d8c25b3548b25463e2b070e161ccf2bfda62e0b58da220a61093c42833029",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 10,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "ffe60315f84b7193c041afd1240256be470ced0225918ef35618df21333364c4",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 11,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "f85dcfac9304cce0b2a2a2b75a569310d9770be74d80f32fc2c9cc279dd61eed",
+      "actualSuccessfulMcpEvidenceInvocations": 1
+    },
+    {
+      "caseNumber": 0,
+      "attempt": 2,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "af8e2b05f55207c0770ce9b63a7ac2b78bae2aa8ea29b0762009be2aee6610a5",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    },
+    {
+      "caseNumber": 0,
+      "attempt": 1,
+      "officialExportRetained": true,
+      "nativeDialogSha256": "a0c6fa325c8f83dfce4fb9d019dfe52af48cc4ec23973fb6da0a968f56710bff",
+      "actualSuccessfulMcpEvidenceInvocations": 0
+    }
+  ],
+  "boundaries": {
+    "case2FirstVisibleReplyNotAcceptedWithoutOfficialExport": true,
+    "case2StrandedUnreadExportCommandQuarantinedNeverReplayed": true,
+    "queuePermissionRetryLimitedToFilesystemIoNotBrowserActions": true,
+    "case7OptionalVerifiedLocalContextPermittedWithoutWeakeningMandatoryHybridSources": true,
+    "case7VerifierAssumptionCorrectedWithoutQuestionReplayOrCloudChange": true,
+    "currentCase7HasTwoExactIndividuallyAttributedMcpSourceQuotations": true,
+    "previousElevenCasePassNotCombinedWithCurrentConfiguration": true,
+    "historicalDuplicateControlAndAllEarlierFailuresPreserved": true,
+    "causeOfNativeTimeoutsEstablished": false
+  },
+  "preservation": {
+    "protectedOriginalRootAnd26CompleteRowsExactlyUnchanged": true,
+    "candidateComponentCount": 29,
+    "candidateAuthentication221Preserved": true,
+    "candidatePublishedTimestampPreserved": true,
+    "exactAuthoredInstructionsPersisted": true,
+    "allOtherCompleteCandidateRowsExactlyUnchanged": true,
+    "publicationPerformed": false
+  },
+  "execution": {
+    "newAzureDeploymentsResourcesRolesGrantsOrPolicyChanges": 0,
+    "freshCloudFoundryDefinitionReadbackIncluded": false,
+    "ownedBrowserClosedNormally": true,
+    "otherBrowsersTouched": false
+  },
+  "roadmap": {
+    "T007Complete": false,
+    "T008PriorAcceptedRunRetained": true,
+    "currentConfigurationElevenCaseAcceptanceComplete": false,
+    "wholeRoadmapComplete": false
+  }
+}

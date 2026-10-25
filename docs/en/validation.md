@@ -93,6 +93,19 @@ individually attributed unquoted paraphrases. T008 closes for this run, not the
 roadmap. A separate unchanged validation control produces two identical replies
 through topic-then-direct-action invocation, leaving T007's control repair open.
 
+The subsequent [control repair and regression](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+proves one real validation invocation/binding/reply after one counted recovery,
+without a hardcoded reply. Its fresh unchanged-question regression accepts
+10/11 cases. Case 9 completes both searches and its plan without a parent answer;
+its counted retry has no plan or answer. Both failures remain. Fifteen total
+submissions include thirteen original questions and two controls. Fourteen
+available agent-content exports match; seven genuine MCP calls include the failed
+answer's successful retrieval. Case 2's lost export is not accepted until its
+separate recovery. Current case 7 has two exact attributed MCP quotations and
+allowed verified local context. Final full preservation passes and the owned
+browser closes. T007/current-configuration acceptance remain open; the preceding
+T008 run is not reused to certify this configuration.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

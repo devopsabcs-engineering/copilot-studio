@@ -297,6 +297,39 @@ publication restent préservés. Aucune publication, modification de stratégie,
 nouvelle ressource ou rôle. Contrat diagnostic/SDK original, autres labs et
 gouvernance restent ouverts.
 
+### Contrôle à invocation unique et nouvelle régression incomplète
+
+La [régression après correction du contrôle](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+ne modifie que le topic de contrôle démontré, par un seul enregistrement natif
+normal. La condition exacte d'Author conserve l'action existante et ajoute
+l'annulation avec activité traitée. Après un délai dépassé conservé et une
+reprise comptée séparément, les traces prouvent une invocation réelle, une liaison
+et une réponse exacte. Deux traces d'annulation ne sont pas deux invocations.
+Aucune réponse de succès codée en dur n'est ajoutée.
+
+La nouvelle régression requise accepte **10/11 cas d'origine distincts**, pas les
+onze. Le cas 9 termine d'abord les deux recherches prévues et un plan non annulé,
+sans réponse parent pendant 240 secondes. Sa reprise protégée ne produit ni plan
+ni réponse. Les deux exports officiels restent des échecs; aucune cause n'est
+établie et aucune troisième tentative n'est soumise. Les cas 10 et 11 réussissent
+leurs propres audits complets de sources, attribution, couverture et applicabilité.
+
+Treize questions d'origine et deux contrôles totalisent quinze soumissions. Les
+reprises métier concernent les cas 2 et 9. La première réponse visible du cas 2
+perd son export officiel lors d'un verrouillage du contrôleur et n'est pas acceptée.
+La commande d'export non lue est isolée, jamais rejouée. Les quatorze exports
+disponibles du contenu agent sont identiques. Sept appels MCP réels incluent
+l'appel de preuves réussi du cas 9 sans réponse. Le cas 7 actuel contient deux
+citations MCP exactes attribuées et un apport local supplémentaire permis et vérifié.
+
+La lecture finale préserve parent original/26 lignes complètes, 29 composants
+candidat, toutes les autres lignes complètes, instructions, authentification et
+date de publication. Le navigateur détenu ferme normalement. Aucune publication,
+nouvelle ressource, déploiement Azure, attribution de rôle, autorisation ou
+modification de stratégie. T007 reste ouvert pour la régression actuelle
+incomplète; T008 conserve uniquement son exécution précédente acceptée.
+Les réussites de configurations différentes ne sont pas combinées.
+
 ## Livraison Invocations vérifiée du 25 octobre
 
 Ce point antérieur conserve ses limites historiques de navigateur et

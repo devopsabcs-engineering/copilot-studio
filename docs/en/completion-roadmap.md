@@ -279,6 +279,38 @@ components, other definitions/states, authentication and publication timestamp
 remain preserved. No publication, policy change, new role or resource occurs.
 The original diagnostic/SDK contract, other labs and governance gates remain open.
 
+### Single-invocation control repair and incomplete fresh regression
+
+The later [control-repair regression](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+changes only the demonstrated validation-control topic through one normal native
+Save. Author's exact message gate retains the existing validation action and adds
+processed cancellation. After one preserved timeout and a separately counted
+recovery, native evidence proves one actual validation invocation, one binding
+and one exact reply. Two cancellation trace records are not two invocations.
+No hardcoded success reply is added.
+
+The required fresh regression accepts **10/11 distinct original cases**, not all
+eleven. Case 9 first completes both intended evidence searches and a non-cancelled
+plan but produces no parent answer during 240 seconds. Its separately guarded
+retry produces neither plan nor answer. Both official exports remain failures;
+no cause is established and no third attempt is submitted. Cases 10 and 11 pass
+their own complete source, attribution, coverage and applicability reviews.
+
+Thirteen original-question submissions and two control submissions total fifteen.
+The original-case retries are cases 2 and 9; case 2's first visible reply loses
+its official export during a controller sharing-lock failure and is not accepted.
+The unread export command is quarantined, never replayed. All fourteen available
+agent-content exports are byte-identical. Seven actual MCP calls include the
+successful evidence call in failed case 9. Current case 7 has two exact attributed
+MCP quotations and permitted, independently verified additional local evidence.
+
+Final readback preserves original root/26 complete rows, candidate 29 components,
+all other complete candidate rows, parent instructions, authentication and
+publication timestamp. The owned browser closes normally. No publication,
+Azure deployment, resource, role, grant or policy change occurs. T007 remains
+open for the incomplete current regression; T008 retains only its preceding
+accepted run. Successes across these different configurations are not combined.
+
 ## October 25 verified Invocations delivery
 
 This earlier checkpoint retains its historical browser and authentication

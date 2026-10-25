@@ -235,6 +235,19 @@ separate duplicate validation control: both actual identical replies and
 topic-then-direct-action execution are retained. Original/candidate preservation
 passes with no publication or backend/policy change. This is not roadmap sign-off.
 
+The later [control-repair regression](../../../docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json)
+saves only the validation topic and proves one actual invocation/binding/reply
+after a counted recovery. Its fresh regression accepts 10/11 original cases.
+Case 9 retains a completed-evidence/plan failure without a parent answer and a
+separate no-plan timeout; neither is accepted. Fifteen submissions include
+thirteen original questions and two controls. Fourteen available agent exports
+are identical; seven actual MCP calls include successful retrieval on the failed
+answer. Case 2's lost official export is retained separately from its accepted
+recovery. Current case 7 has two exact attributed MCP quotations and permitted
+verified local evidence. Final full preservation passes, with no backend or
+policy change, and the owned browser closes. T007/current acceptance remain open;
+the preceding T008 pass is not reused across configurations.
+
 ## Testing and deployment boundaries
 
 The current implementation passes 54 unit, orchestration, configuration and transport tests,
