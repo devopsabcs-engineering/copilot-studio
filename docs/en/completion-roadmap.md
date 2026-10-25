@@ -19,7 +19,63 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 25 authenticated candidate correction
+
+Human-assisted administrator sign-in now succeeds. The
+[candidate recovery receipt](../assets/runtime-2026-10-25/candidate-authoring-recovery.json)
+records independently verified PAC identity/environment, official clone and
+scoped draft pushes. This supersedes the earlier authentication/clone blockers
+below, not the retained plugin dependency-policy failure. No policy is bypassed.
+
+The [first strict-lookup native test](../assets/runtime-2026-10-25/strict-lookups-native.json)
+failed: orchestration chose Search sources rather than the intended topic.
+Independent readback also found distinct CTR/SAR component identities carrying
+identical CTR dialog bodies. The intermediate copy cause is unknown; the evidence
+does not establish that PAC caused it. That failure remains unchanged.
+
+Author corrected both topics to narrow anchored message gates with literal
+responses and explicit conversation completion. Eight local tests and 31 schema
+checks pass. The three changed authoring files match an independent remote clone.
+The [corrected native run](../assets/runtime-2026-10-25/corrected-lookups-native.json)
+passes original CTR, narrow SAR deadline and source-free intake cases, once each.
+All 12 local table values, individual attributions, conditions and snapshot
+disclosures match. These static snapshots are not live retrieval or native
+citation-navigation repairs; selected-topic traces and `DynamicPlanFinished`
+are not exposed.
+
+The [broad SAR routing regression](../assets/runtime-2026-10-25/broad-sar-regression.json)
+preserves the specialist route but fails quotation fidelity and completeness.
+A one-component parent-instruction correction passes 33 local checks and seven
+schema checks, is pushed and exactly read back. Its
+[separate repaired native run](../assets/runtime-2026-10-25/broad-sar-corrected-native.json)
+passes routing and coverage across two visible messages, but only **15/16 quoted
+excerpts are exact**. An earlier provisional limitation also conflicts with the
+later local insider-abuse exception. Correct final synthesis does not erase
+earlier user-visible errors. The actual external Activity action exposes no
+supported per-action suppression/capture switch in the installed schema.
+No unsupported YAML or change to the protected retriever is applied. A documented
+non-emitting evidence contract remains an integration prerequisite, not an
+implemented or accepted substitute.
+
+The [final current-draft regressions](../assets/runtime-2026-10-25/final-lookup-regressions.json)
+again pass CTR, narrow SAR and intake **3/3**, with one final answer each, no extra
+paraphrase and no retries. The
+[independent preservation check](../assets/runtime-2026-10-25/lookup-preservation.json)
+verifies the original parent and all 26 complete component rows unchanged.
+The candidate has exactly 28 components: two owned topics and one existing
+instructions-only edit. Diagnostic Off, both specialists On, published timestamp,
+authentication/access/trigger 2/2/1, all four uploaded file hashes and both approved
+bindings are preserved. No publication occurs.
+
+T007/T008 remain open at whole-output fidelity and the eleven-case matrix.
+Native hosted-diagnostic authorization, actual Lab 1 navigation, historical
+full-answer provenance, Lab 2 restoration, other connected lab criteria,
+retention ownership/budget and attributable signoffs remain separate gates.
+
 ## October 25 verified Invocations delivery
+
+This earlier checkpoint retains its historical browser and authentication
+limitations; the candidate continuation above supersedes those limitations.
 
 The [verified transport release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 adds stateless Invocations to the existing deterministic Activity host. Version 4

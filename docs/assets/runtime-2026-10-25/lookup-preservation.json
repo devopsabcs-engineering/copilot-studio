@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "result": "pass",
+  "surface": "Independent authenticated Dataverse GET requests after candidate-only corrections",
+  "checks": {
+    "intendedAdministratorAndTenantVerified": true,
+    "protectedOriginalRootAnd26CompleteComponentRowsUnchanged": true,
+    "candidatePublishedAuthentication221AndPublishedTimestampPreserved": true,
+    "preexisting26StatesReferencesAnd25DefinitionsUnchanged": true,
+    "onlyPreexistingDefinitionChangeIsParentInstructions": true,
+    "exactlyTwoOwnedDistinctLiteralTopicsMatchIndependentClone": true,
+    "diagnosticOffAndBothSpecialistsOnIndependentlyVerified": true,
+    "allFourUploadedFileHashesAndBothApprovedBindingsPreserved": true
+  },
+  "candidateComponentCount": 28,
+  "originalComponentCount": 26,
+  "ownedTopicAdditions": 2,
+  "modifiedPreexistingComponents": 1,
+  "actionStates": {
+    "Workshopverifiedevidencediagnostic": "Off",
+    "workshopretrievalspecialist": "On",
+    "workshopvalidationspecialist": "On"
+  },
+  "authoringSha256": {
+    "agent.mcs.yml": "9d3d742c9d68487e34c70fbd1a5518e7b2266a63a40ad189eb33e1cf284bd1df",
+    "topics/WorkshopCTRtablelookup.mcs.yml": "a6d538b1f9ce64f12c47e627cc941cebe5de22908cf1b5495a9a124b34932aae",
+    "topics/WorkshopSARdeadlinelookup.mcs.yml": "007b68654497935dbd4234d9f861a1121c0d803e5c88ac06beb730ed428d93a5"
+  },
+  "cloudWritesDuringVerification": 0,
+  "publicationPerformed": false,
+  "wholeRoadmapComplete": false,
+  "limitations": [
+    "State preservation does not repair the observed broad-SAR quotation failure.",
+    "No new Graph app/grant/cache or Azure resource audit in this Dataverse-only check."
+  ]
+}

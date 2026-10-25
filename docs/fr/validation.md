@@ -8,6 +8,25 @@ ms.date: 2026-10-25
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+La dernière [poursuite du candidat authentifié](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)
+résout la connexion administrateur PAC et le clonage officiel. Les recherches
+littérales CTR/SAR corrigées et l'accueil sans source réussissent **3/3** en natif,
+puis [encore 3/3 sur le brouillon final](../assets/runtime-2026-10-25/final-lookup-regressions.json)
+après une correction ciblée des instructions SAR générales. Valeurs exactes et
+attributions individuelles sont vérifiées; les instantanés ne valident pas les
+citations natives. Routage SAR général et couverture réussissent, mais
+[la fidélité de toute la sortie échoue encore](../assets/runtime-2026-10-25/broad-sar-corrected-native.json) :
+15/16 citations exactes sur deux messages. Le schéma installé de l'action
+Activity externe ne fournit aucun paramètre pris en charge de suppression/capture.
+Aucune configuration non prise en charge ni modification du récupérateur protégé
+n'est appliquée. La [préservation indépendante](../assets/runtime-2026-10-25/lookup-preservation.json)
+confirme les 26 lignes complètes d'origine inchangées, les 28 composants prévus
+du candidat, diagnostic Off/deux spécialistes On, fichiers, liaisons, date de
+publication et authentification préservés. Aucune publication n'a lieu.
+T007/T008 et la feuille de route restent ouverts. Les anciens états de navigateur
+indisponible, mauvais tenant PAC et clonage bloqué ci-dessous sont historiques,
+pas des blocages actuels; l'échec de dépendances du plugin reste non résolu.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées

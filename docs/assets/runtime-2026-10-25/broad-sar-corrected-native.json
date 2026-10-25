@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "test": "CASE6 unchanged original native turn after scoped instruction repair",
+  "date": "2026-10-25",
+  "utterance": "What are the SAR filing requirements and deadlines?",
+  "attemptClassification": "Separately repaired rerun; does not replace the original failure",
+  "originalResult": "docs/assets/runtime-2026-10-25/broad-sar-regression.json",
+  "submittedAtUtc": "2026-10-25T13:41:24.335Z",
+  "completedObservationAtUtc": "2026-10-25T13:42:30.356Z",
+  "nativeUserSubmissions": 1,
+  "automaticRetries": 0,
+  "modelPreflights": 0,
+  "visibleAnswerMessages": 2,
+  "readiness": {
+    "freshNativeSession": true,
+    "connected": true,
+    "greetingComplete": true,
+    "inputVisibleAndEnabled": true,
+    "emptyInput": true,
+    "typingIndicators": 0,
+    "priorUserTurns": 0
+  },
+  "candidateVerification": {
+    "agentSha256": "9d3d742c9d68487e34c70fbd1a5518e7b2266a63a40ad189eb33e1cf284bd1df",
+    "ctrTopicSha256": "a6d538b1f9ce64f12c47e627cc941cebe5de22908cf1b5495a9a124b34932aae",
+    "sarDeadlineTopicSha256": "007b68654497935dbd4234d9f861a1121c0d803e5c88ac06beb730ed428d93a5",
+    "bothTopicsMatchPreviousReadback": true,
+    "repairObserved": "Three scoped parent-composition, broad-SAR complementary retrieval, and broad-SAR coverage paragraphs in persisted agent source"
+  },
+  "route": {
+    "verdict": "PASS",
+    "specialist": "workshop-retrieval-specialist",
+    "nativeStatus": "Completed",
+    "nativeDurationSeconds": 27.65,
+    "complementaryLocalSearch": true,
+    "localSearchStatus": "Completed",
+    "localSearchDurationSeconds": 2.67,
+    "localSource": "workshop-public-quick-reference.md",
+    "narrowDeadlineTopicObserved": false,
+    "classification": "Broad specialist route plus complementary local retrieval, not a narrow deadline lookup",
+    "limitation": "Visible native activity proves specialist execution and local retrieval. It does not expose raw specialist payload or exact record membership."
+  },
+  "sourceVerification": {
+    "method": "Exact contiguous substring checks against records extracted from pinned notebook cell index 6, with canonical source-family attribution checked per quotation",
+    "notebookSha256": "45664948b2e915eebe667816cbc957c89e6b7c34fa61f6b1365d0267ad8e69f2",
+    "localQuickReferenceSha256": "1251bd790e1aee586d34a5bccb1cb4eedc02fa25b087556e6c9df2798bf38fed",
+    "sourceRecordsCompared": ["rc-002", "ip-004", "ip-006", "ip-008"],
+    "totalQuotedExcerpts": 16,
+    "exactAndIndividuallyAttributed": 15,
+    "nonverbatimQuotedExcerpts": 1,
+    "firstMessage": {
+      "quotedExcerpts": 11,
+      "exact": 10,
+      "badQuoteOrdinal": 3,
+      "badQuote": "SARs must not be disclosed to subjects, and must be retained for five years.",
+      "attribution": "regulatory-compliance-ks",
+      "finding": "Meaning is supported, but this complete sentence is not a contiguous substring of rc-002. It reconstructs a subject and later clause inside quotation marks."
+    },
+    "secondMessage": {
+      "quotedExcerpts": 5,
+      "exact": 5,
+      "allCanonicalMarkersPreserved": true
+    }
+  },
+  "wholeOutputCoverage": {
+    "verdict": "PASS",
+    "sixNarrativeElements": "6/6",
+    "transactionAmountsDatesCounterparties": true,
+    "customerRelationshipAndAccountHistory": true,
+    "investigationStepsAndFindings": true,
+    "supportingDocumentationAndAttachments": true,
+    "avoidSubjectiveCharacterizationsAndLegalConclusions": true,
+    "bsaCompletenessAndAccuracyReview": true,
+    "suspicionExamples": "4/4: illegal funds; evasion of reporting requirements; no lawful purpose; facilitating criminal activity",
+    "bankAndMsbThresholdsDistinguished": true,
+    "thresholdsVaryGenerallyQualifier": true,
+    "knowsSuspectsReasonToSuspectQualifier": true,
+    "thirtyDaysFromInitialDetection": true,
+    "sixtyDaysOnlyIfNoSuspectIdentified": true,
+    "ongoingEveryNinetyDaysUntilActivityCeases": true,
+    "confidentiality": true,
+    "fiveYearRetentionAndLegalHoldScope": true,
+    "localInsiderAbuseException": true,
+    "localForm111": true,
+    "localFactsSeparatelyAttributed": true,
+    "institutionAndCaseApplicabilityLimitation": true,
+    "qualification": "Coverage passes across both visible messages, particularly the later synthesis; this does not cure an earlier nonverbatim quotation."
+  },
+  "verdicts": {
+    "routing": "PASS",
+    "completeness": "PASS",
+    "quotationFidelityAcrossWholeOutput": "FAIL",
+    "answerFidelity": "FAIL",
+    "overall": "FAIL"
+  },
+  "authorGaps": [
+    {
+      "severity": "high",
+      "issue": "The first visible answer still contains the original reconstructed confidentiality/retention quotation.",
+      "actual": "\"SARs must not be disclosed to subjects, and must be retained for five years.\" 【regulatory-compliance-ks】",
+      "exactSourceAlternative": "\"SARs must be filed within 30 days of initial detection (60 days if no suspect is identified), must not be disclosed to subjects, and must be retained for five years.\" 【regulatory-compliance-ks】",
+      "requiredCorrection": "Ensure every user-visible message preserves exact contiguous quotations; remove this redundant quotation or explicitly present it unquoted as a supported paraphrase. A correct later synthesis is insufficient."
+    },
+    {
+      "severity": "medium",
+      "issue": "Earlier visible message claims source limitation that the later retrieved local table resolves.",
+      "actual": "Cannot determine institution-specific exceptions or additional conditional extensions from configured sources.",
+      "sourceSupportedGap": "The configured local SAR table explicitly supplies Bank Threshold: $5,000 (or $0 if insider abuse). The later synthesis correctly includes that exception and FinCEN Form 111.",
+      "requiredCorrection": "Qualify the earlier limitation to the specialist evidence actually available at that stage, or withhold that provisional limitation until complementary retrieval is incorporated. No additional extension should be invented."
+    }
+  ],
+  "noConfigPublishAuthConnectionToggleOrRemoteWrites": true,
+  "noAgentsInvoked": true,
+  "noMarkdownCreated": true,
+  "stoppedAfterOneResult": true,
+  "roadmapCompletionClaimed": false,
+  "privateEvidenceDirectory": ".copilot-tracking/completion-20261023/broad-sar-corrected-native-20261025"
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "result": "partial",
+  "authentication": {
+    "humanDeviceCodeSignInCompleted": true,
+    "pacOrgWhoIndependentlyVerifiedRequestedAdministratorTenantAndEnvironment": true,
+    "namedAdministratorProfileActive": true,
+    "priorProfilesRetained": true,
+    "credentialsPublished": false,
+    "mfaConsentOrPackagePolicyBypassed": false,
+    "pluginNativeDependencyRecovered": false
+  },
+  "supportedManagement": {
+    "officialPacCloneSucceeded": true,
+    "initialLookupPushChanges": 3,
+    "correctedLookupPushChanges": 3,
+    "broadSarInstructionPushChanges": 1,
+    "eachPushFollowedByIndependentClone": true,
+    "finalThreeAuthoringFilesExactlyMatchIndependentPersistedReadback": true,
+    "packRejectedCloneLayout": true,
+    "cloneReshapedToSatisfyPack": false,
+    "published": false
+  },
+  "historicalFailure": {
+    "receipt": "strict-lookups-native.json",
+    "nativeRoute": "Search sources, not the intended strict lookup",
+    "remoteCtrAndSarComponentIdentitiesDistinct": true,
+    "remoteDialogBodiesWereIdenticalCtrContent": true,
+    "intermediateCopyCauseEstablished": false,
+    "pacBlamedWithoutEvidence": false,
+    "failureRetained": true
+  },
+  "correctedLookups": {
+    "design": "Narrow anchored OnActivity message gates, literal SendActivity, CancelAllDialogs with activityProcessed true",
+    "localTests": 8,
+    "schemaPasses": 31,
+    "firstNativeCasesPassed": [2, 3, 1],
+    "finalCurrentNativeCasesPassed": [2, 3, 1],
+    "literalSourceValuesVerified": 12,
+    "staticSnapshotDisclosed": true,
+    "nativeCitationsOrLiveRetrievalClaimed": false,
+    "runtimeDynamicPlanFinishedObserved": false,
+    "selectedTopicTraceExposed": false,
+    "finalReceipt": "final-lookup-regressions.json"
+  },
+  "broadSar": {
+    "initialReceipt": "broad-sar-regression.json",
+    "correctedReceipt": "broad-sar-corrected-native.json",
+    "routePreserved": true,
+    "parentInstructionCorrectionLocalChecks": 33,
+    "parentInstructionSchemaPasses": 7,
+    "currentCoveragePassesAcrossWholeOutput": true,
+    "currentVisibleAnswerMessages": 2,
+    "currentExactQuotedExcerpts": 15,
+    "currentTotalQuotedExcerpts": 16,
+    "currentWholeOutputFidelity": "fail",
+    "earlierProvisionalSourceLimitationConflictsWithLaterRetrievedException": true,
+    "correctLaterSynthesisErasesEarlierFailure": false,
+    "originalProtectedRetrieverModified": false
+  },
+  "emissionInvestigation": {
+    "actualActionKind": "InvokeExternalAgentTaskAction",
+    "protocolMetadataKind": "ActivityProtocolMetadata",
+    "operation": "SendActivityV2",
+    "connectionMode": "Invoker",
+    "supportedPerActionMessageSuppressionOrCaptureSwitchFound": false,
+    "outputModeAllowedValues": ["All", "Specific"],
+    "responseModeAllowedValues": ["Strict", "Generated"],
+    "autoSendAppliesToThisAction": false,
+    "unsupportedPropertiesAdded": false,
+    "rawSpecialistPayloadOrEmitterIdentityEstablished": false,
+    "safeAlternative": "An isolated evidence-returning integration with a documented non-emitting data contract; verify actual schema and candidate-only binding before implementation.",
+    "alternativeImplemented": false
+  },
+  "preservationReceipt": "lookup-preservation.json",
+  "boundaries": {
+    "fullElevenCaseMatrixPassed": false,
+    "nativeCitationNavigationRepaired": false,
+    "publishedSdkAuthorizationRepaired": false,
+    "t007Complete": false,
+    "roadmapComplete": false
+  }
+}

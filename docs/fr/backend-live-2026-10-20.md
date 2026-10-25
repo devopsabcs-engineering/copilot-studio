@@ -8,6 +8,24 @@ ms.date: 2026-10-25
 
 [Tous les labs](index.md) | [English](../en/backend-live-2026-10-20.md) | [Registre réel](live-rerun-2026-10-19.md)
 
+## Récupération administrateur et candidat du 25 octobre
+
+La [dernière poursuite du candidat](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)
+remplace les anciens blocages de connexion, navigateur et clonage.
+Authentification administrateur humaine, clone/envoi PAC officiels et lecture
+persistée indépendante réussissent. Instantanés CTR/SAR restreints et accueil
+réussissent 3/3 en natif, dont une seconde exécution 3/3 sur le brouillon final.
+Routage SAR spécialiste et couverture finale réussissent, mais la fidélité
+complète échoue avec 15/16 citations exactes sur deux messages. Les instructions
+parent améliorent la synthèse ultérieure sans supprimer le défaut initial;
+aucun paramètre non pris en charge de suppression externe n'est inventé.
+Les 26 lignes de composants d'origine sont inchangées; 28 composants candidat,
+deux rubriques possédées ajoutées, seules instructions existantes modifiées,
+fichiers, liaisons et états Off/On/On sont vérifiés indépendamment.
+Aucune publication n'a lieu. Autorisation du diagnostic natif/SDK d'origine et
+matrice complète restent ouvertes; cela ne valide pas le rendu hébergé via
+l'agent connecté. Les échecs plus anciens restent dans l'historique ci-dessous.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

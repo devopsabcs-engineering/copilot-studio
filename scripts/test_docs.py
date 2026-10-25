@@ -1979,6 +1979,109 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(result["agent_configuration_or_permission_changes"], 0)
         self.assertFalse(result["roadmap_complete"])
 
+    def test_candidate_recovery_preserves_failure_and_exact_current_readback(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        recovery = json.loads((assets / "candidate-authoring-recovery.json").read_text("utf-8"))
+        self.assertTrue(recovery["authentication"]["humanDeviceCodeSignInCompleted"])
+        self.assertTrue(recovery["authentication"][
+            "pacOrgWhoIndependentlyVerifiedRequestedAdministratorTenantAndEnvironment"])
+        self.assertFalse(recovery["authentication"]["mfaConsentOrPackagePolicyBypassed"])
+        self.assertFalse(recovery["authentication"]["pluginNativeDependencyRecovered"])
+        management = recovery["supportedManagement"]
+        self.assertTrue(management["officialPacCloneSucceeded"])
+        self.assertTrue(management[
+            "finalThreeAuthoringFilesExactlyMatchIndependentPersistedReadback"])
+        self.assertEqual(management["correctedLookupPushChanges"], 3)
+        self.assertEqual(management["broadSarInstructionPushChanges"], 1)
+        self.assertFalse(management["published"])
+        self.assertFalse(recovery["historicalFailure"]["intermediateCopyCauseEstablished"])
+        first = json.loads((assets / "strict-lookups-native.json").read_text("utf-8"))
+        self.assertEqual(first["result"], "fail")
+        self.assertEqual(first["execution"]["actualQuestions"], 1)
+        self.assertFalse(first["localEvidenceDiscrepancy"]["causeEstablished"])
+        corrected = json.loads((assets / "corrected-lookups-native.json").read_text("utf-8"))
+        self.assertEqual(corrected["result"], "pass")
+        self.assertEqual(corrected["execution"]["questionOrder"], [2, 3, 1])
+        self.assertEqual(corrected["execution"]["actualQuestions"], 3)
+        self.assertEqual(corrected["execution"]["questionRetries"], 0)
+        self.assertTrue(all(case["literalSendActivityRenderedTextMatched"]
+                            for case in corrected["cases"]))
+        self.assertFalse(corrected["completion"]["nativeFullElevenMatrix"])
+        self.assertTrue(all(value is False for value in recovery["boundaries"].values()))
+
+    def test_candidate_live_preservation_allows_only_two_topics_and_instructions(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "lookup-preservation.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "pass")
+        self.assertTrue(all(result["checks"].values()))
+        self.assertEqual(result["originalComponentCount"], 26)
+        self.assertEqual(result["candidateComponentCount"], 28)
+        self.assertEqual(result["ownedTopicAdditions"], 2)
+        self.assertEqual(result["modifiedPreexistingComponents"], 1)
+        self.assertEqual(result["cloudWritesDuringVerification"], 0)
+        self.assertEqual(result["actionStates"], {
+            "Workshopverifiedevidencediagnostic": "Off",
+            "workshopretrievalspecialist": "On",
+            "workshopvalidationspecialist": "On",
+        })
+        current = json.loads((assets / "broad-sar-corrected-native.json").read_text("utf-8"))
+        self.assertEqual(result["authoringSha256"]["agent.mcs.yml"],
+                         current["candidateVerification"]["agentSha256"])
+        self.assertFalse(result["publicationPerformed"])
+        self.assertFalse(result["wholeRoadmapComplete"])
+
+    def test_broad_sar_correct_synthesis_does_not_erase_intermediate_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "broad-sar-corrected-native.json").read_text("utf-8"))
+        self.assertEqual(result["nativeUserSubmissions"], 1)
+        self.assertEqual(result["automaticRetries"], 0)
+        self.assertEqual(result["visibleAnswerMessages"], 2)
+        self.assertEqual(result["route"]["verdict"], "PASS")
+        self.assertTrue(result["route"]["complementaryLocalSearch"])
+        self.assertFalse(result["route"]["narrowDeadlineTopicObserved"])
+        self.assertEqual(result["wholeOutputCoverage"]["verdict"], "PASS")
+        self.assertEqual(result["sourceVerification"]["totalQuotedExcerpts"], 16)
+        self.assertEqual(result["sourceVerification"]["exactAndIndividuallyAttributed"], 15)
+        self.assertEqual(result["verdicts"]["overall"], "FAIL")
+        self.assertFalse(result["roadmapCompletionClaimed"])
+        recovery = json.loads((assets / "candidate-authoring-recovery.json").read_text("utf-8"))
+        emission = recovery["emissionInvestigation"]
+        self.assertEqual(emission["operation"], "SendActivityV2")
+        self.assertFalse(emission["supportedPerActionMessageSuppressionOrCaptureSwitchFound"])
+        self.assertFalse(emission["unsupportedPropertiesAdded"])
+        self.assertFalse(emission["rawSpecialistPayloadOrEmitterIdentityEstablished"])
+        self.assertFalse(recovery["broadSar"]["originalProtectedRetrieverModified"])
+
+    def test_final_current_lookup_regressions_are_exact_and_bounded(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "final-lookup-regressions.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "pass")
+        self.assertEqual(result["execution"]["order"], [2, 3, 1])
+        self.assertEqual(result["execution"]["actualUserInputs"], 3)
+        self.assertEqual(result["execution"]["freshSessions"], 3)
+        self.assertEqual(result["execution"]["modelPreflightQuestions"], 0)
+        self.assertEqual(result["execution"]["questionRetries"], 0)
+        self.assertTrue(result["comparison"]["wholeParentMessagesNotSelectedSubmessageProxy"])
+        self.assertFalse(result["comparison"]["lexicalParaphraseAccepted"])
+        preservation = json.loads((assets / "lookup-preservation.json").read_text("utf-8"))
+        self.assertEqual(result["comparison"]["agentSha256"],
+                         preservation["authoringSha256"]["agent.mcs.yml"])
+        for case in result["cases"]:
+            self.assertEqual(case["result"], "pass")
+            self.assertEqual(case["submissions"], 1)
+            self.assertTrue(case["wholeParentFinalResponseCompared"])
+            self.assertTrue(case["literalRenderedTextMatched"])
+            self.assertEqual(case["answerMessagesAfterUserInput"], 1)
+            self.assertFalse(case["extraParaphraseMessageObserved"])
+        self.assertFalse(result["limitations"]["broadSarRetested"])
+        self.assertFalse(result["limitations"]["fullMatrixPassClaimed"])
+        self.assertFalse(result["limitations"]["runtimeDynamicPlanFinishedClaimed"])
+        self.assertFalse(result["limitations"]["wholeRoadmapComplete"])
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

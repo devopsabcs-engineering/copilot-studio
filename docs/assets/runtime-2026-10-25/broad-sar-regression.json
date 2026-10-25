@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-25",
+  "scope": "One native draft regression using unchanged original CASE6 broad SAR requirements question after corrected lookup/intake acceptance",
+  "result": "PARTIAL",
+  "routing": "PASS",
+  "answerFidelity": "FAIL",
+  "execution": {
+    "freshSession": true,
+    "readyConnectedGreetingEnabledEmptyInputZeroTyping": true,
+    "targetSubmissions": 1,
+    "preflightModelQuestions": 0,
+    "utteranceRetries": 0,
+    "wholeParentFinalObserved": true,
+    "displayedAgentError": false,
+    "typingAtCompletion": 0,
+    "stoppedAfterOneResult": true
+  },
+  "routeEvidence": {
+    "observedNativeTool": "workshop-retrieval-specialist",
+    "nativeToolStatus": "Completed",
+    "nativeToolSeconds": 27.12,
+    "narrowSarDeadlineGateStoleBroadQuestion": false,
+    "hybridSeparateCaseTested": false,
+    "rawSpecialistOutputAndRetrievedMembershipExposed": false,
+    "runtimeDynamicPlanFinished": "not-observed"
+  },
+  "sourceFidelity": {
+    "exactContiguousQuotations": 3,
+    "totalQuotations": 4,
+    "sourceMarkersIndividuallyPresent": true,
+    "markersAreNotVerifiedNativePassageLinks": true,
+    "conditional60DayExtensionPreserved": true,
+    "institutionSpecificThresholdsAndSuspicionQualifiersPreserved": true,
+    "ongoing90DayConditionPreserved": true,
+    "workshopNotLegalAdviceCaveatPresent": true,
+    "fixtureSha256": "45664948b2e915eebe667816cbc957c89e6b7c34fa61f6b1365d0267ad8e69f2",
+    "scenarioFileSha256": "19ca19b00b893aa18cb9d5542f3f20035aafeca11319a29e4bda14ae175e4490",
+    "correctedSarGateSha256": "007b68654497935dbd4234d9f861a1121c0d803e5c88ac06beb730ed428d93a5"
+  },
+  "coverage": {
+    "suspicionTriggerExamples": "4/4",
+    "narrativeElements": "0/6",
+    "narrativeTransactionDetailsSupportingDocumentationAndQualityReview": "omitted",
+    "evidencePreservationChainOfCustodyAndLegalHolds": "present",
+    "localQuickReferenceInsiderExceptionAndFormNumber": "omitted; local retrieval not observed",
+    "currentLawAssessment": false
+  },
+  "shortcomings": [
+    {
+      "priority": "high",
+      "finding": "A redundant confidentiality/retention sentence is displayed as a direct quote but is not a verbatim substring of its attributed fixture.",
+      "action": "Remove it, use an exact contiguous source excerpt, or label it as paraphrase."
+    },
+    {
+      "priority": "medium",
+      "finding": "The broad requirements answer omits all six narrative elements and the supporting narrative/detail/review guidance in approved CASE6 evidence.",
+      "action": "Include the relevant requirements from rc-002 and ip-006 with source fidelity."
+    },
+    {
+      "priority": "medium",
+      "finding": "A Form Details heading supplies no form details; the local insider-abuse exception is also absent.",
+      "action": "Remove the unsupported heading or retrieve and individually attribute the relevant local rows; do not attribute local-only facts to Foundry."
+    },
+    {
+      "priority": "low",
+      "finding": "The prior explicit applicability limitation is absent.",
+      "action": "Clarify that workshop evidence does not decide institution/case applicability."
+    }
+  ],
+  "preservation": {
+    "configurationChanges": 0,
+    "publishes": 0,
+    "pushes": 0,
+    "markdownEdits": 0,
+    "delegatedAgents": 0,
+    "diagnosticOffTwoSpecialistsOn": "preserved; existing corrected readback states inspected",
+    "priorFailureAndCorrectedPassFiles": "unchanged"
+  },
+  "limitations": [
+    "Native tool completion is not an observed DynamicPlanFinished event.",
+    "Fixture agreement does not independently verify retrieval membership or exact connector question forwarding.",
+    "This is one specialist-route regression, not a full matrix or hybrid-route acceptance."
+  ]
+}

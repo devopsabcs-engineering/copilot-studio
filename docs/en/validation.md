@@ -8,6 +8,25 @@ ms.date: 2026-10-25
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The latest [authenticated candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)
+resolves administrator PAC sign-in and official candidate cloning. Corrected
+literal CTR/SAR lookups and source-free intake pass native **3/3**, then
+[3/3 again on the final draft](../assets/runtime-2026-10-25/final-lookup-regressions.json)
+after a scoped broad-SAR instruction repair. Exact table values and individual
+attributions are verified; static snapshots do not certify native citations.
+The broad SAR route and coverage pass, but
+[whole-output fidelity still fails](../assets/runtime-2026-10-25/broad-sar-corrected-native.json):
+15/16 quotations exact across two messages. The installed external Activity
+action schema supplies no supported message-suppression/capture switch.
+No unsupported configuration or protected-retriever change is applied.
+[Independent preservation](../assets/runtime-2026-10-25/lookup-preservation.json)
+confirms the original's complete 26 rows unchanged, the candidate's intended
+28 components, diagnostic Off/two specialists On, files, bindings, published
+timestamp and authentication preserved. No publication occurs.
+T007/T008 and the full roadmap remain open. Earlier unavailable-browser,
+wrong-PAC-tenant and clone-blocked statements below are chronological evidence,
+not current blockers; the plugin dependency-policy failure remains unresolved.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

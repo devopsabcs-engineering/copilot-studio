@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "scope": "Bounded native candidate draft acceptance of T007 strict local-snapshot lookups",
+  "result": "fail",
+  "execution": {
+    "surface": "Copilot Studio native Test your agent pane",
+    "draftOnly": true,
+    "websiteAccountMatchedRequestedAdmin": true,
+    "candidateIdentityMatchedRequestedUrlAndHeading": true,
+    "normalBringToFrontUsed": true,
+    "forcedDomEvents": false,
+    "maximumQuestions": 3,
+    "actualQuestions": 1,
+    "questionRetries": 0,
+    "modelPreflightQuestions": 0,
+    "freshSessionBeforeSubmission": true,
+    "connectedBeforeSubmission": true,
+    "automaticGreetingFinishedBeforeSubmission": true,
+    "inputEnabledBeforeSubmission": true,
+    "stoppedOnFirstNativeSubstantiveFailure": true
+  },
+  "cases": [
+    {
+      "originalCaseNumber": 2,
+      "category": "CTR threshold",
+      "unchangedOriginalQuestionVerified": true,
+      "submitted": true,
+      "result": "fail",
+      "wholeParentFinalResponseVisible": true,
+      "expectedHandler": "Workshop CTR table lookup",
+      "observedHandler": "Search sources / native knowledge retrieval",
+      "observedKnowledgeExecutionStatus": "Completed",
+      "observedKnowledgeExecutionSeconds": 3.27,
+      "typingIndicatorCountAfterResponse": 0,
+      "endOfChatHistoryVisible": true,
+      "strictTemplateMatched": false,
+      "completeFiveFieldSnapshotPresent": false,
+      "individualFullLineSourceAttributionsPresent": false,
+      "snapshotLabelPresent": false,
+      "thresholdValueMatchesLocalSource": true,
+      "aggregationDeadlineFormExemptionLinesPresent": false,
+      "documentationConditionPreservation": "not-demonstrated; exemption line omitted",
+      "generatedParaphraseObserved": true,
+      "additionalMessageAfterFinalResponseObserved": false,
+      "nativeCitationControlRendered": true,
+      "nativeCitationNavigationAttempted": false,
+      "nativeCitationPassageSupport": "not-assessed",
+      "runtimeDynamicPlanFinished": "not-exposed; not-claimed",
+      "specialistOrDiagnosticInvocationShown": false
+    },
+    {
+      "originalCaseNumber": 3,
+      "category": "Narrow SAR deadline",
+      "submitted": false,
+      "result": "not-run",
+      "reason": "Stopped after case 2 native substantive failure"
+    },
+    {
+      "originalCaseNumber": 1,
+      "category": "Source-free intake",
+      "submitted": false,
+      "result": "not-run",
+      "reason": "Stopped after case 2 native substantive failure",
+      "sourceFreeIntakeAndExpectedHandlerVerified": false
+    }
+  ],
+  "localEvidenceDiscrepancy": {
+    "observed": true,
+    "file": "topics/WorkshopSARdeadlinelookup.mcs.yml",
+    "finding": "Current local SAR-named file contains CTR model description, CTR triggers, CTR snapshot and CTR output description, not the seven-row SAR snapshot described by the authoring receipt.",
+    "ctrFileSha256": "376093736A67A2C10BFA1710568D909EECEBA618B722762393A21EBD141299F7",
+    "sarFileSha256": "3C0333961313A35B51DD106A3DBE292129A9B0E469C36D6B0EAC667DE7AAE156",
+    "currentTopicHashesMatchAuthoringReceipt": false,
+    "remoteSarTopicContentsIndependentlyVerified": false,
+    "causeEstablished": false
+  },
+  "decision": {
+    "accepted": false,
+    "implementationCanRemainAsAcceptedT007": false,
+    "recommendation": "Hold the isolated draft. Repair and revalidate the actual authoring payload and native topic routing before acceptance, or roll back the three-file change set through the supported candidate workflow.",
+    "rollbackPerformed": false,
+    "configurationChangedDuringThisTest": false
+  },
+  "preservation": {
+    "originalParentInteractedWith": false,
+    "pacAuthenticationRepeated": false,
+    "apiEvaluationStarted": false,
+    "published": false,
+    "deployed": false,
+    "agentConfigurationWrites": false,
+    "emailOrFinancialAction": false,
+    "connectionsRolesAuthenticationChanged": false,
+    "diagnosticOrSpecialistTogglesChanged": false,
+    "diagnosticOffAndTwoSpecialistsOn": "Caller-supplied baseline preserved by no configuration writes; not independently reinventoried",
+    "case6CrossSourceSarSubmitted": false,
+    "agentsInvoked": false,
+    "uiRestoration": "Account dialog closed; completed candidate transcript retained"
+  },
+  "evidence": {
+    "privateDirectory": ".copilot-tracking/completion-20261023/strict-lookups-native-20261025",
+    "rawSourceCopiesSaved": true,
+    "rawNativeSubmissionAndCompletionSnapshotsSaved": true,
+    "privateScreenshots": 2,
+    "rawAnswerOrAccountIdentifiersPublished": false
+  },
+  "completion": {
+    "nativeFullElevenMatrix": false,
+    "t007Complete": false,
+    "nativeCitationNavigationAcceptance": false,
+    "roadmapComplete": false
+  }
+}

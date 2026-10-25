@@ -8,6 +8,23 @@ ms.date: 2026-10-25
 
 [All labs](index.md) | [Français](../fr/backend-live-2026-10-20.md) | [Live ledger](live-rerun-2026-10-19.md)
 
+## October 25 administrator and candidate recovery
+
+The [latest candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)
+supersedes earlier sign-in, browser and clone blockers. Human administrator
+authentication, official PAC clone/push and independent persisted readback
+succeed. Narrow CTR/SAR snapshots and intake pass native 3/3, including a second
+3/3 run on the final draft. Broad SAR specialist routing and final coverage pass,
+but whole-output fidelity fails at 15/16 exact quotations across two messages.
+Parent instructions improve the later synthesis without removing the earlier
+defect; no unsupported external-action suppression setting is invented.
+The original 26 component rows are unchanged; candidate 28 components, owned
+two-topic additions, instructions-only existing change, files, bindings and
+Off/On/On action states are independently verified. No publication occurs.
+The original native diagnostic/SDK authorization and full matrix remain open;
+this is not acceptance of the hosted renderer through the connected agent.
+The older failures below remain part of the chronological record.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

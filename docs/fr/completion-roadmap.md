@@ -20,7 +20,66 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Correction du candidat authentifié du 25 octobre
+
+La connexion administrateur assistée par l'utilisateur réussit désormais. Le
+[reçu de récupération du candidat](../assets/runtime-2026-10-25/candidate-authoring-recovery.json)
+conserve la vérification indépendante de l'identité/environnement PAC, le clone
+officiel et les envois ciblés du brouillon. Cela remplace les anciens blocages
+d'authentification/clonage ci-dessous, pas l'échec de dépendances du plugin.
+Aucune stratégie n'est contournée.
+
+Le [premier test natif des recherches strictes](../assets/runtime-2026-10-25/strict-lookups-native.json)
+échoue : l'orchestration choisit Search sources au lieu de la rubrique prévue.
+Une lecture indépendante trouve aussi des identités CTR/SAR distinctes avec
+deux dialogues CTR identiques. La cause de la copie intermédiaire reste inconnue;
+les preuves ne permettent pas de l'attribuer à PAC. Cet échec reste inchangé.
+
+Author corrige les deux rubriques avec des conditions de message étroitement
+ancrées, des réponses littérales et une fin explicite de conversation. Huit tests
+locaux et 31 contrôles de schéma réussissent. Les trois fichiers modifiés
+correspondent au clone distant indépendant. Le
+[test natif corrigé](../assets/runtime-2026-10-25/corrected-lookups-native.json)
+réussit les cas CTR, délai SAR restreint et accueil sans source, une fois chacun.
+Les 12 valeurs locales, attributions individuelles, conditions et avertissements
+d'instantané correspondent. Ces instantanés ne sont ni une recherche réelle ni
+une réparation de navigation native des citations; les traces de rubrique et
+`DynamicPlanFinished` ne sont pas exposées.
+
+La [régression SAR générale](../assets/runtime-2026-10-25/broad-sar-regression.json)
+préserve le routage spécialiste mais échoue en fidélité et couverture.
+Une correction des seules instructions parent réussit 33 contrôles locaux
+et sept contrôles de schéma, puis est envoyée et relue exactement. Son
+[test natif corrigé distinct](../assets/runtime-2026-10-25/broad-sar-corrected-native.json)
+réussit routage et couverture sur deux messages visibles, mais seulement
+**15/16 citations sont exactes**. Une limitation provisoire contredit aussi
+l'exception d'abus interne récupérée ensuite localement. Une synthèse finale
+correcte n'efface pas les erreurs déjà affichées. Le schéma installé de l'action
+Activity externe ne fournit aucun paramètre pris en charge pour supprimer ou
+capturer ces messages. Aucun YAML non pris en charge ni changement du
+récupérateur protégé n'est appliqué. Un contrat documenté de preuves sans émission
+reste un prérequis d'intégration, pas un substitut implémenté ou accepté.
+
+Les [régressions du brouillon final](../assets/runtime-2026-10-25/final-lookup-regressions.json)
+réussissent encore CTR, SAR restreint et accueil **3/3**, avec une seule réponse
+finale chacun, sans paraphrase supplémentaire ni reprise. La
+[préservation indépendante](../assets/runtime-2026-10-25/lookup-preservation.json)
+vérifie le parent d'origine et ses 26 lignes complètes de composants inchangés.
+Le candidat a exactement 28 composants : deux rubriques possédées et une
+modification limitée aux instructions existantes. Diagnostic Off, deux
+spécialistes On, date de publication, authentification/accès/déclencheur 2/2/1,
+quatre empreintes de fichiers et deux liaisons approuvées sont préservés.
+Aucune publication n'a lieu.
+
+T007/T008 restent ouverts pour la fidélité de toute la sortie et la matrice
+de onze cas. Autorisation du diagnostic hébergé natif, navigation réelle du Lab 1,
+provenance de sa réponse historique, restauration du Lab 2, autres critères
+connectés, propriété/budget de rétention et accords attribuables restent distincts.
+
 ## Livraison Invocations vérifiée du 25 octobre
+
+Ce point antérieur conserve ses limites historiques de navigateur et
+d'authentification; la poursuite ci-dessus les remplace pour le candidat.
 
 La [livraison de transport vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 ajoute Invocations sans état au serveur Activity déterministe existant. La
