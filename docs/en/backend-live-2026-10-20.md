@@ -76,6 +76,27 @@ inbound bearers still receive 401. A real delegated MCP connection and whole
 native SAR acceptance remain open; direct shared retrieval is not a substitute.
 The host remains billable and no numerical budget or retention owner is invented.
 
+### Native MCP OAuth and whole-turn SAR continuation
+
+The [native continuation](../assets/runtime-2026-10-25/mcp-native-sar.json)
+supersedes the earlier OAuth/native-SAR boundary. Explicit human tenant-wide
+consent is verified as `AllPrincipals`, only `Evidence.Read`; PAC reports the
+actual connection Connected. Native discovery saves one candidate MCP component,
+whose exact connection binding is independently read back. The candidate has
+29 components. Only its parent instructions and old retrieval enabled state
+change; exact Author text, remaining definitions, original 26 rows and controls
+are verified. The original emitting retrieval definition is retained but disabled.
+
+One unchanged original SAR question invokes the native MCP tool and actual local
+search, then produces one domain answer. Both complete-record quotations match
+the pinned corpus exactly, with separate canonical markers, local reference,
+conditional timing, insider exception, form, narrative/investigation coverage
+and applicability limits. Full visible capture includes greeting and connection
+consent. Missing/malformed bearers still return 401; no publication or policy
+change occurs. The management bundle's missing-module error is retained and
+supported UI used without patching it. Raw `DynamicPlanFinished`, the full fresh
+matrix and broader lab/governance acceptance remain unverified.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

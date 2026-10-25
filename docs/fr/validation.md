@@ -64,6 +64,17 @@ réussit encore. OAuth MCP délégué entrant, liaison native, fidélité compl�
 et matrice entière de onze cas restent non vérifiés. Aucune question native,
 invocation d'outil MCP ni publication nouvelle n'est comptée.
 
+La [récupération SAR MCP native ultérieure](../assets/runtime-2026-10-25/mcp-native-sar.json)
+remplace ces limites OAuth/liaison et de fidélité SAR bornée. Le consentement
+humain explicite pour tout le tenant est relu comme `AllPrincipals` avec seulement
+`Evidence.Read`. Une liaison MCP enregistrée et les instructions exactes validées
+par Author produisent une réponse native complète du cas 6, avec deux citations
+de documents complets exactes, marqueurs individuels et recherche/référence locale
+réelle. Ancienne récupération émettrice Off; validation et MCP On.
+Les 26 lignes originales, toutes les autres définitions candidat et les refus
+401 sans jeton/avec jeton malformé sont préservés. Aucune publication.
+`DynamicPlanFinished` brut, matrice fraîche de onze cas et autres tâches restent ouverts.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées

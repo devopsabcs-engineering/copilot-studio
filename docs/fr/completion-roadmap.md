@@ -152,13 +152,11 @@ L'estimation publique de calcul est de **0,018 USD/heure**, pas une facture
 réelle, un total de crédits Copilot ni un budget numérique approuvé.
 Responsable/date de revue de rétention et accords attribuables restent absents.
 
-La prochaine étape prise en charge est une connexion dans un navigateur
-autorisant les fenêtres contextuelles, pour le même candidat de préparation et
-son connecteur Workshop Verified possédé, avec l'administrateur prévu.
-Consentir uniquement à la portée de preuves pour l'utilisateur courant,
-pas pour l'organisation. Vérifier ensuite découverte/récupération réelles,
-liaison limitée au candidat, fidélité SAR complète et régressions d'origine
-touchées avant la matrice entière. T007/T008 et la feuille de route restent ouverts.
+Ce relais prévoyait initialement un consentement de preuves limité à
+l'utilisateur dans un navigateur autorisant les fenêtres contextuelles.
+L'approbation explicite ultérieure pour tout le tenant, consignée ci-dessous,
+remplace cette limite prévue. Les reçus historiques restent inchangés;
+l'autorisation de déployer seule ne vaut pas consentement pour tout le tenant.
 
 ### Récupération par identité managée dans le conteneur applicatif
 
@@ -194,6 +192,50 @@ récupération partagée sous l'identité sortante réelle, pas d'une connexion 
 déléguée réussie, d'une liaison candidat ni d'une réussite native complète.
 Aucune question native ni appel d'outil MCP nouveau n'est soumis.
 T007/T008, la matrice native de onze cas et la feuille de route restent ouverts.
+
+### OAuth approuvé et récupération SAR native sur le tour complet
+
+La [poursuite MCP native](../assets/runtime-2026-10-25/mcp-native-sar.json)
+vérifie maintenant l'administrateur prévu dans un profil Edge dédié, une vraie
+connexion OAuth et le statut PAC **Connected** indépendant. L'utilisateur confirme
+explicitement le consentement pour tout le tenant. Graph vérifie
+`AllPrincipals`, aucun principal individuel et uniquement la portée dédiée
+`Evidence.Read`. L'assistant n'effectue aucune écriture de consentement Graph.
+Aucun profil ni cookie existant n'est copié; aucune stratégie npm ou de sécurité
+du navigateur n'est contournée. Les reçus antérieurs sans consentement ou limités
+à l'utilisateur restent historiques.
+
+Après l'interruption Add/configure, la lecture indépendante retrouve toujours
+28 composants candidat. La commande sans acquittement est archivée, pas rejouée.
+La poursuite native réactive enregistre ensuite un composant MCP et découvre
+`retrieve_verified_workshop_evidence`. Dataverse vérifie indépendamment la liaison
+`ModelContextProtocolMetadata` générée avec les connecteur et connexion exacts.
+Le candidat compte maintenant 29 composants.
+
+Author remplace le routage de récupération émetteur du candidat par l'outil MCP
+de données, avec récupération locale conservée pour SAR large et demandes hybrides.
+L'interface native enregistre les instructions validées et désactive uniquement
+l'ancien spécialiste de récupération. La lecture vérifie les instructions exactes,
+les autres champs et toutes les autres définitions/états inchangés, diagnostic Off,
+validation On et MCP On. Le parent original et ses 26 lignes complètes restent
+inchangés. Le bundle de gestion échoue avec
+`MODULE_NOT_FOUND: @azure/msal-node-extensions`; aucun correctif du bundle.
+L'interface native prise en charge est utilisée.
+
+Une soumission native fraîche du cas 6 d'origine inchangé produit une seule
+réponse métier, sans le brouillon supplémentaire antérieur du spécialiste.
+Les deux citations sont exactement les documents épinglés complets `rc-002` et
+`ip-006`, avec leurs marqueurs canoniques individuels exacts. La recherche locale
+réelle et sa référence native sont visibles. Exceptions de seuil, formulaire,
+délais conditionnels, couverture narrative et d'enquête, activité continue et
+limites d'applicabilité réussissent le contrôle du tour complet. L'accueil et
+la carte de consentement de connexion restent conservés dans la capture.
+
+Les jetons absents ou malformés reçoivent encore 401. Aucune publication ni
+modification Storage/réseau. Cela résout le défaut SAR natif borné, pas la
+matrice complète : `DynamicPlanFinished` brut, onze cas frais, contrat du
+diagnostic/SDK original, autres labs, budget/rétention et validations attribuables
+restent ouverts. T007/T008 et la feuille de route ne sont pas déclarés terminés.
 
 ## Livraison Invocations vérifiée du 25 octobre
 

@@ -185,18 +185,31 @@ after removing three owned trial assignments. That write permission also permits
 agent authoring; the runtime makes no agent-authoring request. No account-wide
 Foundry User/Owner, Storage or Search permission is added.
 
-Genuine delegated OAuth, candidate binding and native whole-output acceptance
-remain unverified. The integrated VS Code browser
+At that historical checkpoint, genuine delegated OAuth, candidate binding and
+native whole-output acceptance remain unverified. The integrated VS Code browser
 blocks consent popups; standard authorization in a new tab reaches the intended
 administrator's password prompt. The user-response tool is unavailable, not an
 approval. The bounded helper and temporary loopback callback are removed.
 Use a popup-capable browser for the actual connector connection; approve only the
-dedicated evidence scope for the current user. Do not supply passwords in chat.
+dedicated evidence scope for the current user unless the human explicitly
+approves a different consent boundary. Do not supply passwords in chat.
 The retained Sweden Central host remains billable at a published compute estimate
 of USD 0.018/hour, not an actual bill or established numerical budget.
 Fresh preservation verifies the original/candidate and current version-5
 definition/principal/client IDs unchanged. A data-only tool does not itself
 guarantee that a parent model will preserve quotations in its later synthesis.
+
+The [subsequent native proof](../../../docs/assets/runtime-2026-10-25/mcp-native-sar.json)
+records explicit human tenant-wide consent for `Evidence.Read` only, independent
+`AllPrincipals`/Connected readbacks, real tool discovery and a saved candidate-only
+MCP binding. The candidate's old emitting retrieval tool is disabled and its
+parent instructions use the data-only MCP tool. One native unchanged SAR question
+now returns one domain answer with two exact complete pinned-record quotations,
+individual canonical markers and real local knowledge search/reference. All other
+candidate definitions/states and the protected original are preserved; no
+publication or Storage/network-policy change occurs. Missing/malformed bearer
+controls still return 401. The full eleven-case matrix and raw completion-event
+capture remain open; this bounded pass does not certify the roadmap.
 
 ## Testing and deployment boundaries
 

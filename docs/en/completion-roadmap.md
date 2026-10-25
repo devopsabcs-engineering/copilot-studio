@@ -144,12 +144,10 @@ The published compute estimate is **USD 0.018/hour**, not an actual bill,
 Copilot-credit total or approved numerical budget. Retention owner/review date
 and attributable signoffs remain missing.
 
-The next supported step is a popup-capable browser connection for the same staging
-candidate and owned Workshop Verified connector, signed in as the intended
-administrator. Consent only to the evidence scope for the current user, not the
-organization. Then verify real discovery/retrieval, candidate-only binding,
-whole-output SAR fidelity and affected original regressions before the full matrix.
-T007/T008 and the overall roadmap remain open.
+This handoff originally planned current-user-only evidence consent in a
+popup-capable browser. The user's later explicit tenant-wide approval, recorded
+below, supersedes that planned consent boundary. Historical receipts remain
+unchanged; deployment permission alone was not treated as tenant-wide consent.
 
 ### Actual app-container managed-identity retrieval
 
@@ -181,6 +179,49 @@ bearers still receive 401. This is shared retrieval under the real outbound
 identity, not a successful delegated MCP connection, candidate binding or native
 whole-output pass. No new native question or MCP tool call is submitted.
 T007/T008, the eleven-case native matrix and the full roadmap remain open.
+
+### Human-approved OAuth and native whole-turn SAR recovery
+
+The [native MCP continuation](../assets/runtime-2026-10-25/mcp-native-sar.json)
+now verifies the intended administrator in a dedicated Edge profile, one real
+OAuth connection and independent PAC **Connected** status. The user explicitly
+confirms consent on behalf of the tenant. Graph readback verifies
+`AllPrincipals`, no individual principal and only the dedicated `Evidence.Read`
+scope. No assistant Graph grant-write request is made. Existing profiles and
+cookies are not copied; neither npm policy nor browser security policy is
+overridden. The earlier no-grant/current-user-only receipts remain historical.
+
+After the interrupted Add/configure attempt, independent readback still finds
+28 candidate components. Its unacknowledged queue command is archived, not
+replayed. A responsive native continuation then saves one MCP component and
+discovers `retrieve_verified_workshop_evidence`. Dataverse independently verifies
+the generated `ModelContextProtocolMetadata` binding to the exact connected
+connector and connection. The candidate now has 29 components.
+
+Author replaces the candidate's emitting retrieval route with the data-only MCP
+tool, retaining local retrieval for broad SAR and hybrid requests. Native UI saves
+the validated instructions and disables only the old retrieval specialist.
+Independent readback verifies exact instructions, unchanged non-instruction
+fields, all other definitions/states, diagnostic Off, validation On and MCP On.
+The original parent and all 26 complete original rows remain unchanged.
+The management bundle fails with `MODULE_NOT_FOUND: @azure/msal-node-extensions`;
+it is not patched. Supported native UI is used instead.
+
+One fresh native submission of unchanged original case 6 completes with one
+user-facing domain answer, not the earlier extra specialist draft. Both quoted
+passages equal the complete pinned `rc-002` and `ip-006` records and retain their
+own exact canonical markers. The actual local knowledge search and its native
+reference are visible. Threshold exceptions, form, timing conditions, narrative
+and investigation coverage, ongoing-activity guidance and applicability limits
+pass the whole-turn check. The greeting and runtime connection-consent card are
+retained, not discarded from the captured turn.
+
+Missing and malformed bearer controls still return 401. No publication or
+Storage/network-policy change occurs. This closes the bounded native SAR
+delivery/fidelity defect, not the full regression matrix: raw
+`DynamicPlanFinished`, all eleven fresh cases, original diagnostic/SDK contract,
+other lab gates, budget/retention facts and attributable role signoffs remain
+open. T007/T008 and the overall roadmap are not marked complete.
 
 ## October 25 verified Invocations delivery
 

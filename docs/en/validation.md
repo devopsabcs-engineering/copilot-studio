@@ -62,6 +62,17 @@ passes again. Inbound delegated MCP OAuth, native binding, whole-output fidelity
 and the full eleven-case matrix remain unverified. No new native question,
 MCP tool invocation or publication is counted.
 
+The later [native MCP SAR recovery](../assets/runtime-2026-10-25/mcp-native-sar.json)
+supersedes those OAuth/binding and bounded SAR-fidelity limits. Human-explicit
+tenant-wide consent is independently read back as `AllPrincipals` for
+`Evidence.Read` only. One saved candidate MCP binding and exact Author-validated
+instructions produce one complete native case-6 answer with two exact full-record
+quotations and individual canonical markers, plus actual local search/reference.
+The old emitting retrieval tool is saved Off; validation and MCP remain On.
+Original 26 rows, all other candidate definitions and missing/malformed-token
+401 controls are preserved. No publication occurs. Raw `DynamicPlanFinished`,
+the fresh eleven-case matrix and broader roadmap gates remain open.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

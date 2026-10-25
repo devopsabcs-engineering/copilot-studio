@@ -82,6 +82,29 @@ déléguée réelle et acceptation SAR native complète restent ouvertes; la
 récupération partagée directe ne les remplace pas. L'hôte reste facturable et
 aucun budget numérique ni responsable de rétention n'est inventé.
 
+### Poursuite OAuth MCP native et SAR sur le tour complet
+
+La [poursuite native](../assets/runtime-2026-10-25/mcp-native-sar.json)
+remplace la limite OAuth/SAR native antérieure. Le consentement humain explicite
+pour tout le tenant est vérifié comme `AllPrincipals`, seulement `Evidence.Read`;
+PAC indique Connected pour la connexion réelle. La découverte native enregistre
+un composant MCP candidat, avec liaison exacte relue indépendamment.
+Le candidat compte 29 composants. Seuls ses instructions et l'état actif de
+l'ancienne récupération changent; texte Author exact, autres définitions,
+26 lignes originales et contrôles sont vérifiés. L'ancienne définition émettrice
+reste conservée, mais désactivée.
+
+Une question SAR d'origine inchangée invoque MCP natif et recherche locale réelle,
+puis produit une réponse métier unique. Les deux citations de documents complets
+correspondent exactement au corpus épinglé, avec marqueurs distincts, référence
+locale, délais conditionnels, exception initié, formulaire, couverture narrative/
+enquête et limites d'applicabilité. La capture visible complète inclut accueil
+et consentement de connexion. Jetons absents/malformés : toujours 401;
+aucune publication ni modification de stratégie. L'erreur de module manquant du
+bundle de gestion est conservée; interface prise en charge utilisée sans correctif
+du bundle. `DynamicPlanFinished` brut, matrice fraîche complète et acceptation
+des autres labs/gouvernance restent non vérifiés.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

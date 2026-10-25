@@ -2295,6 +2295,62 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["billing"]["numericalBudgetProvided"])
         self.assertFalse(result["billing"]["retentionOwnerAndReviewDateProvided"])
 
+    def test_native_mcp_consent_is_explicit_human_tenant_wide_and_historical_receipts_remain(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        result = json.loads((assets / "mcp-native-sar.json").read_text("utf-8"))
+        oauth = result["oauth"]
+        self.assertTrue(oauth["humanExplicitlyApprovedTenantWideConsent"])
+        self.assertEqual(oauth["consentType"], "AllPrincipals")
+        self.assertEqual(oauth["scope"], "Evidence.Read")
+        self.assertIsNone(oauth["principalId"])
+        self.assertEqual(oauth["assistantGraphGrantWriteRequests"], 0)
+        self.assertEqual(oauth["nativeConnectionCreateSubmissions"], 1)
+        self.assertEqual(oauth["officialPacConnectionStatus"], "Connected")
+        for key in ("existingProfilesOrCookiesCopied", "credentialsEnteredByAutomation",
+                    "rawBearerTokensOrAuthorizationCodesPrintedOrExported",
+                    "npmPolicyOrBrowserSecurityPolicyOverridden"):
+            self.assertFalse(oauth[key])
+        self.assertTrue(result["historicalReceiptsPreserved"])
+        historical = json.loads((assets / "mcp-managed-identity-runtime.json").read_text("utf-8"))
+        self.assertFalse(historical["nativeMcpCandidateBindingCreated"])
+        self.assertEqual(historical["newNativeQuestionsSubmitted"], 0)
+
+    def test_native_mcp_sar_pass_checks_whole_turn_exact_records_and_real_binding(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-sar.json").read_text("utf-8"))
+        binding = result["nativeBinding"]
+        self.assertEqual(binding["candidateComponentCountBefore"], 28)
+        self.assertEqual(binding["candidateComponentCountAfter"], 29)
+        self.assertEqual(binding["generatedOperationMetadataKind"], "ModelContextProtocolMetadata")
+        self.assertEqual(binding["nativeDiscoveredTool"], "retrieve_verified_workshop_evidence")
+        self.assertTrue(binding["bindingMatchesExactVerifiedConnectionAndConnector"])
+        self.assertTrue(result["authoring"]["nativeInstructionsExactlyMatchAuthoredText"])
+        self.assertTrue(result["authoring"]["oldEmittingRetrievalToolDisabled"])
+        self.assertFalse(result["authoring"]["managementBundlePatchedOrMonkeyPatched"])
+        sar = result["nativeSar"]
+        self.assertEqual(sar["result"], "pass")
+        self.assertEqual(sar["originalCaseNumber"], 6)
+        self.assertEqual(sar["nativeQuestionSubmissions"], 1)
+        self.assertEqual(sar["nativeMcpToolExecutionsObserved"], 1)
+        self.assertEqual(sar["userFacingDomainAnswerCount"], 1)
+        self.assertEqual(sar["allSourceQuotations"], 2)
+        self.assertEqual(sar["allSourceQuotations"], sar["exactCompletePinnedRecordQuotations"])
+        self.assertEqual(sar["recordIds"], ["rc-002", "ip-006"])
+        for key in ("completeVisibleSnapshotNotTruncated", "canonicalSourceMarkersExact",
+                    "localKnowledgeSearchObserved", "nativeLocalReferenceVisible",
+                    "broadSarCoverageChecksPassed", "legalApplicabilityLimitPreserved",
+                    "noRawToolMetadataInUserFacingAnswer", "nativeConnectionConsentCardRetained"):
+            self.assertTrue(sar[key])
+        self.assertFalse(sar["rawDynamicPlanFinishedCaptured"])
+        self.assertTrue(sar["nativeVisibleCompletionObserved"])
+        self.assertFalse(result["boundaries"]["fullElevenCaseNativeMatrixPassed"])
+        self.assertFalse(result["boundaries"]["wholeRoadmapComplete"])
+        self.assertFalse(result["preservation"]["publicationPerformed"])
+        self.assertEqual(result["preservation"]["missingBearerHttpStatus"], 401)
+        self.assertEqual(result["preservation"]["malformedBearerHttpStatus"], 401)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
