@@ -19,6 +19,45 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 25 native Entra Search and bilingual fictional tests
+
+The [native connected recovery](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+supersedes the earlier blocked-popup condition. The formal Entra connector's
+documented `ai://` namespace fails its native connection test and saves nothing.
+A separately guarded HTTPS service endpoint succeeds through real OAuth.
+An isolated unpublished Standard draft binds only the two-document fictional
+Harbor/Forest index; native knowledge is Ready. Supported portal saves and
+independent official clones verify web search and general model knowledge Off,
+with the original model, authentication and topics preserved.
+
+The initial frozen four-case cohort passes **3/4**: the French question returns
+English despite correct facts and citations. That failure is retained.
+The agent had no secondary language. Adding French is the only configuration
+change; the French test-session language is then selected explicitly.
+A separate frozen cohort passes **4/4**: Harbor opens at `07:00`, Forest closes
+at `21:00`, the unsupported shuttle price produces an explicit abstention, and
+the French answer preserves each fact with its actual citation.
+All eight separate conversations have real native Search traces and matching
+retrieved citation snippets. No question is automatically replayed or acceptance
+combined across configurations. Automatic typed-language detection is not proved.
+
+Eight official diagnostic archives are retained privately. One recovery bicycle
+archive has an empty configuration payload; the other three recovery payloads
+match, and independent before/after clones verify all 17 authored YAML files
+unchanged. The official validator still fails with
+`Cannot find module '@azure/msal-node-extensions'`; native portal/readback success
+is not YAML-schema-validation success, and no bundle is patched.
+
+One actual native citation click opens the immutable published fictional source
+in a new tab with both exact facts visible; the browser drops the section
+fragment. This establishes S5-04/S5-07/S5-08/S5-09 only in the fictional native
+scope. The draft, connection and temporary index are deleted, with independent
+absence checks, five prior agent IDs, seven prior connection name/connector/status
+rows and all three original Search schema hashes preserved. The owned browser
+closes normally; no ARM resource, role, policy or original authentication changes.
+Original hotel URLs/corpus acceptance and the genuine denied-identity test remain
+open. T014, broader release/governance gates and the workshop remain incomplete.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

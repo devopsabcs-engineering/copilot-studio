@@ -1,0 +1,135 @@
+{
+  "status": "FICTIONAL_NATIVE_CONNECTED_SCOPE_PASSED",
+  "date": "2026-10-25",
+  "approvedAdministratorAndEnvironmentVerified": true,
+  "connectionRecovery": {
+    "formalConnector": "Azure AI Search",
+    "authentication": "Microsoft Entra ID Integrated",
+    "documentedAiNamespaceAttempt": "FAILED_NATIVE_CONNECTION_TEST",
+    "firstAttemptSavedConnectionCount": 0,
+    "separatelyGuardedHttpsEndpointAttempt": "CONNECTED",
+    "realOAuthPopupObserved": true,
+    "popupAutoCloseCaptureErrorsRetainedPrivately": true,
+    "nativeParentAndSavedConnectionDetailsIndependentlyVerified": true,
+    "keysEntered": false,
+    "disableLocalAuthWeakened": false,
+    "browserPolicyOverridden": false
+  },
+  "configuration": {
+    "newIsolatedStandardDraft": true,
+    "published": false,
+    "exactlyOneNativeSearchKnowledgeSource": true,
+    "nativeKnowledgeStatus": "Ready",
+    "webSearchEnabled": false,
+    "generalModelKnowledgeEnabled": false,
+    "supportedNativePortalControlsUsed": true,
+    "independentOfficialPacCloneVerification": true,
+    "originalModelAuthenticationAndTopicsPreserved": true,
+    "officialValidatorError": "Cannot find module '@azure/msal-node-extensions'",
+    "validatorNodeVersion": "v26.12.1",
+    "fullValidatorErrorRetainedPrivately": true,
+    "bundledScriptsModified": false,
+    "yamlSchemaValidationSucceeded": false
+  },
+  "fixture": {
+    "originalFictionalTrainingTextOnly": true,
+    "documents": 2,
+    "vectorDimensions": 1536,
+    "cachedInputEmbeddingsReusedExactly": true,
+    "newDocumentEmbeddingRequests": 0,
+    "newBlobUploadOrIndexerRun": false,
+    "realPublishedSource": "https://github.com/devopsabcs-engineering/copilot-studio/blob/9704399779e203ede7e775c546fc63c0934a47bf/docs/en/lab-05.md#1-prepare-an-authorized-repeatable-corpus",
+    "originalHotelPdfUrlsInvented": false
+  },
+  "nativeTests": {
+    "totalActualQuestionSubmissions": 8,
+    "independentConversations": 8,
+    "automaticQuestionReplays": 0,
+    "initialCohort": {
+      "cases": 4,
+      "accepted": 3,
+      "frenchQuestionAnsweredInEnglish": true,
+      "failureRetained": true,
+      "allFourExportedConfigurationPayloadsExactlyMatch": true
+    },
+    "multilingualCohort": {
+      "cases": 4,
+      "accepted": 4,
+      "onlyPriorConfigurationChange": "Add French (France), fr-FR, as a secondary language",
+      "primaryLanguage": "en-US",
+      "secondaryLanguage": "fr-FR",
+      "nativeFrenchTestLanguageSelected": true,
+      "automaticTypedLanguageDetectionVerified": false,
+      "actualRecordedUserActivityLocale": "en-US",
+      "selectedConversationLanguageIsNotTheRecordedClientLocale": true,
+      "configurationWritesDuringFourCases": 0,
+      "independentBeforeAfterAuthoredYamlFilesExactlyEqual": 17,
+      "bicycle": {
+        "time": "07:00",
+        "meaning": "bicycle desk opens",
+        "citation": "Harbor Training Hotel",
+        "accepted": true
+      },
+      "reading": {
+        "time": "21:00",
+        "meaning": "reading room closes",
+        "citation": "Forest Training Lodge",
+        "accepted": true
+      },
+      "shuttle": {
+        "explicitSourceSupportAbstention": true,
+        "inventedPrice": false,
+        "actualConsultedSourceCitation": "Forest Training Lodge",
+        "citationIsNotEvidenceOfAPrice": true,
+        "accepted": true
+      },
+      "french": {
+        "answerLanguage": "French",
+        "exactTimes": ["07:00", "21:00"],
+        "correctFacilitiesAndOpeningClosingMeaning": true,
+        "individualActualCitations": ["Harbor Training Hotel", "Forest Training Lodge"],
+        "accepted": true
+      }
+    },
+    "nativeUniversalSearchTracesVerifyOnlyIntendedKnowledgeSource": true,
+    "finalCitationSnippetsExactlyMatchActualRetrievedResults": true,
+    "officialNativeDiagnosticArchives": 8,
+    "configurationPayloadPresentInArchives": 7,
+    "oneMultilingualBicycleConfigurationPayloadEmpty": true,
+    "threeOtherMultilingualConfigurationPayloadsExactlyMatch": true,
+    "emptyPayloadLimitationNotHiddenOrQuestionReplayed": true,
+    "zeroQuestionDuplicateGreetingPreflightFailureRetained": true,
+    "separateCohortsNotCombinedIntoAcceptance": true
+  },
+  "sourceNavigation": {
+    "actualNativeCitationClicks": 1,
+    "newExternalBrowserTabObserved": true,
+    "exactImmutablePublishedSourceFileMatched": true,
+    "bothExactFixtureFactsVisible": true,
+    "sectionFragmentRetainedByBrowser": false,
+    "httpResponseStatusCapturedForNativeClick": false,
+    "originalHotelPdfNavigationAcceptance": false
+  },
+  "cleanup": {
+    "ownedDraftDeletedAndOfficialPacListAbsenceVerified": true,
+    "allFivePreexistingAgentIdentifiersPreserved": true,
+    "ownedConnectionDeletedAndReloadedInventoryAbsenceVerified": true,
+    "preexistingConnectionNameConnectorStatusRowsPreserved": 7,
+    "connectionLastModifiedMetadataCompared": false,
+    "ownedIndexDeleteStatus": 204,
+    "ownedIndexIndependentGetStatus": 404,
+    "threeOriginalCompleteSearchSchemaHashesExactlyPreserved": true,
+    "remainingTemporaryLogicalObjects": 0,
+    "newArmResourcesCreatedOrDeleted": 0,
+    "rolePolicyOrOriginalAuthenticationChanges": 0,
+    "ownedBrowserClosedNormally": true,
+    "otherBrowsersTouched": false,
+    "privateRawExportsPublished": false
+  },
+  "completedTestsInFictionalNativeScope": ["S5-04", "S5-07", "S5-08", "S5-09"],
+  "deniedIdentityTestExecuted": false,
+  "originalHotelCorpusAcceptance": false,
+  "fullLabAcceptance": false,
+  "T014Complete": false,
+  "wholeRoadmapComplete": false
+}

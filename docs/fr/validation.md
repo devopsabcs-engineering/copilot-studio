@@ -8,6 +8,18 @@ ms.date: 2026-10-25
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+Le [suivi Search Entra natif](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+réussit S5-04/S5-07/S5-08/S5-09 sur le jeu fictif isolé. La cohorte initiale
+3/4 conserve sa réponse anglaise à la question française. Une cohorte distincte
+4/4 avec français activé vérifie récupération native réelle, faits exacts,
+abstention sur le prix et citations individuelles. Le français est sélectionné
+dans le panneau, pas déduit de la locale cliente `en-US` enregistrée.
+Un clic natif réel ouvre le fichier source immuable sans fragment de section.
+Une configuration de diagnostic est vide; les clones officiels avant/après
+confirment les 17 fichiers d'auteur inchangés. Brouillon, connexion et index
+possédés supprimés, objets initiaux préservés. Ni PDF hôtelier original,
+ni identité refusée, ni lab complet validés; T014 reste ouvert.
+
 La [récupération ultérieure de l'historique des licences](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 retrouve la question originale exacte, mais aucune réponse historique complète,
 même après une actualisation. Un clic de citation dans un autre historique

@@ -20,6 +20,47 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Search Entra natif et tests fictifs bilingues du 25 octobre
+
+La [reprise connectée native](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+remplace l'ancien blocage de fenêtre OAuth. Le format `ai://` documenté échoue
+au test natif et ne sauvegarde aucune connexion. Un essai HTTPS distinct réussit
+avec OAuth réel. Un brouillon Standard isolé, non publié, associe uniquement
+l'index fictif Harbor/Forest de deux documents; connaissances Ready.
+Des sauvegardes natives et clones officiels indépendants vérifient recherche
+web et connaissances générales désactivées, sans modifier modèle,
+authentification ou rubriques initiales.
+
+La première cohorte figée réussit **3/4** : la question française reçoit une
+réponse anglaise malgré des faits et citations corrects. Cet échec est conservé.
+Aucune langue secondaire n'était configurée. Seul l'ajout du français modifie
+la configuration; la langue française du panneau de test est ensuite choisie.
+Une cohorte figée distincte réussit **4/4** : Harbor ouvre à `07:00`, Forest
+ferme à `21:00`, le prix de navette absent provoque une abstention explicite,
+et la réponse française conserve chaque fait avec sa citation réelle.
+Les huit conversations distinctes présentent des traces Search natives et des
+citations correspondant aux passages récupérés. Aucune question n'est rejouée
+automatiquement et les configurations ne sont pas fusionnées pour l'acceptation.
+La détection automatique de la langue saisie n'est pas démontrée.
+
+Huit archives de diagnostic officielles restent privées. Celle du vélo dans
+la reprise contient une configuration vide; les trois autres configurations
+de reprise concordent. Les clones indépendants avant/après confirment les
+17 fichiers YAML d'auteur identiques. Le validateur officiel échoue encore :
+`Cannot find module '@azure/msal-node-extensions'`. La réussite du portail
+et des relectures ne vaut pas validation de schéma YAML; aucun bundle modifié.
+
+Un vrai clic de citation native ouvre la source fictive publiée immuable dans
+un nouvel onglet, avec les deux faits exacts visibles; le navigateur omet
+le fragment de section. S5-04/S5-07/S5-08/S5-09 réussissent uniquement dans
+ce périmètre fictif natif. Brouillon, connexion et index temporaires supprimés,
+avec absences vérifiées indépendamment, cinq identifiants d'agents antérieurs,
+sept lignes nom/connecteur/statut de connexion et trois empreintes de schémas
+Search initiaux préservés. Navigateur possédé fermé normalement; aucune ressource
+ARM, aucun rôle, stratégie ou paramètre d'authentification initial modifié.
+URL/corpus hôteliers originaux et test réel d'identité refusée restent ouverts.
+T014, critères de livraison/gouvernance et atelier complet restent non terminés.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

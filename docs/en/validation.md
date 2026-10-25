@@ -8,6 +8,18 @@ ms.date: 2026-10-25
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The [native Entra Search follow-up](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+passes S5-04/S5-07/S5-08/S5-09 for the isolated fictional fixture. The original
+3/4 cohort retains its French-to-English failure. A separate French-enabled
+4/4 cohort verifies actual native retrieval, exact facts, price abstention
+and individual citations. French is explicitly selected in the test pane,
+not inferred from the recorded `en-US` client locale. One genuine native click
+opens the immutable source file, without its section fragment. One diagnostic
+configuration payload is empty; independent before/after official clones
+verify all 17 authored files unchanged. The owned draft, connection and index
+are removed and original objects preserved. This is not an original hotel PDF,
+denied-identity or whole-lab pass; T014 stays open.
+
 The later [original licensing History recovery](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 finds the exact original question but no completed historical answer, even
 after one Refresh. One citation click in a separate completed history exposes

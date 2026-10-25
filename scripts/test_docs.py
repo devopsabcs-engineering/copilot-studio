@@ -2696,6 +2696,116 @@ class WikiTests(unittest.TestCase):
             self.assertIn("- [ ] T016", roadmap)
         self.assertIn("wiki-publication.json", (root / "docs" / "publishing.md").read_text("utf-8"))
 
+    def test_native_lab5_entra_recovery_preserves_failure_and_policy(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-native-entra-connected.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "FICTIONAL_NATIVE_CONNECTED_SCOPE_PASSED")
+        connection = result["connectionRecovery"]
+        self.assertEqual(connection["authentication"], "Microsoft Entra ID Integrated")
+        self.assertEqual(connection["documentedAiNamespaceAttempt"], "FAILED_NATIVE_CONNECTION_TEST")
+        self.assertEqual(connection["firstAttemptSavedConnectionCount"], 0)
+        self.assertEqual(connection["separatelyGuardedHttpsEndpointAttempt"], "CONNECTED")
+        self.assertTrue(connection["realOAuthPopupObserved"])
+        for key in ("keysEntered", "disableLocalAuthWeakened", "browserPolicyOverridden"):
+            self.assertFalse(connection[key])
+        configuration = result["configuration"]
+        self.assertFalse(configuration["webSearchEnabled"])
+        self.assertFalse(configuration["generalModelKnowledgeEnabled"])
+        self.assertFalse(configuration["published"])
+        self.assertEqual(configuration["nativeKnowledgeStatus"], "Ready")
+        self.assertTrue(configuration["independentOfficialPacCloneVerification"])
+        self.assertEqual(configuration["officialValidatorError"],
+                         "Cannot find module '@azure/msal-node-extensions'")
+        self.assertFalse(configuration["bundledScriptsModified"])
+        self.assertFalse(configuration["yamlSchemaValidationSucceeded"])
+
+    def test_native_lab5_frozen_cohorts_are_not_combined(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-native-entra-connected.json").read_text("utf-8"))
+        tests = result["nativeTests"]
+        self.assertEqual(tests["totalActualQuestionSubmissions"], 8)
+        self.assertEqual(tests["independentConversations"], 8)
+        self.assertEqual(tests["automaticQuestionReplays"], 0)
+        self.assertEqual(tests["initialCohort"]["accepted"], 3)
+        self.assertTrue(tests["initialCohort"]["frenchQuestionAnsweredInEnglish"])
+        self.assertTrue(tests["initialCohort"]["failureRetained"])
+        recovery = tests["multilingualCohort"]
+        self.assertEqual((recovery["accepted"], recovery["cases"]), (4, 4))
+        self.assertEqual(recovery["configurationWritesDuringFourCases"], 0)
+        self.assertEqual(recovery["independentBeforeAfterAuthoredYamlFilesExactlyEqual"], 17)
+        self.assertEqual(recovery["secondaryLanguage"], "fr-FR")
+        self.assertTrue(recovery["nativeFrenchTestLanguageSelected"])
+        self.assertEqual(recovery["actualRecordedUserActivityLocale"], "en-US")
+        self.assertFalse(recovery["automaticTypedLanguageDetectionVerified"])
+        self.assertEqual(recovery["bicycle"]["time"], "07:00")
+        self.assertEqual(recovery["reading"]["time"], "21:00")
+        self.assertTrue(recovery["shuttle"]["explicitSourceSupportAbstention"])
+        self.assertFalse(recovery["shuttle"]["inventedPrice"])
+        self.assertTrue(recovery["shuttle"]["citationIsNotEvidenceOfAPrice"])
+        self.assertEqual(recovery["french"]["answerLanguage"], "French")
+        self.assertEqual(recovery["french"]["exactTimes"], ["07:00", "21:00"])
+        self.assertEqual(recovery["french"]["individualActualCitations"],
+                         ["Harbor Training Hotel", "Forest Training Lodge"])
+        self.assertTrue(tests["nativeUniversalSearchTracesVerifyOnlyIntendedKnowledgeSource"])
+        self.assertTrue(tests["finalCitationSnippetsExactlyMatchActualRetrievedResults"])
+        self.assertEqual(tests["officialNativeDiagnosticArchives"], 8)
+        self.assertEqual(tests["configurationPayloadPresentInArchives"], 7)
+        self.assertTrue(tests["oneMultilingualBicycleConfigurationPayloadEmpty"])
+        self.assertTrue(tests["emptyPayloadLimitationNotHiddenOrQuestionReplayed"])
+        self.assertTrue(tests["separateCohortsNotCombinedIntoAcceptance"])
+
+    def test_native_lab5_navigation_cleanup_and_remaining_gates(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-native-entra-connected.json").read_text("utf-8"))
+        self.assertEqual(result["completedTestsInFictionalNativeScope"],
+                         ["S5-04", "S5-07", "S5-08", "S5-09"])
+        navigation = result["sourceNavigation"]
+        self.assertEqual(navigation["actualNativeCitationClicks"], 1)
+        self.assertTrue(navigation["newExternalBrowserTabObserved"])
+        self.assertTrue(navigation["exactImmutablePublishedSourceFileMatched"])
+        self.assertTrue(navigation["bothExactFixtureFactsVisible"])
+        self.assertFalse(navigation["sectionFragmentRetainedByBrowser"])
+        self.assertFalse(navigation["originalHotelPdfNavigationAcceptance"])
+        cleanup = result["cleanup"]
+        for key in ("ownedDraftDeletedAndOfficialPacListAbsenceVerified",
+                    "allFivePreexistingAgentIdentifiersPreserved",
+                    "ownedConnectionDeletedAndReloadedInventoryAbsenceVerified",
+                    "threeOriginalCompleteSearchSchemaHashesExactlyPreserved",
+                    "ownedBrowserClosedNormally"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["preexistingConnectionNameConnectorStatusRowsPreserved"], 7)
+        self.assertEqual(cleanup["ownedIndexDeleteStatus"], 204)
+        self.assertEqual(cleanup["ownedIndexIndependentGetStatus"], 404)
+        self.assertEqual(cleanup["remainingTemporaryLogicalObjects"], 0)
+        self.assertEqual(cleanup["newArmResourcesCreatedOrDeleted"], 0)
+        self.assertEqual(cleanup["rolePolicyOrOriginalAuthenticationChanges"], 0)
+        self.assertFalse(cleanup["otherBrowsersTouched"])
+        self.assertFalse(cleanup["privateRawExportsPublished"])
+        for key in ("deniedIdentityTestExecuted", "originalHotelCorpusAcceptance",
+                    "fullLabAcceptance", "T014Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
+    def test_native_lab5_progress_is_bilingual_and_keeps_final_release_open(self):
+        root = Path(__file__).resolve().parents[1]
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md",
+                         "backend-live-2026-10-20.md", "lab-05.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn("lab5-native-entra-connected.json", text)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T014", roadmap)
+            self.assertIn("- [ ] T016", roadmap)
+            lab = (root / "docs" / language / "lab-05.md").read_text("utf-8")
+            for criterion in ("S5-04", "S5-07", "S5-08", "S5-09"):
+                row = next(line for line in lab.splitlines() if line.startswith(f"| {criterion} "))
+                self.assertNotIn("Not run", row)
+                self.assertNotIn("Non exécuté", row)
+            denied = next(line for line in lab.splitlines() if line.startswith("| S5-10 "))
+            self.assertIn("Not run" if language == "en" else "Non exécuté", denied)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
@@ -2925,9 +3035,8 @@ class WikiTests(unittest.TestCase):
             for test_id in ingestion["completed_tests"]:
                 row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
                 self.assertIn("Pass:" if language == "en" else "Réussi :", row)
-            for test_id in ("S5-04", "S5-07", "S5-08", "S5-09", "S5-10"):
-                row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
-                self.assertIn("Not run" if language == "en" else "Non exécuté", row)
+            denied_row = next(line for line in guide.splitlines() if line.startswith("| S5-10 "))
+            self.assertIn("Not run" if language == "en" else "Non exécuté", denied_row)
             self.assertIn("search-security-rbac#grant-access-to-a-single-index", guide)
             roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
             self.assertIn("- [ ] T014", roadmap)

@@ -17,6 +17,26 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 25 native Entra Search recovery
+
+The [native connected receipt](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+records a failed documented `ai://` connection and a separately guarded
+successful HTTPS/Entra correction. An isolated unpublished Standard draft uses
+one Ready fictional Search source, web/general knowledge Off and preserved
+model/authentication. Its first cohort passes 3/4, retaining the English answer
+to French input. After adding French and selecting it in the test pane,
+a separate frozen cohort passes 4/4 with real knowledge traces, supported
+citations and explicit price abstention. Eight native questions and exports
+are retained, not merged across configurations. One export's configuration
+is empty; independent official before/after clones confirm 17 unchanged files.
+
+A real native citation click opens the exact published fictional source file;
+the section fragment is omitted. All three owned temporary logical objects
+are deleted and original inventories/schema hashes preserved. The official
+validator's missing-module error remains; no bundle patch or schema-validation
+success is claimed. Original hotel source URLs and genuine denied identity
+remain unverified. This progress does not close T014 or the workshop.
+
 ## October 25 administrator and candidate recovery
 
 The [latest candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)

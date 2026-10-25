@@ -17,6 +17,26 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Récupération Search Entra native du 25 octobre
+
+Le [reçu connecté natif](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+conserve l'échec du format `ai://` documenté et la correction HTTPS/Entra
+distincte réussie. Un brouillon Standard isolé non publié utilise une source
+Search fictive Ready, recherche web/connaissances générales désactivées et
+modèle/authentification préservés. Première cohorte 3/4, avec réponse anglaise
+à la question française conservée. Après ajout et sélection du français dans
+le panneau, une cohorte figée distincte réussit 4/4 : traces réelles, citations
+étayées et abstention explicite sur le prix. Huit questions natives et archives
+conservées, sans fusion des configurations. Une configuration exportée est
+vide; les clones officiels avant/après confirment 17 fichiers inchangés.
+
+Un vrai clic de citation ouvre le fichier source fictif publié exact, sans
+fragment de section. Les trois objets logiques temporaires possédés sont
+supprimés; inventaires et empreintes initiaux préservés. L'erreur de module
+manquant du validateur officiel reste ouverte, sans modification de bundle
+ni validation de schéma prétendue. URL hôtelières originales et refus réel
+d'identité restent non vérifiés. T014 et l'atelier ne sont pas terminés.
+
 ## Récupération administrateur et candidat du 25 octobre
 
 La [dernière poursuite du candidat](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)

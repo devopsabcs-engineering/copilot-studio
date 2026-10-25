@@ -22,7 +22,7 @@ Build a retrieval-augmented generation (RAG) pipeline: ingest documents, split t
 > That first run used local chunking. A subsequent private Basic Search run passed
 > 25 checks with the three original PDFs, a private Blob indexer, nine child
 > projections, integrated embeddings and semantic hybrid retrieval. The Copilot
-> connection remains unexecuted. See the detailed private procedure, cleanup and the
+> connection was not executed in those runs. See the detailed private procedure, cleanup and the
 > [actual results](live-rerun-2026-10-19.md).
 
 These are original teaching instructions, not a republication of protected workshop text or code. The original three PDF demonstration files exist locally but are not distributed here. No protected screenshots are included.
@@ -79,8 +79,38 @@ with parent/source metadata and real 1,536-dimensional vectors: S5-02 passes.
 All disposable infrastructure, roles and shared links are removed; original
 Search objects, identity roles, shared links and four-resource ARM inventory
 are verified unchanged. Storage public networking, keys and anonymous access
-remain disabled. Five connected/navigation/French/denied-identity criteria and
-whole-lab certification remain open.
+remain disabled. At that ingestion checkpoint, five connected/navigation/French/
+denied-identity criteria and whole-lab certification remained open.
+
+## October 25 native Entra and bilingual fictional follow-up
+
+The [native connected run](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+recovers the real formal Entra connection without keys or a policy exception.
+The documented `ai://` form fails its native test without saving a connection;
+a separately guarded actual HTTPS service endpoint succeeds. An unpublished
+isolated Standard draft connects only the exact two-document fictional index,
+using the real immutable published corpus permalink, not invented PDF URLs.
+Knowledge is Ready; official clones verify web and general knowledge Off.
+
+The first frozen cohort passes 3/4 but answers the French question in English.
+No secondary language was configured. That failure remains. After adding
+French and selecting the French test-session language, a distinct frozen
+cohort passes **4/4**: Harbor `07:00` opening, Forest `21:00` closing, explicit
+price abstention and French answers with individual source citations.
+Actual native Search traces and citation snippets match the intended source.
+The abstention cites the real consulted Forest record, not evidence of a price.
+No automatic language detection or combined cross-configuration pass is claimed.
+
+Eight official snapshots are preserved privately. One bicycle snapshot has
+an empty configuration payload; three other recovery payloads match and
+independent before/after official clones confirm all 17 authored files unchanged.
+The validator's `Cannot find module '@azure/msal-node-extensions'` error remains,
+without bundle modification or a claim of successful YAML schema validation.
+One native citation click opens the exact immutable public fictional source,
+with both facts visible, but omits its section fragment. Draft, formal connection
+and temporary index are deleted; original objects and schema hashes are preserved.
+This closes four fictional native criteria, not original hotel PDF navigation,
+genuine denied identity, original-corpus acceptance or whole-lab certification.
 
 ## Architecture and prerequisites
 
@@ -218,8 +248,9 @@ The [hybrid query guidance](https://learn.microsoft.com/en-us/azure/search/hybri
 3. Prefer Microsoft Entra ID where available. Do not paste credentials into agent instructions, index descriptions, screenshots, or this repository.
 4. Select the single intended vector index and add it to the agent. Wait for knowledge status `Ready`.
 5. Give the agent original instructions: answer accommodation questions only from the training documents, identify the source, and say that information is unavailable when the documents do not support a claim.
-6. Disable web search and avoid unrelated knowledge during the controlled evaluation.
+6. Disable web search and **Allow ungrounded responses**, and avoid unrelated knowledge during the controlled evaluation. Independently verify the saved settings; source-only instructions alone are not a configuration check.
 7. Ask the fixture questions in the test matrix. Inspect the activity trace and citations; an answer alone does not identify the route used.
+8. For French testing, add **French (France)** under Settings, Languages, then select it through the test pane's More, Language menu and start a fresh conversation. Typing French alone did not switch the English-only draft. Return the test pane to the primary language before authoring. Follow the [multilingual agent guide](https://learn.microsoft.com/en-us/microsoft-copilot-studio/multilingual); recorded client locale is not proof of the selected conversation language.
 
 The [official connection guide](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-azure-ai-search) currently contains both key-based examples and Entra-based recovery advice. Use its formal connection workflow and the authentication choice allowed by your tenant. Do not create a hand-built, unsupported knowledge connection as a workaround.
 
@@ -268,12 +299,12 @@ Exact values below belong to the original synthetic fixture only. Natural-langua
 | S5-01 | Inspect the fixture container                           | Exactly two named input files                                                     | Pass: private list and two hash roundtrips |
 | S5-02 | Inspect the latest indexer run                          | `status` is `success`; `itemsFailed` is `0`; readable chunks exist                | Pass: private indexer, two exact chunks |
 | S5-03 | Search `rooftop garden`                                 | A supporting Harbor passage appears in the top three                              | Pass: Harbor first |
-| S5-04 | Ask about bicycle-desk opening                          | Answer includes `07:00` and a Harbor citation                                     | Not run        |
+| S5-04 | Ask about bicycle-desk opening                          | Answer includes `07:00` and a Harbor citation                                     | Pass: native fictional fixture |
 | S5-05 | Apply the copied-parent filter                          | Every result has the exact selected `parent_id`                                   | Pass: Harbor only |
 | S5-06 | Filter on nonfilterable `chunk`                         | HTTP `400`; useful field error                                                    | Pass: field error |
-| S5-07 | Ask for the lodge's airport shuttle price               | Explicit lack of source support; no invented price                                | Not run        |
-| S5-08 | Inspect knowledge/flow trace                            | The intended source or tool was invoked; citation opens for the authorized tester | Not run        |
-| S5-09 | Repeat in French                                        | Supported facts remain `07:00` and `21:00`; sources remain correct                | Not run        |
+| S5-07 | Ask for the lodge's airport shuttle price               | Explicit lack of source support; no invented price                                | Pass: native explicit abstention |
+| S5-08 | Inspect knowledge/flow trace                            | The intended source or tool was invoked; citation opens for the authorized tester | Pass: native trace and fictional source click |
+| S5-09 | Repeat in French                                        | Supported facts remain `07:00` and `21:00`; sources remain correct                | Pass: separate French-enabled cohort |
 | S5-10 | Remove the tester's data permission in an approved test | Access is denied; no content leaks through a fallback                             | Not run        |
 
 For at least ten labeled questions, record supporting-document IDs before testing. Calculate hit@3 as questions with a relevant passage in the first three results divided by questions tested. Calculate citation correctness as supported cited claims divided by cited claims inspected. Record median/p95 latency only after collecting enough timed runs, plus the sample count. Do not publish a percentage from an unexecuted test.
@@ -298,10 +329,10 @@ For at least ten labeled questions, record supporting-document IDs before testin
 
 ## Completion boundary
 
-Live subsystem results above establish S5-01/S5-02/S5-03/S5-05/S5-06, not
-whole-lab acceptance. Search resources are available and the disposable ingestion
-resources have been cleaned up; do not redeploy them merely to repeat those passes.
-Finish only after the remaining connected-answer, source-navigation, French and
-denied-identity tests run through the intended authenticated Copilot route and
-their actual results are recorded. No production-readiness, cost saving or
-relevance improvement is claimed.
+Historical subsystem results establish S5-01/S5-02/S5-03/S5-05/S5-06.
+The separate native fictional run establishes S5-04/S5-07/S5-08/S5-09.
+These scoped executions are not a single original-corpus end-to-end cohort or
+whole-lab acceptance. Original hotel URL/corpus acceptance and S5-10 through
+the intended authenticated native route remain open. The disposable ingestion
+and connected objects are cleaned up; do not redeploy merely to repeat passes.
+No production-readiness, cost saving or relevance improvement is claimed.

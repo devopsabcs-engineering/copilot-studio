@@ -22,7 +22,7 @@ Construisez une chaîne de génération augmentée par récupération (RAG) : in
 > managée et recherche hybride sémantique. Ce premier découpage restait local.
 > Un autre test privé Search Basic a réussi 25 contrôles : trois PDF originaux,
 > indexeur Blob privé, neuf projections enfants, embeddings intégrés et recherche
-> hybride sémantique. La connexion Copilot reste non exécutée. Consultez la procédure
+> hybride sémantique. Ces exécutions n'ont pas testé la connexion Copilot. Consultez la procédure
 > privée détaillée, le nettoyage et les [résultats réels](live-rerun-2026-10-19.md).
 
 Ces consignes pédagogiques originales ne reproduisent ni le texte ni le code du support protégé. Les trois PDF de démonstration existent localement, mais ne sont pas redistribués. Aucune capture d'écran protégée n'est incluse.
@@ -82,8 +82,39 @@ correspondent exactement aux entrées fictives, avec métadonnées parent/source
 et vecteurs réels de 1 536 dimensions : S5-02 réussit. Infrastructure, rôles
 et liens partagés jetables supprimés; objets Search, rôles d'identité, liens
 et inventaire ARM initial de quatre ressources vérifiés inchangés. Réseau public,
-clés et accès anonyme Storage restent désactivés. Cinq critères de connexion,
-navigation, français et identité refusée ainsi que la certification restent ouverts.
+clés et accès anonyme Storage restent désactivés. À ce point de l'ingestion,
+cinq critères de connexion, navigation, français et identité refusée ainsi
+que la certification restaient ouverts.
+
+## Suivi fictif Entra natif et bilingue du 25 octobre
+
+L'[exécution connectée native](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
+rétablit la connexion Entra formelle réelle sans clé ni exception de stratégie.
+Le format `ai://` documenté échoue au test natif sans sauvegarde de connexion;
+un essai HTTPS réel distinct réussit. Un brouillon Standard isolé non publié
+associe seulement l'index fictif exact de deux documents, avec un vrai permalien
+du corpus publié immuable, pas des URL PDF inventées. Connaissances Ready;
+les clones officiels confirment web et connaissances générales désactivés.
+
+Première cohorte figée 3/4 : la question française reçoit une réponse anglaise.
+Aucune langue secondaire n'était configurée; l'échec reste conservé.
+Après ajout et sélection du français dans le panneau, une cohorte figée
+distincte réussit **4/4** : ouverture Harbor `07:00`, fermeture Forest `21:00`,
+abstention explicite sur le prix et réponse française avec citations séparées.
+Traces Search natives et passages cités correspondent à la source prévue.
+L'abstention cite le vrai document Forest consulté, pas une preuve de prix.
+Aucune détection automatique de langue ni réussite fusionnant les configurations.
+
+Huit instantanés officiels restent privés. Celui du vélo a une configuration
+vide; les trois autres configurations de reprise concordent et les clones
+officiels avant/après confirment les 17 fichiers d'auteur inchangés.
+L'erreur `Cannot find module '@azure/msal-node-extensions'` du validateur reste
+ouverte, sans modification de bundle ni validation de schéma YAML prétendue.
+Un vrai clic natif ouvre la source fictive publique immuable exacte avec
+les deux faits visibles, mais sans fragment de section. Brouillon, connexion
+formelle et index temporaires supprimés; objets et empreintes initiaux préservés.
+Quatre critères fictifs natifs sont clos, pas la navigation PDF hôtelière originale,
+le refus réel d'identité, l'acceptation du corpus original ou le lab complet.
 
 ## Architecture et prérequis
 
@@ -221,8 +252,9 @@ Les [conseils sur les requêtes hybrides](https://learn.microsoft.com/en-us/azur
 3. Préférez Microsoft Entra ID lorsqu'il est disponible. Ne collez jamais d'identifiants dans les instructions, les descriptions d'index, les captures ou ce dépôt.
 4. Sélectionnez l'unique index vectoriel prévu et ajoutez-le à l'agent. Attendez l'état `Ready`.
 5. Rédigez vos propres instructions : répondre uniquement à partir des documents de formation, identifier la source et indiquer l'absence d'information lorsqu'aucun document n'étaye une affirmation.
-6. Désactivez la recherche web et écartez les connaissances sans rapport pendant l'évaluation contrôlée.
+6. Désactivez la recherche web et **Allow ungrounded responses**, puis écartez les connaissances sans rapport pendant l'évaluation contrôlée. Vérifiez indépendamment la sauvegarde; des instructions seules ne prouvent pas la configuration.
 7. Posez les questions du tableau de tests. Examinez la trace d'activité et les citations : une réponse seule ne révèle pas le chemin emprunté.
+8. Pour le français, ajoutez **French (France)** dans Settings, Languages, puis choisissez cette langue via More, Language dans le panneau de test et démarrez une nouvelle conversation. Saisir du français seul n'a pas changé le brouillon uniquement anglophone. Revenez à la langue principale avant de modifier l'agent. Suivez le [guide multilingue](https://learn.microsoft.com/en-us/microsoft-copilot-studio/multilingual); la locale cliente enregistrée ne prouve pas la langue de conversation choisie.
 
 Le [guide officiel de connexion](https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-azure-ai-search) contient actuellement des exemples avec clé et des consignes de récupération fondées sur Entra. Utilisez son parcours formel et l'option autorisée par votre locataire. Ne contournez pas le problème avec une connexion de connaissances non prise en charge.
 
@@ -272,12 +304,12 @@ Les valeurs exactes concernent uniquement le jeu fictif original. La formulation
 | S5-01 | Examiner le conteneur d'essai                           | Exactement les deux fichiers nommés                                           | Réussi : liste privée et deux empreintes relues |
 | S5-02 | Examiner la dernière exécution de l'indexeur            | `status` vaut `success` ; `itemsFailed` vaut `0` ; passages lisibles présents | Réussi : indexeur privé, deux passages exacts |
 | S5-03 | Rechercher `rooftop garden`                             | Un passage Harbor pertinent figure parmi les trois premiers                   | Réussi : Harbor premier |
-| S5-04 | Demander l'heure d'ouverture du service vélos           | Réponse avec `07:00` et citation Harbor                                       | Non exécuté     |
+| S5-04 | Demander l'heure d'ouverture du service vélos           | Réponse avec `07:00` et citation Harbor                                       | Réussi : jeu fictif natif |
 | S5-05 | Appliquer le filtre du parent copié                     | Chaque résultat porte exactement le `parent_id` retenu                        | Réussi : Harbor seul |
 | S5-06 | Filtrer sur `chunk` non filtrable                       | HTTP `400` et erreur de champ exploitable                                     | Réussi : erreur de champ |
-| S5-07 | Demander le prix de la navette aéroport du lodge        | Absence de source explicitement signalée ; aucun prix inventé                 | Non exécuté     |
-| S5-08 | Examiner la trace connaissances/flux                    | Source ou outil prévu invoqué ; citation accessible au testeur autorisé       | Non exécuté     |
-| S5-09 | Répéter en français                                     | Faits `07:00` et `21:00` conservés ; sources correctes                        | Non exécuté     |
+| S5-07 | Demander le prix de la navette aéroport du lodge        | Absence de source explicitement signalée ; aucun prix inventé                 | Réussi : abstention native explicite |
+| S5-08 | Examiner la trace connaissances/flux                    | Source ou outil prévu invoqué ; citation accessible au testeur autorisé       | Réussi : trace native et clic source fictive |
+| S5-09 | Répéter en français                                     | Faits `07:00` et `21:00` conservés ; sources correctes                        | Réussi : cohorte française distincte |
 | S5-10 | Retirer l'autorisation du testeur dans un test approuvé | Accès refusé ; aucune fuite par un chemin de repli                            | Non exécuté     |
 
 Pour au moins dix questions annotées, notez les identifiants de documents pertinents avant les essais. Calculez hit@3 comme le nombre de questions avec un passage pertinent parmi les trois premiers, divisé par le nombre testé. La justesse des citations est le nombre d'affirmations citées étayées divisé par les affirmations citées examinées. Publiez médiane/p95 seulement avec assez de mesures, en précisant leur nombre. Ne produisez pas de pourcentage pour un test non exécuté.
@@ -302,11 +334,11 @@ Pour au moins dix questions annotées, notez les identifiants de documents perti
 
 ## Limite de validation
 
-Les résultats réels des sous-systèmes ci-dessus valident
-S5-01/S5-02/S5-03/S5-05/S5-06, pas l'atelier complet. Les ressources Search sont
-disponibles et les ressources d'ingestion jetables sont supprimées; ne les
-redéployez pas pour répéter ces réussites. Terminez après exécution des essais
-restants de réponses connectées, navigation des sources, français et refus
-d'identité par le parcours Copilot authentifié prévu, avec leurs résultats réels
-consignés. Aucune préparation à la production, économie ou amélioration de
-pertinence n'est affirmée.
+Les anciens résultats de sous-systèmes valident S5-01/S5-02/S5-03/S5-05/S5-06.
+L'exécution fictive native distincte valide S5-04/S5-07/S5-08/S5-09.
+Ces essais délimités ne constituent ni une cohorte unique de bout en bout
+sur le corpus original ni l'atelier complet. URL/corpus hôteliers originaux
+et S5-10 via le parcours natif authentifié prévu restent ouverts.
+Les objets d'ingestion et de connexion jetables sont supprimés; ne les
+redéployez pas pour répéter des réussites. Aucune préparation à la production,
+économie ou amélioration de pertinence n'est affirmée.
