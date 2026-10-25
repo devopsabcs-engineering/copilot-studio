@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only completion roadmap T001/T005/T006 preflight",
+  "status": "diagnostic_verified_inactive_attachment_identity_verified",
+  "observed_utc": "2026-10-23T19:27:40.687553+00:00",
+  "evidence_type": "Current authenticated saved-configuration readback, not a native runtime test",
+  "surface": {
+    "api": "Dataverse Web API v9.2",
+    "method": "GET",
+    "successful_requests": 3,
+    "http_status_codes": [200, 200, 200],
+    "authentication_attempts": 1,
+    "interactive_login_started": false,
+    "retries": 0
+  },
+  "current_diagnostic": {
+    "owned_component_identity_matches_retained_metadata": true,
+    "parent_binding_matches_retained_metadata": true,
+    "statecode": 1,
+    "statuscode": 2,
+    "state_label": "Inactive",
+    "state_label_confirmed_from_current_dataverse_metadata": true,
+    "modified_utc": "2026-10-21T23:11:12Z",
+    "definition_hash_algorithm": "SHA-256 of exact data string encoded as UTF-8, without newline normalization",
+    "definition_sha256": "6fbc8d501171570d4221309fbcb57fcf7789903bdebf69d9a946d21c9ef38e47",
+    "definition_matches_retained_baseline": true
+  },
+  "current_original_retrieval_attachment": {
+    "statecode": 0,
+    "statuscode": 1,
+    "state_label": "Active",
+    "component_identity_matches_historical_capture": true,
+    "parent_binding_matches_historical_capture": true,
+    "schema_matches_historical_capture": true,
+    "target_agent_name_matches_historical_capture": true,
+    "modified_utc": "2026-10-21T11:37:52Z",
+    "definition_sha256": "ccc44043b42193ef95eaa2abfeec2cab40c899450e2cdb22ee50e070faa80994",
+    "historical_full_attachment_definition_baseline_located": false,
+    "definition_matches_retained_baseline": null,
+    "byte_for_byte_attachment_unchanged_verified": false,
+    "currently_served_foundry_version_verified": false
+  },
+  "historical_evidence": {
+    "is_current_observation": false,
+    "diagnostic_state": "Inactive",
+    "diagnostic_definition_sha256": "6fbc8d501171570d4221309fbcb57fcf7789903bdebf69d9a946d21c9ef38e47",
+    "retained_foundry_original_version": "4",
+    "historical_attachment_identity_baseline_available": true,
+    "historical_full_dataverse_attachment_definition_baseline_available": false
+  },
+  "limitations": [
+    "The original attachment identity and Active state are currently verified; byte-for-byte definition preservation is not established without a retained full definition/hash.",
+    "The attachment targets an agent name, not a pinned Foundry version. Retained v4 evidence is historical; the currently served version was not checked.",
+    "This readback does not prove native tenant-ID 403 recovery, hosted correlation, whole-parent completion or displayed-answer correctness.",
+    "No current project, Search, embeddings, identities, billing, owner or review-deadline certification was performed."
+  ],
+  "roadmap": {
+    "T001": "partial_native_inventory_only",
+    "T005": "native_delivery_diagnosis_not_performed",
+    "T006": "inactive_state_and_diagnostic_hash_verified_native_acceptance_not_established",
+    "tasks_marked_complete": false
+  },
+  "safety": {
+    "cloud_writes": 0,
+    "auth_or_role_changes": 0,
+    "push_pull_clone": false,
+    "agents_created": 0,
+    "native_reenable": false,
+    "test_or_model_calls": 0,
+    "publication": false,
+    "subagents_used": false
+  },
+  "sanitization": "No tenant, organization, resource or component identifiers, endpoints, connection references, credentials, full definitions or private source contents are included."
+}

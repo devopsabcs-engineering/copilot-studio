@@ -1,0 +1,18 @@
+{
+  "status": "failed",
+  "failure_reason": "Overlength display name rejected before a candidate persisted.",
+  "sdk_ready": false,
+  "create_dispatched": true,
+  "candidate_retained": false,
+  "file_uploads_attempted": 0,
+  "file_hashes_verified": 0,
+  "connection_binding_verified": false,
+  "cleanup_verified": false,
+  "no_candidate_exists_after_failure": true,
+  "original_rows_files_and_reference_unchanged": true,
+  "pac_profile_restored": true,
+  "questions": 0,
+  "publish_attempts": 0,
+  "permission_changes": 0,
+  "roadmap_complete": false
+}

@@ -1,7 +1,7 @@
 ---
 title: "Lab 5: Advanced retrieval with Azure AI Search"
 description: "Build a chunked search index, compare retrieval methods, and connect a standard Copilot Studio agent with measurable acceptance criteria."
-ms.date: 2026-10-20
+ms.date: 2026-10-24
 ms.topic: tutorial
 ---
 
@@ -33,6 +33,54 @@ connection attempt was blocked before sign-in by the hosting browser's pop-up
 restriction; no connected question ran. Hotel source URLs also remain unavailable,
 so navigation would require separate proof even after sign-in recovery.
 See the [connection record](backend-live-2026-10-20.md#keyless-search-connection-blocked-by-the-hosting-browser).
+
+The [fresh synthetic-fixture execution](../assets/runtime-2026-10-23/lab5-synthetic-search-retry.json)
+now passes S5-03, S5-05 and S5-06 using the exact fictional Harbor/Forest text
+below. Lexical, real natural-language vector, hybrid and semantic-hybrid queries
+all return Harbor first. The parent filter returns only Harbor; the nonfilterable
+field returns HTTP 400 identifying `chunk`. Both attempts' disposable indexes
+were deleted and the three original index schemas independently verified unchanged.
+No existing route, role or authentication setting changed.
+
+The [initial attempt](../assets/runtime-2026-10-23/lab5-synthetic-search.json)
+uploaded both documents but stopped when index statistics stayed at zero.
+The explicit second attempt verified readiness through actual document-search
+count, reusing the exact input embeddings rather than generating them again.
+This is direct document loading, not a Blob/indexer run or a connected agent test.
+That direct-load fixture uses source URNs, not navigable citations.
+
+The later [public-path ingestion attempt](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
+confirms that enforced Storage policy disables public networking. Container-scoped
+RBAC cannot override that boundary: upload returns HTTP 403. No policy exception
+or key-authentication fallback is used; the temporary account and roles are removed.
+The [private upload](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion.json)
+uses a managed-identity job without a public IP, a private endpoint and private
+DNS. Exactly `forest.txt` and `harbor.txt` round-trip with matching hashes,
+closing S5-01. Its interrupted indexer-resume attempt fails before indexer creation.
+An asynchronous DNS-link cleanup race is preserved; subsequent owned-zone cleanup
+and the restored original four-resource inventory are independently verified.
+S5-02 and connected-answer/citation acceptance are not established by that upload.
+
+The [separately guarded private retry](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-retry.json)
+does run the Blob indexer through an approved Search shared private link,
+processing two files successfully with zero failed items and zero warnings.
+Its document readback returns HTTP 400 because the selected vector field was
+not explicitly retrievable. The failure is retained rather than treating indexer
+success as readable-chunk acceptance. All temporary resources, roles and shared
+links are deleted; original Search objects and ARM inventory are verified unchanged.
+
+The [corrected private readback run](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-vector-readback.json)
+explicitly makes the disposable vector field retrievable. After supported
+Azure CLI authentication recovery, it resumes without redeployment or re-upload.
+The original expired-token failure and initial cleanup errors remain in private
+evidence. Private indexing succeeds with two processed files, zero failed items
+and zero warnings. Both projected passages exactly match the fictional input,
+with parent/source metadata and real 1,536-dimensional vectors: S5-02 passes.
+All disposable infrastructure, roles and shared links are removed; original
+Search objects, identity roles, shared links and four-resource ARM inventory
+are verified unchanged. Storage public networking, keys and anonymous access
+remain disabled. Five connected/navigation/French/denied-identity criteria and
+whole-lab certification remain open.
 
 ## Architecture and prerequisites
 
@@ -190,18 +238,39 @@ Choose this route when the exercise requires explicit filters or query parameter
 
 HTTP actions, custom connectors, and connection types can have separate licensing and data-loss-prevention constraints. No flow or connector was created during this review.
 
+### Controlled permission-removal test
+
+For S5-10, use a disposable test connection identity, not the administrator's
+existing roles. The identity used by Search can differ from the person chatting
+with the agent: a maker-owned connection does not automatically impersonate
+each end user.
+
+1. Record the actual connection principal and its approved, index-scoped Search
+   Index Data Reader assignment. The [RBAC guide](https://learn.microsoft.com/en-us/azure/search/search-security-rbac#grant-access-to-a-single-index)
+   documents single-index scopes. Do not grant access to unrelated indexes.
+2. Establish a successful authorized baseline on the fictional fixture through
+   both the direct query and the intended connected route.
+3. Remove only that test assignment. Allow bounded propagation, refresh the
+   test authentication and start a new conversation without prior retrieved content.
+4. Verify both direct denial and the connected error path. No fixture text may
+   appear from cached context, another source or a fallback. A direct HTTP 403
+   alone does not prove agent-level isolation, and an authorization failure
+   must not be silently treated as an empty search.
+5. Delete or restore only the disposable resources approved for this test.
+   Record final role state and leave the administrator's permissions unchanged.
+
 ## Acceptance tests and evaluation record
 
 Exact values below belong to the original synthetic fixture only. Natural-language wording and generated scores are not exact-match contracts.
 
 | ID    | Action                                                  | Expected assertion                                                                | Current result |
 | ----- | ------------------------------------------------------- | --------------------------------------------------------------------------------- | -------------- |
-| S5-01 | Inspect the fixture container                           | Exactly two named input files                                                     | Not run        |
-| S5-02 | Inspect the latest indexer run                          | `status` is `success`; `itemsFailed` is `0`; readable chunks exist                | Not run        |
-| S5-03 | Search `rooftop garden`                                 | A supporting Harbor passage appears in the top three                              | Not run        |
+| S5-01 | Inspect the fixture container                           | Exactly two named input files                                                     | Pass: private list and two hash roundtrips |
+| S5-02 | Inspect the latest indexer run                          | `status` is `success`; `itemsFailed` is `0`; readable chunks exist                | Pass: private indexer, two exact chunks |
+| S5-03 | Search `rooftop garden`                                 | A supporting Harbor passage appears in the top three                              | Pass: Harbor first |
 | S5-04 | Ask about bicycle-desk opening                          | Answer includes `07:00` and a Harbor citation                                     | Not run        |
-| S5-05 | Apply the copied-parent filter                          | Every result has the exact selected `parent_id`                                   | Not run        |
-| S5-06 | Filter on nonfilterable `chunk`                         | HTTP `400`; useful field error                                                    | Not run        |
+| S5-05 | Apply the copied-parent filter                          | Every result has the exact selected `parent_id`                                   | Pass: Harbor only |
+| S5-06 | Filter on nonfilterable `chunk`                         | HTTP `400`; useful field error                                                    | Pass: field error |
 | S5-07 | Ask for the lodge's airport shuttle price               | Explicit lack of source support; no invented price                                | Not run        |
 | S5-08 | Inspect knowledge/flow trace                            | The intended source or tool was invoked; citation opens for the authorized tester | Not run        |
 | S5-09 | Repeat in French                                        | Supported facts remain `07:00` and `21:00`; sources remain correct                | Not run        |
@@ -229,4 +298,10 @@ For at least ten labeled questions, record supporting-document IDs before testin
 
 ## Completion boundary
 
-Static findings are verified; service behavior is not. Finish only after every required test is executed against approved resources and its actual result is recorded. The absent authenticated Copilot session and absent Search resources must be resolved by the workshop operator. No production-readiness, cost saving, or relevance improvement is claimed.
+Live subsystem results above establish S5-01/S5-02/S5-03/S5-05/S5-06, not
+whole-lab acceptance. Search resources are available and the disposable ingestion
+resources have been cleaned up; do not redeploy them merely to repeat those passes.
+Finish only after the remaining connected-answer, source-navigation, French and
+denied-identity tests run through the intended authenticated Copilot route and
+their actual results are recorded. No production-readiness, cost saving or
+relevance improvement is claimed.

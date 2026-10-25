@@ -1,7 +1,7 @@
 ---
 title: Lab 0 - Préparer l'environnement
 description: Vérifier les licences, Dataverse, la gouvernance, les accès Azure, les outils et les quotas avant l'atelier.
-ms.date: 2026-10-19
+ms.date: 2026-10-23
 ---
 
 ## Objectif et état de validation
@@ -19,6 +19,32 @@ PATH ; une version portable 1.16.6 a été restaurée après vérification du SH
 Elle a permis une initialisation, une validation et un plan sans apply réussis.
 Consultez le [registre de réexécution réelle](live-rerun-2026-10-19.md).
 La disponibilité complète de l'environnement n'est pas démontrée.
+
+### Actualisation des prérequis du 23 octobre
+
+Le [reçu actuel des prérequis](../assets/runtime-2026-10-23/lab-prerequisite-refresh.json)
+confirme Azure CLI 2.91.0 et l'inscription de Cognitive Services, Search, Insights
+et Storage. Les métadonnées régionales indiquent 26/5000 unités affectées à
+GPT-4.1-mini Standard et 1/1000 à text-embedding-3-small GlobalStandard.
+Ce sont les unités `Count` de l'API, pas un débit mesuré ni une garantie
+de capacité réelle. Aucune affectation de quota n'a changé.
+
+À ce point, le processus trouve az, azd et Python, mais pas Terraform ou PAC dans
+PATH. Cela ne prouve pas leur désinstallation; le plan Terraform portable reste
+une preuve historique. Search Basic est conservé et fonctionne.
+L'autorisation de déploiement et de tests payants de l'utilisateur est consignée
+dans la [livraison autorisée](../assets/runtime-2026-10-23/authorized-release.json).
+Droits maker/crédits affectés, DLP effectif, état actuel des fichiers, télémétrie
+du canal publié, propriétaire de rétention et plafond chiffré restent des exigences
+distinctes non fermées. Cette actualisation ne certifie pas tout le lab 0.
+
+La [récupération ultérieure des outils](../assets/runtime-2026-10-23/native-recovery-alternatives.json)
+restaure PAC officiel 2.14.1 et vérifie l'identité admin/MngEnv prévue.
+Le [contrôle Terraform indépendant](../assets/runtime-2026-10-23/terraform-reconciliation.json)
+restaure Terraform 1.16.6 avec empreinte vérifiée et réussit init, validation et
+plan enregistré des sources d'origine. Les deux exécutables sont appelés par
+leurs chemins isolés; le PATH global n'est pas modifié. L'absence des outils
+est résolue, pas les droits, la stratégie, le budget ni l'acceptation des réponses natives.
 
 ## 1. Consigner le contexte d'exécution
 
@@ -130,15 +156,31 @@ pas Owner comme rôle par défaut.
 
 | Contrôle                        | Résultat attendu                                     | Preuve actuelle                                                                     |
 | ------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| Environnement correct           | Environnement nommé avec les accès prévus            | Non vérifié indépendamment                                                          |
-| Droit de création et crédits    | Fonctions utilisables avec une facturation approuvée | Non vérifié indépendamment                                                          |
+| Environnement correct           | Environnement nommé avec les accès prévus            | Admin/MngEnv, bot possédé et environnement vérifiés par interface/API/PAC              |
+| Droit de création et crédits    | Fonctions utilisables avec une facturation approuvée | Évaluation de brouillon authentifiée exécutée; crédits du tenant non vérifiés           |
 | Connaissances par fichier       | PDF pris en charge atteignant l'état Ready           | Le lab 1 montre un résultat fondé sur des connaissances, pas toute la configuration |
 | Stratégies et connexions        | Outils autorisés, sans erreur de stratégie           | Non vérifié indépendamment                                                          |
 | Azure CLI                       | Version affichée et requête de compte réussie        | Contrôle en lecture seule réussi                                                    |
-| Fournisseurs de ressources      | Fournisseurs nécessaires inscrits                    | Search, Cognitive Services et Insights observés inscrits                            |
-| Terraform                       | Exécutable et version compatible                     | Absent du PATH                                                                      |
-| Ressources Search et télémétrie | Ressources approuvées disponibles                    | Aucune observée dans l'abonnement sélectionné                                       |
-| Budget et quotas                | Accord du responsable et quotas suffisants           | Non vérifié                                                                         |
+| Fournisseurs de ressources      | Fournisseurs nécessaires inscrits                    | 24 octobre : Search, Cognitive Services, Insights et Storage inscrits               |
+| Terraform                       | Exécutable et version compatible                     | Portable 1.16.6 vérifié; init/validate/plan des sources d'origine réussis                |
+| Ressources Search et télémétrie | Ressources approuvées disponibles                    | Search Basic fonctionne; acceptation télémétrie publiée/confidentialité non vérifiée |
+| Budget et quotas                | Accord du responsable et quotas suffisants           | 24 octobre : chat 26/5 000, embedding 1/1 000; limites budget/rétention ouvertes |
+
+Le [reçu du 24 octobre en lecture seule](../assets/runtime-2026-10-24/azure-preflight-refresh.json)
+associe les modèles déployés aux compteurs exacts de Sweden Central, libellés en
+milliers de jetons par minute, et vérifie les deux déploiements Succeeded.
+Les quatre ressources ARM conservées rapportent 7,650361288 USD avant taxes,
+dont 7,373 USD Search, jusqu'au 24 octobre partiel. La remontée peut être retardée;
+ce n'est ni une facture finale ni un total de crédits Copilot. Aucune inférence,
+inscription de fournisseur ou modification de configuration. Crédits du tenant,
+budget, rétention et autres critères d'acceptation du lab 0 restent ouverts.
+
+Une lecture Microsoft Graph distincte vérifie l'identifiant objet et le compte
+administrateur exacts, puis renvoie quatre enregistrements de licences.
+Sept plans filtrés liés à la création ont l'état de provisionnement Success.
+Ces attributions ne prouvent ni les droits complets standard/premium, ni les
+crédits du tenant, ni une liaison de facturation à l'usage de l'environnement.
+Aucun consentement supplémentaire n'est demandé.
 
 ## Captures à conserver et nettoyage
 

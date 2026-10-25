@@ -1,4 +1,5 @@
 """Offline regression tests for documentation export and link validation."""
+from datetime import datetime
 from pathlib import Path
 import json
 import tempfile
@@ -1041,6 +1042,1263 @@ class WikiTests(unittest.TestCase):
             self.assertFalse(repair[key])
         self.assertFalse(recovery["endpoint_authorization_changed"])
         self.assertFalse(recovery["additional_manual_role_or_consent_changes"])
+
+    def test_completion_checkpoint_preserves_cost_and_release_boundaries(self):
+        from decimal import Decimal
+
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        result = json.loads((assets / "completion-progress.json").read_text("utf-8"))
+        self.assertFalse(result["overall_workshop_certified"])
+        self.assertEqual(result["roadmap_tasks_closed"], [])
+        inventory = result["ownership_inventory"]
+        self.assertTrue(inventory["resource_group_id_and_run_tag_match_retained_ownership"])
+        self.assertTrue(inventory["account_project_search_ids_match_retained_ownership"])
+        self.assertTrue(inventory["account_project_search_managed_identity_ids_match_retained_ownership"])
+        self.assertFalse(inventory["T001_complete"])
+        costs = inventory["cost_control"]
+        search = sum(Decimal(row["cost"]) for row in costs["search_daily_returned_costs"])
+        self.assertEqual(search, Decimal(costs["reported_search_subtotal"]))
+        self.assertEqual(search + Decimal(costs["reported_account_subtotal"]),
+                         Decimal(costs["reported_pretax_subtotal"]))
+        self.assertTrue(costs["pagination_complete"])
+        self.assertTrue(costs["billing_data_may_lag_and_current_day_is_partial"])
+        self.assertFalse(costs["complete_lifetime_or_final_invoice_claimed"])
+        self.assertTrue(costs["resources_remain_live_and_billable"])
+        self.assertIsNone(costs["named_retention_owner"])
+        self.assertIsNone(costs["approved_review_deadline"])
+        release = result["release"]
+        self.assertEqual(release["recorded_source_hashes_checked"], 8)
+        self.assertEqual(release["recorded_source_hashes_matched"], 8)
+        self.assertTrue(all(value == "pending" for value in release["required_role_approvals"].values()))
+        self.assertFalse(release["general_permission_promoted_to_role_signoff"])
+        self.assertFalse(release["T002_complete"])
+        hosted = result["foundry_metadata"]["hosted_extension"]
+        self.assertFalse(hosted["repair_redeployed"])
+        self.assertFalse(hosted["new_hosted_activity_test"])
+        self.assertEqual(hosted["endpoint_authorization_schemes"], ["Entra", "BotServiceRbac"])
+        control = result["foundry_metadata"]["original_retrieval_control"]
+        self.assertEqual(control["latest_version"], "4")
+        self.assertTrue(control["version_definition_matches_retained_creation_receipt"])
+        self.assertFalse(control["native_answer_or_whole_turn_retested"])
+        self.assertFalse(result["native_browser"]["page_open_failure_or_no_side_effect_proven"])
+        self.assertTrue(all(not value for value in result["preservation"].values()))
+        for language in ("en", "fr"):
+            for filename in ("completion-roadmap.md", "backend-live-2026-10-20.md"):
+                text = (root / "docs" / language / filename).read_text("utf-8")
+                self.assertIn("completion-progress.json", text)
+                self.assertIn("native-state-readback.json", text)
+                self.assertIn("independent-lab-review.json", text)
+
+    def test_current_native_readback_is_not_native_runtime_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "docs" / "assets" / "runtime-2026-10-23"
+                              / "native-state-readback.json").read_text("utf-8"))
+        self.assertEqual(receipt["surface"]["http_status_codes"], [200, 200, 200])
+        diagnostic = receipt["current_diagnostic"]
+        self.assertEqual((diagnostic["statecode"], diagnostic["statuscode"]), (1, 2))
+        self.assertTrue(diagnostic["definition_matches_retained_baseline"])
+        attachment = receipt["current_original_retrieval_attachment"]
+        self.assertEqual(attachment["state_label"], "Active")
+        self.assertTrue(attachment["target_agent_name_matches_historical_capture"])
+        self.assertIsNone(attachment["definition_matches_retained_baseline"])
+        self.assertFalse(attachment["byte_for_byte_attachment_unchanged_verified"])
+        self.assertFalse(receipt["roadmap"]["tasks_marked_complete"])
+        self.assertTrue(all(not value for value in receipt["safety"].values()))
+
+    def test_independent_lab_review_does_not_close_historical_partial_criteria(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "docs" / "assets" / "runtime-2026-10-23"
+                              / "independent-lab-review.json").read_text("utf-8"))
+        self.assertEqual(receipt["scope"]["roadmap_task_ids"], ["T009", "T010", "T014"])
+        self.assertEqual(receipt["scope"]["roadmap_tasks_closed"], [])
+        self.assertEqual(receipt["scope"]["new_native_agent_acceptance_passes"], 0)
+        self.assertFalse(receipt["scope"]["workshop_complete"])
+        self.assertFalse(receipt["execution_boundary"]["sdk_or_direct_results_promoted_to_native"])
+        self.assertTrue(receipt["execution_boundary"]["prior_failures_preserved"])
+        self.assertFalse(receipt["current_observations"]["browser"]["usable_shared_page_available"])
+        refreshed = json.loads((root / "docs" / "assets" / "runtime-2026-10-23"
+                                / "lab-prerequisite-refresh.json").read_text("utf-8"))
+        self.assertFalse(refreshed["overall_lab_0_ready"])
+        self.assertFalse(refreshed["lab_4_byom_passed"])
+        self.assertEqual(refreshed["roadmap_tasks_closed"], [])
+        self.assertTrue(all(state == "Registered"
+                            for state in refreshed["resource_providers"].values()))
+        for quota in refreshed["regional_model_quota"]["records"]:
+            self.assertEqual(quota["unit"], "Count")
+            self.assertEqual(quota["limit"] - quota["currentValue"], quota["unallocated"])
+        byom = refreshed["lab_4_public_contract_rechecked"]
+        self.assertEqual(byom["connector_documented_authentication_types"], ["Default"])
+        self.assertFalse(byom["policy_exception_or_lab_exclusion_approved"])
+        self.assertFalse(byom["T011_T012_completed"])
+        for language in ("en", "fr"):
+            for filename in ("lab-00.md", "lab-04.md"):
+                self.assertIn("lab-prerequisite-refresh.json",
+                              (root / "docs" / language / filename).read_text("utf-8"))
+        for path in root.glob("docs/assets/runtime-2026-10-23/*.json"):
+            text = path.read_text("utf-8")
+            self.assertNotRegex(text, r'(?i)authorization["\s:]+bearer\s+')
+            self.assertNotRegex(text, r"eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.")
+            self.assertNotIn("subscriptions/", text)
+            self.assertNotIn(".crm.dynamics.com", text)
+            self.assertNotIn("access_token", text)
+
+    def test_authorized_release_preserves_failed_v2_and_hosted_only_v3_results(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        result = json.loads((assets / "authorized-release.json").read_text("utf-8"))
+        self.assertFalse(result["overall_workshop_certified"])
+        self.assertEqual(result["authorization"]["reference"], "user-turn-20261023T161249-0400")
+        self.assertFalse(result["authorization"][
+            "organization_role_membership_or_third_party_signatures_inferred"])
+        self.assertEqual([item["version"] for item in result["deployments"]], ["2", "3"])
+        self.assertTrue(all(item["azd_exit_code"] == 0 for item in result["deployments"]))
+        self.assertTrue(all(not item["endpoint_authorization_changed"]
+                            for item in result["deployments"]))
+        earlier = json.loads((assets / "hosted-negative-checks.json").read_text("utf-8"))
+        self.assertEqual(earlier["result"], "FAIL")
+        self.assertEqual((earlier["passed"], earlier["failed"]), (1, 1))
+        self.assertFalse(earlier["acceptance_closed"])
+        final = json.loads((assets / "hosted-version3-regression.json").read_text("utf-8"))
+        self.assertEqual(final["active_version"], "3")
+        self.assertEqual(final["result"], "PASS")
+        self.assertEqual(final["activity_requests_attempted"], 3)
+        self.assertEqual(final["automatic_retries"], 0)
+        self.assertEqual([case["result"] for case in final["cases"]], ["PASS"] * 3)
+        positive, abstention, invalid = final["cases"]
+        self.assertTrue(positive["whole_record_checks_passed"])
+        self.assertTrue(positive["individual_marker_checks_passed"])
+        self.assertTrue(abstention["explicit_abstention"])
+        self.assertFalse(abstention["selection_invoked"])
+        self.assertTrue(invalid["explicit_application_error"])
+        self.assertEqual(invalid["actual_total_model_requests"], 0)
+        self.assertFalse(final["native_pass"])
+        self.assertFalse(final["full_matrix_pass"])
+        self.assertFalse(final["legal_completion"])
+        self.assertTrue(final["historical_evidence_hashes_unchanged"])
+        self.assertEqual(result["roadmap"]["completed_tasks"], ["T003", "T004"])
+        self.assertEqual(result["request_accounting"]["total_activity_posts"], 6)
+        self.assertEqual(result["request_accounting"]["native_evaluation_runs"], 0)
+        for language in ("en", "fr"):
+            for filename in ("completion-roadmap.md", "backend-live-2026-10-20.md", "validation.md"):
+                text = (root / "docs" / language / filename).read_text("utf-8")
+                self.assertIn("authorized-release.json", text)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [x] T003", roadmap)
+            self.assertIn("- [x] T004", roadmap)
+            self.assertIn("- [x] T013", roadmap)
+            self.assertEqual(roadmap.count("- [x] T"), 3)
+
+    def test_native_sdk_portability_checks_do_not_claim_runtime_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        clone = json.loads((assets / "native-sdk-candidate.json").read_text("utf-8"))
+        self.assertTrue(clone["official_cli_clone_completed"])
+        self.assertTrue(clone["real_agent_workspace_created"])
+        self.assertTrue(clone["integrated_authentication_preserved_in_clone"])
+        self.assertFalse(clone["candidate_created"])
+        self.assertFalse(clone["whole_parent_response_captured"])
+        self.assertEqual(clone["question_submissions"], 0)
+        self.assertEqual(clone["remote_content_writes"], 0)
+        self.assertTrue(clone["active_cli_profile_restored"])
+        packaging = json.loads((assets / "native-sdk-packaging.json").read_text("utf-8"))
+        self.assertTrue(packaging["official_pack_executed"])
+        self.assertEqual(packaging["pack_exit_code"], 1)
+        self.assertFalse(packaging["zip_created"])
+        self.assertTrue(packaging["clone_contains_two_real_knowledge_payloads"])
+        self.assertEqual(packaging["knowledge_payload_sizes_bytes"], [163840, 8525])
+        self.assertTrue(packaging["clone_unchanged"])
+        self.assertEqual(packaging["cloud_operations"], 0)
+        author = json.loads((assets / "native-sdk-author.json").read_text("utf-8"))
+        self.assertEqual(author["pack_exit_code"], 1)
+        self.assertEqual(author["zip_count"], 0)
+        self.assertEqual(author["source_files_count"], 34)
+        self.assertTrue(author["source_hashes_unchanged"])
+        self.assertTrue(author["knowledge_bytes_and_extensions_preserved"])
+        self.assertFalse(author["components_dropped"])
+        self.assertFalse(author["yaml_edits"])
+        self.assertFalse(author["runtime_or_acceptance_verified"])
+        template = json.loads((assets / "native-sdk-template-candidate.json").read_text("utf-8"))
+        self.assertEqual(template["source_component_count"], 26)
+        self.assertEqual(template["exported_component_count"], 21)
+        self.assertFalse(template["parent_routing_instructions_preserved_by_template"])
+        self.assertFalse(template["inactive_action_preserved_by_template"])
+        self.assertEqual(template["file_column_name"], "filedata")
+        self.assertTrue(template["both_live_payload_hashes_match_clone"])
+        self.assertTrue(template["existing_approved_connection_binding_resolved"])
+        self.assertFalse(template["candidate_binding_verified"])
+        self.assertTrue(template["original_parent_and_all_component_full_rows_unchanged"])
+        self.assertTrue(template["pac_profile_restored"])
+        self.assertEqual(template["service_content_writes"], 0)
+        self.assertEqual(template["question_submissions"], 0)
+        self.assertFalse(template["permissions_changed"])
+        self.assertFalse(template["whole_parent_response_captured"])
+        self.assertFalse(template["roadmap_complete"])
+        staging_assets = root / "docs" / "assets" / "runtime-2026-10-24"
+        failed = json.loads((staging_assets / "native-sdk-staging.json").read_text("utf-8"))
+        self.assertEqual(failed["status"], "failed")
+        self.assertFalse(failed["candidate_retained"])
+        self.assertTrue(failed["no_candidate_exists_after_failure"])
+        staging = json.loads(
+            (staging_assets / "native-sdk-staging-corrected-name.json").read_text("utf-8")
+        )
+        self.assertEqual(staging["candidate_instances_created"], 1)
+        self.assertTrue(staging["display_name_correction_reused_same_schema"])
+        self.assertEqual(staging["candidate_component_count"], 21)
+        self.assertEqual(staging["source_component_count"], 26)
+        self.assertTrue(staging["routing_instruction_and_missing_component_reconstruction_pending"])
+        self.assertEqual(staging["file_uploads_attempted"], 2)
+        self.assertEqual(staging["file_hashes_verified"], 2)
+        self.assertTrue(staging["connection_binding_verified"])
+        self.assertEqual(staging["authenticationmode"], 2)
+        self.assertEqual(staging["accesscontrolpolicy"], 2)
+        self.assertEqual(staging["authenticationtrigger"], 1)
+        self.assertTrue(staging["unpublished_independently_verified"])
+        self.assertTrue(staging["original_rows_files_and_reference_unchanged"])
+        self.assertTrue(staging["pac_profile_restored"])
+        self.assertFalse(staging["sdk_ready"])
+        self.assertEqual(staging["questions"], 0)
+        self.assertEqual(staging["publish_attempts"], 0)
+        self.assertEqual(staging["permission_changes"], 0)
+        self.assertFalse(staging["roadmap_complete"])
+        reconstruction = json.loads(
+            (staging_assets / "native-sdk-reconstruction.json").read_text("utf-8")
+        )
+        self.assertEqual(reconstruction["source_component_coverage"], 26)
+        self.assertEqual(reconstruction["existing_candidate_components_mapped"], 21)
+        self.assertEqual(reconstruction["missing_component_definitions_reconstructed"], 5)
+        self.assertTrue(reconstruction["instructions_exact_after_internal_reference_normalization"])
+        self.assertTrue(reconstruction["schema_validation_passed"])
+        self.assertEqual(reconstruction["schema_validated_definition_count"], 24)
+        self.assertEqual(reconstruction["schema_warning_count"], 1)
+        self.assertTrue(reconstruction["projected_operation_result_matches_all_26_desired_rows"])
+        self.assertTrue(reconstruction["source_clone_hashes_unchanged"])
+        self.assertTrue(reconstruction["both_knowledge_payload_hashes_verified_locally"])
+        self.assertTrue(reconstruction["inactive_diagnostic_state_encoded"])
+        self.assertTrue(reconstruction["entra_controls_preserved_locally"])
+        self.assertEqual(reconstruction["component_ids_reserved_not_created"], 5)
+        self.assertEqual(reconstruction["cloud_writes_executed"], 0)
+        self.assertFalse(reconstruction["publish_attempted"])
+        self.assertFalse(reconstruction["remote_reconstruction_verified"])
+        self.assertFalse(reconstruction["runtime_acceptance_verified"])
+        self.assertTrue(
+            reconstruction["requires_manage_preflight_atomic_execution_and_independent_postflight"]
+        )
+
+    def test_native_root_concurrency_guard_blocks_writes_and_sdk_capture(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-24"
+        apply = json.loads((assets / "native-sdk-managed-apply.json").read_text("utf-8"))
+        self.assertEqual(apply["status"], "blocked_preflight_stale_candidate_root_etag")
+        self.assertFalse(apply["atomic_changeset_submitted"])
+        self.assertEqual(apply["content_writes"], 0)
+        self.assertEqual(apply["candidate_component_count"], 21)
+        self.assertEqual(apply["reserved_components_still_absent"], 5)
+        self.assertTrue(apply["candidate_unpublished"])
+        self.assertTrue(apply["auth_controls_verified"])
+        self.assertTrue(apply["candidate_components_match_author_preconditions"])
+        self.assertTrue(apply["only_background_sync_root_fields_differ"])
+        self.assertTrue(apply["source_parent_and_all_component_full_rows_unchanged"])
+        self.assertTrue(apply["source_and_candidate_file_hashes_verified"])
+        self.assertTrue(apply["source_binding_unchanged"])
+        self.assertEqual(apply["permission_changes"], 0)
+        self.assertEqual(apply["publish_attempts"], 0)
+        capture = json.loads((assets / "native-sdk-capture.json").read_text("utf-8"))
+        self.assertEqual(capture["question_submissions"], 0)
+        self.assertEqual(capture["activities_captured"], 0)
+        self.assertEqual(capture["completion_events_observed"], [])
+        self.assertFalse(capture["final_answer_captured"])
+        self.assertEqual(capture["application_or_grant_writes"], 0)
+        self.assertEqual(capture["temporary_scope_tokens_created"], 0)
+        self.assertEqual(capture["existing_tokens_or_refresh_tokens_removed"], 0)
+        self.assertFalse(capture["roadmap_complete"])
+        reconciled = json.loads(
+            (assets / "native-sdk-managed-apply-reconciled.json").read_text("utf-8")
+        )
+        self.assertEqual(reconciled["status"], "applied_verified_unpublished")
+        self.assertTrue(reconciled["root_reconciliation_allowlisted_and_stable"])
+        self.assertTrue(reconciled["atomic_changeset_submitted"])
+        self.assertEqual(reconciled["subresponse_codes"], [204] * 14)
+        self.assertEqual(reconciled["candidate_component_count"], 26)
+        self.assertTrue(reconciled["fidelity_passed"])
+        self.assertTrue(reconciled["source_full_rows_unchanged"])
+        self.assertEqual(reconciled["file_hashes_verified"], 4)
+        self.assertTrue(reconciled["binding_verified"])
+        self.assertTrue(reconciled["auth_controls_preserved"])
+        self.assertFalse(reconciled["published"])
+        self.assertEqual(reconciled["questions"], 0)
+        self.assertFalse(reconciled["permissions_changed"])
+        pending_capture = json.loads(
+            (assets / "native-sdk-capture-reconciled.json").read_text("utf-8")
+        )
+        self.assertEqual(pending_capture["question_submissions"], 0)
+        self.assertFalse(pending_capture["final_answer_captured"])
+        self.assertFalse(pending_capture["completion_event_observed"])
+        self.assertFalse(pending_capture["permission_changes"])
+
+    def test_candidate_publication_requires_api_proof_and_does_not_imply_sdk_capture(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-24"
+        published = json.loads((assets / "native-sdk-publish-confirmed.json").read_text("utf-8"))
+        self.assertEqual(published["official_pac_exit_code"], 1)
+        self.assertTrue(published["cli_status_parser_failed"])
+        self.assertEqual(published["api_publish_result"], "Succeeded")
+        self.assertTrue(published["published_timestamp_verified"])
+        self.assertTrue(published["candidate_only"])
+        self.assertEqual(published["candidate_component_count"], 26)
+        self.assertTrue(published["auth_access_trigger_preserved"])
+        self.assertTrue(published["source_full_rows_and_file_hashes_unchanged"])
+        self.assertTrue(published["bindings_unchanged"])
+        self.assertEqual(published["question_submissions"], 0)
+        self.assertTrue(published["temporary_grant_and_manifest_exactly_restored"])
+        self.assertTrue(published["existing_access_and_refresh_entries_retained"])
+        self.assertTrue(published["pac_profile_restored"])
+        self.assertFalse(published["roadmap_complete"])
+        capture = json.loads((assets / "native-sdk-capture-owned-client.json").read_text("utf-8"))
+        self.assertEqual(capture["status"], "blocked")
+        self.assertFalse(capture["owned_client_caller_verified"])
+        self.assertEqual(capture["question_submissions"], 0)
+        self.assertEqual(capture["question_retries"], 0)
+        self.assertEqual(capture["start_activity_count"], 0)
+        self.assertEqual(capture["turn_activity_counts"], [])
+        self.assertTrue(capture["grant_exactly_restored"])
+        self.assertTrue(capture["app_permissions_exactly_restored"])
+        self.assertTrue(capture["original_access_entries_retained"])
+        self.assertTrue(capture["refresh_entries_retained"])
+        self.assertEqual(capture["restoration_error_count"], 0)
+        self.assertFalse(capture["dynamic_plan_finished_observed"])
+        self.assertTrue(capture["whole_parent_completion_not_inferred_from_silence"])
+        self.assertFalse(capture["roadmap_complete"])
+
+    def test_sdk_consent_diagnostic_uses_verified_profile_and_closes_expired_callback(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-24"
+        diagnostic = json.loads((assets / "native-sdk-auth-diagnostic.json").read_text("utf-8"))
+        self.assertEqual(diagnostic["silent_with_error_attempts"], 1)
+        self.assertEqual(diagnostic["silent_result"]["error_codes"], [65001])
+        self.assertEqual(diagnostic["silent_result"]["suberror"], "consent_required")
+        self.assertFalse(diagnostic["silent_result"]["claims_challenge_present"])
+        self.assertEqual(diagnostic["browser_attempts"][0]["prompt"], "none")
+        self.assertEqual(diagnostic["browser_attempts"][0]["result"]["error"], "consent_required")
+        self.assertEqual(diagnostic["browser_attempts"][1]["result"], "no_callback_before_bound")
+        self.assertTrue(diagnostic["verified_admin_edge_profile_used"])
+        self.assertFalse(diagnostic["cookies_or_session_databases_read"])
+        self.assertFalse(diagnostic["tokens_or_auth_codes_logged"])
+        capture = json.loads((assets / "native-sdk-capture-recovered.json").read_text("utf-8"))
+        self.assertEqual(capture["actual_auth_error"], "AADSTS65001")
+        self.assertEqual(capture["sdk_service_requests_sent"], 0)
+        self.assertEqual(capture["question_submissions"], 0)
+        self.assertFalse(capture["normal_interactive_callback_observed"])
+        self.assertTrue(capture["loopback_listener_closed"])
+        self.assertTrue(capture["right_admin_profile_verified_from_metadata"])
+        self.assertTrue(capture["grant_and_manifest_final_get_match_baseline"])
+        self.assertTrue(capture["original_access_entries_retained"])
+        self.assertTrue(capture["refresh_entries_retained"])
+        self.assertTrue(capture["candidate_publication_confirmed"])
+        self.assertTrue(capture["candidate_auth_access_trigger_preserved"])
+        self.assertTrue(capture["source26_full_rows_unchanged"])
+        self.assertTrue(capture["source_and_candidate_file_hashes_verified"])
+        self.assertTrue(capture["binding_preserved"])
+        self.assertTrue(capture["pac_profile_1_active"])
+        self.assertEqual(capture["restoration_error_count"], 0)
+        self.assertFalse(capture["dynamic_plan_finished_observed"])
+        self.assertFalse(capture["roadmap_complete"])
+
+    def test_invoke_auth_success_does_not_promote_typing_to_completed_capture(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-auth-consent-recovery-final.json").read_text("utf-8"))
+        self.assertTrue(result["resource_client_account_scope_mapping_verified"])
+        self.assertGreaterEqual(result["grant_retention_seconds"], 300)
+        self.assertEqual(result["force_refresh_probes"], 1)
+        self.assertTrue(result["verified_invoke_token_acquired"])
+        self.assertEqual(result["same_public_api_constructed_extra_scopes"],
+                         ["offline_access", "openid", "profile"])
+        self.assertTrue(result["scope_construction_is_not_original_http_capture"])
+        self.assertTrue(result["oidc_scope_causation_not_assumed"])
+        self.assertFalse(result["plain_oauth_fallback_needed"])
+        self.assertEqual(result["sdk_start_activity_count"], 1)
+        self.assertEqual(result["question_submissions"], 0)
+        self.assertFalse(result["whole_parent_completion_observed"])
+        self.assertTrue(result["all_current_user_grants_exactly_restored"])
+        self.assertTrue(result["manifest_exactly_restored"])
+        self.assertTrue(result["maker_and_valid_refresh_entries_retained"])
+        self.assertTrue(result["candidate26_and_original_source_preserved"])
+        self.assertTrue(result["pac_profile_1_verified"])
+        self.assertEqual(result["unresolved_permission_restoration_errors"], 0)
+        self.assertTrue(result["expired_tab_cleanup_unverifiable"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_header_aware_parent_capture_exposes_runtime_connector_blocker(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-24"
+        start = json.loads((assets / "native-sdk-start-diagnostic.json").read_text("utf-8"))
+        capture = json.loads((assets / "native-sdk-capture-start-recovered.json").read_text("utf-8"))
+        self.assertTrue(start["server_conversation_header_observed"])
+        self.assertFalse(start["start_emit_event"])
+        self.assertFalse(start["greeting_acceptance"])
+        self.assertEqual(start["start_stream_status"], "closed_normally")
+        self.assertTrue(start["start_iterator_closed"])
+        self.assertTrue(start["non_activity_sse_visibility_limited_by_sdk"])
+        self.assertEqual(capture["http_statuses"], [200, 200, 200])
+        self.assertTrue(capture["server_conversation_header_verified"])
+        self.assertEqual(capture["question_submissions"], 2)
+        self.assertEqual(capture["question_retries"], 0)
+        self.assertEqual(capture["turn_stream_statuses"], ["closed_normally"] * 2)
+        self.assertTrue(capture["hello_readiness_text_captured"])
+        self.assertTrue(capture["sar_response_adaptive_card_captured"])
+        self.assertTrue(capture["runtime_user_connector_connection_required"])
+        self.assertFalse(capture["connect_or_continue_invoked"])
+        self.assertFalse(capture["sar_domain_answer_captured"])
+        self.assertEqual(capture["actual_sar_event_names"], [
+            "DynamicPlanReceived", "DynamicPlanStepTriggered", "DynamicPlanStepBindUpdate",
+        ])
+        self.assertFalse(capture["dynamic_plan_finished_observed"])
+        self.assertEqual(capture["source_quote_comparisons_performed"], 0)
+        self.assertFalse(capture["sdk_transport_error_observed"])
+        self.assertTrue(capture["initial_text_only_assertion_preserved_and_reclassified"])
+        self.assertTrue(capture["permission_manifest_and_all_current_user_grants_exactly_restored"])
+        self.assertEqual(capture["temporary_invoke_access_tokens_removed"], 1)
+        self.assertTrue(capture["maker_access_and_valid_refresh_entries_retained"])
+        self.assertTrue(capture["source_candidate_files_bindings_auth_preserved"])
+        self.assertTrue(capture["pac_profile_1_verified"])
+        self.assertTrue(capture["two_case_capture_is_not_full_acceptance"])
+        self.assertFalse(capture["roadmap_complete"])
+
+    def test_connector_auth_stops_before_unverified_website_account_action(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-connector-authorization.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "blocked_before_connect")
+        self.assertEqual(result["boundary_code"], "ADMIN_WEBSITE_SESSION_NOT_VERIFIED_VIA_UIA")
+        for key in (
+            "connect_navigation_count", "connect_submissions", "continue_submissions",
+            "fresh_question_submissions", "question_retries", "temporary_permission_changes",
+            "publication_attempts", "cloud_write_requests", "verification_error_count",
+            "rollback_error_count",
+        ):
+            with self.subTest(key=key):
+                self.assertEqual(result[key], 0)
+        for key in (
+            "owned_app_and_all_current_user_grants_exact_baseline",
+            "source_root_and_all26_full_rows_exactly_unchanged",
+            "candidate26_definitions_states_refs_and_published_auth_preserved",
+            "all_four_file_hashes_and_approved_bindings_verified",
+            "owned_dpapi_cache_bytes_unchanged_this_phase",
+            "maker_access_and_valid_refresh_entries_not_modified",
+            "pac_profile_1_verified", "manual_admin_session_verification_required",
+        ):
+            with self.subTest(key=key):
+                self.assertTrue(result[key])
+        self.assertFalse(result["whole_parent_completion_observed"])
+        self.assertFalse(result["domain_answer_observed"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_scoped_visual_connector_check_preserves_identity_boundary(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-connector-visual-verification.json").read_text("utf-8"))
+        self.assertEqual(result["boundary_code"],
+                         "ADMIN_IDENTITY_NOT_VISIBLE_IN_SCOPED_PRINTWINDOW_CAPTURE")
+        self.assertTrue(result["window_scoped_image_inspected"])
+        self.assertFalse(result["visual_identity_verified"])
+        self.assertTrue(result["original_window_minimized_state_independently_verified"])
+        for key in ("connect_submissions", "continue_submissions", "fresh_question_submissions",
+                    "temporary_permission_changes", "cloud_write_requests", "rollback_error_count"):
+            with self.subTest(key=key):
+                self.assertEqual(result[key], 0)
+        self.assertTrue(result["source_root_and_all26_full_rows_exactly_unchanged"])
+        self.assertTrue(result["owned_dpapi_cache_bytes_unchanged_this_phase"])
+        self.assertTrue(result["manual_admin_session_verification_required"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_azure_refresh_scopes_cost_and_matches_deployed_model_quota(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "azure-preflight-refresh.json").read_text("utf-8"))
+        self.assertTrue(result["azure_extension_admin_tenant_verified"])
+        self.assertTrue(result["azure_cli_admin_tenant_verified"])
+        self.assertTrue(result["extension_and_cli_contexts_verified_separately"])
+        self.assertFalse(result["browser_website_identity_verified"])
+        self.assertEqual(result["retained_arm_resource_count"], 4)
+        self.assertEqual(sum(result["resource_types"].values()), 4)
+        self.assertEqual(len(result["registered_providers"]), 4)
+        self.assertTrue(result["insights_case_sensitive_list_filter_omission_resolved_by_explicit_get"])
+        self.assertEqual(result["foundry_region"], "swedencentral")
+        self.assertTrue(result["foundry_disable_local_auth"])
+        self.assertTrue(result["search"]["disable_local_auth"])
+        self.assertEqual(result["search"]["status"], "running")
+        self.assertEqual(result["search"]["replicas"], 1)
+        self.assertEqual(result["search"]["partitions"], 1)
+        self.assertEqual(len(result["deployments"]), 2)
+        for deployment in result["deployments"]:
+            with self.subTest(model=deployment["model"]):
+                self.assertEqual(deployment["provisioning_state"], "Succeeded")
+                self.assertEqual(deployment["capacity"], deployment["quota_current"])
+                self.assertEqual(deployment["quota_headroom"],
+                                 deployment["quota_limit"] - deployment["quota_current"])
+                self.assertGreater(deployment["quota_headroom"], 0)
+        self.assertEqual(result["deployments"][0]["quota_meter"], "OpenAI.Standard.gpt4.1-mini")
+        self.assertEqual(result["deployments"][0]["quota_current"], 26)
+        self.assertEqual(result["deployments"][0]["quota_limit"], 5000)
+        cost = result["cost"]
+        self.assertEqual(cost["currency"], "USD")
+        self.assertEqual(cost["reported_pretax_cost"], 7.650361288)
+        self.assertEqual(cost["reported_search_cost"], 7.373)
+        self.assertFalse(cost["unrelated_subscription_costs_included"])
+        self.assertFalse(cost["next_link_present"])
+        self.assertTrue(cost["reporting_may_lag"])
+        self.assertFalse(cost["is_final_invoice"])
+        self.assertFalse(cost["is_copilot_credit_total"])
+        for key in ("model_inference_calls", "new_agent_questions", "cloud_configuration_writes",
+                    "role_or_policy_changes", "provider_registration_writes",
+                    "billing_configuration_changes", "resource_deletions"):
+            with self.subTest(key=key):
+                self.assertEqual(result[key], 0)
+        self.assertFalse(result["numeric_budget_approved"])
+        self.assertFalse(result["tenant_credit_allocation_verified"])
+        licenses = result["maker_license_read"]
+        self.assertTrue(licenses["graph_me_admin_object_id_and_upn_verified"])
+        self.assertEqual(licenses["license_detail_record_count"], 4)
+        self.assertEqual(licenses["filtered_maker_related_plan_count"], 7)
+        self.assertEqual(licenses["filtered_plan_provisioning_statuses"], ["Success"])
+        self.assertEqual(licenses["additional_grants_requested"], 0)
+        self.assertFalse(licenses["full_standard_harness_entitlement_proven"])
+        self.assertFalse(licenses["tenant_credit_allocation_proven"])
+        self.assertFalse(licenses["environment_pay_as_you_go_binding_proven"])
+        self.assertFalse(result["full_lab0_acceptance"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_foreground_guard_does_not_capture_an_unrelated_window(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-connector-foreground-verification.json").read_text("utf-8"))
+        self.assertEqual(result["boundary_code"], "OTHER_WINDOW_FOREGROUND_SHARED_DESKTOP_GUARD")
+        self.assertTrue(result["another_window_was_foreground"])
+        for key in ("foreground_guard_passed", "screen_capture_taken", "target_window_changed",
+                    "unrelated_window_inspected_or_captured", "foreground_takeover_attempted",
+                    "visual_identity_verified", "whole_parent_completion_observed",
+                    "domain_answer_observed", "roadmap_complete"):
+            with self.subTest(key=key):
+                self.assertFalse(result[key])
+        for key in ("connect_submissions", "continue_submissions", "fresh_question_submissions",
+                    "cloud_write_requests", "temporary_permission_changes", "rollback_error_count"):
+            with self.subTest(key=key):
+                self.assertEqual(result[key], 0)
+        self.assertTrue(result["source_root_and_all26_full_rows_exactly_unchanged"])
+        self.assertTrue(result["owned_dpapi_cache_bytes_unchanged_this_phase"])
+
+    def test_focus_success_is_not_website_identity_or_connector_success(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-connector-focus-request.json").read_text("utf-8"))
+        self.assertEqual(result["boundary_code"],
+                         "FOCUS_SUCCEEDED_ACCOUNT_INVOKE_UNSUPPORTED_CAPTURE_BOUNDS_REJECTED")
+        for key in ("foreground_request_occurred", "foreground_request_succeeded",
+                    "actual_foreground_was_verified_target", "target_was_visible_nonminimized",
+                    "original_target_minimized_state_verified_restored",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase",
+                    "manual_admin_session_verification_required"):
+            with self.subTest(key=key):
+                self.assertTrue(result[key])
+        for key in ("account_menu_invoke_pattern_supported", "account_region_bounds_guard_passed",
+                    "screenshot_taken", "whole_parent_completion_observed",
+                    "domain_answer_observed", "roadmap_complete"):
+            with self.subTest(key=key):
+                self.assertFalse(result[key])
+        for key in ("connect_submissions", "continue_submissions", "fresh_question_submissions",
+                    "cloud_write_requests", "temporary_permission_changes",
+                    "verification_error_count", "rollback_error_count"):
+            with self.subTest(key=key):
+                self.assertEqual(result[key], 0)
+
+    def test_storage_rbac_does_not_override_enforced_network_boundary(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "lab5-blob-ingestion.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "execution_failed")
+        self.assertEqual(result["storage_public_network_access_readback"], "Disabled")
+        self.assertTrue(result["storage_public_network_modify_policy_activity_observed"])
+        self.assertEqual(result["upload_http_status"], 403)
+        self.assertEqual(result["bounded_upload_attempts"], 25)
+        self.assertTrue(result["rbac_alone_does_not_override_disabled_public_networking"])
+        self.assertEqual(result["completed_tests"], [])
+        self.assertFalse(result["indexer_executed"])
+        self.assertEqual(result["policy_exemptions_created"], 0)
+        self.assertEqual(result["model_inference_calls"], 0)
+        self.assertTrue(result["temporary_storage_account_absence_verified"])
+        self.assertTrue(result["all_original_search_objects_roles_and_arm_inventory_verified_unchanged"])
+        self.assertEqual(result["cleanup_error_count"], 0)
+
+    def test_private_upload_is_not_indexer_acceptance_and_cleanup_failure_is_preserved(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "lab5-private-fictional-ingestion.json").read_text("utf-8"))
+        self.assertEqual(result["completed_tests"], ["S5-01"])
+        self.assertEqual(result["fixture_files"], ["forest.txt", "harbor.txt"])
+        self.assertEqual(result["private_blob_roundtrip_count"], 2)
+        self.assertTrue(result["private_keyless_storage_verified"])
+        self.assertTrue(result["uploader_has_no_public_ip"])
+        self.assertFalse(result["public_network_or_key_auth_policy_weakened"])
+        self.assertFalse(result["indexer_executed"])
+        self.assertEqual(result["initial_cleanup_error_count"], 2)
+        self.assertTrue(result["initial_cleanup_errors_preserved"])
+        self.assertEqual(result["cleanup_error_count"], 0)
+        self.assertTrue(result["all_owned_temporary_resources_absence_verified"])
+        self.assertFalse(result["connected_answer_proven"])
+        self.assertFalse(result["citation_navigation_proven"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_private_indexer_success_does_not_hide_vector_readback_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "lab5-private-fictional-ingestion-retry.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "execution_failed")
+        self.assertEqual(result["completed_tests"], ["S5-01"])
+        self.assertTrue(result["private_keyless_storage_verified"])
+        self.assertTrue(result["owned_shared_private_link_approved_and_ready"])
+        self.assertEqual(result["indexer_execution_environment"], "private")
+        self.assertEqual(result["indexer_status"], "success")
+        self.assertEqual(result["indexer_items_processed"], 2)
+        self.assertEqual(result["indexer_items_failed"], 0)
+        self.assertEqual(result["indexer_warning_count"], 0)
+        self.assertEqual(result["document_readback_http_status"], 400)
+        self.assertFalse(result["readable_chunk_and_vector_verification_completed"])
+        self.assertTrue(result["successful_indexer_is_not_full_s5_02_without_readable_chunks"])
+        self.assertTrue(result["all_owned_temporary_resources_absence_verified"])
+        self.assertTrue(result["original_search_objects_roles_shared_links_and_arm_inventory_preserved"])
+        self.assertEqual(result["cleanup_error_count"], 0)
+        self.assertFalse(result["public_network_or_key_auth_policy_weakened"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_private_ingestion_requires_exact_chunks_vectors_and_final_cleanup(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "lab5-private-fictional-ingestion-vector-readback.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "scoped_private_ingestion_passed")
+        self.assertEqual(result["completed_tests"], ["S5-01", "S5-02"])
+        self.assertEqual(result["fixture_files"], ["forest.txt", "harbor.txt"])
+        self.assertTrue(result["original_fictional_text_only"])
+        self.assertFalse(result["protected_documents_used"])
+        self.assertTrue(result["private_keyless_storage_verified"])
+        self.assertTrue(result["uploader_has_no_public_ip"])
+        self.assertEqual(result["private_blob_roundtrip_count"], 2)
+        self.assertTrue(result["owned_shared_private_link_approved_and_ready"])
+        self.assertEqual(result["indexer_execution_environment"], "private")
+        self.assertEqual(result["indexer_status"], "success")
+        self.assertEqual(result["indexer_items_processed"], 2)
+        self.assertEqual(result["indexer_items_failed"], 0)
+        self.assertEqual(result["indexer_warning_count"], 0)
+        self.assertEqual(result["indexed_child_chunks"], 2)
+        self.assertTrue(result["exact_passages_and_real_1536_dimension_vectors_verified"])
+        self.assertTrue(result["prior_expired_token_failure_preserved_privately"])
+        self.assertEqual(result["prior_authentication_cleanup_errors"], 16)
+        self.assertTrue(result["supported_cli_authentication_recovery_used"])
+        self.assertTrue(result["resumed_without_redeploy_or_reupload"])
+        self.assertTrue(result["all_owned_temporary_resources_absence_verified"])
+        self.assertTrue(result["original_search_objects_roles_shared_links_and_arm_inventory_preserved"])
+        self.assertEqual(result["cleanup_error_count"], 0)
+        self.assertFalse(result["public_network_or_key_auth_policy_weakened"])
+        self.assertFalse(result["full_lab_acceptance"])
+        self.assertFalse(result["roadmap_complete"])
+        for language in ("en", "fr"):
+            guide = (root / "docs" / language / "lab-05.md").read_text("utf-8")
+            for test_id in result["completed_tests"]:
+                row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
+                self.assertIn("Pass:" if language == "en" else "Réussi :", row)
+
+    def test_entra_openai_action_is_not_native_prompt_byom_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "byom-authentication-contracts.json").read_text("utf-8"))
+        self.assertEqual(result["foundry_inference"]["documented_authentication_types"], ["Default"])
+        self.assertEqual(result["foundry_inference"]["required_connection_fields"], ["Target Uri", "API Key"])
+        self.assertFalse(result["foundry_inference"]["documented_entra_alternative"])
+        connector = result["azure_openai"]
+        self.assertEqual(connector["documented_entra_auth_id"], "oauth")
+        self.assertFalse(connector["entra_connection_shareable"])
+        self.assertEqual(connector["managed_identity_applicability"], "LOGICAPPS only")
+        self.assertFalse(connector["native_prompt_byom_compatibility_proven"])
+        self.assertTrue(result["native_prompt"]["chat_completions_endpoint_required"])
+        self.assertFalse(result["native_prompt"]["native_dialog_reinspected"])
+        for key in ("connection_created", "connector_action_executed", "agent_or_prompt_modified",
+                    "policy_or_role_changed", "substitute_or_exclusion_approved",
+                    "native_byom_acceptance_passed", "roadmap_complete"):
+            with self.subTest(key=key):
+                self.assertFalse(result[key])
+        for language in ("en", "fr"):
+            guide = (root / "docs" / language / "lab-04.md").read_text("utf-8")
+            self.assertIn("byom-authentication-contracts.json", guide)
+            self.assertIn("https://learn.microsoft.com/en-us/connectors/azureopenai/", guide)
+
+    def test_verified_browser_identity_does_not_promote_failed_connector_create(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-browser-page-recovery.json").read_text("utf-8"))
+        self.assertTrue(result["website_admin_upn_verified"])
+        self.assertTrue(result["website_target_environment_route_verified"])
+        self.assertFalse(result["edge_profile_label_verified"])
+        self.assertFalse(result["manual_admin_session_verification_required"])
+        self.assertEqual(result["supported_browser_attempts"], 1)
+        self.assertEqual(result["connect_navigation_count"], 1)
+        self.assertEqual(result["connector_create_submissions"], 1)
+        self.assertEqual(result["cloud_write_requests"], 1)
+        self.assertEqual(result["observed_connector_error"], "Unable to sign in. Please try again.")
+        self.assertFalse(result["observed_connection_success"])
+        self.assertEqual(result["continue_submissions"], 0)
+        self.assertEqual(result["fresh_sar_submissions"], 0)
+        self.assertEqual(result["runtime_events_this_attempt"], [])
+        self.assertFalse(result["consent_accepted"])
+        for key in ("owned_app_and_all_current_user_grants_exact_baseline",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "candidate26_definitions_states_refs_and_published_auth_preserved",
+                    "all_four_file_hashes_and_approved_bindings_verified",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase", "pac_profile_1_verified"):
+            with self.subTest(key=key):
+                self.assertTrue(result[key])
+        self.assertEqual(result["verification_error_count"], 0)
+        self.assertEqual(result["rollback_error_count"], 0)
+        self.assertFalse(result["whole_parent_completion_observed"])
+        self.assertFalse(result["domain_answer_observed"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_signin_audit_absence_does_not_prove_runtime_authorization(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-connector-signin-audit.json").read_text("utf-8"))
+        self.assertEqual(result["graph_api_version"], "v1.0")
+        self.assertTrue(result["existing_authorization_only"])
+        self.assertEqual([q["returned_events"] for q in result["queries"]], [0, 4, 0])
+        self.assertEqual(result["queries"][1]["reported_error_codes"], [0] * 4)
+        self.assertTrue(all(not q["more_results"] for q in result["queries"]))
+        self.assertEqual(result["queries"][2]["additional_filter"], "isInteractive eq false")
+        self.assertTrue(result["no_returned_event_is_not_proof_of_no_authentication_attempt"])
+        self.assertTrue(result["logging_latency_and_query_scope_limit_inference"])
+        self.assertTrue(result["popup_blocking_not_proven"])
+        self.assertEqual(result["root_cause"], "unclassified")
+        for key in ("new_connector_submissions", "continue_submissions", "new_questions",
+                    "permission_or_policy_changes"):
+            self.assertEqual(result[key], 0)
+        self.assertFalse(result["beta_api_used"])
+        self.assertFalse(result["runtime_connector_authorization_proven"])
+        self.assertFalse(result["roadmap_complete"])
+        for language in ("en", "fr"):
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("native-connector-signin-audit.json", roadmap)
+
+    def test_trusted_browser_click_does_not_promote_failed_signin(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-trusted-click-recovery.json").read_text("utf-8"))
+        self.assertTrue(result["page_reloaded_before_submission"])
+        self.assertEqual(result["public_oidc_metadata_status"], 200)
+        self.assertEqual(result["public_oidc_request_credentials"], "omit")
+        self.assertTrue(result["trusted_click"]["isTrusted"])
+        self.assertTrue(result["trusted_click"]["userActivationActive"])
+        self.assertEqual(result["connect_submissions"], 1)
+        self.assertIsNone(result["cloud_write_requests"])
+        self.assertTrue(result["automatic_deletion_ui_observed"])
+        self.assertFalse(result["automatic_deletion_http_status_or_absence_verified"])
+        listing = result["subsequent_current_user_connection_listing"]
+        self.assertTrue(listing["target_environment_route_verified"])
+        self.assertEqual(listing["foundry_connection_rows"], 1)
+        self.assertTrue(listing["only_foundry_row_connected"])
+        self.assertFalse(listing["additional_foundry_row_observed"])
+        self.assertTrue(listing["exact_attempt_connection_id_not_available"])
+        self.assertTrue(result["temporary_click_diagnostic_removed"])
+        self.assertFalse(result["runtime_connection_success_observed"])
+        self.assertEqual(result["observed_connector_error"], "Unable to sign in. Please try again.")
+        self.assertEqual(result["root_cause"], "unclassified")
+        self.assertTrue(result["network_errors_not_established_as_signin_cause"])
+        for key in ("continue_submissions", "fresh_question_submissions",
+                    "temporary_permission_changes", "publication_attempts",
+                    "verification_error_count", "rollback_error_count"):
+            self.assertEqual(result[key], 0)
+        for key in ("owned_app_and_all_current_user_grants_exact_baseline",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "candidate26_definitions_states_refs_and_published_auth_preserved",
+                    "all_four_file_hashes_and_approved_bindings_verified",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase", "pac_profile_1_verified"):
+            self.assertTrue(result[key])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_native_studio_association_recovers_delivery_not_source_fidelity(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-studio-existing-connection.json").read_text("utf-8"))
+        self.assertEqual(result["channel"], "pva-studio")
+        self.assertTrue(result["website_required_administrator_verified"])
+        self.assertEqual(result["user_connection_status_before"], "Not Connected")
+        self.assertTrue(result["existing_connection_picker_offered"])
+        self.assertTrue(result["existing_approved_connection_selected"])
+        self.assertEqual(result["existing_connection_association_submissions"], 1)
+        self.assertEqual(result["new_connection_creates"], 0)
+        self.assertEqual(result["new_oauth_flows"], 0)
+        self.assertEqual(result["permission_or_policy_changes"], 0)
+        self.assertEqual(result["question_submissions_after_association"], 1)
+        self.assertEqual(result["rendered_domain_answer_messages"], 3)
+        self.assertFalse(result["connection_card_present_at_capture"])
+        comparisons = result["source_comparisons"]
+        self.assertEqual([c["quoted_passages"] for c in comparisons], [9, 6, 0])
+        self.assertEqual([c["exact_source_matches"] for c in comparisons], [7, 5, 0])
+        self.assertEqual([c["mismatch_count"] for c in comparisons], [2, 1, 0])
+        self.assertTrue(comparisons[2]["zero_quoted_passages_is_not_a_source_fidelity_pass"])
+        self.assertFalse(result["source_fidelity_acceptance"])
+        self.assertFalse(result["retrieval_membership_independently_proven"])
+        self.assertFalse(result["protocol_plan_finished_event_captured"])
+        self.assertFalse(result["published_channel_authorization_retested"])
+        self.assertFalse(result["source_text_or_raw_answers_published"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_verified_invocations_delivery_preserves_auth_and_native_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "verified-invocations-delivery.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "PASS")
+        self.assertEqual(result["active_hosted_version"], "5")
+        self.assertEqual(result["new_immutable_versions_created"], 2)
+        self.assertEqual(result["local_service_tests_passed"], 54)
+        self.assertEqual(result["actual_protocols"], ["activity", "invocations"])
+        self.assertEqual(result["actual_authorization_schemes"], ["Entra", "BotServiceRbac"])
+        self.assertEqual(result["service_request_limits"],
+                         {"question_characters": 12000, "raw_body_bytes": 150000})
+        controls = {case["case"]: case for case in result["hosted_controls"]}
+        self.assertEqual(len(controls), 7)
+        self.assertTrue(all(case["result"] == "PASS" for case in controls.values()))
+        self.assertEqual(controls["unauthenticated"]["http_status"], 401)
+        self.assertEqual(controls["openapi"]["http_status"], 200)
+        for case, status in (("blank", 400), ("integer-parser-limit", 400), ("body-limit", 413)):
+            self.assertEqual(controls[case]["http_status"], status)
+            self.assertEqual(controls[case]["observed_downstream_responses_posts"], 0)
+            self.assertTrue(controls[case]["model_invocation_excluded_by_session_logs"])
+            self.assertTrue(controls[case]["reference_correlated"])
+        self.assertTrue(controls["no-relevant-evidence"]["explicit_abstention"])
+        self.assertFalse(controls["no-relevant-evidence"]["selection_invoked"])
+        self.assertTrue(controls["activity_compatibility"]["exact_renderer_match"])
+        self.assertEqual(result["activity_initial_missing_api_version_http_status"], 400)
+        self.assertEqual(result["activity_corrected_required_query_parameter_http_status"], 200)
+        self.assertEqual(result["doctor"], {"passed": 11, "failed": 0, "skipped": 2})
+        for key in ("local_loopback_smoke_passed", "temporary_local_servers_stopped",
+                    "hosted_original_case6_unchanged", "hosted_positive_exact_renderer_match",
+                    "original_four_arm_resources_and_roles_preserved",
+                    "original_hosted_identity_preserved",
+                    "original_retriever_version4_definition_preserved",
+                    "deployment_cli_timeout_preserved",
+                    "deployment_timeout_followed_by_readonly_active_version_verification"):
+            self.assertTrue(result[key])
+        for key in ("native_pass", "full_native_matrix_pass", "published_sdk_authorization_resolved",
+                    "anonymous_hosted_access_enabled", "redeploy_after_timeout", "roadmap_complete",
+                    "retrieval_membership_payload_independently_fetched",
+                    "source_text_raw_answers_tokens_or_private_identifiers_published"):
+            self.assertFalse(result[key])
+        self.assertEqual(result["new_native_questions"], 0)
+        self.assertEqual(result["azure_policy_or_storage_networking_changes"], 0)
+        self.assertEqual(result["additional_generated_evaluation_suite"], "deferred_user_unavailable")
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "backend-live-2026-10-20.md", "validation.md"):
+                self.assertIn("verified-invocations-delivery.json",
+                              (root / "docs" / language / name).read_text("utf-8"))
+
+    def test_native_preservation_after_invocations_is_not_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-preservation-after-invocations.json").read_text("utf-8"))
+        self.assertEqual(result["active_hosted_version"], "5")
+        for key in ("owned_app_and_all_current_user_grants_exact_baseline",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "candidate26_definitions_states_refs_and_published_auth_preserved",
+                    "all_four_file_hashes_and_approved_bindings_verified",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase", "pac_profile_1_verified"):
+            self.assertTrue(result[key])
+        for key in ("verification_error_count", "rollback_error_count", "cloud_write_requests",
+                    "fresh_question_submissions", "publication_attempts", "temporary_permission_changes"):
+            self.assertEqual(result[key], 0)
+        self.assertFalse(result["native_pass"])
+        self.assertFalse(result["whole_parent_completion_observed"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_native_hosted_diagnostic_preserves_tenant_error_and_restoration(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-studio-verified-diagnostic.json").read_text("utf-8"))
+        self.assertEqual(result["observed_http_status"], 403)
+        self.assertEqual(result["boundary_code"], "BOTSERVICE_RBAC_CALLER_TENANT_ID_REQUIRED")
+        self.assertEqual(result["observed_tool_status"], "Failed")
+        self.assertEqual(result["observed_tool_tokens"], 0)
+        self.assertEqual(result["fresh_question_submissions"], 1)
+        self.assertEqual(result["diagnostic_state_change_submissions"], 2)
+        self.assertFalse(result["diagnostic_final_ui_switch_checked"])
+        self.assertFalse(result["endpoint_authentication_changed"])
+        for key in ("owned_app_and_all_current_user_grants_exact_baseline",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "candidate26_definitions_states_refs_and_published_auth_preserved",
+                    "all_four_file_hashes_and_approved_bindings_verified",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase", "pac_profile_1_verified"):
+            self.assertTrue(result[key])
+        for key in ("verification_error_count", "rollback_error_count",
+                    "new_connections_or_oauth_flows", "publication_attempts"):
+            self.assertEqual(result[key], 0)
+        self.assertFalse(result["domain_answer_observed"])
+        self.assertFalse(result["whole_parent_completion_observed"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_native_entra_only_diagnostic_restores_exact_controls_within_bound(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-studio-entra-only-diagnostic.json").read_text("utf-8"))
+        self.assertEqual(result["observed_http_status"], 400)
+        self.assertEqual(result["boundary_code"], "ACTIVITY_BLUEPRINT_ID_MISMATCH")
+        self.assertEqual(result["observed_error_code"], "ConnectorRequestFailure")
+        self.assertEqual(result["observed_tool_status"], "Failed")
+        self.assertEqual(result["observed_tool_tokens"], 0)
+        self.assertEqual(result["fresh_question_submissions"], 1)
+        self.assertEqual(result["diagnostic_state_change_submissions"], 2)
+        self.assertTrue(result["temporary_endpoint_authorization_change"])
+        self.assertEqual(result["diagnostic_authorization_schemes"], ["Entra"])
+        self.assertEqual(result["restored_authorization_schemes"], ["Entra", "BotServiceRbac"])
+        self.assertEqual(result["active_hosted_version"], "3")
+        elapsed = (datetime.fromisoformat(result["completed_utc"])
+                   - datetime.fromisoformat(result["ready_utc"])).total_seconds()
+        self.assertGreater(elapsed, 0)
+        self.assertLess(elapsed, result["maximum_active_window_seconds"])
+        self.assertEqual(result["maximum_active_window_seconds"], 300)
+        for key in ("exact_endpoint_and_agent_card_restored",
+                    "agent_version_definition_identity_preserved",
+                    "original_manifest_byte_identical", "azure_rbac_not_changed",
+                    "other_two_specialist_switches_remained_on",
+                    "source_root_and_all26_full_rows_exactly_unchanged",
+                    "candidate26_definitions_states_refs_and_published_auth_preserved",
+                    "owned_app_and_all_current_user_grants_exact_baseline",
+                    "all_four_file_hashes_and_approved_bindings_verified",
+                    "owned_dpapi_cache_bytes_unchanged_this_phase", "pac_profile_1_verified"):
+            self.assertTrue(result[key])
+        for key in ("verification_error_count", "rollback_error_count",
+                    "new_connections_or_oauth_flows", "publication_attempts",
+                    "new_deployments_or_versions_created", "temporary_permission_changes"):
+            self.assertEqual(result[key], 0)
+        for key in ("diagnostic_final_ui_switch_checked", "anonymous_access_enabled",
+                    "domain_answer_observed", "whole_parent_completion_observed",
+                    "source_fidelity_acceptance", "retrieval_membership_independently_proven",
+                    "original_corpus_changed", "source_text_or_raw_answers_published",
+                    "roadmap_complete"):
+            self.assertFalse(result[key])
+
+    def test_native_connector_catalog_is_not_assumed_from_public_reference(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-connector-operation-contract.json").read_text("utf-8"))
+        self.assertEqual(result["visible_catalog_action_count"], 10)
+        self.assertEqual(len(result["visible_catalog_actions"]), 10)
+        self.assertTrue(result["public_reference_lists_hosted_invocations_and_responses"])
+        self.assertEqual(result["hosted_invocation_actions_not_observed_in_current_catalog"],
+                         ["InvokeHostedAgentInvocations", "InvokeHostedAgentResponses"])
+        self.assertTrue(result["catalog_observation_is_not_backend_operation_absence_proof"])
+        self.assertEqual(result["current_attachment_operation_id"], "SendActivityV2")
+        self.assertEqual(result["application_based_action_preview_operation_id"],
+                         "SendActivityApplication")
+        self.assertTrue(result["existing_approved_connection_offered_in_preview"])
+        self.assertTrue(result["preview_cancelled_and_leave_confirmed"])
+        self.assertTrue(result["empty_tool_list_verified_after_cancellation"])
+        self.assertTrue(result["other_two_specialist_switches_remained_on"])
+        self.assertEqual(result["add_and_configure_submissions"], 0)
+        self.assertEqual(result["configuration_write_submissions"], 0)
+        self.assertEqual(result["question_submissions_in_catalog_inspection"], 0)
+        self.assertEqual(result["actual_restored_endpoint_protocols"], ["activity"])
+        self.assertEqual(result["actual_restored_authorization_schemes"],
+                         ["Entra", "BotServiceRbac"])
+        for key in ("tool_added", "diagnostic_final_ui_switch_checked",
+                    "identity_or_activity_payload_override_attempted",
+                    "first_party_fix_for_exact_blueprint_error_verified",
+                    "identity_migration_cause_proven",
+                    "source_text_tokens_or_private_identifiers_published", "roadmap_complete"):
+            self.assertFalse(result[key])
+
+    def test_published_sdk_retest_does_not_inherit_studio_authorization(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                             / "native-sdk-post-studio-authorization.json").read_text("utf-8"))
+        self.assertTrue(result["studio_existing_connection_association_precondition"])
+        self.assertTrue(result["separate_published_channel_retested"])
+        self.assertEqual(result["question_submissions"], 1)
+        self.assertEqual(result["question_retries"], 0)
+        self.assertTrue(result["unchanged_original_case6"])
+        self.assertEqual(result["http_statuses"], [200, 200])
+        self.assertTrue(result["start_stream_closed_normally"])
+        self.assertTrue(result["turn_stream_closed_normally"])
+        self.assertTrue(result["owned_iterators_closed"])
+        self.assertEqual(result["turn_activity_count"], 5)
+        self.assertEqual(result["actual_event_names"],
+                         ["DynamicPlanReceived", "DynamicPlanStepTriggered", "DynamicPlanStepBindUpdate"])
+        self.assertTrue(result["foundry_connection_adaptive_card_captured"])
+        self.assertTrue(result["runtime_user_connector_authorization_required"])
+        self.assertTrue(result["studio_association_does_not_establish_published_authorization"])
+        self.assertEqual(result["temporary_owned_manifest_scope_additions"], 1)
+        self.assertEqual(result["temporary_current_user_grant_scope_additions"], 1)
+        self.assertEqual(result["only_new_invoke_access_tokens_removed"], 1)
+        for key in ("manifest_exactly_restored", "all_current_user_grants_exactly_restored",
+                    "maker_access_and_valid_refresh_entries_retained",
+                    "source_candidate_files_bindings_auth_preserved",
+                    "pac_profile_1_verified", "original_case_fixture_unchanged"):
+            self.assertTrue(result[key])
+        for key in ("connect_or_continue_submissions", "new_connection_creates",
+                    "source_quote_comparisons_performed", "publication_attempts",
+                    "rollback_error_count"):
+            self.assertEqual(result[key], 0)
+        for key in ("domain_answer_observed", "dynamic_plan_finished_observed",
+                    "end_of_conversation_observed", "tenant_wide_consent_added",
+                    "greeting_acceptance", "full_acceptance_claimed",
+                    "source_text_tokens_connection_urls_or_private_identifiers_published",
+                    "roadmap_complete"):
+            self.assertFalse(result[key])
+        self.assertIsNone(result["primary_error_type"])
+        self.assertIsNone(result["preservation_verification_error_type"])
+
+    def test_synthetic_search_fixture_preserves_failures_scope_and_cleanup(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        initial = json.loads((assets / "lab5-synthetic-search.json").read_text("utf-8"))
+        self.assertEqual(initial["status"], "execution_failed")
+        self.assertEqual(initial["document_upload_results"], [201, 201])
+        self.assertEqual(initial["observed_index_statistics_document_counts"], [0] * 6)
+        self.assertEqual(initial["completed_tests"], [])
+        self.assertEqual(initial["embedding_requests"], 1)
+        self.assertTrue(initial["owned_fixture_index_deleted_and_absence_verified"])
+        result = json.loads((assets / "lab5-synthetic-search-retry.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "scoped_retrieval_checks_passed")
+        self.assertTrue(result["correct_admin_mngenv_identity_verified"])
+        self.assertEqual(result["indexed_document_count"], 2)
+        self.assertEqual(result["embedding_dimensions"], 1536)
+        self.assertEqual(result["embedding_model"], "text-embedding-3-small")
+        self.assertEqual(result["embedding_requests"], 0)
+        self.assertTrue(result["exact_input_embeddings_reused_from_recorded_first_attempt"])
+        self.assertTrue(result["readiness_verified_by_actual_document_search_count"])
+        self.assertEqual(result["completed_tests"], ["S5-03", "S5-05", "S5-06"])
+        queries = result["query_results"]
+        self.assertEqual([query["method"] for query in queries], [
+            "lexical", "natural_language_vector", "hybrid", "semantic_hybrid",
+            "copied_parent_filter", "nonfilterable_field",
+        ])
+        for query in queries[:4]:
+            self.assertEqual(query["http_status"], 200)
+            self.assertEqual(query["returned_ids"][0], "harbor")
+        self.assertEqual(queries[4]["returned_ids"], ["harbor"])
+        self.assertEqual(queries[5]["http_status"], 400)
+        self.assertTrue(result["nonfilterable_field_error_identifies_chunk"])
+        self.assertTrue(all(query["latency_ms"] > 0 for query in queries))
+        self.assertEqual(result["original_index_schemas_verified_unchanged"], 3)
+        self.assertTrue(result["owned_fixture_index_deleted_and_absence_verified"])
+        self.assertTrue(result["fixture_source_ids_are_urns_not_navigable_citation_urls"])
+        self.assertFalse(result["blob_container_created"])
+        self.assertFalse(result["indexer_executed"])
+        self.assertFalse(result["roles_or_authentication_changed"])
+        self.assertFalse(result["denied_identity_test_executed"])
+        self.assertEqual(result["native_agent_questions_submitted"], 0)
+        self.assertFalse(result["connected_agent_or_source_navigation_acceptance"])
+        self.assertFalse(result["latency_percentiles_or_generalized_hit_rate_claimed"])
+        self.assertFalse(result["full_lab_acceptance"])
+        self.assertFalse(result["roadmap_complete"])
+        for language in ("en", "fr"):
+            guide = (root / "docs" / language / "lab-05.md").read_text("utf-8")
+            self.assertIn("lab5-synthetic-search-retry.json", guide)
+            for test_id in result["completed_tests"]:
+                row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
+                self.assertIn("Pass:" if language == "en" else "Réussi :", row)
+            ingestion = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
+                                    / "lab5-private-fictional-ingestion.json").read_text("utf-8"))
+            for test_id in ingestion["completed_tests"]:
+                row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
+                self.assertIn("Pass:" if language == "en" else "Réussi :", row)
+            for test_id in ("S5-04", "S5-07", "S5-08", "S5-09", "S5-10"):
+                row = next(line for line in guide.splitlines() if line.startswith(f"| {test_id} "))
+                self.assertIn("Not run" if language == "en" else "Non exécuté", row)
+            self.assertIn("search-security-rbac#grant-access-to-a-single-index", guide)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T014", roadmap)
+
+    def test_native_recovery_alternatives_preserve_permission_and_profile_boundaries(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-23"
+                             / "native-recovery-alternatives.json").read_text("utf-8"))
+        self.assertTrue(result["correct_admin_mngenv_dataverse_identity_verified_by_official_pac"])
+        self.assertTrue(result["existing_global_administrator_membership_verified"])
+        self.assertFalse(result["dataverse_system_administrator_role_present"])
+        recovery = result["documented_owned_client_self_elevation"]
+        self.assertEqual(recovery["http_status"], 403)
+        self.assertEqual(recovery["required_delegated_permission"], "UserManagement.Users.Apply")
+        self.assertFalse(recovery["required_scope_in_live_published_resource_metadata"])
+        self.assertEqual(recovery["new_permissions_granted"], 0)
+        self.assertTrue(recovery["original_role_set_verified_unchanged"])
+        pac = result["official_pac"]
+        self.assertEqual(pac["version"], "2.14.1")
+        self.assertTrue(pac["same_admin_identity_and_environment_verified"])
+        self.assertTrue(pac["all_attempts_original_role_set_unchanged"])
+        self.assertTrue(pac["all_attempts_original_active_profile_restored"])
+        self.assertTrue(result["official_local_mcp"]["capability_discovery_succeeded"])
+        self.assertEqual(result["official_local_mcp"]["cloud_tools_invoked"], 0)
+        self.assertTrue(result["official_local_mcp"]["server_stopped"])
+        self.assertEqual(result["evaluation_runs_submitted"], 0)
+        self.assertEqual(result["new_roles_assigned"], 0)
+        self.assertFalse(result["application_required_permissions_changed"])
+        self.assertFalse(result["native_acceptance"])
+        self.assertFalse(result["roadmap_complete"])
+
+    def test_terraform_reconciliation_closes_only_its_measured_scope(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-23"
+                             / "terraform-reconciliation.json").read_text("utf-8"))
+        self.assertEqual(result["roadmap_task_completed"], "T013")
+        self.assertEqual(result["terraform_version"], "1.16.6")
+        self.assertTrue(result["official_archive_sha256_verified"])
+        self.assertEqual(result["source_file_count"], 23)
+        self.assertTrue(result["source_and_private_copy_rehashed_unchanged_after_validation"])
+        self.assertTrue(result["protected_sources_plan_state_and_private_ids_not_published"])
+        self.assertEqual(result["resolved_providers"]["registry.terraform.io/hashicorp/azurerm"],
+                         "4.45.1")
+        self.assertEqual(result["resolved_providers"]["registry.terraform.io/hashicorp/http"],
+                         "3.6.3")
+        self.assertEqual(result["init_exit_code"], 0)
+        self.assertEqual(result["validate_exit_code"], 0)
+        self.assertEqual(result["validation_error_count"], 0)
+        self.assertEqual(result["validation_warning_count"], 0)
+        self.assertEqual(result["plan_exit_code"], 2)
+        self.assertEqual(result["planned_resource_instances"], 15)
+        self.assertFalse(result["apply_executed"])
+        self.assertFalse(result["destroy_executed"])
+        self.assertTrue(result["provider_auto_registration_disabled"])
+        self.assertTrue(result["plan_only_resource_group_independently_verified_absent"])
+        findings = result["unchanged_source_security_and_identity_findings"]
+        self.assertEqual(findings["search_sku"], "standard")
+        self.assertFalse(findings["search_has_attached_identity"])
+        self.assertEqual(findings["private_endpoint_instances"], 0)
+        self.assertEqual(findings["foundry_project_instances"], 0)
+        self.assertFalse(findings["data_plane_search_index_created_by_plan"])
+        historical = result["historical_corrected_paid_execution"]
+        self.assertFalse(historical["new_execution"])
+        self.assertTrue(historical["corrected_apply_passed"])
+        self.assertEqual(historical["original_model_rejected"]["http_status"], 400)
+        self.assertEqual(historical["corrected_chat_model_version"], "2024-11-20")
+        self.assertTrue(historical["cleanup_and_resource_group_absence_verified"])
+        self.assertFalse(historical["full_private_network_certification"])
+        self.assertFalse(result["full_lab_5_1_acceptance"])
+        self.assertFalse(result["roadmap_complete"])
+        for language in ("en", "fr"):
+            guide = (root / "docs" / language / "lab-05-1.md").read_text("utf-8")
+            self.assertIn("terraform-reconciliation.json", guide)
+
+    def test_authenticated_native_canary_preserves_failure_and_verified_rollback(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        canary = json.loads((assets / "native-authenticated-canary.json").read_text("utf-8"))
+        self.assertEqual(canary["submitted_count"], 1)
+        self.assertEqual(canary["post_retry_count"], 0)
+        self.assertEqual(canary["submission_http_status"], 202)
+        self.assertEqual(canary["completion_status"], "Completed")
+        self.assertTrue(canary["draft_requested"])
+        self.assertTrue(canary["explicit_authenticated_binding_requested"])
+        self.assertTrue(canary["caller_metadata_match"])
+        self.assertTrue(canary["returned_authenticated_binding_matches_request"])
+        self.assertTrue(canary["returned_owner_matches_verified_caller"])
+        self.assertNotIn("owner_metadata_limitation_adjudicated_by_user", canary)
+        self.assertFalse(canary["connection_owner_object_id_independently_verified"])
+        self.assertEqual(canary["general_quality_pass_count"], 1)
+        self.assertEqual(canary["general_quality_fail_count"], 1)
+        self.assertEqual(len(canary["case_checks"]), 2)
+        for case in canary["case_checks"]:
+            self.assertFalse(case["final_response_captured"])
+            self.assertFalse(case["substantive_acceptance"])
+            self.assertEqual(case["whole_parent_exactness"]["status"], "not_verifiable")
+        self.assertFalse(canary["expected_answers_modified"])
+        self.assertFalse(canary["case_id_to_question_mapping_independently_verified"])
+        for action, state in (("activate", "Active"), ("restore", "Inactive")):
+            transition = json.loads(
+                (assets / f"native-diagnostic-{action}-supported.json").read_text("utf-8"))
+            self.assertEqual(transition["mutation_http_status"], 204)
+            self.assertEqual(transition["saved_state"], state)
+            for key in ("caller_admin_mngenv_verified", "live_state_metadata_verified",
+                        "saved_state_independently_read_back", "optimistic_concurrency_used",
+                        "exact_diagnostic_definition_preserved",
+                        "original_attachment_full_row_unchanged", "parent_full_row_unchanged"):
+                self.assertTrue(transition[key])
+            for key in ("definition_yaml_edited", "endpoint_authentication_changed",
+                        "roles_or_consent_changed", "published"):
+                self.assertFalse(transition[key])
+        restored = json.loads((assets / "native-canary-restoration.json").read_text("utf-8"))
+        self.assertTrue(restored["diagnostic_restored_inactive"])
+        self.assertTrue(restored["saved_restoration_independently_read_back"])
+        self.assertFalse(restored["roadmap_complete"])
+        self.assertEqual(restored["hosted_version"], "3")
+        self.assertEqual(restored["native_facing_endpoint_version_rule"], "@latest")
+        self.assertEqual(restored["endpoint_authorization"], ["Entra", "BotServiceRbac"])
+        self.assertEqual(restored["transcript_read"]["http_status"], 403)
+        self.assertEqual(restored["transcript_read"]["missing_privilege"],
+                         "prvReadconversationtranscript")
+        self.assertFalse(restored["transcript_read"]["role_or_consent_changes"])
+        self.assertFalse(restored["browser_read"]["keyboard_input_sent"])
+
+    def test_owned_client_recovery_does_not_claim_native_evaluation_readiness(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-23"
+        recovery = json.loads((assets / "native-api-access-recovery.json").read_text("utf-8"))
+        self.assertTrue(recovery["native_api_access_recovered"])
+        self.assertFalse(recovery["paid_native_tests_now_possible"])
+        own_client = recovery["executed_routes"][-1]
+        self.assertEqual(own_client["http_status"], 200)
+        self.assertEqual(own_client["test_set_count"], 0)
+        self.assertEqual(own_client["evaluation_runs"], 0)
+        self.assertIn("2026-10-23T16:12:49.900-04:00", own_client["approval_reference"])
+        self.assertNotIn("16:39", own_client["approval_reference"])
+        release = json.loads((assets / "authorized-release.json").read_text("utf-8"))
+        auth = release["native_authorization"]
+        self.assertTrue(auth["consent_current_user_only"])
+        for key in ("tenant_wide_consent_added", "directory_roles_added",
+                    "client_secret_created", "azure_profile_changed",
+                    "first_party_preauthorization_bypassed"):
+            self.assertFalse(auth[key])
+        prepared = json.loads((assets / "native-canary-preparation.json").read_text("utf-8"))
+        self.assertEqual(prepared["case_count"], 2)
+        self.assertTrue(prepared["csv_roundtrip_verified"])
+        self.assertFalse(prepared["replaces_acceptance"])
+        self.assertFalse(prepared["cloud_testset_created"])
+        self.assertFalse(prepared["authenticated_profile_created_or_verified"])
+        self.assertFalse(prepared["future_run"]["runOnPublishedBot"])
+        self.assertFalse(prepared["future_run"]["anonymous_fallback"])
+        self.assertEqual(prepared["safety"]["evaluation_runs"], 0)
+        ui = json.loads((assets / "native-ui-setup.json").read_text("utf-8"))
+        self.assertTrue(ui["admin_mngenv_verified"])
+        self.assertTrue(ui["owned_bot_verified"])
+        self.assertTrue(ui["testset_saved"])
+        self.assertTrue(ui["testset_persistence_verified_by_full_navigation"])
+        self.assertEqual(ui["imported_case_count"], 2)
+        self.assertTrue(ui["mcs_connection_verified"])
+        self.assertFalse(ui["authenticated_profile_persistence_verified"])
+        self.assertEqual(ui["safety"]["evaluation_runs"], 0)
+        readiness = json.loads((assets / "native-run-readiness.json").read_text("utf-8"))
+        self.assertTrue(readiness["caller_proof"]["token_tenant_and_object_id_match_intended_admin"])
+        self.assertTrue(readiness["caller_proof"]["dataverse_whoami_matches_same_entra_user"])
+        self.assertFalse(readiness["caller_proof"]["system_administrator_role_proven"])
+        self.assertEqual(readiness["testset"]["get_http_status"], 200)
+        self.assertEqual(readiness["testset"]["totalTestCases"], 2)
+        self.assertTrue(readiness["schema_support"][
+            "ui_profile_persistence_is_not_a_documented_requirement_for_explicit_api_binding"])
+        self.assertFalse(readiness["connection_evidence"]["owner_object_id_independently_verified"])
+        self.assertEqual(readiness["evaluation_runs"], 0)
+
+    def test_verified_retrieval_debug_configuration_uses_own_entrypoint_and_environment(self):
+        root = Path(__file__).resolve().parents[1]
+        tasks = json.loads((root / ".vscode" / "tasks.json").read_text("utf-8"))
+        launch = json.loads((root / ".vscode" / "launch.json").read_text("utf-8"))
+        server = next(task for task in tasks["tasks"]
+                      if task["label"] == "Run verified retrieval debug server")
+        self.assertEqual(server["type"], "process")
+        self.assertTrue(server["command"].endswith(
+            "echo-activity\\.venv\\Scripts\\python.exe"))
+        self.assertEqual(server["args"],
+                         ["-m", "debugpy", "--listen", "127.0.0.1:5679", "main.py"])
+        self.assertTrue(server["options"]["cwd"].endswith("src\\echo-activity"))
+        self.assertEqual(launch["configurations"][0]["connect"]["port"], 5679)
+        self.assertNotIn("terminateAll", json.dumps(tasks))
+        self.assertNotIn("agentdev", json.dumps(tasks))
 
     def test_foundry_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]

@@ -1,0 +1,33 @@
+{
+  "status": "applied_verified_unpublished",
+  "root_reconciliation_allowlisted_and_stable": true,
+  "atomic_changeset_submitted": true,
+  "subresponse_codes": [
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204,
+    204
+  ],
+  "candidate_component_count": 26,
+  "fidelity_passed": true,
+  "managed_property_value_preserved": true,
+  "expanded_read_metadata_matches_source": true,
+  "source_full_rows_unchanged": true,
+  "file_hashes_verified": 4,
+  "binding_verified": true,
+  "auth_controls_preserved": true,
+  "published": false,
+  "questions": 0,
+  "permissions_changed": false,
+  "roadmap_complete": false
+}

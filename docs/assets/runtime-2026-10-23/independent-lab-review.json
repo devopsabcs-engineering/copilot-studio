@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "review_date_utc": "2026-10-23",
+  "scope": {
+    "roadmap_task_ids": ["T009", "T010", "T014"],
+    "mode": "One bounded read-only evidence review, local tool inventory and authenticated subscription GET",
+    "extension_deployment_dependency": false,
+    "workshop_complete": false,
+    "roadmap_tasks_closed": [],
+    "new_native_agent_acceptance_passes": 0,
+    "historical_receipts_are_not_current_runtime_checks": true,
+    "private_support_directory": ".copilot-tracking/completion-20261023",
+    "parent_documentation_update_required": true
+  },
+  "execution_boundary": {
+    "new_agent_questions": 0,
+    "new_connector_executions": 0,
+    "emails_sent": 0,
+    "evaluations_started": 0,
+    "model_or_search_inference_calls": 0,
+    "cloud_writes_deployments_or_publications": 0,
+    "role_policy_or_authentication_configuration_changes": 0,
+    "protected_documents_opened_or_reconstructed": 0,
+    "agents_launched": 0,
+    "browser_share_prompts_or_user_input_requests": 0,
+    "prior_failures_preserved": true,
+    "sdk_or_direct_results_promoted_to_native": false
+  },
+  "current_observations": {
+    "checked_at_utc": "2026-10-23T19:22:40.763890+00:00",
+    "azure_cli_local_account_context_available": true,
+    "authenticated_arm_subscription_get": {
+      "method": "GET",
+      "api_version": "2022-12-01",
+      "cli_exit_code": 0,
+      "subscription_state": "Enabled",
+      "proves": "The existing CLI context can read the selected subscription.",
+      "does_not_prove": [
+        "Copilot Studio entitlement, credits, intended environment or API permissions",
+        "Current connector authorization or data policy",
+        "Approved budget, model quota, resource ownership or release sign-off"
+      ]
+    },
+    "local_tools_on_path": {
+      "az": true,
+      "terraform": false,
+      "pac": false,
+      "python": true,
+      "node": true,
+      "git": true
+    },
+    "tool_limit": "Absence from this process PATH is not proof that a tool is uninstalled. No installation was attempted.",
+    "browser": {
+      "usable_shared_page_available": false,
+      "new_browser_opened": false,
+      "exposed_chromium_debug_port_observed": false,
+      "native_accessibility_scope": "Exact workspace VS Code window only",
+      "native_accessibility_elements_exposed": 13,
+      "usable_browser_document_or_tab_exposed": false,
+      "saved_agent_configuration_or_history_read_live": false,
+      "limit": "An open but unshared browser is not a usable authenticated automation session. No session, cookie or token extraction was attempted."
+    }
+  },
+  "T009": {
+    "status": "partial_historical_evidence_reconciled; acceptance_remains_blocked",
+    "lab_00": {
+      "fresh_narrow_pass": "Selected-subscription authenticated read succeeded; CLI is usable for that request.",
+      "blocked_check_labels": [
+        "Correct environment",
+        "Maker entitlement and credits",
+        "File knowledge: current Ready state",
+        "DLP and connections",
+        "Resource providers: current registration state",
+        "Terraform: supported executable on this PATH",
+        "Search and telemetry resources: current approved availability",
+        "Budget and quota"
+      ],
+      "id_note": "Lab 0 acceptance rows have labels, not numbered criterion IDs.",
+      "limit": "Historical resource registration and historical usable tools are not refreshed by a subscription GET."
+    },
+    "lab_01": [
+      {
+        "criterion_ids": ["L1-01"],
+        "status": "partial; historical_full_answer_and_citation_navigation_blocked",
+        "observed": "Retained native evidence identifies uploaded-file retrieval. The licensing-source receipt records six summary/source checks. The later answer audit records five checks for the new introductory quotation, edition and physical page 3.",
+        "missing": "Complete historical supported-answer text, claim-by-claim audit and citation-target mapping; actual original answer-citation clickthrough.",
+        "non_substitution": "A matching PDF hash, a later short answer and a standalone publisher PDF viewer do not prove historical whole-answer accuracy or original citation navigation.",
+        "evidence": [
+          "docs/assets/runtime-2026-10-19/licensing-source-check.json",
+          "docs/assets/runtime-2026-10-20/browser-results.json",
+          "docs/assets/runtime-2026-10-20/pdf-answer-audit.json",
+          "docs/assets/runtime-2026-10-20/native-pdf-viewer.json"
+        ]
+      },
+      {
+        "criterion_ids": ["L1-02", "L1-03", "L1-04", "L1-05"],
+        "status": "historical_narrow_passes_retained; not_rerun",
+        "observed": "Unsupported tenant-price refusal, verified self-recipient lookup, one successful self-mail submission and matching Inbox/Sent Items evidence are retained.",
+        "limit": "Delivery does not independently audit every licensing claim in the message. No message or connector was rerun.",
+        "evidence": ["docs/en/live-rerun-2026-10-19.md"]
+      },
+      {
+        "criterion_ids": ["L1-06"],
+        "status": "historical_conversational_guard_pass_only",
+        "observed": "Retained response requested recipient disambiguation without a new connector call.",
+        "blocked": "Send-time ambiguity enforcement was not demonstrated."
+      },
+      {
+        "criterion_ids": ["L1-07"],
+        "status": "partial; downstream_error_body_fidelity_blocked",
+        "observed": "Private History inspection independently established the failed connector activity and invalid input. The later native panel independently exposed request-validation HTTP 400.",
+        "missing": "The exact downstream connector response/error body and proof that a directory-backend request executed.",
+        "non_substitution": "The positive-number message remains model-reported; request validation is not downstream error-body evidence or expired-authentication recovery.",
+        "evidence": ["docs/assets/runtime-2026-10-20/browser-results.json"]
+      }
+    ],
+    "owner_decisions": [
+      "Lab/environment owner must supply attributable current entitlement, policy, capacity, permissions, quota and budget evidence; subscription Enabled alone is insufficient.",
+      "Evidence owner must recover an authentic complete historical answer and its citation mapping, or explicitly approve a narrower historical claim. Do not reconstruct clipped screenshots.",
+      "Connector owner must provide a supported retained raw failure payload if available, or explicitly keep downstream error-body fidelity unverified. Do not resend mail or manufacture another failure."
+    ]
+  },
+  "T010": {
+    "status": "partial_historical_evidence_reconciled; acceptance_remains_blocked",
+    "lab_02": [
+      {
+        "criterion_ids": ["SRCH-01"],
+        "status": "historical_indexer_pass_in_separate_corpus_scope",
+        "observed": "The private hotel pipeline receipt records a successful indexer run, three processed documents, zero failed items and nine child chunks.",
+        "limit": "This is not a fresh licensing-index read or a substitute for native connected-answer proof.",
+        "evidence": ["docs/assets/runtime-2026-10-19/private-pipeline-results.json"]
+      },
+      {
+        "criterion_ids": ["SRCH-02"],
+        "status": "partial; later_connected_positive_pass_is_narrower_than_original_options_question",
+        "observed": "A retained native licensing answer matched the audited introductory quotation, edition, physical page 3 and configured publisher citation target.",
+        "blocked": "Actual navigation from the answer citation to the external PDF, plus a whole-answer audit of the original licensing-options question.",
+        "non_substitution": "The separately observed native publisher PDF viewer does not establish a clickthrough from this connected answer.",
+        "evidence": [
+          "docs/assets/runtime-2026-10-20/search-accesskey-execution.json",
+          "docs/assets/runtime-2026-10-20/search-source-noanswer.json",
+          "docs/assets/runtime-2026-10-20/native-pdf-viewer.json"
+        ]
+      },
+      {
+        "criterion_ids": ["SRCH-03"],
+        "status": "historical_native_negative_retest_pass; earlier_failure_retained",
+        "observed": "The first connected fictional-product answer acknowledged absence but extrapolated entitlements. The later source-aware retest explicitly abstained, with no citations; its positive regression still matched the audited quotation.",
+        "evidence": [
+          "docs/assets/runtime-2026-10-20/search-accesskey-execution.json",
+          "docs/assets/runtime-2026-10-20/search-source-noanswer.json"
+        ]
+      },
+      {
+        "criterion_ids": ["SRCH-04"],
+        "status": "blocked_not_proven",
+        "missing": "Controlled source-disabled negative test and restoration evidence.",
+        "boundary": "Changing a saved source is outside this read-only pass."
+      },
+      {
+        "criterion_ids": ["SRCH-05"],
+        "status": "this_receipt_sanitized; historical_evidence_corpus_not_fully_certified",
+        "observed": "This receipt contains no credentials, private resource IDs, account identifiers, SAS URLs or protected source excerpts.",
+        "limit": "Private historical raw receipts remain private; this is not a blanket privacy certification of all earlier artifacts."
+      }
+    ],
+    "lab_03": [
+      {
+        "criterion_ids": ["MON-01", "MON-02", "MON-03"],
+        "status": "historical_native_draft_event_and_kql_correlation_pass",
+        "observed": "One native test-chat trigger displayed the expected acknowledgement. An independent app-scoped KQL query found one genuine WorkshopTelemetryCheck event with the five expected synthetic properties and matching marker.",
+        "not_proven": "Published-channel traffic, a new event today, or exact end-to-end latency.",
+        "evidence": [
+          "docs/assets/runtime-2026-10-20/agent-telemetry-execution.json",
+          "docs/assets/runtime-2026-10-20/agent-telemetry-event.json"
+        ]
+      },
+      {
+        "criterion_ids": ["MON-04"],
+        "status": "blocked_not_proven",
+        "missing": "Published-traffic filter exclusion evidence and the roadmap's published-channel telemetry criterion.",
+        "boundary": "The retained agent was not published; no publication or fresh trigger is allowed in this pass."
+      },
+      {
+        "criterion_ids": ["MON-05"],
+        "status": "partial_privacy_boundary; blanket_identifier_absence_not_proven",
+        "observed": "Persisted settings had conversation details, sensitive properties and node execution logging off. Retained event dimension keys still included conversationId and channelId; their values were excluded from public evidence.",
+        "limit": "The synthetic custom record and privacy switches do not certify that all platform telemetry fields are anonymous or that no identifier exists elsewhere.",
+        "evidence": [
+          "docs/assets/runtime-2026-10-20/agent-telemetry-execution.json",
+          "docs/assets/runtime-2026-10-20/agent-telemetry-event.json",
+          "docs/assets/runtime-2026-10-20/agent-telemetry-disconnection.json"
+        ]
+      }
+    ],
+    "resource_availability_limit": {
+      "historical_not_current_inventory": true,
+      "search": "Retained cleanup receipt reports the isolated connected Search/account/project resources absent and secret handoff removed.",
+      "telemetry": "Retained receipts report the saved logging connection removed and owned Insights/workspace/group deleted.",
+      "consequence": "Do not assume these historical endpoints or connections remain available for an independent live rerun; no restoration was attempted.",
+      "evidence": [
+        "docs/assets/runtime-2026-10-20/search-accesskey-cleanup.json",
+        "docs/assets/runtime-2026-10-20/agent-telemetry-disconnection.json",
+        "docs/assets/runtime-2026-10-20/agent-telemetry-cleanup.json"
+      ]
+    },
+    "owner_decisions": [
+      "Lab owner must authorize any future resource restoration and retain failed attempts; this pass does not authorize provisioning.",
+      "Evidence owner must capture actual citation activation into the external PDF, not merely a matching target string or an independently opened viewer.",
+      "Telemetry/privacy owner must define the acceptable boundary for unavoidable platform identifier keys and provide attributable approval or remediation; all-identifiers-absent cannot be inferred.",
+      "Release and telemetry owners must arrange a separately approved published-channel test if the roadmap criterion remains in scope."
+    ]
+  },
+  "T014": {
+    "status": "two_historical_connected_hotel_cases_retained; remaining_matrix_blocked",
+    "observed_connected_cases": [
+      {
+        "case": "Hotel source-stated location",
+        "status": "historical_source_grounding_pass; city_expectation_not_satisfied",
+        "actual_source_and_answer_location": "Qatar",
+        "original_fixture_city_expectation": "Doha",
+        "source_content_dialog_opened": true,
+        "original_external_pdf_navigation_proven": false
+      },
+      {
+        "case": "Unsupported interplanetary shuttle departure",
+        "status": "historical_abstention_pass",
+        "invented_departure_time": false
+      }
+    ],
+    "evidence": ["docs/assets/runtime-2026-10-20/search-accesskey-execution.json"],
+    "criterion_matrix": [
+      {
+        "criterion_ids": ["S5-01", "S5-02", "S5-03", "S5-05", "S5-06"],
+        "status": "exact_synthetic_fixture_criteria_not_closed",
+        "reason": "Retained original three-hotel backend/indexer/filter/ranking checks use a different corpus from the two-file Harbor/lodge fixture. Backend results are not connected Copilot query receipts."
+      },
+      {
+        "criterion_ids": ["S5-04", "S5-07", "S5-09"],
+        "status": "blocked_not_proven",
+        "reason": "No retained native evidence establishes the exact bicycle-desk hours, lodge shuttle-price question or French hours regression. The different hotel-negative pass cannot substitute."
+      },
+      {
+        "criterion_ids": ["S5-08"],
+        "status": "partial_native_source_dialog_only",
+        "reason": "An in-product source-content dialog was observed. No authentic original hotel URL or external PDF navigation was established."
+      },
+      {
+        "criterion_ids": ["S5-10"],
+        "status": "blocked_not_proven",
+        "reason": "No approved denied-identity native test is established. Permission removal or role changes are prohibited in this pass."
+      },
+      {
+        "criterion_ids": ["D5-01", "D5-06", "D5-07"],
+        "status": "historical_static_review_only",
+        "reason": "Existing files, misleading index-name existence inference and allowed_ips wiring limitations remain static observations, not a deployment proof."
+      },
+      {
+        "criterion_ids": ["D5-02", "D5-03", "D5-04", "D5-05", "D5-08", "D5-09", "D5-10"],
+        "status": "exact_lab_5_1_deployment_sequence_not_closed",
+        "reason": "Terraform is absent from this PATH; validate, plan approval, apply, identity-specific query/denial and project/inventory checkpoints for this exact lab are not demonstrated by a separate private pipeline run or its cleanup."
+      }
+    ],
+    "source_limitations": [
+      "The retained hotel evidence establishes no authentic user-navigable original hotel PDF URL. Private Blob paths and inline corpus records are not publisher navigation proof.",
+      "Qatar is the source-stated location. A request for city Doha is a fixture/source mismatch, not permission to infer, relabel or edit the source.",
+      "The remaining connected fields, filters, ranking and bilingual matrix cannot be closed from direct Search or SDK results."
+    ],
+    "owner_decisions": [
+      "Lab/product owner must select and label the acceptance corpus: the original three-hotel corpus versus the separate synthetic Harbor/lodge fixture. Preserve each test's exact corpus and expected fields.",
+      "Accept the source-stated location where appropriate or provide an authorized source that actually states a city; do not manufacture a city field.",
+      "Approve in-product source citations as a scoped alternative, or provide authentic authorized original URLs. Keep external URL navigation blocked until one of those attributable decisions exists.",
+      "Authorize any future resource restoration, connected matrix and denied-identity test separately; no deployment or permission change is implied by this review."
+    ]
+  },
+  "final_disposition": {
+    "newly_closed_outstanding_acceptance_criteria": [],
+    "narrow_current_check_passed": "Existing-context authenticated selected-subscription GET",
+    "historical_narrow_passes": [
+      "L1-02 through L1-05",
+      "L1-06 conversational clarification only",
+      "SRCH-03 later native retest, preserving initial failure",
+      "MON-01 through MON-03 draft-origin event and independent KQL correlation only",
+      "Two connected original-hotel cases, without external URL navigation"
+    ],
+    "stop_reason": "One bounded pass completed. Remaining closures need authentic missing evidence, an accessible supported browser session, owner scope/privacy decisions, or operations outside the explicit read-only boundary. No user input was requested.",
+    "required_parent_action": "Update bilingual documentation using these narrow distinctions; leave T009, T010 and T014 unchecked."
+  }
+}

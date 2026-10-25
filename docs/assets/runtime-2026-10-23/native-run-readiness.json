@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-10-23T23:11:00.089515+00:00",
+  "ready": false,
+  "status": "exact_draft_body_prepared_connection_owner_api_verification_unavailable",
+  "scope": "Bounded native DRAFT evaluation readiness only; no evaluation or acceptance run.",
+  "caller_proof": {
+    "owned_client_silent_acquisition_succeeded": true,
+    "token_tenant_and_object_id_match_intended_admin": true,
+    "token_username_matches_verified_admin_browser_account": true,
+    "token_audience_and_client_id_match_owned_client": true,
+    "dataverse_whoami_matches_same_entra_user": true,
+    "testset_createdBy_matches_acquired_caller_object_id": true,
+    "scopes": [
+      "CopilotStudio.MakerOperations.Read",
+      "CopilotStudio.MakerOperations.ReadWrite"
+    ],
+    "direct_dataverse_roles_observed": [
+      "Environment Maker",
+      "Basic User"
+    ],
+    "system_administrator_role_proven": false,
+    "note": "The intended admin account identity is verified. Its display name is not treated as proof of a System Administrator security role; direct roles returned were Environment Maker and Basic User.",
+    "claim_inspection_limit": "JWT identity fields corroborated by authenticated HTTP 200 service responses and Dataverse identity mapping; no separate offline token-signature verification claimed."
+  },
+  "testset": {
+    "get_http_status": 200,
+    "exact_saved_id_matches_private_ui_handoff": true,
+    "state": "Active",
+    "totalTestCases": 2,
+    "created_by_same_caller": true,
+    "get_schema_limit": "This supported GET reports totalTestCases, not individual row content or evaluation profile selections."
+  },
+  "schema_support": {
+    "explicit_mcs_connection_selects_authenticated_execution": true,
+    "explicit_tool_connection_mapping_supported": true,
+    "draft_explicitly_false_runOnPublishedBot": true,
+    "ui_profile_persistence_is_not_a_documented_requirement_for_explicit_api_binding": true,
+    "runtime_binding_proven": false
+  },
+  "ui_persistence": {
+    "testset_and_two_rows_persisted": true,
+    "account_selection_retained_after_full_navigation": false,
+    "not_the_blocker_for_explicit_api_binding": true
+  },
+  "connection_evidence": {
+    "recent_admin_ui_mcs_status": "Connected",
+    "recent_ui_owner_display_matches_live_admin_user_display": true,
+    "owner_object_id_independently_verified": false,
+    "connections_get_http_status": 403,
+    "mcs_connector_get_http_status": 403,
+    "foundry_connector_get_http_status": 403,
+    "error_code": "InsufficientDelegatedPermissions",
+    "connections_permission_names_in_service_error": [
+      "Connectivity.Connections.Read",
+      "PowerApps.Apps.Manage"
+    ],
+    "connectors_permission_names_in_service_error": [
+      "Connectivity.Connectors.Read",
+      "PowerApps.Apps.Manage"
+    ],
+    "note": "These are metadata-read authorization failures, not proof that evaluation-run permission or the connection is invalid. No new consent or scopes requested."
+  },
+  "tool_binding": {
+    "dataverse_connection_reference_get_http_status": 200,
+    "reference_active": true,
+    "connection_id_matches_recent_connected_ui_selection": true,
+    "connector_id_reference_name_and_bot_schema_live_resolved": true,
+    "missing_fields_for_known_foundry_binding": [],
+    "whole_agent_transitive_tool_inventory_verified": false,
+    "connection_runtime_health_proven": false
+  },
+  "run_body": {
+    "exact_private_body_prepared": true,
+    "official_rest_shape_locally_validated": true,
+    "server_validated_or_submitted": false,
+    "sha256": "f64df76fbed4b5210879902cab140fcd4b66e7ba149c64af5842554515a707e7",
+    "runOnPublishedBot": false,
+    "nonempty_mcsConnectionId": true,
+    "known_tool_binding_count": 1,
+    "credentials_embedded": false
+  },
+  "strict_readiness_gaps": [
+    "Independent current MCS connection-owner object-ID/UPN verification is unavailable: the existing client lacks metadata-read delegated permissions."
+  ],
+  "diagnostic": {
+    "read_http_status": 200,
+    "state": "Inactive",
+    "changed": false,
+    "parent_enable_and_readback_separate_from_connection_readiness": true
+  },
+  "requests": {
+    "supported_testset_get": 1,
+    "supported_connectivity_gets": 3,
+    "dataverse_gets": 5,
+    "mutation_requests": 0
+  },
+  "evaluation_runs": 0,
+  "messages": 0,
+  "native_acceptance_proven": false,
+  "eleven_case_matrix_executed": false,
+  "sources": {
+    "run_schema": "https://learn.microsoft.com/en-us/rest/api/power-platform/copilotstudio/bots/run-maker-evaluation-test-set",
+    "evaluation_authentication": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-rest-api",
+    "get_testset": "https://learn.microsoft.com/en-us/rest/api/power-platform/copilotstudio/bots/get-maker-evaluation-test-set",
+    "list_connections": "https://learn.microsoft.com/en-us/rest/api/power-platform/connectivity/connections/list-connections",
+    "get_connector": "https://learn.microsoft.com/en-us/rest/api/power-platform/connectivity/connectors/get-connector-by-id"
+  },
+  "sanitization": "No tenant, environment, bot, connection, user or client identifiers, questions, access tokens, cache contents or private endpoints included."
+}

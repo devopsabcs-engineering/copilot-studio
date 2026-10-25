@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-23T20:03:39Z",
+  "status": "read_only_progress_release_and_native_acceptance_blocked",
+  "overall_workshop_certified": false,
+  "roadmap_tasks_closed": [],
+  "ownership_inventory": {
+    "mode": "Authenticated ARM, Foundry SDK metadata and Cost Management query; no inference",
+    "resource_group_id_and_run_tag_match_retained_ownership": true,
+    "account_project_search_ids_match_retained_ownership": true,
+    "account_project_search_managed_identity_ids_match_retained_ownership": true,
+    "current_top_level_resources": 4,
+    "account_project_bot_provisioning_state": "Succeeded",
+    "bot_sku": "F0",
+    "bot_tenant_matches_existing_environment": true,
+    "bot_application_type": "SingleTenant",
+    "account_disable_local_auth": true,
+    "search": {
+      "provisioning_state": "Succeeded",
+      "status": "running",
+      "sku": "basic",
+      "replicas": 1,
+      "partitions": 1,
+      "retained_managed_identity_matches": true
+    },
+    "model_deployments": [
+      {
+        "model": "gpt-4.1-mini",
+        "model_version": "2025-04-14",
+        "sku": "Standard",
+        "capacity": 26,
+        "provisioning_state": "Succeeded"
+      },
+      {
+        "model": "text-embedding-3-small",
+        "model_version": "1",
+        "sku": "GlobalStandard",
+        "capacity": 1,
+        "provisioning_state": "Succeeded"
+      }
+    ],
+    "cost_control": {
+      "query_type": "ActualCost",
+      "scope": "Existing isolated resource group only",
+      "requested_from_utc": "2026-10-20T00:00:00Z",
+      "requested_to_utc": "2026-10-23T23:59:59Z",
+      "currency": "USD",
+      "returned_rows": 5,
+      "pagination_complete": true,
+      "reported_pretax_subtotal": "6.219977042",
+      "reported_search_subtotal": "6.060",
+      "reported_account_subtotal": "0.159977042",
+      "search_daily_returned_costs": [
+        {"usage_date": "2026-10-21", "cost": "2.222"},
+        {"usage_date": "2026-10-22", "cost": "2.424"},
+        {"usage_date": "2026-10-23", "cost": "1.414"}
+      ],
+      "billing_data_may_lag_and_current_day_is_partial": true,
+      "complete_lifetime_or_final_invoice_claimed": false,
+      "expiry_tag_is_past": true,
+      "expiry_tag_did_not_delete_resources": true,
+      "resources_remain_live_and_billable": true,
+      "named_retention_owner": null,
+      "approved_review_deadline": null,
+      "new_retention_or_budget_approval_obtained": false
+    },
+    "hosted_identity_scoped_role_reads": {
+      "account_including_inherited_assignments": 0,
+      "project_including_inherited_assignments": 0,
+      "search_including_inherited_assignments": 0,
+      "effective_downstream_access_certified": false,
+      "limit": "No listed assignments is not a complete effective-access evaluation or a live identity test."
+    },
+    "T001_complete": false
+  },
+  "foundry_metadata": {
+    "hosted_extension": {
+      "latest_version": "1",
+      "version_status": "active",
+      "agent_state": "enabled",
+      "endpoint_authorization_schemes": ["Entra", "BotServiceRbac"],
+      "repair_redeployed": false,
+      "new_hosted_activity_test": false
+    },
+    "original_retrieval_control": {
+      "latest_version": "4",
+      "version_status": "active",
+      "selector": "@latest",
+      "latest_version_traffic_percentage": 100,
+      "version_definition_matches_retained_creation_receipt": true,
+      "comparison": "SHA-256 of sorted canonical JSON definitions",
+      "native_answer_or_whole_turn_retested": false
+    },
+    "isolated_record_retriever": {
+      "latest_version": "1",
+      "version_status": "active"
+    },
+    "metadata_is_not_activity_or_native_acceptance": true
+  },
+  "release": {
+    "candidate_id": "verified-retrieval-sdk-b4-20261022",
+    "recorded_source_hashes_checked": 8,
+    "recorded_source_hashes_matched": 8,
+    "artifact_changed": false,
+    "scope": "One new immutable version in the existing project and one authenticated direct Activity smoke attempt; no authentication, role or original-agent changes",
+    "rollback": "Keep native diagnostic Inactive; restore previous endpoint/version selection through supported controls if a new version fails; preserve failed versions and evidence",
+    "required_role_approvals": {
+      "product_owner": "pending",
+      "security_team": "pending",
+      "tech_lead": "pending"
+    },
+    "approval_request_outcome": "User unavailable; no attributable approvals or retention decision supplied",
+    "general_recovery_permission_already_recorded": true,
+    "general_permission_promoted_to_role_signoff": false,
+    "T002_complete": false
+  },
+  "local_verification": {
+    "existing_documentation_tests_passed": 47,
+    "extension_tests_passed": 33,
+    "activity_version": "1.0.0b4",
+    "microsoft_agents_version": "1.9.0",
+    "dependency_check_passed": true,
+    "python_syntax_check_passed": true,
+    "canonical_validation_passed": true,
+    "wiki_export_and_validation_passed": true,
+    "hosted_or_native_acceptance_claimed": false
+  },
+  "native_browser": {
+    "shared_page_available_at_start": false,
+    "open_browser_page_attempted": true,
+    "tool_outcome": "External request timed out after 1800 seconds; no page ID returned; request may still be running",
+    "page_open_failure_or_no_side_effect_proven": false,
+    "native_conversation_retested": false
+  },
+  "preservation": {
+    "cloud_resource_writes": 0,
+    "model_inference_calls": 0,
+    "emails_resent": 0,
+    "new_evaluations": 0,
+    "auth_role_or_policy_changes": 0,
+    "resources_deleted": 0,
+    "protected_source_access_or_reconstruction": false,
+    "repository_or_wiki_published": false,
+    "private_identifiers_or_definitions_published": false,
+    "original_failures_overwritten": false
+  },
+  "related_receipts": [
+    "native-state-readback.json",
+    "independent-lab-review.json"
+  ]
+}

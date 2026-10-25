@@ -1,0 +1,15 @@
+{
+  "status": "blocked",
+  "start_emit_event": false,
+  "greeting_acceptance": false,
+  "http_statuses": [
+    200
+  ],
+  "server_conversation_header_observed": true,
+  "start_activity_count": 1,
+  "start_stream_status": "closed_normally",
+  "start_iterator_closed": true,
+  "non_activity_sse_events_observed": false,
+  "non_activity_sse_visibility_limited_by_sdk": true,
+  "roadmap_complete": false
+}

@@ -1,0 +1,127 @@
+{
+  "recorded_utc": "2026-10-25T01:00:37.124021+00:00",
+  "scope": "Direct hosted stateless Invocations implementation and compatibility regression only",
+  "result": "PASS",
+  "active_hosted_version": "5",
+  "earlier_dual_protocol_version": "4",
+  "new_immutable_versions_created": 2,
+  "local_service_tests_passed": 54,
+  "dependency_consistency_passed": true,
+  "local_loopback_smoke_passed": true,
+  "temporary_local_servers_stopped": true,
+  "hosted_original_case6_unchanged": true,
+  "hosted_positive_record_count": 2,
+  "hosted_positive_exact_renderer_match": true,
+  "retrieval_and_selection_response_ids_present": true,
+  "retrieval_membership_payload_independently_fetched": false,
+  "publisher_notebook_sha256": "45664948b2e915eebe667816cbc957c89e6b7c34fa61f6b1365d0267ad8e69f2",
+  "source_sha256": {
+    "azure.yaml": "70ee38d93da2a2802072dfc0b56ab57df26fa9215c96da3c88053022ae237809",
+    "src/echo-activity/main.py": "5bec992ba2bce010c6e0d0f575615b54d999d2e6c8b33cfb78bc2954dcec25d1",
+    "src/echo-activity/invocations.py": "3ba0e4a3659cdb2c7659deb7a550c0719b5c20d796de869f3e762ec28bfbb7eb",
+    "src/echo-activity/retrieval.py": "e3f1355e87b6809e84515c25c6a139e92e21e5bab7b3d7c8d37a9b142ea0dac1",
+    "src/echo-activity/evidence.py": "6d1ede2681520efa328885b0b3058a8261a1f510cda30c50d11bad0659c849e2",
+    "src/echo-activity/configure_stage.py": "03ea5e04c75a43b96c0bec860aa225fe4efc730048aa30759531207d23a6dcd7",
+    "src/echo-activity/requirements.txt": "4f6df9d06eb1b2439c4500317867d1f2e3ebd11e35f47d86b1c2b2ea25993a34"
+  },
+  "actual_protocols": [
+    "activity",
+    "invocations"
+  ],
+  "actual_authorization_schemes": [
+    "Entra",
+    "BotServiceRbac"
+  ],
+  "original_four_arm_resources_and_roles_preserved": true,
+  "original_hosted_identity_preserved": true,
+  "original_retriever_version4_definition_preserved": true,
+  "native_parent_candidate_files_bindings_permissions_cache_preserved": true,
+  "azure_policy_or_storage_networking_changes": 0,
+  "anonymous_hosted_access_enabled": false,
+  "service_request_limits": {
+    "question_characters": 12000,
+    "raw_body_bytes": 150000
+  },
+  "hosted_controls": [
+    {
+      "case": "unauthenticated",
+      "http_status": 401,
+      "result": "PASS"
+    },
+    {
+      "case": "openapi",
+      "http_status": 200,
+      "result": "PASS"
+    },
+    {
+      "case": "blank",
+      "http_status": 400,
+      "result": "PASS",
+      "observed_downstream_responses_posts": 0,
+      "reference_correlated": true,
+      "model_invocation_excluded_by_session_logs": true
+    },
+    {
+      "case": "integer-parser-limit",
+      "http_status": 400,
+      "result": "PASS",
+      "observed_downstream_responses_posts": 0,
+      "reference_correlated": true,
+      "model_invocation_excluded_by_session_logs": true
+    },
+    {
+      "case": "body-limit",
+      "http_status": 413,
+      "result": "PASS",
+      "observed_downstream_responses_posts": 0,
+      "reference_correlated": true,
+      "model_invocation_excluded_by_session_logs": true
+    },
+    {
+      "case": "no-relevant-evidence",
+      "http_status": 200,
+      "result": "PASS",
+      "observed_downstream_responses_posts": 1,
+      "explicit_abstention": true,
+      "selection_invoked": false
+    },
+    {
+      "case": "activity_compatibility",
+      "http_status": 200,
+      "result": "PASS",
+      "record_count": 2,
+      "exact_renderer_match": true,
+      "observed_downstream_responses_posts": 2,
+      "actual_caller_metadata": true
+    }
+  ],
+  "activity_initial_missing_api_version_http_status": 400,
+  "activity_corrected_required_query_parameter_http_status": 200,
+  "automatic_question_retries": 0,
+  "deployment_cli_timeout_preserved": true,
+  "deployment_timeout_followed_by_readonly_active_version_verification": true,
+  "redeploy_after_timeout": false,
+  "doctor": {
+    "passed": 11,
+    "failed": 0,
+    "skipped": 2
+  },
+  "additional_generated_evaluation_suite": "deferred_user_unavailable",
+  "new_native_questions": 0,
+  "native_pass": false,
+  "full_native_matrix_pass": false,
+  "published_sdk_authorization_resolved": false,
+  "browser_continuation": {
+    "existing_shared_page_used": true,
+    "document_visibility": "hidden",
+    "normal_bring_to_front_did_not_restore_visibility": true,
+    "normal_account_menu_click_timeouts": 2,
+    "forced_dom_actions": 0,
+    "website_account_reverification_completed": false,
+    "configuration_changes": 0
+  },
+  "source_text_raw_answers_tokens_or_private_identifiers_published": false,
+  "copilot_credit_total_or_current_final_cost_established": false,
+  "retention_owner_review_date_numerical_budget_or_role_signoffs_invented": false,
+  "roadmap_complete": false
+}

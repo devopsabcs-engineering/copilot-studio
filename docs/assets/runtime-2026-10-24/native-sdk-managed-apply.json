@@ -1,0 +1,22 @@
+{
+  "status": "blocked_preflight_stale_candidate_root_etag",
+  "atomic_changeset_submitted": false,
+  "content_writes": 0,
+  "candidate_component_count": 21,
+  "reserved_components_still_absent": 5,
+  "candidate_unpublished": true,
+  "auth_controls_verified": true,
+  "candidate_components_match_author_preconditions": true,
+  "source_parent_and_all_component_full_rows_unchanged": true,
+  "source_and_candidate_file_hashes_verified": true,
+  "source_clone_hashes_unchanged": true,
+  "binding_verified": true,
+  "source_binding_unchanged": true,
+  "only_background_sync_root_fields_differ": true,
+  "author_reconciliation_required": true,
+  "pac_profile_unchanged": true,
+  "permission_changes": 0,
+  "publish_attempts": 0,
+  "questions": 0,
+  "roadmap_complete": false
+}

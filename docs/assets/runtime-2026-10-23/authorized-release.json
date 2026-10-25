@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "recorded_date": "2026-10-23",
+  "status": "hosted_repair_verified_native_ui_prerequisite_blocked",
+  "overall_workshop_certified": false,
+  "authorization": {
+    "reference": "user-turn-20261023T161249-0400",
+    "user_message_utc": "2026-10-23T20:12:49.900Z",
+    "scope": "User explicitly supplies all approvals needed, including Azure deployments and Copilot credit usage, to continue the completion roadmap",
+    "organization_role_membership_or_third_party_signatures_inferred": false,
+    "initial_candidate": "verified-retrieval-sdk-b4-20261022",
+    "revised_candidate": "verified-retrieval-empty-output-20261023",
+    "revised_candidate_reason": "Correct the demonstrated blank successful MCP output defect found during the requested hosted acceptance tests",
+    "same_user_authorization_covers_task_related_repair_and_redeployment": true,
+    "unrelated_provisioning_or_policy_bypass_authorized": false
+  },
+  "deployments": [
+    {
+      "version": "2",
+      "purpose": "Deploy tested Activity bridge SDK repair",
+      "azd_exit_code": 0,
+      "duration_seconds": 92,
+      "existing_isolated_project": true,
+      "endpoint_authorization_changed": false,
+      "source_hashes_matched_previous_candidate": 8,
+      "positive_activity_smoke": "PASS",
+      "no_evidence_test": "FAIL",
+      "invalid_input_test": "PASS"
+    },
+    {
+      "version": "3",
+      "purpose": "Handle observed completed whitespace MCP output as no evidence, while rejecting malformed nonblank output",
+      "azd_exit_code": 0,
+      "duration_seconds": 98,
+      "existing_isolated_project": true,
+      "endpoint_authorization_changed": false,
+      "source_changed": ["src/echo-activity/evidence.py"],
+      "test_files_changed": 3,
+      "new_regression_tests": 5,
+      "all_extension_tests_passed": 38,
+      "pip_check_passed": true,
+      "python_syntax_check_passed": true,
+      "retained_real_failed_payload_replayed_without_inference": true,
+      "active_version_independently_read_back": true,
+      "positive_abstention_and_error_activity_tests": "PASS"
+    }
+  ],
+  "hosting_boundary": {
+    "authentication": ["Entra", "BotServiceRbac"],
+    "diagnostic_native_component": "Inactive",
+    "original_version_4_route_modified": false,
+    "managed_identity_acquisition_observed_in_successful_hosted_session": true,
+    "exact_downstream_principal_exposed_by_logs": false,
+    "retrieval_membership_independently_joined_from_cloud_response": false,
+    "literal_output_compared_with_pinned_corpus": true,
+    "source_selection_relevance_or_legal_completeness_certified": false,
+    "native_copilot_delivery_passed": false
+  },
+  "request_accounting": {
+    "v2_positive_activity_posts": 1,
+    "v2_negative_activity_posts": 2,
+    "v3_regression_activity_posts": 3,
+    "total_activity_posts": 6,
+    "automatic_retries": 0,
+    "native_evaluation_runs": 0,
+    "actual_internal_model_request_total_or_billed_credits_verified": false
+  },
+  "native_authorization": {
+    "failed_first_party_client_error": "AADSTS65002",
+    "first_party_login_retries_stopped": true,
+    "first_party_preauthorization_bypassed": false,
+    "owned_application_created": 1,
+    "single_tenant": true,
+    "client_secret_created": false,
+    "pkce_authentication_succeeded": true,
+    "delegated_permissions": [
+      "CopilotStudio.MakerOperations.Read",
+      "CopilotStudio.MakerOperations.ReadWrite"
+    ],
+    "consent_current_user_only": true,
+    "tenant_wide_consent_added": false,
+    "directory_roles_added": false,
+    "azure_profile_changed": false,
+    "known_bot_evaluation_list_http_status": 200,
+    "known_bot_evaluation_testsets_returned": 0,
+    "tokens_or_private_app_identifiers_published": false,
+    "registration_retained_for_remaining_native_tests": true,
+    "private_dpapi_cache_and_exact_rollback_retained": true,
+    "subsequent_preparation_read_transport_error": "ConnectionError, not evidence of an authentication regression"
+  },
+  "remaining_native_prerequisite": {
+    "supported_creation_surface": "Copilot Studio Evaluation UI",
+    "private_two_case_csv_prepared": true,
+    "cloud_testset_created": false,
+    "authenticated_mcs_profile_created_or_verified": false,
+    "required_steps": [
+      "Import prepared CSV as a new isolated Single responses test set on the existing bot",
+      "Connect the current user's Microsoft Copilot Studio connector under Additional configuration / Manage and verify tool connections",
+      "Save profile and Save test set; retain actual testsetId and mcsConnectionId privately before any draft run"
+    ],
+    "run_on_published_bot": false,
+    "anonymous_fallback": false,
+    "full_matrix_replaced_by_smoke": false
+  },
+  "roadmap": {
+    "completed_tasks": ["T003", "T004"],
+    "T004_scope": "Hosted Activity delivery with real retrieval/selection, exact source rendering, explicit abstention and input error, with managed identity credential evidence. Not native-channel or eleven-scenario acceptance.",
+    "still_open": [
+      "T001", "T002", "T005", "T006", "T007", "T008",
+      "T009", "T010", "T011", "T012", "T013", "T014", "T015", "T016"
+    ],
+    "T002_note": "Explicit requesting-user deployment approval is recorded and used; independent organizational role attribution is not asserted."
+  },
+  "cost_and_retention": {
+    "previous_reported_pretax_subtotal_usd": "6.219977042",
+    "post_release_query_returned_same_subtotal": true,
+    "billing_may_lag": true,
+    "not_final_cost_or_budget_estimate": true,
+    "existing_resources_remain_live_and_billable": true,
+    "new_owned_client_registration_requires_lifecycle_tracking": true,
+    "named_retention_owner_and_review_deadline_pending": true,
+    "resource_deletion_performed": false
+  },
+  "preserved_receipts": [
+    "completion-progress.json",
+    "hosted-repair-smoke.json",
+    "hosted-negative-checks.json",
+    "hosted-version3-regression.json",
+    "native-api-access-recovery.json",
+    "native-canary-preparation.json"
+  ],
+  "final_local_validation": {
+    "documentation_tests_passed": 53,
+    "extension_tests_passed": 38,
+    "canonical_validation_passed": true,
+    "wiki_markdown_files_exported": 38,
+    "wiki_validation_passed": true,
+    "git_diff_check_passed": true,
+    "private_evidence_gitignored": true,
+    "debug_configuration_json_validated_not_interactively_launched": true
+  },
+  "final_resource_readback": {
+    "recorded_utc": "2026-10-23T21:24:25Z",
+    "isolated_arm_resource_count": 4,
+    "original_account_project_search_and_bot_present": true,
+    "new_application_registration_is_directory_not_arm_resource": true
+  },
+  "remote_publication_performed": false
+}

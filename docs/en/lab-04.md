@@ -1,7 +1,7 @@
 ---
 title: "Lab 04: Use a Foundry model in a grounded prompt"
 description: "Connect a compatible chat-completion model to a prompt, retrieve Azure AI Search passages explicitly, and test a controlled topic."
-ms.date: 2026-10-19
+ms.date: 2026-10-24
 ms.topic: tutorial
 ---
 
@@ -44,6 +44,26 @@ also lists only **Default** authentication, with required **Target Uri** and
 that connector. Its availability in Copilot Studio does not establish that an
 existing connector connection can be selected by native prompt BYOM. This
 published contract is separate from the inconclusive native form inspection.
+
+The [October 23 public-contract refresh](../assets/runtime-2026-10-23/lab-prerequisite-refresh.json)
+still finds only Default authentication with required API Key for this connector.
+The current owned account still enforces `disableLocalAuth=true`.
+The repaired hosted Activity extension is not a connected prompt BYOM substitute.
+No policy exception or lab exclusion is recorded, and the native dialog was not
+reinspected. T011/T012 therefore remain open; deployment/credit permission alone
+does not establish that this key-based path satisfies the enforced policy.
+
+The [October 24 authentication comparison](../assets/runtime-2026-10-24/byom-authentication-contracts.json)
+identifies a distinct supported connector option:
+[Azure OpenAI](https://learn.microsoft.com/en-us/connectors/azureopenai/)
+documents Microsoft Entra ID Integrated (`oauth`) for Copilot Studio, requiring
+the connecting user to have Cognitive Services OpenAI User on the resource.
+Its Entra connection is not shareable; each user must create their own connection.
+The connector's managed-identity option is **Logic Apps only**, not a Copilot
+Studio alternative. An explicit Azure OpenAI chat-completion action could be
+evaluated as a separate keyless workflow, but this public contract does not prove
+it can replace the native prompt BYOM connection or close T011/T012.
+No connection, prompt change, policy exception or substitute approval is recorded.
 
 * Distinguish the embedding model used by Search from the chat model used by a prompt.
 * Connect an approved model using its supported chat-completions endpoint.

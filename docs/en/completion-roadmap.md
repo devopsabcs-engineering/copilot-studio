@@ -1,7 +1,7 @@
 ---
 title: Workshop completion roadmap
 description: Prioritized remaining work, dependencies, owners, and measurable acceptance gates for workshop completion.
-ms.date: 2026-10-23
+ms.date: 2026-10-25
 ---
 
 ## Goal and scope
@@ -13,13 +13,571 @@ The planning deliverable is complete. The workshop execution is **not complete**
 This roadmap identifies what must be done before that claim is justified.
 Unchecked tasks are work to execute, not promised or observed outcomes.
 
-The baseline is commit `94ebcd3` and the retained execution evidence, not a fresh
-October 23 cloud inventory. Local verification on October 22 passed 47 documentation
+The planning baseline is commit `94ebcd3` and the retained execution evidence.
+Local verification on October 22 passed 47 documentation
 tests, 33 extension tests, dependency consistency and Python syntax checks.
-Those results do not establish live acceptance. No new cloud deployment, email,
-permission grant, publication or protected-source access is part of this roadmap update.
+Those results do not establish live acceptance. The October 23 continuation below
+adds current read-only inventory, not a deployment or a live acceptance pass.
+
+## October 25 verified Invocations delivery
+
+The [verified transport release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
+adds stateless Invocations to the existing deterministic Activity host. Version 4
+first passed the unchanged SAR question locally and remotely. Version 5 adds
+explicit rejection of JSON parser limits; all 54 service tests and dependency
+checks pass. Its deployment CLI timed out after service registration, but fresh
+read-only checks found version 5 active and doctor returned 11 passed, zero failed,
+two skipped. No deployment was repeated after that timeout.
+
+The final real local and hosted SAR responses match the exact two-record renderer
+output. Seven hosted controls pass: no-token HTTP 401, authenticated OpenAPI,
+blank-input HTTP 400, integer-parser-limit HTTP 400, body-limit HTTP 413,
+astronomy abstention and Activity compatibility. Correlated session logs exclude
+model calls for the three invalid authenticated requests. The initial direct
+Activity request lacked the now-required API version and returned HTTP 400; a
+separately guarded corrected request passed HTTP 200 with exact source rendering.
+Neither request changes native caller identity or payload semantics.
+
+Both protocols, Entra plus BotServiceRbac, hosted identity, original retriever
+version 4 and the original four resources/roles are independently verified.
+The [native preservation check](../assets/runtime-2026-10-24/native-preservation-after-invocations.json)
+also preserves both parents, all component definitions, file hashes, approved
+bindings, delegated grants, owned cache and PAC profile. No Storage policy or
+network setting changes. Raw answers and credentials remain private.
+
+T005 and native/full-matrix acceptance remain open. The existing shared browser
+reports hidden visibility; normal foreground activation and account-menu clicks
+do not restore actionable UI. No new native question or configuration write
+occurs. The additional generated evaluation suite is deferred while the user is
+unavailable, not treated as selected or approved. Retention ownership, review
+date, numerical budget and attributable organizational signoffs remain missing.
+
+## October 24 independent Azure preflight
+
+The [fresh read-only Azure checks](../assets/runtime-2026-10-24/azure-preflight-refresh.json)
+verify the admin/tenant separately in Azure extensions and Azure CLI; neither
+establishes the browser website identity. All four retained ARM resources remain.
+Both model deployments are Succeeded in Sweden Central. Exact returned quota
+meters show chat usage 26 of 5,000 and embedding usage 1 of 1,000, labeled
+thousands of tokens per minute. Search Basic remains running in West US 2 with
+one replica/partition, system identity and local authentication disabled.
+All four required providers are registered; the lowercase Insights namespace
+is verified by a separate GET after the case-sensitive list filter omits it.
+
+Cost Management now reports **USD 7.650361288** before tax for the four retained
+resource IDs and their descendants, including **USD 7.373** for Search, from
+October 20 through the partial October 24 reporting period. No unrelated
+subscription costs are included. Reporting may lag; this is neither a final
+invoice nor a Copilot-credit total. No inference, new question, configuration
+write, role/policy change, provider registration, billing change or deletion
+occurs. T001/T009 remain open for owner, deadline, numerical budget, tenant
+credits and the other acceptance criteria.
+
+Microsoft Graph independently verifies the current administrator and returns
+four license records with seven filtered maker-related plans in provisioning
+status Success. This is assignment evidence, not proof of complete premium
+entitlement, tenant credits or an environment billing binding.
+
+## Policy-compatible fictional ingestion
+
+The [public upload attempt](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
+observes enforced Storage public-network disablement and HTTP 403 despite scoped
+RBAC. No exemption, key fallback or policy change is made. All temporary resources
+and roles are removed with the original inventory preserved.
+The [private-network attempt](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion.json)
+then proves S5-01: exactly two original fictional files, private DNS/IP verification,
+managed-identity claims and two exact hash roundtrips. Its interrupted resume
+fails before indexer execution; that failure and a recovered asynchronous DNS
+cleanup race are retained. The original four-resource inventory is verified
+restored before a separately guarded retry. Upload success is not S5-02 or
+connected-answer acceptance, and T014 remains open.
+
+The [corrected private verification](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-vector-readback.json)
+now closes S5-01/S5-02. The previous retry's successful indexer but HTTP 400
+vector readback is preserved; the disposable vector field is explicitly retrievable.
+Supported CLI authentication recovery resumes the deployed job without another
+deployment/upload, preserving the expired-token failure and initial cleanup
+errors. Final private indexing processes two files, zero failed items and zero
+warnings; both exact passages, parent/source metadata and real 1,536-dimensional
+vectors are verified. All temporary infrastructure, roles and shared links are
+deleted, with original Search objects/roles/links and four-resource inventory
+independently preserved. No Storage policy, public-network/key/anonymous setting,
+agent or original route is weakened. Together with S5-03/S5-05/S5-06, five Lab 5
+criteria pass; connected answers, source navigation, French and denied-identity
+acceptance still keep T014 open.
+
+## October 23 execution checkpoint
+
+The [current inventory and repair checks](../assets/runtime-2026-10-23/completion-progress.json),
+[saved-state readback](../assets/runtime-2026-10-23/native-state-readback.json) and
+[independent lab review](../assets/runtime-2026-10-23/independent-lab-review.json)
+retain the new evidence separately from earlier failures.
+
+* T001 advanced: the four existing ARM resources, account/project/Search identities,
+  two model deployments and retained ownership IDs were reconciled. Search Basic
+  is running with one replica and one partition. Cost Management returned
+  **USD 6.219977042** before tax for October 20 through the partial October 23
+  reporting period, including **USD 6.060** for Search. Billing may lag. The expiry
+  tag has not deleted anything; a named retention owner, review deadline and
+  approved spending boundary remain missing.
+* T002/T003 advanced locally: all eight candidate source hashes still match
+  `verified-retrieval-sdk-b4-20261022`. The existing 47 documentation tests,
+  33 extension tests, dependency/syntax checks and canonical/wiki validation passed
+  again. The hosted extension remains active version 1 with unchanged Entra and
+  BotServiceRbac authorization; the SDK repair is still undeployed.
+* T005/T006 preflight advanced: three authenticated Dataverse GETs verified the
+  diagnostic is Inactive and its exact definition hash is unchanged. The original
+  attachment is Active with matching identity and target. Separate current Foundry
+  reads verify its target selects active version 4 and that version's definition
+  matches its creation receipt. No full historical Dataverse attachment definition
+  was available for byte-for-byte comparison. No native answer was retested.
+* T009/T010/T014 were reconciled against individual criteria. Historical subsystem
+  passes remain valid within their original scope, but no outstanding criterion
+  was newly closed. The review identifies the missing citation navigation,
+  connector error body, published-channel/privacy and connected-query evidence.
+* The native browser recovery request timed out without returning a page ID.
+  Its side effects are unknown; this is not proof that no page opened. An unshared
+  page does not provide an authenticated native test route.
+* The attributable role approvals and retention decision were requested once;
+  the user was unavailable. They remain pending, not inferred from general
+  recovery permission. No cloud configuration, policy, permissions, original
+  agents or source files were changed. No email, evaluation, deployment,
+  deletion or remote publication was performed.
+
+At that read-only checkpoint, all sixteen task checkboxes remained open because each required more than that
+checkpoint. Exact-candidate approval was then the deployment gate;
+independent native checks still require a usable authenticated browser.
+
+## Authorized deployment and authentication recovery
+
+The user explicitly supplied all required approvals, including Azure deployments
+and Copilot credit use, at **2026-10-23 16:12:49 -04:00**. The
+[authorized-release.json](../assets/runtime-2026-10-23/authorized-release.json)
+record applies that authorization to the existing isolated repair and its
+demonstrated follow-up defect. It does not invent named organizational signatories.
+
+* **T003 completed:** the unchanged SDK candidate deployed as version 2.
+  Its [real authenticated positive Activity smoke](../assets/runtime-2026-10-23/hosted-repair-smoke.json)
+  passed exact whole-record rendering and individual attribution. Same-session
+  logs show managed identity acquisition and successful downstream calls.
+* The [version-2 negative checks](../assets/runtime-2026-10-23/hosted-negative-checks.json)
+  found a genuine no-evidence defect: a completed trusted MCP call returned only
+  a newline, which raised `JSONDecodeError`. Invalid oversized input correctly
+  failed before model invocation. Both observations remain preserved.
+* The parser now treats only blank text from a verified completed tool call as
+  empty evidence. Missing/nontext or malformed nonblank output still fails
+  explicitly. Five added regressions bring the extension suite to **38 passing
+  tests**. Replaying the retained failed response also passed without new inference.
+  This revised artifact deployed as **active version 3**, without changing Entra
+  or BotServiceRbac authentication.
+* **T004 completed within hosted scope:** [three real version-3 Activity checks](../assets/runtime-2026-10-23/hosted-version3-regression.json)
+  passed: unchanged original case 6 returned two exact individually attributed
+  records; the unchanged astronomy question returned the exact abstention; and
+  oversized input returned the explicit error with no model request.
+  These are three fresh requests with zero retries, not native or eleven-case
+  acceptance. Logs do not expose the exact downstream principal or independently
+  join cloud retrieval membership.
+* The reported browser login error **AADSTS65002** came from requesting Power
+  Platform permissions with the Microsoft-owned Azure CLI client. Tenant consent
+  or Azure RBAC cannot replace Microsoft API-owner preauthorization for that
+  client pairing. Those login attempts stopped. A supported
+  [owned-client recovery](../assets/runtime-2026-10-23/native-api-access-recovery.json)
+  created one single-tenant secretless public client, used PKCE, and granted
+  only the current user `MakerOperations.Read` and `MakerOperations.ReadWrite`.
+  The known bot's evaluation list returned **HTTP 200**, with **zero test sets**.
+  No tenant-wide consent, directory role, client secret or Azure-profile change
+  was added.
+* [Native canary preparation](../assets/runtime-2026-10-23/native-canary-preparation.json)
+  produced a private two-case import CSV. At that stage, the remaining prerequisite
+  is UI-only: import it on the existing bot, configure the authenticated
+  Microsoft Copilot Studio user profile, then save the profile and test set.
+  Their real IDs are required for a draft API run. No undocumented creation call,
+  anonymous fallback or native evaluation was attempted.
+
+The diagnostic remains Inactive and the original version-4 route is preserved.
+Six hosted Activity requests were made across versions 2 and 3; their count is not
+an internal-model total, Copilot-credit total or monetary bill. A post-release
+Cost Management query returned the same lagged USD 6.219977042 subtotal.
+Resources and the new owned registration are retained for remaining tests;
+retention ownership/review and independent organizational approval attribution
+remain open. No remote repository/wiki publication was performed.
+Local validation at that stage passed **53 documentation tests, 38 extension tests**,
+dependency/syntax checks, canonical validation, 38-page wiki export and wiki
+validation. These checks do not certify native or remaining lab acceptance.
+
+## Authenticated native canary and restoration
+
+The [admin/MngEnv browser setup](../assets/runtime-2026-10-23/native-ui-setup.json)
+saved the two-case test set, with persistence verified by full navigation.
+The UI's account/tool selection did not persist, but the documented draft run API
+supports explicit authenticated connection bindings. The
+[readiness check](../assets/runtime-2026-10-23/native-run-readiness.json) verified
+the caller, saved test set and tool mapping without adding connectivity scopes.
+Independent connection-owner object-ID proof remains unavailable.
+
+After the management worker's optional capability failed to load, a supported
+[state-only Dataverse transition](../assets/runtime-2026-10-23/native-diagnostic-activate-supported.json)
+activated only the existing diagnostic. Live state metadata, an exact-definition
+hash and optimistic concurrency guarded the operation. The original attachment
+and parent full rows were unchanged.
+
+One [authenticated draft native evaluation](../assets/runtime-2026-10-23/native-authenticated-canary.json)
+was accepted with HTTP 202 and completed at **2026-10-24 00:19:34 UTC**:
+two results, **one General Quality Pass and one Fail**, with zero submission
+retries. The failure reports abstention Yes, relevance No and completeness No.
+The returned run owner and connection match the verified caller and request.
+This proves authenticated evaluation execution, not exact native source delivery.
+The API does not expose answer text or the question-to-result mapping. The
+diagnostic-intent-only input is not substantive retrieval acceptance.
+
+The [restoration and evidence readback](../assets/runtime-2026-10-23/native-canary-restoration.json)
+independently verifies the diagnostic is Inactive again, its exact definition is
+preserved, and the original attachment and parent full rows are unchanged.
+The hosted extension remains active version 3; its native-facing endpoint selects
+`@latest` and retains Entra plus BotServiceRbac. A narrowly filtered, documented
+transcript read returned **403: missing `prvReadconversationtranscript`**.
+The verified admin browser was located, but its ordinary foreground request failed;
+no keyboard input was sent. No role, consent, endpoint-authentication or publication
+change was made. The earlier native tenant-ID 403 is neither reproduced nor
+resolved by these grader metrics. T005/T006 and the eleven-case matrix remain open.
+
+## Independent tool and infrastructure reconciliation
+
+The [supported recovery alternatives](../assets/runtime-2026-10-23/native-recovery-alternatives.json)
+record the additional attempts, not a native pass. Official PAC **2.14.1** was
+restored in an isolated gitignored directory through NuGet's working V2 HTTPS
+feed after its V3 endpoint failed TLS negotiation. PAC independently identifies
+the same admin/MngEnv user and environment. Existing Global Administrator
+membership does not supply the missing Dataverse role. The documented
+self-elevation API rejects the owned client for `UserManagement.Users.Apply`,
+which is absent from the live published permission catalog. PAC self-elevation
+also returns 403; its assignment alternatives fail environment resolution.
+All attempts independently restore the exact original Dataverse role set and
+active PAC profile. No new consent, role or endpoint-authentication change occurred.
+The official local MCP capability discovery succeeds and the helper is stopped;
+it does not provide the missing answer transcript.
+
+T013's [infrastructure reconciliation](../assets/runtime-2026-10-23/terraform-reconciliation.json)
+is complete without another apply. Terraform **1.16.6** was restored with its
+official archive checksum verified. A private copy of all **23 original Terraform
+files** remains byte-identical before and after `init`, `validate` and a saved
+non-applying plan. Exit codes are **0, 0 and 2** respectively, with zero validation
+errors or warnings and **15 proposed instances**. Provider auto-registration is
+disabled; an independent Azure read confirms the plan-only group does not exist.
+Resolved versions are AzureRM 4.45.1, AzAPI 1.15.0, AzureAD 2.48.0,
+Random 3.6.1 and HTTP 3.6.3.
+
+The comparison preserves the historical corrected 15-instance apply and cleanup.
+The unchanged plan still selects the previously rejected GPT-4o `2024-05-13`,
+public/local-auth defaults and Standard Search without an attached identity.
+It creates no private endpoint, Foundry project or data-plane index. Historical
+policy-preserving overrides and separately verified Search system-identity
+vectorization are not properties of that unchanged plan. No existing
+infrastructure was reapplied. D5-02 and D5-03 now have fresh tool/validation
+evidence; full Lab 5.1 and connected Lab 5 acceptance remain open.
+
+## Native portability and synthetic Search progress
+
+The initial SDK fallback obtained a real, byte-preserving clone with both
+knowledge payloads. Official PAC 2.14.1 then
+[rejected its own clone layout](../assets/runtime-2026-10-23/native-sdk-packaging.json);
+the [Author check](../assets/runtime-2026-10-23/native-sdk-author.json)
+did not omit components to force a package.
+The [distinct template/file-API preflight](../assets/runtime-2026-10-23/native-sdk-template-candidate.json)
+verified live file hashes and an existing approved connection binding, but
+exported only 21 of 26 components and omitted the parent's routing instructions.
+Those initial probes produced no candidate, publication or SDK questions.
+A complete private derivative still needs reconstruction and independent
+fidelity checks before publication or answer acceptance.
+
+One [staging candidate](../assets/runtime-2026-10-24/native-sdk-staging-corrected-name.json)
+is now created and independently verified unpublished. Both uploaded knowledge
+payloads match the original hashes and the existing binding is verified;
+integrated Entra authentication and access policy are preserved.
+The first create rejected an overlength display name without persisting an
+agent; the corrected name reuses the same schema. The retained candidate still
+has 21 components, lacks the omitted routing state and is not SDK-ready.
+No publication, permission expansion or question has occurred in this phase.
+The original parent, components, files and connection reference remain unchanged.
+
+The [Author reconstruction](../assets/runtime-2026-10-24/native-sdk-reconstruction.json)
+now covers all 26 source components locally. Twenty-four YAML definitions pass
+schema validation; the one warning is the source's omitted recommended display
+name, not an omitted behavior. Fourteen staged operations project to the desired
+26-component state, including exact normalized instructions and inactive
+diagnostic state. These are local authoring results only: management must
+preflight, apply atomically and independently verify the cloud candidate before
+any publication or SDK question.
+
+The [first managed preflight](../assets/runtime-2026-10-24/native-sdk-managed-apply.json)
+stopped before submitting the changeset because background synchronization
+advanced the candidate-root ETag. All 21 component preconditions, file hashes
+and bindings still match; the source remains unchanged. Only root synchronization
+metadata differs. The [capture receipt](../assets/runtime-2026-10-24/native-sdk-capture.json)
+therefore records zero publication, questions, activities or permission writes.
+A metadata-only guard refresh must revalidate all business fields before a
+separate atomic attempt; it is not permission to ignore concurrent content edits.
+
+The [reconciled atomic attempt](../assets/runtime-2026-10-24/native-sdk-managed-apply-reconciled.json)
+now succeeds: all 14 subresponses are HTTP 204. Independent readback confirms
+all 26 candidate components, definitions, references and states, exact normalized
+instructions, all four source/candidate file hashes, the binding and Entra
+controls. The source's full rows remain unchanged. At this checkpoint the
+candidate is still unpublished; the [capture record](../assets/runtime-2026-10-24/native-sdk-capture-reconciled.json)
+contains no question, activity or final answer. Publication and SDK execution
+remain distinct operations under the user's existing deployment authorization.
+
+The [candidate publication](../assets/runtime-2026-10-24/native-sdk-publish-confirmed.json)
+is now independently API-confirmed `Succeeded` with a published timestamp.
+PAC returned exit 1 because its status parser crashed; publication was not
+repeated. All 26 definitions/states, file hashes, bindings and Entra controls
+still pass; the original parent and source full rows remain unchanged.
+The [owned-client capture attempt](../assets/runtime-2026-10-24/native-sdk-capture-owned-client.json)
+stopped when silent authentication returned no Invoke token: zero questions
+or activities, no inferred completion. Exact app permissions and current-user
+grant are restored, original access/refresh entries retained and the prior PAC
+profile restored. Supported error diagnostics and correct-profile browser
+authentication remain separate recovery work; publication alone is not acceptance.
+
+The [explicit authentication diagnostic](../assets/runtime-2026-10-24/native-sdk-auth-diagnostic.json)
+now identifies `AADSTS65001`, `consent_required`, without a claims challenge.
+One silent-with-error probe and one `prompt=none` owned-client PKCE flow both
+fail for consent. A normal PKCE flow in the verified MCAPS Main Admin profile
+receives no callback within its bound; its listener is closed.
+The [recovery receipt](../assets/runtime-2026-10-24/native-sdk-capture-recovered.json)
+records zero SDK service requests and independently verified exact grant/manifest
+restoration, retained tokens and unchanged source/candidate controls.
+No browser cookies or session databases were read. An expired flow is not
+usable authorization; any further browser consent requires a fresh active callback.
+
+The [bounded consent-recovery result](../assets/runtime-2026-10-24/native-sdk-auth-consent-recovery-final.json)
+now acquires a verified Invoke token after one five-minute pre-probe wait and
+one force-refresh attempt. Resource, scope, client and account mappings match.
+The same configuration includes standard OIDC scopes, so those scopes are not
+proven causes of the earlier consent error and no plain-OAuth fallback was needed.
+SDK start returns one typing activity but does not yield a usable completed
+start; zero questions are submitted. This moves the blocker from authentication
+to conversation-start capture, not to proven whole-parent delivery.
+
+Transport failures initially interrupt cleanup, but independent recovery verifies
+the exact manifest and all owned-client current-user grants restored, Maker
+access and valid refresh entries retained, all source/candidate controls
+preserved and the prior PAC profile active. UIA cannot verify the entire consent
+page or identify expired tabs safely: no blind Accept/Close is invoked.
+Do not accept expired owned-client consent pages.
+
+The [header-aware SDK diagnostic](../assets/runtime-2026-10-24/native-sdk-start-diagnostic.json)
+then recovers the server-issued conversation ID. Start suppresses the start
+event for diagnosis only, not greeting acceptance, and closes normally.
+The [two actual question captures](../assets/runtime-2026-10-24/native-sdk-capture-start-recovered.json)
+submit Hello and unchanged SAR case 6 once each. All three requests return HTTP
+200 and all streams close normally. Hello produces an investigation-clarification
+message; SAR produces an Azure AI Foundry Agent Service Adaptive Card requiring
+the user to connect their account and select Continue. Neither action is invoked.
+Observed SAR events are `DynamicPlanReceived`, `DynamicPlanStepTriggered` and
+`DynamicPlanStepBindUpdate`, not `DynamicPlanFinished`. No domain answer or source
+comparison is captured. The blocker is now runtime per-user connector
+authorization, despite the stored binding. Exact permission/cache restoration
+and source/candidate preservation pass again. T005-T008 remain open.
+
+The [connector authorization follow-up](../assets/runtime-2026-10-24/native-sdk-connector-authorization.json)
+stops before Connect: the correct browser profile and environment are identified,
+but UIAutomation cannot verify the website's signed-in admin account. This is
+not an observed MFA or OAuth failure. No Connect navigation, Continue submission,
+new question, permission change or cloud write occurs. Independent source,
+candidate, file, binding, app/grant, cache and PAC checks pass. A human must
+visibly verify the MngEnv website account and complete the current approved
+Foundry connection before Continue; expired OAuth pages must not be accepted.
+
+The [window-scoped visual alternative](../assets/runtime-2026-10-24/native-sdk-connector-visual-verification.json)
+also fails to establish identity: the inspected PrintWindow crop is white with
+no readable website account or tenant. No Connect/Continue action occurs.
+The browser's original minimized state is restored and preservation checks pass.
+
+The [initial foreground-pixel guard](../assets/runtime-2026-10-24/native-sdk-connector-foreground-verification.json)
+then observes another foreground window and stops without taking focus,
+changing the target window or capturing any pixels. No unrelated window is
+inspected. This is a pre-capture guard outcome, not a failed identity comparison.
+
+The [single explicit focus request](../assets/runtime-2026-10-24/native-sdk-connector-focus-request.json)
+subsequently succeeds: the verified browser is foreground, visible and
+nonminimized. Its website account control does not support InvokePattern and
+the account-region bounds guard rejects capture. No screenshot or Connect is
+attempted. The original minimized state is restored; all preservation checks pass.
+The remaining account-verification boundary is not waived.
+
+The [supported browser-page recovery](../assets/runtime-2026-10-24/native-sdk-browser-page-recovery.json)
+subsequently verifies the exact admin UPN in the website account menu and the
+target environment route. The Edge profile label is not exposed; it is not used
+as identity proof. One current first-party Foundry Connect form is submitted
+with the approved project endpoint and returns **Unable to sign in. Please try
+again.** No connection success is observed, so Continue and a fresh SAR question
+remain uninvoked. This resolves website identity verification, not connector
+authorization. One create submission is recorded as a cloud write, not zero
+writes. Independent source/candidate/file/binding/app/grant/cache/PAC checks pass
+with no verification or rollback errors. The error alone does not identify an
+OAuth, MFA, DLP or RBAC root cause; supported diagnosis is still required.
+
+After the user's sign-in update, the
+[human-assisted status check](../assets/runtime-2026-10-24/native-sdk-human-assisted-status.json)
+still shows a blank connection form with Create disabled, not a success message.
+The subsequent
+[read-only connection listing and Details check](../assets/runtime-2026-10-24/native-sdk-connection-listing-diagnostic.json)
+verifies the exact candidate-referenced Foundry connection as **Connected** in
+both views, with the required website administrator and environment verified.
+Its displayed owner is System Administrator and its last-modified date is
+October 21; this does not prove the recent sign-in changed the connection or
+authorized the paused conversation. No new Create, Continue or SAR question
+occurs in either check. Preservation checks pass. The earlier failed Create's
+request/response was not retained, so its cause remains unclassified; the
+connector authentication and endpoint format match the official contract.
+Existing connection status permits a bounded runtime continuation, not a claim
+of native answer, source grounding or whole-roadmap acceptance.
+
+The [single original-conversation continuation](../assets/runtime-2026-10-24/native-sdk-original-card-continuation.json)
+then sends the exact Retry payload once. HTTP 200 and a normally closed SDK
+stream return typing and the same Foundry authorization card, not a SAR answer.
+The card's `streamType=final` is not retrieval or plan completion: no citations,
+source passages, `DynamicPlanFinished` or end-of-conversation event are observed.
+No second Retry, fresh SAR, Create or publication occurs in this attempt.
+The exact client manifest and all current-user grants are restored; only the
+new Invoke access token is removed while Maker access and valid refresh-token
+rotation remain. Independent source/candidate/file/binding/authentication/PAC
+checks pass with zero primary, cleanup or verification errors. The remaining
+boundary is per-user runtime authorization, despite the existing connection's
+Connected status.
+
+The [instrumented post-sign-in connection attempt](../assets/runtime-2026-10-24/native-sdk-instrumented-runtime-connect.json)
+uses the Connect target from that newly returned card. The verified runtime
+form offers Create only, not selection of the existing connection. Entra ID
+User Login, the approved endpoint and required fields are verified before one
+submission. The connection PUT returns HTTP 201 Created, the UI reports
+**Unable to sign in. Please try again.**, and automatic cleanup DELETE returns
+HTTP 200. Creation is not authorization success. Request/correlation IDs remain
+private; no OAuth popup event, callback error or service error body is captured.
+The underlying sign-in cause remains unclassified. No additional Create,
+Continue or SAR is sent; all independent preservation checks pass without
+verification or cleanup errors. Connector-specific human sign-in, rather than
+website sign-in alone, remains the next boundary; no new role, tenant-wide
+consent or endpoint change is justified by this evidence.
+
+The [additional read-only sign-in audit](../assets/runtime-2026-10-24/native-connector-signin-audit.json)
+uses existing administrator access to Microsoft Graph v1.0, without new consent.
+The exact-user 19:22–19:25 UTC query returns no events; a separate noninteractive
+query also returns none. A wider 19:00–19:30 UTC query returns four successful
+Power Apps/Office shell sign-ins around 19:12, not a connector failure code.
+The rejected `signInEventTypes` filter is preserved; `isInteractive eq false`
+succeeds on v1.0, without a beta API. Logging latency and query scope prevent
+treating absent events as proof of no authentication attempt or popup blocking.
+The current runtime form still reports the sign-in error. No connector
+submission, Continue, question, permission or policy change occurs in this
+diagnostic; the underlying cause remains unclassified.
+
+The [reloaded-page, measured-click recovery](../assets/runtime-2026-10-24/native-sdk-trusted-click-recovery.json)
+checks a different hypothesis after browser network-change/reset errors.
+Public tenant OIDC metadata returns HTTP 200 with credentials omitted.
+The approved endpoint and Entra User Login option are verified before one
+supported browser Create click. Its captured event has `isTrusted=true` and
+active user activation. The UI nevertheless shows Adding connection, then
+Deleting connection, then the same sign-in error. Lack of trusted activation
+does not explain this measured submission. Network errors are not established
+as the cause, and metadata reachability is not connector authorization.
+This attempt does not capture the created identifier or PUT/DELETE status;
+automatic-deletion UI is not independent proof of resource absence.
+No Continue, new question, permission change or publication follows.
+Independent source/candidate/file/binding/grant/cache/PAC checks pass with zero
+verification or rollback errors. The temporary click diagnostic is removed.
+The subsequent current-user Connections listing contains six rows and only the
+original Connected Foundry entry; no additional Foundry row or pagination
+control is observed. This is scoped listing evidence, not an exact-resource
+absence check because the attempt's new connection identifier was not captured.
+
+The [native Studio test-pane recovery](../assets/runtime-2026-10-24/native-studio-existing-connection.json)
+then establishes a different supported route. The unchanged SAR case returns an
+**Open connection manager** card, whose actual `pva-studio` link shows the tool
+as Not Connected for the verified administrator. Unlike the direct Connect
+form, this manager offers **Create or pick a connection**. One Submit associates
+the existing approved connection, without a new connection, OAuth flow or
+permission change. The manager then shows Connected via the required
+administrator. Returning to Studio reinitializes the test pane, so one fresh
+unchanged SAR case is sent after the verified association.
+
+Native delivery now produces three domain-answer messages, with no authorization
+card and no typing indicator at capture. One visible tool action is Completed
+in 25.92 seconds. This is a recovered native route, not source-fidelity
+acceptance: the first answer has seven exact matches among nine quoted passages;
+the second has five among six. The final generated message has no quoted
+passages and cannot pass a verbatim-quote check by absence. Comparisons use each
+excerpt's own rendered canonical source group against the pinned original
+corpus. Raw answers and protected source text remain private. The initial
+completion wait times out because it assumes immediate feed children;
+subsequent capture uses the actual nested Web Chat articles. Neither a hidden
+typing indicator nor the visible tool status proves a protocol plan-finished
+event. Published-channel authorization and the full eleven-case matrix remain
+unproved.
+
+The [existing hosted diagnostic](../assets/runtime-2026-10-24/native-studio-verified-diagnostic.json)
+is then enabled only on the candidate and invoked once through the recovered
+native connection. It returns HTTP 403, `ConnectorRequestFailure`, because
+BotServiceRbac requires a valid Entra tenant ID for the activity caller.
+The tool reports Failed and zero tokens; no domain answer is delivered.
+The diagnostic is restored Off, with independent verification of the original
+parent, candidate definitions/authentication, file bindings, app/grants,
+owned cache and PAC profile.
+
+The [already-authorized bounded Entra-only experiment](../assets/runtime-2026-10-24/native-studio-entra-only-diagnostic.json)
+then patches only the isolated endpoint's authorization list, retaining Azure
+RBAC and never enabling anonymous access. One native diagnostic question gets
+past the tenant-ID error but returns HTTP 400: the activity caller's blueprint
+ID does not match the hosted agent summary. This is another failed native
+delivery, not a source-fidelity pass or proof of an identity-migration cause.
+The candidate diagnostic returns Off; both other specialists remain On.
+The exact endpoint/card, Entra plus BotServiceRbac, version-3 definition/identity
+and original manifest bytes are verified restored, with zero verification or
+rollback errors. No deployment, new version, publication, corpus edit or role
+change occurs. The five-minute maximum window ends early after the test.
+The next step is a supported protocol/connector contract investigation, not
+another connection Create or permanent removal of BotServiceRbac.
+
+The [read-only native connector contract check](../assets/runtime-2026-10-24/native-connector-operation-contract.json)
+finds ten visible actions after **See all**. The public connector reference lists
+hosted Invocations/Responses actions, but neither is observed in this catalog;
+that does not prove backend absence. The application-based Activity action
+offers the approved connection, but its preview is cancelled before
+**Add and configure**. The tool list remains empty and the diagnostic Off.
+The [official native integration guide](https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent)
+requires Activity, which the actual endpoint already exposes. No verified
+first-party fix for the exact blueprint error or identity-migration cause is
+established; no caller identity or Activity payload is overridden.
+
+The [published SDK retest after Studio association](../assets/runtime-2026-10-24/native-sdk-post-studio-authorization.json)
+sends exactly one unchanged SAR case, with no retry. Start and question requests
+return HTTP 200 and both owned streams close normally. The five activities
+contain typing, three plan-start/binding events and the Foundry **Connect your
+account** card, not a domain answer or plan-finished event. Studio association
+therefore does not establish published-channel authorization. No Connect,
+Continue, new connection or publication follows. The temporary owned-client
+manifest scope and current-user-only grant are restored exactly; only the one
+new Invoke access token is removed, retaining Maker access and valid refresh
+entries. Source/candidate definitions, files, bindings, authentication, original
+case fixture and PAC profile pass preservation checks, with no primary,
+rollback or final verification error.
+
+The [actual synthetic Search execution](../assets/runtime-2026-10-23/lab5-synthetic-search-retry.json)
+closes S5-03/S5-05/S5-06, not T014. It tests original Harbor/Forest text,
+keyless 1,536-dimensional query vectorization, lexical/vector/hybrid/semantic
+retrieval and both filter assertions. The initial statistics-readiness failure
+remains recorded separately; the corrected attempt uses actual query count.
+Both temporary indexes are deleted and all three existing index schemas are
+verified unchanged. Those direct-load checks did not establish Blob/indexer
+acceptance; the later private verification above closes S5-01/S5-02.
+Connected answers, navigable citations, French answer consistency and denied
+identity remain open.
 
 ## Existing implementation and constraints
+
+The following extension receipt describes the earlier failure baseline. The
+authorized version-3 release above supersedes its deployment status only.
 
 The [Python extension](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/README.md)
 verifies retrieved records against a pinned licensed corpus and renders quotations
@@ -30,18 +588,18 @@ and a separate authenticated direct HTTP 500 before the application handler.
 Local Activity `1.0.0b4` and Microsoft Agents `1.9.0` pass their regression;
 deployment and downstream hosted identity permissions remain unverified.
 
-Use existing isolated resources and supported interfaces. Preserve original agents,
+Use existing isoted resources and supported interfaces. Preserve original agents,
 failed attempts, private evidence and the working version-4 route. Never substitute
 an SDK call for native Copilot delivery or local checks for cloud behavior.
 Do not weaken policy, enable anonymous access, reconstruct protected documents,
 or claim legal/source equivalence for the licensed notebook.
 No migration or new application architecture is required.
 
-The user's general recovery and isolated Entra-only diagnostic permission is recorded
-in the prior handoff. Do not ask for that same permission again. Release-specific
-Product Owner, Security Team and Tech Lead sign-offs still need attributable records;
-do not infer organizational roles from general permission. The exact artifact must
-be identified, and changed artifacts require renewed sign-off.
+The user's general recovery permission and later explicit deployment/credit
+authorization are recorded above. Do not ask for the same permission again.
+Independent Product Owner, Security Team and Tech Lead role attribution is not
+established by that user statement. Keep that distinction in T002, identify the
+exact artifacts and preserve the scoped rollback record.
 
 ## Priority, owners and dependencies
 
@@ -83,8 +641,8 @@ blocked, but independent documentation and inventory work may continue.
 Requirements: REQ-002. Inputs: [extension instructions](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/README.md)
 and [deployment manifest](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/azure.yaml).
 
-- [ ] T003 [Plan:2.1] Rerun the service's existing 33 tests, dependency and syntax checks; deploy only the approved extension artifact to the existing project. Record resolved SDK versions, hosted version, startup logs and rollback target in the extension receipt without erasing the old failure.
-- [ ] T004 [Plan:2.1] Send an authenticated Activity request with a complete envelope, including `serviceUrl`. Verify a real hosted session, actual retrieval and selection, exact rendered source records, and explicit error/abstention behavior. Check downstream access through the hosted identity, not developer credentials.
+- [x] T003 [Plan:2.1] Rerun the service's tests, dependency and syntax checks; deploy the user-authorized extension artifact to the existing project. Record resolved SDK versions, hosted version, startup logs and rollback target without erasing the old failure. Completed: versions 2 and 3 deployed; all 38 current tests pass.
+- [x] T004 [Plan:2.1] Send authenticated Activity requests with complete envelopes, including `serviceUrl`. Verify real hosted sessions, retrieval and selection, exact rendered records, and explicit error/abstention behavior using hosted identity credentials. Completed: version-3 positive, abstention and invalid-input checks pass; native and independent retrieval-membership claims remain excluded.
 
 Exit: the constructor failure is absent in the real host and source-grounded
 delivery passes. HTTP readiness alone is insufficient. Keep endpoint authorization
@@ -94,7 +652,7 @@ unchanged for this initial SDK repair so authentication changes are not conflate
 
 Requirements: REQ-003. Input: the saved inactive diagnostic and existing control route.
 
-- [ ] T005 [Plan:3.1] Diagnose the native tenant-ID 403 with supported caller metadata and scoped logs. If still necessary, execute the already-authorized Entra-only diagnostic on the isolated endpoint while retaining Azure RBAC; grant no anonymous access or broad permissions. Have Manage perform managed configuration changes and Author handle any YAML change.
+- [ ] T005 [Plan:3.1] Resolve the native protocol/identity contract using supported caller metadata and scoped logs. The bounded Entra-only diagnostic is executed and exactly restored: HTTP 403 changes to a blueprint-ID HTTP 400, not successful delivery. Retain Azure RBAC and BotServiceRbac; grant no anonymous access or broad permissions. Have Manage perform managed configuration changes and Author handle any YAML change.
 - [ ] T006 [Plan:3.1] Have Test execute one native diagnostic and one unchanged control question. Capture the native action, hosted correlation, whole-parent completion and exact displayed answer. Disable the diagnostic afterward, independently read back its saved inactive state, and verify the working original route remains intact.
 
 Exit: a native response proves verified evidence delivery, not merely a successful
@@ -141,7 +699,7 @@ workshop scope; it is not a pass of the unchanged original lab.
 
 Requirements: REQ-007. Inputs: [Lab 5](lab-05.md), [Lab 5.1](lab-05-1.md) and private-pipeline receipts.
 
-- [ ] T013 [Plan:7.1] Reconcile the corrected Terraform deployment against required resources, provider versions, private networking and identities. Preserve reviewed plan/apply evidence and identify deviations from unchanged-source deployment; do not reapply merely to reproduce already-proven infrastructure.
+- [x] T013 [Plan:7.1] Reconcile the corrected Terraform deployment against required resources, provider versions, private networking and identities. Preserve reviewed plan/apply evidence and identify deviations from unchanged-source deployment; do not reapply merely to reproduce already-proven infrastructure. Completed within reconciliation scope: fresh original-source init/validate/plan, explicit network/identity/model deviations, and preserved historical corrected apply/cleanup; no new deployment or whole-lab pass.
 - [ ] T014 [Plan:7.1] Have Test execute remaining connected corpus queries, filters, ranking and expected fields using source-stated locations. Verify original hotel URL navigation where required. If the corpus lacks URLs, record a source/requirement limitation and obtain an approved scope decision rather than fabricating links.
 
 Exit: the required connected query behaviors pass with traceable sources and

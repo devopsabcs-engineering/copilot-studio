@@ -48,6 +48,29 @@ class EvidenceTests(unittest.TestCase):
         )
         self.assertEqual(self.verified(), self.corpus)
 
+    def test_completed_whitespace_tool_output_is_empty_retrieval(self):
+        for output in ("", "\n", " \t\r\n"):
+            with self.subTest(output=repr(output)):
+                self.assertEqual(self.verified(self.response(output=output)), {})
+
+    def test_empty_call_does_not_skip_later_evidence_verification(self):
+        response = self.response(output="\n")
+        response["output"].extend(self.response()["output"])
+        self.assertEqual(self.verified(response), self.corpus)
+        self.document["url"] = "https://other.example/record"
+        response["output"][1] = self.response()["output"][0]
+        with self.assertRaises(EvidenceError):
+            self.verified(response)
+
+    def test_invalid_tool_output_is_explicit_verification_failure(self):
+        for output in (None, {}, [], 42, "{", "No documents.", "null", "[]"):
+            with self.subTest(output=output), self.assertRaises(EvidenceError):
+                self.verified(self.response(output=output))
+        response = self.response()
+        del response["output"][0]["output"]
+        with self.assertRaises(EvidenceError):
+            self.verified(response)
+
     def test_nonliteral_quote_cannot_reach_renderer(self):
         self.projection["content"] = "Shortened paraphrase."
         self.document["content"] = json.dumps(self.projection)

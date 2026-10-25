@@ -1,0 +1,42 @@
+{
+  "recorded_at_utc": "2026-10-24T02:00:01.6576133Z",
+  "status": "blocked_unsupported_clone_layout",
+  "scope": "Local byte-preserving private clone copy and one official PAC packaging probe only.",
+  "pac_version": "2.14.1+g6f517e5 (.NET 10.0.13)",
+  "pack_exit_code": 1,
+  "zip_count": 0,
+  "package_ready_for_import": false,
+  "rejected_workspace_entries": [
+    "connectionreferences.mcs.yml",
+    "actions/",
+    "knowledge/"
+  ],
+  "source_hashes_unchanged": true,
+  "private_copy_byte_identical": true,
+  "private_copy_unchanged_by_pack": true,
+  "knowledge_payload_sizes_bytes": [
+    163840,
+    8525
+  ],
+  "knowledge_bytes_and_extensions_preserved": true,
+  "source_files_count": 34,
+  "yaml_edits": false,
+  "components_dropped": false,
+  "knowledge_conversions": false,
+  "fabricated_bindings": false,
+  "unique_derivative_identity_created": false,
+  "zip_identity_and_references_verified": false,
+  "diagnostic_inactive_state_verified": false,
+  "runtime_or_acceptance_verified": false,
+  "cloud_operations_count": 0,
+  "auth_profile_changes": false,
+  "import_attempted": false,
+  "publish_attempted": false,
+  "original_agent_changed": false,
+  "blocker": "PAC rejects its clone layout before packaging. Documented init only scaffolds an empty directory; no full-fidelity populated-clone conversion or pack identity override established.",
+  "alternative": "Manage can assess documented extract-template/create with a unique sandbox schema, supported file upload, and documented solution deployment settings. Payload-type compatibility, bindings and complete behavioral fidelity must be verified separately; this route was not executed.",
+  "sources": [
+    "https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot",
+    "https://learn.microsoft.com/en-us/power-platform/alm/conn-ref-env-variables-build-tools"
+  ]
+}

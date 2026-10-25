@@ -54,14 +54,109 @@ The host exposes readiness and the Activity endpoint. Startup downloads only the
 pinned public notebook and parses literal data assignments without executing
 notebook code. A digest mismatch stops startup.
 
+### Stateless Invocations contract
+
+The same host now registers `POST /invocations`, using its public route API
+without replacing the Activity adapter, lifecycle or readiness handlers.
+`GET /invocations/docs/openapi.json` describes the input, output and explicit
+error responses. The checked-in manifest enables both protocols; this code
+change alone does not establish that a deployed version exposes Invocations.
+
+Send a UTF-8 JSON object containing only `question`, a nonblank string of at
+most 12,000 characters. The raw body is limited to 150,000 bytes, including
+JSON escaping. The question is validated without rewriting it.
+
+```json
+{"question": "What are the SAR filing requirements and deadlines?"}
+```
+
+A successful response contains `text`, `record_ids`, `retrieval_response_id`
+and nullable `selection_response_id`. The text is the same deterministic
+renderer output used by Activity, never a second model paraphrase. No relevant
+evidence returns the explicit abstention with an empty ID list and no selection
+response. Requests share no conversation history or in-memory evidence state.
+
+Malformed input, oversized bodies and unsupported media types return HTTP
+400/413/415 before retrieval. Source verification or upstream failures return
+502; bounded retrieval timeout returns 504. Error responses have an `error`
+object containing `code`, `message` and a logged `reference`; they never return
+partial evidence or successful-looking abstention for a failed dependency.
+
+When hosted, invoke the canonical Foundry Invocations endpoint using Entra and
+Azure RBAC. The manifest retains Entra plus BotServiceRbac for the existing
+Activity route. The entry point defaults to loopback; the hosted manifest
+explicitly sets `WORKSHOP_LISTEN_HOST=0.0.0.0` behind the Foundry gateway.
+For local azd runs, override the injected binding with a loopback start command.
+Do not expose the development listener publicly. Direct Invocations success is not native connected-agent
+acceptance, and the public connector reference does not prove an action is
+available in the current Copilot Studio catalog.
+
+The workspace's [debug configuration](../../../.vscode/launch.json) runs the
+service's own Python environment and actual entry point, not a workflow wrapper.
+Configure the ignored local `.env` before starting it. The
+[tasks](../../../.vscode/tasks.json) check ports 5679 and 8088 and expose the
+Foundry Agent Inspector. Activity messages still require an Activity-compatible
+client with a complete envelope; the inspector is not native Copilot evidence.
+Stop only this service's task after debugging; the configuration deliberately
+does not terminate unrelated workspace tasks.
+
 ## Testing and deployment boundaries
 
-The current implementation passes 33 unit, orchestration, configuration and transport tests,
+The current implementation passes 54 unit, orchestration, configuration and transport tests,
 Python syntax checks and `pip check`. Four real backend cases render 12 literal,
 individually attributed records. Cases 6 and 8 used the existing version-4
 retriever; cases 9 and 11 used the isolated retrieval-only stage.
 
-Hosted version 1 is active, but its native diagnostic failed with HTTP 403:
+After explicit user deployment and credit authorization on October 23, the SDK
+repair deployed as version 2. A real authenticated Activity call passed exact
+source rendering through hosted managed identity credentials. Negative testing
+then found that successful no-evidence MCP output can be just a newline.
+The parser now treats blank text from a verified completed call as empty evidence;
+missing/nontext output and malformed nonblank JSON remain explicit verification
+failures. It never treats a failed tool call as an empty successful retrieval.
+
+Five regression tests cover blank output, continued verification of later calls,
+malformed output rejection, no-selection abstention and unchanged Activity delivery.
+The exact failed retained response was replayed locally before deployment.
+Version 3 was active at that checkpoint. Three real authenticated Activity requests passed:
+unchanged original case 6 with two exact individually attributed records,
+unchanged astronomy question with exact abstention, and oversized input with an
+explicit error before model invocation. Authentication remains Entra plus
+BotServiceRbac. These hosted results do not prove native delivery or the
+eleven-scenario acceptance matrix.
+
+See the [authorized release](../../../docs/assets/runtime-2026-10-23/authorized-release.json)
+and [version-3 regression](../../../docs/assets/runtime-2026-10-23/hosted-version3-regression.json).
+The earlier [version-2 failed negative check](../../../docs/assets/runtime-2026-10-23/hosted-negative-checks.json)
+is preserved, not overwritten by the repair. Same-session managed identity
+acquisition is observed; logs do not expose its exact principal or independently
+join cloud retrieval membership. No source/legal completeness is inferred.
+
+### Verified dual-protocol deployment
+
+The [verified Invocations release](../../../docs/assets/runtime-2026-10-24/verified-invocations-delivery.json)
+is now active version 5. Version 4 introduced both protocols; version 5 makes
+JSON parser resource limits explicit HTTP 400 responses before retrieval.
+Final real local and hosted original SAR questions both return exact two-record
+renderer output and retrieval/selection response IDs.
+
+Seven hosted controls pass: no-token HTTP 401, authenticated OpenAPI, blank-input
+and JSON integer-limit HTTP 400, body-limit HTTP 413, no-evidence abstention and
+unchanged Activity rendering. Correlated logs prove no model calls for the three
+invalid authenticated requests. A first Activity control omitted the required
+API version and returned HTTP 400; a separately guarded corrected request to
+`/endpoint/protocols/activityprotocol?api-version=v1` passed HTTP 200.
+
+The final deployment CLI timed out after registration; independent readback
+found active version 5, and doctor returned 11 passed, zero failed, two skipped.
+No deployment was repeated after that timeout. Identity, both authorization
+schemes, original retriever and four resources/roles are preserved. Temporary
+local hosts were stopped. Native acceptance and published-channel authorization
+remain separate unresolved gates.
+
+### Preserved pre-repair history
+
+Hosted version 1 was active, but its native diagnostic failed with HTTP 403:
 `BotServiceRbac authorization requires a valid Entra tenant id for the activity caller.`
 No hosted session was observed. This does not validate the hosted identity's
 downstream permissions or native quotation fidelity. Later local dotenv loading,
@@ -87,8 +182,8 @@ Azure answer operation are stubbed. Local emulator authentication is not a
 production authorization workaround.
 
 The transport tests also establish that a complete Activity envelope needs
-`serviceUrl`, even when `deliveryMode` is `expectReplies`. The cloud repair has
-not been deployed or retested. It does not establish that the earlier native
+`serviceUrl`, even when `deliveryMode` is `expectReplies`. At that historical checkpoint, the cloud repair had
+not been deployed or retested. The later hosted repair does not establish that the earlier native
 403 is resolved or that downstream hosted permissions are sufficient.
 
 See the [sanitized result](../../../docs/assets/runtime-2026-10-20/foundry-verified-extension.json).

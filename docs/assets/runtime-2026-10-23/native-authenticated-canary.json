@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-24T00:23:52.512489+00:00",
+  "submitted_count": 1,
+  "case_count": 2,
+  "post_retry_count": 0,
+  "draft_requested": true,
+  "explicit_authenticated_binding_requested": true,
+  "published": false,
+  "agent_definition_state_auth_changes": false,
+  "connection_owner_object_id_independently_verified": false,
+  "connection_owner_metadata_gap_not_treated_as_runtime_blocker": true,
+  "status": "completed_two_results_answer_text_unavailable",
+  "submission_http_status": 202,
+  "completion_status": "Completed",
+  "caller_metadata_match": true,
+  "terminal_state": "Completed",
+  "results_count": 2,
+  "case_checks": [
+    {
+      "returned_result_number": 1,
+      "state": "Completed",
+      "general_quality": "Pass",
+      "reported_dimensions": {
+        "abstention": "NA",
+        "relevance": "NA",
+        "completeness": "NA"
+      },
+      "final_response_captured": false,
+      "whole_parent_exactness": {
+        "status": "not_verifiable",
+        "reason": "No actual answer text or retrieved parent passage is exposed by this run payload."
+      },
+      "individual_source_exactness": {
+        "status": "not_verifiable",
+        "reason": "No actual source quotations, individual source markers, or source records available."
+      },
+      "abstention": {
+        "grader_reported": "NA",
+        "independently_verified": false,
+        "reason": "Grader flag retained verbatim; answer text absent, so warranted abstention cannot be judged."
+      },
+      "substantive_acceptance": false
+    },
+    {
+      "returned_result_number": 2,
+      "state": "Completed",
+      "general_quality": "Fail",
+      "reported_dimensions": {
+        "abstention": "Yes",
+        "relevance": "No",
+        "completeness": "No"
+      },
+      "final_response_captured": false,
+      "whole_parent_exactness": {
+        "status": "not_verifiable",
+        "reason": "No actual answer text or retrieved parent passage is exposed by this run payload."
+      },
+      "individual_source_exactness": {
+        "status": "not_verifiable",
+        "reason": "No actual source quotations, individual source markers, or source records available."
+      },
+      "abstention": {
+        "grader_reported": "Yes",
+        "independently_verified": false,
+        "reason": "Grader flag retained verbatim; answer text absent, so warranted abstention cannot be judged."
+      },
+      "substantive_acceptance": false
+    }
+  ],
+  "scope": "One native authenticated draft two-case canary; not full acceptance.",
+  "case1_limitation": "Diagnostic intent only; no substantive retrieval acceptance.",
+  "expected_answers_modified": false,
+  "returned_authenticated_binding_matches_request": true,
+  "returned_owner_matches_verified_caller": true,
+  "final_responses_capture_status": "unavailable_in_documented_run_result_payload",
+  "native_403_recurrence": "not_determinable_from_returned_grader_metrics",
+  "case_id_to_question_mapping_independently_verified": false,
+  "remaining_defect": "One native result fails GeneralQuality with abstention Yes/relevance No/completeness No. Exact answer/source checks and underlying native tenant-id403 recurrence remain unresolved because answer text/transcripts were not captured. Diagnostic-intent-only input cannot prove substantive retrieval. This completed canary is not full acceptance.",
+  "draft_execution_proof": "Exact hashed submitted body runOnPublishedBot=false; GET run does not echo that field.",
+  "general_quality_pass_count": 1,
+  "general_quality_fail_count": 1,
+  "diagnostic_restore": "Not performed here; parent owns restoration to Inactive."
+}

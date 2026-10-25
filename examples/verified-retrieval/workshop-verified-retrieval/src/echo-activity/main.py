@@ -1,6 +1,7 @@
 """Activity delivery of verified source evidence, never draft model quotations."""
 
 import logging
+import os
 from urllib.request import urlopen
 from uuid import uuid4
 
@@ -11,6 +12,7 @@ load_dotenv(override=False)
 from azure.ai.agentserver.activity import ActivityAgentServerHost
 
 from evidence import EvidenceError, NOTEBOOK_URL, load_corpus
+from invocations import register_invocations
 from retrieval import answer
 
 logging.basicConfig(level=logging.INFO)
@@ -20,6 +22,7 @@ with urlopen(NOTEBOOK_URL, timeout=30) as response:
 
 host = ActivityAgentServerHost()
 app = host.agent_app
+register_invocations(host, corpus)
 
 
 @app.activity("message")
@@ -45,4 +48,4 @@ async def on_error(context, error):
 
 
 if __name__ == "__main__":
-    host.run()
+    host.run(host=os.environ.get("WORKSHOP_LISTEN_HOST", "127.0.0.1"))

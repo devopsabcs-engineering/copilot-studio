@@ -1,0 +1,63 @@
+{
+  "status": "native_studio_authorization_recovered_source_fidelity_failed",
+  "channel": "pva-studio",
+  "website_required_administrator_verified": true,
+  "isolated_candidate_and_environment_verified": true,
+  "question_case": 6,
+  "unchanged_question": "What are the SAR filing requirements and deadlines?",
+  "question_submissions_before_association": 1,
+  "first_question_result": "native_connection_manager_authorization_card",
+  "actual_returned_connection_manager_link_used": true,
+  "user_connection_status_before": "Not Connected",
+  "existing_connection_picker_offered": true,
+  "existing_approved_connection_selected": true,
+  "existing_connection_association_submissions": 1,
+  "new_connection_creates": 0,
+  "new_oauth_flows": 0,
+  "permission_or_policy_changes": 0,
+  "user_connection_status_after": "Connected via required administrator",
+  "fresh_question_after_association": true,
+  "reason_for_fresh_question": "Returning from the connection manager reinitialized the test pane; the original paused chat was not present.",
+  "question_submissions_after_association": 1,
+  "greeting_visible": true,
+  "rendered_message_count": 5,
+  "rendered_domain_answer_messages": 3,
+  "typing_indicator_present_at_capture": false,
+  "connection_card_present_at_capture": false,
+  "one_visible_tool_status": {
+    "status": "Completed",
+    "duration_seconds": 25.92
+  },
+  "source_comparisons": [
+    {
+      "message_index": 2,
+      "quoted_passages": 9,
+      "exact_source_matches": 7,
+      "mismatch_count": 2
+    },
+    {
+      "message_index": 3,
+      "quoted_passages": 6,
+      "exact_source_matches": 5,
+      "mismatch_count": 1
+    },
+    {
+      "message_index": 4,
+      "quoted_passages": 0,
+      "exact_source_matches": 0,
+      "mismatch_count": 0,
+      "zero_quoted_passages_is_not_a_source_fidelity_pass": true
+    }
+  ],
+  "comparison_method": "Each rendered quoted passage must occur verbatim within a document in its own rendered canonical source group.",
+  "source_fidelity_acceptance": false,
+  "retrieval_membership_independently_proven": false,
+  "protocol_plan_finished_event_captured": false,
+  "completion_wait_selector_timed_out": true,
+  "completion_wait_limitation": "The wait assumed article elements were immediate feed children. Subsequent inspection captured the actual nested Web Chat articles and absence of the typing indicator; neither observation is a protocol completion event.",
+  "published_channel_authorization_retested": false,
+  "source_text_or_raw_answers_published": false,
+  "corpus_sha256": "bd410be4beb53ec72ea531eb4d8912c5a447b660d9a0307a09dfae80447d17c7",
+  "rendered_snapshot_sha256": "42cc5fe51e67cf8a621bde065c48c50ed9e831d2be9f1c1bf334491ba29faf9b",
+  "roadmap_complete": false
+}

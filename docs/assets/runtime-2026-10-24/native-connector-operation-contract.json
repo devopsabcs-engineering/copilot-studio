@@ -1,0 +1,52 @@
+{
+  "status": "current_native_catalog_contract_inspected_without_configuration",
+  "evidence_date": "2026-10-24",
+  "scope": "Current candidate tool catalog, exact existing Foundry connector, See all selected",
+  "visible_catalog_action_count": 10,
+  "visible_catalog_actions": [
+    "Create Run",
+    "Create Thread",
+    "External agent activity protocol based on agent identifier",
+    "External agent activity protocol based on agent identifier with V2 endpoint",
+    "External agent activity protocol based on application",
+    "Get Run",
+    "Invoke Agent",
+    "List Agents",
+    "List Agents (Agent Service)",
+    "List Messages"
+  ],
+  "pagination_or_load_more_control_observed": false,
+  "public_connector_reference": "https://learn.microsoft.com/en-us/connectors/azureagentservice/",
+  "public_reference_lists_hosted_invocations_and_responses": true,
+  "hosted_invocation_actions_not_observed_in_current_catalog": [
+    "InvokeHostedAgentInvocations",
+    "InvokeHostedAgentResponses"
+  ],
+  "catalog_observation_is_not_backend_operation_absence_proof": true,
+  "current_attachment_operation_id": "SendActivityV2",
+  "application_based_action_preview_operation_id": "SendActivityApplication",
+  "existing_approved_connection_offered_in_preview": true,
+  "add_and_configure_submissions": 0,
+  "application_action_parameters_not_obtained": true,
+  "preview_cancelled_and_leave_confirmed": true,
+  "tool_added": false,
+  "empty_tool_list_verified_after_cancellation": true,
+  "diagnostic_final_ui_switch_checked": false,
+  "other_two_specialist_switches_remained_on": true,
+  "configuration_write_submissions": 0,
+  "question_submissions_in_catalog_inspection": 0,
+  "identity_or_activity_payload_override_attempted": false,
+  "official_native_integration_reference": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent",
+  "official_native_integration_requires_activity_protocol": true,
+  "actual_restored_endpoint_protocols": [
+    "activity"
+  ],
+  "actual_restored_authorization_schemes": [
+    "Entra",
+    "BotServiceRbac"
+  ],
+  "first_party_fix_for_exact_blueprint_error_verified": false,
+  "identity_migration_cause_proven": false,
+  "source_text_tokens_or_private_identifiers_published": false,
+  "roadmap_complete": false
+}

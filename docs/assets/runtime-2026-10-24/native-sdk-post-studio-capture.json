@@ -1,0 +1,24 @@
+{
+  "status": "one_published_sdk_stream_captured_after_studio_association",
+  "question_submissions": 1,
+  "question_retries": 0,
+  "turn_activity_counts": [
+    5
+  ],
+  "turn_stream_statuses": [
+    "closed_normally"
+  ],
+  "response_text_observed": [
+    false
+  ],
+  "dynamic_plan_finished_observed": false,
+  "primary_error_type": null,
+  "primary_error_preserved_separately": true,
+  "all_current_user_grants_exactly_restored": true,
+  "manifest_exactly_restored": true,
+  "maker_access_and_refresh_entries_retained": true,
+  "rollback_error_count": 0,
+  "source_candidate_files_bindings_auth_preserved": true,
+  "pac_profile_1_verified": true,
+  "roadmap_complete": false
+}

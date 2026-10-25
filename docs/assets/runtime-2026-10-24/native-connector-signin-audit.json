@@ -1,0 +1,55 @@
+{
+  "status": "read_only_diagnostic_completed_cause_unclassified",
+  "website_administrator_and_tenant_verified": true,
+  "existing_authorization_only": true,
+  "graph_api_version": "v1.0",
+  "queries": [
+    {
+      "window_start_utc": "2026-10-24T19:22:00Z",
+      "window_end_utc": "2026-10-24T19:25:00Z",
+      "scope": "exact_administrator",
+      "returned_events": 0,
+      "more_results": false
+    },
+    {
+      "window_start_utc": "2026-10-24T19:00:00Z",
+      "window_end_utc": "2026-10-24T19:30:00Z",
+      "scope": "exact_administrator",
+      "returned_events": 4,
+      "successful_events": 4,
+      "reported_error_codes": [0, 0, 0, 0],
+      "observed_applications": [
+        "make.powerapps.com",
+        "Office365 Shell WCSS-Client"
+      ],
+      "more_results": false
+    },
+    {
+      "window_start_utc": "2026-10-24T19:22:00Z",
+      "window_end_utc": "2026-10-24T19:25:00Z",
+      "scope": "exact_administrator",
+      "additional_filter": "isInteractive eq false",
+      "returned_events": 0,
+      "more_results": false
+    }
+  ],
+  "preserved_diagnostic_errors": [
+    "Initial Windows command-wrapper URL quoting failed; corrected before successful query.",
+    "The v1.0 service rejected signInEventTypes as an unknown property; the supported isInteractive filter succeeded."
+  ],
+  "current_browser_form_still_reports_signin_error": true,
+  "current_authentication_option": "Microsoft Entra ID User Login",
+  "other_authentication_page_observed": false,
+  "page_iframe_count": 0,
+  "no_returned_event_is_not_proof_of_no_authentication_attempt": true,
+  "logging_latency_and_query_scope_limit_inference": true,
+  "popup_blocking_not_proven": true,
+  "root_cause": "unclassified",
+  "new_connector_submissions": 0,
+  "continue_submissions": 0,
+  "new_questions": 0,
+  "permission_or_policy_changes": 0,
+  "beta_api_used": false,
+  "runtime_connector_authorization_proven": false,
+  "roadmap_complete": false
+}

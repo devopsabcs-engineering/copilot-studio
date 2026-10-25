@@ -1,0 +1,27 @@
+{
+  "status": "invoke_auth_succeeded_sdk_start_incomplete_safety_restored",
+  "resource_client_account_scope_mapping_verified": true,
+  "grant_retention_seconds": 300.02404279999973,
+  "force_refresh_probes": 1,
+  "verified_invoke_token_acquired": true,
+  "same_public_api_constructed_extra_scopes": [
+    "offline_access",
+    "openid",
+    "profile"
+  ],
+  "scope_construction_is_not_original_http_capture": true,
+  "oidc_scope_causation_not_assumed": true,
+  "plain_oauth_fallback_needed": false,
+  "sdk_start_activity_count": 1,
+  "question_submissions": 0,
+  "whole_parent_completion_observed": false,
+  "all_current_user_grants_exactly_restored": true,
+  "manifest_exactly_restored": true,
+  "maker_and_valid_refresh_entries_retained": true,
+  "candidate26_and_original_source_preserved": true,
+  "pac_profile_1_verified": true,
+  "unresolved_permission_restoration_errors": 0,
+  "expired_tab_cleanup_unverifiable": true,
+  "expired_tab_warning": "Do not accept expired owned-client consent pages",
+  "roadmap_complete": false
+}

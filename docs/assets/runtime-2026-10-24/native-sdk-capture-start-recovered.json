@@ -1,0 +1,42 @@
+{
+  "status": "parent_sdk_capture_succeeded_domain_answer_blocked_on_runtime_connector_connection",
+  "server_conversation_header_verified": true,
+  "http_statuses": [
+    200,
+    200,
+    200
+  ],
+  "diagnostic_start_suppressed_start_event": true,
+  "start_stream_closed_normally": true,
+  "question_submissions": 2,
+  "question_retries": 0,
+  "turn_activity_counts": [
+    2,
+    5
+  ],
+  "turn_stream_statuses": [
+    "closed_normally",
+    "closed_normally"
+  ],
+  "hello_readiness_text_captured": true,
+  "sar_response_adaptive_card_captured": true,
+  "sar_domain_answer_captured": false,
+  "runtime_user_connector_connection_required": true,
+  "actual_sar_event_names": [
+    "DynamicPlanReceived",
+    "DynamicPlanStepTriggered",
+    "DynamicPlanStepBindUpdate"
+  ],
+  "dynamic_plan_finished_observed": false,
+  "source_quote_comparisons_performed": 0,
+  "connect_or_continue_invoked": false,
+  "sdk_transport_error_observed": false,
+  "initial_text_only_assertion_preserved_and_reclassified": true,
+  "permission_manifest_and_all_current_user_grants_exactly_restored": true,
+  "temporary_invoke_access_tokens_removed": 1,
+  "maker_access_and_valid_refresh_entries_retained": true,
+  "source_candidate_files_bindings_auth_preserved": true,
+  "pac_profile_1_verified": true,
+  "two_case_capture_is_not_full_acceptance": true,
+  "roadmap_complete": false
+}

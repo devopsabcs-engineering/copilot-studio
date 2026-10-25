@@ -1,0 +1,28 @@
+{
+  "status": "official_pack_rejected_official_clone_layout",
+  "official_pack_executed": true,
+  "pack_exit_code": 1,
+  "zip_created": false,
+  "zip_entries_inspected": false,
+  "clone_contains_two_real_knowledge_payloads": true,
+  "knowledge_payload_sizes_bytes": [
+    163840,
+    8525
+  ],
+  "metadata_companions_are_separate": true,
+  "documented_deployment_settings_mapping_exists": true,
+  "actual_connection_binding_verified": false,
+  "pack_new_bot_identity_flag_available": false,
+  "blocker": "Official pack rejects the cloned connection-reference file and action/knowledge directories.",
+  "author_handoff_required": true,
+  "clone_unchanged": true,
+  "previous_results_preserved": true,
+  "cloud_operations": 0,
+  "candidate_created": false,
+  "import_attempted": false,
+  "publish_attempted": false,
+  "question_submissions": 0,
+  "permissions_changed": false,
+  "original_resources_changed": false,
+  "roadmap_complete": false
+}

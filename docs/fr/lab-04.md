@@ -1,7 +1,7 @@
 ---
 title: "Lab 04 : Utiliser un modèle Foundry dans un prompt ancré"
 description: "Connecter un modèle compatible avec les complétions de conversation, récupérer des passages Azure AI Search et tester une rubrique contrôlée."
-ms.date: 2026-10-19
+ms.date: 2026-10-24
 ms.topic: tutorial
 ---
 
@@ -47,6 +47,26 @@ ne liste aussi que l'authentification **Default**, avec **Target Uri** et
 connecteur. Sa disponibilité dans Copilot Studio ne prouve pas qu'une connexion
 existante est sélectionnable par le prompt BYOM natif. Ce contrat publié est
 distinct de l'inspection native du formulaire, restée non concluante.
+
+L'[actualisation du contrat public du 23 octobre](../assets/runtime-2026-10-23/lab-prerequisite-refresh.json)
+ne trouve encore que Default avec API Key obligatoire pour ce connecteur.
+Le compte possédé impose toujours `disableLocalAuth=true`.
+L'extension Activity hébergée réparée ne remplace pas un prompt BYOM connecté.
+Aucune exception de politique ni exclusion de lab n'est enregistrée, et la fenêtre
+native n'a pas été réinspectée. T011/T012 restent donc ouvertes; l'autorisation
+de déploiement/crédits ne prouve pas que ce parcours à clé respecte la politique.
+
+La [comparaison d'authentification du 24 octobre](../assets/runtime-2026-10-24/byom-authentication-contracts.json)
+identifie une autre option documentée :
+[Azure OpenAI](https://learn.microsoft.com/en-us/connectors/azureopenai/)
+propose Microsoft Entra ID Integrated (`oauth`) dans Copilot Studio, avec le rôle
+Cognitive Services OpenAI User pour l'utilisateur sur la ressource.
+Cette connexion Entra n'est pas partageable; chaque utilisateur doit créer la sienne.
+L'option identité managée est réservée à **Logic Apps**, pas à Copilot Studio.
+Une action explicite de complétion Azure OpenAI pourrait être évaluée comme
+parcours sans clé distinct, mais ce contrat ne prouve ni le remplacement de la
+connexion BYOM du prompt natif ni la clôture de T011/T012.
+Aucune connexion, modification de prompt, exception ou approbation de substitution enregistrée.
 
 * Distinguer le modèle d’embeddings de Search du modèle de conversation du prompt.
 * Connecter un modèle approuvé par son point de terminaison de complétion compatible.

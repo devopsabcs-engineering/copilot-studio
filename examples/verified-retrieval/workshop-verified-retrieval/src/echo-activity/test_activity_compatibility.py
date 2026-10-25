@@ -74,3 +74,11 @@ class ActivityTransportTests(unittest.IsolatedAsyncioTestCase):
             r"^Source verification or delivery failed\. No unverified answer was delivered\. "
             r"Reference: [0-9a-f-]{36}$"
         ))
+
+    async def test_real_local_adapter_delivers_abstention_unchanged(self):
+        text = "Cannot determine from configured sources."
+        activities = await self.deliver(AsyncMock(return_value=VerifiedAnswer(
+            text, (), "fixture-retrieval", None,
+        )))
+        self.assertEqual(len(activities), 1)
+        self.assertEqual(activities[0]["text"], text)

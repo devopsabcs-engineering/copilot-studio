@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-23T21:30:08Z",
+  "scope": "Independent Lab 0 and Lab 4 prerequisite checks while native UI setup is in progress",
+  "mode": "Read-only local tools, subscription provider and regional usage metadata, and public official documentation",
+  "overall_lab_0_ready": false,
+  "lab_4_byom_passed": false,
+  "roadmap_tasks_closed": [],
+  "azure_cli": {
+    "version": "2.91.0",
+    "existing_authenticated_context_reused": true
+  },
+  "resource_providers": {
+    "Microsoft.CognitiveServices": "Registered",
+    "Microsoft.Search": "Registered",
+    "Microsoft.Insights": "Registered",
+    "Microsoft.Storage": "Registered"
+  },
+  "current_process_path": {
+    "az": true,
+    "azd": true,
+    "python": true,
+    "terraform": false,
+    "pac": false,
+    "path_absence_is_not_uninstalled_claim": true,
+    "historical_portable_terraform_pass_not_revalidated": true
+  },
+  "regional_model_quota": {
+    "region": "swedencentral",
+    "api_version": "2023-05-01",
+    "scope": "Selected subscription and region, not the isolated resource group alone",
+    "records": [
+      {
+        "name": "OpenAI.Standard.gpt4.1-mini",
+        "unit": "Count",
+        "currentValue": 26,
+        "limit": 5000,
+        "unallocated": 4974
+      },
+      {
+        "name": "OpenAI.GlobalStandard.text-embedding-3-small",
+        "unit": "Count",
+        "currentValue": 1,
+        "limit": 1000,
+        "unallocated": 999
+      }
+    ],
+    "quota_units_not_called_measured_tokens_per_minute": true,
+    "inference_or_runtime_capacity_guarantee": false,
+    "allocation_changes": 0
+  },
+  "lab_0_remaining_limits": [
+    "Current maker entitlement, available Copilot Credits and environment billing allocation still require direct evidence",
+    "Current effective DLP, file Ready state and authenticated native profile are not established by ARM quota reads",
+    "Search remains available; published-channel telemetry and complete privacy acceptance remain unverified",
+    "Explicit user spending authorization exists, but named retention owner, review deadline and numerical budget limit remain unassigned"
+  ],
+  "lab_4_public_contract_rechecked": {
+    "connector_source": "https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/",
+    "prompt_source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/bring-your-own-model-prompts",
+    "connector_documented_authentication_types": ["Default"],
+    "required_connection_fields": ["Target Uri", "API Key"],
+    "entra_alternative_documented_for_this_connector": false,
+    "prompt_requires_chat_completion_endpoint": true,
+    "prompt_gpt_5_and_later_documented_unsupported": true,
+    "current_owned_account_disableLocalAuth": true,
+    "account_setting_evidence": "completion-progress.json",
+    "native_dialog_reinspected": false,
+    "global_byom_unavailability_claimed": false,
+    "policy_exception_or_lab_exclusion_approved": false,
+    "direct_hosted_activity_substituted_for_connected_prompt": false,
+    "T011_T012_completed": false
+  },
+  "safety": {
+    "deployments": 0,
+    "model_calls": 0,
+    "evaluation_runs": 0,
+    "policy_auth_role_changes": 0,
+    "private_data_shared_with_public_sources": false
+  }
+}

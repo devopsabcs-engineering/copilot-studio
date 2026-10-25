@@ -1,0 +1,13 @@
+{
+  "resource_audience_scope_account_contract_verified": true,
+  "grant_retention_seconds": 300.02404279999973,
+  "force_refresh_probes": 1,
+  "force_refresh_result": "access_token_acquired",
+  "browser_attempts": 1,
+  "interactive_boundary": "Required actual page proof unavailable; no blind consent action",
+  "all_owned_current_user_grants_exactly_restored": true,
+  "expired_tab_warning": "Do not accept expired owned-client consent pages; prior state cannot safely identify them for closure",
+  "cookies_read": false,
+  "foreground_input_sent": false,
+  "roadmap_complete": false
+}

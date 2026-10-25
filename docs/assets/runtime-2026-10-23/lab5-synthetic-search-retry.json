@@ -1,0 +1,83 @@
+{
+  "status": "scoped_retrieval_checks_passed",
+  "correct_admin_mngenv_identity_verified": true,
+  "fixture_is_original_fictional_training_text": true,
+  "fixture_document_count": 2,
+  "new_arm_resources": 0,
+  "roles_or_authentication_changed": false,
+  "blob_container_created": false,
+  "indexer_executed": false,
+  "native_agent_questions_submitted": 0,
+  "connected_agent_or_source_navigation_acceptance": false,
+  "denied_identity_test_executed": false,
+  "full_lab_acceptance": false,
+  "roadmap_complete": false,
+  "completed_tests": [
+    "S5-03",
+    "S5-05",
+    "S5-06"
+  ],
+  "nonfilterable_field_error_identifies_chunk": true,
+  "embedding_model": "text-embedding-3-small",
+  "embedding_dimensions": 1536,
+  "embedding_requests": 0,
+  "exact_input_embeddings_reused_from_recorded_first_attempt": true,
+  "isolated_index_created": true,
+  "fixture_source_ids_are_urns_not_navigable_citation_urls": true,
+  "readiness_verified_by_actual_document_search_count": true,
+  "readiness_poll_count": 2,
+  "indexed_document_count": 2,
+  "query_results": [
+    {
+      "method": "lexical",
+      "http_status": 200,
+      "latency_ms": 246.1,
+      "returned_ids": [
+        "harbor"
+      ]
+    },
+    {
+      "method": "natural_language_vector",
+      "http_status": 200,
+      "latency_ms": 1071.24,
+      "returned_ids": [
+        "harbor",
+        "forest"
+      ]
+    },
+    {
+      "method": "hybrid",
+      "http_status": 200,
+      "latency_ms": 624.83,
+      "returned_ids": [
+        "harbor",
+        "forest"
+      ]
+    },
+    {
+      "method": "semantic_hybrid",
+      "http_status": 200,
+      "latency_ms": 674.94,
+      "returned_ids": [
+        "harbor",
+        "forest"
+      ]
+    },
+    {
+      "method": "copied_parent_filter",
+      "http_status": 200,
+      "latency_ms": 303.88,
+      "returned_ids": [
+        "harbor"
+      ]
+    },
+    {
+      "method": "nonfilterable_field",
+      "http_status": 400,
+      "latency_ms": 1041.25
+    }
+  ],
+  "latency_percentiles_or_generalized_hit_rate_claimed": false,
+  "original_index_schemas_verified_unchanged": 3,
+  "owned_fixture_index_deleted_and_absence_verified": true
+}

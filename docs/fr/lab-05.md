@@ -1,7 +1,7 @@
 ---
 title: "Atelier 5 : Recherche avancée avec Azure AI Search"
 description: "Créez un index découpé en passages, comparez les méthodes de recherche et reliez un agent standard Copilot Studio avec des critères d'acceptation mesurables."
-ms.date: 2026-10-20
+ms.date: 2026-10-24
 ms.topic: tutorial
 ---
 
@@ -33,6 +33,57 @@ La connexion Entra Copilot a été bloquée avant authentification par le naviga
 hôte ; aucune question connectée exécutée. Les URL sources hôtelières restent
 aussi indisponibles : leur navigation exige une preuve distincte même après reprise.
 Voir le [registre de connexion](backend-live-2026-10-20.md#connexion-search-sans-clé-bloquée-par-le-navigateur-hôte).
+
+L'[exécution récente du jeu fictif](../assets/runtime-2026-10-23/lab5-synthetic-search-retry.json)
+réussit S5-03, S5-05 et S5-06 avec le texte Harbor/Forest exact ci-dessous.
+Les recherches lexicale, vectorielle en langage naturel, hybride et hybride
+sémantique placent toutes Harbor en premier. Le filtre du parent ne renvoie que
+Harbor; le champ non filtrable produit HTTP 400 identifiant `chunk`.
+Les index jetables des deux essais sont supprimés; les trois schémas d'origine
+sont vérifiés inchangés. Aucune route, aucun rôle ni paramètre d'authentification modifié.
+
+Le [premier essai](../assets/runtime-2026-10-23/lab5-synthetic-search.json)
+charge les deux documents mais s'arrête quand les statistiques restent à zéro.
+Le deuxième essai explicite vérifie la disponibilité par comptage de recherche
+réelle, en réutilisant les plongements des mêmes entrées sans les régénérer.
+Il s'agit d'un chargement direct, pas d'une exécution Blob/indexeur ni d'un agent
+connecté. Ses sources sont des URN, pas des citations navigables.
+
+L'[essai d'ingestion par réseau public](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
+confirme que la stratégie Storage désactive le réseau public. Le RBAC limité
+au conteneur ne peut contourner cette frontière : chargement HTTP 403.
+Aucune exception de stratégie ni authentification par clé; compte et rôles
+temporaires supprimés.
+Le [chargement privé](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion.json)
+utilise un travail à identité managée sans IP publique, un point de terminaison
+privé et un DNS privé. Exactement `forest.txt` et `harbor.txt` sont relus avec
+les mêmes empreintes, ce qui ferme S5-01. La reprise interrompue de l'indexeur
+échoue avant sa création. Une course de suppression asynchrone du lien DNS
+est conservée; nettoyage ultérieur de la zone possédée et retour aux quatre
+ressources initiales vérifiés indépendamment. Ce chargement ne prouve ni S5-02,
+ni réponse connectée, ni navigation des citations.
+
+La [nouvelle tentative privée à garde distincte](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-retry.json)
+exécute bien l'indexeur Blob via un lien privé partagé Search approuvé :
+deux fichiers traités avec succès, aucun échec ni avertissement.
+La relecture renvoie HTTP 400 car le champ vectoriel sélectionné n'était pas
+explicitement récupérable. Cet échec est conservé sans assimiler succès de
+l'indexeur et acceptation des passages lisibles. Ressources, rôles et liens
+partagés temporaires supprimés; objets Search et inventaire ARM initiaux
+vérifiés inchangés.
+
+L'[exécution privée avec relecture corrigée](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-vector-readback.json)
+rend explicitement le champ vectoriel jetable récupérable. Après récupération
+d'authentification Azure CLI prise en charge, elle reprend sans redéploiement
+ni rechargement. L'échec initial de jeton expiré et les erreurs initiales de
+nettoyage restent dans les preuves privées. Indexation privée réussie :
+deux fichiers traités, aucun échec ni avertissement. Les deux passages projetés
+correspondent exactement aux entrées fictives, avec métadonnées parent/source
+et vecteurs réels de 1 536 dimensions : S5-02 réussit. Infrastructure, rôles
+et liens partagés jetables supprimés; objets Search, rôles d'identité, liens
+et inventaire ARM initial de quatre ressources vérifiés inchangés. Réseau public,
+clés et accès anonyme Storage restent désactivés. Cinq critères de connexion,
+navigation, français et identité refusée ainsi que la certification restent ouverts.
 
 ## Architecture et prérequis
 
@@ -190,18 +241,40 @@ Choisissez ce parcours pour imposer des filtres ou des paramètres de requête. 
 
 Les actions HTTP, les connecteurs personnalisés et les types de connexion peuvent avoir des licences et des contraintes de prévention des pertes de données distinctes. Aucun flux ni connecteur n'a été créé pendant cette revue.
 
+### Test contrôlé de retrait d'autorisation
+
+Pour S5-10, utilisez une identité de connexion jetable, pas les rôles existants
+de l'administrateur. L'identité utilisée par Search peut différer de la personne
+qui dialogue avec l'agent : une connexion du créateur n'usurpe pas automatiquement
+l'identité de chaque utilisateur final.
+
+1. Relevez le principal réel de connexion et son affectation Search Index Data
+   Reader approuvée, limitée à l'index. Le [guide RBAC](https://learn.microsoft.com/en-us/azure/search/search-security-rbac#grant-access-to-a-single-index)
+   documente cette portée. N'accordez pas d'accès aux index non concernés.
+2. Établissez une réussite autorisée sur le jeu fictif, par requête directe
+   et par la route connectée prévue.
+3. Retirez uniquement cette affectation de test. Attendez une propagation bornée,
+   renouvelez l'authentification de test et démarrez une nouvelle conversation
+   sans contenu récupéré auparavant.
+4. Vérifiez le refus direct et le chemin d'erreur connecté. Aucun texte du jeu
+   ne doit provenir du contexte en cache, d'une autre source ou d'un repli.
+   HTTP 403 direct ne prouve pas l'isolation de l'agent; une autorisation refusée
+   ne doit pas être traitée silencieusement comme une recherche vide.
+5. Supprimez ou restaurez seulement les ressources jetables approuvées.
+   Relevez les rôles finaux sans modifier les permissions de l'administrateur.
+
 ## Tests d'acceptation et relevé d'évaluation
 
 Les valeurs exactes concernent uniquement le jeu fictif original. La formulation naturelle et les scores générés ne sont pas des contrats de correspondance exacte.
 
 | ID    | Action                                                  | Assertion attendue                                                            | Résultat actuel |
 | ----- | ------------------------------------------------------- | ----------------------------------------------------------------------------- | --------------- |
-| S5-01 | Examiner le conteneur d'essai                           | Exactement les deux fichiers nommés                                           | Non exécuté     |
-| S5-02 | Examiner la dernière exécution de l'indexeur            | `status` vaut `success` ; `itemsFailed` vaut `0` ; passages lisibles présents | Non exécuté     |
-| S5-03 | Rechercher `rooftop garden`                             | Un passage Harbor pertinent figure parmi les trois premiers                   | Non exécuté     |
+| S5-01 | Examiner le conteneur d'essai                           | Exactement les deux fichiers nommés                                           | Réussi : liste privée et deux empreintes relues |
+| S5-02 | Examiner la dernière exécution de l'indexeur            | `status` vaut `success` ; `itemsFailed` vaut `0` ; passages lisibles présents | Réussi : indexeur privé, deux passages exacts |
+| S5-03 | Rechercher `rooftop garden`                             | Un passage Harbor pertinent figure parmi les trois premiers                   | Réussi : Harbor premier |
 | S5-04 | Demander l'heure d'ouverture du service vélos           | Réponse avec `07:00` et citation Harbor                                       | Non exécuté     |
-| S5-05 | Appliquer le filtre du parent copié                     | Chaque résultat porte exactement le `parent_id` retenu                        | Non exécuté     |
-| S5-06 | Filtrer sur `chunk` non filtrable                       | HTTP `400` et erreur de champ exploitable                                     | Non exécuté     |
+| S5-05 | Appliquer le filtre du parent copié                     | Chaque résultat porte exactement le `parent_id` retenu                        | Réussi : Harbor seul |
+| S5-06 | Filtrer sur `chunk` non filtrable                       | HTTP `400` et erreur de champ exploitable                                     | Réussi : erreur de champ |
 | S5-07 | Demander le prix de la navette aéroport du lodge        | Absence de source explicitement signalée ; aucun prix inventé                 | Non exécuté     |
 | S5-08 | Examiner la trace connaissances/flux                    | Source ou outil prévu invoqué ; citation accessible au testeur autorisé       | Non exécuté     |
 | S5-09 | Répéter en français                                     | Faits `07:00` et `21:00` conservés ; sources correctes                        | Non exécuté     |
@@ -229,4 +302,11 @@ Pour au moins dix questions annotées, notez les identifiants de documents perti
 
 ## Limite de validation
 
-Les constats statiques sont vérifiés, pas le comportement des services. Terminez seulement lorsque chaque test obligatoire a été exécuté sur des ressources autorisées et son résultat réel consigné. L'opérateur doit rétablir une session Copilot authentifiée et fournir les ressources Search manquantes. Aucune préparation à la production, économie ou amélioration de pertinence n'est affirmée.
+Les résultats réels des sous-systèmes ci-dessus valident
+S5-01/S5-02/S5-03/S5-05/S5-06, pas l'atelier complet. Les ressources Search sont
+disponibles et les ressources d'ingestion jetables sont supprimées; ne les
+redéployez pas pour répéter ces réussites. Terminez après exécution des essais
+restants de réponses connectées, navigation des sources, français et refus
+d'identité par le parcours Copilot authentifié prévu, avec leurs résultats réels
+consignés. Aucune préparation à la production, économie ou amélioration de
+pertinence n'est affirmée.

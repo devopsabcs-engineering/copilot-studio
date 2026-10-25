@@ -1,0 +1,30 @@
+{
+  "silent_with_error_attempts": 1,
+  "silent_result": {
+    "error": "invalid_grant",
+    "error_codes": [
+      65001
+    ],
+    "suberror": "consent_required",
+    "claims_challenge_present": false
+  },
+  "browser_attempts": [
+    {
+      "prompt": "none",
+      "result": {
+        "error": "consent_required",
+        "claims_challenge_present": false
+      },
+      "human_login_completion_not_observed": false
+    },
+    {
+      "prompt": null,
+      "result": "no_callback_before_bound",
+      "human_login_completion_not_observed": true
+    }
+  ],
+  "verified_admin_edge_profile_used": true,
+  "cookies_or_session_databases_read": false,
+  "tokens_or_auth_codes_logged": false,
+  "roadmap_complete": false
+}

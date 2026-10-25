@@ -1,0 +1,35 @@
+{
+  "observed_date_utc": "2026-10-24",
+  "scope": "Public first-party connector and native prompt documentation, not a live connection execution",
+  "foundry_inference": {
+    "source": "https://learn.microsoft.com/en-us/connectors/azureaifoundryinference/",
+    "documented_authentication_types": ["Default"],
+    "required_connection_fields": ["Target Uri", "API Key"],
+    "documented_entra_alternative": false
+  },
+  "azure_openai": {
+    "source": "https://learn.microsoft.com/en-us/connectors/azureopenai/",
+    "copilot_studio_class": "Premium",
+    "documented_entra_auth_id": "oauth",
+    "entra_connection_shareable": false,
+    "entra_required_role": "Cognitive Services OpenAI User",
+    "entra_required_connection_field": "Azure OpenAI resource name",
+    "managed_identity_applicability": "LOGICAPPS only",
+    "chat_action_operation_id": "ChatCompletions_Create_2024Feb15Preview",
+    "native_prompt_byom_compatibility_proven": false
+  },
+  "native_prompt": {
+    "source": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/bring-your-own-model-prompts",
+    "chat_completions_endpoint_required": true,
+    "responses_endpoint_is_not_equivalent": true,
+    "gpt_5_and_later_documented_unsupported": true,
+    "native_dialog_reinspected": false
+  },
+  "connection_created": false,
+  "connector_action_executed": false,
+  "agent_or_prompt_modified": false,
+  "policy_or_role_changed": false,
+  "substitute_or_exclusion_approved": false,
+  "native_byom_acceptance_passed": false,
+  "roadmap_complete": false
+}

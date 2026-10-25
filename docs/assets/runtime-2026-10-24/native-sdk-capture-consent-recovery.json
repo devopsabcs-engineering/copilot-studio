@@ -1,0 +1,18 @@
+{
+  "status": "blocked",
+  "official_sdk_used": true,
+  "owned_client_caller_verified": true,
+  "question_submissions": 0,
+  "question_retries": 0,
+  "start_activity_count": 1,
+  "turn_activity_counts": [],
+  "grant_exactly_restored": null,
+  "app_permissions_exactly_restored": null,
+  "temporary_scope_access_tokens_removed": 0,
+  "original_access_entries_retained": true,
+  "refresh_entries_retained": true,
+  "dynamic_plan_finished_observed": false,
+  "whole_parent_completion_not_inferred_from_silence": true,
+  "restoration_error_count": 2,
+  "roadmap_complete": false
+}

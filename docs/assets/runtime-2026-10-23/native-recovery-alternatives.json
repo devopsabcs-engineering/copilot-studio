@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-24T01:09:24.765529+00:00",
+  "scope": "Transcript recovery alternatives and tool restoration only; not later SDK-candidate operations",
+  "correct_admin_mngenv_dataverse_identity_verified_by_official_pac": true,
+  "existing_global_administrator_membership_verified": true,
+  "dataverse_system_administrator_role_present": false,
+  "documented_owned_client_self_elevation": {
+    "http_status": 403,
+    "required_delegated_permission": "UserManagement.Users.Apply",
+    "required_scope_in_live_published_resource_metadata": false,
+    "new_permissions_granted": 0,
+    "original_role_set_verified_unchanged": true
+  },
+  "official_pac": {
+    "version": "2.14.1",
+    "installation": "Isolated gitignored dotnet tool directory",
+    "initial_v3_nuget_endpoint_tls_failure_preserved": true,
+    "working_feed": "Official NuGet V2 HTTPS; certificate verification retained",
+    "same_admin_identity_and_environment_verified": true,
+    "self_elevate": "Rejected with HTTP 403",
+    "assign_same_user_by_org_url": "Default environment lookup failed",
+    "assign_same_user_by_environment_id": "Default-prefixed ID rejected by CLI GUID/URL parser",
+    "all_attempts_original_role_set_unchanged": true,
+    "all_attempts_original_active_profile_restored": true
+  },
+  "official_local_mcp": {
+    "capability_discovery_succeeded": true,
+    "tools_discovered": 284,
+    "cloud_tools_invoked": 0,
+    "server_stopped": true,
+    "answer_transcript_export_tool_found": false
+  },
+  "evaluation_runs_submitted": 0,
+  "new_cloud_resources": 0,
+  "tenant_wide_consent_changes": 0,
+  "new_roles_assigned": 0,
+  "application_required_permissions_changed": false,
+  "endpoint_authentication_changed": false,
+  "native_acceptance": false,
+  "roadmap_complete": false,
+  "supported_self_elevation_reference": "https://learn.microsoft.com/power-platform/admin/manage-high-privileged-admin-roles"
+}

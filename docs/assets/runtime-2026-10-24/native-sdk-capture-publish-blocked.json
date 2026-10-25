@@ -1,0 +1,13 @@
+{
+  "status": "blocked_at_publication_status_verification",
+  "question_submissions": 0,
+  "question_retries": 0,
+  "sdk_authentication_attempts": 0,
+  "activities_captured": 0,
+  "final_answer_captured": false,
+  "completion_events_observed": [],
+  "application_or_grant_writes": 0,
+  "temporary_scope_tokens_created": 0,
+  "refresh_and_existing_tokens_untouched": true,
+  "roadmap_complete": false
+}

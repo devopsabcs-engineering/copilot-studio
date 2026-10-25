@@ -1,12 +1,358 @@
 ---
 title: Validation du backend Copilot et du CLI - 2026-10-20
 description: Lectures Dataverse authentifiées, restauration officielle de PAC, clone de l'agent sauvegardé et blocages de conversation et d'évaluation restants.
-ms.date: 2026-10-22
+ms.date: 2026-10-25
 ---
 
 ## Résultat et limites
 
 [Tous les labs](index.md) | [English](../en/backend-live-2026-10-20.md) | [Registre réel](live-rerun-2026-10-19.md)
+
+## Livraison hébergée à deux protocoles du 25 octobre
+
+La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
+est active en version 5, après le transport initial réussi en version 4.
+Elle préserve Activity et ajoute un contrat JSON sans état pour question/preuves,
+OpenAPI authentifié et erreurs explicites bornées. Les 54 tests du service,
+les dépendances et les comparaisons SAR réelles locales/hébergées avec le rendu
+littéral réussissent. Sept contrôles hébergés passent, dont le refus sans jeton
+et l'absence d'appel de modèle pour les entrées invalides, prouvée par les journaux
+corrélés. Le HTTP 400 Activity initial pour version API manquante est conservé
+avec le HTTP 200 corrigé, soumis séparément avec protection contre la répétition.
+
+L'expiration du CLI de déploiement de version 5 est conservée : les lectures
+indépendantes trouvent le service actif et doctor rapporte 11 réussites,
+zéro échec, deux contrôles ignorés, sans autre déploiement. Les deux mécanismes
+d'authentification, l'identité, le récupérateur version 4 et les quatre
+ressources/rôles restent inchangés. La
+[lecture native](../assets/runtime-2026-10-24/native-preservation-after-invocations.json)
+vérifie aussi parents, définitions, liaisons, fichiers, autorisations, cache et PAC.
+Aucune protection Storage/réseau n'est affaiblie.
+
+Il s'agit du transport hébergé direct, pas d'une acceptation d'agent connecté natif
+ni d'une récupération de l'autorisation SDK publiée. La page partagée reste masquée
+après les tentatives normales; aucune question native ni configuration n'est
+soumise. Le jeu généré supplémentaire est différé pendant l'indisponibilité de
+l'utilisateur. Acceptation native/matrice, rétention et validations
+organisationnelles restent ouvertes.
+
+## Poursuite en lecture seule du 23 octobre
+
+Ce point en lecture seule est antérieur. La livraison autorisée ci-dessous
+remplace les états non déployé/utilisateur indisponible, pas les échecs conservés.
+
+Le [point de clôture](completion-roadmap.md#point-dexécution-du-23-octobre)
+conserve le rapprochement actuel des ressources possédées, les coûts retournés,
+les empreintes de l'artefact exact et les contrôles locaux répétés. Il ne ferme
+pas l'acceptation réelle. Le reçu
+[completion-progress.json](../assets/runtime-2026-10-23/completion-progress.json)
+enregistre 6,219977042 USD avant taxes pour le groupe, sous réserve du retard
+de facturation et du jour partiel. Search fonctionne encore; sa balise
+d'expiration ne constitue pas un nettoyage. Propriété de rétention et
+validations attribuables de livraison restent en attente.
+
+Le reçu [native-state-readback.json](../assets/runtime-2026-10-23/native-state-readback.json)
+confirme que le diagnostic reste Inactive par trois GET Dataverse authentifiés
+actuels. Les métadonnées Foundry actuelles confirment séparément que la cible
+d'origine sélectionne la version 4 active avec sa définition de création intacte.
+Aucune de ces lectures n'est une réponse native ni un déploiement de la réparation
+SDK. L'extension hébergée reste en version 1 active, sans changement d'autorisation.
+
+Le reçu [independent-lab-review.json](../assets/runtime-2026-10-23/independent-lab-review.json)
+conserve les identifiants d'acceptation et échecs historiques de T009, T010 et T014.
+Aucun critère restant n'est nouvellement réussi. Une tentative d'ouverture du
+navigateur a expiré sans identifiant de page; ses effets restent inconnus.
+Aucune nouvelle question au modèle, aucun courriel, évaluation, changement cloud,
+accès à une source protégée, suppression ou publication distante n'a eu lieu.
+Toutes les tâches de la feuille de route restent ouvertes.
+
+## Réparation hébergée autorisée et récupération API native
+
+L'autorisation explicite de déploiement/crédits de l'utilisateur est enregistrée
+dans [authorized-release.json](../assets/runtime-2026-10-23/authorized-release.json).
+Le candidat SDK exact a été déployé en version 2. Son test
+[hosted-repair-smoke.json](../assets/runtime-2026-10-23/hosted-repair-smoke.json)
+retourne de vrais extraits avec attribution individuelle.
+Le reçu [hosted-negative-checks.json](../assets/runtime-2026-10-23/hosted-negative-checks.json)
+conserve ensuite un nouvel échec : l'outil MCP approuvé terminé retourne un saut
+de ligne non analysable en JSON. L'entrée invalide s'arrête correctement avant
+toute inférence.
+
+La correction ciblée traite seulement le texte vide d'un appel vérifié réussi
+comme absence de preuve; le texte non vide mal formé reste une erreur explicite.
+Cinq tests ajoutés portent la suite à 38. La réponse d'échec réelle conservée
+se rejoue correctement sans nouvelle requête au modèle.
+La réparation est déployée en version 3 active. Les trois tests réels de
+[hosted-version3-regression.json](../assets/runtime-2026-10-23/hosted-version3-regression.json)
+réussissent : cas 6 inchangé avec extraits exacts/marqueurs individuels, abstention
+à la question d'astronomie inchangée et erreur d'entrée trop longue sans appel
+au modèle. Les six requêtes Activity au total entre les versions 2/3 ne constituent
+pas un compte de crédits facturés ou de modèles internes.
+L'authentification reste Entra et BotServiceRbac. La route version 4 d'origine
+est préservée; aucune réussite native n'est déduite.
+
+L'échec de connexion navigateur Azure CLI était AADSTS65002, restriction de
+préautorisation entre API Microsoft, pas un problème de rôle Azure.
+Le reçu [native-api-access-recovery.json](../assets/runtime-2026-10-23/native-api-access-recovery.json)
+conserve cet échec et la récupération prise en charge : un client possédé
+monotenant sans secret, PKCE, consentement de lecture/écriture des opérations
+maker limité à l'utilisateur courant et HTTP 200 pour la liste d'évaluations.
+Aucun consentement global, rôle d'annuaire ni profil Azure n'a changé.
+
+Initialement, l'API retourne zéro jeu de tests.
+[native-canary-preparation.json](../assets/runtime-2026-10-23/native-canary-preparation.json)
+conserve le CSV privé de deux cas et le prérequis d'interface restant : import
+dans le bot existant, configuration du profil Microsoft Copilot Studio authentifié
+et enregistrement des deux. Les vrais identifiants du jeu et de la connexion sont
+requis avant l'exécution API de brouillon. Le `ConnectionError` ultérieur de
+préparation ne prouve pas une régression d'authentification.
+À ce stade préparatoire, le diagnostic reste Inactive et aucune évaluation n'a
+encore été soumise.
+T003/T004 sont terminées dans leur périmètre hébergé; acceptation native et
+atelier complet restent ouverts. Les anciens échecs SDK/natifs restent inchangés.
+
+## Test natif authentifié et restauration vérifiée
+
+Le [point natif ultérieur](completion-roadmap.md#test-natif-authentifié-et-restauration)
+remplace le prérequis de jeu manquant. Dans le contexte admin/MngEnv vérifié,
+un jeu enregistré de deux cas est exécuté avec connexions authentifiées explicites
+en brouillon. L'[exécution réelle](../assets/runtime-2026-10-23/native-authenticated-canary.json)
+retourne HTTP 202 puis Completed avec une réussite et un échec General Quality.
+Aucune soumission n'est répétée. La réponse API documentée n'expose ni les réponses
+finales ni la correspondance question/résultat; l'acceptation native exacte reste
+non prouvée.
+
+La [restauration vérifiée](../assets/runtime-2026-10-23/native-canary-restoration.json)
+remet le diagnostic isolé à Inactive avec sa définition exacte intacte.
+Les lignes complètes du rattachement d'origine et du parent restent inchangées.
+La lecture de l'endpoint confirme `@latest`, version hébergée 3 active et
+Entra plus BotServiceRbac inchangés. La lecture documentée des transcriptions,
+filtrée au bot et à la fenêtre du test, retourne 403 pour privilège
+`prvReadconversationtranscript` manquant. La mise normale du navigateur admin
+au premier plan échoue aussi; aucune touche n'est envoyée ni aucun rôle élargi.
+Cette investigation conserve un échec réel d'acceptation, sans réussite de
+transport natif, reproduction de l'ancien 403 de tenant ni résultat de onze cas.
+
+## Outils indépendants et exécution Terraform
+
+Les [tentatives prises en charge](../assets/runtime-2026-10-23/native-recovery-alternatives.json)
+restaurent PAC officiel 2.14.1 et vérifient l'identité admin/MngEnv prévue.
+L'appartenance Global Administrator existante n'est pas une affectation System
+Administrator Dataverse. Les deux voies documentées d'auto-élévation échouent;
+le client possédé exige `UserManagement.Users.Apply`, non publié.
+Les rôles d'origine et l'ancien profil PAC actif sont vérifiés inchangés.
+Aucun scope non pris en charge, rôle large ou consentement global n'est ajouté.
+
+Le [rapprochement récent](../assets/runtime-2026-10-23/terraform-reconciliation.json)
+termine le livrable de comparaison T013. Terraform 1.16.6 à empreinte officielle
+vérifiée utilise une copie privée identique des 23 fichiers d'origine.
+Init et validation retournent 0; le plan enregistré de 15 instances retourne 2.
+La validation n'indique aucune erreur ni avertissement. Aucun apply, destroy
+ni inscription automatique; l'absence du groupe réservé au plan est vérifiée.
+L'ancien apply payant corrigé, ses écarts préservant la stratégie, la configuration
+d'identité à l'exécution et son nettoyage sont conservés, pas rejoués.
+Les limites modèle/sécurité/réseau du plan inchangé restent explicites.
+Seuls D5-02/D5-03 gagnent des preuves récentes, pas toute la séquence connectée.
+
+## Jeu Search fictif et contrôles de portabilité native
+
+L'[exécution récente](../assets/runtime-2026-10-23/lab5-synthetic-search-retry.json)
+réussit S5-03/S5-05/S5-06 avec le texte fictif original Harbor/Forest.
+Six contrôles mesurés couvrent recherche lexicale, vectorielle naturelle,
+hybride, hybride sémantique, filtrage exact du parent et HTTP 400 de champ non filtrable.
+Le [premier essai](../assets/runtime-2026-10-23/lab5-synthetic-search.json)
+s'arrête sur des statistiques nulles malgré deux chargements réussis, puis est
+nettoyé. Le second essai explicite compte les documents par recherche réelle
+et réutilise les plongements des mêmes entrées. Son index temporaire est aussi
+supprimé; les trois schémas d'origine sont vérifiés inchangés.
+Aucun rôle, paramètre d'authentification, index existant ni route native modifié.
+Blob/indexeur, navigation des citations, réponse native, refus d'identité et
+réussite globale de l'atelier ne sont pas déduits.
+
+Les premières voies SDK disposent désormais d'un vrai clone et de fichiers
+vérifiés. L'[échec d'empaquetage](../assets/runtime-2026-10-23/native-sdk-packaging.json)
+et le [résultat Author](../assets/runtime-2026-10-23/native-sdk-author.json)
+restent explicites. Le [précontrôle modèle/API de fichiers](../assets/runtime-2026-10-23/native-sdk-template-candidate.json)
+établit une colonne de fichier prise en charge et la liaison existante, mais
+le modèle omet instructions de routage et cinq composants sources.
+Ces contrôles n'envoient aucune question SDK et ne prouvent pas la livraison parente complète.
+
+L'[opération de préparation suivante](../assets/runtime-2026-10-24/native-sdk-staging-corrected-name.json)
+crée un candidat non publié après correction d'un nom refusé sous le même schéma.
+Ses deux fichiers relus ont les empreintes sources; la liaison autorisée est
+vérifiée et authentification/accès/déclencheur valent 2/2/1.
+Le parent est préservé; aucune question SDK, publication ni permission modifiée.
+Les instructions de routage et cinq composants restent à reconstruire.
+
+La [reconstruction locale](../assets/runtime-2026-10-24/native-sdk-reconstruction.json)
+rédige maintenant les instructions et définitions manquantes : couverture de
+26 composants, 24 définitions YAML validées, un avertissement de nom d'affichage
+source et 14 opérations préparées avec contrôles des données et ETag.
+Empreintes du clone et des fichiers inchangées. Aucune application en service,
+publication ni acceptation de réponse n'est déduite de cette projection locale.
+
+L'[application atomique gardée suivante](../assets/runtime-2026-10-24/native-sdk-managed-apply-reconciled.json)
+réussit les 14 opérations et le contrôle indépendant des 26 composants après
+rapprochement limité aux métadonnées de synchronisation. Empreintes, liaison,
+authentification et lignes sources complètes sont vérifiées.
+Le candidat passe d'une projection locale à une reconstruction en service
+vérifiée, pas à un environnement publié ni testé par réponses.
+La [capture de cette phase](../assets/runtime-2026-10-24/native-sdk-capture-reconciled.json)
+contient encore zéro question et aucune réponse finale.
+
+La [publication suivante du candidat seul](../assets/runtime-2026-10-24/native-sdk-publish-confirmed.json)
+réussit selon l'état et la date de l'API indépendante malgré l'échec d'analyse
+d'état PAC. Aucune republication ni modification de l'agent d'origine.
+Les 26 définitions/états, fichiers, liaison et authentification/accès/déclencheur
+2/2/1 restent vérifiés. La [capture SDK suivante](../assets/runtime-2026-10-24/native-sdk-capture-owned-client.json)
+n'atteint ni conversation ni question : le client possédé ne reçoit aucun jeton
+Invoke silencieux. Restauration application/consentement sans erreur, anciens
+jetons et profil PAC conservés. Le diagnostic d'authentification reste nécessaire;
+aucune réponse ni fin de tour complète n'est déclarée.
+
+Le [diagnostic OAuth explicite](../assets/runtime-2026-10-24/native-sdk-auth-diagnostic.json)
+résout ensuite l'erreur masquée : `AADSTS65001`/`consent_required`.
+`prompt=none` dans le bon profil exige aussi le consentement; un essai PKCE
+normal expire sans rappel. L'écouteur est fermé, aucun cookie/base de session
+lu et [zéro requête SDK](../assets/runtime-2026-10-24/native-sdk-capture-recovered.json)
+envoyée. La relecture finale consentement/manifeste correspond à l'état initial;
+lignes sources, empreintes, liaison et publication/authentification restent vérifiées.
+
+La [récupération suivante du consentement](../assets/runtime-2026-10-24/native-sdk-auth-consent-recovery-final.json)
+vérifie un jeton Invoke après une attente unique de cinq minutes puis un
+rafraîchissement forcé. Compte et ressource correspondent; les scopes OIDC
+standards ne sont pas des blocages prouvés. Le SDK produit une activité de frappe,
+sans démarrage terminé ni question. Des erreurs de transport affectent d'abord
+la restauration; une récupération indépendante vérifie ensuite manifeste et
+tous les consentements exacts, jetons Maker/rafraîchissement, lignes/fichiers/liaisons
+sources et publication/authentification du candidat. Impossible d'identifier
+sûrement les onglets expirés pour fermeture : ne les acceptez pas.
+Le diagnostic du démarrage reste ouvert.
+
+Le [diagnostic SDK suivant](../assets/runtime-2026-10-24/native-sdk-start-diagnostic.json)
+capture l'en-tête de conversation faisant autorité et se termine normalement,
+événement de démarrage désactivé. Ce réglage de diagnostic ne valide pas l'accueil.
+La [capture réelle de deux tours](../assets/runtime-2026-10-24/native-sdk-capture-start-recovered.json)
+envoie Hello et le cas SAR 6 inchangé sans nouvelle tentative : trois réponses
+HTTP 200, démarrage inclus, et trois flux fermés normalement. Hello renvoie la
+demande attendue de précision sur l'enquête. SAR renvoie l'Adaptive Card réelle
+du parent demandant de connecter un compte Azure AI Foundry Agent Service,
+puis Continue. Connect/Continue n'est pas invoqué. Les événements SAR réels sont
+`DynamicPlanReceived`, `DynamicPlanStepTriggered` et `DynamicPlanStepBindUpdate`;
+aucun `DynamicPlanFinished`, réponse métier ou comparaison de sources observé.
+La liaison enregistrée ne démontre pas l'autorisation utilisateur à l'exécution.
+Manifeste et tous les consentements utilisateur sont restaurés exactement,
+un jeton d'accès Invoke temporaire supprimé, entrées Maker/rafraîchissement valide
+conservées, et définitions/fichiers/liaisons/authentification source/candidat
+ainsi que profil PAC antérieur préservés. L'acceptation native reste ouverte.
+
+Le [suivi du connecteur](../assets/runtime-2026-10-24/native-sdk-connector-authorization.json)
+vérifie profil navigateur et environnement, mais ne peut vérifier le compte
+administrateur du site via UIAutomation. Arrêt avant Connect, sans nouvelle
+question, modification de droits ou écriture cloud. Aucun échec MFA/OAuth observé.
+Les contrôles indépendants de préservation réussissent sans erreur de vérification
+ou restauration. Une vérification humaine du compte du site et le flux actuel
+de connexion approuvée sont nécessaires; Continue doit attendre le succès observé.
+
+Le [contrôle Azure du 24 octobre](../assets/runtime-2026-10-24/azure-preflight-refresh.json)
+vérifie indépendamment les deux contextes Azure, quatre ressources conservées,
+deux déploiements de modèles Succeeded, fournisseurs inscrits et compteurs de
+quotas régionaux réels. Chat : 26/5 000; embedding : 1/1 000 (milliers de jetons/minute).
+Le coût rapporté avant taxes des ressources possédées atteint 7,650361288 USD,
+dont 7,373 USD pour Search, jusqu'au 24 octobre partiel. Il exclut les ressources
+étrangères à l'atelier et ne représente ni facture finale ni total de crédits
+Copilot. Aucune modification de configuration, inférence, facturation ou droit.
+Budget/rétention et acceptation complète du lab 0 restent ouverts.
+Les contrôles d'identité Azure ne vérifient pas le compte du site dans le navigateur.
+
+Le [suivi visuel du navigateur](../assets/runtime-2026-10-24/native-sdk-connector-visual-verification.json)
+inspecte une image PrintWindow limitée à la fenêtre, mais l'image blanche ne montre
+aucun compte du site ou tenant lisible. Aucune action Connect/Continue; état réduit
+initial restauré et contrôles indépendants de préservation réussis.
+
+La [demande unique de focus suivante](../assets/runtime-2026-10-24/native-sdk-connector-focus-request.json)
+met bien le navigateur vérifié au premier plan. Le contrôle du compte refuse
+InvokePattern et les limites de capture échouent à la garde : aucune capture,
+action Connect/Continue ou nouvelle question. État initial de fenêtre et contrôles
+de préservation cloud, source/candidat, droits et cache vérifiés.
+
+La [tentative par page navigateur prise en charge](../assets/runtime-2026-10-24/native-sdk-browser-page-recovery.json)
+vérifie ensuite l'administrateur exact du site et la route de l'environnement.
+Elle ouvre le formulaire Foundry Connect officiel et soumet Create une fois
+avec le point de terminaison approuvé. Le formulaire renvoie réellement
+**Unable to sign in. Please try again.** Aucun succès, Continue, nouveau SAR,
+consentement accepté, publication ou modification YAML. Cette création est
+une tentative d'écriture cloud. Lignes sources complètes, définitions/authentification
+publiées du candidat, quatre empreintes, liaisons, application/consentements,
+cache et PAC restent vérifiés préservés. Le compte illisible est remplacé par
+un échec concret de connexion du connecteur, dont la cause n'est pas prouvée.
+
+Le [gestionnaire natif Studio ultérieur](../assets/runtime-2026-10-24/native-studio-existing-connection.json)
+propose la connexion approuvée existante et établit l'association réelle par
+utilisateur, sans autre Create ni flux OAuth. Des réponses SAR natives arrivent,
+mais trois passages entre guillemets dans deux messages ne sont pas exacts.
+La paraphrase finale sans citation ne peut réussir par absence.
+Autorisation du canal publié et appartenance aux résultats restent non prouvées.
+
+Le [diagnostic hébergé existant](../assets/runtime-2026-10-24/native-studio-verified-diagnostic.json)
+échoue ensuite réellement en HTTP 403 de tenant appelant BotServiceRbac.
+L'[essai de point Entra seul borné](../assets/runtime-2026-10-24/native-studio-entra-only-diagnostic.json)
+obtient un autre HTTP 400 de blueprint, pas une réponse réussie.
+Les deux activations limitées au candidat reviennent à Off. Point/carte,
+Entra avec BotServiceRbac, version hébergée 3, manifeste original et contrôles
+indépendants source/candidat/application/consentements/cache sont vérifiés
+préservés ou exactement restaurés, sans erreur de vérification/restauration.
+Azure RBAC reste inchangé; aucun accès anonyme, déploiement ou publication.
+Ces résultats remplacent le blocage de connexion Studio, pas le critère de
+fidélité aux sources.
+Le [nouvel essai SDK publié ultérieur](../assets/runtime-2026-10-24/native-sdk-post-studio-authorization.json)
+renvoie toujours une carte de connexion par utilisateur pour un cas SAR
+inchangé, malgré HTTP 200 et fermeture normale. Aucune réponse métier ou fin
+de plan observée. Aucun Connect/Continue; changements temporaires
+d'application/consentement possédés exactement restaurés, seul nouveau jeton
+Invoke supprimé, contrôles source/candidat/fichiers/liaisons/authentification/
+cas original/PAC réussis.
+
+## Ingestion Blob fictive sous réseau privé imposé
+
+L'[échec par réseau public](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
+observe la stratégie Storage imposant Disabled au réseau public; le RBAC limité
+ne contourne pas cette frontière. Vingt-cinq essais bornés renvoient 403.
+Aucun indexeur ni inférence. Storage et les deux rôles limités au conteneur
+sont supprimés, inventaire initial vérifié inchangé.
+
+Le [chargement privé](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion.json)
+utilise un travail conteneur à identité managée/IP privée, DNS/point de terminaison
+privés et Storage sans clé ni accès anonyme. Deux fichiers fictifs originaux
+relus avec empreintes exactes, liste exactement `forest.txt`, `harbor.txt` :
+S5-01 réussit. L'exécution est interrompue pendant l'attente du lien Search.
+La récupération prend un ancien 404 pour la définition Storage et échoue avant
+l'indexeur. Une course de suppression DNS asynchrone provoque une erreur initiale,
+puis la zone vide possédée est supprimée et les quatre ressources initiales
+retrouvées. Tous les reçus d'échec sont conservés.
+
+La [nouvelle tentative privée](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-retry.json)
+approuve le lien possédé et exécute l'indexeur privé : deux éléments traités,
+aucun échec ni avertissement. La vérification renvoie 400 car le champ vectoriel
+n'est pas récupérable. S5-02 n'est pas revendiqué sur le seul état.
+Nettoyage et contrôles indépendants des objets/rôles/liens/ressources initiaux
+réussis. Aucun document protégé, question d'agent, réponse connectée ou preuve
+de navigation des sources.
+
+L'[exécution avec relecture vectorielle corrigée](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-vector-readback.json)
+réussit S5-01 et S5-02. Des jetons ARM/Search expirés interrompent initialement
+relecture et nettoyage; les erreurs restent conservées. Une récupération CLI
+prise en charge reprend le déploiement/chargement existant sans les répéter.
+L'indexeur privé réussit avec deux fichiers, aucun échec ni avertissement.
+Les deux vrais passages enfants correspondent exactement aux entrées, avec
+métadonnées parent/source et vecteurs de 1 536 dimensions vérifiés. Le champ
+vectoriel jetable est explicitement récupérable. Nettoyage ciblé final et
+contrôles indépendants objets/rôles/liens Search/inventaire ARM réussis sans erreur
+de nettoyage restante. Aucune exception de stratégie ni modification de sécurité
+d'origine. Cinq critères du lab 5 réussissent, pas l'acceptation connectée
+ni la feuille de route complète.
+
+## Résultat initial du 20 octobre
 
 L'échec du portail n'a pas arrêté l'investigation. Les appels authentifiés
 Power Platform et Dataverse ont réussi. Le CLI Power Platform officiel a cloné

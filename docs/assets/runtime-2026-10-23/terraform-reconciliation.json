@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-24T01:09:24.782600+00:00",
+  "scope": "T013 infrastructure reconciliation; not new deployment or connected lab acceptance",
+  "roadmap_task_completed": "T013",
+  "terraform_version": "1.16.6",
+  "official_archive_sha256_verified": true,
+  "official_archive_sha256": "6ea2c186e0e76a113af30fbcdcf7a4b4c70756317994a04929e5c90b9e94b1df",
+  "source_file_count": 23,
+  "source_and_private_copy_rehashed_unchanged_after_validation": true,
+  "private_copy_byte_exact": true,
+  "protected_sources_plan_state_and_private_ids_not_published": true,
+  "resolved_providers": {
+    "registry.terraform.io/azure/azapi": "1.15.0",
+    "registry.terraform.io/hashicorp/azuread": "2.48.0",
+    "registry.terraform.io/hashicorp/azurerm": "4.45.1",
+    "registry.terraform.io/hashicorp/http": "3.6.3",
+    "registry.terraform.io/hashicorp/random": "3.6.1"
+  },
+  "init_exit_code": 0,
+  "validate_exit_code": 0,
+  "validation_valid": true,
+  "validation_error_count": 0,
+  "validation_warning_count": 0,
+  "plan_exit_code": 2,
+  "saved_plan_decoded": true,
+  "planned_resource_instances": 15,
+  "planned_resource_types": [
+    {
+      "type": "azurerm_cognitive_account",
+      "count": 1
+    },
+    {
+      "type": "azurerm_cognitive_deployment",
+      "count": 2
+    },
+    {
+      "type": "azurerm_resource_group",
+      "count": 1
+    },
+    {
+      "type": "azurerm_role_assignment",
+      "count": 6
+    },
+    {
+      "type": "azurerm_search_service",
+      "count": 1
+    },
+    {
+      "type": "azurerm_storage_account",
+      "count": 1
+    },
+    {
+      "type": "azurerm_user_assigned_identity",
+      "count": 1
+    },
+    {
+      "type": "azurerm_virtual_network",
+      "count": 1
+    },
+    {
+      "type": "random_id",
+      "count": 1
+    }
+  ],
+  "proposed_deployments": [
+    {
+      "model": {
+        "format": "OpenAI",
+        "name": "text-embedding-ada-002",
+        "version": "2"
+      },
+      "sku": "GlobalStandard",
+      "capacity": 100
+    },
+    {
+      "model": {
+        "format": "OpenAI",
+        "name": "gpt-4o",
+        "version": "2024-05-13"
+      },
+      "sku": "GlobalStandard",
+      "capacity": 20
+    }
+  ],
+  "apply_executed": false,
+  "destroy_executed": false,
+  "provider_auto_registration_disabled": true,
+  "plan_only_resource_group_independently_verified_absent": true,
+  "new_cloud_resources_created": 0,
+  "unchanged_source_security_and_identity_findings": {
+    "search_sku": "standard",
+    "search_local_authentication_enabled": true,
+    "search_public_network_access_enabled": true,
+    "search_has_attached_identity": false,
+    "storage_public_network_access_enabled": true,
+    "storage_shared_access_key_enabled": true,
+    "openai_local_auth_enabled": true,
+    "private_endpoint_instances": 0,
+    "foundry_project_instances": 0,
+    "data_plane_search_index_created_by_plan": false
+  },
+  "historical_corrected_paid_execution": {
+    "new_execution": false,
+    "source": "../runtime-2026-10-19/paid-cloud-results.json",
+    "terraform_instances": 15,
+    "original_model_rejected": {
+      "http_status": 400,
+      "code": "ServiceModelDeprecating",
+      "model": "gpt-4o",
+      "version": "2024-05-13"
+    },
+    "corrected_apply_passed": true,
+    "corrected_chat_model_version": "2024-11-20",
+    "policy_keyless_openai_and_private_storage_preserved": true,
+    "policy_exemptions_created": false,
+    "system_assigned_search_query_vectorization_verified_in_separate_runtime_stage": true,
+    "full_private_network_certification": false,
+    "cleanup_and_resource_group_absence_verified": true
+  },
+  "disposition": "Reconciliation completed. Do not reapply the unchanged plan: it retains the previously rejected model and policy-conflicting defaults. Historical corrected deployment is not an unchanged-source or full-private-network pass.",
+  "new_native_or_connected_acceptance_passes": 0,
+  "full_lab_5_1_acceptance": false,
+  "roadmap_complete": false
+}

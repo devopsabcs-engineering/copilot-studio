@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "diagnosis_date": "2026-10-23",
+  "status": "supported_endpoint_experiment_identified_native_execution_access_blocked",
+  "scope": "One read-only diagnosis of native Copilot delivery T005/T006 after hosted SDK repair",
+  "observations": {
+    "live_read_started_utc": "2026-10-23T20:25:21.276857+00:00",
+    "hosted_agent": "workshop-verified-retrieval",
+    "hosted_latest_version": "2",
+    "hosted_latest_status": "active",
+    "hosted_endpoint_protocols": ["activity"],
+    "hosted_endpoint_authorization_schemes": ["Entra", "BotServiceRbac"],
+    "hosted_endpoint_version_selector": "@latest",
+    "diagnostic_component_state": "Inactive",
+    "diagnostic_definition_sha256": "6fbc8d501171570d4221309fbcb57fcf7789903bdebf69d9a946d21c9ef38e47",
+    "diagnostic_matches_retained_baseline": true,
+    "original_attachment_state": "Active",
+    "original_attachment_definition_sha256": "ccc44043b42193ef95eaa2abfeec2cab40c899450e2cdb22ee50e070faa80994",
+    "original_attachment_matches_preflight_hash": true,
+    "original_target_latest_version": "4",
+    "original_target_latest_status": "active",
+    "original_target_version_selector": "@latest",
+    "original_version_is_pinned": false,
+    "native_connection_reference_resolves": true,
+    "native_connection_mode_from_retained_definition": "Invoker",
+    "connector_user_identity_and_connection_health_verified": false,
+    "direct_activity_receipt": "hosted-repair-smoke.json",
+    "direct_activity_pass_is_native_pass": false
+  },
+  "diagnosis": {
+    "historical_native_failure": "BotServiceRbac authorization requires a valid Entra tenant id for the activity caller.",
+    "interpretation": "The historical native failure is an ingress Activity-caller identity failure, distinct from the repaired hosted SDK and successful managed-identity downstream calls. The direct request supplied caller identity metadata; it does not establish that the native connector supplies the same metadata.",
+    "current_native_reproduction_performed": false,
+    "root_cause_certainty": "Historical error is explicit; current connector Activity identity propagation and recovery remain unverified."
+  },
+  "supported_endpoint_control": {
+    "entra_only_configuration_supported": true,
+    "support_level": "Documented preview API and SDK; not production GA assurance",
+    "rest_method": "PATCH",
+    "rest_path_template": "{projectEndpoint}/agents/{agentName}?api-version=v1",
+    "content_type": "application/merge-patch+json",
+    "proposed_body": {
+      "agent_endpoint": {
+        "authorization_schemes": [
+          {"type": "Entra"}
+        ]
+      }
+    },
+    "sdk_surface": "AIProjectClient.agents.update_details(agent_name=..., agent_endpoint=AgentEndpointConfig(authorization_schemes=[EntraAuthorizationScheme()]))",
+    "installed_az_cognitiveservices_agent_update_exposes_auth_switch": false,
+    "cli_alternative": "An authenticated REST call through az rest can carry the documented API request with the Foundry audience explicitly selected; no first-class authentication switch exists in the inspected command.",
+    "portal_protocol_or_authorization_editor_documented": false,
+    "rebuild_or_new_agent_version_required_for_endpoint_auth_change": false,
+    "array_warning": "The authorization_schemes array is replaced, not appended. Preserve the full original array for rollback.",
+    "scope_restriction": "Only the isolated verified-retrieval agent endpoint; never the original specialist endpoint, shared connection, roles or parent authentication.",
+    "important_boundary": "Entra-only retains Entra token and RBAC requirements but removes Bot Service channel authorization. It is a deliberate trust-boundary change, not a guaranteed native connector repair.",
+    "not_recommended_as_substitute": "Do not switch to BotServiceTenant: that enables tenant-wide channel access and has separate publishing and administrator-approval prerequisites."
+  },
+  "caller_constraints": {
+    "foundry_token_audience": "https://ai.azure.com",
+    "foundry_token_scope": "https://ai.azure.com/.default",
+    "endpoint_permission": "Actual Entra caller needs Foundry Agent Consumer or an equivalent higher data-plane role at agent or project scope, including valid inherited grants.",
+    "connector_authentication": "The connector documents Microsoft Entra ID User Login as non-shareable; Managed Identity authentication is documented for Logic Apps only. A hosted runtime managed identity is not evidence of the Invoker user's connector authorization.",
+    "resource_scoped_permission": "The connector additionally documents at least Cognitive Services User on its Azure AI resource. Retain an existing qualifying resource-scoped or inherited grant; project-scoped endpoint access does not automatically prove this prerequisite. Do not add duplicate grants or remove existing grants speculatively.",
+    "operator_arm_read": "Inherited role-assignment read succeeded; current operator has inherited Owner assignments. ARM ownership alone is not proof of the connector user's Foundry data-plane permissions.",
+    "native_missing_tenant": "Adding roles cannot manufacture a missing Activity caller tenant. Do not forge Activity identity, bypass consent or weaken parent authentication."
+  },
+  "native_surfaces": {
+    "manage": "Copilot Studio standard-harness Agents page exposes the connected Foundry agent details and connection; Dataverse Web API readback verifies saved component state, definition hash and connector reference.",
+    "immediate_native_test": "Supported Copilot Studio Test pane after the authorized Manage operation; this is draft testing, not proof of a published channel.",
+    "documented_evaluation_api": {
+      "api_version": "2024-10-01",
+      "list_path_template": "https://api.powerplatform.com/copilotstudio/environments/{EnvironmentId}/bots/{BotId}/api/makerevaluation/testsets?api-version=2024-10-01",
+      "run_path_template": "https://api.powerplatform.com/copilotstudio/environments/{EnvironmentId}/bots/{BotId}/api/makerevaluation/testsets/{TestSetId}/run?api-version=2024-10-01",
+      "draft_supported": true,
+      "draft_setting": "runOnPublishedBot=false",
+      "authentication_context": "Existing test set plus a signed-in user's Microsoft Copilot Studio profile mcsConnectionId and appropriate toolsConnections; omitting the profile runs unauthenticated.",
+      "profile_id_is_not_foundry_connection_id": true,
+      "current_read_probe_http_status": 403,
+      "current_read_probe_error_code": "InsufficientDelegatedPermissions",
+      "current_read_probe_missing_scope": "CopilotStudio.MakerOperations.Read",
+      "current_existing_cli_identity_can_list_test_sets": false,
+      "execution_scope_confirmed": false,
+      "required_next_auth_step": "Use an appropriately consented, supported client and delegated Power Platform user token. Confirm permissions for the run operation separately; successful Dataverse or Foundry access does not grant them. No consent or app-registration changes were performed."
+    },
+    "pac_on_current_path": false,
+    "pac_documentation_exposes_general_native_preview_chat_command": false,
+    "browser": {
+      "current_page_shared": false,
+      "usable_page_id_available": false,
+      "live_ui_inspection_performed": false,
+      "openBrowserPage_retried": false,
+      "consequence": "The documented UI remains the lowest-change native route, but unattended browser execution is not currently established."
+    },
+    "published_external_testing": "For published-channel SDK, DirectLine or Teams acceptance, push and publish the intended parent content before testing. Draft maker evaluation is a separate documented API option, not a published-delivery claim."
+  },
+  "recommended_handoff": [
+    "Manage first establishes a usable supported UI session or appropriately consented PPAPI client; do not start native scoring while both access paths are unavailable.",
+    "Before any authorized change, refresh the isolated endpoint snapshot, diagnostic state and hash, and original attachment state and hash. Stop on unexpected drift.",
+    "If the caller authorizes the endpoint experiment, Manage applies only the Entra-only authorization array on the isolated stable endpoint and reads it back. Keep Activity protocol, routing, roles and connection unchanged.",
+    "Manage may then temporarily enable only the diagnostic through supported Copilot Studio controls. This diagnosis did not enable it.",
+    "Test performs one explicit native source-verification request with authenticated Invoker context, correlates parent dispatch to hosted logs, and checks exact whole-record evidence and displayed parent answer.",
+    "If native caller authentication still fails, stop rather than improvising caller identity or changing more authentication settings.",
+    "After the bounded canary, return the diagnostic to Inactive and verify its exact retained definition hash. Preserve the original Active attachment and its hash throughout.",
+    "Restore the isolated endpoint's original Entra plus BotServiceRbac array on failure or at the end of a temporary experiment. Verify readback. Do not claim a native pass remains valid for the restored configuration unless tested under that configuration.",
+    "T005/T006 remain incomplete until actual native delivery and rollback acceptance evidence exists."
+  ],
+  "rollback": {
+    "endpoint_original_authorization_schemes": [{"type": "Entra"}, {"type": "BotServiceRbac"}],
+    "endpoint_original_routing": "@latest at 100 percent",
+    "endpoint_original_protocols": ["activity"],
+    "diagnostic_resting_state": "Inactive",
+    "original_attachment_resting_state": "Active",
+    "no_original_specialist_changes": true,
+    "concurrency": "Refresh snapshots immediately before writing; use applicable concurrency controls and stop on drift. No endpoint concurrency token was established by this diagnosis.",
+    "avoid_version_rollback_as_auth_fix": true
+  },
+  "safety": {
+    "cloud_configuration_writes": 0,
+    "role_or_auth_changes": 0,
+    "native_reenable": false,
+    "test_or_model_calls": 0,
+    "publication": false,
+    "subagents_used": false,
+    "browser_session_or_cookie_extraction": false,
+    "credentials_persisted": false,
+    "local_deliverables": "This sanitized JSON and one private JSON evidence file only."
+  },
+  "sources": [
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/configure-agent",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/troubleshoot-publish-copilot-authorization",
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/add-agent-foundry-agent",
+    "https://learn.microsoft.com/en-us/connectors/azureagentservice/",
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-rest-api",
+    "https://learn.microsoft.com/en-us/rest/api/power-platform/copilotstudio/bots/run-maker-evaluation-test-set",
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-edit",
+    "https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/copilot"
+  ],
+  "sanitization": "No tenant, organization, subscription, resource or component identifiers, private endpoints, connection identifiers, credentials, full source passages or full native definitions."
+}

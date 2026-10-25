@@ -75,6 +75,15 @@ class RetrievalTests(unittest.IsolatedAsyncioTestCase):
         self.assertIsNone(result.selection_response_id)
         self.assertEqual(self.client.responses.create.call_count, 1)
 
+    async def test_completed_blank_tool_output_abstains_without_selection(self):
+        self.response["output"][0]["output"] = "\n"
+        result = await answer("An unrelated astronomy question", self.records)
+        self.assertEqual(result.text, "Cannot determine from configured sources.")
+        self.assertEqual(result.record_ids, ())
+        self.assertEqual(result.retrieval_response_id, "retrieval-id")
+        self.assertIsNone(result.selection_response_id)
+        self.assertEqual(self.client.responses.create.call_count, 1)
+
     async def test_invalid_questions_never_reach_azure(self):
         for question in ("", "   ", "x" * 12001, None):
             with self.subTest(question_type=type(question).__name__):

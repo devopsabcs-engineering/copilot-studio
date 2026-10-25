@@ -1,0 +1,35 @@
+{
+  "status": "private_upload_passed_indexer_resume_failed_cleanup_recovered",
+  "completed_tests": [
+    "S5-01"
+  ],
+  "fixture_files": [
+    "forest.txt",
+    "harbor.txt"
+  ],
+  "original_fictional_text_only": true,
+  "protected_documents_used": false,
+  "template_resource_count": 14,
+  "existing_resource_modifications_in_what_if": 0,
+  "public_network_or_key_auth_policy_weakened": false,
+  "agent_questions_submitted": 0,
+  "connected_answer_proven": false,
+  "citation_navigation_proven": false,
+  "denied_identity_test_proven": false,
+  "full_lab_acceptance": false,
+  "roadmap_complete": false,
+  "resumed_without_redeploy_or_reupload": true,
+  "private_keyless_storage_verified": true,
+  "private_blob_roundtrip_count": 2,
+  "uploader_has_no_public_ip": true,
+  "error_type": "KeyError",
+  "initial_cleanup_error_count": 2,
+  "initial_cleanup_errors_preserved": true,
+  "initial_cleanup_failure": "DNS zone deletion raced asynchronous virtual-network-link deletion",
+  "cleanup_recovery": "Owned zone had zero remaining links and matching run tag; deleted and exact original four-resource inventory independently verified before the separate retry",
+  "cleanup_error_count": 0,
+  "all_owned_temporary_resources_absence_verified": true,
+  "indexer_executed": false,
+  "failure_boundary": "Interrupted-run resume selected the preexistence HTTP 404 receipt as if it were the Storage definition",
+  "source_and_recovery_receipts_preserved": true
+}

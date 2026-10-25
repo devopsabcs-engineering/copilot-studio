@@ -1,0 +1,18 @@
+{
+  "status": "candidate_publication_api_confirmed",
+  "official_pac_exit_code": 1,
+  "cli_status_parser_failed": true,
+  "api_publish_result": "Succeeded",
+  "published_timestamp_verified": true,
+  "candidate_only": true,
+  "candidate_component_count": 26,
+  "auth_access_trigger_preserved": true,
+  "source_full_rows_and_file_hashes_unchanged": true,
+  "bindings_unchanged": true,
+  "sdk_status": "blocked_owned_client_silent_auth_no_token",
+  "question_submissions": 0,
+  "temporary_grant_and_manifest_exactly_restored": true,
+  "existing_access_and_refresh_entries_retained": true,
+  "pac_profile_restored": true,
+  "roadmap_complete": false
+}

@@ -1,0 +1,46 @@
+{
+  "recorded_utc": "2026-10-23T20:18:39.060445+00:00",
+  "result": "PASS",
+  "active_version": "2",
+  "agent_status": "active",
+  "direct_activity_only": true,
+  "native_pass": false,
+  "dispatch_count": 1,
+  "automatic_retries": 0,
+  "envelope_accepted": true,
+  "evidence_returned": true,
+  "whole_record_checks_passed": true,
+  "individual_marker_checks_passed": true,
+  "auth_role_config_changes": false,
+  "historical_results_preserved": {
+    "direct_http": 500,
+    "native_http": 403
+  },
+  "deployment_dependencies": {
+    "source_pins_only": true,
+    "activity_bridge": "1.0.0b4",
+    "microsoft_agents": "1.9.0",
+    "azure_ai_projects": "2.9.0",
+    "openai": "3.29.0"
+  },
+  "runtime_dependency_evidence": {
+    "activity_bridge_log_confirmed": "1.0.0b4",
+    "agentserver_core_log_confirmed": "2.3.0b1",
+    "python_log_confirmed": "3.13",
+    "microsoft_agents_installed_version_log_confirmed": false,
+    "azure_ai_projects_installed_version_log_confirmed": false,
+    "openai_installed_version_log_confirmed": false
+  },
+  "downstream_effective_identity": "Same-session logs show DefaultAzureCredential acquired tokens from ManagedIdentityCredential and two downstream responses POSTs returned HTTP 200. Exact downstream principal is not exposed by these logs; it is not established as the developer ingress caller.",
+  "ingress_identity": "Actual in-memory Entra token; Activity caller oid and tenant metadata matched token claims",
+  "retrieval_and_selection_log_confirmed": true,
+  "retrieval_membership_independently_observed": false,
+  "nonblocking_session_warnings": [
+    "Optional A365 OpenAI Agents instrumentation: ModuleNotFoundError: No module named 'agents'",
+    "Initial Foundry state-store item GET requests returned 404"
+  ],
+  "http_status": 200,
+  "application_failure_reply": false,
+  "selected_record_count": 1,
+  "session_logs_read_exit_code": 0
+}

@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Check verified retrieval debug ports",
+      "type": "aitk",
+      "command": "debug-check-prerequisites",
+      "args": {"portOccupancy": [5679, 8088]}
+    },
+    {
+      "label": "Run verified retrieval debug server",
+      "type": "process",
+      "command": "${workspaceFolder}\\examples\\verified-retrieval\\workshop-verified-retrieval\\src\\echo-activity\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "debugpy", "--listen", "127.0.0.1:5679", "main.py"],
+      "options": {
+        "cwd": "${workspaceFolder}\\examples\\verified-retrieval\\workshop-verified-retrieval\\src\\echo-activity"
+      },
+      "isBackground": true,
+      "dependsOn": "Check verified retrieval debug ports",
+      "problemMatcher": {
+        "pattern": [{"regexp": "^.*$", "file": 0, "location": 1, "message": 2}],
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": ".*",
+          "endsPattern": "Application startup complete|[Rr]unning on|Started server process"
+        }
+      }
+    },
+    {
+      "label": "Open verified retrieval inspector",
+      "type": "shell",
+      "command": "Write-Output '${input:openVerifiedRetrievalInspector}'",
+      "dependsOn": "Run verified retrieval debug server",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "openVerifiedRetrievalInspector",
+      "type": "command",
+      "command": "ai-mlstudio.openTestTool",
+      "args": {"triggeredFrom": "tasks", "port": 8088}
+    }
+  ]
+}

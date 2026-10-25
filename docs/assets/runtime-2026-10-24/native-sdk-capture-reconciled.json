@@ -1,0 +1,10 @@
+{
+  "status": "awaiting_publish_confirmation",
+  "reason": "Atomic apply and independent fidelity checks passed; candidate remains unpublished pending live-publication warning confirmation",
+  "question_submissions": 0,
+  "activities_captured": 0,
+  "final_answer_captured": false,
+  "completion_event_observed": false,
+  "permission_changes": false,
+  "roadmap_complete": false
+}

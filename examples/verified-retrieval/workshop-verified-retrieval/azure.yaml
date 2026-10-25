@@ -20,6 +20,7 @@ services:
                 - type: BotServiceRbac
             protocols:
                 - activity
+                - invocations
         codeConfiguration:
             dependencyResolution: remote_build
             entryPoint: main.py
@@ -29,7 +30,7 @@ services:
                 cpu: "0.5"
                 memory: 1Gi
         description: |
-            Verify actual retrieval records against a pinned licensed corpus and render complete source passages with individual source markers before Activity delivery.
+            Verify actual retrieval records against a pinned licensed corpus and render complete source passages with individual source markers before Activity or stateless Invocations delivery.
         displayName: Verified workshop retrieval
         kind: hosted
         metadata:
@@ -42,7 +43,10 @@ services:
         protocols:
             - protocol: activity
               version: 2.0.0
+            - protocol: invocations
+              version: 2.0.0
         env:
+            WORKSHOP_LISTEN_HOST: "0.0.0.0"
             FOUNDRY_PROJECT_ENDPOINT: ${FOUNDRY_PROJECT_ENDPOINT}
             AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
             WORKSHOP_SEARCH_ENDPOINT: ${WORKSHOP_SEARCH_ENDPOINT}

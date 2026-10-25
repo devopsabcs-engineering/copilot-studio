@@ -1,0 +1,14 @@
+{
+  "status": "blocked_before_publish_and_sdk_auth",
+  "blocker": "Author candidate-root ETag is stale; atomic apply not submitted",
+  "candidate_unpublished": true,
+  "question_submissions": 0,
+  "retries": 0,
+  "activities_captured": 0,
+  "final_answer_captured": false,
+  "completion_events_observed": [],
+  "application_or_grant_writes": 0,
+  "temporary_scope_tokens_created": 0,
+  "existing_tokens_or_refresh_tokens_removed": 0,
+  "roadmap_complete": false
+}

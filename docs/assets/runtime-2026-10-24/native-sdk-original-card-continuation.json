@@ -1,0 +1,55 @@
+{
+  "status": "blocked_same_connector_auth_card",
+  "continue_submissions": 1,
+  "fresh_sar_submissions": 0,
+  "question_submissions": 0,
+  "question_retries": 0,
+  "http_statuses": [
+    200
+  ],
+  "turn_stream_statuses": [
+    "closed_normally"
+  ],
+  "turn_activity_counts": [
+    2
+  ],
+  "actual_events": [
+    {
+      "type": "typing",
+      "name": null
+    }
+  ],
+  "same_connector_auth_card_observed": true,
+  "message_text_observed": false,
+  "domain_answer_observed": false,
+  "domain_answer_classification": "Only typing and the same connector authorization Adaptive Card returned; no domain answer or quoted source passages",
+  "card_text": "Connect your account, then select Continue.",
+  "card_stream_type": "final",
+  "card_stream_type_qualification": "Final card message is not proof of retrieval or whole-parent plan completion",
+  "citations_observed": false,
+  "retrieval_completion_observed": false,
+  "conversation_resume_transport_accepted": true,
+  "stopped_without_fresh_sar_because": "Same authorization card returned on the original conversation; explicit stop condition met",
+  "dynamic_plan_finished_observed": false,
+  "end_of_conversation_observed": false,
+  "non_activity_sse_visibility_limited_by_sdk": true,
+  "source_comparisons_performed": 0,
+  "primary_error_type": null,
+  "primary_error_preserved_separately": true,
+  "all_current_user_grants_exactly_restored": true,
+  "manifest_exactly_restored": true,
+  "maker_access_and_valid_refresh_entries_retained": true,
+  "only_new_invoke_access_tokens_removed": 1,
+  "rollback_error_count": 0,
+  "preservation_verification_error_type": null,
+  "source_candidate_files_bindings_auth_preserved": true,
+  "independent_original_app_and_all_current_user_grants_readback_passed": true,
+  "independent_source_full26_and_candidate26_readback_passed": true,
+  "independent_all_four_file_hashes_and_approved_bindings_readback_passed": true,
+  "independent_preservation_verification_error_count": 0,
+  "cache_qualification": "One newly acquired Invoke access token removed; Maker access entries and valid refresh-token rotation retained. Cache byte stability independently verified during subsequent read-only check, not across the SDK acquisition.",
+  "pac_profile_1_verified": true,
+  "roadmap_complete": false,
+  "full_acceptance_claimed": false,
+  "completed_utc": "2026-10-24T19:20:00.283684+00:00"
+}

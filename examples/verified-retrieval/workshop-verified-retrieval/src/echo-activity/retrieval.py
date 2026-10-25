@@ -12,6 +12,7 @@ from azure.identity.aio import DefaultAzureCredential
 from evidence import EvidenceError, Record, render_evidence, retrieved_records, selection_schema
 
 logger = logging.getLogger(__name__)
+MAX_QUESTION_LENGTH = 12000
 
 
 @dataclass(frozen=True)
@@ -22,9 +23,14 @@ class VerifiedAnswer:
     selection_response_id: str | None
 
 
+def validate_question(question: object) -> str:
+    if not isinstance(question, str) or not question.strip() or len(question) > MAX_QUESTION_LENGTH:
+        raise ValueError(f"A nonempty question of at most {MAX_QUESTION_LENGTH} characters is required")
+    return question
+
+
 async def answer(question: str, corpus: dict[str, Record]) -> VerifiedAnswer:
-    if not isinstance(question, str) or not question.strip() or len(question) > 12000:
-        raise ValueError("A nonempty question of at most 12000 characters is required")
+    question = validate_question(question)
     endpoint = os.environ["FOUNDRY_PROJECT_ENDPOINT"]
     search_endpoint = os.environ["WORKSHOP_SEARCH_ENDPOINT"]
     agent = os.environ["WORKSHOP_RETRIEVAL_AGENT"]

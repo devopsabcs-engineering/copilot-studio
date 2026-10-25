@@ -1,0 +1,40 @@
+{
+  "status": "execution_failed",
+  "completed_tests": [
+    "S5-01"
+  ],
+  "fixture_files": [
+    "forest.txt",
+    "harbor.txt"
+  ],
+  "original_fictional_text_only": true,
+  "protected_documents_used": false,
+  "template_resource_count": 14,
+  "existing_resource_modifications_in_what_if": 0,
+  "public_network_or_key_auth_policy_weakened": false,
+  "agent_questions_submitted": 0,
+  "connected_answer_proven": false,
+  "citation_navigation_proven": false,
+  "denied_identity_test_proven": false,
+  "full_lab_acceptance": false,
+  "roadmap_complete": false,
+  "admin_tenant_subscription_verified": true,
+  "private_infrastructure_deployment_succeeded": true,
+  "private_keyless_storage_verified": true,
+  "private_blob_roundtrip_count": 2,
+  "uploader_has_no_public_ip": true,
+  "owned_shared_private_link_approved_and_ready": true,
+  "indexer_execution_environment": "private",
+  "indexer_status": "success",
+  "indexer_items_processed": 2,
+  "indexer_items_failed": 0,
+  "indexer_warning_count": 0,
+  "error_type": "RuntimeError",
+  "failure_boundary": "Document readback selected a vector field that was not explicitly retrievable",
+  "document_readback_http_status": 400,
+  "readable_chunk_and_vector_verification_completed": false,
+  "successful_indexer_is_not_full_s5_02_without_readable_chunks": true,
+  "original_search_objects_roles_shared_links_and_arm_inventory_preserved": true,
+  "cleanup_error_count": 0,
+  "all_owned_temporary_resources_absence_verified": true
+}

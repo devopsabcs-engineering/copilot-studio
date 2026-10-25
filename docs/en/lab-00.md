@@ -1,7 +1,7 @@
 ---
 title: Lab 0 - Prepare the environment
 description: Verify licensing, Dataverse, governance, Azure access, tools, and quotas before running the workshop.
-ms.date: 2026-10-19
+ms.date: 2026-10-23
 ---
 
 ## Goal and validation status
@@ -19,6 +19,32 @@ PATH; portable Terraform 1.16.6 has since been restored with archive checksum
 verification and used for successful init, validation and a non-applying plan.
 See the [actual rerun record](live-rerun-2026-10-19.md).
 No end-to-end environment readiness pass is claimed.
+
+### October 23 prerequisite refresh
+
+The [current prerequisite receipt](../assets/runtime-2026-10-23/lab-prerequisite-refresh.json)
+reconfirms Azure CLI 2.91.0 and registration of Cognitive Services, Search,
+Insights and Storage. Regional quota metadata reports 26/5000 allocated units
+for Standard GPT-4.1-mini and 1/1000 for GlobalStandard text-embedding-3-small.
+These are the API's `Count` units, not measured throughput or guaranteed runtime
+availability. No quota allocation was changed.
+
+At that checkpoint, the process resolved az, azd and Python, but not Terraform or PAC on
+PATH. That is not proof they are uninstalled; the historical portable Terraform
+plan remains historical. Current Search Basic is retained and running.
+User authorization for deployment and paid testing is recorded in the
+[authorized release](../assets/runtime-2026-10-23/authorized-release.json).
+Maker entitlement/credit allocation, effective DLP, current file readiness,
+published-channel telemetry, retention ownership and a numerical spending boundary
+remain distinct unclosed requirements. This refresh does not certify all of Lab 0.
+
+The [later tool recovery](../assets/runtime-2026-10-23/native-recovery-alternatives.json)
+restores official PAC 2.14.1 and verifies the intended admin/MngEnv identity.
+The [independent Terraform check](../assets/runtime-2026-10-23/terraform-reconciliation.json)
+restores checksum-verified Terraform 1.16.6 and passes original-source init,
+validation and a saved plan. Both tools use explicit isolated executable paths;
+global PATH is not changed. These results close the missing-tool observation,
+not entitlement, policy, budget or native-answer acceptance.
 
 ## 1. Record your execution context
 
@@ -128,15 +154,30 @@ default workshop role.
 
 | Check                          | Expected result                                     | Current evidence                                                                |
 | ------------------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------- |
-| Correct environment            | Named workshop environment with intended access     | Not independently verified                                                      |
-| Maker entitlement and credits  | Required capabilities usable under approved billing | Not independently verified                                                      |
+| Correct environment            | Named workshop environment with intended access     | Admin/MngEnv, owned bot and environment verified through UI/API/PAC                |
+| Maker entitlement and credits  | Required capabilities usable under approved billing | Authenticated draft evaluation executes; tenant credit allocation remains unverified |
 | File knowledge                 | Supported PDF can reach Ready after upload          | Lab 1 user evidence supports a knowledge-backed outcome, not full configuration |
 | DLP and connections            | Required tools allowed; no policy error             | Not independently verified                                                      |
 | Azure CLI                      | Version reported and account query succeeds         | Passed read-only check                                                          |
-| Resource providers             | Required providers registered                       | Search, Cognitive Services, Insights observed registered                        |
-| Terraform                      | Executable and supported version                    | Missing from PATH                                                               |
-| Search and telemetry resources | Approved resources available                        | None observed in the selected subscription                                      |
-| Budget and quota               | Owner approval and sufficient quota                 | Not verified                                                                    |
+| Resource providers             | Required providers registered                       | October 24: Search, Cognitive Services, Insights and Storage registered          |
+| Terraform                      | Executable and supported version                    | Verified portable 1.16.6; original-source init/validate/plan pass                   |
+| Search and telemetry resources | Approved resources available                        | Search Basic running; published telemetry/privacy acceptance remains unverified  |
+| Budget and quota               | Owner approval and sufficient quota                 | October 24: chat 26/5,000 and embedding 1/1,000; retention/budget limits open |
+
+The [October 24 read-only receipt](../assets/runtime-2026-10-24/azure-preflight-refresh.json)
+matches deployed models to their exact Sweden Central quota meters, labeled
+thousands of tokens per minute, and verifies both deployments are Succeeded.
+The four retained ARM resources report USD 7.650361288 before tax, including
+USD 7.373 Search, through the partial October 24 period. Reporting may lag;
+this is not a final invoice or Copilot-credit total. No inference, provider
+registration or configuration change is performed. Tenant credits, budget,
+retention and other Lab 0 acceptance criteria remain open.
+
+A separate Microsoft Graph read verifies the exact administrator's object ID
+and account, then returns four license records. Seven filtered maker-related
+plans have provisioning status Success. These assignments do not prove full
+standard-harness/premium entitlement, tenant credit allocation or an environment
+pay-as-you-go binding. No additional grant is requested.
 
 ## Evidence to capture and cleanup
 

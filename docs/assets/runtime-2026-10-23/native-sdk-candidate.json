@@ -1,0 +1,20 @@
+{
+  "status": "blocked_after_read_only_clone",
+  "official_cli_clone_completed": true,
+  "real_agent_workspace_created": true,
+  "integrated_authentication_preserved_in_clone": true,
+  "candidate_created": false,
+  "candidate_published": false,
+  "supported_sdk_draft_mode_established": false,
+  "blocker": "Unchanged knowledge-file and connection-binding preservation through candidate creation is not established.",
+  "whole_parent_response_captured": false,
+  "question_submissions": 0,
+  "retries": 0,
+  "remote_content_writes": 0,
+  "original_changed": false,
+  "permissions_changed": false,
+  "active_cli_profile_restored": true,
+  "pipeline_proven": false,
+  "full_acceptance_proven": false,
+  "roadmap_complete": false
+}

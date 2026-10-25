@@ -100,7 +100,15 @@ def retrieved_records(
                 or item.get("status") != "completed" or item.get("error")):
             raise EvidenceError("Unexpected or unsuccessful retrieval tool call")
         calls += 1
-        payload = json.loads(item["output"])
+        output = item.get("output")
+        if not isinstance(output, str):
+            raise EvidenceError("Retrieval tool output must be text")
+        if not output.strip():
+            continue
+        try:
+            payload = json.loads(output)
+        except json.JSONDecodeError as error:
+            raise EvidenceError("Retrieval tool output is not valid JSON") from error
         if not isinstance(payload, dict) or not isinstance(payload.get("documents"), list):
             raise EvidenceError("Retrieval documents are missing")
         for document in payload["documents"]:

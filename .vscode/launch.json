@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug verified retrieval Activity host",
+      "type": "debugpy",
+      "request": "attach",
+      "connect": {"host": "127.0.0.1", "port": 5679},
+      "preLaunchTask": "Open verified retrieval inspector",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}

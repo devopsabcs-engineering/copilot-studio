@@ -1,0 +1,17 @@
+{
+  "status": "blocked_pac_publish_status_parser",
+  "official_publish_attempts": 1,
+  "publish_retries": 0,
+  "cli_error": "Invalid response format (Parameter 'rawResponse')",
+  "independent_published_timestamp_present": true,
+  "publication_success_not_assumed_from_cli_error": true,
+  "auth_access_trigger_preserved": true,
+  "candidate_26_component_content_and_states_preserved": true,
+  "source_full_rows_unchanged": true,
+  "source_and_candidate_file_hashes_verified": true,
+  "bindings_unchanged": true,
+  "pac_profile_restored": true,
+  "permissions_changed": false,
+  "question_submissions": 0,
+  "roadmap_complete": false
+}

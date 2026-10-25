@@ -1,12 +1,66 @@
 ---
 title: Registre de validation de l'atelier
 description: Preuves, vérifications effectuées, limites d'exécution et critères d'acceptation encore nécessaires pour chaque lab.
-ms.date: 2026-10-21
+ms.date: 2026-10-25
 ---
 
 ## Verdict global
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
+
+La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
+est hébergée en version 5 active, avec Activity préservé, 54 tests du service
+et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées
+correspondent exactement au rendu de deux documents. Refus sans jeton, limites
+du parseur/corps, abstention et livraison Activity corrigée sont vérifiés;
+les journaux corrélés excluent les appels de modèle pour les entrées invalides.
+L'expiration du CLI et le premier HTTP 400 Activity pour version manquante
+restent des échecs historiques. Lecture indépendante et doctor (11 réussites,
+zéro échec, deux contrôles ignorés) établissent le service actif sans redéploiement.
+Les [contrôles de préservation native](../assets/runtime-2026-10-24/native-preservation-after-invocations.json)
+réussissent, mais acceptation native et autorisation SDK publiée restent ouvertes.
+La page partagée est masquée et la récupération UI normale échoue; aucune nouvelle
+question native ni configuration n'est soumise. Aucun jeu généré, choix de
+rétention, budget chiffré ou accord organisationnel n'est inventé pendant
+l'indisponibilité de l'utilisateur.
+
+La [livraison autorisée antérieure](completion-roadmap.md#déploiement-autorisé-et-récupération-de-lauthentification)
+déploie la version 3 active et ferme T003/T004 dans le périmètre hébergé :
+**3/3 tests Activity réels positif, abstention et erreur d'entrée réussissent**;
+38 tests de l'extension réussissent localement. L'échec de sortie vide en version 2
+est conservé. Le problème de connexion AADSTS65002 a été résolu par un client
+possédé PKCE sans secret, avec permissions limitées à l'utilisateur courant.
+Le [test natif authentifié ultérieur](completion-roadmap.md#test-natif-authentifié-et-restauration)
+utilise le jeu enregistré de deux cas et une liaison explicite de connexion :
+HTTP 202, Completed, une réussite et un échec General Quality.
+Réponses et correspondance question/résultat restent indisponibles; ces notes
+ne valident donc pas les sources de la réponse parent complète et ne résolvent
+pas l'ancien 403 natif. Le diagnostic est restauré à Inactive avec lecture
+indépendante; définition exacte, rattachement d'origine et parent sont préservés.
+La lecture ciblée des transcriptions est refusée pour privilège
+`prvReadconversationtranscript` manquant; aucun rôle n'est élargi.
+Voir [authorized-release.json](../assets/runtime-2026-10-23/authorized-release.json).
+Acceptation native/matrice complète, labs restants, rétention et publication
+finale restent ouvertes.
+
+Le [rapprochement d'infrastructure indépendant](completion-roadmap.md#rapprochement-indépendant-des-outils-et-de-linfrastructure)
+termine aussi la comparaison T013 sans réappliquer de ressources. PAC officiel
+2.14.1 et Terraform 1.16.6 à empreinte vérifiée sont restaurés. Une copie privée
+identique des 23 fichiers Terraform d'origine réussit init/validate et un plan
+de 15 instances; le groupe réservé au plan est absent. D5-02/D5-03 réussissent.
+L'ancien apply corrigé et son nettoyage restent distincts du modèle refusé,
+des valeurs publiques/authentification et de l'identité Search absente du plan
+inchangé. Aucun nouveau déploiement, réseau privé complet ni lab connecté n'est validé.
+
+Le [point antérieur du 23 octobre](completion-roadmap.md#point-dexécution-du-23-octobre)
+ajoute un inventaire actuel des ressources/coûts et des lectures authentifiées
+de l'état enregistré. La réparation SDK locale passe encore 33 tests, mais reste
+non déployée. Le diagnostic est Inactive; les métadonnées Foundry actuelles
+sélectionnent la version 4 active inchangée du contrôle. Cela ne prouve aucune
+conversation native. La [revue critère par critère](../assets/runtime-2026-10-23/independent-lab-review.json)
+ne ferme aucun critère restant. Validations de livraison, propriété de rétention,
+accès navigateur, politique et acceptation réelle d'origine restent non résolus.
+Les preuves chronologiques ci-dessous ne constituent pas une clôture actuelle.
 
 > [!IMPORTANT]
 > Dernière poursuite : connexion Foundry externe manuelle **Connected**,
@@ -185,6 +239,80 @@ Le navigateur a d'abord rencontré une barrière d'authentification. L'utilisate
 ensuite connecté et a initialisé le wiki GitHub. Cela a levé le blocage de publication,
 sans créer automatiquement les ressources Search, la télémétrie, les modèles, les
 index, les bases de connaissances ou les connecteurs nécessaires.
+
+L'[exécution Search fictive](../assets/runtime-2026-10-23/lab5-synthetic-search-retry.json)
+réussit aussi S5-03/S5-05/S5-06 après correction explicite de disponibilité.
+Elle prouve recherche et filtrage du jeu fictif exact de deux documents, pas
+l'ingestion Blob, les réponses connectées, les citations navigables ni le refus
+d'identité. Les deux index jetables sont supprimés; les schémas d'origine restent inchangés.
+Le [précontrôle SDK](../assets/runtime-2026-10-23/native-sdk-template-candidate.json)
+prouve l'API de fichiers et la liaison existante, mais le modèle exporté perd
+instructions et cinq composants. Ce n'est pas un dérivé publié fidèle.
+Le [nouveau candidat de préparation](../assets/runtime-2026-10-24/native-sdk-staging-corrected-name.json)
+a des fichiers, une liaison et une authentification intégrée vérifiés, mais reste
+incomplet et non publié. Aucune acceptation de réponse SDK n'est déduite.
+Après [reconstruction atomique vérifiée](../assets/runtime-2026-10-24/native-sdk-managed-apply-reconciled.json),
+le candidat est [publié selon l'API](../assets/runtime-2026-10-24/native-sdk-publish-confirmed.json).
+La tentative SDK n'envoie encore aucune question : aucun jeton Invoke silencieux.
+La restauration exacte permissions/consentement réussit; publier ne ferme pas
+l'acceptation des réponses natives.
+La [récupération bornée suivante](../assets/runtime-2026-10-24/native-sdk-auth-consent-recovery-final.json)
+obtient bien un jeton Invoke vérifié, mais le démarrage SDK ne produit qu'une
+activité de frappe et aucune question. La restauration finale indépendante
+réussit après des erreurs de transport; démarrage et réponse complète restent à prouver.
+
+La [capture suivante avec en-tête](../assets/runtime-2026-10-24/native-sdk-capture-start-recovered.json)
+récupère bien l'identifiant serveur et capture Hello puis le cas SAR 6 inchangé,
+une fois chacun, avec HTTP 200 et flux fermés normalement. Le diagnostic désactive
+l'événement de démarrage et ne valide donc pas l'accueil. Hello renvoie une demande
+de précision sur l'enquête; SAR renvoie une carte Connect/Continue du connecteur
+à l'exécution, pas une réponse métier. Seuls `DynamicPlanReceived`,
+`DynamicPlanStepTriggered` et `DynamicPlanStepBindUpdate` sont observés :
+aucun `DynamicPlanFinished` ni comparaison de sources. Connect/Continue reste
+non invoqué. Restauration exacte et préservation de l'original sont vérifiées.
+La capture de réponse du parent est démontrée, pas l'acceptation native complète.
+
+Le [suivi de connexion](../assets/runtime-2026-10-24/native-sdk-connector-authorization.json)
+s'arrête avant Connect car UIAutomation ne peut vérifier la session administrateur
+du site, malgré le profil navigateur et l'environnement identifiés. Aucune
+écriture cloud, modification de droits ou nouvelle question; les contrôles
+indépendants de préservation réussissent. Vérification humaine du compte et
+connexion restent requises. Ce n'est ni un échec MFA/OAuth ni un SAR terminé.
+
+La [tentative ultérieure par page navigateur prise en charge](../assets/runtime-2026-10-24/native-sdk-browser-page-recovery.json)
+vérifie bien l'administrateur exact et l'environnement cible. Une seule soumission
+Create du connecteur officiel renvoie **Unable to sign in. Please try again.**
+Aucun succès, Continue, nouvelle question ou événement d'exécution. Contrôles
+de préservation réussis. À cette étape, le blocage est la connexion réelle du connecteur,
+pas l'identité illisible du site; l'erreur générique n'en prouve pas la cause.
+
+L'[association native Studio ultérieure](../assets/runtime-2026-10-24/native-studio-existing-connection.json)
+rétablit l'autorisation par utilisateur en sélectionnant la connexion approuvée.
+Les réponses SAR natives échouent ensuite en fidélité : sept citations sur neuf
+et cinq sur six correspondent à leur propre groupe source; la paraphrase finale
+sans guillemets n'est pas une réussite.
+Le [diagnostic hébergé existant](../assets/runtime-2026-10-24/native-studio-verified-diagnostic.json)
+renvoie HTTP 403 de tenant appelant; un [essai Entra seul borné](../assets/runtime-2026-10-24/native-studio-entra-only-diagnostic.json)
+renvoie plutôt HTTP 400 de blueprint. Les deux diagnostics reviennent à Off.
+Point/carte exacts, Entra avec BotServiceRbac, définition/identité de version 3,
+manifeste source et contrôles indépendants de préservation sont vérifiés.
+Aucun accès anonyme, changement de rôle, déploiement, publication ou réussite
+de fidélité aux sources n'est revendiqué.
+Le [nouvel essai SDK publié ultérieur](../assets/runtime-2026-10-24/native-sdk-post-studio-authorization.json)
+envoie ensuite un seul cas SAR inchangé et reçoit toujours la carte Foundry
+par utilisateur, sans réponse ni fin du plan. HTTP 200 et fermeture normale
+ne valident pas l'autorisation. Aucun Connect/Continue; manifeste et
+consentements temporaires possédés exactement restaurés, seul nouveau jeton
+Invoke supprimé. Accès Maker/rafraîchissements valides et contrôles
+source/candidat/fichiers/liaisons/authentification/cas original/PAC préservés.
+
+L'[exécution privée conforme du jeu fictif](../assets/runtime-2026-10-24/lab5-private-fictional-ingestion-vector-readback.json)
+ajoute deux vraies réussites S5-01/S5-02 : deux fichiers exacts chargés en privé,
+indexation Blob privée sans échec/avertissement et deux passages exacts lisibles
+avec vecteurs réels de 1 536 dimensions. Ressources et rôles jetables supprimés,
+état Search/ARM initial vérifié préservé. Les échecs réseau, relecture et
+jetons expirés/nettoyage restent conservés; aucune stratégie affaiblie.
+Ces deux réussites d'ingestion ne prouvent ni réponses connectées ni navigation.
 
 ## Définition des états
 

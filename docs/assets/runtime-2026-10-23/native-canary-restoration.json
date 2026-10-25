@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-24T00:29:42.742902+00:00",
+  "native_run": {
+    "submissions": 1,
+    "submission_http_status": 202,
+    "state": "Completed",
+    "cases": 2,
+    "general_quality_pass": 1,
+    "general_quality_fail": 1,
+    "whole_parent_answer_acceptance": false
+  },
+  "diagnostic_restored_inactive": true,
+  "saved_restoration_independently_read_back": true,
+  "exact_diagnostic_definition_preserved": true,
+  "original_attachment_full_row_unchanged": true,
+  "parent_full_row_unchanged": true,
+  "hosted_version": "3",
+  "hosted_status": "active",
+  "native_facing_endpoint_version_rule": "@latest",
+  "endpoint_authorization": [
+    "Entra",
+    "BotServiceRbac"
+  ],
+  "endpoint_authentication_changed": false,
+  "transcript_read": {
+    "supported_surface": "Dataverse conversationtranscripts table",
+    "caller_admin_mngenv_verified": true,
+    "filter": "Known workshop bot; completed canary window plus 30 seconds only",
+    "http_status": 403,
+    "missing_privilege": "prvReadconversationtranscript",
+    "role_or_consent_changes": false,
+    "final_responses_captured": false
+  },
+  "browser_read": {
+    "existing_verified_admin_profile_located": true,
+    "normal_tab_selection_and_refresh_attempted": true,
+    "foreground_request_succeeded": false,
+    "keyboard_input_sent": false,
+    "conversation_messages_sent": 0
+  },
+  "no_additional_inference": true,
+  "published": false,
+  "native_403_recurrence": "Not established by grader metrics or unavailable transcript",
+  "roadmap_complete": false
+}

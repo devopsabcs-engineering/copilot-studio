@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-24T00:24:15.009590+00:00",
+  "action": "restore",
+  "supported_surface": "Dataverse Web API state-only PATCH",
+  "caller_admin_mngenv_verified": true,
+  "live_state_metadata_verified": true,
+  "mutation_http_status": 204,
+  "saved_state": "Inactive",
+  "saved_state_independently_read_back": true,
+  "exact_diagnostic_definition_preserved": true,
+  "original_attachment_full_row_unchanged": true,
+  "parent_full_row_unchanged": true,
+  "optimistic_concurrency_used": true,
+  "definition_yaml_edited": false,
+  "endpoint_authentication_changed": false,
+  "roles_or_consent_changed": false,
+  "evaluations_run": 0,
+  "published": false,
+  "rollback": "State-only PATCH to Inactive/status 2, preserving the exact definition and original route",
+  "previous_capability_load_failure_preserved": true
+}

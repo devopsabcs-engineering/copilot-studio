@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "prepared_utc": "2026-10-23T20:54:13.240905+00:00",
+  "status": "supported_windows_ui_attempt_blocked_before_navigation",
+  "scope": "Existing owned bot; new isolated two-case draft canary preparation only.",
+  "case_count": 2,
+  "cases": [
+    "Exact diagnostic intent phrase from saved component",
+    "Original case 6 question, unchanged"
+  ],
+  "csv_roundtrip_verified": true,
+  "diagnostic_case_limitation": "Intent phrase only; no substantive diagnostic question or routing proof inferred.",
+  "full_acceptance_case_count": 11,
+  "replaces_acceptance": false,
+  "read_verification": {
+    "operation": "Silent owned public-client setup / GET existing owned bot evaluation testsets",
+    "status": "read_not_reverified_preparation_transport_or_auth_error",
+    "error_type": "ConnectionError",
+    "prior_recovery_evidence": "Recovered handoff reports HTTP 200 with zero testsets; not newly confirmed here.",
+    "submitted_runs": 0,
+    "fallback_or_interactive_login_attempted": false,
+    "network_retry_attempted": false
+  },
+  "cloud_testset_created": false,
+  "authenticated_profile_created_or_verified": false,
+  "blocker": "Windows UI Automation exposed the existing Work Edge browser, but Windows did not foreground the known target window after SetForegroundWindow. The foreground identity safety check failed before any keyboard input. No portal navigation or saves occurred; signed-in portal user/environment could not be verified.",
+  "progress": [
+    {
+      "observed_utc": "2026-10-23T20:54:13.240905+00:00",
+      "status": "private_import_ready_supported_ui_preparation_required",
+      "result": "Two-case private CSV prepared; supported UI import and profile save still required."
+    },
+    {
+      "observed_utc": "2026-10-23T21:27:14.0327193Z",
+      "status": "supported_windows_ui_attempt_blocked_before_navigation",
+      "accessibility_check": "UIAutomation RootElement returned 13 top-level elements and exposed two existing Edge windows. Only the known Work browser was selected for interaction.",
+      "navigation_attempt": "Attempted foreground activation before ordinary browser keyboard navigation to the owned bot. Foreground identity check failed; no keys were sent.",
+      "exact_error": "Cannot foreground known browser; no keyboard sent.",
+      "outcome": "Stopped without retry, polling, browser bridge invocation, authentication, or cloud writes.",
+      "portal_identity_verified": false,
+      "testset_saved": false,
+      "profile_saved": false,
+      "screenshot_captured": false,
+      "screenshot_barrier": "Known browser was not foreground; screen capture was refused to avoid capturing unrelated user windows.",
+      "receipt": ".copilot-tracking/completion-20261023/native-ui-setup.json"
+    },
+    {
+      "observed_utc": "2026-10-23T21:38:20.0254478Z",
+      "status": "two_case_testset_and_authenticated_profile_saved_not_run",
+      "supersedes_prior_ui_blocker": true,
+      "admin_mngenv_verified": true,
+      "identity_correction": "User clarified admin/MngEnv. Existing admin browser account menu matched retained ownership metadata; environment URL and owned bot matched before import or save.",
+      "result": "Prepared CSV imported with exactly two cases. Existing admin account and existing tool connection selected for evaluation profile. Profile Save and testset Save completed through supported controls; real testset and Microsoft Copilot Studio connection IDs retained privately.",
+      "profile_saved": true,
+      "testset_saved": true,
+      "mcs_connection_status": "Connected",
+      "test_method_observed": "Answer quality",
+      "evaluation_runs": 0,
+      "user_messages_sent": 0,
+      "automatic_preview_greeting_observed": true,
+      "agent_or_auth_configuration_changes": false,
+      "publishes": 0,
+      "active_state_api_verified": false,
+      "receipt": "docs/assets/runtime-2026-10-23/native-ui-setup.json",
+      "private_handoff": ".copilot-tracking/completion-20261023/native-ui-setup-verified-edge.private.json",
+      "historical_fields_note": "Earlier top-level status and safety fields remain historical preparation evidence; this chronological entry records the later successful save-only setup."
+    },
+    {
+      "observed_utc": "2026-10-23T21:40:01.9992307Z",
+      "status": "testset_persisted_connection_verified_profile_selection_not_retained_on_reload",
+      "admin_mngenv_verified": true,
+      "testset_saved": true,
+      "testset_full_navigation_persistence_verified": true,
+      "case_count": 2,
+      "mcs_connection_verified_connected": true,
+      "profile_save_invoked_and_immediate_selection_verified": true,
+      "authenticated_profile_persistence_verified": false,
+      "exact_ui_boundary": "After full navigation back to the saved testset, profile label reverted to Manage. Opening it showed User Select or add an account, with no selected tool connections. The two-case testset itself persisted and Save was disabled.",
+      "outcome": "Stopped without retrying profile writes or running evaluations. Actual saved testset and connected Microsoft Copilot Studio connection IDs remain in the private handoff. Authenticated run readiness is not claimed.",
+      "evaluation_runs": 0,
+      "publishes": 0,
+      "receipt": "docs/assets/runtime-2026-10-23/native-ui-setup.json",
+      "private_handoff": ".copilot-tracking/completion-20261023/native-ui-setup-verified-edge.private.json"
+    }
+  ],
+  "api_limitation": "Official evaluation REST operations list/read existing testsets and run/read results. No testset-creation or profile-creation operation is documented in that API; no undocumented writes attempted.",
+  "supported_prerequisite": [
+    "Import the private CSV into a new Single responses test set on the existing owned bot.",
+    "Additional configuration > Manage: connect or reconnect the current user's Microsoft Copilot Studio connector if required; verify existing tool connections without replacing them.",
+    "Save profile and Save testset only; do not Run.",
+    "Privately retain real Active testset ID and Microsoft Copilot Studio connection ID from Power Automate connection details URL."
+  ],
+  "future_run": {
+    "runOnPublishedBot": false,
+    "authentication_required": true,
+    "anonymous_fallback": false,
+    "not_submitted": true
+  },
+  "awaiting_parent": [
+    "Blank MCP output repair and v3 deployment",
+    "Authorized Manage diagnostic/scoped Entra-only setup",
+    "Separate explicit run-stage notification"
+  ],
+  "private_handoff_retained": true,
+  "safety": {
+    "evaluation_runs": 0,
+    "message_dispatches": 0,
+    "cloud_writes": 0,
+    "agent_edits": 0,
+    "connection_changes": 0,
+    "auth_changes": 0,
+    "publishes": 0,
+    "interactive_login": false,
+    "browser_open_attempted": false,
+    "tokens_written_or_printed": false,
+    "raw_question_corpus_in_public_record": false
+  },
+  "sources": {
+    "evaluation_api": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-rest-api",
+    "operations": "https://learn.microsoft.com/en-us/rest/api/power-platform/copilotstudio/bots",
+    "run_schema": "https://learn.microsoft.com/en-us/rest/api/power-platform/copilotstudio/bots/run-maker-evaluation-test-set",
+    "create_save_only": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-create",
+    "profile": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-agent-evaluation-edit#manage-user-profiles-and-connections"
+  }
+}
