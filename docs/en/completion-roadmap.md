@@ -585,6 +585,18 @@ ARM inventory and account role inventory match exactly. Original endpoint
 authentication is never modified. Raw evidence remains private; temporary-resource
 spending is not finalized.
 
+The [earlier-API follow-up](../assets/runtime-2026-10-25/native-activity-earlier-api.json)
+tests `2025-10-01-preview` and `2026-01-15-preview`, independently advertised by
+the provider. A new Default-RBAC/Entra application references immutable original
+version 5 without writing that agent or endpoint or creating another hosted agent
+or Bot. Each API receives one Hosted `Agent/2.0.0` deployment request; both return
+HTTP 400 for enum conversion and the definition-field error. Each rejected
+deployment is independently absent with GET 404. No question, undocumented
+protocol name or combined acceptance is used. The new application and both
+directory identities are removed; full original agent/version readbacks,
+ARM/role/application inventories and the original directory control are verified.
+Using an earlier advertised API therefore has not resolved T005/T006.
+
 ## Policy-compatible fictional ingestion
 
 The [public upload attempt](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)

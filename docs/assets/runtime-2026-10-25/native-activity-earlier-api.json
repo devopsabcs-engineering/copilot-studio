@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-25",
+  "status": "EARLIER_ADVERTISED_ACTIVITY_APIS_REJECT_DOCUMENTED_PROTOCOL",
+  "scope": {
+    "newIsolatedApplicationOnly": true,
+    "immutableOriginalAgentVersionReferenced": "5",
+    "originalAgentOrEndpointWriteRequests": 0,
+    "newHostedAgentOrBotCreated": false,
+    "applicationAuthorizationReadback": "Default",
+    "applicationIsolationReadback": "Entra",
+    "earlierApiVersionsIndependentlyAdvertisedByProvider": true
+  },
+  "attempts": [
+    {
+      "apiVersion": "2025-10-01-preview",
+      "deploymentType": "Hosted",
+      "protocol": "Agent",
+      "protocolVersion": "2.0.0",
+      "createSubmissions": 1,
+      "createStatus": 400,
+      "serviceRejectedAgentProtocolEnumConversion": true,
+      "serviceAlsoReportedDefinitionFieldRequired": true,
+      "deploymentGetAfterRejection": 404
+    },
+    {
+      "apiVersion": "2026-01-15-preview",
+      "deploymentType": "Hosted",
+      "protocol": "Agent",
+      "protocolVersion": "2.0.0",
+      "createSubmissions": 1,
+      "createStatus": 400,
+      "serviceRejectedAgentProtocolEnumConversion": true,
+      "serviceAlsoReportedDefinitionFieldRequired": true,
+      "deploymentGetAfterRejection": 404
+    }
+  ],
+  "execution": {
+    "nativeQuestionsSubmitted": 0,
+    "directModelQuestionsSubmitted": 0,
+    "automaticQuestionReplays": 0,
+    "undocumentedProtocolNamesTried": false,
+    "authenticationWeakened": false,
+    "nativeAcceptancePassed": false,
+    "acceptanceMergedAcrossApiVersions": false
+  },
+  "cleanup": {
+    "ownedApplicationAndDeploymentIndependentlyAbsent": true,
+    "ownedPrincipalRoleAssignmentsObserved": 0,
+    "originalAgentAndVersionFullReadbacksExactlyPreserved": true,
+    "originalArmInventoryAndAccountRolesExact": true,
+    "originalApplicationInventoryExact": true,
+    "ownedApplicationDirectoryObjectGetStatuses": [404, 404],
+    "originalBlueprintDirectoryControlGetStatus": 200,
+    "actualSpendingFinalized": false,
+    "privateRawEvidencePublished": false
+  },
+  "reference": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2025-10-01-preview/accounts/projects/applications/agentdeployments",
+  "T005Complete": false,
+  "T006Complete": false,
+  "wholeRoadmapComplete": false
+}

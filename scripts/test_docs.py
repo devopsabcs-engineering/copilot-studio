@@ -2951,6 +2951,43 @@ class WikiTests(unittest.TestCase):
             self.assertIn("- [ ] T005", roadmap)
             self.assertIn("- [ ] T006", roadmap)
 
+    def test_earlier_activity_api_failures_preserve_original_version_and_cleanup(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "native-activity-earlier-api.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "EARLIER_ADVERTISED_ACTIVITY_APIS_REJECT_DOCUMENTED_PROTOCOL")
+        self.assertEqual(result["scope"]["immutableOriginalAgentVersionReferenced"], "5")
+        self.assertEqual(result["scope"]["originalAgentOrEndpointWriteRequests"], 0)
+        self.assertFalse(result["scope"]["newHostedAgentOrBotCreated"])
+        self.assertEqual(result["scope"]["applicationAuthorizationReadback"], "Default")
+        self.assertEqual(result["scope"]["applicationIsolationReadback"], "Entra")
+        self.assertEqual([item["apiVersion"] for item in result["attempts"]],
+                         ["2025-10-01-preview", "2026-01-15-preview"])
+        for attempt in result["attempts"]:
+            self.assertEqual(attempt["protocol"], "Agent")
+            self.assertEqual(attempt["createSubmissions"], 1)
+            self.assertEqual(attempt["createStatus"], 400)
+            self.assertTrue(attempt["serviceRejectedAgentProtocolEnumConversion"])
+            self.assertEqual(attempt["deploymentGetAfterRejection"], 404)
+        for key in ("nativeQuestionsSubmitted", "directModelQuestionsSubmitted", "automaticQuestionReplays"):
+            self.assertEqual(result["execution"][key], 0)
+        for key in ("undocumentedProtocolNamesTried", "authenticationWeakened",
+                    "nativeAcceptancePassed", "acceptanceMergedAcrossApiVersions"):
+            self.assertFalse(result["execution"][key])
+        for key in ("ownedApplicationAndDeploymentIndependentlyAbsent",
+                    "originalAgentAndVersionFullReadbacksExactlyPreserved",
+                    "originalArmInventoryAndAccountRolesExact", "originalApplicationInventoryExact"):
+            self.assertTrue(result["cleanup"][key])
+        self.assertEqual(result["cleanup"]["ownedApplicationDirectoryObjectGetStatuses"], [404, 404])
+        self.assertEqual(result["cleanup"]["originalBlueprintDirectoryControlGetStatus"], 200)
+        for key in ("T005Complete", "T006Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("native-activity-earlier-api.json", text)
+            self.assertIn("- [ ] T005", text)
+            self.assertIn("- [ ] T006", text)
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

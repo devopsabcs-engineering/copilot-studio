@@ -619,6 +619,19 @@ et inventaire des rôles du compte correspondent exactement. L'authentification
 du point d'entrée original n'est jamais modifiée. Les preuves brutes restent
 privées; les dépenses temporaires ne sont pas finalisées.
 
+Le [suivi des API antérieures](../assets/runtime-2026-10-25/native-activity-earlier-api.json)
+teste `2025-10-01-preview` et `2026-01-15-preview`, annoncées indépendamment par
+le fournisseur. Une nouvelle application Default-RBAC/Entra référence la version 5
+immuable d'origine, sans écrire cet agent ou son point d'entrée ni créer un autre
+agent hébergé ou Bot. Chaque API reçoit une demande de déploiement Hosted
+`Agent/2.0.0`; toutes deux renvoient HTTP 400 pour conversion d'énumération et
+champ de définition requis. Chaque déploiement refusé est indépendamment absent
+avec GET 404. Aucune question, nom de protocole non documenté ni acceptation
+combinée. L'application et ses deux identités d'annuaire sont supprimées;
+relectures complètes de l'agent/version d'origine, inventaires ARM/rôles/
+applications et contrôle d'annuaire d'origine sont vérifiés.
+Une API antérieure annoncée ne résout donc pas T005/T006.
+
 ## Ingestion fictive conforme à la stratégie
 
 L'[essai de chargement public](../assets/runtime-2026-10-24/lab5-blob-ingestion.json)
