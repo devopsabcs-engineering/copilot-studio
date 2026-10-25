@@ -1187,7 +1187,8 @@ class WikiTests(unittest.TestCase):
             self.assertIn("- [x] T003", roadmap)
             self.assertIn("- [x] T004", roadmap)
             self.assertIn("- [x] T013", roadmap)
-            self.assertEqual(roadmap.count("- [x] T"), 3)
+            self.assertIn("- [x] T008", roadmap)
+            self.assertEqual(roadmap.count("- [x] T"), 4)
 
     def test_native_sdk_portability_checks_do_not_claim_runtime_acceptance(self):
         root = Path(__file__).resolve().parents[1]
@@ -2350,6 +2351,151 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["preservation"]["publicationPerformed"])
         self.assertEqual(result["preservation"]["missingBearerHttpStatus"], 401)
         self.assertEqual(result["preservation"]["malformedBearerHttpStatus"], 401)
+
+    def test_initial_native_matrix_retains_actual_attribution_failure_and_completion_types(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-matrix-initial.json").read_text("utf-8"))
+        self.assertEqual(result["nativeQuestionSubmissions"], 5)
+        self.assertEqual(result["questionRetries"], 0)
+        self.assertEqual(result["officialNativeDialogExportsRetained"], 5)
+        self.assertEqual([case["result"] for case in result["cases"]],
+                         ["pass", "pass", "pass", "pass", "fail"])
+        for case in result["cases"][:3]:
+            self.assertTrue(case["activityProcessedCompletionTraceObserved"])
+            self.assertEqual(case["dynamicPlanFinished"], "not-applicable-deterministic-OnActivity")
+            self.assertEqual(case["nativeMcpEvidenceToolInvocations"], 0)
+        local = result["cases"][3]
+        self.assertTrue(local["dynamicPlanFinishedObserved"])
+        self.assertFalse(local["planCancelled"])
+        self.assertEqual(local["nativeMcpEvidenceToolInvocations"], 0)
+        self.assertTrue(local["mcpCapabilityDiscoveryNotCountedAsEvidenceRetrieval"])
+        failed = result["cases"][4]
+        self.assertEqual(failed["factualBulletCount"], 7)
+        self.assertEqual(failed["individuallyAttributedFactualBulletCount"], 0)
+        self.assertTrue(failed["returnedRecordsExactlyMatchPinnedCorpus"])
+        protocol = result["actualNativeProtocolDiscovery"]
+        self.assertEqual(protocol["protocolVersion"], "2024-11-05")
+        self.assertEqual(protocol["nativeToolDefinitionKind"], "DynamicServerToolDefinition")
+        self.assertEqual(protocol["toolIdentifier"], "retrieve_verified_workshop_evidence")
+        self.assertEqual(protocol["requiredInputName"], "question")
+        self.assertEqual(protocol["requiredInputType"], "String")
+        self.assertFalse(result["repairBoundary"]["fullElevenCaseNativeMatrixPassed"])
+        self.assertFalse(result["repairBoundary"]["wholeRoadmapComplete"])
+
+    def test_native_renderer_boundary_and_local_punctuation_failures_are_not_hidden(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        boundary = json.loads((assets / "mcp-native-source-boundary-failure.json").read_text("utf-8"))
+        self.assertEqual(boundary["nativeQuestionSubmissions"], 2)
+        self.assertEqual(boundary["case5"]["result"], "pass")
+        self.assertEqual(boundary["case5"]["factualParagraphCount"], 3)
+        self.assertEqual(boundary["case5"]["individuallyAttributedFactualParagraphCount"], 3)
+        sar = boundary["case6"]
+        self.assertEqual(sar["result"], "fail")
+        self.assertTrue(sar["returnedBoundaryNoticePresentInRendererText"])
+        self.assertFalse(sar["returnedBoundaryNoticePresentInAnyPinnedRecordContent"])
+        self.assertFalse(sar["exactRecordQuotationAcceptanceRelaxed"])
+        punctuation = json.loads((assets / "mcp-native-local-quote-failure.json").read_text("utf-8"))
+        self.assertEqual(punctuation["nativeQuestionSubmissions"], 1)
+        self.assertEqual(punctuation["questionRetries"], 0)
+        self.assertEqual(punctuation["nativeMcpEvidenceToolInvocations"], 2)
+        self.assertEqual(punctuation["actualReturnedRecordIdsPerInvocation"],
+                         [["rc-002"], ["rc-002", "ip-006"]])
+        self.assertTrue(punctuation["eachInvocationRecordsAndRendererExactlyMatchPinnedCorpus"])
+        self.assertTrue(punctuation["sourceBoundaryNoticeNoLongerQuotedOrMisattributed"])
+        self.assertEqual(punctuation["exactCompletePinnedRecordQuotations"], 2)
+        failure = punctuation["failure"]
+        self.assertEqual(failure["generatedQuotation"], failure["actualLocalCell"] + ".")
+        self.assertFalse(failure["exactContiguousSourceQuotation"])
+        self.assertFalse(punctuation["verifierCorrection"]["sourceQuotationAndAttributionCriteriaRelaxed"])
+        self.assertFalse(punctuation["preservation"]["publicationPerformed"])
+        self.assertFalse(punctuation["nextBoundary"]["fullElevenCaseNativeMatrixPassed"])
+        self.assertFalse(punctuation["nextBoundary"]["wholeRoadmapComplete"])
+
+    def test_native_matrix_failure_chronology_is_linked_in_both_languages_and_service_readme(self):
+        root = Path(__file__).resolve().parents[1]
+        pages = [root / "docs" / language / name for language in ("en", "fr")
+                 for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md")]
+        pages.append(root / "examples" / "verified-retrieval" / "workshop-verified-retrieval" / "README.md")
+        for page in pages:
+            text = page.read_text("utf-8")
+            for receipt in ("mcp-native-matrix-initial.json", "mcp-native-source-boundary-failure.json",
+                            "mcp-native-local-quote-failure.json", "mcp-native-eleven-case-matrix.json"):
+                self.assertIn(receipt, text, str(page))
+
+    def test_complete_native_matrix_counts_real_attempts_routes_sources_and_immutable_configuration(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-eleven-case-matrix.json").read_text("utf-8"))
+        self.assertTrue(result["fullElevenCaseNativeMatrixPassed"])
+        self.assertFalse(result["allCasesPassedOnFirstAttempt"])
+        self.assertEqual(result["nativeOriginalQuestionSubmissions"], 12)
+        self.assertEqual(result["explicitlyCountedQuestionRetries"], 1)
+        self.assertEqual(result["automaticQuestionRetries"], 0)
+        self.assertEqual(result["nativeMcpEvidenceToolInvocations"], 7)
+        self.assertEqual(result["officialMatrixExportsRetained"], 12)
+        self.assertEqual(result["officialExportsIncludingIndependentControl"], 13)
+        self.assertTrue(result["all13NativeAgentContentExportsByteIdentical"])
+        self.assertEqual(result["totalKnownNativeQuestionsAcrossHistoricalCohortsAndControl"], 22)
+        cases = result["cases"]
+        self.assertEqual([case["number"] for case in cases], list(range(1, 12)))
+        self.assertEqual(sum(case["nativeUserSubmissionsIncludingKnownFailedAttempts"] for case in cases), 12)
+        for case in cases:
+            self.assertEqual(case["result"], "pass")
+            self.assertEqual(case["userFacingDomainAnswerCount"], 1)
+            self.assertTrue(case["completeNativeReplyRetainedPrivately"])
+            self.assertTrue(case["unchangedOriginalQuestionVerified"])
+            self.assertTrue(case["expectedRouteVerified"])
+            self.assertTrue(case["directSemanticRelevanceCoverageAndApplicabilityReviewPassed"])
+            self.assertTrue(case["allFactualBulletsAndParagraphsIndividuallyAttributed"])
+            self.assertEqual(case["nativeAgentContentSha256"], result["nativeAgentContentSha256"])
+            self.assertEqual(len(case["nativeReplySha256"]), 64)
+            self.assertEqual(len(case["nativeDialogSha256"]), 64)
+            self.assertEqual(case["completionEvidence"],
+                             "activity-processed-deterministic-topic" if case["number"] <= 3
+                             else "non-cancelled-DynamicPlanFinished")
+            self.assertEqual(case["actualLocalKnowledgeSearchObserved"],
+                             case["number"] in (4, 6, 8, 9, 10, 11))
+            if case["number"] >= 5:
+                self.assertTrue(case["mcpQuestionArgumentExactlyOriginal"])
+                self.assertTrue(case["completeReturnedRecordsAndRendererPinned"])
+                self.assertTrue(case["actuallyReturnedRecordIds"])
+        self.assertEqual(cases[6]["successfulAttempt"], 2)
+        self.assertEqual(sum(case["sourceQuotationCount"] for case in cases), 12)
+        self.assertEqual(result["quotationBoundary"]["sourceQuotationsInFinalMcpDomainAnswers"], 0)
+        self.assertTrue(result["quotationBoundary"]["finalMcpDomainAnswersUseSourceAuditedUnquotedParaphrases"])
+        recovery = result["case7Recovery"]
+        self.assertEqual(recovery["firstAttemptDomainReplies"], 0)
+        self.assertEqual(recovery["firstAttemptPlanSteps"], 0)
+        self.assertFalse(recovery["platformErrorOrRootCauseEstablished"])
+        self.assertTrue(recovery["failedOfficialExportRetained"])
+        self.assertTrue(recovery["oneSeparatelyGuardedRetryPassed"])
+        self.assertFalse(recovery["failedAttemptErasedOrMergedIntoSuccessfulReply"])
+
+    def test_complete_native_matrix_does_not_hide_duplicate_control_or_close_unrelated_gates(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "mcp-native-eleven-case-matrix.json").read_text("utf-8"))
+        control = result["independentValidationControl"]
+        self.assertFalse(control["partOfOriginalElevenCaseMatrix"])
+        self.assertEqual(control["nativeQuestionSubmissions"], 1)
+        self.assertEqual(control["actualIdenticalValidationReplies"], 2)
+        self.assertTrue(control["actualTopicThenDirectValidationActionBothCompleted"])
+        self.assertTrue(control["duplicateRetainedNotSilentlyDeduplicated"])
+        self.assertFalse(control["singleReplyControlPassed"])
+        self.assertTrue(control["relatedControlRepairRemainsOpen"])
+        self.assertTrue(result["preservation"]["protectedOriginalRootAnd26CompleteRowsExactlyUnchanged"])
+        self.assertEqual(result["preservation"]["candidateComponentCount"], 29)
+        self.assertFalse(result["preservation"]["publicationPerformed"])
+        self.assertFalse(result["preservation"]["freshCloudFoundryDefinitionReadbackIncluded"])
+        self.assertTrue(result["roadmap"]["T008ElevenCaseEvidenceComplete"])
+        self.assertTrue(result["roadmap"]["T007WorkingControlDuplicateStillOpen"])
+        self.assertFalse(result["roadmap"]["wholeRoadmapComplete"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [x] T008 [Plan:4.1]", text)
+            self.assertIn("- [ ] T007 [Plan:4.1]", text)
 
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]

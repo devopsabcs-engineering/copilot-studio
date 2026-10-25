@@ -1,0 +1,47 @@
+{
+  "result": "attribution-repair-passed-case-5-then-stopped-at-case-6-source-boundary-failure",
+  "cohort": "Fresh matrix after saved per-paragraph attribution repair",
+  "nativeQuestionSubmissions": 2,
+  "questionRetries": 0,
+  "officialNativeDialogExportsRetained": 2,
+  "case5": {
+    "result": "pass",
+    "unchangedNativeQuestionAndMcpArgumentVerified": true,
+    "nativeMcpEvidenceToolInvocations": 1,
+    "actualLocalSearchObserved": false,
+    "userFacingDomainAnswerCount": 1,
+    "dynamicPlanFinishedObserved": true,
+    "planCancelled": false,
+    "recordIds": ["fp-002"],
+    "completeRecordsAndRendererExactlyMatchPinnedCorpus": true,
+    "sourceQuotationCount": 0,
+    "factualParagraphCount": 3,
+    "individuallyAttributedFactualParagraphCount": 3,
+    "directSemanticCoverageAndSourceReviewPassed": true,
+    "nativeDialogSha256": "adf341d7402e6f6e79efa79a49f41ede08372173b1107b3acedd699dc5efad94",
+    "nativeBotContentSha256": "f4ff3d0116782368938ebbc0b142aa3749d33acc8873389edb2d9ddfd5bf40a5"
+  },
+  "case6": {
+    "result": "fail",
+    "userFacingDomainAnswerCount": 1,
+    "completeVisibleSnapshotAndOfficialNativeExport": true,
+    "nativeConnectionAllowUsed": false,
+    "actualReturnedRecordIds": ["rc-002", "ip-006"],
+    "returnedBoundaryNoticePresentInRendererText": true,
+    "returnedBoundaryNoticePresentInAnyPinnedRecordContent": false,
+    "sourceBoundaryNotice": "Cannot determine applicability from configured sources.",
+    "incorrectlyClaimedSourceMarker": "regulatory-compliance-ks",
+    "failure": "The parent quotes a renderer-added applicability notice as source-record evidence and attributes it to regulatory-compliance-ks, although no returned records[].content contains that sentence.",
+    "exactRecordQuotationAcceptanceRelaxed": false,
+    "retainedFullNativeAnswerAndReturnedEvidencePrivately": true
+  },
+  "repairBoundary": {
+    "furtherMatrixQuestionsStopped": true,
+    "priorSuccessfulSarProofAndInitialMatrixFailurePreserved": true,
+    "rendererAndBackendUnchanged": true,
+    "sourceRecordVersusRendererNoticeAuthorRepairRequested": true,
+    "freshCompleteMatrixRequiredAfterAnyFurtherInstructionChange": true,
+    "fullElevenCaseNativeMatrixPassed": false,
+    "wholeRoadmapComplete": false
+  }
+}

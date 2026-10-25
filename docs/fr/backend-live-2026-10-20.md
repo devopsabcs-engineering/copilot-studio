@@ -105,6 +105,29 @@ bundle de gestion est conservée; interface prise en charge utilisée sans corre
 du bundle. `DynamicPlanFinished` brut, matrice fraîche complète et acceptation
 des autres labs/gouvernance restent non vérifiés.
 
+La [matrice native suivante](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+conserve les réussites d'origine 1-4 et l'échec d'attribution individuelle du cas 5.
+Une correction enregistrée réussit un cas 5 frais, mais
+[échoue sur une citation source contre notice de rendu](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json).
+Le SAR corrigé suivant contient deux citations MCP complètes exactes, mais
+[échoue sur un point ajouté dans une citation locale](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Les exports officiels conservent maintenant les fins réelles non annulées.
+Chaque appel de preuves est vérifié, sans masquer plusieurs appels ni les compter
+comme nouvelles questions utilisateur. Aucune cohorte échouée ne clôt la matrice
+complète ni ne modifie le backend.
+
+La [dernière matrice native complète](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+réussit les onze cas d'origine inchangés avec douze soumissions : un blocage natif
+avant plan est conservé et une reprise explicite suit la reconnexion normale.
+Les treize exports du contenu agent sont identiques octet pour octet. Fins
+réelles, sept appels MCP, documents épinglés, contribution locale prévue et audits
+sémantiques/d'attribution complets réussissent. Les réponses MCP sont des
+paraphrases vérifiées sans guillemets; douze citations locales déterministes sont
+exactes. Les 26 lignes originales et 29 composants candidat restent préservés.
+T008 est clos; T007 conserve le contrôle de validation dupliqué observé séparément.
+Aucun déploiement, publication, nouveau rôle ou changement de stratégie n'est
+déduit de cette acceptation native.
+
 ## Livraison hébergée à deux protocoles du 25 octobre
 
 La [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

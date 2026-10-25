@@ -1,0 +1,95 @@
+{
+  "observedUtc": "2026-10-25T18:18:38.749436+00:00",
+  "result": "fail-stopped-at-original-case-5",
+  "cohort": "Initial MCP-routing draft after bounded SAR recovery",
+  "nativeQuestionSubmissions": 5,
+  "questionRetries": 0,
+  "officialNativeDialogExportsRetained": 5,
+  "cases": [
+    {
+      "number": 1,
+      "result": "pass",
+      "handler": "Workshopclarificationintake",
+      "exactUnchangedTopicReply": true,
+      "sourceFreeIntake": true,
+      "nativeMcpEvidenceToolInvocations": 0,
+      "activityProcessedCompletionTraceObserved": true,
+      "dynamicPlanFinished": "not-applicable-deterministic-OnActivity"
+    },
+    {
+      "number": 2,
+      "result": "pass",
+      "handler": "WorkshopCTRtablelookup",
+      "exactUnchangedTopicReply": true,
+      "exactIndividuallyAttributedLocalQuotations": 5,
+      "nativeMcpEvidenceToolInvocations": 0,
+      "activityProcessedCompletionTraceObserved": true,
+      "dynamicPlanFinished": "not-applicable-deterministic-OnActivity"
+    },
+    {
+      "number": 3,
+      "result": "pass",
+      "handler": "WorkshopSARdeadlinelookup",
+      "exactUnchangedTopicReply": true,
+      "exactIndividuallyAttributedLocalQuotations": 7,
+      "nativeMcpEvidenceToolInvocations": 0,
+      "activityProcessedCompletionTraceObserved": true,
+      "dynamicPlanFinished": "not-applicable-deterministic-OnActivity"
+    },
+    {
+      "number": 4,
+      "result": "pass",
+      "actualPlanSteps": ["P:UniversalSearchTool"],
+      "actualLocalSearchAndNativeReferenceVerified": true,
+      "atoAndAllNineRelatedCodeDefinitionsMatchLocalSource": true,
+      "nativeMcpEvidenceToolInvocations": 0,
+      "mcpCapabilityDiscoveryNotCountedAsEvidenceRetrieval": true,
+      "dynamicPlanFinishedObserved": true,
+      "planCancelled": false
+    },
+    {
+      "number": 5,
+      "result": "fail",
+      "unchangedNativeQuestionAndToolArgument": true,
+      "nativeMcpEvidenceToolInvocations": 1,
+      "actualMcpExecutionCompleted": true,
+      "dynamicPlanFinishedObserved": true,
+      "planCancelled": false,
+      "recordIds": ["fp-002"],
+      "returnedRecordsExactlyMatchPinnedCorpus": true,
+      "userFacingDomainAnswerCount": 1,
+      "factualBulletCount": 7,
+      "individuallyAttributedFactualBulletCount": 0,
+      "failure": "Seven factual bullets lack their own canonical source markers; a final-only marker does not satisfy individual attribution."
+    }
+  ],
+  "captureFailuresPreserved": {
+    "accessibleNamePreflightFailure": true,
+    "nativeQuestionsDuringPreflightFailure": 0,
+    "snapshotDialogConfirmationTimeout": true,
+    "snapshotRecoveredByNormalConfirmationWithoutNewQuestion": true,
+    "forceClickOrDomOverrideUsed": false
+  },
+  "actualNativeProtocolDiscovery": {
+    "protocolVersion": "2024-11-05",
+    "serverName": "Verified workshop evidence",
+    "nativeToolDefinitionKind": "DynamicServerToolDefinition",
+    "toolIdentifier": "retrieve_verified_workshop_evidence",
+    "requiredInputName": "question",
+    "requiredInputType": "String",
+    "independentlyObservedInOfficialActivityExport": true
+  },
+  "repairBoundary": {
+    "stoppedBeforeOriginalCases6Through11": true,
+    "initialFailedCohortPreserved": true,
+    "authorSurgicalAttributionRepairSavedAndIndependentlyVerified": true,
+    "nativeInstructionCharactersCrLf": 7977,
+    "fullPostRepairRegressionMatrixRequired": true,
+    "protectedOriginalRootAnd26CompleteRowsUnchanged": true,
+    "candidate29ComponentsOtherDefinitionsStatesAndParentFieldsPreserved": true,
+    "candidateAuthentication221AndPublishedTimestampPreserved": true,
+    "publicationPerformed": false,
+    "fullElevenCaseNativeMatrixPassed": false,
+    "wholeRoadmapComplete": false
+  }
+}

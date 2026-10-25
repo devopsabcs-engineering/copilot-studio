@@ -211,6 +211,30 @@ publication or Storage/network-policy change occurs. Missing/malformed bearer
 controls still return 401. The full eleven-case matrix and raw completion-event
 capture remain open; this bounded pass does not certify the roadmap.
 
+The [next native matrix](../../../docs/assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+passes cases 1-4, then stops on seven case-5 bullets lacking individual markers.
+A saved Author repair passes fresh case 5, but
+[the next SAR misattributes a renderer notice](../../../docs/assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json).
+The next repair fixes that boundary and preserves two exact complete MCP
+quotations, yet [adds punctuation inside a local quotation](../../../docs/assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Official native exports now retain actual completion events. Evidence calls are
+counted and source-audited individually, separately from user submissions; no
+failed question is automatically replayed. The backend, local source and exact
+quotation criterion are unchanged. Every instruction change needs eleven fresh
+cases; successes from different configurations cannot certify one matrix.
+
+The [complete native eleven-case receipt](../../../docs/assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+now verifies every original case on one saved configuration. Twelve submissions
+include one preserved pre-plan native stall and one explicitly counted retry after
+exact preservation and normal reconnection. All thirteen agent-content exports
+are byte-identical. Actual completion, seven MCP invocations, exact returned
+records/renderer, intended local-source output and full semantic/attribution
+reviews pass. Final MCP replies use unquoted cited paraphrases; twelve local
+deterministic quotations remain exact. T008 closes, while T007 retains the
+separate duplicate validation control: both actual identical replies and
+topic-then-direct-action execution are retained. Original/candidate preservation
+passes with no publication or backend/policy change. This is not roadmap sign-off.
+
 ## Testing and deployment boundaries
 
 The current implementation passes 54 unit, orchestration, configuration and transport tests,

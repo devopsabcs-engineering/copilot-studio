@@ -73,6 +73,26 @@ Original 26 rows, all other candidate definitions and missing/malformed-token
 401 controls are preserved. No publication occurs. Raw `DynamicPlanFinished`,
 the fresh eleven-case matrix and broader roadmap gates remain open.
 
+The [initial full-matrix attempt](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+passes cases 1-4 and stops at case 5's seven unattributed bullets. A saved repair
+passes fresh case 5, then the [next SAR fails a misattributed renderer notice](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json).
+The next saved repair removes that error but
+[fails added punctuation in a local quotation](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Actual generative completion events are now retained. Two actual evidence steps
+in one turn are counted separately from its single user submission. Strict
+quotation checks remain unchanged; no complete post-repair matrix passes yet.
+
+The later [complete eleven-case run](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+now passes all original cases on one immutable saved configuration. Twelve
+submissions include one preserved case-7 stall and one separately guarded retry
+after exact readback and normal reconnection. Eight generative completion events,
+three deterministic processed-topic completions, seven genuine MCP invocations,
+actual intended local-source output and full reply/source/semantic audits are
+retained. Twelve local quotations remain exact; final MCP domain answers use
+individually attributed unquoted paraphrases. T008 closes for this run, not the
+roadmap. A separate unchanged validation control produces two identical replies
+through topic-then-direct-action invocation, leaving T007's control repair open.
+
 The latest [verified Invocations delivery](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 is active hosted version 5 with Activity retained, 54 service tests and seven
 passing hosted controls. Real local/hosted SAR output matches the exact two-record

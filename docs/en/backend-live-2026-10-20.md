@@ -97,6 +97,27 @@ change occurs. The management bundle's missing-module error is retained and
 supported UI used without patching it. Raw `DynamicPlanFinished`, the full fresh
 matrix and broader lab/governance acceptance remain unverified.
 
+The [subsequent native matrix](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+preserves original cases 1-4 passing and case 5 failing individual attribution.
+A saved repair passes fresh case 5 but
+[fails a source-versus-renderer quotation](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json).
+The next repaired SAR has two exact complete MCP quotations, yet
+[fails a period added inside a local quotation](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Official exports now retain actual non-cancelled completion events. Multiple
+evidence steps are audited individually, not hidden as one call or counted as
+new user questions. No failed cohort closes the full matrix or changes the backend.
+
+The [latest complete native matrix](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+passes all eleven unchanged original cases with twelve submissions, including one
+preserved pre-plan native stall and one explicitly counted retry after normal
+reconnection. All thirteen native agent-content exports are byte-identical.
+Actual completion, seven MCP calls, pinned records, intended local-source output
+and complete semantic/attribution checks pass. Final MCP answers are grounded
+unquoted paraphrases; twelve deterministic local quotations are exact.
+Original 26 rows and candidate 29 components remain preserved. T008 closes;
+T007 retains the separately observed duplicate validation control. No deployment,
+publication, new role or policy change is inferred from this native acceptance.
+
 ## October 25 dual-protocol hosted release
 
 The [verified Invocations release](../assets/runtime-2026-10-24/verified-invocations-delivery.json)

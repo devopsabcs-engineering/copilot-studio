@@ -1,0 +1,50 @@
+{
+  "result": "source-boundary-repaired-then-original-case-6-failed-local-quote-punctuation",
+  "cohort": "Fresh native turn after independently saved source-record boundary repair",
+  "nativeQuestionSubmissions": 1,
+  "questionRetries": 0,
+  "officialNativeDialogExportsRetained": 1,
+  "nativeMcpEvidenceToolInvocations": 2,
+  "bothMcpArgumentsEqualOriginalUnchangedQuestion": true,
+  "actualReturnedRecordIdsPerInvocation": [["rc-002"], ["rc-002", "ip-006"]],
+  "eachInvocationCompletedWithoutError": true,
+  "eachInvocationRecordsAndRendererExactlyMatchPinnedCorpus": true,
+  "actualLocalKnowledgeSearchObserved": true,
+  "dynamicPlanFinishedObserved": true,
+  "planCancelled": false,
+  "userFacingDomainAnswerCount": 1,
+  "exactCompletePinnedRecordQuotations": 2,
+  "sourceBoundaryNoticeNoLongerQuotedOrMisattributed": true,
+  "failure": {
+    "kind": "punctuation-added-inside-local-source-quotation",
+    "actualLocalCell": "Never disclose SAR existence to subject",
+    "generatedQuotation": "Never disclose SAR existence to subject.",
+    "individualLocalCitationPresent": true,
+    "exactContiguousSourceQuotation": false,
+    "failureRetainedWithoutQuestionReplay": true
+  },
+  "verifierCorrection": {
+    "initialOneMcpStepAssumptionFailed": true,
+    "roadmapRequiresFixedMcpInvocationCount": false,
+    "allActualMcpStepsNowIndividuallyVerifiedAndCounted": true,
+    "nativeQuestionSubmissionsCountedSeparatelyFromToolSteps": true,
+    "sourceQuotationAndAttributionCriteriaRelaxed": false,
+    "cloudOrNativeQuestionWriteDuringVerifierCorrection": false
+  },
+  "preservation": {
+    "exactAuthorSourceBoundaryInstructionsSavedAndReadBack": true,
+    "nativeInstructionCharactersCrLf": 7939,
+    "protectedOriginalRootAnd26CompleteRowsUnchanged": true,
+    "candidate29OtherDefinitionsStatesAndParentFieldsPreserved": true,
+    "candidateAuthentication221AndPublishedTimestampPreserved": true,
+    "publicationPerformed": false,
+    "rendererBackendAndLocalKnowledgeUnchanged": true
+  },
+  "nextBoundary": {
+    "generatedLocalFactsRequireUnquotedCitedParaphrasesRepairRequested": true,
+    "deterministicLookupLiteralSnapshotsMustRemainUnchanged": true,
+    "allElevenFreshCasesRequiredAfterAnyFurtherInstructionChange": true,
+    "fullElevenCaseNativeMatrixPassed": false,
+    "wholeRoadmapComplete": false
+  }
+}

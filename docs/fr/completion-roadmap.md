@@ -237,6 +237,66 @@ matrice complète : `DynamicPlanFinished` brut, onze cas frais, contrat du
 diagnostic/SDK original, autres labs, budget/rétention et validations attribuables
 restent ouverts. T007/T008 et la feuille de route ne sont pas déclarés terminés.
 
+### Échecs de matrice fraîche et corrections de frontière des sources
+
+La [matrice native initiale](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+réussit les cas d'origine 1-4, puis s'arrête au cas 5 : sept puces factuelles
+n'ont pas de marqueur individuel. Les exports natifs officiels distinguent la fin
+des topics déterministes 1-3 de `DynamicPlanFinished` non annulé pour les cas
+génératifs. La découverte de capacités ne compte pas comme appel de preuves.
+
+La correction d'attribution enregistrée par Author réussit un cas 5 frais :
+trois paragraphes factuels individuellement sourcés. Le
+[tour SAR suivant échoue sur l'attribution](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json) :
+une notice d'applicabilité ajoutée par le moteur de rendu est citée comme un
+document source. La correction de frontière enregistrée supprime cette erreur
+et préserve deux citations MCP complètes exactes, mais le
+[tour SAR suivant échoue sur la ponctuation locale](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Un point ajouté dans une cellule locale citée n'est pas une citation exacte.
+
+Aucune question échouée n'est automatiquement rejouée ni certifiée. Le dernier
+tour contient deux appels de preuves terminés avec la question inchangée, pas
+deux soumissions utilisateur; tous deux sont comptés et leurs documents vérifiés.
+Les faits locaux générés nécessitent des paraphrases sans guillemets, avec
+référence; les topics déterministes littéraux restent inchangés. Chaque
+modification d'instructions impose une cohorte fraîche de onze cas, sans fusion
+des réussites de configurations différentes. T007/T008, publication et feuille
+de route globale restent ouverts.
+
+### Acceptation native des onze cas et reprise comptée séparément
+
+La [matrice native complète](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+remplace la limite de matrice précédente, pas ses échecs historiques. Les onze
+questions d'origine inchangées réussissent sur une seule configuration
+enregistrée. Réponses finales complètes, exports officiels, comparaisons de
+sources et revues sémantiques directes restent privés. Les treize exports du
+contenu agent, incluant une tentative échouée et le contrôle indépendant, ont le
+même SHA-256.
+
+Douze soumissions de questions d'origine sont comptées : le cas 7 ne reçoit
+initialement aucune réponse métier ni plan dans l'attente bornée. Son message
+utilisateur réel et son export échoué sont conservés. La préservation exacte et
+les contrôles 401 réussissent, puis un rechargement normal du portail et une
+session fraîche acquittée précèdent une reprise réussie, comptée explicitement.
+Aucune cause plateforme n'est inventée ni tentative échouée effacée.
+
+Les cas 1-3 conservent la fin des topics déterministes et douze citations locales
+exactes. Les cas 4-11 conservent `DynamicPlanFinished` réel non annulé. Les sept
+appels MCP métier transmettent les questions complètes inchangées et retournent
+les documents/preuves rendues exactement épinglés. Le SAR large et les quatre
+hybrides prouvent aussi la contribution du composant Markdown chargé prévu et sa
+référence native réelle. Les réponses finales utilisent des paraphrases vérifiées,
+attribuées individuellement, pas de prétendues citations MCP littérales.
+
+T008 est terminé pour cette exécution. T007 reste ouvert pour le contrôle de
+validation distinct : le topic inchangé, puis l'action directe, produisent deux
+réponses constantes identiques. Les deux sont conservées; le transport réussi
+ne certifie pas une réponse unique. Parent original et 26 lignes complètes,
+29 composants candidat, autres définitions/états, authentification et date de
+publication restent préservés. Aucune publication, modification de stratégie,
+nouvelle ressource ou rôle. Contrat diagnostic/SDK original, autres labs et
+gouvernance restent ouverts.
+
 ## Livraison Invocations vérifiée du 25 octobre
 
 Ce point antérieur conserve ses limites historiques de navigateur et
@@ -1001,7 +1061,7 @@ Exigence : REQ-004. Entrées : questions originales et audit des tours complets 
 le [rapport d'exécution](backend-live-2026-10-20.md).
 
 - [ ] T007 [Plan:4.1] Faire corriger par Author uniquement les écarts démontrés de citations littérales, attribution par puce, obligations conditionnelles et couverture d'exemples dans le candidat isolé. Préserver l'accueil sans source, les recherches locales, le routage hybride et le contrôle fonctionnel.
-- [ ] T008 [Plan:4.1] Faire exécuter par Test les onze scénarios inchangés dans une nouvelle session native après un précontrôle acquitté. Conserver les réponses finales complètes, `DynamicPlanFinished`, les routes attendues, comparaisons de sources, attributions individuelles, pertinence, applicabilité et couverture des exemples pour chaque cas. Compter les reprises séparément.
+- [x] T008 [Plan:4.1] Faire exécuter par Test les onze scénarios inchangés dans une nouvelle session native après un précontrôle acquitté. Conserver les réponses finales complètes, `DynamicPlanFinished`, les routes attendues, comparaisons de sources, attributions individuelles, pertinence, applicabilité et couverture des exemples pour chaque cas. Compter les reprises séparément.
 
 Sortie : tous les cas et critères obligatoires passent dans cette nouvelle exécution.
 Les captures fusionnées précédentes, quatre réponses extractives backend et notes

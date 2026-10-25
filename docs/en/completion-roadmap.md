@@ -223,6 +223,62 @@ delivery/fidelity defect, not the full regression matrix: raw
 other lab gates, budget/retention facts and attributable role signoffs remain
 open. T007/T008 and the overall roadmap are not marked complete.
 
+### Fresh matrix failures and source-boundary repairs
+
+The [initial native matrix](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+passes original cases 1-4, then stops at case 5: seven factual bullets lack
+individual source markers. Official native exports distinguish deterministic
+topic completion for cases 1-3 from actual non-cancelled `DynamicPlanFinished`
+for generative cases. Capability discovery is not an evidence-tool invocation.
+
+Author's saved attribution repair passes a fresh case 5, with all three factual
+paragraphs individually supported. The
+[next SAR turn fails source attribution](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json):
+it quotes a renderer-added applicability notice as if it appeared in a source
+record. The subsequent saved source-boundary repair removes that error and
+preserves two exact complete MCP quotations, but the
+[next SAR turn fails local quotation punctuation](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+An added period inside a quoted local table cell is not an exact quotation.
+
+No failed question is automatically resubmitted or certified. The last turn
+contains two completed evidence calls with the unchanged question, not two user
+submissions; both are counted and their actual returned records are audited.
+Generated local facts need unquoted cited paraphrases while deterministic literal
+lookup topics remain unchanged. Every instruction change requires a new complete
+eleven-case cohort; earlier successes are not combined across configurations.
+T007/T008, publication and the broader roadmap remain open.
+
+### Eleven-case native acceptance with separately counted recovery
+
+The [complete native matrix](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+supersedes the preceding matrix limit, not its historical failures. All eleven
+unchanged original questions now pass on one saved configuration. Full final
+replies, official native exports, source comparisons and direct semantic reviews
+are retained privately. All thirteen agent-content exports, including one failed
+attempt and the independent control, have the same SHA-256.
+
+There are twelve original-question submissions: case 7 initially receives no
+domain reply or plan within the bounded wait. Its actual user message and failed
+export are retained. Exact configuration preservation and 401 controls pass,
+then a normal portal reload and acknowledged fresh session precede one explicitly
+counted successful retry. No platform cause is invented or failed attempt erased.
+
+Cases 1-3 retain deterministic processed-topic completion and twelve exact local
+quotations. Cases 4-11 retain actual non-cancelled `DynamicPlanFinished`.
+The seven domain MCP invocations forward the complete unchanged questions and
+return exact pinned records/rendered evidence. Broad SAR and all four hybrids
+also prove output from the intended uploaded Markdown component and its actual
+native reference. Their final replies use individually attributed, source-audited
+paraphrases, not purported literal MCP quotations.
+
+T008 is complete for this run. T007 remains open at the separate validation
+control: the unchanged topic followed by a direct validation action produces two
+identical constant replies. Both are retained; successful control transport is
+not a single-reply pass. Original root and all 26 complete rows, candidate 29
+components, other definitions/states, authentication and publication timestamp
+remain preserved. No publication, policy change, new role or resource occurs.
+The original diagnostic/SDK contract, other labs and governance gates remain open.
+
 ## October 25 verified Invocations delivery
 
 This earlier checkpoint retains its historical browser and authentication
@@ -948,7 +1004,7 @@ Requirements: REQ-004. Input: the original questions and complete-turn audit in 
 [execution report](backend-live-2026-10-20.md).
 
 - [ ] T007 [Plan:4.1] Have Author correct only demonstrated quotation fidelity, per-bullet attribution, conditional-duty scope and detailed-example coverage gaps in the isolated candidate. Preserve source-free intake, local-only lookups, hybrid routing and the working control.
-- [ ] T008 [Plan:4.1] Have Test run all eleven unchanged scenarios in a fresh native session after an acknowledged readiness preflight. Preserve full final replies and `DynamicPlanFinished`, expected handler routes, source comparisons, individual attribution, relevance, applicability and example-coverage results per case. Count retries separately.
+- [x] T008 [Plan:4.1] Have Test run all eleven unchanged scenarios in a fresh native session after an acknowledged readiness preflight. Preserve full final replies and `DynamicPlanFinished`, expected handler routes, source comparisons, individual attribution, relevance, applicability and example-coverage results per case. Count retries separately.
 
 Exit: every required case and criterion passes in the new run. Earlier merged
 captures, four extractive backend successes and generic quality grades do not

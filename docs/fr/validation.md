@@ -75,6 +75,28 @@ Les 26 lignes originales, toutes les autres définitions candidat et les refus
 401 sans jeton/avec jeton malformé sont préservés. Aucune publication.
 `DynamicPlanFinished` brut, matrice fraîche de onze cas et autres tâches restent ouverts.
 
+La [première tentative de matrice](../assets/runtime-2026-10-25/mcp-native-matrix-initial.json)
+réussit les cas 1-4 et s'arrête aux sept puces non attribuées du cas 5. Une
+correction enregistrée réussit un cas 5 frais, puis le
+[SAR suivant échoue sur une notice de rendu mal attribuée](../assets/runtime-2026-10-25/mcp-native-source-boundary-failure.json).
+La correction suivante supprime cette erreur, mais
+[échoue sur un point ajouté dans une citation locale](../assets/runtime-2026-10-25/mcp-native-local-quote-failure.json).
+Les événements génératifs de fin réels sont maintenant conservés. Deux appels
+de preuves dans un tour sont comptés séparément de son unique soumission
+utilisateur. Les contrôles stricts de citation sont inchangés; aucune matrice
+complète après correction ne réussit encore.
+
+La [dernière exécution complète des onze cas](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+réussit maintenant les cas d'origine sur une configuration enregistrée immuable.
+Douze soumissions incluent un blocage conservé du cas 7 et une reprise distincte
+après lecture exacte et reconnexion normale. Huit fins génératives réelles, trois
+fins de topics déterministes, sept appels MCP réels, contribution locale prévue
+et audits complets des réponses/sources sont conservés. Douze citations locales
+restent exactes; les réponses MCP finales utilisent des paraphrases sans
+guillemets, attribuées individuellement. T008 est clos pour cette exécution, pas la
+feuille de route. Le contrôle de validation distinct produit deux réponses
+identiques par topic puis action directe; sa correction T007 reste ouverte.
+
 La dernière [livraison Invocations vérifiée](../assets/runtime-2026-10-24/verified-invocations-delivery.json)
 est hébergée en version 5 active, avec Activity préservé, 54 tests du service
 et sept contrôles hébergés réussis. Les sorties SAR réelles locales/hébergées
