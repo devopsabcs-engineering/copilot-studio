@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Build and verify a licensing advisor
 description: Illustrated licensing advisor setup, original user evidence, and a fresh live PDF, directory, email-send and inbox-verification run.
-ms.date: 2026-10-20
+ms.date: 2026-10-25
 ---
 
 ## Goal, prerequisites, and evidence
@@ -35,6 +35,15 @@ visible request-validation HTTP 400 for `top=-1`. Its new answer's edition,
 complete introductory quotation and page 3 section passed an independent
 five-check PDF source audit. This does not certify the historical full answer
 or citation-click navigation. No email was sent during this continuation.
+
+The [October 25 original-agent navigation test](../assets/runtime-2026-10-25/licensing-pdf-navigation.json)
+verifies the intended website account, existing licensing advisor and Ready PDF.
+One unchanged question retrieves that PDF; two selected passages match the
+retained October 2026 guide on physical pages 6–7. The actual source-button click
+does not expose a PDF viewer, source-details dialog or page anchor. Navigation
+acceptance therefore remains failed. An unobserved download is not proof that
+no download occurred. Historical full-answer audit and downstream connector
+error-body fidelity remain unassessed; no email or configuration change occurs.
 
 ## 1. Choose the equivalent agent experience
 

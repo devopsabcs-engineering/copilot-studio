@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Créer et vérifier un conseiller de licences
 description: Configuration illustrée du conseiller, preuves initiales et nouvelle exécution réelle du PDF, de l'annuaire, de l'envoi et de la réception.
-ms.date: 2026-10-20
+ms.date: 2026-10-25
 ---
 
 ## Objectif, prérequis et preuves
@@ -39,6 +39,15 @@ L'édition, la citation introductive complète et la section en page 3 de cette
 nouvelle réponse ont satisfait cinq contrôles indépendants du PDF source.
 Cela ne certifie ni l'ancienne réponse complète ni la navigation par clic
 sur une citation. Aucun courriel n'a été envoyé pendant cette poursuite.
+
+Le [test de navigation du 25 octobre sur l'agent d'origine](../assets/runtime-2026-10-25/licensing-pdf-navigation.json)
+vérifie le compte du site, le conseiller de licences existant et le PDF Ready.
+Une question inchangée recherche ce PDF; deux passages choisis correspondent
+au guide conservé d'octobre 2026 aux pages physiques 6–7. Le clic réel sur la source
+n'expose ni lecteur PDF, ni dialogue de détails, ni ancre de page. L'acceptation
+de navigation reste donc échouée. Un téléchargement non observé ne prouve pas
+son absence. Audit historique complet et corps d'erreur du connecteur restent
+non évalués; aucun courriel ni changement de configuration.
 
 ## 1. Choisir l'expérience d'agent équivalente
 

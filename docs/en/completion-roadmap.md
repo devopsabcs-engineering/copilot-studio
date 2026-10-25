@@ -76,6 +76,31 @@ fabricated, remote configuration changed or original parent touched. T005/T007
 and T009 remain open; supported connector-contract resolution and management
 tool recovery are required before that correction.
 
+### Supported recovery and actual lab checks
+
+The [management recovery](../assets/runtime-2026-10-25/management-recovery.json)
+locates the installed management instructions and invokes the unmodified clone
+bundle. It fails with `MODULE_NOT_FOUND` for `@azure/msal-node-extensions`.
+PAC supports clone, but its current identity is in a different tenant; neither
+authentication nor the installed scripts is changed. The extension exposes a
+clone command, but no callable extension tool is available here. The requested
+human recovery choice is unavailable; this is not permission to bypass the
+documented script-error boundary.
+
+The separate [actual Lab 1 check](../assets/runtime-2026-10-25/licensing-pdf-navigation.json)
+verifies the existing licensing advisor and Ready PDF. One unchanged question
+retrieves the intended guide; two passages match physical pages 6–7. Clicking
+the actual PDF source exposes no observable viewer, details or page anchor,
+so navigation acceptance fails. This result does not reuse the fraud check or
+certify the historical full answer.
+
+The [actual Lab 2 inventory check](../assets/runtime-2026-10-25/lab2-source-navigation.json)
+finds no unambiguously configured permitted Lab 2 agent; retained evidence
+records the prior Search source/connection removal. No substitute agent, new
+question or citation click is used. T010 remains blocked rather than passed.
+T009/T010 and candidate authoring require the supported prerequisites to be
+restored; no source, account, consent or acceptance result is invented.
+
 ## October 24 independent Azure preflight
 
 The [fresh read-only Azure checks](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

@@ -1,0 +1,23 @@
+{
+  "scope": "Supported clone-tool recovery before candidate authoring",
+  "result": "blocked",
+  "installedManagementInstructionsLocated": true,
+  "unmodifiedManagementBundleInvoked": true,
+  "bundleFailure": {
+    "code": "MODULE_NOT_FOUND",
+    "missingDependency": "@azure/msal-node-extensions"
+  },
+  "scriptsPatchedOrMonkeyPatched": false,
+  "pacCloneCapabilityConfirmed": true,
+  "pacActiveIdentityMatchesRequiredTenantAdministrator": false,
+  "pacAuthenticationChanged": false,
+  "cloneUnderWrongIdentityAttempted": false,
+  "extensionCloneCommandExists": true,
+  "callableExtensionCloneToolAvailable": false,
+  "candidateCloneCompleted": false,
+  "agentYamlCreated": false,
+  "configurationOrPermissionChanges": 0,
+  "humanRecoveryChoice": "user_unavailable",
+  "nextAction": "Use supported extension clone, repair the installed plugin through supported installation, or authenticate PAC to the intended administrator before cloning.",
+  "roadmapComplete": false
+}

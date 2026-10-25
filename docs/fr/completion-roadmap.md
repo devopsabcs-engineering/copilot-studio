@@ -81,6 +81,32 @@ Aucun YAML n'est inventé, aucune configuration distante modifiée ni parent
 d'origine touché. T005/T007 et T009 restent ouverts; contrat du connecteur et
 outillage de gestion pris en charge doivent être rétablis avant correction.
 
+### Récupération prise en charge et contrôles des labs réels
+
+La [récupération de gestion](../assets/runtime-2026-10-25/management-recovery.json)
+retrouve les instructions installées et exécute le bundle de clonage inchangé.
+Il échoue avec `MODULE_NOT_FOUND` pour `@azure/msal-node-extensions`.
+PAC permet le clonage, mais son identité actuelle appartient à un autre tenant;
+ni authentification ni scripts installés ne sont modifiés. L'extension expose
+une commande de clonage, sans outil appelable ici. Le choix humain demandé
+reste indisponible; cela n'autorise pas le contournement de la limite documentée
+pour les erreurs du script.
+
+Le [contrôle du véritable Lab 1](../assets/runtime-2026-10-25/licensing-pdf-navigation.json)
+vérifie le conseiller existant et le PDF Ready. Une question inchangée recherche
+le guide attendu; deux passages correspondent aux pages physiques 6–7. Le clic
+sur la source PDF n'expose ni lecteur, ni détails, ni ancre observable :
+l'acceptation de navigation échoue. Ce résultat ne réutilise pas le contrôle
+fraude et ne certifie pas l'ancienne réponse complète.
+
+Le [contrôle d'inventaire du véritable Lab 2](../assets/runtime-2026-10-25/lab2-source-navigation.json)
+ne trouve aucun agent permis configuré et identifié sans ambiguïté; les preuves
+conservées enregistrent la suppression antérieure de la source/connexion Search.
+Aucun agent de substitution, question nouvelle ou clic de citation. T010 reste
+bloqué, pas réussi. T009/T010 et l'édition du candidat nécessitent le rétablissement
+des prérequis pris en charge; aucune source, identité, autorisation ni réussite
+n'est inventée.
+
 ## Précontrôle Azure indépendant du 24 octobre
 
 Les [nouveaux contrôles Azure en lecture seule](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

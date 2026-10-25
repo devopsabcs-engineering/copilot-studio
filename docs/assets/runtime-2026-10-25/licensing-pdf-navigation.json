@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "observed_date_utc": "2026-10-25",
+  "lab": 1,
+  "gate": "original_licensing_advisor_uploaded_pdf_citation_navigation",
+  "result": "FAIL",
+  "acceptance_passed": false,
+  "method": "Supported native browser Preview on the independently identified existing original licensing advisor.",
+  "preconditions": {
+    "expected_browser_account_verified": true,
+    "expected_browser_tenant_verified": true,
+    "existing_bot_identity_matches_retained_lab1_evidence": true,
+    "approved_uploaded_pdf_ready_observed": true,
+    "retained_source_hash_matches_prior_audit": true
+  },
+  "execution": {
+    "existing_completed_licensing_history_inspected": true,
+    "history_limitation": "The inspected history exposed a cited-source label but no navigable citation control.",
+    "fresh_sessions": 1,
+    "new_questions": 1,
+    "question": "What Power Apps licensing options are described in the uploaded guide? Cite the guide.",
+    "question_retries": 0,
+    "answer_completed": true,
+    "intended_uploaded_pdf_retrieval_observed": true,
+    "actual_pdf_source_button_clicks": 1,
+    "click_location": "New conversation knowledge retrieval activity",
+    "final_answer_navigable_links_observed": 0,
+    "preview_route_unchanged_after_source_click": true,
+    "source_details_dialog_opened_by_click": false,
+    "pdf_viewer_opened_observed": false,
+    "pdf_page_anchor_observed": false,
+    "download_completion_observed": false
+  },
+  "source_checks": {
+    "retained_approved_source_edition": "October 2026",
+    "retained_approved_source_page_count": 30,
+    "two_selected_new_answer_passages_match_retained_source": true,
+    "matching_physical_pages": [6, 7],
+    "comparison": "Whitespace normalization only; lawful retained approved source.",
+    "all_new_answer_claims_audited": false,
+    "citation_navigation_target_edition_passage_and_page_verified": false,
+    "local_source_match_does_not_prove_citation_navigation": true
+  },
+  "blocker": "The actual licensing PDF source button was clicked once, but Preview stayed unchanged and no PDF viewer, source-details dialog, or page anchor became observable. Citation navigation to the approved source and relevant page could not be verified.",
+  "distinct_tests": {
+    "historical_full_answer_audit": "not-assessed",
+    "connector_error_body_fidelity": "not-assessed"
+  },
+  "boundaries": {
+    "fraud_candidate_result_reused_as_lab1_acceptance": false,
+    "protected_fraud_parent_interacted_with": false,
+    "pac_auth_used_or_changed": false,
+    "agent_configuration_or_security_changes": false,
+    "email_sent": false,
+    "publish_or_deploy": false,
+    "new_consent": false,
+    "source_reconstruction": false,
+    "markdown_edits": false,
+    "overall_lab1_certified": false
+  },
+  "limitations": [
+    "No new remote PDF bytes were obtained through the citation click.",
+    "An unobserved download is not proof that no download occurred.",
+    "No second source click or question retry was performed.",
+    "No protected source passages, tenant identifiers, account identifiers, bot identifiers, credentials, or private paths are included in this public evidence."
+  ]
+}

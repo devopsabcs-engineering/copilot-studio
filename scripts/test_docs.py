@@ -1940,6 +1940,46 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(navigation["preservation"]["agentConfigurationWrites"])
         self.assertTrue(all(value is False for value in navigation["completion"].values()))
 
+    def test_supported_management_recovery_does_not_use_wrong_tenant(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "management-recovery.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "blocked")
+        self.assertEqual(result["bundleFailure"]["missingDependency"], "@azure/msal-node-extensions")
+        self.assertTrue(result["installedManagementInstructionsLocated"])
+        self.assertTrue(result["unmodifiedManagementBundleInvoked"])
+        self.assertTrue(result["pacCloneCapabilityConfirmed"])
+        for key in ("scriptsPatchedOrMonkeyPatched", "pacActiveIdentityMatchesRequiredTenantAdministrator",
+                    "pacAuthenticationChanged", "cloneUnderWrongIdentityAttempted",
+                    "candidateCloneCompleted", "agentYamlCreated", "roadmapComplete"):
+            self.assertFalse(result[key])
+        self.assertEqual(result["configurationOrPermissionChanges"], 0)
+
+    def test_actual_licensing_navigation_and_lab2_blockers_remain_distinct(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        licensing = json.loads((assets / "licensing-pdf-navigation.json").read_text("utf-8"))
+        self.assertEqual(licensing["lab"], 1)
+        self.assertFalse(licensing["acceptance_passed"])
+        self.assertTrue(all(licensing["preconditions"].values()))
+        self.assertEqual(licensing["execution"]["new_questions"], 1)
+        self.assertEqual(licensing["execution"]["question_retries"], 0)
+        self.assertTrue(licensing["execution"]["intended_uploaded_pdf_retrieval_observed"])
+        self.assertEqual(licensing["execution"]["actual_pdf_source_button_clicks"], 1)
+        self.assertFalse(licensing["execution"]["pdf_viewer_opened_observed"])
+        self.assertFalse(licensing["source_checks"]["citation_navigation_target_edition_passage_and_page_verified"])
+        self.assertTrue(licensing["source_checks"]["two_selected_new_answer_passages_match_retained_source"])
+        self.assertFalse(licensing["boundaries"]["fraud_candidate_result_reused_as_lab1_acceptance"])
+        self.assertFalse(licensing["boundaries"]["overall_lab1_certified"])
+        search = json.loads((assets / "lab2-source-navigation.json").read_text("utf-8"))
+        self.assertEqual(search["status"], "blocked")
+        self.assertFalse(search["acceptance_passed"])
+        self.assertFalse(search["observations"]["exact_permitted_lab2_agent_identified"])
+        self.assertEqual(search["execution_boundary"]["new_agent_questions"], 0)
+        self.assertEqual(search["execution_boundary"]["citation_clicks"], 0)
+        self.assertFalse(search["execution_boundary"]["remote_changes"])
+        self.assertFalse(search["criterion_outcomes"]["roadmap_task_closed"])
+
     def test_native_hosted_diagnostic_preserves_tenant_error_and_restoration(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"
