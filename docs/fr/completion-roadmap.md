@@ -121,6 +121,18 @@ pas la réponse complète du 19 octobre avec provenance correspondante. Ni captu
 partielles ni réponses plus récentes ne la remplacent. Les totaux de faits restent
 inconnus; le critère historique reste indisponible, pas réussi.
 
+La [nouvelle récupération d'authentification prise en charge](../assets/runtime-2026-10-25/supported-auth-recovery.json)
+confirme indépendamment la présence du commit sur GitHub. La mise à jour
+officielle du plugin réussit, mais la version 1.0.11 est déjà la plus récente.
+L'authentification PAC interactive ne termine pas; l'option utilisateur seul
+exige explicitement un mot de passe, qui n'est pas fourni. Deux tentatives
+bornées de code appareil atteignent la page de saisie, mais clic et clavier
+normaux ne la font pas avancer. Le navigateur reste masqué malgré l'activation
+normale. Aucun écran MFA ni consentement n'est observé; aucune cause n'en est
+déduite. Les deux processus sont arrêtés, la page partagée retourne à Agents et
+les profils PAC initiaux restent intacts. Aucun code/jeton, contournement de
+stratégie ni profil administrateur non vérifié n'est utilisé pour cloner.
+
 ## Précontrôle Azure indépendant du 24 octobre
 
 Les [nouveaux contrôles Azure en lecture seule](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

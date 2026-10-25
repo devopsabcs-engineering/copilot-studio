@@ -1960,6 +1960,25 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(result["packageSourceOrPolicyOverrides"], 0)
         self.assertFalse(result["nativeDependencyRecoveryCompleted"])
 
+    def test_supported_auth_recovery_preserves_identity_and_stops_helpers(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "supported-auth-recovery.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "blocked")
+        self.assertTrue(result["supported_plugin_update_completed"])
+        self.assertTrue(result["plugin_already_latest"])
+        self.assertEqual(result["documented_device_code_attempts"], 2)
+        self.assertTrue(result["auth_helpers_stopped"])
+        self.assertTrue(result["shared_browser_returned_to_agents_inventory"])
+        self.assertTrue(result["original_pac_profiles_preserved_and_profile1_active"])
+        self.assertFalse(result["new_verified_admin_profile_created"])
+        self.assertFalse(result["candidate_clone_completed"])
+        self.assertFalse(result["password_supplied"])
+        self.assertFalse(result["mfa_or_consent_bypassed"])
+        self.assertEqual(result["package_policy_overrides"], 0)
+        self.assertEqual(result["agent_configuration_or_permission_changes"], 0)
+        self.assertFalse(result["roadmap_complete"])
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

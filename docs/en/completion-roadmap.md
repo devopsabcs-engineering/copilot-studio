@@ -115,6 +115,18 @@ the complete historical October 19 answer with matching provenance. Partial
 captures and newer answers are not substituted. Atomic claim totals remain
 unknown; the original full-answer criterion remains unavailable, not passed.
 
+The [renewed supported authentication recovery](../assets/runtime-2026-10-25/supported-auth-recovery.json)
+independently confirms the release commit exists on GitHub. The supported plugin
+update succeeds but reports version 1.0.11 already latest. Normal PAC interactive
+authentication does not complete; username-only authentication explicitly requires
+a password, which is not supplied. Two bounded documented device-code attempts
+reach the browser entry page, but normal click/keyboard activation does not
+advance it. The browser reports hidden visibility despite normal foreground
+activation. No MFA or consent prompt is observed, so neither is asserted as the
+cause. Both auth helpers are stopped, the shared page returns to Agents, and
+the original PAC profiles remain intact. No code/token, policy override or
+unverified administrator profile is used for cloning.
+
 ## October 24 independent Azure preflight
 
 The [fresh read-only Azure checks](../assets/runtime-2026-10-24/azure-preflight-refresh.json)
