@@ -46,8 +46,11 @@ Une question inchangée recherche ce PDF; deux passages choisis correspondent
 au guide conservé d'octobre 2026 aux pages physiques 6–7. Le clic réel sur la source
 n'expose ni lecteur PDF, ni dialogue de détails, ni ancre de page. L'acceptation
 de navigation reste donc échouée. Un téléchargement non observé ne prouve pas
-son absence. Audit historique complet et corps d'erreur du connecteur restent
-non évalués; aucun courriel ni changement de configuration.
+son absence. La [tentative d'audit historique complet](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+vérifie l'empreinte du PDF, mais ne retrouve pas la réponse complète du 19 octobre
+avec provenance vérifiable. Ce critère reste ouvert/indisponible; aucune réponse
+n'est reconstruite ni remplacée par une plus récente. Le corps d'erreur du
+connecteur reste non évalué; aucun courriel ni changement de configuration.
 
 ## 1. Choisir l'expérience d'agent équivalente
 

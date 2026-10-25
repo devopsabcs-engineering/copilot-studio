@@ -155,6 +155,13 @@ Un audit indépendant du PDF conservé a ensuite réussi les cinq contrôles de
 l'identité source, de l'édition, de la citation complète et de la section en
 page 3 de cette nouvelle réponse. L'audit de l'ancienne réponse complète,
 la navigation des citations et l'acceptation des labs connectés restent ouverts.
+La [tentative d'audit historique complet du 25 octobre](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+revérifie l'empreinte du PDF d'octobre 2026, mais ne retrouve pas la réponse
+complète du 19 octobre avec provenance correspondante. Le critère reste
+**ouvert/indisponible**, ni réussi ni contredit; les nombres de faits sont inconnus.
+Aucune réponse plus récente ni transcription tronquée n'est substituée.
+L'échec distinct de navigation PDF et le critère du corps d'erreur restent
+inchangés; le Lab 1 n'est pas certifié.
 Après approbation explicite des crédits, une évaluation de trois cas avec
 General quality a été enregistrée et soumise. Elle a été observée en attente,
 sans notation ; la reprise navigateur de 11:36 UTC a échoué et son état actuel

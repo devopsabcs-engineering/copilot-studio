@@ -150,6 +150,13 @@ An independent retained-PDF audit then passed all five checks for the new
 answer's source identity, edition, complete quotation and page 3 section.
 Historical full-answer auditing, citation navigation and connected-lab acceptance
 remain open.
+The [October 25 historical full-answer audit attempt](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+reverified the retained October 2026 PDF hash, but the complete October 19 answer
+could not be located and provenance-matched. The accuracy criterion is
+**open/unavailable**, not passed or contradicted; claim totals are unknown.
+No newer answer or clipped transcript was substituted. The separate licensing-PDF
+navigation failure and downstream connector error-body fidelity remain unchanged;
+Lab 1 is not certified.
 With explicit credit approval, one three-case General quality evaluation was
 then saved and submitted. It was observed queued, not graded; the 11:36 UTC
 browser recovery failed, so its current state is unknown.

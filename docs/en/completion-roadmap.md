@@ -101,6 +101,20 @@ question or citation click is used. T010 remains blocked rather than passed.
 T009/T010 and candidate authoring require the supported prerequisites to be
 restored; no source, account, consent or acceptance result is invented.
 
+The subsequent supported dependency recovery locates the plugin's official
+SessionStart setup and native-dependency manifest. Its plugin-data directory
+contains the manifest but none of the three required packages. Both the normal
+manifest-based installation and offline-cache alternative fail with
+`EALLOWREMOTE`: fetching remote package types is disabled. No registry, package
+source or policy override is attempted. This is an installation-policy blocker,
+not a reason to patch the management bundle or reuse the wrong tenant.
+
+The [local historical Lab 1 audit](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+verifies the retained approved PDF hash, edition and page count but cannot locate
+the complete historical October 19 answer with matching provenance. Partial
+captures and newer answers are not substituted. Atomic claim totals remain
+unknown; the original full-answer criterion remains unavailable, not passed.
+
 ## October 24 independent Azure preflight
 
 The [fresh read-only Azure checks](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

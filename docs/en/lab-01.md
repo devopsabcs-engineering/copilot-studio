@@ -42,8 +42,12 @@ One unchanged question retrieves that PDF; two selected passages match the
 retained October 2026 guide on physical pages 6–7. The actual source-button click
 does not expose a PDF viewer, source-details dialog or page anchor. Navigation
 acceptance therefore remains failed. An unobserved download is not proof that
-no download occurred. Historical full-answer audit and downstream connector
-error-body fidelity remain unassessed; no email or configuration change occurs.
+no download occurred. The subsequent local-only
+[historical full-answer audit attempt](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+verified the retained PDF hash but could not locate and match the complete
+October 19 answer. That accuracy criterion remains open/unavailable; no answer
+was reconstructed or replaced with a newer one. Downstream connector error-body
+fidelity remains unassessed; no email or configuration change occurs.
 
 ## 1. Choose the equivalent agent experience
 
@@ -205,6 +209,8 @@ The table below preserves the **original evidence baseline**, before the fresh
 2026-10-19 execution. The [latest execution results](live-rerun-2026-10-19.md)
 supersede its earlier "not executed" or unproven status for L1-02 through L1-05.
 L1-01 now has observed PDF retrieval, but still lacks a full answer-accuracy audit.
+The October 25 local audit attempt found only partial historical answer evidence;
+complete-answer provenance is unavailable, so this accuracy criterion cannot close.
 L1-06 now has a conversational-only pass, not full send-time enforcement.
 L1-07 now has independently observed failed connector activity and actual input,
 but its raw HTTP/error response remains unverified. The latest record checks the

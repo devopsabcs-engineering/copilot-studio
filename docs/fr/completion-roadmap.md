@@ -107,6 +107,20 @@ bloqué, pas réussi. T009/T010 et l'édition du candidat nécessitent le rétab
 des prérequis pris en charge; aucune source, identité, autorisation ni réussite
 n'est inventée.
 
+La récupération des dépendances retrouve ensuite le setup SessionStart et le
+manifeste officiel des dépendances natives du plugin. Le répertoire de données
+contient le manifeste, mais aucun des trois paquets requis. L'installation
+normale et l'alternative du cache hors ligne échouent avec `EALLOWREMOTE` :
+le téléchargement des paquets de type distant est désactivé. Aucun registre,
+source de paquet ni stratégie n'est contourné. Ce blocage d'installation
+n'autorise ni modification du bundle ni réutilisation du mauvais tenant.
+
+L'[audit historique local du Lab 1](../assets/runtime-2026-10-25/lab1-full-answer-audit.json)
+vérifie empreinte, édition et pagination du PDF approuvé conservé, mais ne retrouve
+pas la réponse complète du 19 octobre avec provenance correspondante. Ni captures
+partielles ni réponses plus récentes ne la remplacent. Les totaux de faits restent
+inconnus; le critère historique reste indisponible, pas réussi.
+
 ## Précontrôle Azure indépendant du 24 octobre
 
 Les [nouveaux contrôles Azure en lecture seule](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

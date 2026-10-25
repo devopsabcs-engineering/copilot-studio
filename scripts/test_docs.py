@@ -1954,6 +1954,24 @@ class WikiTests(unittest.TestCase):
                     "candidateCloneCompleted", "agentYamlCreated", "roadmapComplete"):
             self.assertFalse(result[key])
         self.assertEqual(result["configurationOrPermissionChanges"], 0)
+        self.assertTrue(result["officialDependencyInstallAttempted"])
+        self.assertTrue(result["offlineCacheInstallAttempted"])
+        self.assertEqual(result["dependencyInstallResult"], "EALLOWREMOTE")
+        self.assertEqual(result["packageSourceOrPolicyOverrides"], 0)
+        self.assertFalse(result["nativeDependencyRecoveryCompleted"])
+
+    def test_historical_licensing_answer_is_not_reconstructed(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab1-full-answer-audit.json").read_text("utf-8"))
+        self.assertEqual(result["result"], "UNAVAILABLE")
+        self.assertFalse(result["criterion_can_close"])
+        self.assertFalse(result["answer_provenance"]["complete_answer_retained_and_matched"])
+        self.assertTrue(result["source_verification"]["matches_prior_october_19_and_20_receipts"])
+        self.assertFalse(result["atomic_claim_audit"]["complete"])
+        self.assertIsNone(result["atomic_claim_audit"]["substantive_claim_count"])
+        self.assertEqual(result["execution"]["new_questions"], 0)
+        self.assertEqual(result["execution"]["network_calls"], 0)
 
     def test_actual_licensing_navigation_and_lab2_blockers_remain_distinct(self):
         root = Path(__file__).resolve().parents[1]
