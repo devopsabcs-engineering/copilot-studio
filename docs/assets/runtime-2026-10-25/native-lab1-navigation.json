@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "observedAtUtc": "2026-10-25T01:15:00Z",
+  "scope": "One bounded native candidate citation-navigation check related to Lab 1 / T009; not the original licensing-PDF acceptance test",
+  "result": "fail",
+  "questionCount": 1,
+  "originalCaseNumber": 2,
+  "unchangedOriginalInput": true,
+  "freshCandidateTestSession": true,
+  "readiness": {
+    "connected": true,
+    "inputEnabled": true,
+    "automaticGreetingFinishedBeforeSubmission": true,
+    "modelPreflightQuestionCount": 0,
+    "questionRetries": 0
+  },
+  "criteria": {
+    "wholeParentResponseVisibleInNativeTranscript": "pass",
+    "renderedNativeLocalCitation": "pass",
+    "supportedBrowserClickOpensExpectedUploadedSourceDetails": "pass",
+    "displayedCitationPassageSupportsCTRThreshold": "fail",
+    "originalLicensingPDFNavigation": "not-assessed",
+    "historicalFullAnswerAccuracy": "not-assessed",
+    "downstreamConnectorErrorBodyFidelity": "not-assessed"
+  },
+  "completionEvidence": {
+    "nativeParentFinalResponseDelivered": true,
+    "typingIndicatorCountAfterResponse": 0,
+    "endOfChatHistoryVisible": true,
+    "knowledgeExecutionSummaryStatus": "Completed",
+    "knowledgeExecutionSeconds": 3.21,
+    "observedRoute": "Native knowledge retrieval; no specialist or hosted diagnostic invocation shown",
+    "runtimeDynamicPlanFinishedEvent": "not-assessed",
+    "limitation": "Whole-parent completion is observed at the native UI boundary, not certified from a runtime event stream."
+  },
+  "citation": {
+    "control": "Native inline Citation-1 button",
+    "targetType": "In-product source-passage dialog",
+    "targetTitle": "workshop-public-quick-reference.md",
+    "externalDocumentOpened": false,
+    "displayedPassageContainsCTR": false,
+    "displayedPassageContainsThresholdLabel": false,
+    "displayedPassageContainsCash": false,
+    "failure": "The opened passage covers other quick-reference topics, including SAR narratives and account actions. It does not establish the CTR threshold. An amount in an unrelated approval rule is not threshold evidence.",
+    "protectedSourceReconstructed": false,
+    "sourceTextOrRawAnswerPublished": false
+  },
+  "preservation": {
+    "originalParentInteraction": false,
+    "agentConfigurationWrites": false,
+    "connectionChanges": false,
+    "authenticationChanges": false,
+    "roleChanges": false,
+    "deploymentOrPublication": false,
+    "diagnosticRepeated": false,
+    "markdownEdited": false,
+    "uiRestoration": "Citation dialog closed; completed candidate transcript retained",
+    "configurationRestorationNeeded": false,
+    "limitation": "No backend preservation inventory was repeated; this check performed no configuration mutation."
+  },
+  "evidence": {
+    "privateDirectory": ".copilot-tracking/completion-20261023/native-lab1-navigation-20261025",
+    "privateScreenshots": 3,
+    "privateSnapshots": 2
+  },
+  "completion": {
+    "lab1Complete": false,
+    "t009Complete": false,
+    "nativeComplete": false,
+    "fullMatrixComplete": false,
+    "roadmapComplete": false
+  }
+}

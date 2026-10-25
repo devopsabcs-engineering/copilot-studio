@@ -57,6 +57,30 @@ l'indisponibilité de l'utilisateur, sans choix ni accord inventé. Responsable 
 rétention, date de revue, budget chiffré et validations organisationnelles
 attribuables restent manquants.
 
+### Poursuite native après publication
+
+La livraison vérifiée est poussée sur `main` au commit `1f41cd6`. La
+[nouvelle investigation de protocole](../assets/runtime-2026-10-25/native-protocol-followup.json)
+rétablit la visibilité normale du navigateur et vérifie indépendamment
+l'administrateur attendu du site. Le catalogue montre toujours dix opérations
+anciennes, sans Invocations/Responses hébergés. L'aperçu application n'expose
+aucun contrat de paramètres avant configuration; il est annulé et Tools reste
+vide. Ni absence côté backend ni cause de migration n'est prouvée.
+
+Un [contrôle de citation locale native](../assets/runtime-2026-10-25/native-lab1-navigation.json)
+utilise le cas CTR 2 inchangé sur le candidat fraude isolé. Réponse parent finale
+visible et dialogue de source cliquable sont observés, mais le passage affiché
+ne justifie pas le seuil. Il s'agit d'un défaut d'ancrage du candidat,
+**pas du test d'acceptation du PDF de licences du Lab 1**. Aucun événement runtime
+de fin de plan, audit de réponse historique complète ou corps d'erreur de
+connecteur n'est établi. Aucune configuration n'est modifiée.
+
+La préparation d'édition limitée au candidat est bloquée avant clonage :
+Manage signale son skill requis `copilot-studio:manage-agent` indisponible.
+Aucun YAML n'est inventé, aucune configuration distante modifiée ni parent
+d'origine touché. T005/T007 et T009 restent ouverts; contrat du connecteur et
+outillage de gestion pris en charge doivent être rétablis avant correction.
+
 ## Précontrôle Azure indépendant du 24 octobre
 
 Les [nouveaux contrôles Azure en lecture seule](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

@@ -52,6 +52,30 @@ occurs. The additional generated evaluation suite is deferred while the user is
 unavailable, not treated as selected or approved. Retention ownership, review
 date, numerical budget and attributable organizational signoffs remain missing.
 
+### Post-publication native continuation
+
+The checked release is pushed to `main` as commit `1f41cd6`. The
+[fresh protocol investigation](../assets/runtime-2026-10-25/native-protocol-followup.json)
+recovers normal browser visibility and independently verifies the expected website
+administrator. The catalog still shows ten legacy operations, not hosted
+Invocations/Responses. The application preview exposes no parameter contract
+before configuration; it is cancelled with Tools still empty. This does not
+prove backend operation absence or a migration cause.
+
+One [native local-citation check](../assets/runtime-2026-10-25/native-lab1-navigation.json)
+uses unchanged original CTR case 2 on the isolated fraud candidate. A final
+parent-visible answer and clickable source dialog are observed, but the displayed
+quick-reference passage does not support the threshold. This is a demonstrated
+candidate citation-grounding failure, **not the original licensing-PDF Lab 1
+acceptance test**. No runtime plan-finished event, historical full-answer audit
+or connector error-body fidelity is established. No configuration is changed.
+
+Candidate-only authoring preparation is blocked before clone: Manage reports its
+required `copilot-studio:manage-agent` skill unavailable. No agent YAML is
+fabricated, remote configuration changed or original parent touched. T005/T007
+and T009 remain open; supported connector-contract resolution and management
+tool recovery are required before that correction.
+
 ## October 24 independent Azure preflight
 
 The [fresh read-only Azure checks](../assets/runtime-2026-10-24/azure-preflight-refresh.json)

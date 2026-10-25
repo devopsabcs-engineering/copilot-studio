@@ -24,6 +24,15 @@ question native ni configuration n'est soumise. Aucun jeu généré, choix de
 rétention, budget chiffré ou accord organisationnel n'est inventé pendant
 l'indisponibilité de l'utilisateur.
 
+Le [suivi de protocole après publication](../assets/runtime-2026-10-25/native-protocol-followup.json)
+récupère le navigateur de l'administrateur vérifié, pas la disponibilité des
+opérations hébergées dans le tenant. Le clonage pris en charge est bloqué par
+un skill de gestion indisponible; aucun YAML ni configuration n'est inventé.
+Un [contrôle de citation CTR du candidat fraude](../assets/runtime-2026-10-25/native-lab1-navigation.json)
+ouvre le dialogue de la source attendue, mais le passage affiché ne justifie
+pas le seuil. Ce n'est ni le test PDF de licences du Lab 1 ni une réussite
+native/matrice complète. Le nouvel échec reste conservé.
+
 La [livraison autorisée antérieure](completion-roadmap.md#déploiement-autorisé-et-récupération-de-lauthentification)
 déploie la version 3 active et ferme T003/T004 dans le périmètre hébergé :
 **3/3 tests Activity réels positif, abstention et erreur d'entrée réussissent**;

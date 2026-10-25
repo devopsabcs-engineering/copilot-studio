@@ -1918,6 +1918,28 @@ class WikiTests(unittest.TestCase):
         self.assertFalse(result["whole_parent_completion_observed"])
         self.assertFalse(result["roadmap_complete"])
 
+    def test_native_followup_preserves_failed_grounding_and_clone_boundary(self):
+        root = Path(__file__).resolve().parents[1]
+        assets = root / "docs" / "assets" / "runtime-2026-10-25"
+        protocol = json.loads((assets / "native-protocol-followup.json").read_text("utf-8"))
+        self.assertTrue(protocol["browserVisibilityRecovered"])
+        self.assertTrue(protocol["exactExpectedWebsiteAdministratorVerified"])
+        self.assertEqual(protocol["freshCatalogVisibleOperationCount"], 10)
+        self.assertFalse(protocol["hostedInvocationsOrResponsesObservedInTenantCatalog"])
+        self.assertFalse(protocol["backendOperationAbsenceProven"])
+        self.assertFalse(protocol["candidateClone"]["completed"])
+        self.assertFalse(protocol["candidateClone"]["agentFilesCreated"])
+        self.assertEqual(protocol["configurationOrAuthorizationChanges"], 0)
+        self.assertFalse(protocol["roadmapComplete"])
+        navigation = json.loads((assets / "native-lab1-navigation.json").read_text("utf-8"))
+        self.assertEqual(navigation["questionCount"], 1)
+        self.assertTrue(navigation["unchangedOriginalInput"])
+        self.assertEqual(navigation["criteria"]["displayedCitationPassageSupportsCTRThreshold"], "fail")
+        self.assertEqual(navigation["criteria"]["originalLicensingPDFNavigation"], "not-assessed")
+        self.assertFalse(navigation["preservation"]["originalParentInteraction"])
+        self.assertFalse(navigation["preservation"]["agentConfigurationWrites"])
+        self.assertTrue(all(value is False for value in navigation["completion"].values()))
+
     def test_native_hosted_diagnostic_preserves_tenant_error_and_restoration(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-24"

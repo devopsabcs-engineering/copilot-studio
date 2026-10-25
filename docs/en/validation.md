@@ -22,6 +22,15 @@ The shared browser is hidden and normal UI recovery fails; no new native questio
 or configuration is submitted. No generated suite, retention decision, numerical
 budget or organizational signoff is invented from user unavailability.
 
+The [post-publication protocol follow-up](../assets/runtime-2026-10-25/native-protocol-followup.json)
+recovers the verified administrator's browser but not tenant hosted-operation
+availability. Supported candidate cloning is blocked by an unavailable management
+skill; no YAML or remote configuration is invented. One
+[fraud-candidate CTR citation check](../assets/runtime-2026-10-25/native-lab1-navigation.json)
+opens the expected uploaded source dialog, but its displayed passage does not
+support the threshold. This is not the original Lab 1 licensing-PDF navigation
+test, nor a native/full-matrix pass. The new failure remains retained.
+
 The earlier [authorized release](completion-roadmap.md#authorized-deployment-and-authentication-recovery)
 deploys active version 3 and closes T003/T004 within hosted scope:
 **3/3 real positive, abstention and input-error Activity checks pass**; 38 extension

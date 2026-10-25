@@ -1,0 +1,28 @@
+{
+  "scope": "Read-only native protocol investigation after the verified release push",
+  "result": "blocked",
+  "browserVisibilityRecovered": true,
+  "exactExpectedWebsiteAdministratorVerified": true,
+  "freshCatalogVisibleOperationCount": 10,
+  "hostedInvocationsOrResponsesObservedInTenantCatalog": false,
+  "backendOperationAbsenceProven": false,
+  "applicationPreviewExposesParameterContractBeforeConfiguration": false,
+  "applicationPreviewCancelled": true,
+  "emptyToolsListVerified": true,
+  "legacyApplicationMigrationCauseProven": false,
+  "connectedAgentsRequireActivity": true,
+  "invocationsToolEquivalentToConnectedAgents": false,
+  "nativeQuestionsSubmittedDuringProtocolInspection": 0,
+  "configurationOrAuthorizationChanges": 0,
+  "candidateClone": {
+    "attemptedThroughManageAgent": true,
+    "completed": false,
+    "requiredSkillAvailable": false,
+    "error": "Skill copilot-studio:manage-agent not found",
+    "agentFilesCreated": false,
+    "manualYamlWorkaroundAttempted": false
+  },
+  "nextSupportedAction": "Resolve tenant connector operation availability and supported contract with Microsoft support; restore supported management clone tooling before candidate authoring.",
+  "nativeAcceptance": false,
+  "roadmapComplete": false
+}
