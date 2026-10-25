@@ -19,6 +19,28 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 25 history recovery and verified wiki publication
+
+The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+recovers the exact October 19 question in the original agent. Its run remains
+In progress, with no completed answer exposed, including after one normal
+Refresh. No answer is reconstructed. A separate October 24 completed history
+contains a different question and cannot replace the original audit. Its nine
+inline citations have empty destinations; one normal citation click exposes
+no source dialog, PDF viewer, download or new tab. Only UI controls change.
+The retained approved PDF is unchanged. No new question or configuration write
+occurs, and the owned browser closes normally. T009 remains open.
+
+The [wiki publication checkpoint](../assets/runtime-2026-10-25/wiki-publication.json)
+records the actual public destination without changing visibility. All 133
+previously tracked wiki files match the prior generated canonical baseline,
+so no divergent human edit is overwritten. The 38-page validated bilingual
+snapshot is normally pushed to the actual `master` branch; independent remote
+revision reads and rendered English/French pages verify publication, including
+the incomplete 10/11 regression. A failed first English browser open and normal
+navigation recovery are retained. This closes the publication portion, not
+T016 or workshop acceptance. Private evidence and original PDFs are not published.
+
 ## October 25 owned-resource and reported-cost refresh
 
 The [new scoped inventory](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
@@ -1103,7 +1125,7 @@ passes remain valid subsystem evidence, not whole-lab certification.
 Requirements: REQ-008. Inputs: every new acceptance receipt and [publication procedure](../publishing.md).
 
 - [ ] T015 [Plan:8.1] Update the English/French execution reports, validation ledgers, lab guides and sanitized JSON receipts together. Preserve chronological failures and distinguish passed, failed, blocked, excluded and not-run criteria. Remove only independently verified owned disposable resources; otherwise record owner, cost review date and explicit retention decision.
-- [ ] T016 [Plan:8.1] Run documentation tests, canonical validation, wiki export and wiki validation. Review the private repository and wiki destinations and human changes before authorized publication; verify actual remote revisions and both language pages after publishing. Mark workshop completion only against the final acceptance checklist below.
+- [ ] T016 [Plan:8.1] Run documentation tests, canonical validation, wiki export and wiki validation. Review actual repository visibility, wiki destination and human changes before authorized publication; verify remote revisions and both language pages afterward. The October 25 in-progress snapshot publication is verified, not full release acceptance. Mark workshop completion only against the final acceptance checklist below.
 
 Exit: every mandatory requirement has current evidence, publication is verified
 if performed, and no unowned, unexpectedly billable or unexplained test resource

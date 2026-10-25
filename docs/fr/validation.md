@@ -8,6 +8,17 @@ ms.date: 2026-10-25
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+La [récupération ultérieure de l'historique des licences](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+retrouve la question originale exacte, mais aucune réponse historique complète,
+même après une actualisation. Un clic de citation dans un autre historique
+terminé n'expose ni destination ni PDF et ne remplace pas l'audit original.
+Aucune nouvelle question ni écriture de configuration; T009 reste ouvert.
+L'[instantané wiki vérifié](../assets/runtime-2026-10-25/wiki-publication.json)
+réussit comparaison avec la référence sans écrasement humain, publication
+normale et contrôles rendus des deux langues. La destination est publique,
+sa visibilité inchangée. Ces progrès ne ferment ni T016 ni les critères
+restants d'acceptation et de rétention.
+
 La dernière [poursuite du candidat authentifié](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)
 résout la connexion administrateur PAC et le clonage officiel. Les recherches
 littérales CTR/SAR corrigées et l'accueil sans source réussissent **3/3** en natif,

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "status": "HISTORICAL_ANSWER_UNAVAILABLE_AND_CITATION_NAVIGATION_NOT_VERIFIED",
+  "originalHistory": {
+    "exactOriginalAgentAndQuestionVerified": true,
+    "displayedRunDate": "2026-10-19",
+    "displayedState": "In progress",
+    "completeAnswerObserved": false,
+    "normalRefreshes": 1,
+    "refreshOnlyAddedRefreshControlLabel": true,
+    "historicalAnswerReconstructed": false
+  },
+  "separateCompletedHistory": {
+    "displayedRunDate": "2026-10-24",
+    "differentQuestionNotSubstitutedForOriginal": true,
+    "inlineCitationAnchors": 9,
+    "allCitationHrefsEmpty": true,
+    "normalInlineCitationClicks": 1,
+    "visibleTextOnlyAddedReviewCounter": true,
+    "sameHistoryAndSingleTabRetained": true,
+    "newSourceDialogOrPdfViewerObserved": false,
+    "approvedPdfDownloadObserved": false,
+    "targetEditionPassageAndPageNavigationVerified": false
+  },
+  "approvedRetainedPdf": {
+    "bytes": 867776,
+    "sha256": "e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6",
+    "unchanged": true
+  },
+  "execution": {
+    "newNativeQuestions": 0,
+    "configurationWrites": 0,
+    "ownedBrowserClosedNormally": true,
+    "otherBrowsersTouched": false
+  },
+  "acceptance": {
+    "historicalFullAnswerAuditComplete": false,
+    "actualLicensingCitationNavigationPassed": false,
+    "T009Complete": false,
+    "wholeRoadmapComplete": false
+  }
+}

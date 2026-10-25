@@ -1,7 +1,7 @@
 ---
 title: Publication and maintenance / Publication et maintenance
 description: Validate canonical bilingual documentation and synchronize the same content to GitHub wiki.
-ms.date: 2026-10-19
+ms.date: 2026-10-25
 ---
 
 ## English publication procedure
@@ -21,6 +21,14 @@ The repository was created private. GitHub CLI authentication can publish reposi
 and wiki commits, but the wiki must first be initialized with a page in the browser.
 The owner initialized Home while signed in; that enabled its separate Git endpoint.
 Do not change visibility or put an access token into a command, document, or remote URL.
+
+The [October 25 publication checkpoint](assets/runtime-2026-10-25/wiki-publication.json)
+observes that the repository is now **public**, with the wiki enabled. This run
+does not change visibility. Recheck current visibility before every publication;
+do not infer access restrictions from the historical private creation state.
+Only reviewed canonical documentation and sanitized assets belong in either
+destination. Private runtime evidence and original source PDFs remain outside them.
+The published snapshot is progress reporting, not workshop completion.
 
 ### Validate the source documentation
 
@@ -106,6 +114,14 @@ du dépôt et du wiki, mais une première page doit être créée dans le naviga
 initialiser le wiki. Le propriétaire a initialisé Home après connexion, ce qui a rendu
 son point d'accès Git distinct disponible. Ne changez pas la visibilité et ne placez
 jamais de jeton dans une commande, un document ou l'URL d'un dépôt distant.
+
+Le [point de publication du 25 octobre](assets/runtime-2026-10-25/wiki-publication.json)
+constate que le dépôt est désormais **public**, avec le wiki activé. Cette
+exécution ne change pas la visibilité. Vérifiez-la avant chaque publication;
+la création historiquement privée ne garantit pas les restrictions actuelles.
+Seuls les guides de référence relus et les ressources expurgées appartiennent
+à ces destinations. Preuves privées d'exécution et PDF sources originaux restent
+à l'extérieur. L'instantané publié rapporte des progrès, pas la fin de l'atelier.
 
 ### Vérifier la documentation de référence
 

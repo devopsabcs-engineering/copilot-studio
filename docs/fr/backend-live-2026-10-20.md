@@ -8,6 +8,15 @@ ms.date: 2026-10-25
 
 [Tous les labs](index.md) | [English](../en/backend-live-2026-10-20.md) | [Registre réel](live-rerun-2026-10-19.md)
 
+Le [contrôle ultérieur History/source des licences](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+conserve l'historique original incomplet et un échec distinct de navigation
+de citation intégrée, sans nouvelle question native ni écriture de configuration.
+La [publication wiki réelle](../assets/runtime-2026-10-25/wiki-publication.json)
+vérifie indépendamment destination publique, référence sans modification humaine,
+envoi normal, révision distante et pages anglaises/françaises rendues.
+Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
+T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
+
 ## Récupération administrateur et candidat du 25 octobre
 
 La [dernière poursuite du candidat](completion-roadmap.md#correction-du-candidat-authentifié-du-25-octobre)

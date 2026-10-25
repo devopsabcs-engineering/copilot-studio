@@ -2615,6 +2615,87 @@ class WikiTests(unittest.TestCase):
                 self.assertIn("owned-boundary-refresh.json",
                               (root / "docs" / language / name).read_text("utf-8"))
 
+    def test_original_licensing_history_followup_does_not_substitute_a_newer_answer(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab1-history-citation-followup.json").read_text("utf-8"))
+        original = result["originalHistory"]
+        self.assertTrue(original["exactOriginalAgentAndQuestionVerified"])
+        self.assertEqual(original["displayedRunDate"], "2026-10-19")
+        self.assertEqual(original["displayedState"], "In progress")
+        self.assertEqual(original["normalRefreshes"], 1)
+        self.assertTrue(original["refreshOnlyAddedRefreshControlLabel"])
+        self.assertFalse(original["completeAnswerObserved"])
+        self.assertFalse(original["historicalAnswerReconstructed"])
+        self.assertTrue(result["separateCompletedHistory"]["differentQuestionNotSubstitutedForOriginal"])
+        self.assertEqual(result["separateCompletedHistory"]["displayedRunDate"], "2026-10-24")
+        for value in result["acceptance"].values():
+            self.assertFalse(value)
+
+    def test_inline_licensing_citation_failure_preserves_exact_counts_and_source(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab1-history-citation-followup.json").read_text("utf-8"))
+        citation = result["separateCompletedHistory"]
+        self.assertEqual(citation["inlineCitationAnchors"], 9)
+        self.assertEqual(citation["normalInlineCitationClicks"], 1)
+        for key in ("allCitationHrefsEmpty", "visibleTextOnlyAddedReviewCounter",
+                    "sameHistoryAndSingleTabRetained"):
+            self.assertTrue(citation[key])
+        for key in ("newSourceDialogOrPdfViewerObserved", "approvedPdfDownloadObserved",
+                    "targetEditionPassageAndPageNavigationVerified"):
+            self.assertFalse(citation[key])
+        self.assertEqual(result["approvedRetainedPdf"]["bytes"], 867776)
+        self.assertEqual(result["approvedRetainedPdf"]["sha256"],
+                         "e1b4789118ff8f1bb633683d6fbeb750b80c25b16760d036eff247e477a524d6")
+        self.assertTrue(result["approvedRetainedPdf"]["unchanged"])
+        self.assertEqual(result["execution"]["newNativeQuestions"], 0)
+        self.assertEqual(result["execution"]["configurationWrites"], 0)
+        self.assertTrue(result["execution"]["ownedBrowserClosedNormally"])
+        self.assertFalse(result["execution"]["otherBrowsersTouched"])
+
+    def test_published_wiki_checkpoint_preserves_public_visibility_and_partial_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "wiki-publication.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "PUBLISHED_IN_PROGRESS_SNAPSHOT")
+        self.assertEqual(result["canonicalSourceRevision"],
+                         "bf0f72c5745271db31e5999aba2dedcb5964288e")
+        self.assertEqual(result["verifiedWikiRevision"],
+                         "762188c57fb087ee7a7c552ad6a85e0aa7ebcc9c")
+        self.assertEqual(result["wikiBranch"], "master")
+        self.assertEqual(result["repositoryVisibilityObserved"], "PUBLIC")
+        self.assertEqual(result["priorTrackedFilesReviewed"], 133)
+        self.assertEqual(result["divergentHumanEditsFound"], 0)
+        self.assertEqual(result["generatedMarkdownPages"], 38)
+        self.assertGreater(result["generatedFilesComparedWithValidatedSnapshot"], 133)
+        for key in ("validatedSnapshotMatchesPublishedFiles", "normalPushUsed",
+                    "repositoryAndWikiRemoteRevisionsIndependentlyVerified",
+                    "initialEnglishBrowserOpenFailed", "englishNormalNavigationRecoveryVerified",
+                    "onlyReviewedSanitizedCanonicalContentPublished", "T016PublicationPortionVerified"):
+            self.assertTrue(result[key])
+        for key in ("repositoryVisibilityChanged", "humanChangesOverwritten", "forcePushUsed",
+                    "originalSourcePdfPublished", "privateRuntimeEvidencePublished",
+                    "agentOrAzureDeploymentPerformed", "T016WholeTaskComplete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        for language in ("en", "fr"):
+            page = result["renderedBrowserChecks"][language]
+            self.assertTrue(page["incompleteRegressionVisible"])
+            self.assertEqual(page["evidenceLinkVisible"], 1)
+            self.assertTrue(page["finalReleaseUnchecked"])
+
+    def test_history_and_publication_followups_are_linked_without_closing_release(self):
+        root = Path(__file__).resolve().parents[1]
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn("lab1-history-citation-followup.json", text)
+                self.assertIn("wiki-publication.json", text)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T009", roadmap)
+            self.assertIn("- [ ] T016", roadmap)
+        self.assertIn("wiki-publication.json", (root / "docs" / "publishing.md").read_text("utf-8"))
+
     def test_historical_licensing_answer_is_not_reconstructed(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

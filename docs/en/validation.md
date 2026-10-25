@@ -8,6 +8,16 @@ ms.date: 2026-10-25
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The later [original licensing History recovery](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+finds the exact original question but no completed historical answer, even
+after one Refresh. One citation click in a separate completed history exposes
+no destination or PDF; it does not substitute for the original audit. No new
+question or configuration write occurs. T009 remains open.
+The [verified wiki snapshot](../assets/runtime-2026-10-25/wiki-publication.json)
+passes human-edit baseline review, normal publication and both rendered-language
+checks. The destination is public; visibility is unchanged. Publication progress
+does not close T016 or the remaining acceptance and retention gates.
+
 The latest [authenticated candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)
 resolves administrator PAC sign-in and official candidate cloning. Corrected
 literal CTR/SAR lookups and source-free intake pass native **3/3**, then

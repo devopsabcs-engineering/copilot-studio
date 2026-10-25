@@ -8,6 +8,15 @@ ms.date: 2026-10-25
 
 [All labs](index.md) | [Français](../fr/backend-live-2026-10-20.md) | [Live ledger](live-rerun-2026-10-19.md)
 
+The later [licensing History/source check](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+retains the original incomplete history and a distinct failed inline-citation
+navigation check, with zero new native questions or configuration writes.
+The [actual wiki publication](../assets/runtime-2026-10-25/wiki-publication.json)
+independently verifies the public destination, unchanged human-edit baseline,
+normal push, remote revision and rendered English/French pages. This publishes
+an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
+remaining acceptance and human governance stay open.
+
 ## October 25 administrator and candidate recovery
 
 The [latest candidate continuation](completion-roadmap.md#october-25-authenticated-candidate-correction)

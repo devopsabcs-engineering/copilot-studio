@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-25",
+  "status": "PUBLISHED_IN_PROGRESS_SNAPSHOT",
+  "canonicalSourceRevision": "bf0f72c5745271db31e5999aba2dedcb5964288e",
+  "verifiedWikiRevision": "762188c57fb087ee7a7c552ad6a85e0aa7ebcc9c",
+  "wikiBranch": "master",
+  "repositoryVisibilityObserved": "PUBLIC",
+  "repositoryVisibilityChanged": false,
+  "wikiEnabled": true,
+  "priorWikiRevision": "d580dce31356b3826c2ffe157cf48cfbbafd0722",
+  "historicalCanonicalBaselineRevision": "b62e03cc5a8cf37a9123fa692d11727ae5dc182c",
+  "priorTrackedFilesReviewed": 133,
+  "divergentHumanEditsFound": 0,
+  "humanChangesOverwritten": false,
+  "generatedMarkdownPages": 38,
+  "generatedFilesComparedWithValidatedSnapshot": 233,
+  "validatedSnapshotMatchesPublishedFiles": true,
+  "normalPushUsed": true,
+  "forcePushUsed": false,
+  "repositoryAndWikiRemoteRevisionsIndependentlyVerified": true,
+  "renderedBrowserChecks": {
+    "fr": {
+      "url": "https://github.com/devopsabcs-engineering/copilot-studio/wiki/FR-completion-roadmap",
+      "title": "FR completion roadmap \u00b7 devopsabcs-engineering/copilot-studio Wiki \u00b7 GitHub",
+      "incompleteRegressionVisible": true,
+      "evidenceLinkVisible": 1,
+      "finalReleaseUnchecked": true
+    },
+    "en": {
+      "url": "https://github.com/devopsabcs-engineering/copilot-studio/wiki/EN-completion-roadmap",
+      "status": 200,
+      "title": "EN completion roadmap \u00b7 devopsabcs-engineering/copilot-studio Wiki \u00b7 GitHub",
+      "incompleteRegressionVisible": true,
+      "evidenceLinkVisible": 1,
+      "finalReleaseUnchecked": true
+    }
+  },
+  "initialEnglishBrowserOpenFailed": true,
+  "englishNormalNavigationRecoveryVerified": true,
+  "onlyReviewedSanitizedCanonicalContentPublished": true,
+  "originalSourcePdfPublished": false,
+  "privateRuntimeEvidencePublished": false,
+  "agentOrAzureDeploymentPerformed": false,
+  "T016PublicationPortionVerified": true,
+  "T016WholeTaskComplete": false,
+  "wholeRoadmapComplete": false,
+  "scope": "This chronological receipt verifies the cited snapshot, not future wiki revisions or workshop acceptance. Later receipt-only metadata and documentation follow-ups require a separate wiki synchronization."
+}

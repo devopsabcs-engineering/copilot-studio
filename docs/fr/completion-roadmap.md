@@ -20,6 +20,30 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Historique récupéré et publication wiki vérifiée du 25 octobre
+
+Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+retrouve la question exacte du 19 octobre dans l'agent original. L'exécution
+reste In progress, sans réponse complète exposée, y compris après une seule
+actualisation normale. Aucune réponse n'est reconstruite. Un historique terminé
+du 24 octobre contient une autre question et ne remplace pas l'audit original.
+Ses neuf citations intégrées ont des destinations vides; un clic normal
+n'expose ni dialogue source, lecteur PDF, téléchargement ou nouvel onglet.
+Seuls des contrôles d'interface changent. Le PDF approuvé conservé est inchangé.
+Aucune nouvelle question ni écriture de configuration; le navigateur détenu
+ferme normalement. T009 reste ouvert.
+
+Le [point de publication wiki](../assets/runtime-2026-10-25/wiki-publication.json)
+constate la destination publique réelle sans changer sa visibilité. Les 133
+fichiers wiki déjà suivis correspondent à l'ancienne référence canonique générée;
+aucune modification humaine divergente n'est écrasée. L'instantané bilingue
+validé de 38 pages est envoyé normalement sur la véritable branche `master`.
+Lectures distantes indépendantes et pages anglaises/françaises rendues vérifient
+la publication, dont la régression incomplète 10/11. Le premier échec d'ouverture
+anglaise et sa récupération par navigation normale restent conservés.
+Cela termine la partie publication, pas T016 ni l'acceptation de l'atelier.
+Preuves privées et PDF originaux ne sont pas publiés.
+
 ## Inventaire détenu et coûts déclarés du 25 octobre
 
 Le [nouvel inventaire ciblé](../assets/runtime-2026-10-25/owned-boundary-refresh.json)
@@ -1161,7 +1185,7 @@ des preuves de sous-système, pas de certification intégrale.
 Exigence : REQ-008. Entrées : nouveaux reçus et [procédure de publication](../publishing.md).
 
 - [ ] T015 [Plan:8.1] Mettre à jour ensemble rapports anglais/français, registres, guides et reçus JSON expurgés. Préserver la chronologie et distinguer réussite, échec, blocage, exclusion et non-exécution. Supprimer uniquement les ressources jetables dont la propriété est vérifiée; sinon enregistrer propriétaire, revue des coûts et rétention explicite.
-- [ ] T016 [Plan:8.1] Exécuter tests documentaires, validation canonique, export et validation wiki. Examiner destinations privées et changements humains avant publication autorisée; vérifier ensuite révisions distantes et pages des deux langues. Déclarer l'atelier terminé uniquement contre la liste finale ci-dessous.
+- [ ] T016 [Plan:8.1] Exécuter tests documentaires, validation canonique, export et validation wiki. Examiner visibilité réelle du dépôt, destination wiki et changements humains avant publication autorisée; vérifier ensuite révisions distantes et pages des deux langues. La publication de l'instantané en cours du 25 octobre est vérifiée, pas l'acceptation finale. Déclarer l'atelier terminé uniquement contre la liste finale ci-dessous.
 
 Sortie : chaque exigence obligatoire possède une preuve actuelle, la publication
 est vérifiée si effectuée et aucune ressource d'essai sans propriétaire, coût expliqué
