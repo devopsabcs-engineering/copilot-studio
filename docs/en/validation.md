@@ -144,6 +144,21 @@ for this current reconciliation.
 
 ### Earlier execution chronology
 
+The [integrated Search probe](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+uses the native Microsoft Entra ID Integrated choice and documented `ai://`
+namespace. One Create encounters an explicit consent-popup-blocked error;
+OAuth never completes, Next stays disabled and the picker never runs.
+No picker HTTP status/body or effective native principal is established.
+[VS Code documents popup blocking](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation);
+normal OAuth in a supported external browser is the next prerequisite, not
+another question or permission expansion. Cleanup verifies seven original
+connections and no persisted probe connection, without guessed deletion.
+Long-path-safe 64-file snapshots preserve 63 non-token files, 22 French
+translations and 49 components. Zero source additions, questions, agent saves,
+publications or Azure writes; no continuous external-state audit.
+This is not a repair of the earlier service-principal failure. S5-10/T014/T016
+and native retrieval/paired-denial acceptance remain open.
+
 The [two new native Search OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
 each save Connected after one Create, then fail index selection with
 `Something went wrong.`, console HTTP 400 and Add to agent disabled.

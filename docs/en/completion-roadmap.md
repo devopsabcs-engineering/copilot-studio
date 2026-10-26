@@ -191,6 +191,27 @@ Plan numbers are not lab numbers: plan 6.1 is **Lab 4 BYOM**, not Lab 6.
    Mark the workshop complete only against the final checklist, not because
    every lab has been attempted.
 
+## October 26 integrated Search popup prerequisite
+
+A [separate integrated-user probe](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+uses the native Microsoft Entra ID Integrated choice and the `ai://` namespace
+documented in the [Search connector reference](https://learn.microsoft.com/en-us/connectors/azureaisearch/).
+Exactly one Create stops with the explicit connection-consent popup-blocked
+error. OAuth does not complete; Next stays disabled and the index picker never
+runs. There is no picker HTTP status, response body or correlation to report.
+The [VS Code browser documentation](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation)
+states that popups are blocked. Use normal OAuth in a supported external browser
+before another bounded picker diagnostic; do not bypass popup/token handling,
+repeat questions or expand permissions.
+
+Cleanup verifies the original seven connections exactly, no persisted probe
+connection and no guessed deletion. Complete long-path-safe PAC comparison
+preserves all 63 non-token files, 22 French translations and 49 components
+across 64-file snapshots. Zero questions, source additions, agent saves,
+publications or Azure writes. No continuous external-state audit is claimed.
+This is not a replay or repair of the earlier service-principal HTTP 400.
+S5-10/T014/T016 and effective native principal/retrieval acceptance remain open.
+
 ## October 26 native Search service-principal picker blocker
 
 The [two isolated OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)

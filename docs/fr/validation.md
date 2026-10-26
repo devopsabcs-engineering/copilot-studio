@@ -152,6 +152,22 @@ remplacer cette réconciliation actuelle.
 
 ### Chronologie des exécutions antérieures
 
+La [sonde Search intégrée](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+emploie le choix natif Microsoft Entra ID Integrated et l'espace `ai://`
+documenté. Un seul Create rencontre l'erreur explicite de popup de consentement
+bloquée; OAuth ne se termine pas, Next reste désactivé et le sélecteur ne tourne
+jamais. Aucun statut/corps HTTP du sélecteur ni principal natif établi.
+[VS Code documente le blocage des popups](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation);
+l'OAuth normal dans un navigateur externe pris en charge est le prochain
+prérequis, pas une autre question ni un élargissement de permissions.
+Le nettoyage vérifie sept connexions initiales et aucune connexion de sonde
+persistante, sans suppression devinée. Deux instantanés complets de 64 fichiers
+à chemins longs conservent 63 fichiers hors jeton, 22 traductions françaises et
+49 composants. Zéro source ajoutée, question, enregistrement, publication ou
+écriture Azure; aucun audit continu de l'état externe. Ce n'est pas une
+correction de l'échec antérieur par principal de service. S5-10/T014/T016 et
+l'acceptation de recherche native/refus apparié restent ouverts.
+
 Les [deux nouvelles cohortes Search OAuth par principal de service](../assets/runtime-2026-10-26/native-search-index-picker.json)
 enregistrent chacune Connected après un Create, puis échouent au sélecteur :
 `Something went wrong.`, HTTP 400 console, Add to agent désactivé.

@@ -919,6 +919,83 @@ class WikiTests(unittest.TestCase):
                 self.assertIn(filename, text)
                 self.assertIn(receipt["issueUrl"], text)
 
+    def test_integrated_search_popup_blocker_is_not_picker_or_retrieval_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "native-search-integrated-popup.json"
+        raw = (root / "docs/assets/runtime-2026-10-26" / filename).read_text("utf-8")
+        self.assertTrue(raw.endswith("\n"))
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "srch-wvl6", "admin@", "client_secret", "access_token"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual(receipt["status"], "STOPPED_AFTER_ONE_CREATE_BROWSER_POPUP_BLOCKED")
+        prerequisite = receipt["supportedPrerequisite"]
+        self.assertEqual(prerequisite["nativeAuthenticationChoice"], "Microsoft Entra ID Integrated")
+        self.assertEqual(prerequisite["officialAuthId"], "oauth")
+        self.assertEqual(prerequisite["separateServicePrincipalAuthId"], "oauthSP")
+        self.assertEqual(prerequisite["nativeAndDocumentedNamespaceScheme"], "ai://")
+        self.assertFalse(prerequisite["nativeClientSecretInput"])
+        self.assertFalse(prerequisite["chooserObservationIsGlobalConnectionAbsence"])
+        attempt = receipt["attempt"]
+        self.assertEqual((attempt["durableCreateIntents"], attempt["createClicks"],
+                          attempt["automaticRetries"]), (1, 1, 0))
+        self.assertIn("consent pop-up window has been blocked", attempt["nativeErrorExact"])
+        self.assertEqual(attempt["parentConnectionState"], "Not connected")
+        self.assertEqual(attempt["metadataRouteWorks"], "NOT_ESTABLISHED")
+        self.assertEqual(attempt["pickerInvocations"], 0)
+        self.assertEqual(attempt["ownedPopupsObserved"], 0)
+        self.assertIsNone(attempt["pickerHttpStatus"])
+        self.assertIsNone(attempt["pickerHttpErrorCode"])
+        self.assertEqual(attempt["pickerCorrelationEvidence"], [])
+        for key in ("nextEnabled", "oauthCompleted", "oauthAccountVisible", "effectiveRuntimePrincipalProven",
+                    "credentialEntry", "browserPopupPolicyChanged", "authOrStorageInspection"):
+            self.assertFalse(attempt[key])
+        collection = receipt["collection"]
+        self.assertTrue(collection["narrowResponseCaptureInstalledBeforeCreate"])
+        self.assertTrue(collection["authAndTokenEndpointsExcluded"])
+        self.assertTrue(collection["initialReadOnlyDialogRoleWaitTimedOut"])
+        self.assertTrue(collection["cancelRequiredSeparateLeaveConfirmation"])
+        self.assertEqual(collection["matchingPickerResponses"], 0)
+        for key in ("authorizationHeadersAndRequestBodiesInspected", "unrelatedConsole400UsedAsEvidence",
+                    "networkCompletenessClaimed"):
+            self.assertFalse(collection[key])
+        cleanup = receipt["cleanup"]
+        self.assertEqual((cleanup["originalConnections"], cleanup["persistedProbeConnectionsRemaining"],
+                          cleanup["deleteCommandsIssued"], cleanup["remainingDialogs"]), (7, 0, 0, 0))
+        for key in ("supportedExactIdConnectionDeleteConfirmedBeforeCreate", "connectionFormCanceled",
+                    "parentWizardCanceledAndLeaveConfirmed", "freshOfficialConnectionInventoryVerified",
+                    "originalConnectionInventoryExact", "noGuessedDeletion", "ownedListenersDetached",
+                    "overviewAddKnowledgeVisible"):
+            self.assertTrue(cleanup[key])
+        self.assertFalse(cleanup["transientBackendRecordAbsenceClaimed"])
+        preservation = receipt["preservation"]
+        self.assertTrue(preservation["officialBeforeAndAfterPacClones"])
+        self.assertTrue(preservation["windowsExtendedLengthEnumeration"])
+        self.assertTrue(preservation["botdefinitionSourceAndAuditBytesUnchanged"])
+        for key, expected in (("filesBefore", 64), ("filesAfter", 64),
+                              ("nonTokenFilesByteIdentical", 63),
+                              ("frenchTranslationFilesUnchanged", 22), ("components", 49)):
+            self.assertEqual(preservation[key], expected)
+        for key in ("knowledgeSourcesAdded", "indexesBound", "questions", "agentSaves",
+                    "agentPublications", "azureWrites", "roleAuthPolicyModelToolSchemaHostedWrites"):
+            self.assertEqual(preservation[key], 0)
+        for key in ("opaqueSyncTokenDecoded", "historicalEvidenceOverwritten",
+                    "continuousExternalStateAuditClaimed"):
+            self.assertFalse(preservation[key])
+        browser = receipt["browserBoundary"]
+        self.assertEqual(browser["documentedBehavior"], "Popups are blocked, but new tabs are allowed")
+        self.assertIn("external browser", browser["supportedNextPrerequisite"])
+        self.assertFalse(browser["popupOrTokenHandlingBypassUsed"])
+        self.assertTrue(all(value is False for value in receipt["acceptance"].values()))
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", text)
+                self.assertIn(browser["officialReference"], text)
+                for marker in ("Microsoft Entra ID Integrated", "ai://", "63", "22", "49",
+                               "S5-10/T014/T016"):
+                    self.assertIn(marker, text)
+
     def test_page_names(self):
         root = Path(__file__).resolve().parents[1]
         self.assertEqual(page_name(root / "README.md"), "Home")

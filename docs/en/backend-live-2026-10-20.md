@@ -17,6 +17,24 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 integrated Search popup prerequisite
+
+The [bounded integrated-user probe](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+uses native Microsoft Entra ID Integrated with the documented `ai://` namespace,
+not a client secret or another service-principal cohort. Exactly one Create
+stops on the explicit consent-popup-blocked error. OAuth is incomplete, Next
+disabled and picker invocations zero; there is no picker HTTP status/body or
+effective runtime principal. [VS Code documents popup blocking](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation).
+Normal OAuth in a supported external browser is a prerequisite, not proof of a
+picker fix. Do not bypass popup/token handling or replay questions.
+
+Cleanup independently verifies the seven original connections exactly and no
+persisted probe connection, with no guessed deletion. Complete long-path PAC
+snapshots remain 64 files, with 63 non-token files, 22 French translations and
+49 components unchanged. Zero questions, source additions, agent saves,
+publications or Azure writes; no continuous external-state audit.
+The earlier service-principal HTTP 400 and S5-10/T014/T016 remain open.
+
 ## October 26 native Search OAuth picker failure
 
 The [two sequential isolated service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)

@@ -17,6 +17,25 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Prérequis popup Search intégré du 26 octobre
+
+La [sonde bornée par utilisateur intégré](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+emploie Microsoft Entra ID Integrated et l'espace de noms `ai://` documenté,
+sans secret client ni nouvelle cohorte par principal de service. Un seul Create
+s'arrête sur l'erreur explicite de popup de consentement bloquée. OAuth reste
+incomplet, Next désactivé et zéro invocation du sélecteur; aucun statut/corps HTTP
+du sélecteur ni principal effectif. [VS Code documente le blocage des popups](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation).
+L'OAuth normal dans un navigateur externe pris en charge est un prérequis, pas
+une correction prouvée du sélecteur. Ne pas contourner popups/jetons ni rejouer
+les questions.
+
+Le nettoyage indépendant vérifie exactement les sept connexions initiales et
+aucune connexion de sonde persistante, sans suppression devinée. Deux instantanés
+PAC complets à chemins longs restent à 64 fichiers, dont 63 hors jeton,
+22 traductions françaises et 49 composants inchangés. Zéro question, source ajoutée,
+enregistrement, publication ou écriture Azure; aucun audit continu de l'état
+externe. Le HTTP 400 antérieur par principal de service et S5-10/T014/T016 restent ouverts.
+
 ## Échec du sélecteur Search OAuth natif du 26 octobre
 
 Les [deux cohortes isolées successives par principal de service](../assets/runtime-2026-10-26/native-search-index-picker.json)

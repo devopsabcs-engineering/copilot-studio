@@ -201,6 +201,27 @@ Les numéros d'étape ne sont pas ceux des labs : l'étape 6.1 concerne le
    Déclarer l'atelier terminé uniquement selon la liste finale, pas parce que
    chaque lab a été essayé.
 
+## Prérequis popup Search intégré du 26 octobre
+
+Une [sonde distincte par utilisateur intégré](../assets/runtime-2026-10-26/native-search-integrated-popup.json)
+emploie le choix natif Microsoft Entra ID Integrated et l'espace de noms `ai://`
+documenté dans la [référence du connecteur Search](https://learn.microsoft.com/en-us/connectors/azureaisearch/).
+Un seul Create s'arrête sur l'erreur explicite de popup de consentement bloquée.
+OAuth ne se termine pas; Next reste désactivé et le sélecteur ne s'exécute jamais.
+Aucun statut HTTP, corps ni corrélation du sélecteur n'est donc disponible.
+La [documentation du navigateur VS Code](https://code.visualstudio.com/docs/debugtest/integrated-browser#_navigation)
+indique que les popups sont bloquées. Effectuer l'OAuth normal dans un navigateur
+externe pris en charge avant un nouveau diagnostic borné du sélecteur; ne pas
+contourner popups/jetons, répéter les questions ni élargir les permissions.
+
+Le nettoyage vérifie exactement les sept connexions initiales, sans connexion
+de sonde persistante ni suppression devinée. La comparaison PAC complète à
+chemins longs conserve 63 fichiers hors jeton, 22 traductions françaises et
+49 composants sur deux instantanés de 64 fichiers. Zéro question, source ajoutée,
+enregistrement, publication ou écriture Azure. Aucun audit continu de l'état
+externe revendiqué. Ni rejeu ni correction du HTTP 400 antérieur par principal
+de service. S5-10/T014/T016, principal natif et acceptation de recherche restent ouverts.
+
 ## Blocage du sélecteur Search natif par principal de service du 26 octobre
 
 Les [deux cohortes OAuth isolées](../assets/runtime-2026-10-26/native-search-index-picker.json)
