@@ -81,6 +81,35 @@ Agents, connexions, compte/rôles d'embedding et schémas Search initiaux prése
 navigateur possédé fermé normalement. Coût réel non finalisé.
 La cohorte fictive antérieure 4/4 reste inchangée. S5-10, T014 et T016 restent ouverts.
 
+L'[examen d'identité ultérieur en lecture seule](https://github.com/devopsabcs-engineering/copilot-studio/issues/1)
+trouve une connexion Search réussie de l'administrateur approuvé avant le retrait.
+L'événement Search natif arrive environ 165 secondes après l'intention de
+suppression, pas après un achèvement de suppression mesuré. La
+[documentation RBAC générale](https://learn.microsoft.com/en-us/azure/role-based-access-control/troubleshooting#symptom---role-assignment-changes-are-not-being-detected)
+prévoit jusqu'à dix minutes de propagation. Ni délai ni connexion ne prouvent
+la cause de l'échec ou le principal effectif de la requête; les diagnostics
+Search n'exposent pas l'identité accédante.
+
+Le [contrôle préalable de retrait](../../scripts/check_revocation_readiness.py)
+refuse désormais les précontrôles natifs prématurés. Depuis la racine du dépôt,
+exécuter `python scripts\check_revocation_readiness.py <private-preflight.json>`.
+Il exige GET indépendant du rôle à 404, requête directe à 403, principal de
+connexion natif vérifié et conversation neuve, avec horodatages à décalage UTC
+ordonnés : retrait confirmé, au moins 600 secondes, authentification de connexion,
+refus direct, puis nouvelle conversation. L'intention de suppression ne remplace
+pas son contrôle indépendant. Ce contrôle valide uniquement les preuves fournies,
+pas le refus natif ni un délai contractuel de révocation. La question historique
+échouée n'est ni rejouée ni reclassée.
+
+Les champs JSON sont `assignmentGetStatus`, `directQueryStatus`,
+`nativeConnectionPrincipalVerified`, `freshConversationVerified`,
+`revocationVerifiedAtUtc`, `nativeConnectionAuthenticationVerifiedAtUtc`,
+`directQueryVerifiedAtUtc` et `freshConversationVerifiedAtUtc`.
+Utiliser des contrôles indépendants réellement enregistrés, pas des dates estimées
+ou inventées. Refus direct et contrôle de conversation doivent dater d'au plus
+120 secondes au lancement; ce seuil local de fraîcheur n'est pas un engagement
+contractuel du service.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

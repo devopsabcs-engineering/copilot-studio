@@ -2847,6 +2847,29 @@ class WikiTests(unittest.TestCase):
                     "originalHotelCorpusAcceptance", "T014Complete", "wholeRoadmapComplete"):
             self.assertFalse(result[key])
 
+    def test_identity_audit_does_not_promote_signin_or_timing_to_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
+                             / "lab5-isolated-permission-removal.json").read_text("utf-8"))
+        audit = result["readOnlyIdentityAudit"]
+        self.assertEqual(audit["interactiveAndNoninteractiveReadStatuses"], [200, 200])
+        self.assertEqual(audit["successfulSearchConnectorSignIns"], 1)
+        self.assertTrue(audit["approvedAdministratorOnly"])
+        self.assertTrue(audit["signInPrecedesRevocationIntent"])
+        self.assertLess(audit["secondsFromDeleteIntentToNativeSearchEvent"],
+                        audit["documentedGeneralRbacPropagationSeconds"])
+        for field in ("deletionCompletionIntervalEstablished", "timingGapProvesRootCause",
+                      "signInProvesEffectiveNativeRequestPrincipal", "historicalFailureReclassified",
+                      "readinessGuardCertifiesNativeAcceptance"):
+            self.assertFalse(audit[field])
+        self.assertEqual(audit["newSearchOrNativeQuestions"], 0)
+        self.assertEqual(audit["resourceOrPermissionWrites"], 0)
+        self.assertFalse(result["S5_10Accepted"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("check_revocation_readiness.py", text)
+            self.assertIn("600", text)
+
     def test_isolated_denial_capture_and_cleanup_preserve_failure_and_originals(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"

@@ -78,6 +78,34 @@ connections, embedding account/roles and Search schemas are preserved;
 the owned browser closes normally. Actual spending is not finalized.
 The earlier 4/4 fictional cohort is unchanged. S5-10, T014 and T016 stay open.
 
+The later read-only [identity investigation](https://github.com/devopsabcs-engineering/copilot-studio/issues/1)
+finds a successful Search-connector sign-in for the approved administrator before
+revocation. The native Search event is about 165 seconds after the deletion
+intent, not a measured interval after deletion completion. Azure's general
+[RBAC guidance](https://learn.microsoft.com/en-us/azure/role-based-access-control/troubleshooting#symptom---role-assignment-changes-are-not-being-detected)
+allows up to ten minutes for propagation. Neither timing nor sign-in establishes
+the failure's cause or effective per-request principal; Search diagnostics do
+not expose the accessing identity.
+
+The [revocation readiness guard](../../scripts/check_revocation_readiness.py)
+now rejects premature native test preflights. Run
+`python scripts\check_revocation_readiness.py <private-preflight.json>` from the
+repository root. It requires independent assignment 404, direct query 403,
+verified native connection principal and a fresh conversation, with ordered
+UTC-offset timestamps: confirmed revocation, at least 600 seconds, connection
+authentication, direct denial, then fresh conversation. A deletion-intent time
+cannot replace confirmed revocation. This checks supplied evidence only; it
+does not certify native denial or an organizational revocation SLA. The failed
+historical question is not replayed or reclassified.
+
+The JSON fields are `assignmentGetStatus`, `directQueryStatus`,
+`nativeConnectionPrincipalVerified`, `freshConversationVerified`,
+`revocationVerifiedAtUtc`, `nativeConnectionAuthenticationVerifiedAtUtc`,
+`directQueryVerifiedAtUtc` and `freshConversationVerifiedAtUtc`.
+Use actual independently recorded checks, not estimated or invented timestamps.
+Direct denial and conversation verification must be at most 120 seconds old
+when the guard runs; this local preflight freshness limit is not a service SLA.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
