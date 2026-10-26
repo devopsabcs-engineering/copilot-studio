@@ -1,7 +1,7 @@
 ---
 title: Feuille de route pour terminer l'atelier
 description: Travaux restants, priorités, dépendances, responsables et critères mesurables de clôture de l'atelier.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Objectif et périmètre
@@ -109,6 +109,35 @@ Utiliser des contrôles indépendants réellement enregistrés, pas des dates es
 ou inventées. Refus direct et contrôle de conversation doivent dater d'au plus
 120 secondes au lancement; ce seuil local de fraîcheur n'est pas un engagement
 contractuel du service.
+
+## Refus différé du 26 octobre bloqué au contrôle d'identité
+
+Le [nouveau précontrôle de refus différé](../assets/runtime-2026-10-26/lab5-delayed-denial-preflight.json)
+utilise un nouveau service Search Basic sans clé et les deux mêmes documents
+fictifs. Référence directe autorisée et vectorisation réussissent. Le retrait du
+rôle Reader possédé est confirmé indépendamment à 404; l'attente réelle atteint
+**600,001 secondes** avant la création d'une nouvelle connexion Entra formelle.
+Les requêtes directes suivantes renvoient 403. Un nouveau brouillon Standard non
+publié lie uniquement cet index, atteint Ready et conserve les instructions
+limitées aux sources, avec Web et connaissances générales désactivés.
+
+Les lectures Graph interactives et non interactives bornées n'établissent pas de
+nouvelle connexion Search réussie. Les métadonnées du compte ne remplacent pas la
+preuve du principal; aucun horodatage d'authentification n'est inventé.
+Le contrôle exécutable renvoie **BLOCK**. L'export officiel confirme **zéro
+question utilisateur et zéro exécution de source**, avec seulement l'accueil
+affiché. Ready n'est pas une acceptation de requête; l'absence de preuve d'audit
+n'établit ni échec d'authentification ni cause. Ce n'est ni un test natif autorisé
+puis révoqué apparié, ni une réussite S5-10.
+
+Brouillon, connexion, quatre rôles, Search/index et groupe possédés sont supprimés.
+Une lecture distincte du parent vérifie GET 404 pour les deux objets ARM et les
+quatre rôles, ainsi que l'identité exacte des cinq lignes d'agents, sept lignes de
+connexions, compte/rôles complets d'embedding et trois schémas d'origine.
+Les deux générations de navigateur possédées ferment normalement, sans commande
+en attente. Coût réel non finalisé; les ressources de l'atelier ne sont pas
+déclarées absentes. L'échec historique est inchangé; S5-10, T014 et l'acceptation
+de l'atelier restent ouverts.
 
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
@@ -660,6 +689,25 @@ combinée. L'application et ses deux identités d'annuaire sont supprimées;
 relectures complètes de l'agent/version d'origine, inventaires ARM/rôles/
 applications et contrôle d'annuaire d'origine sont vérifiés.
 Une API antérieure annoncée ne résout donc pas T005/T006.
+
+Les [essais des versions restantes du 26 octobre](../assets/runtime-2026-10-26/native-activity-remaining-api.json)
+testent `2026-03-15-preview`, `2026-05-15-preview` et `2026-07-15-preview`,
+uniquement après nettoyage indépendant de la cohorte de refus différé.
+Chaque demande unique de déploiement Hosted `Agent/2.0.0` reçoit HTTP 400 pour
+conversion d'énumération et champ de définition requis; chaque enfant refusé
+renvoie GET 404. Avec les trois essais antérieurs conservés, aucune des six
+versions testées ne résout l'écart du contrat documenté. Aucune question native
+ni de modèle direct n'est soumise.
+
+Les métadonnées du fournisseur annoncent ces versions pour l'**application
+parente**, pas pour le déploiement enfant. La première recherche locale du type
+enfant échoue avant toute écriture; son répertoire vide est vérifié avant une
+reprise contrôlée utilisant le vrai type parent. L'annonce du parent ne prouve
+pas le support de l'API enfant. L'application et ses deux identités d'annuaire
+possédées sont indépendamment absentes; agent/version, inventaires ARM/rôles/
+applications et contrôle d'annuaire d'origine sont préservés.
+Aucun protocole deviné ni authentification affaiblie. T005/T006 restent bloqués
+dans l'[issue 2](https://github.com/devopsabcs-engineering/copilot-studio/issues/2).
 
 ## Contrôle préalable du paquet de canal privé
 

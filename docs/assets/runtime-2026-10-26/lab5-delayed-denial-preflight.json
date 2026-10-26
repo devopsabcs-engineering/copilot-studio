@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-26",
+  "status": "PREFLIGHT_BLOCKED_NO_NATIVE_QUESTION",
+  "scope": {
+    "freshIsolatedKeylessBasicSearchService": true,
+    "unchangedFictionalSourceDocuments": 2,
+    "cachedEmbeddingDimensions": 1536,
+    "originalSearchSchemasOrPermissionsChanged": false,
+    "directAuthorizedBaselinePassed": true,
+    "directKeylessVectorizationPassed": true,
+    "pairedAuthorizedNativeThenRevokedTest": false
+  },
+  "revocation": {
+    "assignmentGetStatus": 404,
+    "revocationVerifiedAtUtc": "2026-10-26T00:24:21.180333+00:00",
+    "waitCompletedAtUtc": "2026-10-26T00:34:21.181611+00:00",
+    "actualSecondsSinceConfirmedRevocation": 600.001278,
+    "directQueryAfterWaitStatus": 403,
+    "newConnectionCreatedOnlyAfterWait": true,
+    "generalPropagationWindowIsNotOrganizationSla": true
+  },
+  "nativePreflight": {
+    "newUnpublishedStandardDraft": true,
+    "newFormalEntraIntegratedConnection": true,
+    "normalApprovedWindowsAccountUsed": true,
+    "sourceStatus": "Ready",
+    "exactlyOneOwnedIndexBound": true,
+    "sourceOnlyInstructionsUnchanged": true,
+    "webAndGeneralModelKnowledgeDisabled": true,
+    "interactiveAndNoninteractiveGraphAuditRead": true,
+    "successfulFreshSearchConnectorSignInEstablished": false,
+    "metadataAccountNameSubstitutedForPrincipalProof": false,
+    "readinessGuardStatus": "BLOCK",
+    "readinessGuardError": "The native connection's authenticated principal must be verified.",
+    "missingAuthenticationTimestampInvented": false,
+    "nativeQuestionSubmissions": 0
+  },
+  "capture": {
+    "officialExportUserMessages": 0,
+    "officialExportSourceExecutionEvents": 0,
+    "onlyDisplayedParentMessageWasGreeting": true,
+    "officialExportSha256": "fb8f96d4e7d3efbe3eb3e9b86200380b7fa1535fc67a038400c7e8b4aa35a532",
+    "allPreBindingAuthoredFilesByteUnchanged": true,
+    "onlyTwoNewSourceBindingFiles": true,
+    "modelReasoningInspected": false
+  },
+  "cleanup": {
+    "ownedDraftConnectionRolesSearchIndexAndGroupAbsent": true,
+    "ownedBrowserGenerationsClosedNormally": 2,
+    "pendingBrowserCommands": 0,
+    "parentIndependentVerificationAtUtc": "2026-10-26T00:49:52.000368+00:00",
+    "parentIndependentGroupAndSearchGetStatuses": [404, 404],
+    "parentIndependentOwnedRoleGetStatuses": [404, 404, 404, 404],
+    "allFiveOriginalAgentRowsAndSevenConnectionRowsExact": true,
+    "originalEmbeddingAccountAndCompleteRoleInventoryExact": true,
+    "allThreeOriginalSchemasExact": true,
+    "remainingOwnedCohortObjects": 0,
+    "globalAzureInventoryClaimedEmpty": false,
+    "actualSpendingFinalized": false,
+    "privateRawEvidencePublished": false
+  },
+  "S5_10Accepted": false,
+  "effectiveNativeRequestPrincipalEstablished": false,
+  "historicalFailureReclassified": false,
+  "rootCauseEstablished": false,
+  "T014Complete": false,
+  "wholeRoadmapComplete": false
+}

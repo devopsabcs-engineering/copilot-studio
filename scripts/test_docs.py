@@ -2870,6 +2870,54 @@ class WikiTests(unittest.TestCase):
             self.assertIn("check_revocation_readiness.py", text)
             self.assertIn("600", text)
 
+    def test_delayed_denial_guard_stops_before_native_question(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-delayed-denial-preflight.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "PREFLIGHT_BLOCKED_NO_NATIVE_QUESTION")
+        self.assertTrue(result["scope"]["directAuthorizedBaselinePassed"])
+        self.assertFalse(result["scope"]["pairedAuthorizedNativeThenRevokedTest"])
+        revocation = result["revocation"]
+        self.assertEqual(revocation["assignmentGetStatus"], 404)
+        self.assertGreaterEqual(revocation["actualSecondsSinceConfirmedRevocation"], 600)
+        self.assertEqual(revocation["directQueryAfterWaitStatus"], 403)
+        self.assertTrue(revocation["newConnectionCreatedOnlyAfterWait"])
+        preflight = result["nativePreflight"]
+        self.assertEqual(preflight["sourceStatus"], "Ready")
+        self.assertEqual(preflight["readinessGuardStatus"], "BLOCK")
+        self.assertFalse(preflight["successfulFreshSearchConnectorSignInEstablished"])
+        self.assertFalse(preflight["metadataAccountNameSubstitutedForPrincipalProof"])
+        self.assertFalse(preflight["missingAuthenticationTimestampInvented"])
+        self.assertEqual(preflight["nativeQuestionSubmissions"], 0)
+        self.assertEqual(result["capture"]["officialExportUserMessages"], 0)
+        self.assertEqual(result["capture"]["officialExportSourceExecutionEvents"], 0)
+        for key in ("S5_10Accepted", "effectiveNativeRequestPrincipalEstablished",
+                    "historicalFailureReclassified", "rootCauseEstablished",
+                    "T014Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
+    def test_delayed_denial_cleanup_and_bilingual_limits(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-delayed-denial-preflight.json").read_text("utf-8"))
+        cleanup = result["cleanup"]
+        self.assertTrue(cleanup["ownedDraftConnectionRolesSearchIndexAndGroupAbsent"])
+        self.assertEqual(cleanup["parentIndependentGroupAndSearchGetStatuses"], [404, 404])
+        self.assertEqual(cleanup["parentIndependentOwnedRoleGetStatuses"], [404] * 4)
+        for key in ("allFiveOriginalAgentRowsAndSevenConnectionRowsExact",
+                    "originalEmbeddingAccountAndCompleteRoleInventoryExact",
+                    "allThreeOriginalSchemasExact"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["remainingOwnedCohortObjects"], 0)
+        self.assertEqual(cleanup["pendingBrowserCommands"], 0)
+        self.assertFalse(cleanup["globalAzureInventoryClaimedEmpty"])
+        self.assertFalse(cleanup["actualSpendingFinalized"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("lab5-delayed-denial-preflight.json", text)
+            self.assertIn("- [ ] T014", text)
+            self.assertIn("- [ ] T016", text)
+
     def test_isolated_denial_capture_and_cleanup_preserve_failure_and_originals(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
@@ -3008,6 +3056,42 @@ class WikiTests(unittest.TestCase):
         for language in ("en", "fr"):
             text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
             self.assertIn("native-activity-earlier-api.json", text)
+            self.assertIn("- [ ] T005", text)
+            self.assertIn("- [ ] T006", text)
+
+    def test_remaining_activity_api_probes_do_not_claim_child_advertisement(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "native-activity-remaining-api.json").read_text("utf-8"))
+        self.assertEqual(result["status"], "REMAINING_ACTIVITY_API_PROBES_REJECT_DOCUMENTED_PROTOCOL")
+        self.assertTrue(result["scope"]["nativeDenialCleanupIndependentlyVerifiedBeforeProbe"])
+        metadata = result["providerMetadata"]
+        self.assertEqual(metadata["advertisedResourceType"], "accounts/projects/applications")
+        self.assertFalse(metadata["deploymentChildResourceTypeIndependentlyAdvertised"])
+        self.assertTrue(metadata["parentAdvertisementDoesNotProveChildApiSupport"])
+        self.assertTrue(metadata["initialLocalChildMetadataSelectionFailedBeforeAnyWrite"])
+        self.assertTrue(metadata["emptyOutputDirectoryVerifiedBeforeGuardedResume"])
+        self.assertEqual([attempt["apiVersion"] for attempt in result["attempts"]],
+                         ["2026-03-15-preview", "2026-05-15-preview", "2026-07-15-preview"])
+        for attempt in result["attempts"]:
+            self.assertEqual(attempt["protocol"], "Agent")
+            self.assertEqual(attempt["protocolVersion"], "2.0.0")
+            self.assertEqual(attempt["createSubmissions"], 1)
+            self.assertEqual(attempt["createStatus"], 400)
+            self.assertTrue(attempt["serviceRejectedAgentProtocolEnumConversion"])
+            self.assertTrue(attempt["serviceAlsoReportedDefinitionFieldRequired"])
+            self.assertEqual(attempt["deploymentGetAfterRejection"], 404)
+        self.assertEqual(result["execution"]["nativeQuestionsSubmitted"], 0)
+        self.assertFalse(result["execution"]["authenticationWeakened"])
+        self.assertFalse(result["execution"]["nativeAcceptancePassed"])
+        self.assertTrue(result["cleanup"]["originalAgentAndVersionFullReadbacksExactlyPreserved"])
+        self.assertTrue(result["cleanup"]["ownedApplicationAndDeploymentIndependentlyAbsent"])
+        self.assertEqual(result["cleanup"]["ownedApplicationDirectoryObjectGetStatuses"], [404, 404])
+        for key in ("T005Complete", "T006Complete", "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("native-activity-remaining-api.json", text)
             self.assertIn("- [ ] T005", text)
             self.assertIn("- [ ] T006", text)
 

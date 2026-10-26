@@ -1,7 +1,7 @@
 ---
 title: Workshop completion roadmap
 description: Prioritized remaining work, dependencies, owners, and measurable acceptance gates for workshop completion.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Goal and scope
@@ -105,6 +105,32 @@ The JSON fields are `assignmentGetStatus`, `directQueryStatus`,
 Use actual independently recorded checks, not estimated or invented timestamps.
 Direct denial and conversation verification must be at most 120 seconds old
 when the guard runs; this local preflight freshness limit is not a service SLA.
+
+## October 26 delayed denial stopped at the identity guard
+
+The [fresh delayed-denial preflight](../assets/runtime-2026-10-26/lab5-delayed-denial-preflight.json)
+uses a new keyless Basic Search service and the same two fictional fixtures.
+The direct authorized baseline and vectorization pass. Owned Reader removal is
+independently confirmed at 404; the actual wait is **600.001 seconds** before
+creating a new formal Entra connection. Subsequent direct queries return 403.
+A new unpublished Standard draft binds only this index, reaches native Ready,
+and preserves source-only instructions with web/general knowledge disabled.
+
+Bounded interactive and noninteractive Graph reads do not establish a successful
+fresh Search-connector sign-in. Account metadata is not substituted for principal
+proof, and no authentication timestamp is invented. The executable guard returns
+**BLOCK**. The official export confirms **zero user questions and zero source
+executions**, with only the greeting displayed. Ready is not query acceptance;
+the missing audit evidence does not establish an authentication failure or cause.
+This is not a paired authorized-native/removal test or an S5-10 pass.
+
+The owned draft, connection, four roles, Search/index and group are removed.
+A separate parent read verifies both ARM objects and all four role GETs at 404,
+the five original agent rows, seven connection rows, original embedding account/
+complete roles and three schemas exactly preserved. Both owned browser generations
+close normally with no pending commands. Actual spending is not finalized;
+existing workshop resources are not claimed absent. The historical failure is
+unchanged; S5-10, T014 and workshop acceptance remain open.
 
 ## October 25 history recovery and verified wiki publication
 
@@ -624,6 +650,23 @@ protocol name or combined acceptance is used. The new application and both
 directory identities are removed; full original agent/version readbacks,
 ARM/role/application inventories and the original directory control are verified.
 Using an earlier advertised API therefore has not resolved T005/T006.
+
+The [October 26 remaining-version probes](../assets/runtime-2026-10-26/native-activity-remaining-api.json)
+test `2026-03-15-preview`, `2026-05-15-preview` and `2026-07-15-preview`
+only after independent cleanup of the delayed-denial cohort. Each single Hosted
+`Agent/2.0.0` deployment request returns HTTP 400 for protocol enum conversion
+and the definition-field error; each rejected child returns GET 404. Together
+with the three preserved earlier probes, none of the six tested versions resolves
+the documented contract mismatch. No native or direct model question is submitted.
+
+Provider metadata advertises those versions for the **parent application**, not
+the deployment child. The initial local child-type metadata lookup fails before
+any write; its empty output directory is verified before a guarded resume using
+the actual parent type. Parent advertisement is not proof of child API support.
+The owned application and both directory identities are independently absent;
+full original agent/version, ARM/role/application inventories and original
+directory control are preserved. No protocol guessing or weaker authentication
+is used. T005/T006 remain blocked in [issue 2](https://github.com/devopsabcs-engineering/copilot-studio/issues/2).
 
 ## Private channel-package preflight
 

@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-26",
+  "status": "REMAINING_ACTIVITY_API_PROBES_REJECT_DOCUMENTED_PROTOCOL",
+  "scope": {
+    "nativeDenialCleanupIndependentlyVerifiedBeforeProbe": true,
+    "newIsolatedApplicationOnly": true,
+    "immutableOriginalAgentVersionReferenced": "5",
+    "originalAgentOrEndpointWriteRequests": 0,
+    "newHostedAgentOrBotCreated": false,
+    "applicationAuthorizationReadback": "Default",
+    "applicationIsolationReadback": "Entra"
+  },
+  "providerMetadata": {
+    "advertisedResourceType": "accounts/projects/applications",
+    "deploymentChildResourceTypeIndependentlyAdvertised": false,
+    "selectedVersionsAdvertisedForParentApplication": true,
+    "parentAdvertisementDoesNotProveChildApiSupport": true,
+    "initialLocalChildMetadataSelectionFailedBeforeAnyWrite": true,
+    "emptyOutputDirectoryVerifiedBeforeGuardedResume": true
+  },
+  "attempts": [
+    {
+      "apiVersion": "2026-03-15-preview",
+      "deploymentType": "Hosted",
+      "protocol": "Agent",
+      "protocolVersion": "2.0.0",
+      "createSubmissions": 1,
+      "createStatus": 400,
+      "serviceRejectedAgentProtocolEnumConversion": true,
+      "serviceAlsoReportedDefinitionFieldRequired": true,
+      "deploymentGetAfterRejection": 404
+    },
+    {
+      "apiVersion": "2026-05-15-preview",
+      "deploymentType": "Hosted",
+      "protocol": "Agent",
+      "protocolVersion": "2.0.0",
+      "createSubmissions": 1,
+      "createStatus": 400,
+      "serviceRejectedAgentProtocolEnumConversion": true,
+      "serviceAlsoReportedDefinitionFieldRequired": true,
+      "deploymentGetAfterRejection": 404
+    },
+    {
+      "apiVersion": "2026-07-15-preview",
+      "deploymentType": "Hosted",
+      "protocol": "Agent",
+      "protocolVersion": "2.0.0",
+      "createSubmissions": 1,
+      "createStatus": 400,
+      "serviceRejectedAgentProtocolEnumConversion": true,
+      "serviceAlsoReportedDefinitionFieldRequired": true,
+      "deploymentGetAfterRejection": 404
+    }
+  ],
+  "execution": {
+    "nativeQuestionsSubmitted": 0,
+    "directModelQuestionsSubmitted": 0,
+    "automaticQuestionReplays": 0,
+    "undocumentedProtocolNamesTried": false,
+    "authenticationWeakened": false,
+    "nativeAcceptancePassed": false,
+    "acceptanceMergedAcrossApiVersions": false
+  },
+  "cleanup": {
+    "verifiedAtUtc": "2026-10-26T00:52:12.749908+00:00",
+    "ownedApplicationAndDeploymentIndependentlyAbsent": true,
+    "ownedPrincipalRoleAssignmentsObserved": 0,
+    "ownedApplicationDirectoryObjectGetStatuses": [404, 404],
+    "originalBlueprintDirectoryControlGetStatus": 200,
+    "originalAgentAndVersionFullReadbacksExactlyPreserved": true,
+    "originalArmInventoryAndAccountRolesExact": true,
+    "originalApplicationInventoryExact": true,
+    "actualSpendingFinalized": false,
+    "privateRawEvidencePublished": false
+  },
+  "reference": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cognitiveservices/2026-03-15-preview/accounts/projects/applications/agentdeployments",
+  "T005Complete": false,
+  "T006Complete": false,
+  "wholeRoadmapComplete": false
+}
