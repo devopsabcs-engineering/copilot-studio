@@ -41,7 +41,7 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in rows}), 12)
         self.assertEqual([row.get("initialOfflineStatus", row["status"]) for row in rows], expected)
         self.assertEqual([row["status"] for row in rows],
-                         ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "FAIL", "NOT_RUN", "NOT_RUN", "PARTIAL"])
+                         ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "PASS", "NOT_RUN", "NOT_RUN", "PARTIAL"])
         initial = receipt["initialOfflineCheckpoint"]
         self.assertEqual((initial["newQuestions"], initial["liveLabAttempts"]), (0, 0))
         self.assertTrue(initial["topLevelZeroCountsDescribeOnlyThisInitialOfflineCheckpoint"])
@@ -113,7 +113,7 @@ class WikiTests(unittest.TestCase):
     def test_lab6_crosswalk_is_linked_in_all_six_current_bilingual_docs(self):
         root = Path(__file__).resolve().parents[1]
         filename = "lab6-acceptance-crosswalk.json"
-        expected = ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "FAIL", "NOT_RUN", "NOT_RUN", "PARTIAL"]
+        expected = ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "PASS", "NOT_RUN", "NOT_RUN", "PARTIAL"]
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 with self.subTest(language=language, page=name):
@@ -331,14 +331,17 @@ class WikiTests(unittest.TestCase):
         crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
         update = crosswalk["languageConfiguredAttempt"]
         self.assertEqual(update["reference"], "docs/assets/runtime-2026-10-26/" + filename)
-        self.assertEqual(update["lastCompletedF609StatusStill"], crosswalk["rows"][8]["status"])
+        self.assertEqual(crosswalk["latestLanguageSwitchUpdate"]["F609Status"],
+                         crosswalk["rows"][8]["status"])
         self.assertEqual(update["lastCompletedF609StatusStill"], "FAIL")
         self.assertFalse(update["sessionLanguageAndRestorationVerified"])
         self.assertEqual(update["serverAcceptance"], "NOT_ESTABLISHED")
         counts = {status: sum(row["status"] == status for row in crosswalk["rows"])
                   for status in ("PASS", "PARTIAL", "FAIL", "NOT_RUN")}
-        self.assertEqual(counts, crosswalk["intakeRoutingRepairUpdate"]["statusCountsAtCompletedCohort"])
-        self.assertEqual(counts, {"PASS": 7, "PARTIAL": 2, "FAIL": 1, "NOT_RUN": 2})
+        self.assertEqual(counts, crosswalk["latestLanguageSwitchUpdate"]["currentStatusCounts"])
+        self.assertEqual(counts, {"PASS": 8, "PARTIAL": 2, "FAIL": 0, "NOT_RUN": 2})
+        self.assertEqual(crosswalk["intakeRoutingRepairUpdate"]["statusCountsAtCompletedCohort"],
+                         {"PASS": 7, "PARTIAL": 2, "FAIL": 1, "NOT_RUN": 2})
         self.assertEqual(crosswalk["multisourceNativeUpdate"]["F607Status"], "PASS")
         self.assertEqual(crosswalk["intakeRoutingRepairUpdate"]["F606OverallStatus"], "PARTIAL")
         self.assertIn("original connected-Foundry-child", crosswalk["rows"][5]["evidenceBoundary"])
@@ -416,7 +419,7 @@ class WikiTests(unittest.TestCase):
         reference = "docs/assets/runtime-2026-10-26/" + filename
         self.assertEqual(update["reference"], reference)
         self.assertIn(reference, crosswalk["rows"][8]["exactEvidence"])
-        self.assertEqual(crosswalk["rows"][8]["status"], "FAIL")
+        self.assertEqual(crosswalk["rows"][8]["status"], "PASS")
         self.assertEqual(update["acceptedNativeQuestions"], 1)
         self.assertEqual(update["newEnglishQuestions"], 0)
         self.assertTrue(update["earlierBlockedAttemptAndFailuresPreserved"])
@@ -474,6 +477,16 @@ class WikiTests(unittest.TestCase):
                          preservation["preexistingCoreFilesByteIdentical"] +
                          preservation["managedSyncBookkeepingFilesChanged"])
         self.assertEqual(preservation["filesRemoved"], 0)
+        self.assertEqual(preservation["beforeCloneFiles"], 41)
+        self.assertEqual(preservation["afterCloneFiles"], 63)
+        self.assertEqual(preservation["preexistingCoreFilesByteIdentical"], 39)
+        self.assertEqual(preservation["frenchTranslationFilesAdded"], 22)
+        correction = receipt["enumerationCorrection"]
+        self.assertTrue(correction["completeWindowsExtendedLengthPathsUsed"])
+        self.assertTrue(correction["originalSubsetHashMatchesRemainValid"])
+        self.assertTrue(correction["originalShortPathCompletenessClaimWithdrawn"])
+        self.assertEqual(correction["previouslyOmittedBeforeFiles"], 4)
+        self.assertEqual(correction["previouslyOmittedAfterFiles"], 8)
         self.assertTrue(preservation["settingsInstructionsToolsAndKnowledgeUnchanged"])
         self.assertFalse(preservation["primaryLanguageChanged"])
         self.assertFalse(preservation["authenticationChanged"])
@@ -499,15 +512,135 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(update["reference"], reference)
         self.assertIn(reference, crosswalk["rows"][8]["relatedEvidence"])
         self.assertNotIn(reference, crosswalk["rows"][8]["exactEvidence"])
-        self.assertEqual(crosswalk["rows"][8]["status"], "FAIL")
+        self.assertEqual(crosswalk["rows"][8]["status"], "PASS")
         self.assertEqual(update["nativeQuestionSubmissions"], 0)
         self.assertEqual(update["postRepairFrenchQuestion"], "NOT_RUN")
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
                 self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
-                for marker in ("155", "97", "35", "2.14.1", "NuGet", "F6-09", "FAIL", "NOT_RUN"):
+                for marker in ("155", "97", "39", "22", "35", "2.14.1", "NuGet", "F6-09", "FAIL", "NOT_RUN"):
                     self.assertIn(marker, section)
+
+    def test_lab6_explicit_language_override_pass_preserves_actual_locales_and_failures(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        filename = "lab6-language-switch-native.json"
+        raw = (directory / filename).read_text("utf-8")
+        self.assertTrue(raw.endswith("\n"))
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "conversation_id", "tenant_id",
+                       "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual(receipt["status"], "PASS_SCOPED_LANGUAGE_OVERRIDE")
+        deployment = receipt["authoringAndDeployment"]
+        self.assertEqual(deployment["supportedVariable"], "System.User.Language")
+        self.assertEqual(deployment["supportedChoices"], ["Locale.English", "Locale.French"])
+        self.assertEqual(deployment["exactOptInCommands"],
+                         ["workshop language en-US", "workshop language fr-FR"])
+        for key, expected in (
+            ("schemaChecksPassed", 12), ("privateRegressionTestsPassed", 9),
+            ("positiveRoutingInputs", 8), ("negativeRoutingInputs", 46),
+            ("newDraftComponents", 1), ("existingComponentsUnchanged", 48),
+            ("existingFrenchTranslationFilesUnchanged", 22),
+            ("nativeTopicCheckerErrors", 0), ("nativeTopicCheckerWarnings", 0),
+        ):
+            self.assertEqual(deployment[key], expected)
+        self.assertTrue(deployment["ordinaryDomainAndGreetingInputsExcluded"])
+        self.assertTrue(deployment["nativePortalFullReloadAndReadbackPassed"])
+        self.assertTrue(deployment["primaryLanguageAuthenticationInstructionsModelToolsAndCorpusUnchanged"])
+        self.assertTrue(deployment["managementLspStatus"].startswith("BLOCKED"))
+        self.assertFalse(deployment["agentPublished"])
+        counts = receipt["counts"]
+        self.assertEqual(counts["userMessages"], counts["domainQuestions"] + counts["languageControls"])
+        for key, expected in (
+            ("freshConversations", 2), ("userMessages", 5), ("domainQuestions", 2),
+            ("languageControls", 3), ("durableIntents", 5), ("sendClicks", 5),
+            ("acceptedNativeUserMessages", 5), ("resubmissions", 0),
+            ("extraGreetingsOrQuestions", 0),
+        ):
+            self.assertEqual(counts[key], expected)
+        english, french = receipt["cases"]["F6-06"], receipt["cases"]["F6-09"]
+        for case in (english, french):
+            for key in ("response", "grounding", "wholeNativeTurn"):
+                self.assertEqual(case[key], "PASS")
+            self.assertEqual(case["completedMcpOperations"], 1)
+            self.assertTrue(case["noncancelledParentPlan"])
+            self.assertEqual(case["postedActivityLocale"], "en-US")
+            self.assertEqual(case["replyActivityLocale"], "en-US")
+            self.assertGreaterEqual(case["finalReplyToNoncancelledPlanFinishSeconds"], 0)
+        self.assertEqual(english["User.Language"], "English")
+        self.assertEqual(french["User.Language"], "French")
+        self.assertEqual(english["originalConnectedFoundryChildRouteOverall"], "PARTIAL")
+        self.assertTrue(english["unchangedEnglishQuestion"])
+        self.assertTrue(french["unchangedFrenchQuestion"])
+        self.assertEqual(english["exactPinnedCorpusRecords"], 1)
+        self.assertEqual(french["exactPinnedCorpusRecords"], 2)
+        self.assertEqual(french["sharedAtoCoreRecordsWithNewEnglishBase"], 1)
+        self.assertTrue(french["frenchNarrativeWithCanonicalEnglishSourceNames"])
+        self.assertTrue(french["sameSupportedMeaningAndCoreLineage"])
+        self.assertFalse(french["equalRecordCountRankingOrVerbatimTranslationRequired"])
+        self.assertAlmostEqual(english["serverFirstTargetEventToReplySeconds"], 27.930386)
+        self.assertAlmostEqual(french["serverFirstTargetEventToReplySeconds"], 20.209466)
+        controls = receipt["controls"]
+        for key in ("initialEnglish", "French", "sameConversationEnglishRestoration"):
+            self.assertEqual(controls[key], "PASS")
+        self.assertTrue(controls["executedVariableAndComputedReadback"])
+        self.assertEqual(controls["observedEvidencePlans"], 0)
+        self.assertEqual(controls["separateActivityProcessedEvent"], "NOT_OBSERVED")
+        limits = receipt["collectionLimits"]
+        self.assertEqual(limits["acceptedUserActivityEcho"], "NOT_OBSERVED")
+        self.assertIn("no synthetic", limits["acceptanceEvidence"])
+        self.assertIn("without another Send", limits["initialCollectorEchoWait"])
+        self.assertEqual(limits["serverUserAcceptanceTimestamp"], "NOT_ESTABLISHED")
+        self.assertIn("DynamicServerInitialize", limits["reportedLatencyOrigin"])
+        self.assertTrue(limits["reportedNativeLatencyUsesOneServerClock"])
+        preservation = receipt["preservation"]
+        self.assertEqual(preservation["historicalFiles"], 1288)
+        self.assertTrue(preservation["historicalHashesAndModificationTimesUnchanged"])
+        self.assertEqual(preservation["privateJsonReceiptsValidatedAndIgnored"], 39)
+        self.assertTrue(preservation["testPaneHidden"])
+        self.assertTrue(preservation["ownedPassiveCaptureDetached"])
+        postflight = receipt["parentReadOnlyPostflight"]
+        self.assertEqual(postflight["savedDeploymentFiles"], 64)
+        self.assertEqual(postflight["postflightFiles"], 64)
+        self.assertEqual(postflight["nonTokenFilesByteIdentical"], 63)
+        self.assertEqual(postflight["frenchTranslationFilesByteIdentical"], 22)
+        self.assertTrue(postflight["botdefinitionSourceAndAuditBytesUnchanged"])
+        self.assertFalse(postflight["opaqueSyncTokenDecoded"])
+        self.assertTrue(postflight["snapshotIsNotContinuousExecutionVersionProof"])
+        acceptance = receipt["acceptance"]
+        self.assertEqual(acceptance["F609Status"], "PASS")
+        self.assertEqual(acceptance["F606OverallStatus"], "PARTIAL")
+        self.assertTrue(acceptance["configuredFrenchConversationViaExplicitOverrideProven"])
+        self.assertTrue(acceptance["englishRestorationProven"])
+        self.assertTrue(acceptance["priorEnglishAnswerFailuresAndGuardedNotRunPreserved"])
+        for key in ("incomingAndReplyLocalesRelabelledAsFrench", "originalMatrixCase9Replayed",
+                    "nativeLanguagePickerRepaired", "automaticLanguageDetectionProven",
+                    "completeStaticTopicLocalizationProven", "originalFoundryChildInvocationProven",
+                    "historicalArchitectureEquivalenceClaimed", "originalUnreadableDocxEquivalenceClaimed",
+                    "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        reference = "docs/assets/runtime-2026-10-26/" + filename
+        self.assertEqual(crosswalk["latestLanguageSwitchUpdate"]["reference"], reference)
+        self.assertIn(reference + "#/cases/F6-09", crosswalk["rows"][8]["exactEvidence"])
+        self.assertIn(reference + "#/cases/F6-06", crosswalk["rows"][5]["exactEvidence"])
+        self.assertEqual(crosswalk["rows"][8]["status"], "PASS")
+        self.assertEqual(crosswalk["rows"][5]["status"], "PARTIAL")
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
+                for marker in ("System.User.Language", "Activity.Locale", "en-US", "F6-09", "F6-06",
+                               "PASS", "PARTIAL", "FAIL", "NOT_RUN", "63", "22"):
+                    self.assertIn(marker, section)
+                if name == "lab-06":
+                    text = (root / "docs" / language / "lab-06.md").read_text("utf-8")
+                    row = next(line for line in text.splitlines() if line.startswith("| F6-09 "))
+                    self.assertIn("PASS", row)
+                    self.assertIn("User.Language", row)
 
     def test_lab6_two_exact_native_checks_preserve_completion_and_citation_limits(self):
         root = Path(__file__).resolve().parents[1]

@@ -18,7 +18,8 @@ livre la sous-étape documentaire, pas l'acceptation d'exécution du lab entier.
 F6-01/02/03 restent PASS historiques hors ligne; F6-04 est PASS et F6-05 est PASS
 au niveau du document avec la limite d'extrait ci-dessous. F6-07 est PASS et F6-08
 est PASS pour la réponse uniquement; F6-06/12 restent PARTIAL.
-F6-09 est FAIL; F6-10/11 restent NOT_RUN. Au point de contrôle hors ligne initial du
+F6-09 est PASS sous sélection explicite de langue; F6-10/11 restent NOT_RUN.
+Au point de contrôle hors ligne initial du
 2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
 cette réconciliation a soumis zéro question.
 
@@ -59,19 +60,36 @@ secondaire a été ajouté après cette base. Le plan non annulé termine en
 71,232 secondes de réception serveur à réponse (76,134 secondes depuis Send).
 Aucune nouvelle question anglaise ni relance. Les deux boutons de langue
 exposent encore `aria-checked=false` après un contrôle clavier natif sans question.
-F6-09 reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
+Ce F6-09 historique reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
 et le NOT_RUN conditionnel restent conservés.
 
 La [réparation prise en charge des traductions](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
 utilise PAC officiel `2.14.1` via le proxy NuGet d'entreprise existant, sans modifier
 l'authentification ni TLS. L'import français natif réussit; des exports indépendants
 prouvent les 155 valeurs anglaises inchangées et 97 valeurs d'exécution traduites
-persistantes après normalisation des libellés/déclencheurs. Les 35 fichiers
-principaux existants restent identiques octet pour octet. Après rechargement complet,
+persistantes après normalisation des libellés/déclencheurs. L'énumération Windows
+à chemins étendus vérifie les 39 fichiers principaux identiques et 22 traductions
+ajoutées; le sous-ensemble précédent de 35 fichiers à chemins courts était incomplet.
+Après rechargement complet,
 les deux langues restent `aria-checked=false` et une nouvelle session sans question
-accueille en anglais. La question française après réparation est NOT_RUN;
-le dernier F6-09 terminé reste FAIL. Traduction statique complète et cause de sélection
+accueille en anglais. À ce point de contrôle, la question française reste NOT_RUN;
+le dernier F6-09 terminé à ce point de contrôle était FAIL. Traduction statique complète et cause de sélection
 restent non prouvées; voir [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
+La [cohorte ultérieure de sélection explicite](../assets/runtime-2026-10-26/lab6-language-switch-native.json)
+réussit F6-09 : `System.User.Language` exécuté et relu vaut French; la question
+inchangée reçoit une prose française et un plan ancré terminé, tandis que les
+`Activity.Locale` envoyée/répondue restent `en-US`. La régression anglaise réussit;
+F6-06 global reste PARTIAL, car la route d'enfant Foundry original n'est pas prouvée.
+Deux conversations neuves contiennent cinq messages acceptés : deux questions de
+domaine et trois contrôles déterministes, sans relance. Chaque question termine un
+appel MCP; l'anglais retrouve une entrée et le français deux, dont une entrée ATO
+centrale commune. Le retour à l'anglais est prouvé dans la seconde conversation.
+Les 1 288 fichiers historiques gardent leurs empreintes/dates; un clone complet neuf
+vérifie 63 fichiers hors jeton et 22 traductions inchangés. Réparation du sélecteur,
+détection automatique et preuve continue des versions restent non prouvées.
+Les anciens FAIL/NOT_RUN et l'attente échouée d'écho du collecteur sont conservés;
+aucun message n'est rejoué.
 
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
@@ -498,8 +516,9 @@ du document, sans fidélité de l'extrait. F6-08 PASS couvre la réponse uniquem
 pas la clôture du plan génératif/MCP. NOT_RUN concerne l'exécution exacte
 du guide; PARTIAL conserve les preuves voisines sans substituer question ou route.
 F6-07 PASS couvre la comparaison MCP exacte, pas l'équivalence avec l'enfant Foundry
-original. F6-09 conserve le FAIL de langue terminé malgré la tentative NOT_RUN
-ultérieure non livrée. Les tours natifs F6-04 à F6-08 utilisent les entrées anglaises;
+original. F6-09 réussit sous sélection explicite prise en charge; les anciens FAIL
+et NOT_RUN restent historiques, sans réparation du sélecteur natif.
+Les tours natifs F6-04 à F6-08 utilisent les entrées anglaises;
 les libellés français ci-dessous sont des traductions, pas des tours supplémentaires.
 Le [reçu de correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 donne provenance, pointeurs publics et limites pour chaque ligne.
@@ -514,7 +533,7 @@ donne provenance, pointeurs publics et limites pour chaque ligne.
 | F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : indices MCP exacts PASS; appel de l'enfant Foundry original non prouvé                                   |
 | F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PASS : comparaison native exacte; deux groupes vérifiés et plan terminé                                            |
 | F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PASS : réponse uniquement; clôture du plan non prouvée, nombres d'appels MCP/Foundry inconnus                      |
-| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | FAIL : prose finale anglaise; tentative ultérieure avec langue configurée NOT_RUN                                  |
+| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | PASS sous sélection User.Language; anciens FAIL/NOT_RUN conservés; sélecteur natif non prouvé                        |
 | F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                                                                   |
 | F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                                                                        |
 | F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | PARTIAL : nettoyages historiques réussis; v5 hébergée conservée                                                    |

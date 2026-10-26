@@ -15,7 +15,7 @@ est livrée avec le [guide actualisé](lab-06.md), sans acceptation du lab entie
 F6-01/02/03 sont PASS historiques hors ligne, pas des réussites d'exécution.
 F6-04 est PASS; F6-05 est PASS au niveau du document avec la limite d'extrait
 ci-dessous. F6-07 est PASS et F6-08 est PASS pour la réponse uniquement;
-F6-06/12 sont PARTIAL; F6-09 est FAIL; F6-10/11 sont NOT_RUN.
+F6-06/12 sont PARTIAL; F6-09 est PASS sous sélection explicite; F6-10/11 sont NOT_RUN.
 Les douze lignes conservent provenance, pointeurs publics et limites.
 Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
 la réconciliation n'avait soumis aucune question ni tentative réelle.
@@ -57,19 +57,36 @@ secondaire a été ajouté après cette base. Le plan non annulé termine en
 71,232 secondes de réception serveur à réponse (76,134 secondes depuis Send).
 Aucune nouvelle question anglaise ni relance. Les deux boutons de langue
 exposent encore `aria-checked=false` après un contrôle clavier natif sans question.
-F6-09 reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
+Ce F6-09 historique reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
 et le NOT_RUN conditionnel restent conservés.
 
 La [réparation prise en charge des traductions](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
 utilise PAC officiel `2.14.1` via le proxy NuGet d'entreprise existant, sans modifier
 l'authentification ni TLS. L'import français natif réussit; des exports indépendants
 prouvent les 155 valeurs anglaises inchangées et 97 valeurs d'exécution traduites
-persistantes après normalisation des libellés/déclencheurs. Les 35 fichiers
-principaux existants restent identiques octet pour octet. Après rechargement complet,
+persistantes après normalisation des libellés/déclencheurs. L'énumération Windows
+à chemins étendus vérifie les 39 fichiers principaux identiques et 22 traductions
+ajoutées; le sous-ensemble précédent de 35 fichiers à chemins courts était incomplet.
+Après rechargement complet,
 les deux langues restent `aria-checked=false` et une nouvelle session sans question
-accueille en anglais. La question française après réparation est NOT_RUN;
-le dernier F6-09 terminé reste FAIL. Traduction statique complète et cause de sélection
+accueille en anglais. À ce point de contrôle, la question française reste NOT_RUN;
+le dernier F6-09 terminé à ce point de contrôle était FAIL. Traduction statique complète et cause de sélection
 restent non prouvées; voir [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
+La [cohorte ultérieure de sélection explicite](../assets/runtime-2026-10-26/lab6-language-switch-native.json)
+réussit F6-09 : `System.User.Language` exécuté et relu vaut French; la question
+inchangée reçoit une prose française et un plan ancré terminé, tandis que les
+`Activity.Locale` envoyée/répondue restent `en-US`. La régression anglaise réussit;
+F6-06 global reste PARTIAL, car la route d'enfant Foundry original n'est pas prouvée.
+Deux conversations neuves contiennent cinq messages acceptés : deux questions de
+domaine et trois contrôles déterministes, sans relance. Chaque question termine un
+appel MCP; l'anglais retrouve une entrée et le français deux, dont une entrée ATO
+centrale commune. Le retour à l'anglais est prouvé dans la seconde conversation.
+Les 1 288 fichiers historiques gardent leurs empreintes/dates; un clone complet neuf
+vérifie 63 fichiers hors jeton et 22 traductions inchangés. Réparation du sélecteur,
+détection automatique et preuve continue des versions restent non prouvées.
+Les anciens FAIL/NOT_RUN et l'attente échouée d'écho du collecteur sont conservés;
+aucun message n'est rejoué.
 
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello

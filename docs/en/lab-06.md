@@ -17,7 +17,8 @@ The [T017 acceptance crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-cro
 delivers the documentary substep, not whole-lab runtime completion. F6-01/02/03
 remain historical offline PASS; F6-04 is PASS and F6-05 is PASS at document level
 with the displayed-excerpt limit below. F6-07 is PASS and F6-08 is response-only PASS;
-F6-06/12 remain PARTIAL. F6-09 is FAIL; F6-10/11 remain NOT_RUN.
+F6-06/12 remain PARTIAL. F6-09 is PASS under an explicit language override;
+F6-10/11 remain NOT_RUN.
 At the initial offline checkpoint on 2026-10-26,
 F6-04/05 were NOT_RUN and F6-08 was PARTIAL;
 that reconciliation submitted zero questions/live attempts.
@@ -55,18 +56,35 @@ instructions and model were unchanged, but French secondary was added afterward.
 The noncancelled plan completed in 71.232 seconds from server receipt to reply
 (76.134 seconds from Send). No new English question or resubmission occurred.
 Both language radios still exposed `aria-checked=false` after a separate native
-keyboard control without a question. F6-09 remains FAIL; its selection cause is
+keyboard control without a question. That historical F6-09 remains FAIL; its selection cause is
 unproved. The previous delivery failure and guarded NOT_RUN remain intact.
 
 The [supported localization repair](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
 used official PAC `2.14.1` through the existing enterprise NuGet proxy, without
 authentication or TLS changes. The native French upload succeeded; independent
 exports prove all 155 English values unchanged and 97 translated runtime values
-persisted after label/trigger normalization. All 35 existing core draft files
-remain byte-identical. After a full reload, French selection still leaves both
+persisted after label/trigger normalization. Complete Windows extended-length
+enumeration verifies all 39 existing core draft files byte-identical and 22 French
+translation files added; the earlier 35-file short-path subset was incomplete.
+After a full reload, French selection still leaves both
 radios `aria-checked=false`, and a no-question fresh session greets in English.
-The post-repair French question is NOT_RUN; latest completed F6-09 remains FAIL.
+At that localization-only checkpoint the French question was NOT_RUN and the
+last completed F6-09 was FAIL.
 Full static localization and the selection cause remain unproved; see [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
+The later [explicit language-switch cohort](../assets/runtime-2026-10-26/lab6-language-switch-native.json)
+passes F6-09: executed `System.User.Language` reads back French, the unchanged
+question receives French prose and a completed grounded plan, while actual
+posted/reply `Activity.Locale` remains `en-US`. The English regression also passes;
+F6-06 overall remains PARTIAL because the original Foundry-child route is unproved.
+Two fresh conversations contain five accepted messages: two domain questions and
+three deterministic controls, no resubmissions. Each domain turn completes one MCP
+operation; English retrieves one record and French two, sharing one ATO core record.
+English restoration is proven in the same second conversation. All 1,288 historical
+files retain hashes/timestamps; a fresh complete clone verifies all 63 non-token
+files and 22 translations unchanged. Native picker repair, automatic detection and
+continuous execution-version proof remain unproved. Earlier FAIL/NOT_RUN results
+and the collector's failed echo wait remain preserved; no message was replayed.
 
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
@@ -483,7 +501,8 @@ offline assertion passed, not runtime acceptance. F6-04/05 PASS covers only the
 two native checks above; F6-05 has document-level support, not excerpt fidelity.
 F6-08 PASS covers response assertions only, not overall generative/MCP plan closure.
 F6-07 PASS covers the exact MCP comparison, not original Foundry-child equivalence.
-F6-09 retains the completed language FAIL despite the later undelivered NOT_RUN attempt.
+F6-09 now passes under the supported explicit language override; earlier language
+FAIL and guarded NOT_RUN results remain historical, and the native picker is not fixed.
 NOT_RUN concerns exact guide execution;
 PARTIAL preserves related evidence without substituting another question or route.
 The [crosswalk receipt](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
@@ -499,7 +518,7 @@ provides provenance, public evidence pointers and limits for every row.
 | F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: exact MCP indicators PASS; original Foundry-child invocation unproved                                     |
 | F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PASS: exact native comparison; two verified source groups and completed plan                                       |
 | F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PASS: response-only; plan closure unproven, MCP/Foundry counts unknown                                             |
-| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | FAIL: English final prose; later configured-language attempt NOT_RUN                                               |
+| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | PASS under explicit User.Language override; prior FAIL/NOT_RUN preserved; native picker unproved                    |
 | F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | NOT_RUN: Lab 5 Search denial does not substitute                                                                   |
 | F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | NOT_RUN: blueprint error does not substitute                                                                       |
 | F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | PARTIAL: historical deletion passes; hosted v5 retained                                                            |

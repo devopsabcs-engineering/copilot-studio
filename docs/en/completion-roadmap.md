@@ -21,7 +21,7 @@ deliver reconciliation and publication, not whole-lab runtime completion.
 T017 remains unchecked. F6-01/02/03 are historical offline PASS; F6-04 is PASS;
 F6-05 is PASS at document level with the displayed-excerpt limit below.
 F6-07 is PASS and F6-08 is response-only PASS; F6-06/12 remain PARTIAL.
-F6-09 is FAIL; F6-10/11 remain NOT_RUN.
+F6-09 is PASS under an explicit language override; F6-10/11 remain NOT_RUN.
 At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN and F6-08 was PARTIAL;
 that reconciliation submitted zero questions/live attempts.
 
@@ -58,18 +58,35 @@ instructions and model were unchanged, but French secondary was added afterward.
 The noncancelled plan completed in 71.232 seconds from server receipt to reply
 (76.134 seconds from Send). No new English question or resubmission occurred.
 Both language radios still exposed `aria-checked=false` after a separate native
-keyboard control without a question. F6-09 remains FAIL; its selection cause is
+keyboard control without a question. That historical F6-09 remains FAIL; its selection cause is
 unproved. The previous delivery failure and guarded NOT_RUN remain intact.
 
 The [supported localization repair](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
 used official PAC `2.14.1` through the existing enterprise NuGet proxy, without
 authentication or TLS changes. The native French upload succeeded; independent
 exports prove all 155 English values unchanged and 97 translated runtime values
-persisted after label/trigger normalization. All 35 existing core draft files
-remain byte-identical. After a full reload, French selection still leaves both
+persisted after label/trigger normalization. Complete Windows extended-length
+enumeration verifies all 39 existing core draft files byte-identical and 22 French
+translation files added; the earlier 35-file short-path subset was incomplete.
+After a full reload, French selection still leaves both
 radios `aria-checked=false`, and a no-question fresh session greets in English.
-The post-repair French question is NOT_RUN; latest completed F6-09 remains FAIL.
+At that localization-only checkpoint the French question was NOT_RUN and the
+last completed F6-09 was FAIL.
 Full static localization and the selection cause remain unproved; see [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
+The later [explicit language-switch cohort](../assets/runtime-2026-10-26/lab6-language-switch-native.json)
+passes F6-09: executed `System.User.Language` reads back French, the unchanged
+question receives French prose and a completed grounded plan, while actual
+posted/reply `Activity.Locale` remains `en-US`. The English regression also passes;
+F6-06 overall remains PARTIAL because the original Foundry-child route is unproved.
+Two fresh conversations contain five accepted messages: two domain questions and
+three deterministic controls, no resubmissions. Each domain turn completes one MCP
+operation; English retrieves one record and French two, sharing one ATO core record.
+English restoration is proven in the same second conversation. All 1,288 historical
+files retain hashes/timestamps; a fresh complete clone verifies all 63 non-token
+files and 22 translations unchanged. Native picker repair, automatic detection and
+continuous execution-version proof remain unproved. Earlier FAIL/NOT_RUN results
+and the collector's failed echo wait remain preserved; no message was replayed.
 
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same

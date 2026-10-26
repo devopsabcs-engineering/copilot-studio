@@ -56,16 +56,29 @@
     "postUploadGuardTestsPassed": 5
   },
   "draftPreservation": {
-    "beforeCloneFiles": 37,
-    "afterCloneFiles": 55,
-    "preexistingCoreFilesByteIdentical": 35,
+    "beforeCloneFiles": 41,
+    "afterCloneFiles": 63,
+    "preexistingCoreFilesByteIdentical": 39,
     "managedSyncBookkeepingFilesChanged": 2,
-    "frenchTranslationFilesAdded": 18,
+    "frenchTranslationFilesAdded": 22,
     "filesRemoved": 0,
     "settingsInstructionsToolsAndKnowledgeUnchanged": true,
     "primaryLanguageChanged": false,
     "authenticationChanged": false,
     "opaqueSyncTokensDecoded": false
+  },
+  "enumerationCorrection": {
+    "completeWindowsExtendedLengthPathsUsed": true,
+    "originalShortPathCounts": {
+      "beforeCloneFiles": 37,
+      "afterCloneFiles": 55,
+      "preexistingCoreFilesByteIdentical": 35,
+      "frenchTranslationFilesAdded": 18
+    },
+    "originalSubsetHashMatchesRemainValid": true,
+    "originalShortPathCompletenessClaimWithdrawn": true,
+    "previouslyOmittedBeforeFiles": 4,
+    "previouslyOmittedAfterFiles": 8
   },
   "noQuestionNativeControls": {
     "frenchMouseSelectionAfterUpload": true,

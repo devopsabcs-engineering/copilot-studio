@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "task": "T017",
   "reconciledDate": "2026-10-26",
-  "scope": "All historical cohorts preserved; exact multi-source PASS, scoped intake repair, blocked language attempt and a later accepted French-text question whose actual activity/reply locale remains en-US; supported French localization now persists but native language selection remains unproved; French acceptance FAIL, no historical architecture equivalence",
+  "scope": "All historical cohorts preserved, including accepted French-text/en-US English-answer FAIL; supported explicit User.Language override now passes the French meaning/provenance check with actual Activity.Locale still en-US. Native language-picker repair and historical architecture equivalence remain unproved.",
   "documentaryCrosswalkDelivered": true,
   "T017RuntimeComplete": false,
   "workshopComplete": false,
@@ -77,6 +77,7 @@
     "publicationQuestions": 0
   },
   "latestFrenchLocaleUpdate": {
+    "scope": "Historical accepted French-text turn before the explicit override; its FAIL remains unchanged",
     "reference": "docs/assets/runtime-2026-10-26/lab6-french-locale-native.json",
     "F609Status": "FAIL",
     "acceptedNativeQuestions": 1,
@@ -92,17 +93,36 @@
     "publicationQuestions": 0
   },
   "latestFrenchLocalizationUpdate": {
+    "scope": "Localization-only checkpoint before the separately recorded explicit language-switch cohort",
     "reference": "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json",
     "localizationPrerequisiteRepairPersisted": true,
     "primaryEnglishValuesUnchanged": 155,
     "persistedTranslatedRuntimeValues": 97,
-    "preexistingCoreFilesByteIdentical": 35,
+    "preexistingCoreFilesByteIdentical": 39,
     "nativeQuestionSubmissions": 0,
     "postRepairFrenchQuestion": "NOT_RUN",
     "latestCompletedF609Status": "FAIL",
     "selectedFrenchSessionProven": false,
     "freshSessionGreetingLanguage": "English",
     "historicalFailuresPreserved": true,
+    "publicationQuestions": 0
+  },
+  "latestLanguageSwitchUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-language-switch-native.json",
+    "F609Status": "PASS",
+    "F606OverallStatus": "PARTIAL",
+    "freshConversations": 2,
+    "acceptedNativeUserMessages": 5,
+    "domainQuestions": 2,
+    "languageControls": 3,
+    "resubmissions": 0,
+    "frenchConversationViaExplicitUserLanguageOverrideProven": true,
+    "actualFrenchTurnActivityLocale": "en-US",
+    "actualFrenchTurnReplyLocale": "en-US",
+    "nativeLanguagePickerRepaired": false,
+    "sameConversationEnglishRestorationProven": true,
+    "earlierFailuresPreserved": true,
+    "currentStatusCounts": {"PASS": 8, "PARTIAL": 2, "FAIL": 0, "NOT_RUN": 2},
     "publicationQuestions": 0
   },
   "sourceBoundary": {
@@ -115,7 +135,7 @@
     "reference": "docs/assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json#/primary_source_reconciliation"
   },
   "statusDefinitions": {
-    "PASS": "F6-01/02/03: the stated historical offline assertion is supported, not a runtime pass. F6-04/05: exact native guide checks and post-repair regressions pass on prospective adapted configurations; F6-05 is document-level support, not exact citation-chunk fidelity. F6-07 proves the exact two-source native MCP comparison, not original Foundry-child equivalence. F6-08 passes response assertions only.",
+    "PASS": "F6-01/02/03: the stated historical offline assertion is supported, not a runtime pass. F6-04/05: exact native guide checks and post-repair regressions pass on prospective adapted configurations; F6-05 is document-level support, not exact citation-chunk fidelity. F6-07 proves the exact two-source native MCP comparison, not original Foundry-child equivalence. F6-08 passes response assertions only. F6-09 passes French prose, supported meaning/core lineage and whole-turn assertions under a proven explicit User.Language override; actual Activity.Locale remains en-US and native picker repair is not claimed.",
     "PARTIAL": "Some relevant assertions have evidence; exact guide turn, route, membership or current cleanup scope remains unproved.",
     "FAIL": "An executed exact check failed an asserted behavior. Preserve it even when another assertion passes or a later attempt is not delivered.",
     "NOT_RUN": "No exact guide execution located in inspected retained scopes, or a separately labelled attempt has no accepted-turn proof; related behavior may already pass.",
@@ -224,14 +244,15 @@
       "sourceAssessment": "Grounded expertise is source-backed; exact indicators question is a guide variant.",
       "exactEvidence": [
         "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/beforeFix/F6-06",
-        "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/0"
+        "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/0",
+        "docs/assets/runtime-2026-10-26/lab6-language-switch-native.json#/cases/F6-06"
       ],
       "laterUndeliveredAttempt": "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/0",
       "relatedEvidence": [
         "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction",
         "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"
       ],
-      "evidenceBoundary": "Pre-fix exact FAIL is preserved: substring intake interception prevented expertise retrieval. After one-condition repair, exact native MCP behavioral retrieval PASS has two pinned-corpus records and a noncancelled completed plan. Overall PARTIAL: the original connected-Foundry-child invocation remains NOT_ESTABLISHED. A later language-configured Send displayed an empty-message error with no accepted-turn proof; it does not replace the completed result. No historical architecture equivalence."
+      "evidenceBoundary": "Pre-fix exact FAIL is preserved: substring intake interception prevented expertise retrieval. After one-condition repair, exact native MCP behavioral retrieval PASS has two pinned-corpus records and a noncancelled completed plan. Overall PARTIAL: the original connected-Foundry-child invocation remains NOT_ESTABLISHED. A later language-configured Send displayed an empty-message error with no accepted-turn proof; it does not replace the completed result. The subsequent explicit-language cohort repeats the unchanged English question with one verified ATO record, one completed MCP operation and a noncancelled plan; it supplies the current French comparison base without imposing equal record counts. No historical architecture equivalence."
     },
     {
       "id": "F6-07",
@@ -263,11 +284,12 @@
     },
     {
       "id": "F6-09",
-      "status": "FAIL",
+      "status": "PASS",
       "initialOfflineStatus": "NOT_RUN",
       "sourceProvenance": "guide_added_validation",
       "sourceAssessment": "French semantic/provenance regression is an added guide check, not an established original requirement.",
       "exactEvidence": [
+        "docs/assets/runtime-2026-10-26/lab6-language-switch-native.json#/cases/F6-09",
         "docs/assets/runtime-2026-10-26/lab6-french-locale-native.json",
         "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/1",
         "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/1"
@@ -276,7 +298,7 @@
         "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4",
         "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json"
       ],
-      "evidenceBoundary": "Latest completed F6-09 FAIL: one accepted exact French-text question, actual activity and reply locale en-US, English final prose. A real textarea/60-character counter guard proved delivery; one completed native MCP call returned three pinned-corpus records including both supported English core records and a noncancelled plan. The English base predates French secondary addition, with corpus/instructions/model/intake unchanged. Earlier English-answer FAIL and blocked English-delivery/French-guard NOT_RUN remain preserved. Both native language radios still exposed aria-checked=false after a later no-question keyboard control. Configured French-session proof, selection/restoration, automatic detection and full static localization remain unproved; no root cause or architecture equivalence is claimed."
+      "evidenceBoundary": "Latest scoped PASS: one unchanged French question under an executed/read-back System.User.Language French override, French narrative and supported meaning/core lineage, one completed MCP operation with two pinned-corpus records sharing the new English regression's one ATO core record, and a correlated noncancelled DynamicPlanFinished. Actual posted/reply Activity.Locale remain en-US; the documented User.Language override takes priority and those fields are not relabelled. Two fresh conversations contain five accepted messages: two domain questions plus three deterministic controls; no resubmission. English restored in the same second conversation. Earlier English-answer FAILs, blocked-delivery/guarded NOT_RUN and localization-only NOT_RUN remain preserved. Native picker repair, automatic detection, complete static localization, continuous execution-version proof and original architecture equivalence remain unproved."
     },
     {
       "id": "F6-10",
