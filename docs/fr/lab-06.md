@@ -16,9 +16,24 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 La [correspondance d'acceptation T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 livre la sous-étape documentaire, pas l'acceptation d'exécution du lab entier.
 F6-01/02/03 restent PASS historiques hors ligne; F6-04 est PASS et F6-05 est PASS
-au niveau du document avec la limite d'extrait ci-dessous. F6-06/07/08/12 restent
+au niveau du document avec la limite d'extrait ci-dessous. F6-08 est PASS pour la
+réponse uniquement; F6-06/07/12 restent
 PARTIAL; F6-09/10/11 restent NOT_RUN. Au point de contrôle hors ligne initial du
-2026-10-26, F6-04/05 étaient NOT_RUN; cette réconciliation a soumis zéro question.
+2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
+cette réconciliation a soumis zéro question.
+
+Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
+est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
+supplémentaire, sur la même configuration prospective figée que F6-04/05. La réponse
+finale complète reconnaît que les preuves configurées n'établissent pas l'historique
+du client privé et refuse toute inférence, sans événement inventé ni substitution
+par le corpus fictif. Message final natif et repli terminal `EndDialog`/état sans
+réponse terminé sont prouvés, mais la clôture du plan reste non prouvée :
+aucun `DynamicPlanFinished` en 240 secondes. Une recherche locale terminée retourne
+trois enregistrements. Le libellé MCP n'a pas d'invocation/sortie corrélée; les nombres
+réels d'appels MCP et Foundry sous-jacents sont `NOT_ESTABLISHED`, pas zéro.
+Ce cas est distinct du cas 9 de la matrice originale, sans équivalence d'architecture
+ni achèvement T017/atelier. La publication ne soumet aucune question.
 
 Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
 sont maintenant terminés : deux questions, une par conversation neuve, sans
@@ -428,7 +443,8 @@ Utilisez seulement des situations fictives non identifiantes. Le contenu financi
 Résultats réconciliés le **2026-10-26**. PASS pour F6-01/02/03 désigne l'assertion
 hors ligne historique, pas une acceptation d'exécution. PASS pour F6-04/05
 couvre uniquement les deux contrôles natifs ci-dessus; F6-05 est étayé au niveau
-du document, sans fidélité de l'extrait. NOT_RUN concerne l'exécution exacte
+du document, sans fidélité de l'extrait. F6-08 PASS couvre la réponse uniquement,
+pas la clôture du plan génératif/MCP. NOT_RUN concerne l'exécution exacte
 du guide; PARTIAL conserve les preuves voisines sans substituer question ou route.
 Le [reçu de correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 donne provenance, pointeurs publics et limites pour chaque ligne.
@@ -442,7 +458,7 @@ donne provenance, pointeurs publics et limites pour chaque ligne.
 | F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | PASS au niveau du document, adaptation Markdown Ready; extrait cité sans ATO, support du fragment exact non prouvé |
 | F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : expertise voisine; jointure exacte non prouvée        |
 | F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PARTIAL : multisource voisin réussi, pas comparaison exacte     |
-| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PARTIAL : abstention backend, pas tour natif exact              |
+| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PASS : réponse uniquement; clôture du plan non prouvée, nombres d'appels MCP/Foundry inconnus |
 | F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | NOT_RUN : aucun tour français exact du lab 6                    |
 | F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                |
 | F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                     |

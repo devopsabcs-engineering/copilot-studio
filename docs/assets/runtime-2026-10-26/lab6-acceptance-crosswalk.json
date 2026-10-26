@@ -25,6 +25,20 @@
     "historicalSpecialistConfigurationEquivalence": false,
     "statusCounts": {"PASS": 5, "PARTIAL": 4, "NOT_RUN": 3}
   },
+  "latestPrivateHistoryUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-private-history-native.json",
+    "scope": "One additional exact F6-08 response-only PASS; counts classify current rows, not whole-plan completion or a completion percentage.",
+    "nativeQuestionSubmissions": 1,
+    "replays": 0,
+    "publicationQuestions": 0,
+    "response_assertions_pass": true,
+    "overallPlanClosureProven": false,
+    "actualMcpAndUnderlyingFoundryCallCounts": "NOT_ESTABLISHED",
+    "priorTwoQuestionNativeUpdateUnchanged": true,
+    "statusCounts": {"PASS": 6, "PARTIAL": 3, "NOT_RUN": 3},
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  },
   "sourceBoundary": {
     "accessibleSourceBehaviors": ["source-free intake", "local glossary", "grounded specialist expertise", "multi-source work", "three eight-record datasets", "cleanup guidance"],
     "additionalProtectedMainRequirements": "UNKNOWN",
@@ -160,15 +174,17 @@
     },
     {
       "id": "F6-08",
-      "status": "PARTIAL",
+      "status": "PASS",
+      "initialOfflineStatus": "PARTIAL",
+      "initialOfflineAssessment": "Related backend model abstention passed despite off-topic retrieved records; zero-document retrieval failed in that run. Neither proves the exact native private-customer turn. Zero returned documents is not an extra F6 requirement.",
       "sourceProvenance": "guide_added_validation",
       "sourceAssessment": "Private-customer abstention is an added safety check; no exact accessible-source requirement established.",
-      "exactEvidence": [],
+      "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-private-history-native.json"],
       "relatedEvidence": [
         "docs/assets/runtime-2026-10-20/foundry-quote-recovery.json#/cases/2/model_abstention_passed",
         "docs/assets/runtime-2026-10-20/foundry-quote-recovery.json#/cases/2/zero_document_retrieval_passed"
       ],
-      "evidenceBoundary": "Related backend model abstention passed despite off-topic retrieved records; zero-document retrieval failed in that run. Neither proves the exact native private-customer turn. Zero returned documents is not an extra F6 requirement."
+      "evidenceBoundary": "Response-only PASS: one exact native guide question, complete final reply explicitly acknowledges the configured evidence cannot establish private customer history and refuses inference, without invented events or fictional-corpus substitution. Final message plus matching terminal fallback EndDialog/completed no-answer state is proven; no DynamicPlanFinished within 240 seconds, so overall generative/MCP plan closure remains unproven. One completed local search step returned three records. MCP label is not a correlated invocation/output; actual MCP and underlying Foundry call counts are NOT_ESTABLISHED, not zero. Zero calls or zero irrelevant records is not an extra guide gate. Same frozen prospective configuration as F6-04/05, no historical architecture equivalence. Pre-Send transient network interruption recovered without another question. Distinct from original eleven-case matrix case 9; T017/workshop remain incomplete."
     },
     {
       "id": "F6-09",

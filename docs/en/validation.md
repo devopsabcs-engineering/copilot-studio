@@ -14,10 +14,22 @@ The [T017 documentary crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-cr
 is delivered with the [updated guide](lab-06.md), not whole-lab runtime acceptance.
 F6-01/02/03 are historical offline PASS, not runtime passes. F6-04 is PASS;
 F6-05 is PASS at document level with the displayed-excerpt limit below.
-F6-06/07/08/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
+F6-08 is response-only PASS; F6-06/07/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
 All twelve rows retain source provenance, public evidence pointers and limits.
-At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN and
+At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN, F6-08 was PARTIAL and
 the crosswalk reconciliation submitted zero questions/live attempts.
+
+The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
+is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
+frozen prospective configuration as F6-04/05. The complete final reply acknowledges
+that configured evidence cannot establish private customer history and refuses
+inference, without invented events or fictional-corpus substitution. A native final
+message and matching terminal fallback `EndDialog`/completed no-answer state are
+proven, but plan closure remains unproven: no `DynamicPlanFinished` within 240 seconds.
+One completed local search returned three records. An MCP label lacks correlated
+invocation/output; actual MCP and underlying Foundry counts are `NOT_ESTABLISHED`,
+not zero. This is distinct from original matrix case 9, not architecture equivalence
+or T017/workshop completion. Publication submits no questions.
 
 The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
 are now complete: two questions, one per fresh conversation, no preflight questions

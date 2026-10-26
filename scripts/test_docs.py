@@ -41,7 +41,7 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in rows}), 12)
         self.assertEqual([row.get("initialOfflineStatus", row["status"]) for row in rows], expected)
         self.assertEqual([row["status"] for row in rows],
-                         ["PASS"] * 5 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"])
+                         ["PASS"] * 5 + ["PARTIAL"] * 2 + ["PASS"] + ["NOT_RUN"] * 3 + ["PARTIAL"])
         initial = receipt["initialOfflineCheckpoint"]
         self.assertEqual((initial["newQuestions"], initial["liveLabAttempts"]), (0, 0))
         self.assertTrue(initial["topLevelZeroCountsDescribeOnlyThisInitialOfflineCheckpoint"])
@@ -58,7 +58,7 @@ class WikiTests(unittest.TestCase):
             self.assertIsInstance(row["exactEvidence"], list)
             self.assertIsInstance(row["relatedEvidence"], list)
         self.assertIn("not a runtime pass", receipt["statusDefinitions"]["PASS"])
-        for row in rows[5:11]:
+        for row in rows[5:7] + rows[8:11]:
             self.assertEqual(row["exactEvidence"], [])
             self.assertTrue(row["relatedEvidence"])
         self.assertIn("setup explicitly includes", rows[4]["sourceAssessment"])
@@ -111,7 +111,7 @@ class WikiTests(unittest.TestCase):
     def test_lab6_crosswalk_is_linked_in_all_six_current_bilingual_docs(self):
         root = Path(__file__).resolve().parents[1]
         filename = "lab6-acceptance-crosswalk.json"
-        expected = ["PASS"] * 5 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"]
+        expected = ["PASS"] * 5 + ["PARTIAL"] * 2 + ["PASS"] + ["NOT_RUN"] * 3 + ["PARTIAL"]
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 with self.subTest(language=language, page=name):
@@ -229,6 +229,106 @@ class WikiTests(unittest.TestCase):
                              [update["reference"] + f"#/cases/{index}"])
             self.assertEqual(row["status"], receipt["cases"][index]["status"])
             self.assertEqual(row["initialOfflineStatus"], "NOT_RUN")
+
+    def test_lab6_private_history_is_response_only_with_unknown_plan_and_call_counts(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        filename = "lab6-private-history-native.json"
+        raw_bytes = (directory / filename).read_bytes()
+        self.assertNotIn(b"\r", raw_bytes)
+        self.assertTrue(raw_bytes.endswith(b"\n"))
+        raw = raw_bytes.decode("utf-8")
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "https://", "conversation_id",
+                       "tenant_id", "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual((receipt["case"], receipt["status"]), ("F6-08", "PASS"))
+        self.assertIn("Response-only", receipt["resultScope"])
+        self.assertTrue(receipt["response_assertions_pass"])
+        self.assertFalse(receipt["overallPlanClosureProven"])
+        self.assertEqual(receipt["nativeQuestionSubmissions"], 1)
+        self.assertTrue(receipt["oneShot"])
+        for key in ("replays", "extraPreflightQuestions", "questionsSubmittedDuringPublication"):
+            self.assertEqual(receipt[key], 0)
+        self.assertEqual(receipt["serverReceiptToFinalSeconds"], 16.670226)
+        self.assertEqual(receipt["sendToReplyWallSeconds"], 19.506164)
+        self.assertEqual(receipt["serverTerminalFallbackSeconds"], 16.671472)
+        for key in ("explicitConfiguredEvidenceLimitation", "refusesInference",
+                    "noInventedPrivateCustomerEvents", "noFictionalCorpusHistorySubstitution",
+                    "notClarificationOnly"):
+            self.assertTrue(receipt["assertions"][key])
+        self.assertFalse(receipt["assertions"]["zeroToolCallsOrZeroIrrelevantRecordsRequired"])
+        completion = receipt["completion"]
+        self.assertTrue(completion["nativeFinalMessageStream"])
+        self.assertTrue(completion["matchingTerminalFallbackEndDialog"])
+        self.assertEqual(completion["completedNoAnswerSupportState"], "AnswerNotFoundInSearchResults")
+        self.assertFalse(completion["dynamicPlanFinishedObserved"])
+        self.assertTrue(completion["captureDeadlineReached"])
+        self.assertEqual(completion["captureWindowSeconds"], 240)
+        self.assertEqual(completion["overallGenerativeOrMcpPlanCompletion"], "NOT_ESTABLISHED")
+        routing = receipt["routing"]
+        self.assertEqual((routing["completedLocalSearchSteps"], routing["localResultsReturned"]), (1, 3))
+        self.assertTrue(routing["fallbackSearchAndSummarizeContentObserved"])
+        self.assertTrue(routing["mcpUiLabelPresent"])
+        self.assertFalse(routing["mcpInvocationOrOutputCorrelated"])
+        for key in ("actualMcpInvocationCount", "actualUnderlyingFoundryInvocationCount",
+                    "distinctLowLevelRetrievalCallCount"):
+            self.assertEqual(routing[key], "NOT_ESTABLISHED")
+            self.assertNotEqual(routing[key], 0)
+        config = receipt["configuration"]
+        self.assertTrue(config["sameFrozenProspectiveMcpAdaptedConfigurationAsF604AndF605"])
+        self.assertFalse(config["historicalSpecialistConfigurationEquivalence"])
+        self.assertFalse(config["originalDocxReconstructed"])
+        preservation = receipt["preservation"]
+        for key in ("rootConfigurationHashesAndVersionsUnchanged", "instructionDigestUnchanged",
+                    "sourceHashesAndVersionsUnchanged", "priorReceiptsAndArchivesUnchanged",
+                    "trackedWorktreeCleanAfterCapture"):
+            self.assertTrue(preservation[key])
+        for key in ("configurationEditsDuringCapture", "publishesDuringCapture", "newResourcesDuringCapture"):
+            self.assertEqual(preservation[key], 0)
+        self.assertFalse(preservation["fullComponentPostflightReexport"])
+        limits = receipt["receiptLimitations"]
+        self.assertTrue(limits["preSendTransientNetworkInterruption"])
+        self.assertTrue(limits["boundedRecoveryBeforeQuestionSend"])
+        self.assertFalse(limits["additionalSessionClickOrQuestionReplay"])
+        acceptance = receipt["acceptance"]
+        self.assertTrue(acceptance["distinctFromOriginalElevenCaseMatrixCase9"])
+        self.assertEqual((acceptance["candidateCurrentAcceptedCases"],
+                          acceptance["candidateTotalCases"], acceptance["case9FailedAttempts"]), (10, 11, 2))
+        for key in ("case9RootCauseEstablished", "thirdReplaySubmitted", "T017RuntimeComplete",
+                    "workshopComplete", "historicalArchitectureEquivalenceClaimed"):
+            self.assertFalse(acceptance[key])
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        row = crosswalk["rows"][7]
+        self.assertEqual((row["id"], row["status"], row["initialOfflineStatus"]), ("F6-08", "PASS", "PARTIAL"))
+        self.assertIn("Neither proves the exact native", row["initialOfflineAssessment"])
+        self.assertEqual(row["exactEvidence"], ["docs/assets/runtime-2026-10-26/" + filename])
+        for marker in ("Response-only", "DynamicPlanFinished", "240", "three records", "NOT_ESTABLISHED"):
+            self.assertIn(marker, row["evidenceBoundary"])
+        latest = crosswalk["latestPrivateHistoryUpdate"]
+        self.assertEqual(latest["reference"], row["exactEvidence"][0])
+        self.assertEqual(latest["nativeQuestionSubmissions"], 1)
+        self.assertEqual((latest["replays"], latest["publicationQuestions"]), (0, 0))
+        self.assertTrue(latest["response_assertions_pass"])
+        self.assertTrue(latest["priorTwoQuestionNativeUpdateUnchanged"])
+        self.assertEqual(latest["statusCounts"], {"PASS": 6, "PARTIAL": 3, "NOT_RUN": 3})
+        self.assertEqual(latest["actualMcpAndUnderlyingFoundryCallCounts"], "NOT_ESTABLISHED")
+        for key in ("overallPlanClosureProven", "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(latest[key])
+        self.assertNotRegex(json.dumps(crosswalk), r'(?i)"[^"]*(?:percentage|percentComplete)[^"]*"\s*:')
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
+                section = text.split("\n### ", 2)[1]
+                self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
+                for marker in ("F6-08", "DynamicPlanFinished", "240", "NOT_ESTABLISHED"):
+                    self.assertIn(marker, section)
+                self.assertIn("response-only" if language == "en" else "réponse uniquement", section)
+                self.assertIn("plan closure remains unproven" if language == "en"
+                              else "clôture du plan reste non prouvée", section)
+                if name == "completion-roadmap":
+                    self.assertIn("- [ ] T017 [Plan:4.1]", text)
 
     def test_roadmap_covers_every_lab_and_explicit_lab6_reconciliation(self):
         root = Path(__file__).resolve().parents[1]

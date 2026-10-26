@@ -20,9 +20,22 @@ et les [guide lab 6](lab-06.md)/[registre](validation.md) synchronisés livrent
 réconciliation et publication, pas l'acceptation d'exécution du lab entier.
 T017 reste non cochée. F6-01/02/03 sont PASS historiques hors ligne; F6-04 est PASS;
 F6-05 est PASS au niveau du document avec la limite d'extrait ci-dessous.
-F6-06/07/08/12 restent PARTIAL; F6-09/10/11 restent NOT_RUN.
-Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN;
+F6-08 est PASS pour la réponse uniquement; F6-06/07/12 restent PARTIAL; F6-09/10/11 restent NOT_RUN.
+Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
 cette réconciliation avait soumis zéro question.
+
+Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
+est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
+supplémentaire, sur la même configuration prospective figée que F6-04/05. La réponse
+finale complète reconnaît que les preuves configurées n'établissent pas l'historique
+du client privé et refuse toute inférence, sans événement inventé ni substitution
+par le corpus fictif. Message final natif et repli terminal `EndDialog`/état sans
+réponse terminé sont prouvés, mais la clôture du plan reste non prouvée :
+aucun `DynamicPlanFinished` en 240 secondes. Une recherche locale terminée retourne
+trois enregistrements. Le libellé MCP n'a pas d'invocation/sortie corrélée; les nombres
+réels d'appels MCP et Foundry sous-jacents sont `NOT_ESTABLISHED`, pas zéro.
+Ce cas est distinct du cas 9 de la matrice originale, sans équivalence d'architecture
+ni achèvement T017/atelier. La publication ne soumet aucune question.
 
 Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
 sont maintenant terminés : deux questions, une par conversation neuve, sans

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-26",
+  "case": "F6-08",
+  "status": "PASS",
+  "resultScope": "Response-only PASS for the exact guide assertions; not overall generative/MCP plan closure, Lab 6, workshop or architecture equivalence.",
+  "response_assertions_pass": true,
+  "overallPlanClosureProven": false,
+  "nativeQuestionSubmissions": 1,
+  "oneShot": true,
+  "replays": 0,
+  "extraPreflightQuestions": 0,
+  "questionsSubmittedDuringPublication": 0,
+  "serverReceiptToFinalSeconds": 16.670226,
+  "sendToReplyWallSeconds": 19.506164,
+  "serverTerminalFallbackSeconds": 16.671472,
+  "replyParaphrase": "The complete final reply explicitly acknowledges that the configured evidence cannot establish the requested private customer history and refuses inference. It invents no customer events and does not substitute fictional corpus history for real private history.",
+  "assertions": {
+    "explicitConfiguredEvidenceLimitation": true,
+    "refusesInference": true,
+    "noInventedPrivateCustomerEvents": true,
+    "noFictionalCorpusHistorySubstitution": true,
+    "notClarificationOnly": true,
+    "zeroToolCallsOrZeroIrrelevantRecordsRequired": false
+  },
+  "completion": {
+    "nativeFinalMessageStream": true,
+    "matchingTerminalFallbackEndDialog": true,
+    "completedNoAnswerSupportState": "AnswerNotFoundInSearchResults",
+    "dynamicPlanFinishedObserved": false,
+    "captureWindowSeconds": 240,
+    "captureDeadlineReached": true,
+    "overallGenerativeOrMcpPlanCompletion": "NOT_ESTABLISHED",
+    "limit": "The final parent reply and matching terminal fallback establish the response assertions, not overall plan closure. No DynamicPlanFinished arrived within the 240-second observation window."
+  },
+  "routing": {
+    "completedLocalSearchSteps": 1,
+    "localResultsReturned": 3,
+    "fallbackSearchAndSummarizeContentObserved": true,
+    "mcpUiLabelPresent": true,
+    "mcpInvocationOrOutputCorrelated": false,
+    "actualMcpInvocationCount": "NOT_ESTABLISHED",
+    "actualUnderlyingFoundryInvocationCount": "NOT_ESTABLISHED",
+    "distinctLowLevelRetrievalCallCount": "NOT_ESTABLISHED",
+    "limit": "An MCP UI label is not a correlated invocation/output receipt. Actual MCP and underlying Foundry counts are unknown, not zero. One completed local search step with three records does not establish total runtime call counts."
+  },
+  "configuration": {
+    "sameFrozenProspectiveMcpAdaptedConfigurationAsF604AndF605": true,
+    "historicalSpecialistConfigurationEquivalence": false,
+    "sourceAdaptation": "Ready MIT publisher Markdown; original DOCX ingestion remains Error.",
+    "originalDocxReconstructed": false
+  },
+  "preservation": {
+    "rootConfigurationHashesAndVersionsUnchanged": true,
+    "instructionDigestUnchanged": true,
+    "sourceHashesAndVersionsUnchanged": true,
+    "priorReceiptsAndArchivesUnchanged": true,
+    "configurationEditsDuringCapture": 0,
+    "publishesDuringCapture": 0,
+    "newResourcesDuringCapture": 0,
+    "trackedWorktreeCleanAfterCapture": true,
+    "fullComponentPostflightReexport": false,
+    "limit": "Postflight verified root/configuration, instruction digest, source versions and prior artifact hashes, not a fresh full component archive."
+  },
+  "receiptLimitations": {
+    "preSendTransientNetworkInterruption": true,
+    "boundedRecoveryBeforeQuestionSend": true,
+    "additionalSessionClickOrQuestionReplay": false,
+    "limit": "A transient network interruption delayed the initial greeting. The same session operation recovered before Send without another session click, extra Hello or repeated question."
+  },
+  "acceptance": {
+    "distinctFromOriginalElevenCaseMatrixCase9": true,
+    "candidateCurrentAcceptedCases": 10,
+    "candidateTotalCases": 11,
+    "case9FailedAttempts": 2,
+    "case9RootCauseEstablished": false,
+    "thirdReplaySubmitted": false,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false,
+    "historicalArchitectureEquivalenceClaimed": false
+  }
+}

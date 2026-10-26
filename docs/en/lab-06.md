@@ -16,9 +16,23 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 The [T017 acceptance crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 delivers the documentary substep, not whole-lab runtime completion. F6-01/02/03
 remain historical offline PASS; F6-04 is PASS and F6-05 is PASS at document level
-with the displayed-excerpt limit below. F6-06/07/08/12 remain PARTIAL;
+with the displayed-excerpt limit below. F6-08 is response-only PASS;
+F6-06/07/12 remain PARTIAL;
 F6-09/10/11 remain NOT_RUN. At the initial offline checkpoint on 2026-10-26,
-F6-04/05 were NOT_RUN; that reconciliation submitted zero questions/live attempts.
+F6-04/05 were NOT_RUN and F6-08 was PARTIAL;
+that reconciliation submitted zero questions/live attempts.
+
+The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
+is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
+frozen prospective configuration as F6-04/05. The complete final reply acknowledges
+that configured evidence cannot establish private customer history and refuses
+inference, without invented events or fictional-corpus substitution. A native final
+message and matching terminal fallback `EndDialog`/completed no-answer state are
+proven, but plan closure remains unproven: no `DynamicPlanFinished` within 240 seconds.
+One completed local search returned three records. An MCP label lacks correlated
+invocation/output; actual MCP and underlying Foundry counts are `NOT_ESTABLISHED`,
+not zero. This is distinct from original matrix case 9, not architecture equivalence
+or T017/workshop completion. Publication submits no questions.
 
 The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
 are now complete: two questions, one per fresh conversation, no preflight questions
@@ -421,6 +435,7 @@ Use only fictional, nonidentifying situations. Financial-domain content in the a
 Results below are reconciled on **2026-10-26**. F6-01/02/03 PASS means the dated
 offline assertion passed, not runtime acceptance. F6-04/05 PASS covers only the
 two native checks above; F6-05 has document-level support, not excerpt fidelity.
+F6-08 PASS covers response assertions only, not overall generative/MCP plan closure.
 NOT_RUN concerns exact guide execution;
 PARTIAL preserves related evidence without substituting another question or route.
 The [crosswalk receipt](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
@@ -435,7 +450,7 @@ provides provenance, public evidence pointers and limits for every row.
 | F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | PASS document-level, Ready Markdown adaptation; displayed citation excerpt lacks ATO, exact chunk support unproved |
 | F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: related expertise; exact route/tool join unproved |
 | F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PARTIAL: related multi-source passes, not exact comparison |
-| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PARTIAL: backend abstention, not exact native turn         |
+| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PASS: response-only; plan closure unproven, MCP/Foundry counts unknown |
 | F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | NOT_RUN: no exact French Lab 6 evidence                    |
 | F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | NOT_RUN: Lab 5 Search denial does not substitute           |
 | F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | NOT_RUN: blueprint error does not substitute               |
