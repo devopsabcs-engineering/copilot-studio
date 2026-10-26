@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-26",
+  "scope": "Two sequential isolated native Search OAuth service-principal cohorts, not workshop completion",
+  "issueUrl": "https://github.com/devopsabcs-engineering/copilot-studio/issues/4",
+  "cohorts": [
+    {
+      "variant": "index-data-reader-only",
+      "permissions": {
+        "documentRole": "Search Index Data Reader",
+        "documentScope": "Exact disposable index only",
+        "metadataRole": null,
+        "metadataListingPermissionGapDocumented": true
+      },
+      "native": {
+        "manualCredentialEntry": true,
+        "createSubmissions": 1,
+        "savedNotificationObserved": true,
+        "independentInventoryStatus": "Connected",
+        "pickerError": "Something went wrong.",
+        "consoleHttpStatus": 400,
+        "httpResponseBodyAvailable": false,
+        "addToAgentEnabled": false,
+        "refreshes": 0,
+        "retries": 0
+      },
+      "cleanup": {
+        "independentlyVerified": true,
+        "ownedResourcesRemaining": 0,
+        "credentialExplicitlyRevokedAndIdentityDeleted": true,
+        "protectedSecretFileRemoved": true,
+        "failuresPreserved": [
+          "PAC cleanup failed because environment route and query filter did not match.",
+          "Final verification snapshot encountered a DNS resolution failure."
+        ],
+        "recovery": [
+          "Independent inventories located the exact owned connection; guarded REST deletion with the correct environment filter and independent absence checks succeeded.",
+          "Separate read-only final verification succeeded without replaying deletion."
+        ]
+      }
+    },
+    {
+      "variant": "separate-metadata-action-and-index-data-reader",
+      "permissions": {
+        "documentRole": "Search Index Data Reader",
+        "documentScope": "Exact disposable index only",
+        "metadataRole": "Dedicated custom role",
+        "metadataAssignmentScope": "Existing Search service",
+        "metadataActions": ["Microsoft.Search/searchServices/indexes/read"],
+        "metadataDataActions": [],
+        "metadataWriteActions": [],
+        "metadataOperationsReadGranted": false,
+        "metadataExposure": "Service-wide index names and schema; not service-wide document access",
+        "dedicatedPrincipalExactAssignmentCount": 2,
+        "exactAssignmentsIndependentlyVerified": true
+      },
+      "directControls": {
+        "correctServicePrincipalMetadataListing": "PASS",
+        "ownSyntheticCanaryQuery": "PASS",
+        "otherIndexDocumentDenial": "NOT_RUN"
+      },
+      "native": {
+        "manualCredentialEntry": true,
+        "createSubmissions": 1,
+        "savedNotificationObserved": true,
+        "independentInventoryStatus": "Connected",
+        "pickerError": "Something went wrong.",
+        "consoleHttpStatus": 400,
+        "httpResponseBodyAvailable": false,
+        "addToAgentEnabled": false,
+        "refreshes": 0,
+        "retries": 0
+      },
+      "cleanup": {
+        "independentlyVerified": true,
+        "ownedResourcesRemaining": 0,
+        "credentialExplicitlyRevokedAndIdentityDeleted": true,
+        "protectedSecretFileRemoved": true,
+        "guardedCleanupExitCode": 0,
+        "separateVerifyCleanedExitCode": 0,
+        "failuresPreserved": [],
+        "recovery": []
+      }
+    }
+  ],
+  "acceptance": {
+    "nativeSourceAdditions": 0,
+    "indexBound": false,
+    "schemaAndFieldMappingValidated": false,
+    "sourceReady": false,
+    "nativePositiveQuestions": 0,
+    "nativeNegativeQuestions": 0,
+    "modelQuestions": 0,
+    "positive": "NOT_RUN",
+    "negative": "NOT_RUN",
+    "postRevocationDirect403": "NOT_RUN",
+    "noLeakAcceptance": "NOT_PROVEN",
+    "effectiveNativeRuntimePrincipal": "NOT_PROVEN",
+    "specificHttp400Cause": "UNKNOWN",
+    "metadataAdditionProvenFix": false,
+    "connectedOrDirectControlsAreNativeAcceptance": false,
+    "partialPairedTestPass": false,
+    "S5_10Passed": false,
+    "T014Complete": false,
+    "T016Complete": false,
+    "workshopComplete": false
+  },
+  "preservation": {
+    "bothIndependentCleanupsVerified": true,
+    "ownedResourcesRemaining": 0,
+    "originalAgents": 5,
+    "originalConnections": 7,
+    "originalSearchSchemas": 3,
+    "fullOriginalSearchConfigurationExact": true,
+    "unownedRolesAndDefinitionsExact": true,
+    "embeddingAccountAndFullRolesExact": true,
+    "hostedRetrievalVersion5Exact": true,
+    "historicalFilesUnchanged": 181
+  },
+  "excludedChanges": {
+    "originalAgentChanges": 0,
+    "newActivityOrFoundryQuestions": 0,
+    "m365Publishes": 0,
+    "zipImports": 0,
+    "authenticationOrNetworkWeakening": false,
+    "keyAuthenticationUsed": false,
+    "publicStorageChanges": false,
+    "privateIdentifiersOrCredentialPathsPublished": false
+  }
+}

@@ -19,6 +19,40 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 26 native Search service-principal picker blocker
+
+The [two isolated OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
+each saved a Connected connection after manual credential entry and exactly one
+native Create. Both index pickers displayed `Something went wrong.`, a console
+HTTP 400 and disabled Add to agent. The response body was unavailable; neither
+the specific cause nor the effective native runtime principal is established.
+
+The first principal had only Search Index Data Reader at its disposable index,
+a documented metadata-listing gap, not proven 400 causation. The second had
+exactly two verified assignments: the same index-only Reader plus a separate
+custom role at the existing Search service with only
+`Microsoft.Search/searchServices/indexes/read` in Actions, no DataActions,
+writes or operations/read. This exposes service-wide index metadata, not
+service-wide document access. Direct listing and its own synthetic canary query
+passed, but native selection still failed. Metadata addition is not a proven fix.
+
+Neither cohort added a source, bound an index, reached field mapping/readiness,
+or submitted any native positive, native negative or model question (all zero).
+Post-revocation direct 403 and no-leak acceptance were not run/proved.
+Connected and direct controls are not native acceptance or a partial paired pass.
+The [dedicated diagnostic issue](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+asks for a supported picker/GetIndexesSchema diagnostic and minimum permission
+contract, without asserting a service defect. S5-10, T014 and T016 stay open.
+
+Both independent cleanups verify zero owned resources, explicit credential
+revocation/deletion and protected secret-file removal. The first retains a PAC
+environment-filter error and a DNS verification error, each separately recovered
+without deletion replay; the second guarded cleanup and separate verification
+had no errors. Five original agents, seven connections, three schemas, full
+Search configuration/unowned roles and definitions, embedding roles, hosted v5
+and 181 historical files remain exact. No original, authentication/network,
+key-authentication or public-storage change, M365 publish or ZIP import occurs.
+
 ## October 26 current agent-endpoint model check
 
 The [read-only endpoint investigation](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)

@@ -11,6 +11,74 @@ from validate_docs import local_link_errors, validate
 
 
 class WikiTests(unittest.TestCase):
+    def test_native_search_picker_connection_is_not_paired_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "native-search-index-picker.json"
+        path = root / "docs" / "assets" / "runtime-2026-10-26" / filename
+        raw = path.read_bytes()
+        receipt = json.loads(raw)
+        self.assertNotRegex(raw.decode("utf-8"),
+                            r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        self.assertTrue(raw.endswith(b"\n"))
+        self.assertEqual(len(receipt["cohorts"]), 2)
+        for cohort in receipt["cohorts"]:
+            native = cohort["native"]
+            self.assertEqual(native["createSubmissions"], 1)
+            self.assertTrue(native["manualCredentialEntry"])
+            self.assertTrue(native["savedNotificationObserved"])
+            self.assertEqual(native["independentInventoryStatus"], "Connected")
+            self.assertEqual(native["pickerError"], "Something went wrong.")
+            self.assertEqual(native["consoleHttpStatus"], 400)
+            self.assertFalse(native["httpResponseBodyAvailable"])
+            self.assertFalse(native["addToAgentEnabled"])
+            self.assertEqual((native["refreshes"], native["retries"]), (0, 0))
+            cleanup = cohort["cleanup"]
+            self.assertTrue(cleanup["independentlyVerified"])
+            self.assertEqual(cleanup["ownedResourcesRemaining"], 0)
+            self.assertTrue(cleanup["credentialExplicitlyRevokedAndIdentityDeleted"])
+            self.assertTrue(cleanup["protectedSecretFileRemoved"])
+        first, second = receipt["cohorts"]
+        self.assertTrue(first["permissions"]["metadataListingPermissionGapDocumented"])
+        self.assertIsNone(first["permissions"]["metadataRole"])
+        self.assertEqual(len(first["cleanup"]["failuresPreserved"]), 2)
+        self.assertEqual(len(first["cleanup"]["recovery"]), 2)
+        permissions = second["permissions"]
+        self.assertEqual(permissions["metadataActions"],
+                         ["Microsoft.Search/searchServices/indexes/read"])
+        self.assertEqual(permissions["metadataAssignmentScope"], "Existing Search service")
+        self.assertEqual(permissions["metadataDataActions"], [])
+        self.assertEqual(permissions["metadataWriteActions"], [])
+        self.assertFalse(permissions["metadataOperationsReadGranted"])
+        self.assertEqual(permissions["dedicatedPrincipalExactAssignmentCount"], 2)
+        self.assertTrue(permissions["exactAssignmentsIndependentlyVerified"])
+        self.assertEqual(second["directControls"]["correctServicePrincipalMetadataListing"], "PASS")
+        self.assertEqual(second["directControls"]["ownSyntheticCanaryQuery"], "PASS")
+        self.assertEqual(second["cleanup"]["failuresPreserved"], [])
+        self.assertEqual(second["cleanup"]["separateVerifyCleanedExitCode"], 0)
+        acceptance = receipt["acceptance"]
+        for key in ("nativeSourceAdditions", "nativePositiveQuestions",
+                    "nativeNegativeQuestions", "modelQuestions"):
+            self.assertEqual(acceptance[key], 0)
+        for key in ("positive", "negative", "postRevocationDirect403"):
+            self.assertEqual(acceptance[key], "NOT_RUN")
+        self.assertEqual(acceptance["noLeakAcceptance"], "NOT_PROVEN")
+        self.assertEqual(acceptance["effectiveNativeRuntimePrincipal"], "NOT_PROVEN")
+        self.assertEqual(acceptance["specificHttp400Cause"], "UNKNOWN")
+        for key in ("indexBound", "schemaAndFieldMappingValidated", "sourceReady",
+                    "metadataAdditionProvenFix", "connectedOrDirectControlsAreNativeAcceptance",
+                    "partialPairedTestPass", "S5_10Passed", "T014Complete",
+                    "T016Complete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        preservation = receipt["preservation"]
+        self.assertEqual([preservation[key] for key in
+                          ("originalAgents", "originalConnections", "originalSearchSchemas",
+                           "historicalFilesUnchanged")], [5, 7, 3, 181])
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn(filename, text)
+                self.assertIn(receipt["issueUrl"], text)
+
     def test_page_names(self):
         root = Path(__file__).resolve().parents[1]
         self.assertEqual(page_name(root / "README.md"), "Home")

@@ -17,6 +17,41 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 native Search OAuth picker failure
+
+The [two sequential isolated service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
+each use manual credential entry and one Create, with saved notification and
+independent Connected inventory. Both native index pickers fail with
+`Something went wrong.`, console HTTP 400 and Add to agent disabled.
+No response body is available; cause and effective native principal are unknown.
+
+The first uses only exact-index Search Index Data Reader, a documented metadata
+gap but not proven 400 causation. The second verifies exactly two assignments:
+index-only Reader and a separate existing-service-scoped custom role containing
+only `Microsoft.Search/searchServices/indexes/read` in Actions, no DataActions,
+writes or operations/read. Direct correct-principal metadata listing and its own
+synthetic canary query pass. Service-wide metadata is exposed, not service-wide
+documents. Native failure persists; metadata addition is not a demonstrated fix.
+
+No source addition, index binding, schema/field mapping or readiness occurs.
+Native positive, negative and model questions all remain zero; no post-revocation
+direct 403 or no-leak acceptance is run/proved. Neither Connected nor direct
+controls constitute native acceptance or a partial paired pass.
+[Issue #4](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+requests supported picker diagnostics and the minimum permission contract.
+S5-10/T014/T016 and workshop completion remain open.
+
+Both independent cleanups verify zero owned resources, explicit credential
+revocation/deletion and protected secret-file removal. The first preserves a
+PAC environment-filter error followed by guarded exact-connection recovery,
+then a DNS snapshot error followed by separate read-only verification without
+deletion replay. The second guarded cleanup and separate verify-cleaned have
+no errors. Original five agents/seven connections/three schemas, full Search
+configuration and unowned roles/definitions, embedding roles, hosted v5 and
+181 historical files remain exact. No original changes, Activity/Foundry
+questions, M365 publish, ZIP import, auth/network weakening, key authentication
+or public-storage change occurs.
+
 ## October 26 current endpoint-model read
 
 The [two read-only agent GETs](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)

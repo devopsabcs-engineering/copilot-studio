@@ -20,6 +20,43 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Blocage du sélecteur Search natif par principal de service du 26 octobre
+
+Les [deux cohortes OAuth isolées](../assets/runtime-2026-10-26/native-search-index-picker.json)
+enregistrent chacune une connexion Connected après saisie manuelle du secret et
+un seul Create natif. Les deux sélecteurs affichent `Something went wrong.`,
+un HTTP 400 dans la console et Add to agent désactivé. Le corps HTTP est
+indisponible; ni cause précise ni principal natif effectif ne sont établis.
+
+Le premier principal possède seulement Search Index Data Reader sur son index
+jetable : lacune documentée de lecture des métadonnées, pas cause prouvée du 400.
+Le second possède exactement deux attributions vérifiées : Reader sur son seul
+index et rôle personnalisé séparé au niveau du service Search existant, avec
+uniquement `Microsoft.Search/searchServices/indexes/read` dans Actions, sans
+DataActions, écriture ni operations/read. Ce rôle expose les métadonnées de tous
+les index, pas leurs documents. Liste directe et requête de son propre témoin
+synthétique réussissent, mais le sélecteur natif échoue encore. L'ajout des
+métadonnées n'est pas une correction démontrée.
+
+Aucune source ajoutée, liaison d'index, correspondance de champs ni disponibilité
+Ready; zéro question native positive, native négative ou de modèle.
+Ni 403 direct après révocation ni acceptation sans fuite exécutés/prouvés.
+Connected et contrôles directs ne valent ni acceptation native ni réussite
+appariée partielle. Le [ticket de diagnostic dédié](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+demande un diagnostic pris en charge du sélecteur/GetIndexesSchema et le contrat
+minimal de permissions, sans affirmer un défaut du service. S5-10, T014 et T016
+restent ouverts.
+
+Les deux nettoyages indépendants vérifient zéro ressource possédée restante,
+révocation/suppression des secrets et suppression des fichiers secrets protégés.
+Le premier conserve une erreur PAC de filtre d'environnement et une erreur DNS
+de vérification, récupérées séparément sans répéter la suppression; le second
+nettoyage contrôlé et sa vérification distincte n'ont aucune erreur.
+Cinq agents, sept connexions, trois schémas, configuration Search complète,
+rôles/définitions non possédés, rôles d'embedding, hébergement v5 et 181 fichiers
+historiques restent exacts. Aucun original, authentification/réseau, mode par clé
+ou stockage public modifié, aucune publication M365 ni importation ZIP.
+
 ## Modèle actuel de point de terminaison du 26 octobre
 
 L'[investigation en lecture seule](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)

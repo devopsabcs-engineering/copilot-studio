@@ -17,6 +17,43 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Échec du sélecteur Search OAuth natif du 26 octobre
+
+Les [deux cohortes isolées successives par principal de service](../assets/runtime-2026-10-26/native-search-index-picker.json)
+utilisent chacune une saisie manuelle du secret et un Create, avec notification
+enregistrée et inventaire Connected indépendant. Les deux sélecteurs échouent :
+`Something went wrong.`, HTTP 400 console et Add to agent désactivé.
+Corps HTTP indisponible; cause et principal natif effectif inconnus.
+
+La première utilise uniquement Search Index Data Reader sur son index :
+lacune documentée de métadonnées, pas cause démontrée du 400. La seconde vérifie
+exactement deux attributions : Reader sur son seul index et rôle personnalisé
+séparé au service existant avec uniquement
+`Microsoft.Search/searchServices/indexes/read` dans Actions, sans DataActions,
+écriture ni operations/read. Liste directe par le bon principal et requête de
+son propre témoin synthétique réussissent. Métadonnées de tous les index exposées,
+pas leurs documents. L'échec natif persiste; aucun correctif démontré.
+
+Aucune source ajoutée, liaison d'index, correspondance schéma/champs ni
+disponibilité Ready. Zéro question native positive, négative ou de modèle;
+ni 403 direct après révocation ni acceptation sans fuite exécutés/prouvés.
+Connected et contrôles directs ne constituent ni acceptation native ni réussite
+appariée partielle. Le [ticket nº 4](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+demande diagnostic pris en charge et contrat minimal de permissions.
+S5-10/T014/T016 et clôture de l'atelier restent ouverts.
+
+Les deux nettoyages indépendants vérifient zéro ressource possédée restante,
+révocation/suppression des secrets et suppression des fichiers secrets protégés.
+Le premier conserve l'erreur PAC de filtre d'environnement, puis sa reprise
+contrôlée sur la connexion exacte, et l'erreur DNS d'instantané, puis sa
+vérification distincte en lecture seule sans répéter la suppression.
+Le second nettoyage contrôlé et verify-cleaned distinct n'ont aucune erreur.
+Cinq agents/sept connexions/trois schémas initiaux, configuration Search complète,
+rôles/définitions non possédés, rôles d'embedding, hébergement v5 et 181 fichiers
+historiques restent exacts. Aucun original modifié, aucune question Activity/
+Foundry, publication M365, importation ZIP, affaiblissement auth/réseau,
+authentification par clé ni modification du stockage public.
+
 ## Lecture du modèle actuel du 26 octobre
 
 Les [deux GET en lecture seule](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)

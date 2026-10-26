@@ -8,6 +8,24 @@ ms.date: 2026-10-26
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+Les [deux nouvelles cohortes Search OAuth par principal de service](../assets/runtime-2026-10-26/native-search-index-picker.json)
+enregistrent chacune Connected après un Create, puis échouent au sélecteur :
+`Something went wrong.`, HTTP 400 console, Add to agent désactivé.
+Data Reader sur le seul index manque de lecture des métadonnées; l'ajout séparé
+de l'Action `Microsoft.Search/searchServices/indexes/read` au service, sans
+DataActions, écriture ni operations/read, réussit liste directe/requête du propre
+témoin synthétique, pas le sélecteur natif. Ses deux attributions sont vérifiées.
+Corps HTTP indisponible, cause et principal natif non établis; aucun correctif
+inféré. Zéro source et zéro question native positive/négative/de modèle; aucune
+liaison, correspondance, disponibilité, 403 direct après révocation ni acceptation
+sans fuite. Connected/contrôles directs ne valent pas acceptation native ou
+appariée partielle. Les deux nettoyages indépendants laissent zéro ressource
+possédée et retirent secrets et fichiers protégés; contrôles initiaux et 181
+fichiers préservés. Les erreurs PAC de filtre et DNS du premier restent
+consignées avec reprise séparée; second nettoyage/vérification sans erreur.
+Le [ticket de diagnostic nº 4](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+suit la question du contrat pris en charge. S5-10/T014/T016 restent ouverts.
+
 Le [contrôle du modèle actuel](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
 renvoie deux GET réussis et identiques. L'hébergement v5 initial expose déjà le
 nouveau point de terminaison, avec Activity/Invocations et Entra/BotServiceRbac

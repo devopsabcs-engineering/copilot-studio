@@ -8,6 +8,24 @@ ms.date: 2026-10-26
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The [two new native Search OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
+each save Connected after one Create, then fail index selection with
+`Something went wrong.`, console HTTP 400 and Add to agent disabled.
+Index-only Data Reader lacks metadata listing; adding a separate service-scoped
+`Microsoft.Search/searchServices/indexes/read` Action with no DataActions,
+writes or operations/read passes direct listing/own synthetic query, not the
+native picker. Its exactly two assignments are verified. Response body, cause
+and effective native principal remain unavailable/unproved; no fix is inferred.
+Zero sources and zero native positive/negative/model questions; no binding,
+mapping, readiness, post-revocation direct 403 or no-leak acceptance.
+Connected/direct controls are not native or partial paired acceptance.
+Both independent cleanups leave zero owned resources and remove credentials
+and protected secret files, preserving all original controls and 181 files.
+The first PAC filter and DNS verification errors remain recorded with separate
+recovery; the second cleanup/verification has no errors.
+[Diagnostic issue #4](https://github.com/devopsabcs-engineering/copilot-studio/issues/4)
+tracks the supported contract question. S5-10/T014/T016 remain open.
+
 The [current endpoint-model check](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
 returns two identical successful agent GETs. The original hosted v5 already
 exposes the new endpoint model with unchanged Activity/Invocations and
