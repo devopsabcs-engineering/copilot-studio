@@ -2,12 +2,29 @@
   "schemaVersion": 1,
   "task": "T017",
   "reconciledDate": "2026-10-26",
-  "scope": "Offline retained-evidence documentary reconciliation; no new runtime acceptance",
+  "scope": "Initial offline reconciliation preserved; current exact F6-04/F6-05 native passes on a frozen prospective MCP-adapted configuration, not historical configuration equivalence",
   "documentaryCrosswalkDelivered": true,
   "T017RuntimeComplete": false,
   "workshopComplete": false,
   "newQuestions": 0,
   "liveLabAttempts": 0,
+  "initialOfflineCheckpoint": {
+    "date": "2026-10-26",
+    "scope": "Initial offline retained-evidence reconciliation before the two exact native checks",
+    "newQuestions": 0,
+    "liveLabAttempts": 0,
+    "statusCounts": {"PASS": 3, "PARTIAL": 4, "NOT_RUN": 5},
+    "topLevelZeroCountsDescribeOnlyThisInitialOfflineCheckpoint": true
+  },
+  "currentNativeUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-intake-local-native.json",
+    "nativeQuestionSubmissions": 2,
+    "freshConversations": 2,
+    "replays": 0,
+    "publicationQuestions": 0,
+    "historicalSpecialistConfigurationEquivalence": false,
+    "statusCounts": {"PASS": 5, "PARTIAL": 4, "NOT_RUN": 3}
+  },
   "sourceBoundary": {
     "accessibleSourceBehaviors": ["source-free intake", "local glossary", "grounded specialist expertise", "multi-source work", "three eight-record datasets", "cleanup guidance"],
     "additionalProtectedMainRequirements": "UNKNOWN",
@@ -18,7 +35,7 @@
     "reference": "docs/assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json#/primary_source_reconciliation"
   },
   "statusDefinitions": {
-    "PASS": "The stated historical offline assertion is supported, not a runtime pass.",
+    "PASS": "F6-01/02/03: the stated historical offline assertion is supported, not a runtime pass. F6-04/05: only the exact native guide check passes on the prospective adapted configuration; F6-05 is document-level support, not exact citation-chunk fidelity or global citation acceptance.",
     "PARTIAL": "Some relevant assertions have evidence; exact guide turn, route, membership or current cleanup scope remains unproved.",
     "NOT_RUN": "No exact guide execution located in inspected retained scopes; related behavior may already pass.",
     "UNKNOWN": "Not established, including additional requirements in the unreadable main source."
@@ -96,21 +113,25 @@
     },
     {
       "id": "F6-04",
-      "status": "NOT_RUN",
+      "status": "PASS",
+      "initialOfflineStatus": "NOT_RUN",
+      "initialOfflineAssessment": "Related original intake passes with complete deterministic reply and zero MCP calls. Different exact guide wording remains unrun, a reproducibility limit rather than a new universal source gate.",
       "sourceProvenance": "workshop_source_backed",
       "sourceAssessment": "Intake routing is source-backed; exact F6 wording is a guide variant.",
-      "exactEvidence": [],
+      "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-intake-local-native.json#/cases/0"],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/0"],
-      "evidenceBoundary": "Related original intake passes with complete deterministic reply and zero MCP calls. Different exact guide wording remains unrun, a reproducibility limit rather than a new universal source gate."
+      "evidenceBoundary": "Exact native clarification PASS: complete intake actions and activityProcessed=true, zero retrieval/Foundry/MCP evidence calls. Frozen prospective MCP-adapted existing original specialist configuration, not historical baseline equivalence."
     },
     {
       "id": "F6-05",
-      "status": "NOT_RUN",
+      "status": "PASS",
+      "initialOfflineStatus": "NOT_RUN",
+      "initialOfflineAssessment": "Related ATO local lookup passes with actual intended uploaded knowledge search, complete reply and zero MCP calls. Exact F6 utterance unproved; licensed Markdown adaptation does not repair original DOCX ingestion.",
       "sourceProvenance": "workshop_source_backed",
       "sourceAssessment": "Accessible setup explicitly includes this lookup wording and local route; original scenario 4 uses different wording. Written instructions are not execution.",
-      "exactEvidence": [],
+      "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-intake-local-native.json#/cases/1"],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/3"],
-      "evidenceBoundary": "Related ATO local lookup passes with actual intended uploaded knowledge search, complete reply and zero MCP calls. Exact F6 utterance unproved; licensed Markdown adaptation does not repair original DOCX ingestion."
+      "evidenceBoundary": "Exact native local-answer/document-level attribution PASS: one completed SearchAndSummarizeContent on actual Ready MIT publisher Markdown, noncancelled DynamicPlanFinished, zero Foundry/MCP evidence calls. Another actually retrieved chunk of the same source supports ATO; the displayed citation excerpt lacks the expansion. No exact citation-chunk support or global citation-quality pass. Frozen prospective MCP-adapted configuration is not historical equivalence; original DOCX ingestion remains Error."
     },
     {
       "id": "F6-06",

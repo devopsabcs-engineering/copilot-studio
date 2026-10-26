@@ -11,12 +11,31 @@ ms.date: 2026-10-26
 ### Acceptation du lab 6 réconciliée, 2026-10-26
 
 La [correspondance documentaire T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
-est livrée avec le [guide actualisé](lab-06.md), sans exécution d'acceptation.
+est livrée avec le [guide actualisé](lab-06.md), sans acceptation du lab entier.
 F6-01/02/03 sont PASS historiques hors ligne, pas des réussites d'exécution.
-F6-04/05 sont NOT_RUN pour la variante exacte avec accueil/recherche locale
-natifs voisins réussis; F6-06/07/08/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
+F6-04 est PASS; F6-05 est PASS au niveau du document avec la limite d'extrait
+ci-dessous. F6-06/07/08/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
 Les douze lignes conservent provenance, pointeurs publics et limites.
-Aucune nouvelle question ni tentative réelle pour cette correspondance.
+Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN;
+la réconciliation n'avait soumis aucune question ni tentative réelle.
+
+Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+sont maintenant terminés : deux questions, une par conversation neuve, sans
+question préliminaire ni relance. F6-04 a terminé la clarification avec
+`activityProcessed=true`, sans recherche ni appel de preuve Foundry/MCP
+(0,118 seconde entre réception serveur et réponse finale). F6-05 a terminé un
+`SearchAndSummarizeContent` local et un `DynamicPlanFinished` non annulé, sans
+appel de preuve Foundry/MCP (70,618 secondes). Account Takeover est étayé au niveau
+du document par un autre fragment réellement récupéré de la même source;
+l'extrait de citation affiché ne contient pas la ligne ATO. Le support du fragment
+cité exact, la fidélité de l'extrait et la qualité globale des citations ne sont
+pas prouvés. Cette configuration prospective figée du spécialiste original
+existant, adaptée à MCP, utilise le Markdown éditeur MIT réellement Ready,
+sans équivalence avec la configuration historique; l'ingestion DOCX reste Error.
+Après contrôle, racine/paramètres, empreinte des instructions, versions des
+sources, empreintes éditeur et archives sont inchangés, sans second export complet.
+Ces tests n'ont rien modifié/publié ni créé de ressource. La publication ne soumet
+aucune question. Aucun nouvel export ou secret n'est requis pour ces deux contrôles.
 
 Spécialiste original natif 4/4, extension diagnostique hébergée et candidat MCP
 de données sont des routes distinctes. Les correspondances au corpus ne joignent
@@ -30,8 +49,9 @@ Accueil, connaissances locales, expertise étayée, multisource, trois jeux de
 données et nettoyage sont fondés sur les sources. Syntaxe/disposition, variantes
 ciblées et contrôles français/client privé/identité refusée/sans Activity sont
 des validations du guide, pas de nouvelles exigences originales universelles.
-Le libellé F6-05 apparaît dans les instructions, pas dans un reçu d'exécution.
-Les variantes non exécutées limitent la reproductibilité, sans imposer de répéter
+Le libellé F6-05 apparaît dans les instructions; son exécution n'était pas prouvée
+au point initial hors ligne, avant le nouveau reçu. Les autres variantes non
+exécutées limitent la reproductibilité, sans imposer de répéter
 les comportements sources vérifiés. Les exigences supplémentaires du document
 principal protégé restent UNKNOWN, sans contournement ni reconstruction.
 Annotations natives, URL éditeur et citations verbatim ne sont pas des critères

@@ -17,15 +17,35 @@ et non des résultats déjà observés ou promis.
 
 La [correspondance publique F6](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 et les [guide lab 6](lab-06.md)/[registre](validation.md) synchronisés livrent
-réconciliation et publication hors ligne, pas l'acceptation d'exécution.
-Aucune nouvelle question ni tentative réelle. T017 reste non cochée.
-F6-01/02/03 sont PASS historiques hors ligne; F6-04/05 NOT_RUN pour la variante
-exacte avec comportement natif voisin réussi; F6-06/07/08/12 PARTIAL;
-F6-09/10/11 NOT_RUN.
+réconciliation et publication, pas l'acceptation d'exécution du lab entier.
+T017 reste non cochée. F6-01/02/03 sont PASS historiques hors ligne; F6-04 est PASS;
+F6-05 est PASS au niveau du document avec la limite d'extrait ci-dessous.
+F6-06/07/08/12 restent PARTIAL; F6-09/10/11 restent NOT_RUN.
+Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN;
+cette réconciliation avait soumis zéro question.
+
+Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+sont maintenant terminés : deux questions, une par conversation neuve, sans
+question préliminaire ni relance. F6-04 a terminé la clarification avec
+`activityProcessed=true`, sans recherche ni appel de preuve Foundry/MCP
+(0,118 seconde entre réception serveur et réponse finale). F6-05 a terminé un
+`SearchAndSummarizeContent` local et un `DynamicPlanFinished` non annulé, sans
+appel de preuve Foundry/MCP (70,618 secondes). Account Takeover est étayé au niveau
+du document par un autre fragment réellement récupéré de la même source;
+l'extrait de citation affiché ne contient pas la ligne ATO. Le support du fragment
+cité exact, la fidélité de l'extrait et la qualité globale des citations ne sont
+pas prouvés. Cette configuration prospective figée du spécialiste original
+existant, adaptée à MCP, utilise le Markdown éditeur MIT réellement Ready,
+sans équivalence avec la configuration historique; l'ingestion DOCX reste Error.
+Après contrôle, racine/paramètres, empreinte des instructions, versions des
+sources, empreintes éditeur et archives sont inchangés, sans second export complet.
+Ces tests n'ont rien modifié/publié ni créé de ressource. La publication ne soumet
+aucune question. Aucun nouvel export ou secret n'est requis pour ces deux contrôles.
 
 Accueil/connaissances locales/expertise étayée/multisource, trois jeux de données
 et nettoyage fondés sur les sources sont distingués des contrôles et variantes
-du guide. F6-05 figure dans les instructions, sans prouver son exécution.
+du guide. F6-05 figurait dans les instructions, sans prouver son exécution
+au point initial hors ligne; le nouveau reçu ne ferme que ces deux contrôles.
 Un libellé différent ne crée pas une obligation originale universelle ni une
 consigne de recommencer le travail vérifié. Les exigences supplémentaires du
 document principal protégé restent UNKNOWN, sans contournement ni reconstruction.
@@ -1606,6 +1626,11 @@ et publication bilingue synchronisée guide/registre/feuille de route dans la
 [correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json).
 L'acceptation d'exécution reste ouverte; les variantes ajoutées au guide ne
 deviennent pas automatiquement des obligations originales universelles.
+Actualisation documentaire : F6-04 PASS et F6-05 PASS au niveau du document sont
+liés dans les guide, registre et correspondance synchronisés. L'extrait affiché
+F6-05 ne contient pas ATO; aucune acceptation du fragment cité exact ou de la
+qualité globale des citations. La configuration prospective adaptée ne prouve
+pas l'équivalence historique.
 
 Sortie : chaque cas et critère obligatoire justifié possède une preuve
 d'acceptation correspondante, sans recommencer le travail vérifié.

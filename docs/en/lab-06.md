@@ -14,10 +14,28 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 ### Current reconciliation, 2026-10-26
 
 The [T017 acceptance crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
-delivers the documentary substep, not runtime completion. F6-01/02/03 are
-historical offline PASS; F6-04/05 are exact-variant NOT_RUN with related native
-behavior passing; F6-06/07/08/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
-No new questions or live attempts were submitted for this reconciliation.
+delivers the documentary substep, not whole-lab runtime completion. F6-01/02/03
+remain historical offline PASS; F6-04 is PASS and F6-05 is PASS at document level
+with the displayed-excerpt limit below. F6-06/07/08/12 remain PARTIAL;
+F6-09/10/11 remain NOT_RUN. At the initial offline checkpoint on 2026-10-26,
+F6-04/05 were NOT_RUN; that reconciliation submitted zero questions/live attempts.
+
+The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+are now complete: two questions, one per fresh conversation, no preflight questions
+or replay. F6-04 completed clarification with `activityProcessed=true`, no retrieval
+or Foundry/MCP evidence calls (0.118 seconds from server receipt to final reply).
+F6-05 completed one local `SearchAndSummarizeContent`, a noncancelled
+`DynamicPlanFinished` and no Foundry/MCP evidence calls (70.618 seconds).
+Document-level support for Account Takeover is proven in another actually retrieved
+chunk of the same source; the displayed citation excerpt lacks the ATO row.
+Exact citation-chunk support, excerpt fidelity and global citation quality are not
+proven. This frozen prospective MCP-adapted existing original specialist
+configuration uses actual Ready MIT publisher Markdown, not historical baseline
+equivalence; original DOCX ingestion remains Error. Postflight root/settings,
+instruction digest, source versions, publisher hashes and archives were unchanged,
+without a second full component export. The live checks edited/published nothing
+and created no resources. Publication submits no questions. No further export or
+secret is needed for these two completed checks.
 
 The original specialist's native **4/4** is separate from both the verified
 diagnostic extension and the data-only MCP candidate. Corpus quotation matches
@@ -31,8 +49,9 @@ Source-free intake, local lookup, grounded expertise, multi-source work, three
 datasets and cleanup guidance are source-backed. Syntax/layout checks, focused
 F6 prompt variants, French/private-customer abstention, denied identity and
 missing-Activity tests are guide validations, not newly universal original gates.
-F6-05 wording also appears in accessible setup instructions, but that is not
-execution. Unrun guide wording limits reproducibility; it does not erase related
+F6-05 wording also appears in accessible setup instructions; the initial offline
+checkpoint did not prove execution. The new receipt closes only these two checks.
+Other unrun guide wording limits reproducibility; it does not erase related
 verified source behavior or require a whole-lab restart.
 
 Additional requirements in the unreadable protected main source remain UNKNOWN;
@@ -399,8 +418,10 @@ Figure 3. Redacted original supporting-setup screenshot, `image10.png`. The hist
 
 Use only fictional, nonidentifying situations. Financial-domain content in the authorized notebook is sample material, not current legal guidance. Do not grade answers against hardcoded reporting thresholds or the age of a fictional customer.
 
-Results below are reconciled on **2026-10-26**. PASS means the dated offline
-assertion passed, not runtime acceptance. NOT_RUN concerns exact guide execution;
+Results below are reconciled on **2026-10-26**. F6-01/02/03 PASS means the dated
+offline assertion passed, not runtime acceptance. F6-04/05 PASS covers only the
+two native checks above; F6-05 has document-level support, not excerpt fidelity.
+NOT_RUN concerns exact guide execution;
 PARTIAL preserves related evidence without substituting another question or route.
 The [crosswalk receipt](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 provides provenance, public evidence pointers and limits for every row.
@@ -410,8 +431,8 @@ provides provenance, public evidence pointers and limits for every row.
 | F6-01 | Parse all notebook code cells without execution                       | `11` cells parse; zero syntax errors                                                     | PASS: historical Python 3.14.3 syntax only                 |
 | F6-02 | Inspect inline document lists                                         | Exactly `8 + 8 + 8 = 24` records                                                         | PASS: historical static inventory                          |
 | F6-03 | Inspect package layout                                                | Root requirements/environment files and actual DOCX present; referenced nested MD absent | PASS: historical layout, not ingestion                     |
-| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | NOT_RUN exact variant; related native intake PASS          |
-| F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | NOT_RUN exact variant; related native local lookup PASS    |
+| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | PASS exact native intake; frozen prospective configuration |
+| F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | PASS document-level, Ready Markdown adaptation; displayed citation excerpt lacks ATO, exact chunk support unproved |
 | F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: related expertise; exact route/tool join unproved |
 | F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PARTIAL: related multi-source passes, not exact comparison |
 | F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PARTIAL: backend abstention, not exact native turn         |

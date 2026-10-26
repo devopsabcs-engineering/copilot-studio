@@ -39,7 +39,15 @@ class WikiTests(unittest.TestCase):
         self.assertEqual([row["id"] for row in rows],
                          [f"F6-{number:02}" for number in range(1, 13)])
         self.assertEqual(len({row["id"] for row in rows}), 12)
-        self.assertEqual([row["status"] for row in rows], expected)
+        self.assertEqual([row.get("initialOfflineStatus", row["status"]) for row in rows], expected)
+        self.assertEqual([row["status"] for row in rows],
+                         ["PASS"] * 5 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"])
+        initial = receipt["initialOfflineCheckpoint"]
+        self.assertEqual((initial["newQuestions"], initial["liveLabAttempts"]), (0, 0))
+        self.assertTrue(initial["topLevelZeroCountsDescribeOnlyThisInitialOfflineCheckpoint"])
+        self.assertEqual(initial["statusCounts"], {"PASS": 3, "PARTIAL": 4, "NOT_RUN": 5})
+        for row in rows[3:5]:
+            self.assertTrue(row["initialOfflineAssessment"])
         added = {"F6-01", "F6-03", "F6-08", "F6-09", "F6-10", "F6-11"}
         for row in rows:
             self.assertEqual(row["sourceProvenance"],
@@ -50,7 +58,7 @@ class WikiTests(unittest.TestCase):
             self.assertIsInstance(row["exactEvidence"], list)
             self.assertIsInstance(row["relatedEvidence"], list)
         self.assertIn("not a runtime pass", receipt["statusDefinitions"]["PASS"])
-        for row in rows[3:11]:
+        for row in rows[5:11]:
             self.assertEqual(row["exactEvidence"], [])
             self.assertTrue(row["relatedEvidence"])
         self.assertIn("setup explicitly includes", rows[4]["sourceAssessment"])
@@ -103,18 +111,28 @@ class WikiTests(unittest.TestCase):
     def test_lab6_crosswalk_is_linked_in_all_six_current_bilingual_docs(self):
         root = Path(__file__).resolve().parents[1]
         filename = "lab6-acceptance-crosswalk.json"
-        expected = ["PASS"] * 3 + ["NOT_RUN"] * 2 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"]
+        expected = ["PASS"] * 5 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"]
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 with self.subTest(language=language, page=name):
                     text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
                     self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", text)
+                    self.assertIn("](../assets/runtime-2026-10-26/lab6-intake-local-native.json)", text)
                     for marker in ("2026-10-26", "T017", "10/11", "11/11", "UNKNOWN"):
                         self.assertIn(marker, text)
                     first_current_section = text.split("\n### ", 2)[1]
                     self.assertIn(filename, first_current_section)
                     self.assertIn("10/11", first_current_section)
                     self.assertIn("11/11", first_current_section)
+                    self.assertIn("lab6-intake-local-native.json", first_current_section)
+                    self.assertIn("prospective", first_current_section)
+                    self.assertIn("SearchAndSummarizeContent", first_current_section)
+                    self.assertIn("DynamicPlanFinished", first_current_section)
+                    self.assertIn("activityProcessed=true", first_current_section)
+                    self.assertIn("Error", first_current_section)
+                    self.assertIn("displayed citation excerpt lacks" if language == "en"
+                                  else "extrait de citation affiché ne contient pas",
+                                  first_current_section)
                     self.assertNotRegex(first_current_section,
                                         r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
                     if name == "lab-06":
@@ -128,6 +146,89 @@ class WikiTests(unittest.TestCase):
                     else:
                         self.assertIn("## Original review baseline" if language == "en"
                                       else "## État de la revue initiale", text)
+
+    def test_lab6_two_exact_native_checks_preserve_completion_and_citation_limits(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        raw = (directory / "lab6-intake-local-native.json").read_text("utf-8")
+        receipt = json.loads(raw)
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "https://", "conversation_id",
+                       "tenant_id", "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        self.assertTrue(raw.endswith("\n"))
+        self.assertEqual(receipt["nativeQuestionSubmissions"], 2)
+        self.assertEqual(receipt["freshConversations"], 2)
+        self.assertTrue(receipt["oneQuestionPerFreshConversation"])
+        for key in ("extraPreflightQuestions", "replays", "questionsSubmittedDuringPublication"):
+            self.assertEqual(receipt[key], 0)
+        intake, local = receipt["cases"]
+        self.assertEqual([case["id"] for case in receipt["cases"]], ["F6-04", "F6-05"])
+        for case in receipt["cases"]:
+            self.assertEqual(case["status"], "PASS")
+            self.assertEqual(case["nativeQuestionSubmissions"], 1)
+            self.assertTrue(case["freshConversation"])
+            self.assertTrue(case["completeFinalReply"])
+            self.assertEqual(case["foundryOrMcpEvidenceInvocations"], 0)
+        self.assertEqual(intake["localRetrievalInvocations"], 0)
+        self.assertTrue(intake["clarificationRequested"])
+        self.assertEqual(intake["serverReceiptToFinalSeconds"], 0.118115)
+        self.assertTrue(intake["completion"]["allIntakeActionsComplete"])
+        self.assertTrue(intake["completion"]["activityProcessed"])
+        self.assertEqual(intake["completion"]["completedActions"],
+                         ["SendActivity", "CancelAllDialogs"])
+        self.assertFalse(intake["completion"]["dynamicPlanFinishedRequired"])
+        self.assertNotEqual(intake["completion"]["proofType"], local["completion"]["proofType"])
+        self.assertEqual(local["localRetrievalInvocations"], 1)
+        self.assertEqual(local["atoExpansion"], "Account Takeover")
+        self.assertEqual(local["serverReceiptToFinalSeconds"], 70.618165)
+        self.assertEqual(local["completion"]["completedLocalAction"], "SearchAndSummarizeContent")
+        self.assertTrue(local["completion"]["dynamicPlanFinished"])
+        self.assertFalse(local["completion"]["cancelled"])
+        citation = local["citation"]
+        for key in ("actualNativeLocalSourceCitation", "nativeSourceMatchesFrozenReadyMarkdown",
+                    "documentLevelSupport", "supportInAnotherActuallyRetrievedChunkOfSameSource"):
+            self.assertTrue(citation[key])
+        for key in ("displayedCitationChunkContainsExpansion", "exactCitationChunkSupportProven",
+                    "globalCitationCriterionPassed"):
+            self.assertFalse(citation[key])
+        self.assertIn("displayed citation excerpt lacks", citation["limit"])
+        config = receipt["configuration"]
+        self.assertTrue(config["frozenProspectiveMcpAdaptedConfiguration"])
+        self.assertFalse(config["historicalSpecialistConfigurationEquivalence"])
+        self.assertIn("Ready MIT publisher Markdown", config["sourceAdaptation"])
+        self.assertEqual(config["originalDocxIngestionStatus"], "Error")
+        self.assertFalse(config["originalDocxReconstructed"])
+        self.assertTrue(config["manualSdkArchiveMetadataHashAndServedConfigurationVerifiedBeforeCapture"])
+        integrity = receipt["configurationIntegrity"]
+        for key in ("configurationEdits", "sourceOrTopicEdits", "publishes", "resourcesCreated"):
+            self.assertEqual(integrity[key], 0)
+        for key in ("postflightRootVersionAndSettingsUnchanged", "instructionDigestUnchanged",
+                    "bothSourceVersionsUnchanged", "publisherSourceArtifactHashesUnchanged",
+                    "providedAndPreservedArchivesUnchanged", "trackedWorktreeCleanAfterCapture"):
+            self.assertTrue(integrity[key])
+        self.assertFalse(integrity["fullComponentPostflightReexport"])
+        self.assertIn("no second complete component archive export", integrity["limit"])
+        acceptance = receipt["acceptance"]
+        self.assertTrue(acceptance["exactTwoIndependentChecksComplete"])
+        for key in ("otherF6StatusesChanged", "thirdReplaySubmitted",
+                    "diagnosticExtensionIdentityFixed", "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        self.assertEqual((acceptance["candidateCurrentAcceptedCases"],
+                          acceptance["candidateTotalCases"], acceptance["case9FailedAttempts"]), (10, 11, 2))
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        update = crosswalk["currentNativeUpdate"]
+        self.assertEqual(update["reference"],
+                         "docs/assets/runtime-2026-10-26/lab6-intake-local-native.json")
+        self.assertEqual((update["nativeQuestionSubmissions"], update["freshConversations"]), (2, 2))
+        self.assertEqual((update["replays"], update["publicationQuestions"]), (0, 0))
+        self.assertFalse(update["historicalSpecialistConfigurationEquivalence"])
+        self.assertEqual(update["statusCounts"], {"PASS": 5, "PARTIAL": 4, "NOT_RUN": 3})
+        for index, row in enumerate(crosswalk["rows"][3:5]):
+            self.assertEqual(row["exactEvidence"],
+                             [update["reference"] + f"#/cases/{index}"])
+            self.assertEqual(row["status"], receipt["cases"][index]["status"])
+            self.assertEqual(row["initialOfflineStatus"], "NOT_RUN")
 
     def test_roadmap_covers_every_lab_and_explicit_lab6_reconciliation(self):
         root = Path(__file__).resolve().parents[1]

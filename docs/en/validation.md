@@ -11,12 +11,30 @@ ms.date: 2026-10-26
 ### Lab 6 acceptance reconciled, 2026-10-26
 
 The [T017 documentary crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
-is delivered with the [updated guide](lab-06.md), not a runtime acceptance run.
-F6-01/02/03 are historical offline PASS, not runtime passes. F6-04/05 are exact
-guide-variant NOT_RUN with related native intake/local lookup passing;
+is delivered with the [updated guide](lab-06.md), not whole-lab runtime acceptance.
+F6-01/02/03 are historical offline PASS, not runtime passes. F6-04 is PASS;
+F6-05 is PASS at document level with the displayed-excerpt limit below.
 F6-06/07/08/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
 All twelve rows retain source provenance, public evidence pointers and limits.
-No new questions or live attempts were submitted for this crosswalk.
+At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN and
+the crosswalk reconciliation submitted zero questions/live attempts.
+
+The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+are now complete: two questions, one per fresh conversation, no preflight questions
+or replay. F6-04 completed clarification with `activityProcessed=true`, no retrieval
+or Foundry/MCP evidence calls (0.118 seconds from server receipt to final reply).
+F6-05 completed one local `SearchAndSummarizeContent`, a noncancelled
+`DynamicPlanFinished` and no Foundry/MCP evidence calls (70.618 seconds).
+Document-level support for Account Takeover is proven in another actually retrieved
+chunk of the same source; the displayed citation excerpt lacks the ATO row.
+Exact citation-chunk support, excerpt fidelity and global citation quality are not
+proven. This frozen prospective MCP-adapted existing original specialist
+configuration uses actual Ready MIT publisher Markdown, not historical baseline
+equivalence; original DOCX ingestion remains Error. Postflight root/settings,
+instruction digest, source versions, publisher hashes and archives were unchanged,
+without a second full component export. The live checks edited/published nothing
+and created no resources. Publication submits no questions. No further export or
+secret is needed for these two completed checks.
 
 The original specialist native 4/4, hosted diagnostic extension and data-only
 MCP candidate are separate routes. Original corpus matches do not independently
@@ -30,7 +48,8 @@ Intake, local knowledge, grounded expertise, multi-source work, three datasets
 and cleanup guidance are source-backed. Syntax/layout checks, focused prompt
 variants and French/private-customer/denied-identity/missing-Activity controls
 are guide validations, not newly universal original requirements. F6-05 wording
-appears in setup instructions, not an execution receipt. Exact-variant gaps are
+appears in setup instructions; execution was unproved at the initial offline
+checkpoint, before the new receipt. Remaining exact-variant gaps are
 reproducibility limits, not a reason to repeat verified source behavior.
 Additional protected-main requirements remain UNKNOWN, without bypass or
 reconstruction. Native annotations, publisher URLs and verbatim quotations are

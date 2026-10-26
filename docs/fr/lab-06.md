@@ -14,10 +14,29 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 ### Réconciliation actuelle, 2026-10-26
 
 La [correspondance d'acceptation T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
-livre la sous-étape documentaire, pas l'acceptation d'exécution. F6-01/02/03 sont
-PASS historiques hors ligne; F6-04/05 sont NOT_RUN pour la variante exacte avec
-comportement natif voisin réussi; F6-06/07/08/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
-Aucune nouvelle question ni tentative réelle pour cette réconciliation.
+livre la sous-étape documentaire, pas l'acceptation d'exécution du lab entier.
+F6-01/02/03 restent PASS historiques hors ligne; F6-04 est PASS et F6-05 est PASS
+au niveau du document avec la limite d'extrait ci-dessous. F6-06/07/08/12 restent
+PARTIAL; F6-09/10/11 restent NOT_RUN. Au point de contrôle hors ligne initial du
+2026-10-26, F6-04/05 étaient NOT_RUN; cette réconciliation a soumis zéro question.
+
+Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+sont maintenant terminés : deux questions, une par conversation neuve, sans
+question préliminaire ni relance. F6-04 a terminé la clarification avec
+`activityProcessed=true`, sans recherche ni appel de preuve Foundry/MCP
+(0,118 seconde entre réception serveur et réponse finale). F6-05 a terminé un
+`SearchAndSummarizeContent` local et un `DynamicPlanFinished` non annulé, sans
+appel de preuve Foundry/MCP (70,618 secondes). Account Takeover est étayé au niveau
+du document par un autre fragment réellement récupéré de la même source;
+l'extrait de citation affiché ne contient pas la ligne ATO. Le support du fragment
+cité exact, la fidélité de l'extrait et la qualité globale des citations ne sont
+pas prouvés. Cette configuration prospective figée du spécialiste original
+existant, adaptée à MCP, utilise le Markdown éditeur MIT réellement Ready,
+sans équivalence avec la configuration historique; l'ingestion DOCX reste Error.
+Après contrôle, racine/paramètres, empreinte des instructions, versions des
+sources, empreintes éditeur et archives sont inchangés, sans second export complet.
+Ces tests n'ont rien modifié/publié ni créé de ressource. La publication ne soumet
+aucune question. Aucun nouvel export ou secret n'est requis pour ces deux contrôles.
 
 Le spécialiste original natif **4/4** est distinct de l'extension diagnostique
 vérifiée et du candidat MCP de données. Une correspondance de citation au corpus
@@ -32,8 +51,9 @@ trois jeux de données et nettoyage sont fondés sur les sources accessibles.
 Syntaxe, disposition, variantes ciblées F6, français/abstention client privé,
 identité refusée et test sans Activity sont des validations du guide, pas de
 nouvelles obligations originales universelles. Le libellé F6-05 apparaît aussi
-dans les instructions accessibles, sans prouver son exécution. Un libellé non
-exécuté limite la reproductibilité, sans effacer les comportements sources
+dans les instructions accessibles; le point initial hors ligne ne prouvait pas
+son exécution. Le nouveau reçu ne ferme que ces deux contrôles. Un autre libellé
+non exécuté limite la reproductibilité, sans effacer les comportements sources
 vérifiés ni imposer de recommencer le lab entier.
 
 Les exigences supplémentaires du document principal protégé illisible restent
@@ -405,8 +425,10 @@ Figure 3. Capture originale masquée du document d'accompagnement, `image10.png`
 
 Utilisez seulement des situations fictives non identifiantes. Le contenu financier du notebook autorisé est pédagogique, pas une référence juridique actuelle. N'évaluez pas les réponses sur des seuils réglementaires codés en dur ni sur l'âge d'un client fictif.
 
-Résultats réconciliés le **2026-10-26**. PASS désigne l'assertion hors ligne
-historique, pas une acceptation d'exécution. NOT_RUN concerne l'exécution exacte
+Résultats réconciliés le **2026-10-26**. PASS pour F6-01/02/03 désigne l'assertion
+hors ligne historique, pas une acceptation d'exécution. PASS pour F6-04/05
+couvre uniquement les deux contrôles natifs ci-dessus; F6-05 est étayé au niveau
+du document, sans fidélité de l'extrait. NOT_RUN concerne l'exécution exacte
 du guide; PARTIAL conserve les preuves voisines sans substituer question ou route.
 Le [reçu de correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 donne provenance, pointeurs publics et limites pour chaque ligne.
@@ -416,8 +438,8 @@ donne provenance, pointeurs publics et limites pour chaque ligne.
 | F6-01 | Analyser les cellules sans les exécuter                            | `11` cellules analysées ; zéro erreur syntaxique                                        | PASS : syntaxe historique Python 3.14.3                         |
 | F6-02 | Examiner les listes intégrées                                      | Exactement `8 + 8 + 8 = 24` entrées                                                     | PASS : inventaire statique historique                           |
 | F6-03 | Examiner les fichiers                                              | Dépendances/environnement racine et vrai DOCX présents ; MD imbriqué absent             | PASS : disposition historique, pas ingestion                    |
-| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | NOT_RUN exact; accueil natif voisin PASS                        |
-| F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | NOT_RUN exact; recherche locale native voisine PASS             |
+| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | PASS accueil natif exact; configuration prospective figée |
+| F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | PASS au niveau du document, adaptation Markdown Ready; extrait cité sans ATO, support du fragment exact non prouvé |
 | F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : expertise voisine; jointure exacte non prouvée        |
 | F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PARTIAL : multisource voisin réussi, pas comparaison exacte     |
 | F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PARTIAL : abstention backend, pas tour natif exact              |

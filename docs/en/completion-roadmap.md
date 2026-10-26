@@ -17,15 +17,35 @@ Unchecked tasks are work to execute, not promised or observed outcomes.
 
 The [public F6 crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 and synchronized [Lab 6 guide](lab-06.md)/[validation ledger](validation.md)
-deliver offline reconciliation and publication, not runtime completion.
-No new questions or live attempts were submitted. T017 remains unchecked.
-F6-01/02/03 are historical offline PASS; F6-04/05 exact-variant NOT_RUN with
-related native behavior passing; F6-06/07/08/12 PARTIAL; F6-09/10/11 NOT_RUN.
+deliver reconciliation and publication, not whole-lab runtime completion.
+T017 remains unchecked. F6-01/02/03 are historical offline PASS; F6-04 is PASS;
+F6-05 is PASS at document level with the displayed-excerpt limit below.
+F6-06/07/08/12 remain PARTIAL; F6-09/10/11 remain NOT_RUN.
+At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN;
+that reconciliation submitted zero questions/live attempts.
+
+The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
+are now complete: two questions, one per fresh conversation, no preflight questions
+or replay. F6-04 completed clarification with `activityProcessed=true`, no retrieval
+or Foundry/MCP evidence calls (0.118 seconds from server receipt to final reply).
+F6-05 completed one local `SearchAndSummarizeContent`, a noncancelled
+`DynamicPlanFinished` and no Foundry/MCP evidence calls (70.618 seconds).
+Document-level support for Account Takeover is proven in another actually retrieved
+chunk of the same source; the displayed citation excerpt lacks the ATO row.
+Exact citation-chunk support, excerpt fidelity and global citation quality are not
+proven. This frozen prospective MCP-adapted existing original specialist
+configuration uses actual Ready MIT publisher Markdown, not historical baseline
+equivalence; original DOCX ingestion remains Error. Postflight root/settings,
+instruction digest, source versions, publisher hashes and archives were unchanged,
+without a second full component export. The live checks edited/published nothing
+and created no resources. Publication submits no questions. No further export or
+secret is needed for these two completed checks.
 
 Source-backed intake/local knowledge/grounded expertise/multi-source work,
 three datasets and cleanup are distinguished from guide-added checks and exact
-prompt variants. F6-05 wording is present in setup instructions, not proof of
-execution. Different guide wording alone is not a new universal original gate
+prompt variants. F6-05 wording in setup instructions was not proof of execution
+at the initial offline checkpoint; the new receipt closes only these two checks.
+Different guide wording alone is not a new universal original gate
 or an instruction to restart verified work. Additional requirements in the
 protected main source remain UNKNOWN, with no bypass or reconstruction.
 Native annotation arrays, publisher URLs and verbatim quotations remain excluded
@@ -1517,6 +1537,10 @@ and synchronized bilingual guide/ledger/roadmap publication in the
 [crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json).
 Runtime completion remains open; guide-added variants are not automatically
 universal original requirements.
+Current documentary update: exact F6-04 PASS and F6-05 document-level PASS are
+linked in the synchronized guide, ledger and crosswalk. F6-05's displayed excerpt
+lacks ATO; no exact citation-chunk or global citation-quality acceptance.
+The prospective adapted configuration does not establish historical equivalence.
 
 Exit: every justified required case and criterion has matching acceptance
 evidence, without restarting verified work. Earlier merged

@@ -1,0 +1,95 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-10-26",
+  "scope": "Only exact F6-04/F6-05 guide checks on a frozen prospective MCP-adapted existing original specialist native draft; not historical configuration equivalence",
+  "captureMethod": "Passive observation of actual native UI response streams and complete rendered target replies; no alternative backend questions",
+  "nativeQuestionSubmissions": 2,
+  "freshConversations": 2,
+  "oneQuestionPerFreshConversation": true,
+  "extraPreflightQuestions": 0,
+  "replays": 0,
+  "questionsSubmittedDuringPublication": 0,
+  "cases": [
+    {
+      "id": "F6-04",
+      "status": "PASS",
+      "acceptanceScope": "Exact guide intake clarification only",
+      "nativeQuestionSubmissions": 1,
+      "freshConversation": true,
+      "completeFinalReply": true,
+      "clarificationRequested": true,
+      "serverReceiptToFinalSeconds": 0.118115,
+      "foundryOrMcpEvidenceInvocations": 0,
+      "localRetrievalInvocations": 0,
+      "completion": {
+        "proofType": "Deterministic intake handler",
+        "completedActions": ["SendActivity", "CancelAllDialogs"],
+        "allIntakeActionsComplete": true,
+        "activityProcessed": true,
+        "dynamicPlanFinishedRequired": false,
+        "proof": "Target-correlated native actions match the frozen handler and its activityProcessed=true definition; complete saved clarification reply"
+      }
+    },
+    {
+      "id": "F6-05",
+      "status": "PASS",
+      "acceptanceScope": "Exact guide local answer, local-only route and document-level attribution; not global citation quality",
+      "nativeQuestionSubmissions": 1,
+      "freshConversation": true,
+      "completeFinalReply": true,
+      "atoExpansion": "Account Takeover",
+      "serverReceiptToFinalSeconds": 70.618165,
+      "foundryOrMcpEvidenceInvocations": 0,
+      "localRetrievalInvocations": 1,
+      "completion": {
+        "proofType": "Native local retrieval plan",
+        "completedLocalAction": "SearchAndSummarizeContent",
+        "dynamicPlanFinished": true,
+        "cancelled": false
+      },
+      "citation": {
+        "actualNativeLocalSourceCitation": true,
+        "nativeSourceMatchesFrozenReadyMarkdown": true,
+        "documentLevelSupport": true,
+        "supportInAnotherActuallyRetrievedChunkOfSameSource": true,
+        "displayedCitationChunkContainsExpansion": false,
+        "exactCitationChunkSupportProven": false,
+        "globalCitationCriterionPassed": false,
+        "limit": "The displayed citation excerpt lacks the ATO row. Another actually retrieved chunk of the same actual source supports the expansion; no exact citation-chunk support, excerpt fidelity or all-citation-quality pass is claimed."
+      }
+    }
+  ],
+  "configuration": {
+    "frozenProspectiveMcpAdaptedConfiguration": true,
+    "historicalSpecialistConfigurationEquivalence": false,
+    "sourceAdaptation": "Actual Ready MIT publisher Markdown, not equivalent to the original DOCX",
+    "originalDocxIngestionStatus": "Error",
+    "originalDocxReconstructed": false,
+    "manualSdkArchiveMetadataHashAndServedConfigurationVerifiedBeforeCapture": true
+  },
+  "configurationIntegrity": {
+    "configurationEdits": 0,
+    "sourceOrTopicEdits": 0,
+    "publishes": 0,
+    "resourcesCreated": 0,
+    "postflightRootVersionAndSettingsUnchanged": true,
+    "instructionDigestUnchanged": true,
+    "bothSourceVersionsUnchanged": true,
+    "publisherSourceArtifactHashesUnchanged": true,
+    "providedAndPreservedArchivesUnchanged": true,
+    "trackedWorktreeCleanAfterCapture": true,
+    "fullComponentPostflightReexport": false,
+    "limit": "Root/settings/instruction and source-version comparisons plus the native handler trace; no second complete component archive export"
+  },
+  "acceptance": {
+    "exactTwoIndependentChecksComplete": true,
+    "otherF6StatusesChanged": false,
+    "candidateCurrentAcceptedCases": 10,
+    "candidateTotalCases": 11,
+    "case9FailedAttempts": 2,
+    "thirdReplaySubmitted": false,
+    "diagnosticExtensionIdentityFixed": false,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  }
+}
