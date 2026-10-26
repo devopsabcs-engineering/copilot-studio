@@ -17,6 +17,21 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 original history and transcript permission check
+
+The [read-only Dataverse/history receipt](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+retains the Graph CAE challenge and normal CLI login timeout, followed by an
+independently verified successful Graph read for the approved administrator.
+Power Platform's admin environment read also succeeds; neither grants Dataverse
+transcript access. The original-agent query returns 403 and a fresh five-defined-
+privilege audit confirms missing transcript-read and role-assignment rights.
+The earlier incomplete capability assertion remains failed, not retroactively passed.
+
+Basic User and Environment Maker direct-role rows stay exact. No role, retention
+or transcript policy changes, broad self-elevation or new questions occur.
+The original October 19 History run is still In progress with no complete answer.
+T009 remains blocked; neither a reconstructed answer nor a newer run is substituted.
+
 ## October 25 native Entra Search recovery
 
 The [native connected receipt](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)

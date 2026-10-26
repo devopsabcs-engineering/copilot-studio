@@ -17,6 +17,22 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Historique original et permissions de transcription du 26 octobre
+
+Le [reçu Dataverse/History en lecture seule](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+conserve le défi CAE Graph et l'expiration CLI normale, puis la réussite d'une
+lecture Graph vérifiée indépendamment pour l'administrateur approuvé.
+La lecture administrative de l'environnement réussit aussi; aucune ne donne
+l'accès aux transcriptions Dataverse. La requête de l'agent original renvoie 403
+et un nouvel audit des cinq privilèges définis confirme l'absence des droits de
+lecture des transcriptions et d'attribution des rôles. L'ancienne assertion
+incomplète reste échouée, sans réussite rétroactive.
+
+Les rôles directs Basic User et Environment Maker restent exacts. Aucun rôle,
+paramètre de rétention ou politique de transcription modifié, aucune auto-élévation
+générale ni nouvelle question. History du 19 octobre reste In progress sans réponse
+complète. T009 reste bloqué; ni réponse reconstruite ni exécution plus récente substituée.
+
 ## Récupération Search Entra native du 25 octobre
 
 Le [reçu connecté natif](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)

@@ -171,6 +171,28 @@ read confirms the original five agent rows, seven connection rows, embedding
 account/complete roles and three schemas exact. The owned browser closes normally,
 with zero pending commands. Actual spending and broader workshop gates remain open.
 
+## October 26 original history and Dataverse access boundary
+
+The [read-only original-history follow-up](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+separates recovered directory authentication from Dataverse authorization.
+A Graph CAE challenge and timed-out normal browser login remain recorded.
+A later independent Graph read succeeds for the approved administrator, with
+Global Administrator membership and the approved subscription verified.
+No device login starts; the cause or exact latency of recovery is not established.
+
+Power Platform's admin environment read succeeds, but Dataverse's original-agent
+transcript query returns **403**, missing `prvReadconversationtranscript`.
+After authentication recovery, its direct roles remain Basic User and
+Environment Maker; transcript-read and role-create/assign capabilities remain
+absent. A new five-defined-privilege audit succeeds without reclassifying an
+earlier incomplete assertion that requested a nonexistent privilege name.
+No role or transcript policy is changed and no broad self-elevation is attempted.
+
+The exact October 19 History run still shows In progress, its greeting and the
+original question, with no complete answer. No question is replayed, historical
+answer reconstructed or newer answer substituted. T009 remains open; a tenant
+administrator read is not a transcript-access or historical-accuracy pass.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

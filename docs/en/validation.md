@@ -42,6 +42,15 @@ All owned test objects are deleted, originals preserved and browser closed.
 Actual spending is not finalized. The earlier 4/4 is not promoted to an
 isolation pass; T014 and the full roadmap remain open.
 
+(../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
+The [October 26 Dataverse/history check](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+verifies recovered approved-admin Graph access, not Dataverse transcript rights.
+The original-agent metadata query returns 403; the fresh capability audit still
+lacks transcript-read and role-assignment privileges. Roles and policies remain
+unchanged. The exact original History run still exposes only its greeting and
+question, In progress. No replay, answer reconstruction or broad self-elevation
+occurs; T009 stays open.
+
 The later [original licensing History recovery](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 finds the exact original question but no completed historical answer, even
 after one Refresh. One citation click in a separate completed history exposes

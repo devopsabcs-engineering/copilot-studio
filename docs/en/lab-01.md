@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Build and verify a licensing advisor
 description: Illustrated licensing advisor setup, original user evidence, and a fresh live PDF, directory, email-send and inbox-verification run.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Goal, prerequisites, and evidence
@@ -48,6 +48,13 @@ verified the retained PDF hash but could not locate and match the complete
 October 19 answer. That accuracy criterion remains open/unavailable; no answer
 was reconstructed or replaced with a newer one. Downstream connector error-body
 fidelity remains unassessed; no email or configuration change occurs.
+
+The [October 26 read-only history check](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+still finds no complete original answer. Recovered approved-admin Graph access and
+a successful Power Platform admin read do not supply Dataverse transcript rights:
+the scoped query returns 403 and the fresh privilege audit confirms the missing
+permission. No role/policy change, broad self-elevation or new question occurs.
+The exact October 19 History remains In progress; T009 is not complete.
 
 ## 1. Choose the equivalent agent experience
 

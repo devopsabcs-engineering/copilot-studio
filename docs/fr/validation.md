@@ -43,6 +43,14 @@ inchangés. Objets possédés supprimés, originaux préservés et navigateur fe
 Coût réel non finalisé. Le 4/4 antérieur ne devient pas une réussite d'isolation;
 T014 et la feuille de route complète restent ouverts.
 
+Le [contrôle Dataverse/History du 26 octobre](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+vérifie l'accès Graph rétabli de l'administrateur approuvé, pas les droits de
+transcription Dataverse. La requête de métadonnées limitée à l'agent original
+renvoie 403; le nouvel audit manque encore des privilèges de lecture des
+transcriptions et d'attribution des rôles. Rôles et politiques inchangés.
+L'exécution History originale affiche uniquement accueil et question, In progress.
+Ni rejeu, reconstruction de réponse ni auto-élévation générale; T009 reste ouvert.
+
 La [récupération ultérieure de l'historique des licences](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
 retrouve la question originale exacte, mais aucune réponse historique complète,
 même après une actualisation. Un clic de citation dans un autre historique

@@ -1,7 +1,7 @@
 ---
 title: Lab 1 - Créer et vérifier un conseiller de licences
 description: Configuration illustrée du conseiller, preuves initiales et nouvelle exécution réelle du PDF, de l'annuaire, de l'envoi et de la réception.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Objectif, prérequis et preuves
@@ -51,6 +51,14 @@ vérifie l'empreinte du PDF, mais ne retrouve pas la réponse complète du 19 oc
 avec provenance vérifiable. Ce critère reste ouvert/indisponible; aucune réponse
 n'est reconstruite ni remplacée par une plus récente. Le corps d'erreur du
 connecteur reste non évalué; aucun courriel ni changement de configuration.
+
+Le [contrôle historique du 26 octobre en lecture seule](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+ne retrouve toujours pas la réponse originale complète. L'accès Graph rétabli de
+l'administrateur et une lecture administrative Power Platform réussie ne donnent
+pas les droits de transcription Dataverse : requête limitée refusée en 403 et
+permission absente confirmée par un nouvel audit. Aucun rôle/politique modifié,
+aucune auto-élévation générale ni nouvelle question. History du 19 octobre reste
+In progress; T009 n'est pas terminé.
 
 ## 1. Choisir l'expérience d'agent équivalente
 

@@ -180,6 +180,31 @@ compte/rôles complets d'embedding et trois schémas initiaux exacts.
 Le navigateur possédé ferme normalement, sans commande en attente.
 Coût réel et critères plus larges de l'atelier restent ouverts.
 
+## Historique original et limite Dataverse du 26 octobre
+
+Le [suivi en lecture seule de l'historique original](../assets/runtime-2026-10-26/lab1-dataverse-history.json)
+distingue authentification d'annuaire rétablie et autorisation Dataverse.
+Le défi CAE Graph et l'expiration de la connexion navigateur normale restent
+consignés. Une lecture Graph indépendante ultérieure réussit pour l'administrateur
+approuvé; rôle Global Administrator et abonnement approuvé vérifiés.
+Aucune connexion par code d'appareil ne démarre; cause et délai exact du
+rétablissement ne sont pas établis.
+
+La lecture administrative de l'environnement Power Platform réussit, mais la
+requête de transcriptions limitée à l'agent original renvoie **403**, faute de
+`prvReadconversationtranscript`. Après rétablissement, les rôles directs restent
+Basic User et Environment Maker; les droits de lecture des transcriptions et de
+création/attribution des rôles restent absents. Un nouvel audit des cinq privilèges
+définis réussit sans reclasser une assertion antérieure incomplète qui demandait
+un nom de privilège inexistant. Aucun rôle ni politique de transcription n'est
+modifié et aucune auto-élévation générale n'est tentée.
+
+L'exécution History exacte du 19 octobre affiche encore In progress, l'accueil et
+la question originale, sans réponse complète. Aucune question rejouée, réponse
+historique reconstruite ou réponse plus récente substituée. T009 reste ouvert;
+une lecture administrative du tenant ne valide ni accès aux transcriptions
+ni exactitude historique.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

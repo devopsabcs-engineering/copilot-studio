@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "observed_date_utc": "2026-10-26",
+  "roadmap_task_id": "T009",
+  "status": "BLOCKED_ORIGINAL_FULL_ANSWER_UNAVAILABLE",
+  "authentication": {
+    "initialGraphStatus": 401,
+    "initialGraphChallenge": "TokenCreatedWithOutdatedPolicies",
+    "normalBrowserCliLoginTimedOutAfterSeconds": 300,
+    "laterIndependentGraphReadStatus": 200,
+    "laterIndependentGraphVerifiedAtUtc": "2026-10-26T02:41:19.457792+00:00",
+    "approvedTenantAndActorVerified": true,
+    "approvedSubscriptionVerifiedEnabled": true,
+    "globalAdministratorMembershipVerified": true,
+    "deviceLoginStarted": false,
+    "recoveryCauseOrExactLatencyEstablished": false
+  },
+  "dataverse": {
+    "transcriptMetadataStatus": 200,
+    "originalAgentFilteredTranscriptMetadataQueryStatus": 403,
+    "missingPrivilege": "prvReadconversationtranscript",
+    "transcriptContentRead": false,
+    "powerPlatformAdminEnvironmentReadStatus": 200,
+    "postAuthCapabilityVerifiedAtUtc": "2026-10-26T02:48:47.506378+00:00",
+    "originalDirectRoleRowsPreserved": true,
+    "directRoleNames": ["Basic User", "Environment Maker"],
+    "definedPrivilegeCapabilities": {
+      "prvReadRole": true,
+      "prvReadconversationtranscript": false,
+      "prvCreateRole": false,
+      "prvAssignRole": false,
+      "prvAppendRole": false
+    },
+    "earlierCapabilityAudit": {
+      "completenessAssertionPassed": false,
+      "requestedDefinitionNotFound": "prvAppendToSystemUser"
+    },
+    "newDefinedCapabilityAuditComplete": true,
+    "tenantAdminReadDoesNotEstablishDataverseTranscriptOrRoleAssignmentAccess": true,
+    "roleAssignmentUiAvailableForApprovedUser": false
+  },
+  "originalHistory": {
+    "observedAtUtc": "2026-10-26T02:58:52.482Z",
+    "exactOriginalAgentRunAndQuestionVerified": true,
+    "displayedRunDate": "2026-10-19",
+    "displayedState": "In progress",
+    "visibleConversationOnlyGreetingAndOriginalQuestion": true,
+    "completeAnswerExposed": false,
+    "newerAnswerSubstituted": false,
+    "historicalAnswerReconstructed": false,
+    "atomicClaimCounts": null,
+    "displayedZeroCreditsNotFinalSpending": true
+  },
+  "executionBoundary": {
+    "newQuestions": 0,
+    "roleOrPolicyWrites": 0,
+    "systemAdministratorSelfElevationAttempted": false,
+    "transcriptPolicyOrRetentionChanged": false,
+    "deniedTranscriptQueryReplayed": false,
+    "authenticationPolicyOrMfaBypassAttempted": false,
+    "sharedCredentialCachesCleared": false,
+    "originalAgentConfigurationChanged": false,
+    "emailSent": false,
+    "modelReasoningOpened": false,
+    "ownedNormalCliLoginProcessTreeStopped": true,
+    "ownedHistoryPageAbsentVerifiedAtUtc": "2026-10-26T03:01:25.694Z"
+  },
+  "acceptance": {
+    "historicalFullAnswerAccuracyVerified": false,
+    "originalCitationNavigationVerified": false,
+    "T009Complete": false,
+    "wholeRoadmapComplete": false
+  },
+  "supportedReferences": [
+    "https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-transcripts-powerapps",
+    "https://learn.microsoft.com/en-us/power-platform/admin/assign-security-roles",
+    "https://learn.microsoft.com/en-us/power-platform/admin/use-service-admin-role-manage-tenant"
+  ]
+}

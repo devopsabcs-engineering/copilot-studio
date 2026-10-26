@@ -2616,6 +2616,67 @@ class WikiTests(unittest.TestCase):
                 self.assertIn("owned-boundary-refresh.json",
                               (root / "docs" / language / name).read_text("utf-8"))
 
+    def test_dataverse_history_auth_recovery_does_not_grant_transcript_access(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab1-dataverse-history.json").read_text("utf-8"))
+        auth = result["authentication"]
+        self.assertEqual(auth["initialGraphStatus"], 401)
+        self.assertEqual(auth["initialGraphChallenge"], "TokenCreatedWithOutdatedPolicies")
+        self.assertEqual(auth["normalBrowserCliLoginTimedOutAfterSeconds"], 300)
+        self.assertEqual(auth["laterIndependentGraphReadStatus"], 200)
+        self.assertTrue(auth["approvedTenantAndActorVerified"])
+        self.assertTrue(auth["approvedSubscriptionVerifiedEnabled"])
+        self.assertTrue(auth["globalAdministratorMembershipVerified"])
+        self.assertFalse(auth["deviceLoginStarted"])
+        self.assertFalse(auth["recoveryCauseOrExactLatencyEstablished"])
+        data = result["dataverse"]
+        self.assertEqual(data["transcriptMetadataStatus"], 200)
+        self.assertEqual(data["originalAgentFilteredTranscriptMetadataQueryStatus"], 403)
+        self.assertEqual(data["missingPrivilege"], "prvReadconversationtranscript")
+        self.assertEqual(data["powerPlatformAdminEnvironmentReadStatus"], 200)
+        self.assertEqual(data["directRoleNames"], ["Basic User", "Environment Maker"])
+        self.assertTrue(data["originalDirectRoleRowsPreserved"])
+        self.assertFalse(data["transcriptContentRead"])
+        self.assertTrue(data["definedPrivilegeCapabilities"]["prvReadRole"])
+        for name in ("prvReadconversationtranscript", "prvCreateRole", "prvAssignRole", "prvAppendRole"):
+            self.assertFalse(data["definedPrivilegeCapabilities"][name])
+        self.assertFalse(data["earlierCapabilityAudit"]["completenessAssertionPassed"])
+        self.assertEqual(data["earlierCapabilityAudit"]["requestedDefinitionNotFound"], "prvAppendToSystemUser")
+        self.assertTrue(data["newDefinedCapabilityAuditComplete"])
+        self.assertTrue(data["tenantAdminReadDoesNotEstablishDataverseTranscriptOrRoleAssignmentAccess"])
+
+    def test_dataverse_original_history_stays_open_on_all_bilingual_surfaces(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab1-dataverse-history.json").read_text("utf-8"))
+        history = result["originalHistory"]
+        self.assertTrue(history["exactOriginalAgentRunAndQuestionVerified"])
+        self.assertEqual(history["displayedRunDate"], "2026-10-19")
+        self.assertEqual(history["displayedState"], "In progress")
+        self.assertTrue(history["visibleConversationOnlyGreetingAndOriginalQuestion"])
+        self.assertFalse(history["completeAnswerExposed"])
+        self.assertFalse(history["newerAnswerSubstituted"])
+        self.assertFalse(history["historicalAnswerReconstructed"])
+        self.assertIsNone(history["atomicClaimCounts"])
+        execution = result["executionBoundary"]
+        for name in ("newQuestions", "roleOrPolicyWrites"):
+            self.assertEqual(execution[name], 0)
+        for name in ("systemAdministratorSelfElevationAttempted", "transcriptPolicyOrRetentionChanged",
+                     "deniedTranscriptQueryReplayed", "authenticationPolicyOrMfaBypassAttempted",
+                     "sharedCredentialCachesCleared", "originalAgentConfigurationChanged",
+                     "emailSent", "modelReasoningOpened"):
+            self.assertFalse(execution[name])
+        self.assertTrue(execution["ownedNormalCliLoginProcessTreeStopped"])
+        self.assertTrue(all(value is False for value in result["acceptance"].values()))
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md", "lab-01.md"):
+                self.assertIn("lab1-dataverse-history.json",
+                              (root / "docs" / language / name).read_text("utf-8"))
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T009", roadmap)
+            self.assertIn("- [ ] T016", roadmap)
+
     def test_original_licensing_history_followup_does_not_substitute_a_newer_answer(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-25"
