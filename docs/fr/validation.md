@@ -60,6 +60,17 @@ exposent encore `aria-checked=false` après un contrôle clavier natif sans ques
 F6-09 reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
 et le NOT_RUN conditionnel restent conservés.
 
+La [réparation prise en charge des traductions](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
+utilise PAC officiel `2.14.1` via le proxy NuGet d'entreprise existant, sans modifier
+l'authentification ni TLS. L'import français natif réussit; des exports indépendants
+prouvent les 155 valeurs anglaises inchangées et 97 valeurs d'exécution traduites
+persistantes après normalisation des libellés/déclencheurs. Les 35 fichiers
+principaux existants restent identiques octet pour octet. Après rechargement complet,
+les deux langues restent `aria-checked=false` et une nouvelle session sans question
+accueille en anglais. La question française après réparation est NOT_RUN;
+le dernier F6-09 terminé reste FAIL. Traduction statique complète et cause de sélection
+restent non prouvées; voir [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
 supplémentaire, sur la même configuration prospective figée que F6-04/05. La réponse

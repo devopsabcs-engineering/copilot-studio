@@ -56,6 +56,16 @@ Both language radios still exposed `aria-checked=false` after a separate native
 keyboard control without a question. F6-09 remains FAIL; its selection cause is
 unproved. The previous delivery failure and guarded NOT_RUN remain intact.
 
+The [supported localization repair](../assets/runtime-2026-10-26/lab6-french-localization-repair.json)
+used official PAC `2.14.1` through the existing enterprise NuGet proxy, without
+authentication or TLS changes. The native French upload succeeded; independent
+exports prove all 155 English values unchanged and 97 translated runtime values
+persisted after label/trigger normalization. All 35 existing core draft files
+remain byte-identical. After a full reload, French selection still leaves both
+radios `aria-checked=false`, and a no-question fresh session greets in English.
+The post-repair French question is NOT_RUN; latest completed F6-09 remains FAIL.
+Full static localization and the selection cause remain unproved; see [#5](https://github.com/devopsabcs-engineering/copilot-studio/issues/5).
+
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
 frozen prospective configuration as F6-04/05. The complete final reply acknowledges

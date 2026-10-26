@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "task": "T017",
   "reconciledDate": "2026-10-26",
-  "scope": "All historical cohorts preserved; exact multi-source PASS, scoped intake repair, blocked language attempt and a later accepted French-text question whose actual activity/reply locale remains en-US; French acceptance FAIL, no historical architecture equivalence",
+  "scope": "All historical cohorts preserved; exact multi-source PASS, scoped intake repair, blocked language attempt and a later accepted French-text question whose actual activity/reply locale remains en-US; supported French localization now persists but native language selection remains unproved; French acceptance FAIL, no historical architecture equivalence",
   "documentaryCrosswalkDelivered": true,
   "T017RuntimeComplete": false,
   "workshopComplete": false,
@@ -89,6 +89,20 @@
     "supportedEnglishCoreRecordsShared": 2,
     "configuredFrenchSessionProven": false,
     "earlierBlockedAttemptAndFailuresPreserved": true,
+    "publicationQuestions": 0
+  },
+  "latestFrenchLocalizationUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json",
+    "localizationPrerequisiteRepairPersisted": true,
+    "primaryEnglishValuesUnchanged": 155,
+    "persistedTranslatedRuntimeValues": 97,
+    "preexistingCoreFilesByteIdentical": 35,
+    "nativeQuestionSubmissions": 0,
+    "postRepairFrenchQuestion": "NOT_RUN",
+    "latestCompletedF609Status": "FAIL",
+    "selectedFrenchSessionProven": false,
+    "freshSessionGreetingLanguage": "English",
+    "historicalFailuresPreserved": true,
     "publicationQuestions": 0
   },
   "sourceBoundary": {
@@ -258,7 +272,10 @@
         "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/1",
         "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/1"
       ],
-      "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4",
+        "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json"
+      ],
       "evidenceBoundary": "Latest completed F6-09 FAIL: one accepted exact French-text question, actual activity and reply locale en-US, English final prose. A real textarea/60-character counter guard proved delivery; one completed native MCP call returned three pinned-corpus records including both supported English core records and a noncancelled plan. The English base predates French secondary addition, with corpus/instructions/model/intake unchanged. Earlier English-answer FAIL and blocked English-delivery/French-guard NOT_RUN remain preserved. Both native language radios still exposed aria-checked=false after a later no-question keyboard control. Configured French-session proof, selection/restoration, automatic detection and full static localization remain unproved; no root cause or architecture equivalence is claimed."
     },
     {

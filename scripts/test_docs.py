@@ -427,6 +427,88 @@ class WikiTests(unittest.TestCase):
                 for marker in ("60/2000", "en-US", "aria-checked=false", "F6-09", "FAIL", "NOT_RUN"):
                     self.assertIn(marker, section)
 
+    def test_lab6_localization_repair_preserves_primary_and_native_selection_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        filename = "lab6-french-localization-repair.json"
+        raw = (directory / filename).read_text("utf-8")
+        self.assertTrue(raw.endswith("\n"))
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "conversation_id", "tenant_id",
+                       "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual(receipt["status"], "PREREQUISITE_REPAIR_ONLY")
+        self.assertEqual(receipt["latestCompletedFrenchAcceptance"], "FAIL")
+        self.assertEqual(receipt["postRepairFrenchQuestion"], "NOT_RUN")
+        for key in ("nativeQuestionSubmissions", "modelRetests", "agentPublications"):
+            self.assertEqual(receipt[key], 0)
+        tooling = receipt["tooling"]
+        self.assertEqual(tooling["officialPowerPlatformCliVersion"], "2.14.1")
+        self.assertTrue(tooling["existingApprovedWorkshopAdminProfileReused"])
+        self.assertFalse(tooling["feedProxyRegistryOrTlsConfigurationChanged"])
+        self.assertFalse(tooling["newCredentialsRequested"])
+        local = receipt["localPreparation"]
+        self.assertTrue(local["actualCloudExportUsed"])
+        self.assertFalse(local["templateFabricated"])
+        self.assertEqual((local["primaryLanguage"], local["secondaryLanguage"]), ("en-US", "fr-FR"))
+        self.assertEqual(local["originalTemplateKeys"], 155)
+        self.assertEqual(local["translatedStaticValuesPrepared"], 133)
+        self.assertEqual(local["localGuardTestsPassed"], 4)
+        self.assertTrue(all(receipt["nativeUpload"].values()))
+        persisted = receipt["persistence"]
+        self.assertTrue(persisted["initialExactExportEqualityCheck"].startswith("FAILED"))
+        for key, expected in (
+            ("primaryEnglishValuesUnchanged", 155), ("persistedFrenchKeys", 150),
+            ("persistedTranslatedRuntimeValues", 97), ("protectedValuesUnchanged", 22),
+            ("originalEnglishAuthoringLabelsRetained", 31),
+            ("triggerGroupsWithExactTranslatedPhraseCoverage", 7),
+            ("duplicateTranslatedPhrasesRemoved", 5),
+            ("unexpectedRuntimeKeysOrPhraseValues", 0), ("postUploadGuardTestsPassed", 5),
+        ):
+            self.assertEqual(persisted[key], expected)
+        preservation = receipt["draftPreservation"]
+        self.assertEqual(preservation["afterCloneFiles"],
+                         preservation["beforeCloneFiles"] + preservation["frenchTranslationFilesAdded"])
+        self.assertEqual(preservation["beforeCloneFiles"],
+                         preservation["preexistingCoreFilesByteIdentical"] +
+                         preservation["managedSyncBookkeepingFilesChanged"])
+        self.assertEqual(preservation["filesRemoved"], 0)
+        self.assertTrue(preservation["settingsInstructionsToolsAndKnowledgeUnchanged"])
+        self.assertFalse(preservation["primaryLanguageChanged"])
+        self.assertFalse(preservation["authenticationChanged"])
+        controls = receipt["noQuestionNativeControls"]
+        self.assertEqual(controls["freshSessionsStarted"], 1)
+        self.assertEqual(controls["freshSessionGreetingLanguage"], "English")
+        for key in ("englishRadioAriaCheckedAfterFrenchSelectionAndReload",
+                    "frenchRadioAriaCheckedAfterFrenchSelectionAndReload"):
+            self.assertEqual(controls[key], "false")
+        self.assertFalse(controls["selectedFrenchSessionProven"])
+        self.assertFalse(controls["englishCheckedStateRestorationProven"])
+        self.assertFalse(controls["nativeSelectionRootCauseEstablished"])
+        acceptance = receipt["acceptance"]
+        self.assertTrue(acceptance["localizationPrerequisiteRepairPersisted"])
+        self.assertTrue(acceptance["previousAcceptedEnUsTurnAndFailuresPreserved"])
+        for key in ("completeFrenchStaticLocalizationClaimed", "frenchLanguageAcceptancePassed",
+                    "historicalArchitectureEquivalenceClaimed", "originalMatrixCase9Replayed",
+                    "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        update = crosswalk["latestFrenchLocalizationUpdate"]
+        reference = "docs/assets/runtime-2026-10-26/" + filename
+        self.assertEqual(update["reference"], reference)
+        self.assertIn(reference, crosswalk["rows"][8]["relatedEvidence"])
+        self.assertNotIn(reference, crosswalk["rows"][8]["exactEvidence"])
+        self.assertEqual(crosswalk["rows"][8]["status"], "FAIL")
+        self.assertEqual(update["nativeQuestionSubmissions"], 0)
+        self.assertEqual(update["postRepairFrenchQuestion"], "NOT_RUN")
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
+                for marker in ("155", "97", "35", "2.14.1", "NuGet", "F6-09", "FAIL", "NOT_RUN"):
+                    self.assertIn(marker, section)
+
     def test_lab6_two_exact_native_checks_preserve_completion_and_citation_limits(self):
         root = Path(__file__).resolve().parents[1]
         directory = root / "docs/assets/runtime-2026-10-26"
