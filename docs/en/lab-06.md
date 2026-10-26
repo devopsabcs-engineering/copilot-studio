@@ -16,11 +16,35 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 The [T017 acceptance crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 delivers the documentary substep, not whole-lab runtime completion. F6-01/02/03
 remain historical offline PASS; F6-04 is PASS and F6-05 is PASS at document level
-with the displayed-excerpt limit below. F6-08 is response-only PASS;
-F6-06/07/12 remain PARTIAL;
-F6-09/10/11 remain NOT_RUN. At the initial offline checkpoint on 2026-10-26,
+with the displayed-excerpt limit below. F6-07 is PASS and F6-08 is response-only PASS;
+F6-06/12 remain PARTIAL. F6-09 is FAIL; F6-10/11 remain NOT_RUN.
+At the initial offline checkpoint on 2026-10-26,
 F6-04/05 were NOT_RUN and F6-08 was PARTIAL;
 that reconciliation submitted zero questions/live attempts.
+
+The [exact multi-source check](../assets/runtime-2026-10-26/lab6-multisource-native.json)
+passes F6-07: one question, one completed native MCP invocation, two pinned-corpus
+records and two applicable groups, investigation procedures and regulatory compliance.
+The attributed comparison invents no rule and has a noncancelled completed plan.
+This prospective MCP proof does not join the historical original specialist's tool output.
+
+The [routing-repair receipt](../assets/runtime-2026-10-26/lab6-intake-routing-repair.json)
+preserves the original F6-06 FAIL: the unanchored intake matched `hi` inside `Which`.
+Only that condition changed, adding `^...$` and `reviewing a case`; the saved native
+topic passed its checker. A separate four-question, four-conversation cohort had no
+in-cohort retries. F6-06 now passes supported MCP retrieval with two verified records
+and a completed plan, but remains PARTIAL because the original connected-Foundry-child
+invocation is unproved. F6-04/05 regressions pass within their existing limits.
+F6-09 FAIL is preserved: grounding and core lineage passed, but final prose was English.
+Topic component-version proof remains `NOT_ESTABLISHED`; no agent publish occurred.
+
+The [language-configured attempt](../assets/runtime-2026-10-26/lab6-language-configured-attempt.json)
+added secondary `fr-FR`, leaving primary `en-US` unchanged. Its new English Send
+displayed `Cannot send empty message`: one intent/click, zero observed accepted
+questions within 240 seconds, server acceptance `NOT_ESTABLISHED`. French was not
+selected or sent; this attempt is NOT_RUN, not a replacement for the completed FAIL.
+Test-session language and English restoration remain unverified. Automatic detection
+and complete static-topic localization are not proven. Publication submits no questions.
 
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
@@ -35,7 +59,7 @@ not zero. This is distinct from original matrix case 9, not architecture equival
 or T017/workshop completion. Publication submits no questions.
 
 The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
-are now complete: two questions, one per fresh conversation, no preflight questions
+record the earlier cohort: two questions, one per fresh conversation, no preflight questions
 or replay. F6-04 completed clarification with `activityProcessed=true`, no retrieval
 or Foundry/MCP evidence calls (0.118 seconds from server receipt to final reply).
 F6-05 completed one local `SearchAndSummarizeContent`, a noncancelled
@@ -436,25 +460,27 @@ Results below are reconciled on **2026-10-26**. F6-01/02/03 PASS means the dated
 offline assertion passed, not runtime acceptance. F6-04/05 PASS covers only the
 two native checks above; F6-05 has document-level support, not excerpt fidelity.
 F6-08 PASS covers response assertions only, not overall generative/MCP plan closure.
+F6-07 PASS covers the exact MCP comparison, not original Foundry-child equivalence.
+F6-09 retains the completed language FAIL despite the later undelivered NOT_RUN attempt.
 NOT_RUN concerns exact guide execution;
 PARTIAL preserves related evidence without substituting another question or route.
 The [crosswalk receipt](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 provides provenance, public evidence pointers and limits for every row.
 
-| ID    | Input or check                                                        | Expected route and measurable assertion                                                  | Current result                                             |
-| ----- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| F6-01 | Parse all notebook code cells without execution                       | `11` cells parse; zero syntax errors                                                     | PASS: historical Python 3.14.3 syntax only                 |
-| F6-02 | Inspect inline document lists                                         | Exactly `8 + 8 + 8 = 24` records                                                         | PASS: historical static inventory                          |
-| F6-03 | Inspect package layout                                                | Root requirements/environment files and actual DOCX present; referenced nested MD absent | PASS: historical layout, not ingestion                     |
-| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | PASS exact native intake; frozen prospective configuration |
+| ID    | Input or check                                                        | Expected route and measurable assertion                                                  | Current result                                                                                                     |
+| ----- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| F6-01 | Parse all notebook code cells without execution                       | `11` cells parse; zero syntax errors                                                     | PASS: historical Python 3.14.3 syntax only                                                                         |
+| F6-02 | Inspect inline document lists                                         | Exactly `8 + 8 + 8 = 24` records                                                         | PASS: historical static inventory                                                                                  |
+| F6-03 | Inspect package layout                                                | Root requirements/environment files and actual DOCX present; referenced nested MD absent | PASS: historical layout, not ingestion                                                                             |
+| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | PASS exact native intake; frozen prospective configuration                                                         |
 | F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | PASS document-level, Ready Markdown adaptation; displayed citation excerpt lacks ATO, exact chunk support unproved |
-| F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: related expertise; exact route/tool join unproved |
-| F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PARTIAL: related multi-source passes, not exact comparison |
-| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PASS: response-only; plan closure unproven, MCP/Foundry counts unknown |
-| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | NOT_RUN: no exact French Lab 6 evidence                    |
-| F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | NOT_RUN: Lab 5 Search denial does not substitute           |
-| F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | NOT_RUN: blueprint error does not substitute               |
-| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | PARTIAL: historical deletion passes; hosted v5 retained    |
+| F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: exact MCP indicators PASS; original Foundry-child invocation unproved                                     |
+| F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PASS: exact native comparison; two verified source groups and completed plan                                       |
+| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PASS: response-only; plan closure unproven, MCP/Foundry counts unknown                                             |
+| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | FAIL: English final prose; later configured-language attempt NOT_RUN                                               |
+| F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | NOT_RUN: Lab 5 Search denial does not substitute                                                                   |
+| F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | NOT_RUN: blueprint error does not substitute                                                                       |
+| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | PARTIAL: historical deletion passes; hosted v5 retained                                                            |
 
 For each live case, record actual route, source IDs, assertion pass/fail, citation support, latency and sanitized error. Report routing accuracy as correctly routed cases divided by executed routing cases. Report citation support separately. A model-authored source label or a successful HTTP response cannot substitute for a retrieved passage.
 

@@ -16,11 +16,38 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 La [correspondance d'acceptation T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 livre la sous-étape documentaire, pas l'acceptation d'exécution du lab entier.
 F6-01/02/03 restent PASS historiques hors ligne; F6-04 est PASS et F6-05 est PASS
-au niveau du document avec la limite d'extrait ci-dessous. F6-08 est PASS pour la
-réponse uniquement; F6-06/07/12 restent
-PARTIAL; F6-09/10/11 restent NOT_RUN. Au point de contrôle hors ligne initial du
+au niveau du document avec la limite d'extrait ci-dessous. F6-07 est PASS et F6-08
+est PASS pour la réponse uniquement; F6-06/12 restent PARTIAL.
+F6-09 est FAIL; F6-10/11 restent NOT_RUN. Au point de contrôle hors ligne initial du
 2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
 cette réconciliation a soumis zéro question.
+
+Le [contrôle multisource exact](../assets/runtime-2026-10-26/lab6-multisource-native.json)
+réussit F6-07 : une question, un appel MCP natif terminé, deux enregistrements
+vérifiés dans le corpus figé et deux groupes applicables, procédures d'enquête et
+conformité réglementaire. Comparaison attribuée, aucune règle inventée et plan
+terminé non annulé sont prouvés. Cette preuve MCP prospective ne joint pas les
+résultats d'outil du spécialiste original historique.
+
+Le [reçu de réparation du routage](../assets/runtime-2026-10-26/lab6-intake-routing-repair.json)
+conserve F6-06 FAIL initial : l'accueil non ancré correspondait à `hi` dans `Which`.
+Seule cette condition a changé, avec `^...$` et `reviewing a case`; le contrôle du
+sujet natif sauvegardé réussit. Une cohorte distincte comprend quatre questions,
+quatre conversations et aucune relance interne. F6-06 réussit désormais la recherche
+MCP étayée, avec deux enregistrements vérifiés et un plan terminé, mais reste PARTIAL :
+l'appel de l'agent enfant Foundry original est non prouvé. Les régressions F6-04/05
+réussissent dans leurs limites existantes. F6-09 FAIL est conservé : ancrage et
+traçabilité centrale réussis, mais prose finale anglaise. La version du composant
+du sujet reste `NOT_ESTABLISHED`; aucune publication d'agent n'a eu lieu.
+
+La [tentative avec langue configurée](../assets/runtime-2026-10-26/lab6-language-configured-attempt.json)
+ajoute `fr-FR` secondaire, sans changer `en-US` primaire. Le nouvel envoi anglais
+affiche `Cannot send empty message` : une intention/un clic, zéro question acceptée
+observée en 240 secondes, acceptation serveur `NOT_ESTABLISHED`. Le français n'est
+ni sélectionné ni envoyé; cette tentative est NOT_RUN et ne remplace pas le FAIL
+terminé. Langue de session et restauration anglaise restent non vérifiées.
+Détection automatique et localisation complète des sujets statiques ne sont pas
+prouvées. La publication ne soumet aucune question.
 
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
@@ -36,7 +63,7 @@ Ce cas est distinct du cas 9 de la matrice originale, sans équivalence d'archit
 ni achèvement T017/atelier. La publication ne soumet aucune question.
 
 Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
-sont maintenant terminés : deux questions, une par conversation neuve, sans
+consignent la cohorte antérieure : deux questions, une par conversation neuve, sans
 question préliminaire ni relance. F6-04 a terminé la clarification avec
 `activityProcessed=true`, sans recherche ni appel de preuve Foundry/MCP
 (0,118 seconde entre réception serveur et réponse finale). F6-05 a terminé un
@@ -446,23 +473,27 @@ couvre uniquement les deux contrôles natifs ci-dessus; F6-05 est étayé au niv
 du document, sans fidélité de l'extrait. F6-08 PASS couvre la réponse uniquement,
 pas la clôture du plan génératif/MCP. NOT_RUN concerne l'exécution exacte
 du guide; PARTIAL conserve les preuves voisines sans substituer question ou route.
+F6-07 PASS couvre la comparaison MCP exacte, pas l'équivalence avec l'enfant Foundry
+original. F6-09 conserve le FAIL de langue terminé malgré la tentative NOT_RUN
+ultérieure non livrée. Les tours natifs F6-04 à F6-08 utilisent les entrées anglaises;
+les libellés français ci-dessous sont des traductions, pas des tours supplémentaires.
 Le [reçu de correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
 donne provenance, pointeurs publics et limites pour chaque ligne.
 
-| ID    | Entrée ou contrôle                                                 | Chemin attendu et assertion mesurable                                                   | Résultat actuel                                                 |
-| ----- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| F6-01 | Analyser les cellules sans les exécuter                            | `11` cellules analysées ; zéro erreur syntaxique                                        | PASS : syntaxe historique Python 3.14.3                         |
-| F6-02 | Examiner les listes intégrées                                      | Exactement `8 + 8 + 8 = 24` entrées                                                     | PASS : inventaire statique historique                           |
-| F6-03 | Examiner les fichiers                                              | Dépendances/environnement racine et vrai DOCX présents ; MD imbriqué absent             | PASS : disposition historique, pas ingestion                    |
-| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | PASS accueil natif exact; configuration prospective figée |
+| ID    | Entrée ou contrôle                                                 | Chemin attendu et assertion mesurable                                                   | Résultat actuel                                                                                                    |
+| ----- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| F6-01 | Analyser les cellules sans les exécuter                            | `11` cellules analysées ; zéro erreur syntaxique                                        | PASS : syntaxe historique Python 3.14.3                                                                            |
+| F6-02 | Examiner les listes intégrées                                      | Exactement `8 + 8 + 8 = 24` entrées                                                     | PASS : inventaire statique historique                                                                              |
+| F6-03 | Examiner les fichiers                                              | Dépendances/environnement racine et vrai DOCX présents ; MD imbriqué absent             | PASS : disposition historique, pas ingestion                                                                       |
+| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | PASS accueil natif exact; configuration prospective figée                                                          |
 | F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | PASS au niveau du document, adaptation Markdown Ready; extrait cité sans ATO, support du fragment exact non prouvé |
-| F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : expertise voisine; jointure exacte non prouvée        |
-| F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PARTIAL : multisource voisin réussi, pas comparaison exacte     |
-| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PASS : réponse uniquement; clôture du plan non prouvée, nombres d'appels MCP/Foundry inconnus |
-| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | NOT_RUN : aucun tour français exact du lab 6                    |
-| F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                |
-| F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                     |
-| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | PARTIAL : nettoyages historiques réussis; v5 hébergée conservée |
+| F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : indices MCP exacts PASS; appel de l'enfant Foundry original non prouvé                                   |
+| F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PASS : comparaison native exacte; deux groupes vérifiés et plan terminé                                            |
+| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PASS : réponse uniquement; clôture du plan non prouvée, nombres d'appels MCP/Foundry inconnus                      |
+| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | FAIL : prose finale anglaise; tentative ultérieure avec langue configurée NOT_RUN                                  |
+| F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                                                                   |
+| F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                                                                        |
+| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | PARTIAL : nettoyages historiques réussis; v5 hébergée conservée                                                    |
 
 Pour chaque cas réel, notez chemin, sources, résultat des assertions, justification des citations, latence et erreur assainie. La justesse du routage est le nombre de cas bien routés divisé par les cas exécutés. Évaluez séparément les citations. Un libellé rédigé par le modèle ou un succès HTTP ne remplace pas un passage récupéré.
 

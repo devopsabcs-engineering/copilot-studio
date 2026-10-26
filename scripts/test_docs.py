@@ -41,7 +41,7 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(len({row["id"] for row in rows}), 12)
         self.assertEqual([row.get("initialOfflineStatus", row["status"]) for row in rows], expected)
         self.assertEqual([row["status"] for row in rows],
-                         ["PASS"] * 5 + ["PARTIAL"] * 2 + ["PASS"] + ["NOT_RUN"] * 3 + ["PARTIAL"])
+                         ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "FAIL", "NOT_RUN", "NOT_RUN", "PARTIAL"])
         initial = receipt["initialOfflineCheckpoint"]
         self.assertEqual((initial["newQuestions"], initial["liveLabAttempts"]), (0, 0))
         self.assertTrue(initial["topLevelZeroCountsDescribeOnlyThisInitialOfflineCheckpoint"])
@@ -58,9 +58,11 @@ class WikiTests(unittest.TestCase):
             self.assertIsInstance(row["exactEvidence"], list)
             self.assertIsInstance(row["relatedEvidence"], list)
         self.assertIn("not a runtime pass", receipt["statusDefinitions"]["PASS"])
-        for row in rows[5:7] + rows[8:11]:
+        for row in rows[9:11]:
             self.assertEqual(row["exactEvidence"], [])
             self.assertTrue(row["relatedEvidence"])
+        for index in (5, 6, 8):
+            self.assertTrue(rows[index]["exactEvidence"])
         self.assertIn("setup explicitly includes", rows[4]["sourceAssessment"])
         self.assertIn("Lab 5 Search denial is not Lab 6 Foundry denial", rows[9]["evidenceBoundary"])
         self.assertIn("missing-protocol", rows[10]["evidenceBoundary"])
@@ -111,7 +113,7 @@ class WikiTests(unittest.TestCase):
     def test_lab6_crosswalk_is_linked_in_all_six_current_bilingual_docs(self):
         root = Path(__file__).resolve().parents[1]
         filename = "lab6-acceptance-crosswalk.json"
-        expected = ["PASS"] * 5 + ["PARTIAL"] * 2 + ["PASS"] + ["NOT_RUN"] * 3 + ["PARTIAL"]
+        expected = ["PASS"] * 5 + ["PARTIAL", "PASS", "PASS", "FAIL", "NOT_RUN", "NOT_RUN", "PARTIAL"]
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 with self.subTest(language=language, page=name):
@@ -146,6 +148,212 @@ class WikiTests(unittest.TestCase):
                     else:
                         self.assertIn("## Original review baseline" if language == "en"
                                       else "## État de la revue initiale", text)
+
+    def test_lab6_multisource_native_check_proves_exact_membership_without_architecture_substitution(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        for filename in ("lab6-multisource-native.json", "lab6-intake-routing-repair.json"):
+            raw = (directory / filename).read_text("utf-8")
+            self.assertTrue(raw.endswith("\n"))
+            self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+            for marker in (".copilot-tracking", "C:\\", "https://", "conversation_id",
+                           "tenant_id", "client_secret", "access_token", ".zip"):
+                self.assertNotIn(marker, raw)
+            receipt = json.loads(raw)
+            self.assertEqual(receipt["questionsSubmittedDuringPublication"], 0)
+            self.assertFalse(receipt["acceptance"]["T017RuntimeComplete"])
+            self.assertFalse(receipt["acceptance"]["workshopComplete"])
+            self.assertFalse(receipt["acceptance"]["historicalArchitectureEquivalenceClaimed"])
+        receipt = json.loads((directory / "lab6-multisource-native.json").read_text("utf-8"))
+        self.assertEqual((receipt["case"], receipt["status"]), ("F6-07", "PASS"))
+        self.assertEqual((receipt["nativeQuestionSubmissions"], receipt["freshConversations"]), (1, 1))
+        self.assertEqual((receipt["replays"], receipt["extraPreflightQuestions"]), (0, 0))
+        routing = receipt["routing"]
+        self.assertEqual((routing["completedNativeMcpInvocations"], routing["returnedRecords"]), (1, 2))
+        self.assertEqual(routing["verifiedApplicableSourceGroups"],
+                         ["Investigation procedures", "Regulatory compliance"])
+        self.assertEqual((routing["verifiedApplicableSourceGroupCount"],
+                          routing["unprovenSourceGroupCount"]), (2, 0))
+        self.assertTrue(routing["questionStepOutputAndRetrievalSelectionReceiptsCorrelated"])
+        self.assertTrue(routing["completeReturnedRecordFieldsMatchPinnedLicensedCorpus"])
+        self.assertEqual(routing["underlyingServiceHttpFanoutCount"], "NOT_ESTABLISHED")
+        self.assertTrue(all(receipt["assertions"].values()))
+        completion = receipt["completion"]
+        for key in ("completeFinalParentMessage", "correlatedNativeDynamicPlanFinished",
+                    "withinBoundedDeadline"):
+            self.assertTrue(completion[key])
+        self.assertFalse(completion["cancelled"])
+        self.assertEqual(receipt["latencySeconds"]["serverReceiptToReply"], 35.0384)
+        self.assertEqual(receipt["latencySeconds"]["sendToReply"], 41.144941)
+        preservation = receipt["preservation"]
+        self.assertEqual(preservation["priorArtifactsWithHashesAndModificationTimesUnchanged"], 42)
+        for key in ("servedRootSettingsAndVersionUnchangedDuringCapture",
+                    "instructionDigestUnchanged", "sourceIdentitiesVersionsAndStatusesUnchanged",
+                    "retainedSnapshotAndPublisherSourcesUnchanged"):
+            self.assertTrue(preservation[key])
+        self.assertFalse(preservation["fullComponentPostflightReexport"])
+        self.assertFalse(preservation["originalDocxRepaired"])
+        self.assertFalse(receipt["acceptance"]["diagnosticExtensionCertified"])
+
+    def test_lab6_intake_repair_preserves_failure_and_four_case_runtime_regression(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt = json.loads((root / "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json")
+                             .read_text("utf-8"))
+        before = receipt["beforeFix"]
+        self.assertEqual((before["nativeQuestionSubmissions"], before["extraQuestions"],
+                          before["replays"]), (1, 0, 0))
+        self.assertEqual(before["F6-06"]["status"], "FAIL")
+        for key in ("nativeMcpInvocationReceipts", "retrievalOutputReceipts", "verifiedCorpusRecords"):
+            self.assertEqual(before["F6-06"][key], 0)
+        self.assertEqual((before["F6-09"]["status"], before["F6-09"]["nativeQuestionSubmissions"]),
+                         ("NOT_RUN", 0))
+        cause = receipt["cause"]
+        self.assertTrue(cause["unanchoredIntakeCondition"])
+        self.assertEqual((cause["matchedSubstring"], cause["containingWord"]), ("hi", "Which"))
+        self.assertEqual(cause["zeroBasedHalfOpenSpan"], [1, 3])
+        repair = receipt["repair"]
+        self.assertEqual((repair["changedTopicCount"], repair["changedConditionLines"]), (1, 1))
+        for key in ("wholeMessageAnchorsAdded", "reviewingACaseAlternativePreservesExactF604",
+                    "otherTriggerAndActionFieldsPreserved", "existingConnectedCloneUsed",
+                    "officialPortalEditorUsed", "currentConditionComparedBeforeEdit",
+                    "savedConditionIndependentlyReadAfterReload",
+                    "nativeTestPreflightAndPostflightConditionMatch"):
+            self.assertTrue(repair[key])
+        self.assertEqual((repair["staticRegressionTestsPassed"], repair["staticRoutingStringsChecked"],
+                          repair["otherCloneFilesByteIdentical"]), (4, 16, 37))
+        self.assertEqual((repair["portalTopicCheckerErrors"], repair["portalTopicCheckerWarnings"]), (0, 0))
+        self.assertEqual(repair["topicComponentVersionProof"], "NOT_ESTABLISHED")
+        for key in ("staticChecksArePowerFxRuntimeProof", "fullCloudComponentVersionAndByteAudit",
+                    "officialLspValidationPassed", "manageBundleModified", "agentPublished"):
+            self.assertFalse(repair[key])
+        self.assertIn("@azure/msal-node-extensions", repair["officialLspBlocker"])
+        post = receipt["postFix"]
+        self.assertEqual((post["nativeQuestionSubmissions"], post["freshConversations"],
+                          post["submissionsPerCase"]), (4, 4, 1))
+        self.assertEqual((post["replaysWithinCohort"], post["extraQuestions"]), (0, 0))
+        cases = post["cases"]
+        self.assertEqual([case["id"] for case in cases], ["F6-06", "F6-09", "F6-04", "F6-05"])
+        self.assertEqual([case["status"] for case in cases], ["PARTIAL", "FAIL", "PASS", "PASS"])
+        self.assertTrue(all(case["nativeQuestionSubmissions"] == 1 for case in cases))
+        self.assertTrue(all(case["completeFinalReply"] for case in cases))
+        english, french, intake, glossary = cases
+        self.assertEqual(english["behavioralRetrieval"], "PASS")
+        self.assertEqual((english["completedNativeMcpInvocations"], english["verifiedCorpusRecords"]), (1, 2))
+        self.assertEqual(english["originalConnectedFoundryChildInvocation"], "NOT_ESTABLISHED")
+        self.assertEqual((french["completedNativeMcpInvocations"], french["verifiedCorpusRecords"]), (1, 1))
+        self.assertEqual(french["supportedCoreMeaningAndJoinedLineage"], "PASS")
+        self.assertEqual((french["finalAnswerLanguage"], french["requiredAnswerLanguage"]), ("English", "French"))
+        self.assertEqual((intake["completedNativeMcpInvocations"], intake["completedLocalSearchSteps"],
+                          intake["foundryEvidenceSteps"]), (0, 0, 0))
+        self.assertTrue(intake["clarificationRequested"])
+        self.assertTrue(intake["matchedTerminalProcessedCancellation"])
+        self.assertFalse(intake["noncancelledDynamicPlanFinished"])
+        self.assertEqual((glossary["completedNativeMcpInvocations"], glossary["completedLocalSearchSteps"]), (0, 1))
+        for key in ("documentLevelSupport", "nativeSourceMatchesReadyMitMarkdown",
+                    "supportInAnotherActuallyRetrievedChunk", "noncancelledDynamicPlanFinished"):
+            self.assertTrue(glossary[key])
+        self.assertFalse(glossary["displayedCitationChunkContainsExpansion"])
+        self.assertFalse(glossary["exactCitationChunkSupportProven"])
+        self.assertEqual(post["priorArtifactsWithHashesAndModificationTimesUnchanged"], 110)
+        self.assertTrue(post["rootSettingsInstructionsModelAndSourceFingerprintsUnchangedDuringCapture"])
+        for key in ("configurationEditsDuringCapture", "publishesDuringCapture", "extraResourcesCreated"):
+            self.assertEqual(post[key], 0)
+        history = receipt["historicalBoundaries"]
+        self.assertTrue(history["originalFailureAndConditionalFrenchStopPreserved"])
+        self.assertTrue(history["priorExactF607PassPreservedWithoutRerun"])
+        self.assertTrue(history["retainedArchivePredatesConditionRepair"])
+        self.assertEqual(history["originalElevenCaseCase9FailedAttempts"], 2)
+        self.assertFalse(history["originalElevenCaseCase9Executed"])
+        self.assertFalse(history["originalElevenCaseCase9ThirdReplaySubmitted"])
+        self.assertTrue(receipt["acceptance"]["intakeInterceptionBehaviorCorrected"])
+        self.assertFalse(receipt["acceptance"]["postFixFrenchLanguagePassed"])
+
+    def test_lab6_language_attempt_does_not_erase_completed_failure_or_infer_delivery(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        filename = "lab6-language-configured-attempt.json"
+        raw = (directory / filename).read_text("utf-8")
+        self.assertTrue(raw.endswith("\n"))
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "https://", "conversation_id",
+                       "tenant_id", "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual(receipt["status"], "BLOCKED_DELIVERY")
+        config = receipt["configuration"]
+        self.assertEqual((config["primaryLanguage"], config["secondaryLanguages"]), ("en-US", ["fr-FR"]))
+        self.assertEqual(config["secondaryLanguagesAdded"], 1)
+        self.assertTrue(config["persistedSettingsAndServedMetadataIndependentlyVerified"])
+        for key in ("primaryLanguageChanged", "translatedStaticTopicStringsUploaded",
+                    "dynamicLanguageSwitchingConfigured", "instructionsSourcesToolsAndModelEdited",
+                    "agentPublished"):
+            self.assertFalse(config[key])
+        english, french = receipt["cases"]
+        self.assertEqual([case["id"] for case in receipt["cases"]], ["F6-06", "F6-09"])
+        self.assertEqual([case["status"] for case in receipt["cases"]], ["NOT_RUN", "NOT_RUN"])
+        self.assertEqual(english["deliveryStatus"], "FAIL")
+        self.assertEqual(english["nativeError"], "Cannot send empty message")
+        self.assertEqual(english["captureWindowSeconds"], 240)
+        for key in ("acceptedUserMessageReceiptObserved", "answerRetrievalOrCompletionProofObserved"):
+            self.assertFalse(english[key])
+        for key in ("serverReceiptToReplySeconds", "sendToReplySeconds"):
+            self.assertIsNone(english[key])
+        self.assertEqual(french["sendClicks"], 0)
+        self.assertEqual((receipt["maximumAuthorizedIntents"], receipt["durableQuestionIntents"],
+                          receipt["nativeSendClicks"]), (2, 1, 1))
+        self.assertEqual(receipt["observedAcceptedNativeQuestionActivities"], 0)
+        self.assertEqual(receipt["serverAcceptance"], "NOT_ESTABLISHED")
+        self.assertEqual(receipt["underlyingServiceHttpFanoutCount"], "UNKNOWN")
+        for key in ("replays", "extraQuestions", "observedNativeMcpOrRetrievalReceipts",
+                    "questionsSubmittedDuringPublication"):
+            self.assertEqual(receipt[key], 0)
+        session = receipt["sessionLanguage"]
+        self.assertTrue(session["englishMenuActivatedBeforeAttemptAndDuringRestoration"])
+        self.assertTrue(session["overviewRestored"])
+        for key in ("checkedRadioStateExposed", "selectedSessionLanguageVerified",
+                    "frenchSelected", "englishRestorationVerified"):
+            self.assertFalse(session[key])
+        preservation = receipt["preservation"]
+        self.assertEqual(preservation["priorPrivateAndPublisherFilesUnchangedByHashAndModificationTime"], 133)
+        self.assertEqual(preservation["topicComponentVersionProof"], "NOT_ESTABLISHED")
+        self.assertTrue(preservation["rootSettingsVersionInstructionsSourcesModelAndIntakeFingerprintsUnchangedDuringCapture"])
+        self.assertTrue(preservation["retainedArchivePredatesIntakeAndLanguageChanges"])
+        for key in ("configurationEditsDuringCapture", "publishesDuringCapture", "newAzureResources"):
+            self.assertEqual(preservation[key], 0)
+        acceptance = receipt["acceptance"]
+        self.assertEqual(acceptance["lastCompletedF609Result"], "FAIL")
+        self.assertTrue(acceptance["historicalFailuresPreserved"])
+        self.assertEqual(acceptance["originalConnectedFoundryChildInvocation"], "NOT_ESTABLISHED")
+        for key in ("newFrenchSessionPassClaimed", "automaticLanguageDetectionProven",
+                    "completeStaticTopicLocalizationProven", "historicalArchitectureEquivalenceClaimed",
+                    "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        update = crosswalk["languageConfiguredAttempt"]
+        self.assertEqual(update["reference"], "docs/assets/runtime-2026-10-26/" + filename)
+        self.assertEqual(update["lastCompletedF609StatusStill"], crosswalk["rows"][8]["status"])
+        self.assertEqual(update["lastCompletedF609StatusStill"], "FAIL")
+        self.assertFalse(update["sessionLanguageAndRestorationVerified"])
+        self.assertEqual(update["serverAcceptance"], "NOT_ESTABLISHED")
+        counts = {status: sum(row["status"] == status for row in crosswalk["rows"])
+                  for status in ("PASS", "PARTIAL", "FAIL", "NOT_RUN")}
+        self.assertEqual(counts, crosswalk["intakeRoutingRepairUpdate"]["statusCountsAtCompletedCohort"])
+        self.assertEqual(counts, {"PASS": 7, "PARTIAL": 2, "FAIL": 1, "NOT_RUN": 2})
+        self.assertEqual(crosswalk["multisourceNativeUpdate"]["F607Status"], "PASS")
+        self.assertEqual(crosswalk["intakeRoutingRepairUpdate"]["F606OverallStatus"], "PARTIAL")
+        self.assertIn("original connected-Foundry-child", crosswalk["rows"][5]["evidenceBoundary"])
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
+                section = text.split("\n### ", 2)[1]
+                for asset in (filename, "lab6-multisource-native.json", "lab6-intake-routing-repair.json"):
+                    self.assertIn(f"](../assets/runtime-2026-10-26/{asset})", section)
+                for marker in ("F6-07", "F6-09", "FAIL", "Which", "^...$", "reviewing a case",
+                               "fr-FR", "en-US", "Cannot send empty message", "NOT_ESTABLISHED"):
+                    self.assertIn(marker, section)
+                if name == "completion-roadmap":
+                    self.assertIn("- [ ] T017 [Plan:4.1]", text)
+                    self.assertEqual(text.count("- [x] T"), 4)
 
     def test_lab6_two_exact_native_checks_preserve_completion_and_citation_limits(self):
         root = Path(__file__).resolve().parents[1]

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "scope": "Separate prospective language-configured validation attempt, stopped at native delivery and session-selection evidence barriers",
+  "status": "BLOCKED_DELIVERY",
+  "configuration": {
+    "primaryLanguage": "en-US",
+    "secondaryLanguages": ["fr-FR"],
+    "primaryLanguageChanged": false,
+    "secondaryLanguagesAdded": 1,
+    "persistedSettingsAndServedMetadataIndependentlyVerified": true,
+    "translatedStaticTopicStringsUploaded": false,
+    "dynamicLanguageSwitchingConfigured": false,
+    "instructionsSourcesToolsAndModelEdited": false,
+    "agentPublished": false
+  },
+  "cases": [
+    {
+      "id": "F6-06",
+      "status": "NOT_RUN",
+      "deliveryStatus": "FAIL",
+      "nativeError": "Cannot send empty message",
+      "acceptedUserMessageReceiptObserved": false,
+      "answerRetrievalOrCompletionProofObserved": false,
+      "captureWindowSeconds": 240,
+      "serverReceiptToReplySeconds": null,
+      "sendToReplySeconds": null
+    },
+    {
+      "id": "F6-09",
+      "status": "NOT_RUN",
+      "sendClicks": 0,
+      "reason": "No supported new English comparison base; the conditional guard stopped French submission."
+    }
+  ],
+  "maximumAuthorizedIntents": 2,
+  "durableQuestionIntents": 1,
+  "nativeSendClicks": 1,
+  "observedAcceptedNativeQuestionActivities": 0,
+  "serverAcceptance": "NOT_ESTABLISHED",
+  "freshConversationsPrepared": 1,
+  "replays": 0,
+  "extraQuestions": 0,
+  "observedNativeMcpOrRetrievalReceipts": 0,
+  "underlyingServiceHttpFanoutCount": "UNKNOWN",
+  "sessionLanguage": {
+    "englishMenuActivatedBeforeAttemptAndDuringRestoration": true,
+    "checkedRadioStateExposed": false,
+    "selectedSessionLanguageVerified": false,
+    "frenchSelected": false,
+    "englishRestorationVerified": false,
+    "overviewRestored": true
+  },
+  "preservation": {
+    "rootSettingsVersionInstructionsSourcesModelAndIntakeFingerprintsUnchangedDuringCapture": true,
+    "priorPrivateAndPublisherFilesUnchangedByHashAndModificationTime": 133,
+    "topicComponentVersionProof": "NOT_ESTABLISHED",
+    "retainedArchivePredatesIntakeAndLanguageChanges": true,
+    "configurationEditsDuringCapture": 0,
+    "publishesDuringCapture": 0,
+    "newAzureResources": 0
+  },
+  "questionsSubmittedDuringPublication": 0,
+  "acceptance": {
+    "lastCompletedF609Result": "FAIL",
+    "newFrenchSessionPassClaimed": false,
+    "automaticLanguageDetectionProven": false,
+    "completeStaticTopicLocalizationProven": false,
+    "historicalFailuresPreserved": true,
+    "originalConnectedFoundryChildInvocation": "NOT_ESTABLISHED",
+    "historicalArchitectureEquivalenceClaimed": false,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  },
+  "limits": [
+    "A native Send click is not proof that a question reached the server.",
+    "Neither language radio exposed a checked state; test-session language and English restoration remain unverified.",
+    "French was not selected and its question was not sent.",
+    "An unattributed HTTP 429 was visible; it is not a proven cause of the empty-message validation.",
+    "The new attempt does not replace the preserved completed French-language failure or certify original architecture."
+  ]
+}

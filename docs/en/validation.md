@@ -14,10 +14,35 @@ The [T017 documentary crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-cr
 is delivered with the [updated guide](lab-06.md), not whole-lab runtime acceptance.
 F6-01/02/03 are historical offline PASS, not runtime passes. F6-04 is PASS;
 F6-05 is PASS at document level with the displayed-excerpt limit below.
-F6-08 is response-only PASS; F6-06/07/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
+F6-07 is PASS and F6-08 is response-only PASS; F6-06/12 are PARTIAL.
+F6-09 is FAIL; F6-10/11 are NOT_RUN.
 All twelve rows retain source provenance, public evidence pointers and limits.
 At the initial offline checkpoint on 2026-10-26, F6-04/05 were NOT_RUN, F6-08 was PARTIAL and
 the crosswalk reconciliation submitted zero questions/live attempts.
+
+The [exact multi-source check](../assets/runtime-2026-10-26/lab6-multisource-native.json)
+passes F6-07: one question, one completed native MCP invocation, two pinned-corpus
+records and two applicable groups, investigation procedures and regulatory compliance.
+The attributed comparison invents no rule and has a noncancelled completed plan.
+This prospective MCP proof does not join the historical original specialist's tool output.
+
+The [routing-repair receipt](../assets/runtime-2026-10-26/lab6-intake-routing-repair.json)
+preserves the original F6-06 FAIL: the unanchored intake matched `hi` inside `Which`.
+Only that condition changed, adding `^...$` and `reviewing a case`; the saved native
+topic passed its checker. A separate four-question, four-conversation cohort had no
+in-cohort retries. F6-06 now passes supported MCP retrieval with two verified records
+and a completed plan, but remains PARTIAL because the original connected-Foundry-child
+invocation is unproved. F6-04/05 regressions pass within their existing limits.
+F6-09 FAIL is preserved: grounding and core lineage passed, but final prose was English.
+Topic component-version proof remains `NOT_ESTABLISHED`; no agent publish occurred.
+
+The [language-configured attempt](../assets/runtime-2026-10-26/lab6-language-configured-attempt.json)
+added secondary `fr-FR`, leaving primary `en-US` unchanged. Its new English Send
+displayed `Cannot send empty message`: one intent/click, zero observed accepted
+questions within 240 seconds, server acceptance `NOT_ESTABLISHED`. French was not
+selected or sent; this attempt is NOT_RUN, not a replacement for the completed FAIL.
+Test-session language and English restoration remain unverified. Automatic detection
+and complete static-topic localization are not proven. Publication submits no questions.
 
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
@@ -32,7 +57,7 @@ not zero. This is distinct from original matrix case 9, not architecture equival
 or T017/workshop completion. Publication submits no questions.
 
 The [two exact native checks](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
-are now complete: two questions, one per fresh conversation, no preflight questions
+record the earlier cohort: two questions, one per fresh conversation, no preflight questions
 or replay. F6-04 completed clarification with `activityProcessed=true`, no retrieval
 or Foundry/MCP evidence calls (0.118 seconds from server receipt to final reply).
 F6-05 completed one local `SearchAndSummarizeContent`, a noncancelled

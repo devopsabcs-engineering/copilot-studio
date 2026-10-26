@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "task": "T017",
   "reconciledDate": "2026-10-26",
-  "scope": "Initial offline reconciliation preserved; current exact F6-04/F6-05 native passes on a frozen prospective MCP-adapted configuration, not historical configuration equivalence",
+  "scope": "Initial offline reconciliation and all completed cohorts preserved; exact multi-source PASS, scoped intake repair and failed French-language check on prospective MCP adaptations, followed by an unaccepted language-configured delivery attempt; no historical architecture equivalence",
   "documentaryCrosswalkDelivered": true,
   "T017RuntimeComplete": false,
   "workshopComplete": false,
@@ -27,7 +27,7 @@
   },
   "latestPrivateHistoryUpdate": {
     "reference": "docs/assets/runtime-2026-10-26/lab6-private-history-native.json",
-    "scope": "One additional exact F6-08 response-only PASS; counts classify current rows, not whole-plan completion or a completion percentage.",
+    "scope": "One additional exact F6-08 response-only PASS; counts classify rows at that historical checkpoint, not later rows or whole-plan completion.",
     "nativeQuestionSubmissions": 1,
     "replays": 0,
     "publicationQuestions": 0,
@@ -39,6 +39,43 @@
     "T017RuntimeComplete": false,
     "workshopComplete": false
   },
+  "multisourceNativeUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-multisource-native.json",
+    "nativeQuestionSubmissions": 1,
+    "replays": 0,
+    "publicationQuestions": 0,
+    "F607Status": "PASS",
+    "verifiedApplicableSourceGroups": 2,
+    "historicalArchitectureEquivalence": false
+  },
+  "intakeRoutingRepairUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json",
+    "preFixNativeQuestionSubmissions": 1,
+    "postFixNativeQuestionSubmissions": 4,
+    "postFixFreshConversations": 4,
+    "replaysWithinEachCohort": 0,
+    "publicationQuestions": 0,
+    "F606BehavioralRetrieval": "PASS",
+    "F606OverallStatus": "PARTIAL",
+    "F609LastCompletedStatus": "FAIL",
+    "F604AndF605RegressionStatus": "PASS",
+    "historicalFailurePreserved": true,
+    "statusCountsAtCompletedCohort": {"PASS": 7, "PARTIAL": 2, "FAIL": 1, "NOT_RUN": 2}
+  },
+  "languageConfiguredAttempt": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json",
+    "secondaryFrenchPersisted": true,
+    "primaryEnglishUnchanged": true,
+    "durableQuestionIntents": 1,
+    "nativeSendClicks": 1,
+    "observedAcceptedNativeQuestionActivities": 0,
+    "serverAcceptance": "NOT_ESTABLISHED",
+    "attemptF606Status": "NOT_RUN",
+    "attemptF609Status": "NOT_RUN",
+    "lastCompletedF609StatusStill": "FAIL",
+    "sessionLanguageAndRestorationVerified": false,
+    "publicationQuestions": 0
+  },
   "sourceBoundary": {
     "accessibleSourceBehaviors": ["source-free intake", "local glossary", "grounded specialist expertise", "multi-source work", "three eight-record datasets", "cleanup guidance"],
     "additionalProtectedMainRequirements": "UNKNOWN",
@@ -49,9 +86,10 @@
     "reference": "docs/assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json#/primary_source_reconciliation"
   },
   "statusDefinitions": {
-    "PASS": "F6-01/02/03: the stated historical offline assertion is supported, not a runtime pass. F6-04/05: only the exact native guide check passes on the prospective adapted configuration; F6-05 is document-level support, not exact citation-chunk fidelity or global citation acceptance.",
+    "PASS": "F6-01/02/03: the stated historical offline assertion is supported, not a runtime pass. F6-04/05: exact native guide checks and post-repair regressions pass on prospective adapted configurations; F6-05 is document-level support, not exact citation-chunk fidelity. F6-07 proves the exact two-source native MCP comparison, not original Foundry-child equivalence. F6-08 passes response assertions only.",
     "PARTIAL": "Some relevant assertions have evidence; exact guide turn, route, membership or current cleanup scope remains unproved.",
-    "NOT_RUN": "No exact guide execution located in inspected retained scopes; related behavior may already pass.",
+    "FAIL": "An executed exact check failed an asserted behavior. Preserve it even when another assertion passes or a later attempt is not delivered.",
+    "NOT_RUN": "No exact guide execution located in inspected retained scopes, or a separately labelled attempt has no accepted-turn proof; related behavior may already pass.",
     "UNKNOWN": "Not established, including additional requirements in the unreadable main source."
   },
   "cohorts": {
@@ -134,6 +172,7 @@
       "sourceAssessment": "Intake routing is source-backed; exact F6 wording is a guide variant.",
       "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-intake-local-native.json#/cases/0"],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/0"],
+      "postRepairEvidence": "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/2",
       "evidenceBoundary": "Exact native clarification PASS: complete intake actions and activityProcessed=true, zero retrieval/Foundry/MCP evidence calls. Frozen prospective MCP-adapted existing original specialist configuration, not historical baseline equivalence."
     },
     {
@@ -145,32 +184,39 @@
       "sourceAssessment": "Accessible setup explicitly includes this lookup wording and local route; original scenario 4 uses different wording. Written instructions are not execution.",
       "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-intake-local-native.json#/cases/1"],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/3"],
+      "postRepairEvidence": "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/3",
       "evidenceBoundary": "Exact native local-answer/document-level attribution PASS: one completed SearchAndSummarizeContent on actual Ready MIT publisher Markdown, noncancelled DynamicPlanFinished, zero Foundry/MCP evidence calls. Another actually retrieved chunk of the same source supports ATO; the displayed citation excerpt lacks the expansion. No exact citation-chunk support or global citation-quality pass. Frozen prospective MCP-adapted configuration is not historical equivalence; original DOCX ingestion remains Error."
     },
     {
       "id": "F6-06",
       "status": "PARTIAL",
+      "initialOfflineStatus": "PARTIAL",
       "sourceProvenance": "workshop_source_backed",
       "sourceAssessment": "Grounded expertise is source-backed; exact indicators question is a guide variant.",
-      "exactEvidence": [],
+      "exactEvidence": [
+        "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/beforeFix/F6-06",
+        "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/0"
+      ],
+      "laterUndeliveredAttempt": "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/0",
       "relatedEvidence": [
         "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction",
         "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"
       ],
-      "evidenceBoundary": "Original specialist native expertise passed, but corpus matches do not independently join its underlying MCP output. Current separate candidate case 5 proves one actual evidence invocation and fp-002. Neither substitutes for an exact F6 connected-specialist/tool trace."
+      "evidenceBoundary": "Pre-fix exact FAIL is preserved: substring intake interception prevented expertise retrieval. After one-condition repair, exact native MCP behavioral retrieval PASS has two pinned-corpus records and a noncancelled completed plan. Overall PARTIAL: the original connected-Foundry-child invocation remains NOT_ESTABLISHED. A later language-configured Send displayed an empty-message error with no accepted-turn proof; it does not replace the completed result. No historical architecture equivalence."
     },
     {
       "id": "F6-07",
-      "status": "PARTIAL",
+      "status": "PASS",
+      "initialOfflineStatus": "PARTIAL",
       "sourceProvenance": "workshop_source_backed",
       "sourceAssessment": "Multi-source work is source-backed; the focused evidence/policy comparison is a guide variant.",
-      "exactEvidence": [],
+      "exactEvidence": ["docs/assets/runtime-2026-10-26/lab6-multisource-native.json"],
       "relatedEvidence": [
         "docs/assets/runtime-2026-10-19/foundry-results.json#/foundry_agent",
         "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction",
         "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/6"
       ],
-      "evidenceBoundary": "Current candidate case 7 returns ip-002 and rc-007 with two exact individually attributed quotations and local evidence. Earlier backend final-quotation failures and later specialist passes remain separate. No exact F6 comparison or independent original-specialist native MCP join is established."
+      "evidenceBoundary": "Exact native comparison PASS on the prospective MCP adaptation: one completed native MCP invocation, two complete records independently matched to the pinned corpus, two applicable groups (investigation procedures and regulatory compliance), correct attribution, no invented rule and correlated noncancelled plan completion. Underlying service HTTP fan-out is uncounted. This is not an independent join for the historical original-specialist cohort or original Foundry-child equivalence; earlier quotation failures remain."
     },
     {
       "id": "F6-08",
@@ -188,12 +234,16 @@
     },
     {
       "id": "F6-09",
-      "status": "NOT_RUN",
+      "status": "FAIL",
+      "initialOfflineStatus": "NOT_RUN",
       "sourceProvenance": "guide_added_validation",
       "sourceAssessment": "French semantic/provenance regression is an added guide check, not an established original requirement.",
-      "exactEvidence": [],
+      "exactEvidence": [
+        "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/1",
+        "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/1"
+      ],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"],
-      "evidenceBoundary": "English expertise, translated documentation and Lab 5 multilingual Search do not prove this French Lab 6 turn."
+      "evidenceBoundary": "Last completed exact French check FAIL: supported core meaning and independently joined lineage passed, but final prose was English, not French. Original pre-fix conditional NOT_RUN is preserved. Secondary fr-FR was later added without changing primary en-US; the new English Send displayed Cannot send empty message with server acceptance NOT_ESTABLISHED, so French was not selected or sent. The later NOT_RUN attempt does not erase the completed FAIL. Session-language selection/restoration, automatic detection and static-topic localization are unproved."
     },
     {
       "id": "F6-10",

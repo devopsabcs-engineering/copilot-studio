@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "case": "F6-07",
+  "status": "PASS",
+  "resultScope": "Exact native multi-source comparison on the retained prospective MCP-adapted draft before the subsequent intake-condition repair, not historical Foundry-child architecture equivalence",
+  "nativeQuestionSubmissions": 1,
+  "freshConversations": 1,
+  "replays": 0,
+  "extraPreflightQuestions": 0,
+  "questionsSubmittedDuringPublication": 0,
+  "routing": {
+    "completedNativeMcpInvocations": 1,
+    "returnedRecords": 2,
+    "verifiedApplicableSourceGroups": [
+      "Investigation procedures",
+      "Regulatory compliance"
+    ],
+    "verifiedApplicableSourceGroupCount": 2,
+    "unprovenSourceGroupCount": 0,
+    "questionStepOutputAndRetrievalSelectionReceiptsCorrelated": true,
+    "completeReturnedRecordFieldsMatchPinnedLicensedCorpus": true,
+    "underlyingServiceHttpFanoutCount": "NOT_ESTABLISHED"
+  },
+  "assertions": {
+    "operationalIntegrityAndCustodyComparedWithPolicy": true,
+    "documentationConfidentialityAndSharedRetentionCorrect": true,
+    "bothActualSourceGroupsAttributed": true,
+    "noInventedRule": true
+  },
+  "completion": {
+    "completeFinalParentMessage": true,
+    "correlatedNativeDynamicPlanFinished": true,
+    "cancelled": false,
+    "withinBoundedDeadline": true
+  },
+  "latencySeconds": {
+    "serverReceiptToReply": 35.0384,
+    "sendToReply": 41.144941,
+    "serverReceiptToPlanFinished": 35.042527
+  },
+  "preservation": {
+    "servedRootSettingsAndVersionUnchangedDuringCapture": true,
+    "instructionDigestUnchanged": true,
+    "sourceIdentitiesVersionsAndStatusesUnchanged": true,
+    "retainedSnapshotAndPublisherSourcesUnchanged": true,
+    "priorArtifactsWithHashesAndModificationTimesUnchanged": 42,
+    "fullComponentPostflightReexport": false,
+    "originalDocxRepaired": false
+  },
+  "acceptance": {
+    "historicalArchitectureEquivalenceClaimed": false,
+    "diagnosticExtensionCertified": false,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  },
+  "limits": [
+    "Actual native MCP membership is proven for this prospective adapted case, not for the original historical specialist cohort.",
+    "Underlying service HTTP fan-out was not independently counted.",
+    "No fresh byte-for-byte export of every served component.",
+    "Original DOCX ingestion and whole-lab closure remain unresolved."
+  ]
+}

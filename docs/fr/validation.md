@@ -14,11 +14,38 @@ La [correspondance documentaire T017](../assets/runtime-2026-10-26/lab6-acceptan
 est livrée avec le [guide actualisé](lab-06.md), sans acceptation du lab entier.
 F6-01/02/03 sont PASS historiques hors ligne, pas des réussites d'exécution.
 F6-04 est PASS; F6-05 est PASS au niveau du document avec la limite d'extrait
-ci-dessous. F6-08 est PASS pour la réponse uniquement;
-F6-06/07/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
+ci-dessous. F6-07 est PASS et F6-08 est PASS pour la réponse uniquement;
+F6-06/12 sont PARTIAL; F6-09 est FAIL; F6-10/11 sont NOT_RUN.
 Les douze lignes conservent provenance, pointeurs publics et limites.
 Au point de contrôle hors ligne initial du 2026-10-26, F6-04/05 étaient NOT_RUN et F6-08 était PARTIAL;
 la réconciliation n'avait soumis aucune question ni tentative réelle.
+
+Le [contrôle multisource exact](../assets/runtime-2026-10-26/lab6-multisource-native.json)
+réussit F6-07 : une question, un appel MCP natif terminé, deux enregistrements
+vérifiés dans le corpus figé et deux groupes applicables, procédures d'enquête et
+conformité réglementaire. Comparaison attribuée, aucune règle inventée et plan
+terminé non annulé sont prouvés. Cette preuve MCP prospective ne joint pas les
+résultats d'outil du spécialiste original historique.
+
+Le [reçu de réparation du routage](../assets/runtime-2026-10-26/lab6-intake-routing-repair.json)
+conserve F6-06 FAIL initial : l'accueil non ancré correspondait à `hi` dans `Which`.
+Seule cette condition a changé, avec `^...$` et `reviewing a case`; le contrôle du
+sujet natif sauvegardé réussit. Une cohorte distincte comprend quatre questions,
+quatre conversations et aucune relance interne. F6-06 réussit désormais la recherche
+MCP étayée, avec deux enregistrements vérifiés et un plan terminé, mais reste PARTIAL :
+l'appel de l'agent enfant Foundry original est non prouvé. Les régressions F6-04/05
+réussissent dans leurs limites existantes. F6-09 FAIL est conservé : ancrage et
+traçabilité centrale réussis, mais prose finale anglaise. La version du composant
+du sujet reste `NOT_ESTABLISHED`; aucune publication d'agent n'a eu lieu.
+
+La [tentative avec langue configurée](../assets/runtime-2026-10-26/lab6-language-configured-attempt.json)
+ajoute `fr-FR` secondaire, sans changer `en-US` primaire. Le nouvel envoi anglais
+affiche `Cannot send empty message` : une intention/un clic, zéro question acceptée
+observée en 240 secondes, acceptation serveur `NOT_ESTABLISHED`. Le français n'est
+ni sélectionné ni envoyé; cette tentative est NOT_RUN et ne remplace pas le FAIL
+terminé. Langue de session et restauration anglaise restent non vérifiées.
+Détection automatique et localisation complète des sujets statiques ne sont pas
+prouvées. La publication ne soumet aucune question.
 
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
@@ -34,7 +61,7 @@ Ce cas est distinct du cas 9 de la matrice originale, sans équivalence d'archit
 ni achèvement T017/atelier. La publication ne soumet aucune question.
 
 Les [deux contrôles natifs exacts](../assets/runtime-2026-10-26/lab6-intake-local-native.json)
-sont maintenant terminés : deux questions, une par conversation neuve, sans
+consignent la cohorte antérieure : deux questions, une par conversation neuve, sans
 question préliminaire ni relance. F6-04 a terminé la clarification avec
 `activityProcessed=true`, sans recherche ni appel de preuve Foundry/MCP
 (0,118 seconde entre réception serveur et réponse finale). F6-05 a terminé un

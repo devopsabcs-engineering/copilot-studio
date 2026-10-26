@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "scope": "Preserved pre-fix failure, one-condition native draft repair, and separate four-question prospective post-fix cohort before secondary French was enabled",
+  "beforeFix": {
+    "nativeQuestionSubmissions": 1,
+    "extraQuestions": 0,
+    "replays": 0,
+    "F6-06": {
+      "status": "FAIL",
+      "behavioralRetrieval": "FAIL",
+      "reply": "Clarification requested instead of account-takeover indicators.",
+      "observedRoute": "Deterministic intake with processed terminal cancellation",
+      "nativeMcpInvocationReceipts": 0,
+      "retrievalOutputReceipts": 0,
+      "verifiedCorpusRecords": 0,
+      "serverReceiptToReplySeconds": 0.230112,
+      "sendToReplySeconds": 5.580505,
+      "completionScope": "Deterministic terminal handler only, not generative plan completion"
+    },
+    "F6-09": {
+      "status": "NOT_RUN",
+      "nativeQuestionSubmissions": 0,
+      "reason": "The failed English turn did not provide a supported comparison base."
+    },
+    "priorArtifactsWithHashesAndModificationTimesUnchanged": 53
+  },
+  "cause": {
+    "unanchoredIntakeCondition": true,
+    "matchedSubstring": "hi",
+    "containingWord": "Which",
+    "zeroBasedHalfOpenSpan": [1, 3],
+    "effect": "The clarification topic processed the message and cancelled dialogs before expertise retrieval."
+  },
+  "repair": {
+    "changedTopicCount": 1,
+    "changedConditionLines": 1,
+    "wholeMessageAnchorsAdded": true,
+    "reviewingACaseAlternativePreservesExactF604": true,
+    "otherTriggerAndActionFieldsPreserved": true,
+    "existingConnectedCloneUsed": true,
+    "otherCloneFilesByteIdentical": 37,
+    "staticRegressionTestsPassed": 4,
+    "staticRoutingStringsChecked": 16,
+    "staticChecksArePowerFxRuntimeProof": false,
+    "officialPortalEditorUsed": true,
+    "currentConditionComparedBeforeEdit": true,
+    "portalTopicCheckerErrors": 0,
+    "portalTopicCheckerWarnings": 0,
+    "savedConditionIndependentlyReadAfterReload": true,
+    "nativeTestPreflightAndPostflightConditionMatch": true,
+    "topicComponentVersionProof": "NOT_ESTABLISHED",
+    "fullCloudComponentVersionAndByteAudit": false,
+    "officialLspValidationPassed": false,
+    "officialLspBlocker": "Cannot find module '@azure/msal-node-extensions'",
+    "manageBundleModified": false,
+    "agentPublished": false
+  },
+  "postFix": {
+    "nativeQuestionSubmissions": 4,
+    "freshConversations": 4,
+    "submissionsPerCase": 1,
+    "replaysWithinCohort": 0,
+    "extraQuestions": 0,
+    "cases": [
+      {
+        "id": "F6-06",
+        "status": "PARTIAL",
+        "behavioralRetrieval": "PASS",
+        "nativeQuestionSubmissions": 1,
+        "completedNativeMcpInvocations": 1,
+        "completedLocalSearchSteps": 0,
+        "verifiedCorpusRecords": 2,
+        "completeFinalReply": true,
+        "noncancelledDynamicPlanFinished": true,
+        "originalConnectedFoundryChildInvocation": "NOT_ESTABLISHED",
+        "serverReceiptToReplySeconds": 29.549565,
+        "sendToReplySeconds": 34.258257
+      },
+      {
+        "id": "F6-09",
+        "status": "FAIL",
+        "nativeQuestionSubmissions": 1,
+        "completedNativeMcpInvocations": 1,
+        "completedLocalSearchSteps": 0,
+        "verifiedCorpusRecords": 1,
+        "completeFinalReply": true,
+        "noncancelledDynamicPlanFinished": true,
+        "supportedCoreMeaningAndJoinedLineage": "PASS",
+        "finalAnswerLanguage": "English",
+        "requiredAnswerLanguage": "French",
+        "serverReceiptToReplySeconds": 18.823631,
+        "sendToReplySeconds": 23.406656
+      },
+      {
+        "id": "F6-04",
+        "status": "PASS",
+        "nativeQuestionSubmissions": 1,
+        "completedNativeMcpInvocations": 0,
+        "completedLocalSearchSteps": 0,
+        "foundryEvidenceSteps": 0,
+        "clarificationRequested": true,
+        "matchedTerminalProcessedCancellation": true,
+        "completeFinalReply": true,
+        "noncancelledDynamicPlanFinished": false,
+        "completionScope": "Deterministic intake terminal handler; a generative plan-finished event is not required",
+        "serverReceiptToReplySeconds": 0.076674,
+        "sendToReplySeconds": 4.631727
+      },
+      {
+        "id": "F6-05",
+        "status": "PASS",
+        "nativeQuestionSubmissions": 1,
+        "completedNativeMcpInvocations": 0,
+        "completedLocalSearchSteps": 1,
+        "completeFinalReply": true,
+        "noncancelledDynamicPlanFinished": true,
+        "atoExpansion": "Account Takeover",
+        "documentLevelSupport": true,
+        "nativeSourceMatchesReadyMitMarkdown": true,
+        "supportInAnotherActuallyRetrievedChunk": true,
+        "displayedCitationChunkContainsExpansion": false,
+        "exactCitationChunkSupportProven": false,
+        "serverReceiptToReplySeconds": 10.252118,
+        "sendToReplySeconds": 14.815646
+      }
+    ],
+    "priorArtifactsWithHashesAndModificationTimesUnchanged": 110,
+    "rootSettingsInstructionsModelAndSourceFingerprintsUnchangedDuringCapture": true,
+    "configurationEditsDuringCapture": 0,
+    "publishesDuringCapture": 0,
+    "extraResourcesCreated": 0
+  },
+  "historicalBoundaries": {
+    "originalFailureAndConditionalFrenchStopPreserved": true,
+    "priorExactF607PassPreservedWithoutRerun": true,
+    "originalElevenCaseCase9Executed": false,
+    "originalElevenCaseCase9FailedAttempts": 2,
+    "originalElevenCaseCase9ThirdReplaySubmitted": false,
+    "retainedArchivePredatesConditionRepair": true
+  },
+  "questionsSubmittedDuringPublication": 0,
+  "acceptance": {
+    "intakeInterceptionBehaviorCorrected": true,
+    "postFixFrenchLanguagePassed": false,
+    "historicalArchitectureEquivalenceClaimed": false,
+    "originalDocxRepaired": false,
+    "underlyingServiceHttpFanoutCount": "NOT_ESTABLISHED",
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  }
+}
