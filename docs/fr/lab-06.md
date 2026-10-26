@@ -49,6 +49,19 @@ terminé. Langue de session et restauration anglaise restent non vérifiées.
 Détection automatique et localisation complète des sujets statiques ne sont pas
 prouvées. La publication ne soumet aucune question.
 
+Le [contrôle ultérieur en texte français](../assets/runtime-2026-10-26/lab6-french-locale-native.json)
+prouve la livraison, pas l'acceptation française : une question acceptée après
+vérification du vrai champ et du compteur `60/2000`, mais activité et réponse ont
+la locale `en-US` et la prose reste anglaise. Un appel MCP terminé retourne trois
+enregistrements vérifiés, dont les deux entrées centrales de la base anglaise
+antérieure. Corpus, instructions et modèle sont inchangés, mais le français
+secondaire a été ajouté après cette base. Le plan non annulé termine en
+71,232 secondes de réception serveur à réponse (76,134 secondes depuis Send).
+Aucune nouvelle question anglaise ni relance. Les deux boutons de langue
+exposent encore `aria-checked=false` après un contrôle clavier natif sans question.
+F6-09 reste FAIL, sans cause de sélection prouvée. L'échec de livraison précédent
+et le NOT_RUN conditionnel restent conservés.
+
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
 supplémentaire, sur la même configuration prospective figée que F6-04/05. La réponse

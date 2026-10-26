@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "task": "T017",
   "reconciledDate": "2026-10-26",
-  "scope": "Initial offline reconciliation and all completed cohorts preserved; exact multi-source PASS, scoped intake repair and failed French-language check on prospective MCP adaptations, followed by an unaccepted language-configured delivery attempt; no historical architecture equivalence",
+  "scope": "All historical cohorts preserved; exact multi-source PASS, scoped intake repair, blocked language attempt and a later accepted French-text question whose actual activity/reply locale remains en-US; French acceptance FAIL, no historical architecture equivalence",
   "documentaryCrosswalkDelivered": true,
   "T017RuntimeComplete": false,
   "workshopComplete": false,
@@ -74,6 +74,21 @@
     "attemptF609Status": "NOT_RUN",
     "lastCompletedF609StatusStill": "FAIL",
     "sessionLanguageAndRestorationVerified": false,
+    "publicationQuestions": 0
+  },
+  "latestFrenchLocaleUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-french-locale-native.json",
+    "F609Status": "FAIL",
+    "acceptedNativeQuestions": 1,
+    "newEnglishQuestions": 0,
+    "resubmissions": 0,
+    "deliveryStatus": "PASS",
+    "acceptedActivityLocale": "en-US",
+    "replyLocale": "en-US",
+    "verifiedCorpusRecords": 3,
+    "supportedEnglishCoreRecordsShared": 2,
+    "configuredFrenchSessionProven": false,
+    "earlierBlockedAttemptAndFailuresPreserved": true,
     "publicationQuestions": 0
   },
   "sourceBoundary": {
@@ -239,11 +254,12 @@
       "sourceProvenance": "guide_added_validation",
       "sourceAssessment": "French semantic/provenance regression is an added guide check, not an established original requirement.",
       "exactEvidence": [
+        "docs/assets/runtime-2026-10-26/lab6-french-locale-native.json",
         "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/1",
         "docs/assets/runtime-2026-10-26/lab6-language-configured-attempt.json#/cases/1"
       ],
       "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"],
-      "evidenceBoundary": "Last completed exact French check FAIL: supported core meaning and independently joined lineage passed, but final prose was English, not French. Original pre-fix conditional NOT_RUN is preserved. Secondary fr-FR was later added without changing primary en-US; the new English Send displayed Cannot send empty message with server acceptance NOT_ESTABLISHED, so French was not selected or sent. The later NOT_RUN attempt does not erase the completed FAIL. Session-language selection/restoration, automatic detection and static-topic localization are unproved."
+      "evidenceBoundary": "Latest completed F6-09 FAIL: one accepted exact French-text question, actual activity and reply locale en-US, English final prose. A real textarea/60-character counter guard proved delivery; one completed native MCP call returned three pinned-corpus records including both supported English core records and a noncancelled plan. The English base predates French secondary addition, with corpus/instructions/model/intake unchanged. Earlier English-answer FAIL and blocked English-delivery/French-guard NOT_RUN remain preserved. Both native language radios still exposed aria-checked=false after a later no-question keyboard control. Configured French-session proof, selection/restoration, automatic detection and full static localization remain unproved; no root cause or architecture equivalence is claimed."
     },
     {
       "id": "F6-10",

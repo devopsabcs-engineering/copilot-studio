@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-26",
+  "case": "F6-09",
+  "status": "FAIL",
+  "scope": "Separate single French-text comparison after adding secondary French; delivery succeeds but the actual native session remains English-locale",
+  "durableQuestionIntents": 1,
+  "nativeSendClicks": 1,
+  "acceptedNativeQuestions": 1,
+  "freshQuestionConversations": 1,
+  "resubmissions": 0,
+  "extraQuestions": 0,
+  "newEnglishQuestions": 0,
+  "delivery": {
+    "status": "PASS",
+    "actualTextareaMatchesExactFrenchQuestion": true,
+    "stableNativeCharacterCounter": "60/2000",
+    "sendEnabled": true,
+    "connectedAndNoPendingTyping": true,
+    "acceptedNativeTextMatches": true
+  },
+  "language": {
+    "frenchUserFacingProse": "FAIL",
+    "acceptedActivityLocale": "en-US",
+    "replyLocale": "en-US",
+    "finalProseLanguage": "English",
+    "configuredFrenchSessionProven": false,
+    "englishSourceNamesOrQuotesAreNotTheFailure": true
+  },
+  "grounding": {
+    "supportedCoreMeaningAndLineage": "PASS",
+    "completedNativeMcpInvocations": 1,
+    "verifiedReturnedCorpusRecords": 3,
+    "coreRecordsSharedWithSupportedEnglishBase": 2,
+    "additionalRecordUnusedInAnswer": 1,
+    "retrievalAndSelectionOperationReceiptsCorrelated": true,
+    "identicalEnglishAndFrenchRecordCountsRequired": false,
+    "englishBaseReference": "docs/assets/runtime-2026-10-26/lab6-intake-routing-repair.json#/postFix/cases/0",
+    "englishBasePredatesFrenchSecondaryAddition": true,
+    "pinnedCorpusInstructionsModelAndAnchoredIntakeMatch": true
+  },
+  "completion": {
+    "completeFinalParentReply": true,
+    "correlatedNoncancelledDynamicPlanFinished": true,
+    "serverReceiptToReplySeconds": 71.23233,
+    "sendToReplySeconds": 76.134278,
+    "serverReceiptToPlanFinishedSeconds": 71.239918
+  },
+  "preservation": {
+    "priorFilesUnchangedByHashAndModificationTime": 420,
+    "postflightConfigurationSourceAndTopicFingerprintsMatch": true,
+    "allEarlierFailuresAndNotRunResultsPreserved": true,
+    "originalElevenCaseCase9Executed": false,
+    "configurationEditsDuringCapture": 0,
+    "publishesDuringCapture": 0,
+    "sourceChangesDuringCapture": 0,
+    "topicComponentVersionProof": "NOT_ESTABLISHED"
+  },
+  "subsequentNoQuestionUiDiagnostics": {
+    "englishRadioAriaCheckedBeforeAndAfterFrenchKeyboardActivation": "false",
+    "frenchRadioAriaCheckedBeforeAndAfterFrenchKeyboardActivation": "false",
+    "nativeFrenchKeyboardSpaceActivationAttempted": true,
+    "questionsSubmitted": 0,
+    "englishMenuChoiceRestored": true,
+    "englishCheckedStateRestorationProven": false
+  },
+  "questionsSubmittedDuringPublication": 0,
+  "acceptance": {
+    "deliveryBarrierClosedForThisTurnOnly": true,
+    "frenchLanguageAcceptancePassed": false,
+    "nativeLanguageSelectionRootCauseEstablished": false,
+    "automaticLanguageDetectionProven": false,
+    "completeStaticTopicLocalizationProven": false,
+    "historicalArchitectureEquivalenceClaimed": false,
+    "underlyingServiceHttpFanoutCount": "NOT_ESTABLISHED",
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  }
+}

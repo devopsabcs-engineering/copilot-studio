@@ -44,6 +44,18 @@ selected or sent; this attempt is NOT_RUN, not a replacement for the completed F
 Test-session language and English restoration remain unverified. Automatic detection
 and complete static-topic localization are not proven. Publication submits no questions.
 
+The later [single French-text check](../assets/runtime-2026-10-26/lab6-french-locale-native.json)
+proved delivery, not French acceptance: one accepted question after verifying the
+real textarea and `60/2000` counter, but activity and reply locales were `en-US`
+and final prose was English. One completed MCP call returned three verified records,
+including both core records from the earlier supported English base; its corpus,
+instructions and model were unchanged, but French secondary was added afterward.
+The noncancelled plan completed in 71.232 seconds from server receipt to reply
+(76.134 seconds from Send). No new English question or resubmission occurred.
+Both language radios still exposed `aria-checked=false` after a separate native
+keyboard control without a question. F6-09 remains FAIL; its selection cause is
+unproved. The previous delivery failure and guarded NOT_RUN remain intact.
+
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
 frozen prospective configuration as F6-04/05. The complete final reply acknowledges

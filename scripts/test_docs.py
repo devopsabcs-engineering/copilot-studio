@@ -355,6 +355,78 @@ class WikiTests(unittest.TestCase):
                     self.assertIn("- [ ] T017 [Plan:4.1]", text)
                     self.assertEqual(text.count("- [x] T"), 4)
 
+    def test_lab6_single_french_turn_proves_delivery_but_preserves_locale_failure(self):
+        root = Path(__file__).resolve().parents[1]
+        directory = root / "docs/assets/runtime-2026-10-26"
+        filename = "lab6-french-locale-native.json"
+        raw = (directory / filename).read_text("utf-8")
+        self.assertTrue(raw.endswith("\n"))
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for marker in (".copilot-tracking", "C:\\", "https://", "conversation_id",
+                       "tenant_id", "client_secret", "access_token", ".zip"):
+            self.assertNotIn(marker, raw)
+        receipt = json.loads(raw)
+        self.assertEqual((receipt["case"], receipt["status"]), ("F6-09", "FAIL"))
+        for key in ("durableQuestionIntents", "nativeSendClicks", "acceptedNativeQuestions",
+                    "freshQuestionConversations"):
+            self.assertEqual(receipt[key], 1)
+        for key in ("resubmissions", "extraQuestions", "newEnglishQuestions",
+                    "questionsSubmittedDuringPublication"):
+            self.assertEqual(receipt[key], 0)
+        delivery = receipt["delivery"]
+        self.assertEqual((delivery["status"], delivery["stableNativeCharacterCounter"]), ("PASS", "60/2000"))
+        for key in ("actualTextareaMatchesExactFrenchQuestion", "sendEnabled",
+                    "connectedAndNoPendingTyping", "acceptedNativeTextMatches"):
+            self.assertTrue(delivery[key])
+        language = receipt["language"]
+        self.assertEqual((language["acceptedActivityLocale"], language["replyLocale"]), ("en-US", "en-US"))
+        self.assertEqual(language["frenchUserFacingProse"], "FAIL")
+        self.assertEqual(language["finalProseLanguage"], "English")
+        self.assertFalse(language["configuredFrenchSessionProven"])
+        self.assertTrue(language["englishSourceNamesOrQuotesAreNotTheFailure"])
+        grounding = receipt["grounding"]
+        self.assertEqual(grounding["supportedCoreMeaningAndLineage"], "PASS")
+        self.assertEqual((grounding["completedNativeMcpInvocations"], grounding["verifiedReturnedCorpusRecords"],
+                          grounding["coreRecordsSharedWithSupportedEnglishBase"]), (1, 3, 2))
+        self.assertEqual(grounding["additionalRecordUnusedInAnswer"], 1)
+        self.assertFalse(grounding["identicalEnglishAndFrenchRecordCountsRequired"])
+        self.assertTrue(grounding["englishBasePredatesFrenchSecondaryAddition"])
+        self.assertTrue(grounding["pinnedCorpusInstructionsModelAndAnchoredIntakeMatch"])
+        self.assertTrue(grounding["retrievalAndSelectionOperationReceiptsCorrelated"])
+        self.assertTrue(receipt["completion"]["correlatedNoncancelledDynamicPlanFinished"])
+        self.assertEqual(receipt["completion"]["serverReceiptToReplySeconds"], 71.23233)
+        self.assertEqual(receipt["completion"]["sendToReplySeconds"], 76.134278)
+        self.assertEqual(receipt["preservation"]["priorFilesUnchangedByHashAndModificationTime"], 420)
+        self.assertTrue(receipt["preservation"]["allEarlierFailuresAndNotRunResultsPreserved"])
+        self.assertFalse(receipt["preservation"]["originalElevenCaseCase9Executed"])
+        controls = receipt["subsequentNoQuestionUiDiagnostics"]
+        for key in ("englishRadioAriaCheckedBeforeAndAfterFrenchKeyboardActivation",
+                    "frenchRadioAriaCheckedBeforeAndAfterFrenchKeyboardActivation"):
+            self.assertEqual(controls[key], "false")
+        self.assertEqual(controls["questionsSubmitted"], 0)
+        self.assertFalse(controls["englishCheckedStateRestorationProven"])
+        acceptance = receipt["acceptance"]
+        self.assertTrue(acceptance["deliveryBarrierClosedForThisTurnOnly"])
+        for key in ("frenchLanguageAcceptancePassed", "nativeLanguageSelectionRootCauseEstablished",
+                    "automaticLanguageDetectionProven", "completeStaticTopicLocalizationProven",
+                    "historicalArchitectureEquivalenceClaimed", "T017RuntimeComplete", "workshopComplete"):
+            self.assertFalse(acceptance[key])
+        crosswalk = json.loads((directory / "lab6-acceptance-crosswalk.json").read_text("utf-8"))
+        update = crosswalk["latestFrenchLocaleUpdate"]
+        reference = "docs/assets/runtime-2026-10-26/" + filename
+        self.assertEqual(update["reference"], reference)
+        self.assertIn(reference, crosswalk["rows"][8]["exactEvidence"])
+        self.assertEqual(crosswalk["rows"][8]["status"], "FAIL")
+        self.assertEqual(update["acceptedNativeQuestions"], 1)
+        self.assertEqual(update["newEnglishQuestions"], 0)
+        self.assertTrue(update["earlierBlockedAttemptAndFailuresPreserved"])
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
+                for marker in ("60/2000", "en-US", "aria-checked=false", "F6-09", "FAIL", "NOT_RUN"):
+                    self.assertIn(marker, section)
+
     def test_lab6_two_exact_native_checks_preserve_completion_and_citation_limits(self):
         root = Path(__file__).resolve().parents[1]
         directory = root / "docs/assets/runtime-2026-10-26"
