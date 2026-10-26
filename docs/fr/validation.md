@@ -8,6 +8,14 @@ ms.date: 2026-10-26
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+La [cohorte SP appariée interrompue](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+compte zéro intention de question native autorisée/refusée. Secret, identité,
+brouillon, quatre rôles et ressources Azure possédés sont indépendamment absents
+après nettoyage. Inventaires initiaux et 181 fichiers historiques préservés.
+L'inventaire du portail natif redirige vers la connexion; les preuves PAC/Dataverse
+ne prouvent pas l'absence dans le portail. Ni acceptation native appariée ni coût
+finalisé revendiqués; S5-10, T014 et T016 restent ouverts.
+
 Le [suivi Search Entra natif](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
 réussit S5-04/S5-07/S5-08/S5-09 sur le jeu fictif isolé. La cohorte initiale
 3/4 conserve sa réponse anglaise à la question française. Une cohorte distincte

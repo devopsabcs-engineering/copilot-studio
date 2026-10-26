@@ -19,6 +19,24 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 26 interrupted service-principal cohort cleanup
+
+The [separate paired-SP recovery](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+was interrupted before native submission: durable intents record zero authorized
+and zero denied questions, with no queued or consumed submission operations.
+Recovery removes the owned short-lived credential, application, service principal,
+draft, four role grants, Search service/index and resource group. Independent
+reads verify absence; no disposable connector connection reached a create intent.
+Five original agents, seven connections, three Search schema hashes, hosted
+retrieval v5 and the embedding resource's complete role inventory are preserved.
+All 181 historical files remain unchanged, including the earlier no-create hold.
+
+The actual native portal inventory redirects to sign-in. Official PAC inventory
+and Dataverse draft 404 are verified, not portal inventory absence. No login,
+question replay, privilege elevation or shared authentication change occurs
+during recovery. Spending is not finalized. This is cleanup, not a paired
+revocation pass; S5-10, T014, T016 and the workshop remain open.
+
 ## October 25 native Entra Search and bilingual fictional tests
 
 The [native connected recovery](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)

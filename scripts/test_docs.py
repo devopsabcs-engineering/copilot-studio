@@ -2616,6 +2616,60 @@ class WikiTests(unittest.TestCase):
                 self.assertIn("owned-boundary-refresh.json",
                               (root / "docs" / language / name).read_text("utf-8"))
 
+    def test_interrupted_paired_sp_cleanup_is_not_native_acceptance(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-paired-sp-interrupted-cleanup.json").read_text("utf-8"))
+        questions = result["nativeQuestions"]
+        for key in ("authorizedDurableIntentCount", "deniedDurableIntentCount",
+                    "queuedOrConsumedSubmissionOperations"):
+            self.assertEqual(questions[key], 0)
+        self.assertTrue(questions["priorCohortsExcluded"])
+        cleanup = result["ownedCleanup"]
+        for key in ("applicationGetStatus", "servicePrincipalGetStatus",
+                    "nativeDraftDataverseGetStatus", "searchServiceGetStatus",
+                    "resourceGroupGetStatus"):
+            self.assertEqual(cleanup[key], 404)
+        self.assertEqual(cleanup["credentialRemovalStatus"], 204)
+        self.assertEqual(cleanup["exactRoleAssignmentsGet404"], 4)
+        for key in ("disposableConnectionCreateIntentCount",
+                    "extraConnectionsInBeforeAfterOfficialInventories", "remainingOwnedObjectsObserved"):
+            self.assertEqual(cleanup[key], 0)
+        for key in ("emptyApplicationCredentialsVerifiedBeforeDeletion",
+                    "localEncryptedCredentialHandoffAbsent", "credentialNotDecryptedDuringRecovery",
+                    "nativeDraftAbsentFromOfficialPacInventory", "indexAbsentThroughVerifiedParentDeletion"):
+            self.assertTrue(cleanup[key])
+        original = result["originalPreservation"]
+        self.assertEqual(original["agentCount"], 5)
+        self.assertEqual(original["connectionCount"], 7)
+        self.assertEqual(original["originalSearchSchemaCount"], 3)
+        self.assertEqual(original["historicalFilesHashed"], 181)
+        self.assertEqual(original["changedOrMissingHistoricalFiles"], 0)
+        for key in ("agentRowsMatchAfterWhitespaceTokenization", "completeConnectionInventoryExact",
+                    "originalSearchSchemaHashesExact", "embeddingResourceAndCompleteRoleInventoryExact",
+                    "hostedRetrievalAgentAndVersion5Exact", "earlierHoldAndCleanupReceiptsUnchanged"):
+            self.assertTrue(original[key])
+        portal = result["nativePortalVerification"]
+        self.assertTrue(portal["attempted"])
+        self.assertTrue(portal["redirectedToMicrosoftSignIn"])
+        for key in ("actualInventoryCaptured", "loginAttempted", "portalAbsenceClaimed"):
+            self.assertFalse(portal[key])
+        self.assertTrue(portal["ownedBrowserClosedNormally"])
+        boundary = result["recoveryBoundary"]
+        self.assertTrue(boundary["previousLifecycleProcessesAbsentBeforeMutation"])
+        self.assertEqual(boundary["newQuestionsOrRemoteResources"], 0)
+        for key in ("sharedProcessesOrBrowsersTerminated", "authenticationPolicyOrCacheChanges",
+                    "privilegeElevation", "actualSpendingFinalized", "zeroSpendingClaimed"):
+            self.assertFalse(boundary[key])
+        self.assertTrue(all(value is False for value in result["acceptance"].values()))
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                self.assertIn("lab5-paired-sp-interrupted-cleanup.json",
+                              (root / "docs" / language / name).read_text("utf-8"))
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            for task in ("T014", "T016"):
+                self.assertIn(f"- [ ] {task}", roadmap)
+
     def test_dataverse_history_auth_recovery_does_not_grant_transcript_access(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"

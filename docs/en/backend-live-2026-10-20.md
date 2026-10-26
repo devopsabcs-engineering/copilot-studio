@@ -17,6 +17,17 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 interrupted paired-SP recovery
+
+The [paired-SP cleanup receipt](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+records zero authorized/denied native question intents. Independent final reads
+verify removal of the owned credential, identity, draft, four role grants and
+Azure fixture. All original agent/connection/schema/embedding-role/hosted-v5
+comparisons pass; 181 historical files stay unchanged. Actual portal inventory
+redirects to sign-in, so only official PAC/Dataverse absence is established.
+No question replay or authentication change occurs during recovery. This does
+not pass S5-10/T014/T016 or finalize spending.
+
 ## October 26 original history and transcript permission check
 
 The [read-only Dataverse/history receipt](../assets/runtime-2026-10-26/lab1-dataverse-history.json)

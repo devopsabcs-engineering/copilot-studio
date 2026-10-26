@@ -20,6 +20,25 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Nettoyage de la cohorte SP interrompue du 26 octobre
+
+La [reprise SP appariée distincte](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+est interrompue avant soumission native : les intentions durables comptent zéro
+question autorisée et zéro refusée, sans opération en attente ni consommée.
+La reprise supprime le secret temporaire possédé, application, principal de
+service, brouillon, quatre rôles, service Search/index et groupe de ressources.
+Des lectures indépendantes confirment leur absence; aucune création de connexion
+de connecteur jetable n'a été engagée. Cinq agents initiaux, sept connexions,
+trois empreintes de schémas Search, récupération hébergée v5 et inventaire complet
+des rôles de la ressource d'embedding sont préservés. Les 181 fichiers historiques
+restent inchangés, y compris la suspension antérieure avant création.
+
+L'inventaire du portail natif redirige vers la connexion. L'inventaire PAC officiel
+et le 404 Dataverse du brouillon sont vérifiés, pas l'absence dans le portail.
+Aucune connexion, répétition de question, élévation de privilèges ni modification
+d'authentification partagée pendant la reprise. Coût non finalisé. Ce nettoyage
+ne valide pas la révocation appariée; S5-10, T014, T016 et l'atelier restent ouverts.
+
 ## Search Entra natif et tests fictifs bilingues du 25 octobre
 
 La [reprise connectée native](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)

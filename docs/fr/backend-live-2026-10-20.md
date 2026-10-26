@@ -17,6 +17,17 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Reprise SP appariée interrompue du 26 octobre
+
+Le [reçu de nettoyage SP apparié](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+compte zéro intention de question native autorisée/refusée. Des lectures finales
+indépendantes vérifient la suppression du secret, identité, brouillon, quatre
+rôles et ressources Azure possédés. Comparaisons des agents, connexions, schémas,
+rôles d'embedding et hébergement v5 initiaux réussies; 181 fichiers historiques
+inchangés. L'inventaire du portail redirige vers la connexion, donc seule l'absence
+PAC/Dataverse officielle est établie. Aucune répétition de question ni modification
+d'authentification pendant la reprise. Ni S5-10/T014/T016 validés ni coût finalisé.
+
 ## Historique original et permissions de transcription du 26 octobre
 
 Le [reçu Dataverse/History en lecture seule](../assets/runtime-2026-10-26/lab1-dataverse-history.json)

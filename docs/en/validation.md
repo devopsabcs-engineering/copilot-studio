@@ -8,6 +8,14 @@ ms.date: 2026-10-26
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The [interrupted paired-SP cohort](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
+has zero authorized/denied native question intents. Owned credential, identity,
+draft, four roles and Azure fixture are independently absent after cleanup.
+Original inventories and 181 historical files are preserved. Native portal
+inventory redirects to sign-in; official PAC/Dataverse evidence is not portal
+absence verification. No paired native acceptance or finalized spending is
+claimed; S5-10, T014 and T016 stay open.
+
 The [native Entra Search follow-up](../assets/runtime-2026-10-25/lab5-native-entra-connected.json)
 passes S5-04/S5-07/S5-08/S5-09 for the isolated fictional fixture. The original
 3/4 cohort retains its French-to-English failure. A separate French-enabled

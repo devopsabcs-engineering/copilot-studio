@@ -1,0 +1,65 @@
+{
+  "verifiedUtc": "2026-10-26T09:41:42.122312+00:00",
+  "scope": "Separate disposable service-principal paired native Search cohort",
+  "outcome": "Interrupted before native questions; owned cleanup independently verified",
+  "nativeQuestions": {
+    "authorizedDurableIntentCount": 0,
+    "deniedDurableIntentCount": 0,
+    "queuedOrConsumedSubmissionOperations": 0,
+    "priorCohortsExcluded": true
+  },
+  "ownedCleanup": {
+    "applicationGetStatus": 404,
+    "servicePrincipalGetStatus": 404,
+    "credentialRemovalStatus": 204,
+    "emptyApplicationCredentialsVerifiedBeforeDeletion": true,
+    "localEncryptedCredentialHandoffAbsent": true,
+    "credentialNotDecryptedDuringRecovery": true,
+    "nativeDraftDataverseGetStatus": 404,
+    "nativeDraftAbsentFromOfficialPacInventory": true,
+    "disposableConnectionCreateIntentCount": 0,
+    "extraConnectionsInBeforeAfterOfficialInventories": 0,
+    "exactRoleAssignmentsGet404": 4,
+    "searchServiceGetStatus": 404,
+    "indexAbsentThroughVerifiedParentDeletion": true,
+    "resourceGroupGetStatus": 404,
+    "remainingOwnedObjectsObserved": 0
+  },
+  "originalPreservation": {
+    "agentCount": 5,
+    "agentRowsMatchAfterWhitespaceTokenization": true,
+    "connectionCount": 7,
+    "completeConnectionInventoryExact": true,
+    "originalSearchSchemaCount": 3,
+    "originalSearchSchemaHashesExact": true,
+    "embeddingResourceAndCompleteRoleInventoryExact": true,
+    "hostedRetrievalAgentAndVersion5Exact": true,
+    "historicalFilesHashed": 181,
+    "changedOrMissingHistoricalFiles": 0,
+    "earlierHoldAndCleanupReceiptsUnchanged": true
+  },
+  "nativePortalVerification": {
+    "attempted": true,
+    "actualInventoryCaptured": false,
+    "redirectedToMicrosoftSignIn": true,
+    "loginAttempted": false,
+    "portalAbsenceClaimed": false,
+    "ownedBrowserClosedNormally": true
+  },
+  "recoveryBoundary": {
+    "previousLifecycleProcessesAbsentBeforeMutation": true,
+    "sharedProcessesOrBrowsersTerminated": false,
+    "newQuestionsOrRemoteResources": 0,
+    "authenticationPolicyOrCacheChanges": false,
+    "privilegeElevation": false,
+    "actualSpendingFinalized": false,
+    "zeroSpendingClaimed": false
+  },
+  "acceptance": {
+    "pairedAuthorizedThenDeniedNativeTestCompleted": false,
+    "S5_10Passed": false,
+    "T014Complete": false,
+    "T016Complete": false,
+    "workshopComplete": false
+  }
+}
