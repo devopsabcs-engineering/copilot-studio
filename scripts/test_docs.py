@@ -2896,6 +2896,27 @@ class WikiTests(unittest.TestCase):
                     "T014Complete", "wholeRoadmapComplete"):
             self.assertFalse(result[key])
 
+    def test_later_authentication_audit_does_not_retroactively_pass_guard(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-delayed-denial-preflight.json").read_text("utf-8"))
+        audit = result["laterReadOnlyAuthenticationAudit"]
+        self.assertEqual(audit["successfulMatchingSearchConnectorSignIns"], 1)
+        self.assertTrue(audit["approvedAdministratorAndExpectedConnectorResourceMatched"])
+        for key in ("resourceOrPermissionWrites", "nativeQuestionsSubmitted"):
+            self.assertEqual(audit[key], 0)
+        for key in ("exactAuditAvailabilityLatencyMeasured", "cleanedCohortRecreated",
+                    "originalBlockedPreflightReclassified", "nativeDeniedQueryAcceptanceEstablished",
+                    "effectivePerRequestPrincipalEstablished", "historicalNoLeakFailureCauseEstablished",
+                    "futureCohortMayReuseThisAuthenticationEvidence"):
+            self.assertFalse(audit[key])
+        self.assertEqual(result["nativePreflight"]["readinessGuardStatus"], "BLOCK")
+        self.assertFalse(result["S5_10Accepted"])
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("00:36:59 UTC", text)
+            self.assertIn("00:57:46 UTC", text)
+
     def test_delayed_denial_cleanup_and_bilingual_limits(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"

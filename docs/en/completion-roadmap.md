@@ -132,6 +132,15 @@ close normally with no pending commands. Actual spending is not finalized;
 existing workshop resources are not claimed absent. The historical failure is
 unchanged; S5-10, T014 and workshop acceptance remain open.
 
+A separate later read at **00:57:46 UTC** finds one successful approved-admin
+Search-connector sign-in timestamped **00:36:59 UTC**, inside that completed
+cohort's authentication window. Earlier bounded reads had not established it;
+exact audit-availability latency is not measured. The receipt retains both
+observations separately. This read makes no resource/permission write or native
+question and does not recreate the deleted cohort, retrospectively pass its guard
+or establish a native query result. A future cohort must establish its own
+authentication evidence, not reuse this event.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

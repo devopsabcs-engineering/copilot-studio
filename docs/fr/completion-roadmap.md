@@ -139,6 +139,16 @@ en attente. Coût réel non finalisé; les ressources de l'atelier ne sont pas
 déclarées absentes. L'échec historique est inchangé; S5-10, T014 et l'acceptation
 de l'atelier restent ouverts.
 
+Une lecture distincte ultérieure à **00:57:46 UTC** trouve une connexion réussie
+du connecteur Search pour l'administrateur approuvé, horodatée **00:36:59 UTC**,
+dans la fenêtre d'authentification de cette cohorte terminée. Les lectures bornées
+antérieures ne l'avaient pas établie; le délai exact de disponibilité de l'audit
+n'est pas mesuré. Le reçu conserve séparément les deux observations.
+Cette lecture n'écrit ni ressource ni permission, ne pose aucune question native
+et ne recrée pas la cohorte supprimée. Elle ne valide pas rétroactivement son
+contrôle et n'établit aucun résultat de requête native. Une future cohorte doit
+établir sa propre preuve d'authentification, pas réutiliser cet événement.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)
