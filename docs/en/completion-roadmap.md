@@ -39,6 +39,13 @@ AzureRbac alias and distinguishes direct access from Bot Service publishing.
 It does not establish the cause of the preserved native error. The six legacy
 application failures remain failures; T005/T006 and final acceptance stay open.
 
+An [offline identity correlation](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+matches the historical error's activity blueprint ID to the approved administrator's
+directory object ID. The summary ID matches the target blueprint client ID, which
+is unchanged between saved v3 and current v5; the instance client ID is also
+unchanged. This localizes the observed mismatch, not its upstream cause or a fix.
+No new request, question, caller override or permission change occurs.
+
 ## October 26 interrupted service-principal cohort cleanup
 
 The [separate paired-SP recovery](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

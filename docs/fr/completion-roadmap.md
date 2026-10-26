@@ -40,6 +40,13 @@ alias AzureRbac et distingue accès direct et publication Bot Service. Elle
 n'établit pas la cause de l'erreur native conservée. Les six échecs de l'ancienne
 route restent des échecs; T005/T006 et l'acceptation finale restent ouverts.
 
+Une [corrélation locale des identités](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+associe l'ID blueprint de l'activité dans l'erreur historique à l'ID objet de
+l'administrateur approuvé. L'ID du résumé correspond au client blueprint cible,
+inchangé entre la v3 conservée et la v5 actuelle; le client d'instance est aussi
+inchangé. Cela localise l'écart observé, sans prouver sa cause amont ni sa correction.
+Aucune nouvelle requête, question, substitution d'appelant ni modification de droits.
+
 ## Nettoyage de la cohorte SP interrompue du 26 octobre
 
 La [reprise SP appariée distincte](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

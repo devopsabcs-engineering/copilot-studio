@@ -15,6 +15,11 @@ inchangés; approbation `not_published`. Aucune écriture ni question. La nouvel
 documentation ne prouve aucune correction native ni n'efface les six échecs
 de l'ancienne route; T005/T006 restent ouverts.
 
+La [corrélation locale des ID](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+localise l'écart historique: blueprint d'activité égal à l'ID objet de l'utilisateur
+approuvé, résumé égal au blueprint cible inchangé. Aucun nouvel essai natif,
+remplacement d'identité ni correctif pris en charge n'est revendiqué.
+
 La [cohorte SP appariée interrompue](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
 compte zéro intention de question native autorisée/refusée. Secret, identité,
 brouillon, quatre rôles et ressources Azure possédés sont indépendamment absents

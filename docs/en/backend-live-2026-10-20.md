@@ -26,6 +26,12 @@ Activity/Invocations, Entra/BotServiceRbac and `not_published` approval state.
 Nested protocol configuration and version selection are present. No writes or
 questions occur; legacy application failures and T005/T006 remain unresolved.
 
+The [retained error correlation](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+finds the approved user's object ID in the activity blueprint-ID position, not
+the target blueprint client ID. The summary's target blueprint and the instance
+identity remain identical across saved v3/current v5. No new request or question;
+upstream identifier selection and a supported native fix remain unresolved.
+
 ## October 26 interrupted paired-SP recovery
 
 The [paired-SP cleanup receipt](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

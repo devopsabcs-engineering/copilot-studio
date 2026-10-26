@@ -26,6 +26,12 @@ Activity/Invocations, Entra/BotServiceRbac et approbation `not_published`.
 Configuration de protocole et sélection de version imbriquées sont présentes.
 Aucune écriture ni question; échecs de l'ancienne route et T005/T006 non résolus.
 
+La [corrélation de l'erreur conservée](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+trouve l'ID objet de l'utilisateur approuvé à la place du blueprint d'activité,
+pas le client blueprint cible. Blueprint cible et identité d'instance restent
+identiques entre v3 conservée et v5 actuelle. Aucune nouvelle requête ni question;
+sélection de l'identifiant en amont et correction native non résolues.
+
 ## Reprise SP appariée interrompue du 26 octobre
 
 Le [reçu de nettoyage SP apparié](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

@@ -15,6 +15,11 @@ Entra/BotServiceRbac; publication approval is `not_published`. No write or quest
 occurs. New documentation does not prove a native fix or erase six legacy
 application failures; T005/T006 remain open.
 
+The [offline caller-ID correlation](../assets/runtime-2026-10-26/native-blueprint-identity-correlation.json)
+locates the historical mismatch: activity blueprint ID equals the approved user's
+directory object ID, while the summary ID matches the unchanged target blueprint.
+No new native test, identity override or supported fix is claimed.
+
 The [interrupted paired-SP cohort](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
 has zero authorized/denied native question intents. Owned credential, identity,
 draft, four roles and Azure fixture are independently absent after cleanup.

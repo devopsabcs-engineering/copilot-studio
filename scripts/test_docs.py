@@ -2650,6 +2650,39 @@ class WikiTests(unittest.TestCase):
             for task in ("T005", "T006", "T016"):
                 self.assertIn(f"- [ ] {task}", roadmap)
 
+    def test_native_blueprint_identity_correlation_is_not_a_native_fix(self):
+        root = Path(__file__).resolve().parents[1]
+        receipt_name = "native-blueprint-identity-correlation.json"
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / receipt_name).read_text("utf-8"))
+        observed = result["observed"]
+        self.assertEqual(observed["historicalNativeStatus"], 400)
+        self.assertEqual(observed["historicalNativeCode"], "ConnectorRequestFailure")
+        for name in ("exactErrorPatternMatched", "activityBlueprintIdIsGuid",
+                     "activityBlueprintIdEqualsApprovedAdministratorObjectId",
+                     "activityBlueprintIdEqualsRetainedDelegatedCallerObjectId",
+                     "summaryBlueprintIdMatchesSavedTargetBlueprintClientId",
+                     "summaryBlueprintIdMatchesCurrentTargetBlueprintClientId",
+                     "savedAndCurrentTargetBlueprintClientIdIdentical",
+                     "savedAndCurrentTargetInstanceClientIdIdentical"):
+            self.assertTrue(observed[name])
+        for name in ("activityBlueprintIdMatchesTargetBlueprintClientId",
+                     "activityBlueprintIdMatchesTargetBlueprintPrincipalId"):
+            self.assertFalse(observed[name])
+        self.assertTrue(result["interpretation"]["callerIdentifierMismatchCorrelated"])
+        for name, value in result["interpretation"].items():
+            if name != "callerIdentifierMismatchCorrelated":
+                self.assertFalse(value)
+        for name, value in result["boundary"].items():
+            if name == "historicalFailureAndRestorationPreserved":
+                self.assertTrue(value)
+            else:
+                self.assertEqual(value, 0 if type(value) is int else False)
+        self.assertTrue(all(value is False for value in result["acceptance"].values()))
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                self.assertIn(receipt_name, (root / "docs" / language / name).read_text("utf-8"))
+
     def test_interrupted_paired_sp_cleanup_is_not_native_acceptance(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"

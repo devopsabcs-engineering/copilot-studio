@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-26",
+  "scope": "Offline correlation of retained native failure with saved and current agent metadata",
+  "observed": {
+    "historicalNativeStatus": 400,
+    "historicalNativeCode": "ConnectorRequestFailure",
+    "exactErrorPatternMatched": true,
+    "activityBlueprintIdIsGuid": true,
+    "activityBlueprintIdEqualsApprovedAdministratorObjectId": true,
+    "activityBlueprintIdEqualsRetainedDelegatedCallerObjectId": true,
+    "activityBlueprintIdMatchesTargetBlueprintClientId": false,
+    "activityBlueprintIdMatchesTargetBlueprintPrincipalId": false,
+    "summaryBlueprintIdMatchesSavedTargetBlueprintClientId": true,
+    "summaryBlueprintIdMatchesCurrentTargetBlueprintClientId": true,
+    "savedAndCurrentTargetBlueprintClientIdIdentical": true,
+    "savedAndCurrentTargetInstanceClientIdIdentical": true,
+    "historicalHostedVersion": "3",
+    "currentLatestHostedVersion": "5"
+  },
+  "interpretation": {
+    "callerIdentifierMismatchCorrelated": true,
+    "targetIdentityMigrationEstablishedAsCause": false,
+    "upstreamCauseOfCallerIdentifierSelectionEstablished": false,
+    "supportedNativeFixEstablished": false,
+    "directEntraOrResponsesSuccessSubstitutesForNativeAcceptance": false
+  },
+  "boundary": {
+    "newRemoteRequests": 0,
+    "newModelQuestions": 0,
+    "failedQuestionReplays": 0,
+    "originalOrCandidateChanges": 0,
+    "callerPayloadOrIdentityOverrides": 0,
+    "permissionOrPolicyChanges": 0,
+    "privateIdentifiersPublished": false,
+    "historicalFailureAndRestorationPreserved": true
+  },
+  "acceptance": {
+    "T005Complete": false,
+    "T006Complete": false,
+    "workshopComplete": false
+  }
+}
