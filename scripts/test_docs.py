@@ -2616,6 +2616,40 @@ class WikiTests(unittest.TestCase):
                 self.assertIn("owned-boundary-refresh.json",
                               (root / "docs" / language / name).read_text("utf-8"))
 
+    def test_endpoint_model_already_present_does_not_reclassify_native_failures(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "agent-endpoints-readonly.json").read_text("utf-8"))
+        observation = result["observations"]
+        for name in ("baselineGetStatus", "featureHeaderGetStatus"):
+            self.assertEqual(observation[name], 200)
+        for name in ("approvedTenantAndActorVerified", "completeResponseBodiesByteIdentical",
+                     "agentEndpointPresent", "uniqueInstanceIdentityPresent", "blueprintPresent",
+                     "newEndpointModelAlreadyPresent"):
+            self.assertTrue(observation[name])
+        self.assertEqual(observation["latestVersion"], "5")
+        self.assertEqual(observation["protocols"], ["activity", "invocations"])
+        self.assertEqual(observation["authorizationSchemes"], ["Entra", "BotServiceRbac"])
+        self.assertEqual(observation["protocolConfigurationLocation"], "agent_endpoint.protocol_configuration")
+        self.assertEqual(observation["versionSelectorLocation"], "agent_endpoint.version_selector")
+        self.assertEqual(observation["versionSelection"], "@latest")
+        self.assertEqual(observation["trafficPercentage"], 100)
+        self.assertEqual(observation["publishApprovalStatus"], "not_published")
+        self.assertTrue(result["documentation"]["entraRemainsSupportedAzureRbacAlias"])
+        boundary = result["boundary"]
+        self.assertEqual(boundary["remoteGetRequests"], 2)
+        for name, value in boundary.items():
+            if name != "remoteGetRequests":
+                self.assertEqual(value, 0 if type(value) is int else False)
+        self.assertTrue(all(value is False for value in result["acceptance"].values()))
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md"):
+                self.assertIn("agent-endpoints-readonly.json",
+                              (root / "docs" / language / name).read_text("utf-8"))
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            for task in ("T005", "T006", "T016"):
+                self.assertIn(f"- [ ] {task}", roadmap)
+
     def test_interrupted_paired_sp_cleanup_is_not_native_acceptance(self):
         root = Path(__file__).resolve().parents[1]
         result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"

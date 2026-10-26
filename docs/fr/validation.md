@@ -8,6 +8,13 @@ ms.date: 2026-10-26
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+Le [contrôle du modèle actuel](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+renvoie deux GET réussis et identiques. L'hébergement v5 initial expose déjà le
+nouveau point de terminaison, avec Activity/Invocations et Entra/BotServiceRbac
+inchangés; approbation `not_published`. Aucune écriture ni question. La nouvelle
+documentation ne prouve aucune correction native ni n'efface les six échecs
+de l'ancienne route; T005/T006 restent ouverts.
+
 La [cohorte SP appariée interrompue](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
 compte zéro intention de question native autorisée/refusée. Secret, identité,
 brouillon, quatre rôles et ressources Azure possédés sont indépendamment absents

@@ -17,6 +17,15 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 current endpoint-model read
+
+The [two read-only agent GETs](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+return identical successful metadata with and without the documented feature
+header. The original v5 already has the new endpoint/identity model,
+Activity/Invocations, Entra/BotServiceRbac and `not_published` approval state.
+Nested protocol configuration and version selection are present. No writes or
+questions occur; legacy application failures and T005/T006 remain unresolved.
+
 ## October 26 interrupted paired-SP recovery
 
 The [paired-SP cleanup receipt](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

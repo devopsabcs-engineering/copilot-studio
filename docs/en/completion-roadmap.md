@@ -19,6 +19,26 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## October 26 current agent-endpoint model check
+
+The [read-only endpoint investigation](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+follows Microsoft's newly linked
+[publishing-model guidance](https://learn.microsoft.com/azure/foundry/agents/how-to/migrate-agent-applications).
+It distinguishes the legacy Agent Application route from the agent's own stable
+endpoint. Both original-agent GETs, with and without the documented feature
+header, return 200 and byte-identical complete bodies. The existing agent already
+has an endpoint, blueprint and instance identity, enabled state, latest version 5,
+Activity/Invocations and unchanged Entra/BotServiceRbac. Protocol configuration
+and version selection are nested under `agent_endpoint`; publication approval is
+`not_published`.
+
+The new model is therefore already present, not an untried migration fix.
+No agent, endpoint, identity, permission or version selector is written, and no
+question is submitted. Current authorization guidance retains Entra as an
+AzureRbac alias and distinguishes direct access from Bot Service publishing.
+It does not establish the cause of the preserved native error. The six legacy
+application failures remain failures; T005/T006 and final acceptance stay open.
+
 ## October 26 interrupted service-principal cohort cleanup
 
 The [separate paired-SP recovery](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

@@ -17,6 +17,15 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Lecture du modèle actuel du 26 octobre
+
+Les [deux GET en lecture seule](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+renvoient des métadonnées identiques avec et sans en-tête documenté. La v5 initiale
+possède déjà le nouveau modèle de point de terminaison/identité,
+Activity/Invocations, Entra/BotServiceRbac et approbation `not_published`.
+Configuration de protocole et sélection de version imbriquées sont présentes.
+Aucune écriture ni question; échecs de l'ancienne route et T005/T006 non résolus.
+
 ## Reprise SP appariée interrompue du 26 octobre
 
 Le [reçu de nettoyage SP apparié](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

@@ -20,6 +20,26 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Modèle actuel de point de terminaison du 26 octobre
+
+L'[investigation en lecture seule](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+suit le nouveau lien Microsoft vers le
+[modèle de publication](https://learn.microsoft.com/azure/foundry/agents/how-to/migrate-agent-applications).
+Elle distingue l'ancienne route Agent Application du point de terminaison stable
+de l'agent. Les deux GET de l'agent initial, avec et sans en-tête documenté,
+renvoient 200 et des corps complets identiques octet par octet. L'agent possède
+déjà point de terminaison, blueprint et identité d'instance, état activé,
+dernière version 5, Activity/Invocations et Entra/BotServiceRbac inchangés.
+Configuration de protocole et sélection de version sont imbriquées dans
+`agent_endpoint`; l'approbation de publication vaut `not_published`.
+
+Le nouveau modèle existe donc déjà; ce n'est pas une migration corrective non
+essayée. Aucun agent, point de terminaison, identité, droit ni sélecteur n'est
+modifié, et aucune question n'est soumise. La documentation conserve Entra comme
+alias AzureRbac et distingue accès direct et publication Bot Service. Elle
+n'établit pas la cause de l'erreur native conservée. Les six échecs de l'ancienne
+route restent des échecs; T005/T006 et l'acceptation finale restent ouverts.
+
 ## Nettoyage de la cohorte SP interrompue du 26 octobre
 
 La [reprise SP appariée distincte](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)

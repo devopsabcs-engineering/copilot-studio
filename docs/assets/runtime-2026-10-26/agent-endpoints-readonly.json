@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-26",
+  "scope": "Read-only current endpoint-model investigation of original hosted retrieval agent",
+  "documentation": {
+    "legacyApplicationGuideLinksNewEndpointModel": true,
+    "reference": "https://learn.microsoft.com/azure/foundry/agents/how-to/migrate-agent-applications",
+    "authorizationReference": "https://learn.microsoft.com/azure/foundry/agents/how-to/configure-agent-endpoint-authorization",
+    "documentedFeatureHeader": "Foundry-Features: AgentEndpoints=V1Preview",
+    "documentedReadApiVersion": "2025-11-15-preview",
+    "entraRemainsSupportedAzureRbacAlias": true,
+    "botServiceRbacAndDirectClientAuthorizationRemainDistinct": true
+  },
+  "observations": {
+    "approvedTenantAndActorVerified": true,
+    "baselineGetStatus": 200,
+    "featureHeaderGetStatus": 200,
+    "completeResponseBodiesByteIdentical": true,
+    "agentEndpointPresent": true,
+    "uniqueInstanceIdentityPresent": true,
+    "blueprintPresent": true,
+    "agentConfigurationState": "enabled",
+    "agentState": "enabled",
+    "latestVersion": "5",
+    "protocols": ["activity", "invocations"],
+    "protocolConfigurationLocation": "agent_endpoint.protocol_configuration",
+    "authorizationSchemes": ["Entra", "BotServiceRbac"],
+    "versionSelectorLocation": "agent_endpoint.version_selector",
+    "versionSelection": "@latest",
+    "trafficPercentage": 100,
+    "publishApprovalStatus": "not_published",
+    "newEndpointModelAlreadyPresent": true
+  },
+  "boundary": {
+    "remoteGetRequests": 2,
+    "remoteWrites": 0,
+    "newAgentOrApplicationCreated": false,
+    "nativeOrDirectModelQuestions": 0,
+    "failedQuestionReplays": 0,
+    "originalAuthorizationChanged": false,
+    "originalEndpointOrVersionSelectorChanged": false,
+    "sixHistoricalApplicationProbeFailuresReclassified": false,
+    "nativeIntegrationFixEstablished": false,
+    "rootCauseEstablished": false
+  },
+  "acceptance": {
+    "nativeActivityWholeParentDelivery": false,
+    "T005Complete": false,
+    "T006Complete": false,
+    "workshopComplete": false
+  }
+}

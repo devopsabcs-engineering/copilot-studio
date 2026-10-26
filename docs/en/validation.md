@@ -8,6 +8,13 @@ ms.date: 2026-10-26
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+The [current endpoint-model check](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+returns two identical successful agent GETs. The original hosted v5 already
+exposes the new endpoint model with unchanged Activity/Invocations and
+Entra/BotServiceRbac; publication approval is `not_published`. No write or question
+occurs. New documentation does not prove a native fix or erase six legacy
+application failures; T005/T006 remain open.
+
 The [interrupted paired-SP cohort](../assets/runtime-2026-10-26/lab5-paired-sp-interrupted-cleanup.json)
 has zero authorized/denied native question intents. Owned credential, identity,
 draft, four roles and Azure fixture are independently absent after cleanup.
