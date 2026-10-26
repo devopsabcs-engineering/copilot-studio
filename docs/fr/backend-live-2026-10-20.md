@@ -1,7 +1,7 @@
 ---
 title: Validation du backend Copilot et du CLI - 2026-10-20
 description: Lectures Dataverse authentifiées, restauration officielle de PAC, clone de l'agent sauvegardé et blocages de conversation et d'évaluation restants.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Résultat et limites
@@ -36,6 +36,27 @@ supprimés; inventaires et empreintes initiaux préservés. L'erreur de module
 manquant du validateur officiel reste ouverte, sans modification de bundle
 ni validation de schéma prétendue. URL hôtelières originales et refus réel
 d'identité restent non vérifiés. T014 et l'atelier ne sont pas terminés.
+
+## Erreur source native sans document renvoyé du 26 octobre
+
+La [nouvelle reprise distincte](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+réussit le contrôle public après retrait confirmé, attente de 600,002 secondes,
+sa propre connexion neuve réussie du connecteur et contrôles récents 403 direct/
+conversation. Une seule question de fermeture est exécutée. Search natif renvoie
+`ConnectorRequestFailure / AzureAISearchClientError`, zéro document et zéro citation;
+sa trace officielle n'expose aucun statut HTTP. La réponse complète du parent est :
+« I'm sorry, I'm not sure how to help with that. Can you try rephrasing? »
+L'interface signale aussi qu'aucune information n'est trouvée. Aucun fait source
+n'apparaît, mais cette réponse générique ne prouve pas une gestion spécifique
+des erreurs de permission.
+
+Cette cohorte dispose d'une référence directe autorisée, pas d'une référence native
+autorisée, et utilise l'administrateur approuvé, pas une identité non privilégiée
+distincte. Elle ne valide pas S5-10/T014, n'attribue pas le principal effectif par
+requête, n'établit pas la cause historique et ne reclasse aucun résultat antérieur.
+Export/configuration officiels et contrôles indépendants du nettoyage possédé/
+inventaires initiaux sont conservés; navigateur fermé normalement, aucune commande
+en attente. Coût réel non finalisé.
 
 ## Échec natif isolé de retrait d'autorisation du 25 octobre
 

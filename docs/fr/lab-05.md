@@ -1,7 +1,7 @@
 ---
 title: "Atelier 5 : Recherche avancée avec Azure AI Search"
 description: "Créez un index découpé en passages, comparez les méthodes de recherche et reliez un agent standard Copilot Studio avec des critères d'acceptation mesurables."
-ms.date: 2026-10-24
+ms.date: 2026-10-26
 ms.topic: tutorial
 ---
 
@@ -115,6 +115,25 @@ les deux faits visibles, mais sans fragment de section. Brouillon, connexion
 formelle et index temporaires supprimés; objets et empreintes initiaux préservés.
 Quatre critères fictifs natifs sont clos, pas la navigation PDF hôtelière originale,
 le refus réel d'identité, l'acceptation du corpus original ou le lab complet.
+
+## Observation contrôlée de refus dès le premier usage du 26 octobre
+
+L'[observation native contrôlée distincte](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+pose une seule question de fermeture après retrait Reader confirmé indépendamment,
+600,002 secondes avant nouvelle connexion, connexion neuve réelle du connecteur et
+contrôle public réussi. Search direct renvoie 403; la source native signale
+`ConnectorRequestFailure / AzureAISearchClientError`, zéro document renvoyé/vérifié
+et zéro citation. Sa trace n'expose aucun statut HTTP natif.
+Le parent demande génériquement de reformuler, avec un avis supplémentaire
+d'absence d'information. Aucun fait source n'est renvoyé dans cette unique réponse.
+
+C'est une référence directe autorisée puis un refus natif dès le premier usage,
+pas un test natif autorisé puis révoqué apparié, une identité indépendante non
+privilégiée ou une gestion parent spécifique aux permissions vérifiée.
+S5-10/T014 restent ouverts. Les résultats antérieurs d'échec et de blocage sont
+conservés séparément. Configuration officielle inchangée; nettoyage possédé et
+agents/connexions/schémas/compte/rôles initiaux vérifiés indépendamment,
+avec navigateur possédé fermé normalement.
 
 ## Échec isolé de retrait d'autorisation du 25 octobre
 

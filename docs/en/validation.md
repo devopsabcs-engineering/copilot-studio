@@ -1,7 +1,7 @@
 ---
 title: Workshop validation ledger
 description: Evidence, completed checks, runtime limitations, and the acceptance criteria still required for each workshop lab.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Overall verdict
@@ -19,6 +19,16 @@ configuration payload is empty; independent before/after official clones
 verify all 17 authored files unchanged. The owned draft, connection and index
 are removed and original objects preserved. This is not an original hotel PDF,
 denied-identity or whole-lab pass; T014 stays open.
+
+The [October 26 guarded native recovery](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+submits one first-use closing-time question after actual fresh authentication,
+the 600-second wait and a passing evidence guard. Direct Search is 403; native
+Search reports `ConnectorRequestFailure / AzureAISearchClientError` without an
+exposed HTTP status, with zero records/citations. The parent gives a generic
+rephrasing response, not a verified permission-specific error. No source fact
+is returned in that single response. This is not paired authorized-native/removal
+or independent-identity acceptance and does not close S5-10/T014. Cleanup and
+original inventories are independently verified; earlier outcomes are unchanged.
 
 The separate [isolated permission-removal run](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
 fails S5-10. Only a new test Reader grant is removed on a separate keyless

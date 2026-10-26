@@ -6,6 +6,7 @@ import tempfile
 import unittest
 
 from build_wiki import export, page_name, render_wiki_metadata, rewrite_links
+from check_revocation_readiness import assess_readiness
 from validate_docs import local_link_errors, validate
 
 
@@ -2938,6 +2939,69 @@ class WikiTests(unittest.TestCase):
             self.assertIn("lab5-delayed-denial-preflight.json", text)
             self.assertIn("- [ ] T014", text)
             self.assertIn("- [ ] T016", text)
+
+    def test_native_denied_first_use_recorded_guard_really_passes(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-native-denied-first-use.json").read_text("utf-8"))
+        guard = result["guard"]
+        assessed = datetime.fromisoformat(guard["assessedAtUtc"])
+        readiness = assess_readiness(guard["receipt"], assessed)
+        self.assertEqual(readiness["status"], "READY_FOR_SEPARATE_NATIVE_TEST_NOT_ACCEPTANCE")
+        self.assertFalse(readiness["nativeAcceptancePassed"])
+        self.assertEqual(guard["status"], readiness["status"])
+        direct = datetime.fromisoformat(guard["receipt"]["directQueryVerifiedAtUtc"])
+        fresh = datetime.fromisoformat(guard["receipt"]["freshConversationVerifiedAtUtc"])
+        self.assertAlmostEqual((assessed - direct).total_seconds(),
+                               guard["directEvidenceAgeSecondsAtGuard"], places=6)
+        self.assertAlmostEqual((assessed - fresh).total_seconds(),
+                               guard["freshConversationAgeSecondsAtGuard"], places=6)
+        self.assertGreaterEqual(
+            result["authenticationAndTiming"]["actualSecondsWaitedBeforeConnectionCreation"], 600)
+        self.assertFalse(result["authenticationAndTiming"]["oldCohortAuthenticationEvidenceReused"])
+        self.assertFalse(result["scope"]["authorizedNativeBaselineInThisCohort"])
+        native = result["nativeExecution"]
+        self.assertEqual(native["questionSubmissions"], 1)
+        self.assertEqual(native["automaticQuestionReplays"], 0)
+        self.assertEqual(native["nativeErrorCode"], "ConnectorRequestFailure")
+        self.assertEqual(native["nativeReasonCode"], "AzureAISearchClientError")
+        self.assertIsNone(native["nativeHttpStatus"])
+        self.assertFalse(native["nativeHttp403Claimed"])
+        for key in ("returnedRecords", "verifiedRecords", "citations"):
+            self.assertEqual(native[key], 0)
+        self.assertEqual(native["fullParentResponse"],
+                         "I'm sorry, I'm not sure how to help with that. Can you try rephrasing?")
+        self.assertFalse(native["sourceFactReturnedInThisSingleResponse"])
+        self.assertFalse(native["friendlyPermissionSpecificParentErrorEstablished"])
+        for key in ("historicalBlockOrNoLeakFailureReclassified", "effectivePerRequestNativePrincipalEstablished",
+                    "rootCauseOfHistoricalFailureEstablished", "acceptanceCombinedAcrossCohorts",
+                    "independentDeniedIdentityAcceptance", "S5_10Accepted", "T014Complete",
+                    "wholeRoadmapComplete"):
+            self.assertFalse(result[key])
+
+    def test_native_denied_first_use_cleanup_and_all_bilingual_surfaces(self):
+        root = Path(__file__).resolve().parents[1]
+        result = json.loads((root / "docs" / "assets" / "runtime-2026-10-26"
+                             / "lab5-native-denied-first-use.json").read_text("utf-8"))
+        cleanup = result["cleanup"]
+        self.assertTrue(cleanup["ownedDraftConnectionRolesSearchIndexAndGroupAbsent"])
+        self.assertEqual(cleanup["parentIndependentGroupAndSearchGetStatuses"], [404, 404])
+        self.assertEqual(cleanup["parentIndependentOwnedRoleGetStatuses"], [404] * 4)
+        for key in ("allFiveOriginalAgentRowsAndSevenConnectionRowsExact",
+                    "originalEmbeddingAccountAndCompleteRolesExact",
+                    "allThreeOriginalSchemasExact", "ownedBrowserClosedNormally"):
+            self.assertTrue(cleanup[key])
+        self.assertEqual(cleanup["pendingBrowserCommands"], 0)
+        self.assertEqual(cleanup["remainingOwnedCohortObjects"], 0)
+        self.assertFalse(cleanup["globalAzureInventoryClaimedEmpty"])
+        self.assertFalse(cleanup["actualSpendingFinalized"])
+        for language in ("en", "fr"):
+            for name in ("completion-roadmap.md", "validation.md", "backend-live-2026-10-20.md", "lab-05.md"):
+                text = (root / "docs" / language / name).read_text("utf-8")
+                self.assertIn("lab5-native-denied-first-use.json", text)
+            roadmap = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            self.assertIn("- [ ] T014", roadmap)
+            self.assertIn("- [ ] T016", roadmap)
 
     def test_isolated_denial_capture_and_cleanup_preserve_failure_and_originals(self):
         root = Path(__file__).resolve().parents[1]

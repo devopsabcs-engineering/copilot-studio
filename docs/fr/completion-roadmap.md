@@ -149,6 +149,37 @@ et ne recrée pas la cohorte supprimée. Elle ne valide pas rétroactivement son
 contrôle et n'établit aucun résultat de requête native. Une future cohorte doit
 établir sa propre preuve d'authentification, pas réutiliser cet événement.
 
+## Observation native refusée dès le premier usage du 26 octobre
+
+La [nouvelle reprise contrôlée](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+pose la question d'heure de fermeture **exactement une fois** dans une autre
+cohorte fictive isolée. Sa référence directe autorisée réussit. Le retrait Reader
+est confirmé à 404, puis **600,002 secondes** s'écoulent avant la nouvelle connexion.
+La connexion réussie du connecteur de cette cohorte est observée indépendamment
+avant le test; aucune preuve d'authentification d'une cohorte supprimée n'est réutilisée.
+
+Le contrôle public inchangé réussit immédiatement avant la soumission. La preuve
+403 directe date de **38,226 secondes**, et le contrôle de conversation neuve de
+**0,136 seconde**. Search natif renvoie `ConnectorRequestFailure /
+AzureAISearchClientError`, avec **zéro document renvoyé/vérifié et zéro citation**.
+La trace native n'expose aucun statut HTTP; aucun HTTP 403 natif n'est prétendu.
+La réponse complète du parent est : « I'm sorry, I'm not sure how to help with
+that. Can you try rephrasing? » L'interface affiche aussi « No information was
+found that could help answer this. » Aucun fait source n'est renvoyé, mais une
+erreur parent spécifique aux permissions n'est pas établie.
+
+C'est une référence directe autorisée suivie d'un refus natif dès le premier usage,
+pas un test natif autorisé puis révoqué apparié ni une identité indépendante non
+privilégiée. Ni principal effectif par requête, ni cause historique, ni acceptation
+S5-10/T014 ne sont établis. L'échec antérieur et le précontrôle bloqué ne sont pas
+reclassés; aucune acceptation n'est combinée entre cohortes.
+Export officiel et configuration d'auteur inchangée sont conservés. Brouillon,
+connexion, quatre rôles, Search/index et groupe possédés sont indépendamment absents;
+une lecture du parent confirme les cinq lignes d'agents, sept lignes de connexions,
+compte/rôles complets d'embedding et trois schémas initiaux exacts.
+Le navigateur possédé ferme normalement, sans commande en attente.
+Coût réel et critères plus larges de l'atelier restent ouverts.
+
 ## Historique récupéré et publication wiki vérifiée du 25 octobre
 
 Le [suivi History des licences d'origine](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

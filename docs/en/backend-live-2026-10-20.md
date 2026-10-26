@@ -1,7 +1,7 @@
 ---
 title: Copilot backend and CLI validation - 2026-10-20
 description: Actual authenticated Dataverse reads, official PAC recovery, saved-agent clone, and the remaining conversation and evaluation barriers.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Result and boundaries
@@ -36,6 +36,26 @@ are deleted and original inventories/schema hashes preserved. The official
 validator's missing-module error remains; no bundle patch or schema-validation
 success is claimed. Original hotel source URLs and genuine denied identity
 remain unverified. This progress does not close T014 or the workshop.
+
+## October 26 guarded native source error without returned records
+
+The [separate fresh recovery](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+passes the public readiness guard after confirmed revocation, a 600.002-second
+wait, its own successful fresh connector sign-in and fresh direct 403/conversation
+checks. Exactly one closing-time question executes. Native Search returns
+`ConnectorRequestFailure / AzureAISearchClientError`, zero records and zero
+citations; its official trace exposes no HTTP status. The full parent reply is:
+“I'm sorry, I'm not sure how to help with that. Can you try rephrasing?”
+The UI additionally reports no information found. No source fact appears, but
+this generic response is not proof of permission-specific error handling.
+
+This cohort has a direct authorized baseline, not an authorized native baseline,
+and uses the approved administrator, not a separate unprivileged identity.
+It does not pass S5-10/T014, attribute the effective request principal, establish
+the historical failure's cause or reclassify either earlier result.
+Official export/configuration and independently verified owned cleanup/original
+inventories are preserved; browser closed normally, zero pending commands.
+Actual spending remains unfinalized.
 
 ## October 25 isolated native permission-removal failure
 

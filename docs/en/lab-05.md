@@ -1,7 +1,7 @@
 ---
 title: "Lab 5: Advanced retrieval with Azure AI Search"
 description: "Build a chunked search index, compare retrieval methods, and connect a standard Copilot Studio agent with measurable acceptance criteria."
-ms.date: 2026-10-24
+ms.date: 2026-10-26
 ms.topic: tutorial
 ---
 
@@ -111,6 +111,24 @@ with both facts visible, but omits its section fragment. Draft, formal connectio
 and temporary index are deleted; original objects and schema hashes are preserved.
 This closes four fictional native criteria, not original hotel PDF navigation,
 genuine denied identity, original-corpus acceptance or whole-lab certification.
+
+## October 26 guarded denied-from-first-use observation
+
+The [fresh guarded native observation](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+runs one closing-time question after independently confirmed Reader removal,
+600.002 seconds before new connection creation, actual fresh connector sign-in
+and a passing public guard. Direct Search is 403; the native source reports
+`ConnectorRequestFailure / AzureAISearchClientError`, zero returned/verified
+records and zero citations. Its trace does not expose a native HTTP status.
+The parent asks generically to rephrase, with an additional no-information notice.
+No source fact is returned in that single response.
+
+This is a direct authorized baseline plus native denied-from-first-use, not a
+paired native authorized/removal test, an independently unprivileged identity or
+verified permission-specific parent error handling. S5-10/T014 remain open.
+Earlier failure/blocker results are preserved separately. Official configuration
+is unchanged; owned cleanup and original agents/connections/schemas/account/roles
+are independently verified, with the owned browser closed normally.
 
 ## October 25 isolated permission-removal failure
 

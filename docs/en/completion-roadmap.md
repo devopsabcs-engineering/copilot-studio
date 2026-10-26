@@ -141,6 +141,36 @@ question and does not recreate the deleted cohort, retrospectively pass its guar
 or establish a native query result. A future cohort must establish its own
 authentication evidence, not reuse this event.
 
+## October 26 guarded native denied-from-first-use observation
+
+The [fresh guarded recovery](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+executes the closing-time question **exactly once** on another isolated fictional
+cohort. Its direct authorized baseline succeeds. Reader removal is confirmed at
+404, followed by **600.002 seconds** before new connection creation. The new
+cohort's successful connector sign-in is independently observed before testing;
+no authentication evidence from a deleted cohort is reused.
+
+The unchanged public guard passes immediately before submission. Direct 403
+evidence is **38.226 seconds** old and the fresh conversation check **0.136 seconds**
+old. Native Search returns `ConnectorRequestFailure / AzureAISearchClientError`,
+with **zero returned/verified records and zero citations**. The native trace
+exposes no HTTP status; this is not claimed as native HTTP 403. The complete
+parent reply is: “I'm sorry, I'm not sure how to help with that. Can you try
+rephrasing?” The UI also displays “No information was found that could help
+answer this.” No source fact is returned, but a permission-specific parent error
+is not established.
+
+This is direct authorized baseline plus native denied-from-first-use, not a
+paired authorized-native/removal test or an independent unprivileged identity.
+It does not establish effective per-request caller, historical root cause or
+S5-10/T014 acceptance. Neither the earlier no-leak failure nor the blocked
+preflight is reclassified, and acceptance is not combined across cohorts.
+Official export and unchanged authored configuration are preserved. Owned draft,
+connection, four roles, Search/index and group are independently absent; a parent
+read confirms the original five agent rows, seven connection rows, embedding
+account/complete roles and three schemas exact. The owned browser closes normally,
+with zero pending commands. Actual spending and broader workshop gates remain open.
+
 ## October 25 history recovery and verified wiki publication
 
 The [original licensing History follow-up](../assets/runtime-2026-10-25/lab1-history-citation-followup.json)

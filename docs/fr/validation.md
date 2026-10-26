@@ -1,7 +1,7 @@
 ---
 title: Registre de validation de l'atelier
 description: Preuves, vérifications effectuées, limites d'exécution et critères d'acceptation encore nécessaires pour chaque lab.
-ms.date: 2026-10-25
+ms.date: 2026-10-26
 ---
 
 ## Verdict global
@@ -19,6 +19,17 @@ Une configuration de diagnostic est vide; les clones officiels avant/après
 confirment les 17 fichiers d'auteur inchangés. Brouillon, connexion et index
 possédés supprimés, objets initiaux préservés. Ni PDF hôtelier original,
 ni identité refusée, ni lab complet validés; T014 reste ouvert.
+
+La [reprise native contrôlée du 26 octobre](../assets/runtime-2026-10-26/lab5-native-denied-first-use.json)
+pose une seule question de fermeture au premier usage, après authentification
+neuve réelle, attente de 600 secondes et contrôle de preuve réussi.
+Search direct renvoie 403; Search natif signale `ConnectorRequestFailure /
+AzureAISearchClientError`, sans statut HTTP exposé, avec zéro document/citation.
+Le parent demande génériquement de reformuler, sans erreur spécifique aux
+permissions vérifiée. Aucun fait source n'est renvoyé dans cette unique réponse.
+Ce n'est ni une acceptation native autorisée puis révoquée appariée, ni une identité
+indépendante; S5-10/T014 restent ouverts. Nettoyage et inventaires initiaux sont
+vérifiés indépendamment; les résultats antérieurs sont inchangés.
 
 Le [test isolé de retrait d'autorisation](../assets/runtime-2026-10-25/lab5-isolated-permission-removal.json)
 échoue à S5-10. Seul un nouveau rôle Reader de test est retiré sur un service
