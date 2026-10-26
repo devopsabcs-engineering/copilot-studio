@@ -19,6 +19,54 @@ tests, 33 extension tests, dependency consistency and Python syntax checks.
 Those results do not establish live acceptance. The October 23 continuation below
 adds current read-only inventory, not a deployment or a live acceptance pass.
 
+## Lab coverage and where to resume
+
+All eight lab units, including supplement 5.1, have execution evidence.
+**No lab is wholly untouched. Lab 6 is not an unstarted lab.**
+An attempted lab is not necessarily a passed lab, and a completed execution task
+such as T008 does not mean every assertion in that run passed.
+
+The [per-lab execution record](live-rerun-2026-10-19.md) preserves the earlier
+runs. The dated continuations below and the
+[backend report](backend-live-2026-10-20.md) record later outcomes.
+The table identifies remaining gates, not instructions to restart each lab.
+
+| Lab                | Work already exercised                                                     | Remaining gate                                                      | Resume tasks         |
+|--------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------|----------------------|
+| [0](lab-00.md)     | Identity, roles, quota, tools and paid-test preflight                      | Complete readiness, numerical budget and resource ownership review  | T001,T002,T009       |
+| [1](lab-01.md)     | PDF retrieval, refusal, directory lookup, email delivery and PDF hash      | Historical full answer, original citation and connector error audit | T009                 |
+| [2](lab-02.md)     | Private licensing-PDF ingestion and earlier connected answer tests         | External PDF citation navigation and current connected-source proof | T010                 |
+| [3](lab-03.md)     | Native topic and one genuine event correlated in KQL                       | Published-channel behavior and the required privacy boundary        | T010                 |
+| [4](lab-04.md)     | Direct model invocation and actual Standard BYOM dialog inspection         | API-key/keyless-policy conflict, then connected prompt acceptance   | T011,T012            |
+| [5.1](lab-05-1.md) | Corrected paid deployment, private pipeline and guarded cleanup            | Retain reviewed deviations; no unchanged-source apply claim         | T013 done; T014,T015 |
+| [5](lab-05.md)     | Retrieval, filters, hotel answers and fictional native Search cohorts      | Original hotel URLs/corpus limits and paired native denied identity | T014                 |
+| [6](lab-06.md)     | Notebook, embeddings, three-source retrieval, MCP, hosted and native tests | Native verified route, remaining scenario assertions and F6 mapping | T005,T006,T007,T017  |
+
+Lab 6's hosted repair is T003/T004, native verified delivery is T005/T006,
+and its eleven-scenario continuation is T007/T008. T017 reconciles the separate
+`F6-01` through `F6-12` acceptance matrix with those retained runs. The older
+Lab 6 matrix's `Not run` rows and earlier failures must not be interpreted as
+proof that all later Lab 6 work is absent, or silently upgraded to passes.
+Plan numbers are not lab numbers: plan 6.1 is **Lab 4 BYOM**, not Lab 6.
+
+### Resume rules, not whole-lab reruns
+
+1. Select one unresolved acceptance ID or task and its retained evidence.
+   Preserve verified completed work; do not recreate infrastructure or rerun a
+   whole lab merely because a different criterion is blocked.
+2. Before a live retest, record the exact blocker and a supported change or newly
+   available prerequisite. Freeze the expected result and a one-shot submission
+   intent. A fresh disposable cohort is a separate attempt, not a repaired past run.
+3. If the same failure persists, stop that criterion, retain the failure and
+   verify cleanup. Without a new diagnostic or supported change, do not create
+   another equivalent cohort or ask for the same manual secret entry again.
+4. Advance independent criteria instead. Historical-answer recovery cannot be
+   replaced by a new answer; direct/backend controls cannot replace native
+   acceptance; governance and source facts cannot be invented.
+5. Update the exact acceptance rows and bilingual evidence after reconciliation.
+   Mark the workshop complete only against the final checklist, not because
+   every lab has been attempted.
+
 ## October 26 native Search service-principal picker blocker
 
 The [two isolated OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
@@ -1368,16 +1416,16 @@ Owners below are execution roles, not assigned people or recorded approvals.
 P0 removes the immediate blocker or limits ongoing cost; P1 closes runtime
 acceptance; P2 reconciles evidence and publication.
 
-| Plan item | Priority | Owner                         | Depends on       | Completion evidence                                      |
-|-----------|----------|-------------------------------|------------------|----------------------------------------------------------|
-| 1.1       | P0       | Release owner and cloud owner | None             | Owned-resource inventory, costs, artifact and sign-offs   |
-| 2.1       | P0       | Extension maintainer          | 1.1              | Repaired hosted Activity reply with exact source records  |
-| 3.1       | P1       | Copilot Manage and Test       | 2.1              | Native reply, persisted route and restored control        |
-| 4.1       | P1       | Copilot Author and Test       | 3.1              | Fresh eleven-case matrix with whole-turn evidence         |
-| 5.1       | P1       | Lab owner and Copilot Test    | 1.1              | Labs 0, 1, 2 and 3 acceptance receipts                     |
-| 6.1       | P1       | Policy owner and lab owner    | 1.1              | Supported connected BYOM run or explicit exclusion        |
-| 7.1       | P1       | Infrastructure and lab owner  | 1.1              | Labs 5/5.1 connected-query and deployment receipts        |
-| 8.1       | P2       | Evidence and publication owner| 4.1,5.1,6.1,7.1  | Reconciled bilingual evidence, cleanup and release checks |
+| Plan item | Priority | Owner                          | Depends on      | Completion evidence                                       |
+|-----------|----------|--------------------------------|-----------------|-----------------------------------------------------------|
+| 1.1       | P0       | Release owner and cloud owner  | None            | Owned-resource inventory, costs, artifact and sign-offs   |
+| 2.1       | P0       | Extension maintainer           | 1.1             | Lab 6 hosted Activity repair and exact source records     |
+| 3.1       | P1       | Copilot Manage and Test        | 2.1             | Lab 6 native reply, persisted route and restored control  |
+| 4.1       | P1       | Copilot Author and Test        | 3.1             | Lab 6 F6 mapping and eleven-case whole-turn evidence      |
+| 5.1       | P1       | Lab owner and Copilot Test     | 1.1             | Labs 0, 1, 2 and 3 acceptance receipts                    |
+| 6.1       | P1       | Policy owner and lab owner     | 1.1             | Supported connected BYOM run or explicit exclusion        |
+| 7.1       | P1       | Infrastructure and lab owner   | 1.1             | Labs 5/5.1 connected-query and deployment receipts        |
+| 8.1       | P2       | Evidence and publication owner | 4.1,5.1,6.1,7.1 | Reconciled bilingual evidence, cleanup and release checks |
 
 Items 5.1, 6.1 and 7.1 can proceed independently after 1.1 only when their cloud
 resources and browser sessions do not overlap. Avoid concurrent changes to a shared
@@ -1399,6 +1447,8 @@ blocked, but independent documentation and inventory work may continue.
 
 ### 2.1 Deploy and prove the isolated SDK repair
 
+Lab coverage: [Lab 6](lab-06.md), hosted extension checkpoint.
+
 Requirements: REQ-002. Inputs: [extension instructions](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/README.md)
 and [deployment manifest](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/azure.yaml).
 
@@ -1410,6 +1460,8 @@ delivery passes. HTTP readiness alone is insufficient. Keep endpoint authorizati
 unchanged for this initial SDK repair so authentication changes are not conflated.
 
 ### 3.1 Recover native Copilot delivery
+
+Lab coverage: [Lab 6](lab-06.md), native connected-agent checkpoint.
 
 Requirements: REQ-003. Input: the saved inactive diagnostic and existing control route.
 
@@ -1423,16 +1475,22 @@ support rather than bypassing authorization.
 
 ### 4.1 Close the eleven-scenario acceptance matrix
 
+Lab coverage: [Lab 6](lab-06.md), scenario continuation and original F6 matrix.
+
 Requirements: REQ-004. Input: the original questions and complete-turn audit in the
 [execution report](backend-live-2026-10-20.md).
 
 - [ ] T007 [Plan:4.1] Have Author correct only demonstrated quotation fidelity, per-bullet attribution, conditional-duty scope and detailed-example coverage gaps in the isolated candidate. Preserve source-free intake, local-only lookups, hybrid routing and the working control.
 - [x] T008 [Plan:4.1] Have Test run all eleven unchanged scenarios in a fresh native session after an acknowledged readiness preflight. Preserve full final replies and `DynamicPlanFinished`, expected handler routes, source comparisons, individual attribution, relevance, applicability and example-coverage results per case. Count retries separately.
+- [ ] T017 [Plan:4.1] Reconcile each Lab 6 criterion F6-01 through F6-12 with its exact retained run, artifact, question, route and assertion result. Update the Lab 6 guide and validation ledger together; preserve historical failures and distinguish the original matrix from the eleven-scenario continuation. Reuse evidence only where the actual assertion matches. Identify remaining native denied-identity and missing-Activity negative tests explicitly; do not substitute Lab 5 Search denial, a blueprint-ID error or direct transport success. Preserve the inaccessible original-source limitation. Run only a genuinely missing criterion after its prerequisite or supported fix exists, and verify cleanup of that attempt.
 
 Exit: every required case and criterion passes in the new run. Earlier merged
 captures, four extractive backend successes and generic quality grades do not
 replace this matrix. Stop on failed criteria, retain the failure, fix the cause,
 and repeat affected cases plus routing regressions.
+T017's evidence reconciliation can proceed read-only before 3.1 is resolved;
+its dependent native retests cannot. A missing protected original does not
+authorize reconstructing it or certifying unknown additional requirements.
 
 ### 5.1 Complete Labs 0, 1, 2 and 3
 
@@ -1483,16 +1541,16 @@ is left behind. Cleanup is never inferred from a deletion request alone.
 These IDs organize the remaining work; they are not newly invented lab criteria.
 The linked lab guides and retained acceptance records remain authoritative.
 
-| Requirement | Remaining outcome                       | Plan item | Tasks      | Required evidence                           |
-|-------------|-----------------------------------------|-----------|------------|---------------------------------------------|
-| REQ-001     | Owned, approved and cost-controlled run  | 1.1       | T001,T002  | Inventory and attributable release record    |
-| REQ-002     | Real hosted SDK repair                  | 2.1       | T003,T004  | Hosted Activity and exact-source receipt     |
-| REQ-003     | Native authenticated delivery           | 3.1       | T005,T006  | Whole-turn trace and saved-state readback    |
-| REQ-004     | Complete eleven-scenario acceptance     | 4.1       | T007,T008  | Fresh per-case matrix with source audit      |
-| REQ-005     | Labs 0 through 3 acceptance closure     | 5.1       | T009,T010  | Per-lab positive/negative/privacy evidence   |
-| REQ-006     | Supported Lab 4 BYOM outcome             | 6.1       | T011,T012  | Policy decision and connected prompt receipt |
-| REQ-007     | Labs 5 and 5.1 connected acceptance      | 7.1       | T013,T014  | Deployment and connected-query receipts      |
-| REQ-008     | Honest bilingual release and cleanup    | 8.1       | T015,T016  | Validated docs, publication and cleanup reads|
+| Requirement | Remaining outcome                       | Plan item | Tasks          | Required evidence                             |
+|-------------|-----------------------------------------|-----------|----------------|-----------------------------------------------|
+| REQ-001     | Owned, approved and cost-controlled run | 1.1       | T001,T002      | Inventory and attributable release record     |
+| REQ-002     | Lab 6 real hosted SDK repair            | 2.1       | T003,T004      | Hosted Activity and exact-source receipt      |
+| REQ-003     | Lab 6 native authenticated delivery     | 3.1       | T005,T006      | Whole-turn trace and saved-state readback     |
+| REQ-004     | Lab 6 F6 and eleven-scenario acceptance | 4.1       | T007,T008,T017 | Per-criterion mapping and whole-turn audit    |
+| REQ-005     | Labs 0 through 3 acceptance closure     | 5.1       | T009,T010      | Per-lab positive/negative/privacy evidence    |
+| REQ-006     | Supported Lab 4 BYOM outcome            | 6.1       | T011,T012      | Policy decision and connected prompt receipt  |
+| REQ-007     | Labs 5 and 5.1 connected acceptance     | 7.1       | T013,T014      | Deployment and connected-query receipts       |
+| REQ-008     | Honest bilingual release and cleanup    | 8.1       | T015,T016      | Validated docs, publication and cleanup reads |
 
 ## Verification and final completion checklist
 
@@ -1515,6 +1573,9 @@ Before declaring full completion, require all of the following:
 
 * All required tasks and original lab acceptance criteria have passed, with no
   unresolved mandatory failure hidden by an exclusion.
+* Every lab, including Lab 6's F6-01 through F6-12, has an explicit
+  evidence-to-assertion mapping; no lab is omitted because its work used an
+  extension, MCP tool or a different task heading.
 * Native and hosted evidence uses the approved artifact and preserves exact
   source content, applicability, routing and required negative behaviors.
 * Approval records, bilingual reports and sanitized receipts agree with actual

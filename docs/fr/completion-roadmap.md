@@ -20,6 +20,56 @@ Ces résultats ne certifient pas l'acceptation en environnement réel.
 La poursuite du 23 octobre ci-dessous ajoute un inventaire actuel en lecture
 seule, sans déploiement ni nouvelle réussite d'acceptation réelle.
 
+## Couverture des labs et point de reprise
+
+Les huit unités, y compris le complément 5.1, possèdent des preuves d'exécution.
+**Aucun lab n'est entièrement intact. Le lab 6 a déjà été commencé.**
+Un lab essayé n'est pas forcément validé; une tâche d'exécution terminée comme
+T008 ne signifie pas que chaque assertion de cette exécution a réussi.
+
+Le [registre par lab](live-rerun-2026-10-19.md) conserve les premières exécutions.
+Les continuations datées ci-dessous et le
+[rapport backend](backend-live-2026-10-20.md) ajoutent les résultats ultérieurs.
+La table indique les critères restants, pas une consigne de recommencer chaque lab.
+
+| Lab                | Travaux déjà exercés                                                | Critère restant                                                   | Tâches de reprise       |
+|--------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------|
+| [0](lab-00.md)     | Identité, rôles, quota, outils et précontrôle des essais payants    | Préparation complète, budget chiffré et revue des ressources      | T001,T002,T009          |
+| [1](lab-01.md)     | PDF, refus, annuaire, envoi de courriel et empreinte du PDF         | Réponse historique complète, citation originale et erreurs aval   | T009                    |
+| [2](lab-02.md)     | Ingestion privée du PDF de licences et premiers essais connectés    | Navigation de citation PDF et preuve de source connectée actuelle | T010                    |
+| [3](lab-03.md)     | Topic natif et événement authentique corrélé dans KQL               | Canal publié et limite de confidentialité requise                 | T010                    |
+| [4](lab-04.md)     | Appel direct du modèle et inspection du dialogue BYOM Standard      | Conflit clé API/politique sans clé, puis acceptation du prompt    | T011,T012               |
+| [5.1](lab-05-1.md) | Déploiement payant corrigé, pipeline privé et nettoyage contrôlé    | Conserver les écarts; aucune application de source inchangée      | T013 terminé; T014,T015 |
+| [5](lab-05.md)     | Récupération, filtres, hôtels et cohortes Search natives fictives   | URL/corpus des hôtels et refus natif apparié                      | T014                    |
+| [6](lab-06.md)     | Notebook, embeddings, trois sources, MCP, essais hébergés et natifs | Route native vérifiée, assertions restantes et correspondance F6  | T005,T006,T007,T017     |
+
+La réparation hébergée du lab 6 correspond à T003/T004, sa livraison native à
+T005/T006 et sa continuation de onze scénarios à T007/T008. T017 réconcilie la
+matrice distincte `F6-01` à `F6-12` avec les exécutions conservées. Les anciennes
+lignes `Not run` et les échecs du guide ne prouvent pas l'absence de tous les
+travaux ultérieurs et ne doivent pas devenir implicitement des réussites.
+Les numéros d'étape ne sont pas ceux des labs : l'étape 6.1 concerne le
+**BYOM du lab 4**, pas le lab 6.
+
+### Règles de reprise sans réexécution complète des labs
+
+1. Choisir un critère ou une tâche non résolu et ses preuves conservées.
+   Préserver les travaux déjà vérifiés; ne pas recréer l'infrastructure ni
+   recommencer tout un lab parce qu'un autre critère est bloqué.
+2. Avant un nouvel essai réel, consigner le blocage exact et un changement pris
+   en charge ou un prérequis devenu disponible. Figer le résultat attendu et
+   l'intention de soumission unique. Une nouvelle cohorte constitue une tentative
+   distincte, pas une réparation de l'historique.
+3. Si le même échec persiste, arrêter ce critère, conserver l'échec et vérifier
+   le nettoyage. Sans nouveau diagnostic ou changement pris en charge, ne pas
+   créer une cohorte équivalente ni redemander la même saisie manuelle de secret.
+4. Avancer sur les critères indépendants. Une nouvelle réponse ne remplace pas
+   l'historique; un contrôle direct/backend ne remplace pas l'acceptation native;
+   les faits de gouvernance et de source ne s'inventent pas.
+5. Après réconciliation, actualiser les lignes exactes et les preuves bilingues.
+   Déclarer l'atelier terminé uniquement selon la liste finale, pas parce que
+   chaque lab a été essayé.
+
 ## Blocage du sélecteur Search natif par principal de service du 26 octobre
 
 Les [deux cohortes OAuth isolées](../assets/runtime-2026-10-26/native-search-index-picker.json)
@@ -1453,16 +1503,16 @@ Les responsables sont des rôles d'exécution, pas des personnes désignées ou 
 approbations acquises. P0 supprime le blocage immédiat ou limite les coûts; P1 ferme
 l'acceptation fonctionnelle; P2 réconcilie les preuves et la publication.
 
-| Étape | Priorité | Responsable                         | Dépend de       | Preuve de clôture                                      |
-|-------|----------|-------------------------------------|-----------------|--------------------------------------------------------|
-| 1.1   | P0       | Livraison et propriétaire cloud     | Aucune          | Inventaire, coûts, artefact et validations              |
-| 2.1   | P0       | Mainteneur de l'extension            | 1.1             | Réponse hébergée corrigée avec extraits exacts           |
-| 3.1   | P1       | Copilot Manage et Test              | 2.1             | Réponse native, état enregistré et contrôle préservé    |
-| 4.1   | P1       | Copilot Author et Test              | 3.1             | Nouvelle matrice de onze scénarios, tours complets      |
-| 5.1   | P1       | Responsable des labs et Test        | 1.1             | Reçus d'acceptation des labs 0, 1, 2 et 3                |
-| 6.1   | P1       | Responsable politique et lab        | 1.1             | BYOM connecté pris en charge ou exclusion explicite    |
-| 7.1   | P1       | Infrastructure et responsable lab   | 1.1             | Reçus de déploiement et requêtes connectées labs 5/5.1   |
-| 8.1   | P2       | Preuves et publication              | 4.1,5.1,6.1,7.1 | Preuves bilingues, nettoyage et contrôles de livraison |
+| Étape | Priorité | Responsable                       | Dépend de       | Preuve de clôture                                        |
+|-------|----------|-----------------------------------|-----------------|----------------------------------------------------------|
+| 1.1   | P0       | Livraison et propriétaire cloud   | Aucune          | Inventaire, coûts, artefact et validations               |
+| 2.1   | P0       | Mainteneur de l'extension         | 1.1             | Réparation Activity hébergée du lab 6 et extraits exacts |
+| 3.1   | P1       | Copilot Manage et Test            | 2.1             | Réponse native du lab 6, état enregistré et contrôle     |
+| 4.1   | P1       | Copilot Author et Test            | 3.1             | Correspondance F6 et onze scénarios du lab 6             |
+| 5.1   | P1       | Responsable des labs et Test      | 1.1             | Reçus d'acceptation des labs 0, 1, 2 et 3                |
+| 6.1   | P1       | Responsable politique et lab      | 1.1             | BYOM connecté pris en charge ou exclusion explicite      |
+| 7.1   | P1       | Infrastructure et responsable lab | 1.1             | Reçus de déploiement et requêtes connectées labs 5/5.1   |
+| 8.1   | P2       | Preuves et publication            | 4.1,5.1,6.1,7.1 | Preuves bilingues, nettoyage et contrôles de livraison   |
 
 Les étapes 5.1, 6.1 et 7.1 peuvent avancer indépendamment après 1.1 si leurs
 ressources et sessions navigateur ne se chevauchent pas. Évitez les modifications
@@ -1484,6 +1534,8 @@ travaux documentaires et d'inventaire indépendants peuvent continuer.
 
 ### 2.1 Déployer et démontrer la réparation SDK isolée
 
+Lab couvert : [lab 6](lab-06.md), point de contrôle de l'extension hébergée.
+
 Exigence : REQ-002. Entrées : [instructions de l'extension](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/README.md)
 et [manifeste de déploiement](https://github.com/devopsabcs-engineering/copilot-studio/blob/main/examples/verified-retrieval/workshop-verified-retrieval/azure.yaml).
 
@@ -1497,6 +1549,8 @@ réparation initiale pour ne pas confondre les causes.
 
 ### 3.1 Rétablir la livraison native Copilot
 
+Lab couvert : [lab 6](lab-06.md), point de contrôle de l'agent connecté natif.
+
 Exigence : REQ-003. Entrées : diagnostic enregistré inactif et route de contrôle.
 
 - [ ] T005 [Plan:3.1] Résoudre le contrat natif de protocole/identité avec les métadonnées d'appelant et journaux pris en charge. L'essai Entra seul borné est exécuté et exactement restauré : HTTP 403 devient HTTP 400 de blueprint, sans livraison réussie. Conserver Azure RBAC et BotServiceRbac, sans accès anonyme ni permissions larges. Confier les changements gérés à Manage et le YAML à Author.
@@ -1509,16 +1563,22 @@ contourner l'autorisation.
 
 ### 4.1 Fermer la matrice d'acceptation des onze scénarios
 
+Lab couvert : [lab 6](lab-06.md), continuation et matrice F6 originale.
+
 Exigence : REQ-004. Entrées : questions originales et audit des tours complets dans
 le [rapport d'exécution](backend-live-2026-10-20.md).
 
 - [ ] T007 [Plan:4.1] Faire corriger par Author uniquement les écarts démontrés de citations littérales, attribution par puce, obligations conditionnelles et couverture d'exemples dans le candidat isolé. Préserver l'accueil sans source, les recherches locales, le routage hybride et le contrôle fonctionnel.
 - [x] T008 [Plan:4.1] Faire exécuter par Test les onze scénarios inchangés dans une nouvelle session native après un précontrôle acquitté. Conserver les réponses finales complètes, `DynamicPlanFinished`, les routes attendues, comparaisons de sources, attributions individuelles, pertinence, applicabilité et couverture des exemples pour chaque cas. Compter les reprises séparément.
+- [ ] T017 [Plan:4.1] Réconcilier chaque critère F6-01 à F6-12 du lab 6 avec son exécution, artefact, question, route et résultat exacts. Actualiser ensemble le guide du lab 6 et le registre de validation; conserver les échecs et distinguer la matrice originale de la continuation de onze scénarios. Réutiliser une preuve seulement si l'assertion correspond. Identifier explicitement le refus d'identité natif et le test sans Activity restants; ne pas substituer le refus Search du lab 5, une erreur de blueprint ou un transport direct réussi. Conserver la limite de source originale inaccessible. Exécuter uniquement un critère réellement manquant après disponibilité du prérequis ou correctif pris en charge, puis vérifier son nettoyage.
 
 Sortie : tous les cas et critères obligatoires passent dans cette nouvelle exécution.
 Les captures fusionnées précédentes, quatre réponses extractives backend et notes
 génériques de qualité ne remplacent pas cette matrice. En cas d'échec, conserver
 la preuve, corriger la cause et reprendre les cas touchés et régressions de routage.
+La réconciliation documentaire de T017 peut avancer en lecture seule avant la
+résolution de 3.1, pas ses essais natifs dépendants. Une source originale protégée
+manquante n'autorise ni reconstruction ni certification d'exigences inconnues.
 
 ### 5.1 Terminer les labs 0, 1, 2 et 3
 
@@ -1568,16 +1628,16 @@ ou décision de rétention ne reste. Une demande de suppression ne prouve pas l'
 Ces identifiants structurent les travaux restants, sans créer de nouveaux critères.
 Les guides et preuves d'acceptation conservées restent la référence.
 
-| Exigence | Résultat restant                       | Étape | Tâches    | Preuve requise                              |
-|----------|----------------------------------------|-------|-----------|---------------------------------------------|
-| REQ-001  | Exécution approuvée à coûts maîtrisés   | 1.1   | T001,T002 | Inventaire et validation attribuable         |
-| REQ-002  | Réparation SDK réellement hébergée      | 2.1   | T003,T004 | Activity hébergée et extraits exacts         |
-| REQ-003  | Livraison native authentifiée          | 3.1   | T005,T006 | Tour complet et relecture d'état             |
-| REQ-004  | Acceptation des onze scénarios          | 4.1   | T007,T008 | Nouvelle matrice et audit des sources        |
-| REQ-005  | Clôture des labs 0 à 3                  | 5.1   | T009,T010 | Reçus positifs, négatifs et de confidentialité|
-| REQ-006  | BYOM lab 4 pris en charge               | 6.1   | T011,T012 | Décision de politique et prompt connecté     |
-| REQ-007  | Acceptation connectée labs 5 et 5.1     | 7.1   | T013,T014 | Déploiement et requêtes connectées           |
-| REQ-008  | Livraison bilingue honnête et nettoyage | 8.1   | T015,T016 | Docs, publication et relectures de nettoyage |
+| Exigence | Résultat restant                        | Étape | Tâches         | Preuve requise                                 |
+|----------|-----------------------------------------|-------|----------------|------------------------------------------------|
+| REQ-001  | Exécution approuvée à coûts maîtrisés   | 1.1   | T001,T002      | Inventaire et validation attribuable           |
+| REQ-002  | Réparation SDK hébergée du lab 6        | 2.1   | T003,T004      | Activity hébergée et extraits exacts           |
+| REQ-003  | Livraison native authentifiée du lab 6  | 3.1   | T005,T006      | Tour complet et relecture d'état               |
+| REQ-004  | Acceptation F6 et onze scénarios lab 6  | 4.1   | T007,T008,T017 | Correspondance par critère et audit des tours  |
+| REQ-005  | Clôture des labs 0 à 3                  | 5.1   | T009,T010      | Reçus positifs, négatifs et de confidentialité |
+| REQ-006  | BYOM lab 4 pris en charge               | 6.1   | T011,T012      | Décision de politique et prompt connecté       |
+| REQ-007  | Acceptation connectée labs 5 et 5.1     | 7.1   | T013,T014      | Déploiement et requêtes connectées             |
+| REQ-008  | Livraison bilingue honnête et nettoyage | 8.1   | T015,T016      | Docs, publication et relectures de nettoyage   |
 
 ## Vérification et liste de clôture finale
 
@@ -1600,6 +1660,9 @@ Avant toute déclaration de réussite complète :
 
 * Toutes les tâches et tous les critères originaux obligatoires passent, sans
   échec obligatoire masqué par une exclusion.
+* Chaque lab, y compris F6-01 à F6-12 du lab 6, possède une correspondance
+  explicite entre preuves et assertions; aucun lab n'est omis parce que ses
+  travaux utilisent une extension, MCP ou un autre titre de tâche.
 * Les preuves natives et hébergées correspondent à l'artefact approuvé et préservent
   contenu exact, applicabilité, routage et comportements négatifs requis.
 * Validations, rapports bilingues et reçus expurgés concordent avec les résultats;

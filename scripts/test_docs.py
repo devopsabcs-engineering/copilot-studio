@@ -11,6 +11,32 @@ from validate_docs import local_link_errors, validate
 
 
 class WikiTests(unittest.TestCase):
+    def test_roadmap_covers_every_lab_and_explicit_lab6_reconciliation(self):
+        root = Path(__file__).resolve().parents[1]
+        for language, heading in (
+            ("en", "## Lab coverage and where to resume"),
+            ("fr", "## Couverture des labs et point de reprise"),
+        ):
+            with self.subTest(language=language):
+                text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+                coverage = text.split(heading + "\n", 1)[1].split("\n## ", 1)[0]
+                guides = {path.name for path in (root / "docs" / language).glob("lab-*.md")}
+                rows = [line for line in coverage.splitlines()
+                        if line.startswith("| [")]
+                self.assertEqual(len(rows), len(guides))
+                for guide in guides:
+                    self.assertEqual(sum(f"]({guide})" in row for row in rows), 1)
+                self.assertIn("T005,T006,T007,T017", coverage)
+                self.assertIn("T003/T004", coverage)
+                self.assertIn("T007/T008", coverage)
+                self.assertIn("- [ ] T017 [Plan:4.1]", text)
+                requirement = next(line for line in text.splitlines()
+                                   if line.startswith("| REQ-004"))
+                self.assertIn("T007,T008,T017", requirement)
+                self.assertIn("F6-01", text)
+                self.assertIn("F6-12", text)
+                self.assertEqual(text.count("- [x] T"), 4)
+
     def test_native_search_picker_connection_is_not_paired_acceptance(self):
         root = Path(__file__).resolve().parents[1]
         filename = "native-search-index-picker.json"
