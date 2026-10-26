@@ -11,6 +11,124 @@ from validate_docs import local_link_errors, validate
 
 
 class WikiTests(unittest.TestCase):
+    def test_lab6_crosswalk_preserves_exact_scope_provenance_and_privacy(self):
+        root = Path(__file__).resolve().parents[1]
+        path = root / "docs/assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json"
+        raw = path.read_text("utf-8")
+        receipt = json.loads(raw)
+        self.assertNotRegex(raw, r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+        for private_marker in (".copilot-tracking", "C:\\", "OneDrive",
+                               "conversation_id", "tenant_id", "client_secret",
+                               "access_token", "captureQuestion", "upstream.txt"):
+            self.assertNotIn(private_marker, raw)
+        self.assertTrue(raw.endswith("\n"))
+        self.assertEqual(receipt["reconciledDate"], "2026-10-26")
+        self.assertTrue(receipt["documentaryCrosswalkDelivered"])
+        self.assertFalse(receipt["T017RuntimeComplete"])
+        self.assertFalse(receipt["workshopComplete"])
+        self.assertEqual((receipt["newQuestions"], receipt["liveLabAttempts"]), (0, 0))
+        boundary = receipt["sourceBoundary"]
+        self.assertEqual(boundary["additionalProtectedMainRequirements"], "UNKNOWN")
+        for key in ("protectedMainOpenedBypassedOrReconstructed",
+                    "guideVariantsAreUniversalOriginalGates",
+                    "nativeAnnotationsPublisherUrlsAndVerbatimQuotesAreUniversalOriginalGates"):
+            self.assertFalse(boundary[key])
+        self.assertTrue(boundary["historicalQuotationFailuresAndPassesPreserved"])
+        expected = ["PASS"] * 3 + ["NOT_RUN"] * 2 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"]
+        rows = receipt["rows"]
+        self.assertEqual([row["id"] for row in rows],
+                         [f"F6-{number:02}" for number in range(1, 13)])
+        self.assertEqual(len({row["id"] for row in rows}), 12)
+        self.assertEqual([row["status"] for row in rows], expected)
+        added = {"F6-01", "F6-03", "F6-08", "F6-09", "F6-10", "F6-11"}
+        for row in rows:
+            self.assertEqual(row["sourceProvenance"],
+                             "guide_added_validation" if row["id"] in added
+                             else "workshop_source_backed")
+            self.assertTrue(row["sourceAssessment"])
+            self.assertTrue(row["evidenceBoundary"])
+            self.assertIsInstance(row["exactEvidence"], list)
+            self.assertIsInstance(row["relatedEvidence"], list)
+        self.assertIn("not a runtime pass", receipt["statusDefinitions"]["PASS"])
+        for row in rows[3:11]:
+            self.assertEqual(row["exactEvidence"], [])
+            self.assertTrue(row["relatedEvidence"])
+        self.assertIn("setup explicitly includes", rows[4]["sourceAssessment"])
+        self.assertIn("Lab 5 Search denial is not Lab 6 Foundry denial", rows[9]["evidenceBoundary"])
+        self.assertIn("missing-protocol", rows[10]["evidenceBoundary"])
+        self.assertIn("version 5 remains retained", rows[11]["evidenceBoundary"])
+
+        def check_references(value):
+            if isinstance(value, dict):
+                for item in value.values():
+                    check_references(item)
+            elif isinstance(value, list):
+                for item in value:
+                    check_references(item)
+            elif isinstance(value, str) and value.startswith("docs/"):
+                filename, _, pointer = value.partition("#")
+                target = root / filename
+                self.assertTrue(target.is_file(), value)
+                if target.suffix == ".json" and pointer:
+                    current = json.loads(target.read_text("utf-8"))
+                    for part in pointer.lstrip("/").split("/"):
+                        part = part.replace("~1", "/").replace("~0", "~")
+                        current = current[int(part)] if isinstance(current, list) else current[part]
+        check_references(receipt)
+        cohorts = receipt["cohorts"]
+        original = cohorts["originalSpecialist"]
+        self.assertEqual((original["nativeOriginalQuestionsPassed"],
+                          original["nativeOriginalQuestionsTotal"]), (4, 4))
+        self.assertFalse(original["underlyingNativeMcpMembershipIndependentlyJoined"])
+        self.assertNotEqual(original["route"], cohorts["currentPostControlCandidate"]["route"])
+        previous = json.loads((root / "docs/assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json").read_text("utf-8"))
+        current = json.loads((root / "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json").read_text("utf-8"))
+        self.assertTrue(previous["fullElevenCaseNativeMatrixPassed"])
+        self.assertEqual(cohorts["previousCandidate"]["acceptedCases"], 11)
+        self.assertEqual(cohorts["previousCandidate"]["explicitRetries"],
+                         previous["explicitlyCountedQuestionRetries"])
+        self.assertFalse(current["fullElevenCaseNativeMatrixPassed"])
+        candidate = cohorts["currentPostControlCandidate"]
+        self.assertEqual(candidate["acceptedCases"], current["acceptedDistinctOriginalCases"])
+        self.assertEqual(candidate["acceptedCases"], 10)
+        case9 = current["cases"][8]
+        self.assertEqual(candidate["failedCase9Attempts"], case9["nativeOriginalQuestionSubmissions"])
+        self.assertEqual(candidate["failedCase9Attempts"], 2)
+        self.assertFalse(case9["rootCauseEstablished"])
+        self.assertFalse(candidate["thirdReplaySubmitted"])
+        self.assertFalse(case9["thirdAttemptSubmitted"])
+        self.assertFalse(cohorts["hostedDiagnosticExtension"]["nativeCertified"])
+        self.assertEqual(cohorts["hostedDiagnosticExtension"]["latestRetainedVersion"], "5")
+
+    def test_lab6_crosswalk_is_linked_in_all_six_current_bilingual_docs(self):
+        root = Path(__file__).resolve().parents[1]
+        filename = "lab6-acceptance-crosswalk.json"
+        expected = ["PASS"] * 3 + ["NOT_RUN"] * 2 + ["PARTIAL"] * 3 + ["NOT_RUN"] * 3 + ["PARTIAL"]
+        for language in ("en", "fr"):
+            for name in ("lab-06", "validation", "completion-roadmap"):
+                with self.subTest(language=language, page=name):
+                    text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
+                    self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", text)
+                    for marker in ("2026-10-26", "T017", "10/11", "11/11", "UNKNOWN"):
+                        self.assertIn(marker, text)
+                    first_current_section = text.split("\n### ", 2)[1]
+                    self.assertIn(filename, first_current_section)
+                    self.assertIn("10/11", first_current_section)
+                    self.assertIn("11/11", first_current_section)
+                    self.assertNotRegex(first_current_section,
+                                        r"(?i)\b[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}\b")
+                    if name == "lab-06":
+                        rows = [line for line in text.splitlines() if line.startswith("| F6-")]
+                        self.assertEqual(len(rows), 12)
+                        for row, status in zip(rows, expected):
+                            self.assertTrue(row.split("|")[-2].strip().startswith(status), row)
+                    elif name == "completion-roadmap":
+                        self.assertIn("- [ ] T017 [Plan:4.1]", text)
+                        self.assertNotIn("- [x] T017", text)
+                    else:
+                        self.assertIn("## Original review baseline" if language == "en"
+                                      else "## État de la revue initiale", text)
+
     def test_roadmap_covers_every_lab_and_explicit_lab6_reconciliation(self):
         root = Path(__file__).resolve().parents[1]
         for language, heading in (

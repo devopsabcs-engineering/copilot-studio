@@ -13,6 +13,35 @@ Le livrable de planification est terminé. L'exécution complète de l'atelier n
 l'est **pas**. Les tâches non cochées représentent des travaux à effectuer,
 et non des résultats déjà observés ou promis.
 
+### Sous-étape documentaire T017 livrée, 2026-10-26
+
+La [correspondance publique F6](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+et les [guide lab 6](lab-06.md)/[registre](validation.md) synchronisés livrent
+réconciliation et publication hors ligne, pas l'acceptation d'exécution.
+Aucune nouvelle question ni tentative réelle. T017 reste non cochée.
+F6-01/02/03 sont PASS historiques hors ligne; F6-04/05 NOT_RUN pour la variante
+exacte avec comportement natif voisin réussi; F6-06/07/08/12 PARTIAL;
+F6-09/10/11 NOT_RUN.
+
+Accueil/connaissances locales/expertise étayée/multisource, trois jeux de données
+et nettoyage fondés sur les sources sont distingués des contrôles et variantes
+du guide. F6-05 figure dans les instructions, sans prouver son exécution.
+Un libellé différent ne crée pas une obligation originale universelle ni une
+consigne de recommencer le travail vérifié. Les exigences supplémentaires du
+document principal protégé restent UNKNOWN, sans contournement ni reconstruction.
+Annotations natives, URL éditeur et citations verbatim restent exclues des
+obligations originales universelles; échecs et citations réussies sont conservés.
+
+Le spécialiste original natif 4/4 ne certifie pas l'extension diagnostique ni
+la jointure indépendante de ses résultats MCP natifs. Le candidat distinct
+avait atteint 11/11 avec relance; le résultat actuel après contrôle est 10/11,
+avec deux échecs du cas 9, cause non prouvée et aucun troisième essai.
+T003/T004 hébergé v3 réussit 3/3, mais la v5 conservée n'est ni certifiée native
+ni supprimée par les anciens reçus. Refus Search du lab 5 et HTTP 400 de
+blueprint ne ferment ni refus Foundry F6 ni test sans Activity/réparation.
+Reprenez uniquement un critère non résolu et justifié après son propre prérequis
+pris en charge et périmètre autorisé; l'atelier reste incomplet.
+
 La référence de planification est le commit `94ebcd3` et les preuves conservées.
 Le 22 octobre, 47 tests documentaires, 33 tests
 de l'extension, les vérifications de dépendances et de syntaxe Python ont réussi.
@@ -32,22 +61,22 @@ Les continuations datées ci-dessous et le
 [rapport backend](backend-live-2026-10-20.md) ajoutent les résultats ultérieurs.
 La table indique les critères restants, pas une consigne de recommencer chaque lab.
 
-| Lab                | Travaux déjà exercés                                                | Critère restant                                                   | Tâches de reprise       |
-|--------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|-------------------------|
-| [0](lab-00.md)     | Identité, rôles, quota, outils et précontrôle des essais payants    | Préparation complète, budget chiffré et revue des ressources      | T001,T002,T009          |
-| [1](lab-01.md)     | PDF, refus, annuaire, envoi de courriel et empreinte du PDF         | Réponse historique complète, citation originale et erreurs aval   | T009                    |
-| [2](lab-02.md)     | Ingestion privée du PDF de licences et premiers essais connectés    | Navigation de citation PDF et preuve de source connectée actuelle | T010                    |
-| [3](lab-03.md)     | Topic natif et événement authentique corrélé dans KQL               | Canal publié et limite de confidentialité requise                 | T010                    |
-| [4](lab-04.md)     | Appel direct du modèle et inspection du dialogue BYOM Standard      | Conflit clé API/politique sans clé, puis acceptation du prompt    | T011,T012               |
-| [5.1](lab-05-1.md) | Déploiement payant corrigé, pipeline privé et nettoyage contrôlé    | Conserver les écarts; aucune application de source inchangée      | T013 terminé; T014,T015 |
-| [5](lab-05.md)     | Récupération, filtres, hôtels et cohortes Search natives fictives   | URL/corpus des hôtels et refus natif apparié                      | T014                    |
-| [6](lab-06.md)     | Notebook, embeddings, trois sources, MCP, essais hébergés et natifs | Route native vérifiée, assertions restantes et correspondance F6  | T005,T006,T007,T017     |
+| Lab                | Travaux déjà exercés                                                | Critère restant                                                      | Tâches de reprise       |
+| ------------------ | ------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------- |
+| [0](lab-00.md)     | Identité, rôles, quota, outils et précontrôle des essais payants    | Préparation complète, budget chiffré et revue des ressources         | T001,T002,T009          |
+| [1](lab-01.md)     | PDF, refus, annuaire, envoi de courriel et empreinte du PDF         | Réponse historique complète, citation originale et erreurs aval      | T009                    |
+| [2](lab-02.md)     | Ingestion privée du PDF de licences et premiers essais connectés    | Navigation de citation PDF et preuve de source connectée actuelle    | T010                    |
+| [3](lab-03.md)     | Topic natif et événement authentique corrélé dans KQL               | Canal publié et limite de confidentialité requise                    | T010                    |
+| [4](lab-04.md)     | Appel direct du modèle et inspection du dialogue BYOM Standard      | Conflit clé API/politique sans clé, puis acceptation du prompt       | T011,T012               |
+| [5.1](lab-05-1.md) | Déploiement payant corrigé, pipeline privé et nettoyage contrôlé    | Conserver les écarts; aucune application de source inchangée         | T013 terminé; T014,T015 |
+| [5](lab-05.md)     | Récupération, filtres, hôtels et cohortes Search natives fictives   | URL/corpus des hôtels et refus natif apparié                         | T014                    |
+| [6](lab-06.md)     | Notebook, embeddings, trois sources, MCP, essais hébergés et natifs | Route native vérifiée, assertions restantes et ressources conservées | T005,T006,T007,T017     |
 
 La réparation hébergée du lab 6 correspond à T003/T004, sa livraison native à
 T005/T006 et sa continuation de onze scénarios à T007/T008. T017 réconcilie la
-matrice distincte `F6-01` à `F6-12` avec les exécutions conservées. Les anciennes
-lignes `Not run` et les échecs du guide ne prouvent pas l'absence de tous les
-travaux ultérieurs et ne doivent pas devenir implicitement des réussites.
+matrice distincte `F6-01` à `F6-12` avec les exécutions conservées. Cette
+correspondance est livrée; le guide distingue preuves exactes et voisines.
+Les échecs antérieurs restent conservés, sans promotion implicite en réussites.
 Les numéros d'étape ne sont pas ceux des labs : l'étape 6.1 concerne le
 **BYOM du lab 4**, pas le lab 6.
 
@@ -1572,12 +1601,19 @@ le [rapport d'exécution](backend-live-2026-10-20.md).
 - [x] T008 [Plan:4.1] Faire exécuter par Test les onze scénarios inchangés dans une nouvelle session native après un précontrôle acquitté. Conserver les réponses finales complètes, `DynamicPlanFinished`, les routes attendues, comparaisons de sources, attributions individuelles, pertinence, applicabilité et couverture des exemples pour chaque cas. Compter les reprises séparément.
 - [ ] T017 [Plan:4.1] Réconcilier chaque critère F6-01 à F6-12 du lab 6 avec son exécution, artefact, question, route et résultat exacts. Actualiser ensemble le guide du lab 6 et le registre de validation; conserver les échecs et distinguer la matrice originale de la continuation de onze scénarios. Réutiliser une preuve seulement si l'assertion correspond. Identifier explicitement le refus d'identité natif et le test sans Activity restants; ne pas substituer le refus Search du lab 5, une erreur de blueprint ou un transport direct réussi. Conserver la limite de source originale inaccessible. Exécuter uniquement un critère réellement manquant après disponibilité du prérequis ou correctif pris en charge, puis vérifier son nettoyage.
 
-Sortie : tous les cas et critères obligatoires passent dans cette nouvelle exécution.
+Sous-étape documentaire livrée le 2026-10-26 : douze dispositions avec provenance
+et publication bilingue synchronisée guide/registre/feuille de route dans la
+[correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json).
+L'acceptation d'exécution reste ouverte; les variantes ajoutées au guide ne
+deviennent pas automatiquement des obligations originales universelles.
+
+Sortie : chaque cas et critère obligatoire justifié possède une preuve
+d'acceptation correspondante, sans recommencer le travail vérifié.
 Les captures fusionnées précédentes, quatre réponses extractives backend et notes
 génériques de qualité ne remplacent pas cette matrice. En cas d'échec, conserver
 la preuve, corriger la cause et reprendre les cas touchés et régressions de routage.
-La réconciliation documentaire de T017 peut avancer en lecture seule avant la
-résolution de 3.1, pas ses essais natifs dépendants. Une source originale protégée
+La réconciliation documentaire T017 est livrée indépendamment de 3.1;
+les essais natifs dépendants exigent toujours leur correctif pris en charge. Une source originale protégée
 manquante n'autorise ni reconstruction ni certification d'exigences inconnues.
 
 ### 5.1 Terminer les labs 0, 1, 2 et 3

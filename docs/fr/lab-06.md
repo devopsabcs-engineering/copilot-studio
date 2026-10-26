@@ -1,7 +1,7 @@
 ---
 title: "Atelier 6 : Recherche Foundry IQ et évaluation d'agents connectés"
 description: "Examinez un notebook de recherche multisource, adaptez les API Foundry actuelles et évaluez un agent standard Copilot Studio sans confondre contrôle statique et preuve réelle."
-ms.date: 2026-10-22
+ms.date: 2026-10-26
 ms.topic: tutorial
 ---
 
@@ -11,8 +11,49 @@ ms.topic: tutorial
 
 Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un agent Foundry connecté effectue le travail approfondi ; une base de connaissances Search récupère des passages de plusieurs sources ; un modèle rédige la réponse. Model Context Protocol (MCP) expose l'outil de recherche à l'agent Foundry. Prévoyez 120 à 180 minutes après la fourniture des ressources et la revue de compatibilité par un administrateur.
 
+### Réconciliation actuelle, 2026-10-26
+
+La [correspondance d'acceptation T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+livre la sous-étape documentaire, pas l'acceptation d'exécution. F6-01/02/03 sont
+PASS historiques hors ligne; F6-04/05 sont NOT_RUN pour la variante exacte avec
+comportement natif voisin réussi; F6-06/07/08/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
+Aucune nouvelle question ni tentative réelle pour cette réconciliation.
+
+Le spécialiste original natif **4/4** est distinct de l'extension diagnostique
+vérifiée et du candidat MCP de données. Une correspondance de citation au corpus
+ne joint pas indépendamment les résultats de l'outil natif sous-jacent.
+L'[ancien candidat 11/11](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+comprend une relance explicite. Le [candidat actuel après correction du contrôle est à 10/11](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json) :
+cas 9 échoué deux fois, sans cause prouvée ni troisième essai.
+Aucune cohorte ne remplace les cas F6 exacts du guide.
+
+Accueil sans source, recherche locale, expertise étayée, travail multisource,
+trois jeux de données et nettoyage sont fondés sur les sources accessibles.
+Syntaxe, disposition, variantes ciblées F6, français/abstention client privé,
+identité refusée et test sans Activity sont des validations du guide, pas de
+nouvelles obligations originales universelles. Le libellé F6-05 apparaît aussi
+dans les instructions accessibles, sans prouver son exécution. Un libellé non
+exécuté limite la reproductibilité, sans effacer les comportements sources
+vérifiés ni imposer de recommencer le lab entier.
+
+Les exigences supplémentaires du document principal protégé illisible restent
+UNKNOWN, sans contournement ni reconstruction. Annotations natives, URL éditeur
+et citations verbatim ne sont pas des exigences originales universelles.
+Conservez échecs historiques et réussites ultérieures dans leur périmètre testé.
+Le refus Search du lab 5 n'est pas un refus Foundry F6; une erreur HTTP 400 de
+blueprint n'est pas le test négatif/réparation sans Activity.
+
+T003/T004 ont [réussi 3/3 tests de réparation hébergée v3](../assets/runtime-2026-10-23/hosted-version3-regression.json).
+La [dernière version hébergée 5 reste conservée](../assets/runtime-2026-10-26/agent-endpoints-readonly.json),
+avec Activity/Invocations, sans certification native. Les anciens nettoyages ne
+prouvent ni zéro ressource actuelle ni facture finale.
+T017 reste non cochée et l'atelier incomplet. Reprenez uniquement un critère
+non résolu avec périmètre autorisé et prérequis pris en charge.
+
+### Jalons antérieurs, pas le verdict actuel
+
 > [!WARNING]
-> La nouvelle connexion externe manuelle est **Connected** et l'inférence Responses
+> À ce jalon antérieur, la connexion externe manuelle est **Connected** et l'inférence Responses
 > directe réussit. Après un premier échec sans réponse, un test Activity natif
 > instrumenté a reçu la vraie réponse en **6,864 secondes**. L'observateur a été
 > supprimé. Les critères d'annotations natives/URL éditeur avaient été ajoutés
@@ -37,10 +78,10 @@ Distinguez quatre responsabilités : Copilot Studio gère la conversation ; un a
 > sans succès externe supposé. Les onze questions R3 reçoivent une réponse ; six
 > captures enfant exigent une revalidation de fin du parent.
 > Voir la [récupération de persistance](backend-live-2026-10-20.md#persistance-de-laccueil-et-livraison-native-récupérées).
-> Les [dernières preuves complètes](backend-live-2026-10-20.md#tours-natifs-complets-récupérés-acceptation-encore-incomplète)
+> Les [preuves complètes antérieures](backend-live-2026-10-20.md#tours-natifs-complets-récupérés-acceptation-encore-incomplète)
 > couvrent les onze questions originales avec les routages attendus entre
 > exécutions nommées. Fidélité des citations et couverture détaillée restent
-> insuffisantes. La variante incident est rejetée ; la configuration précédente
+> insuffisantes dans cette cohorte. La variante incident est rejetée ; la configuration précédente
 > est rétablie et contrôlée une fois. L'atelier n'est pas terminé.
 > Une limitation directe prouvée a été corrigée :
 > Standard capacité 26. Search Basic, embeddings, compte/projet et deux agents
@@ -83,21 +124,25 @@ Insights sans rapport, corrigeant la première mention d'absence. Ils n'ont pas 
 réutilisés. Les ressources Search Free isolées ont été supprimées après les tests.
 Le compte Foundry payant, son projet, ses modèles, Search et sa connexion MCP
 ont ensuite été testés puis supprimés, avec absence du groupe vérifiée
-indépendamment. Une future exécution connectée exige un nouvel environnement
-autorisé ; aucune adresse active n'est volontairement conservée.
+indépendamment. À ce jalon de nettoyage antérieur, une future exécution exigeait
+un nouvel environnement autorisé sans adresse active conservée. Les ressources
+conservées ultérieurement, dont la version hébergée 5, changent cette limite
+d'inventaire.
 
 Le texte protégé, le code du notebook et ses exemples intégrés ne sont pas republiés. Les quatre figures proviennent uniquement du document d'accompagnement non protégé consacré à Copilot, avec masquage des données sensibles. Ce sont des captures historiques du support, pas des preuves d'exécution nouvellement capturées.
 
 ## 1. Confirmer les prérequis et choisir la bonne expérience
 
-L'[extension de rendu vérifié](backend-live-2026-10-20.md#extension-de-vérification-déterministe-des-sources)
+Au jalon antérieur, l'[extension de rendu vérifié](backend-live-2026-10-20.md#extension-de-vérification-déterministe-des-sources)
 réussit 33 tests et quatre cas backend réels, mais son diagnostic natif échoue
 sur l'autorisation BotServiceRbac liée à l'identifiant de locataire. Ce n'est
 pas un remplacement certifié du spécialiste fonctionnel. Son état Inactive
 sauvegardé est maintenant vérifié indépendamment. Une requête Activity directe
 authentifiée atteint l'hébergement, mais révèle une incompatibilité SDK ; la
-correction locale testée n'est pas déployée. Aucun changement d'authentification
-du point n'est approuvé ni appliqué.
+correction locale testée n'était pas encore déployée. T003/T004 ont ensuite
+déployé la réparation et réussi 3/3 contrôles hébergés v3; la v5 reste conservée.
+La certification native reste ouverte. L'absence de changement d'authentification
+concerne ce jalon, pas les cohortes diagnostiques ultérieures distinctes.
 
 La vraie tentative ultérieure de connexion Foundry de premier niveau a utilisé
 un projet dédié réel, mais la fenêtre de consentement était bloquée par le
@@ -360,20 +405,26 @@ Figure 3. Capture originale masquée du document d'accompagnement, `image10.png`
 
 Utilisez seulement des situations fictives non identifiantes. Le contenu financier du notebook autorisé est pédagogique, pas une référence juridique actuelle. N'évaluez pas les réponses sur des seuils réglementaires codés en dur ni sur l'âge d'un client fictif.
 
-| ID    | Entrée ou contrôle                                                 | Chemin attendu et assertion mesurable                                                   | Résultat actuel                  |
-| ----- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------- |
-| F6-01 | Analyser les cellules sans les exécuter                            | `11` cellules analysées ; zéro erreur syntaxique                                        | Réussi sur Python 3.14.3         |
-| F6-02 | Examiner les listes intégrées                                      | Exactement `8 + 8 + 8 = 24` entrées                                                     | Vérifié par analyse AST statique |
-| F6-03 | Examiner les fichiers                                              | Dépendances/environnement racine et vrai DOCX présents ; MD imbriqué absent             | Vérifié localement               |
-| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | Non exécuté                      |
-| F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | Non exécuté                      |
-| F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | Non exécuté                      |
-| F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | Non exécuté                      |
-| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | Non exécuté                      |
-| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | Non exécuté                      |
-| F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | Non exécuté                      |
-| F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | Non exécuté                      |
-| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | Groupe Foundry/Search dédié supprimé et absence vérifiée ; aucun objet Copilot créé |
+Résultats réconciliés le **2026-10-26**. PASS désigne l'assertion hors ligne
+historique, pas une acceptation d'exécution. NOT_RUN concerne l'exécution exacte
+du guide; PARTIAL conserve les preuves voisines sans substituer question ou route.
+Le [reçu de correspondance](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+donne provenance, pointeurs publics et limites pour chaque ligne.
+
+| ID    | Entrée ou contrôle                                                 | Chemin attendu et assertion mesurable                                                   | Résultat actuel                                                 |
+| ----- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| F6-01 | Analyser les cellules sans les exécuter                            | `11` cellules analysées ; zéro erreur syntaxique                                        | PASS : syntaxe historique Python 3.14.3                         |
+| F6-02 | Examiner les listes intégrées                                      | Exactement `8 + 8 + 8 = 24` entrées                                                     | PASS : inventaire statique historique                           |
+| F6-03 | Examiner les fichiers                                              | Dépendances/environnement racine et vrai DOCX présents ; MD imbriqué absent             | PASS : disposition historique, pas ingestion                    |
+| F6-04 | « Bonjour, j'ai besoin d'aide pour examiner un cas »               | Demande de précisions ; `0` appel d'agent connecté                                      | NOT_RUN exact; accueil natif voisin PASS                        |
+| F6-05 | « Que signifie ATO ? »                                             | Glossaire source pour `Account takeover` ; `0` appel connecté                           | NOT_RUN exact; recherche locale native voisine PASS             |
+| F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : expertise voisine; jointure exacte non prouvée        |
+| F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PARTIAL : multisource voisin réussi, pas comparaison exacte     |
+| F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PARTIAL : abstention backend, pas tour natif exact              |
+| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | NOT_RUN : aucun tour français exact du lab 6                    |
+| F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                |
+| F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                     |
+| F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | PARTIAL : nettoyages historiques réussis; v5 hébergée conservée |
 
 Pour chaque cas réel, notez chemin, sources, résultat des assertions, justification des citations, latence et erreur assainie. La justesse du routage est le nombre de cas bien routés divisé par les cas exécutés. Évaluez séparément les citations. Un libellé rédigé par le modèle ou un succès HTTP ne remplace pas un passage récupéré.
 
@@ -412,9 +463,11 @@ Capturez de nouvelles preuves seulement après autorisation et accès effectif. 
 La revue statique, la restauration des dépendances et plusieurs contrôles cloud
 sont terminés. Le [registre Foundry payant](foundry-live-2026-10-20.md) distingue
 transport et citations monosources réussis des citations finales multisources
-échouées. Les cas de routage Copilot F6-04 à F6-11 et une conversation Activity
-réelle restent non exécutés. La navigation Copilot standard échouait encore ;
-le navigateur Foundry signalait aussi une erreur de magasin IndexedDB.
-Ces observations ne prouvent pas des identifiants utilisateur invalides.
-Toutes les ressources isolées ont été retirées. Ne certifiez pas le lab complet
-avant la réussite effective des critères restants.
+échouées. Les anciennes observations sans conversation Activity, les erreurs de
+navigation/IndexedDB et les nettoyages jetables concernent leur propre jalon,
+pas toutes les exécutions ultérieures ni des identifiants utilisateur invalides.
+Spécialiste natif 4/4, réparation hébergée v3 et preuves du candidat sont distincts.
+Le candidat actuel est à 10/11, pas l'ancienne cohorte 11/11. Utilisez la matrice
+réconciliée pour les limites exactes/voisines et la v5 conservée.
+La sous-étape documentaire T017 est livrée, pas l'acceptation d'exécution.
+Ne certifiez pas le lab entier et ne recommencez pas le travail déjà vérifié.

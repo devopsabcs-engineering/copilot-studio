@@ -1,7 +1,7 @@
 ---
 title: "Lab 6: Foundry IQ retrieval and connected-agent evaluation"
 description: "Review a multi-source retrieval notebook, reconcile current Foundry APIs, and evaluate a standard Copilot Studio agent without confusing static checks with live proof."
-ms.date: 2026-10-22
+ms.date: 2026-10-26
 ms.topic: tutorial
 ---
 
@@ -11,8 +11,48 @@ ms.topic: tutorial
 
 Separate four responsibilities: Copilot Studio handles the conversation; a connected Foundry agent performs deeper work; a Search knowledge base retrieves passages from multiple sources; a model writes an answer. Model Context Protocol (MCP) exposes the retrieval tool to the Foundry agent. Allow 120–180 minutes after an administrator provides supported resources and reviews the compatibility changes.
 
+### Current reconciliation, 2026-10-26
+
+The [T017 acceptance crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+delivers the documentary substep, not runtime completion. F6-01/02/03 are
+historical offline PASS; F6-04/05 are exact-variant NOT_RUN with related native
+behavior passing; F6-06/07/08/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
+No new questions or live attempts were submitted for this reconciliation.
+
+The original specialist's native **4/4** is separate from both the verified
+diagnostic extension and the data-only MCP candidate. Corpus quotation matches
+do not independently prove the specialist's underlying native retrieval-tool
+membership. The [previous candidate 11/11](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+includes one explicit retry. The [current post-control candidate is 10/11](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json):
+case 9 failed twice, without a proven root cause or third replay.
+Neither cohort substitutes for exact F6 guide cases.
+
+Source-free intake, local lookup, grounded expertise, multi-source work, three
+datasets and cleanup guidance are source-backed. Syntax/layout checks, focused
+F6 prompt variants, French/private-customer abstention, denied identity and
+missing-Activity tests are guide validations, not newly universal original gates.
+F6-05 wording also appears in accessible setup instructions, but that is not
+execution. Unrun guide wording limits reproducibility; it does not erase related
+verified source behavior or require a whole-lab restart.
+
+Additional requirements in the unreadable protected main source remain UNKNOWN;
+no bypass or reconstruction occurred. Native annotation arrays, publisher URLs
+and verbatim quotations are not universal original requirements. Preserve both
+historical quotation failures and later quotation passes in their tested scopes.
+Lab 5 Search denial is not F6 Foundry denial; a blueprint-ID HTTP 400 is not the
+missing-Activity negative/repair test.
+
+T003/T004's [hosted version 3 repair passed 3/3](../assets/runtime-2026-10-23/hosted-version3-regression.json).
+The [latest hosted version 5 remains retained](../assets/runtime-2026-10-26/agent-endpoints-readonly.json),
+with Activity/Invocations, but native delivery is not certified. Older cleanup
+receipts do not prove current zero resources or final billing.
+T017 remains unchecked and the workshop remains incomplete. Resume only a
+genuinely unresolved criterion with its approved scope and supported prerequisite.
+
+### Earlier checkpoints, not the current verdict
+
 > [!WARNING]
-> The newest manual external connection is **Connected** and its Foundry agent
+> At this earlier checkpoint, the manual external connection is **Connected** and its Foundry agent
 > passes direct Responses inference. After an initial no-reply failure, one
 > instrumented native Activity test received the genuine reply in **6.864 seconds**.
 > The diagnostic observer was deleted. Original-source reconciliation removed
@@ -38,10 +78,10 @@ Separate four responsibilities: Copilot Studio handles the conversation; a conne
 > button, not an assumed external-browser success. All eleven R3 questions receive
 > responses; six early child-stage captures require whole-parent revalidation.
 > See the [persistence recovery](backend-live-2026-10-20.md#intake-persistence-and-native-delivery-recovered).
-> [Latest complete-turn evidence](backend-live-2026-10-20.md#complete-native-turns-recovered-acceptance-still-incomplete)
+> [Earlier complete-turn evidence](backend-live-2026-10-20.md#complete-native-turns-recovered-acceptance-still-incomplete)
 > covers all eleven original questions with the expected routes across named
 > rounds. Quotation fidelity and full detailed-example coverage still fail
-> acceptance. The failed incident variant was discarded; the prior configuration
+> in that cohort. The failed incident variant was discarded; the prior configuration
 > is restored and checked once. This is not a completed workshop.
 > A proven direct rate limit was corrected to Standard capacity 26.
 > Search Basic, embeddings, account/project and both agents remain **live**; their expiry
@@ -81,20 +121,25 @@ seven unrelated Application Insights components, correcting the initial absence
 claim. They were not repurposed. The isolated Free Search resources were deleted
 after testing. The subsequent paid Foundry account, project, model deployments,
 Search service and MCP connection were exercised and then deleted, with group
-absence independently verified. A future connected-agent run needs a new approved
-environment; no live endpoint is intentionally retained.
+absence independently verified. At that earlier cleanup checkpoint, a future
+connected-agent run needed a new approved environment and no endpoint was
+intentionally retained. Later retained resources, including hosted version 5,
+supersede that inventory boundary.
 
 The workshop's protected text, notebook code and embedded examples are not republished. The four figures below come only from the unprotected supporting Copilot setup document, with sensitive details redacted. They are historical source screenshots, not newly captured execution evidence.
 
 ## 1. Confirm prerequisites and choose the right experience
 
-The later [verified-rendering extension](backend-live-2026-10-20.md#deterministic-source-verification-extension)
+At the earlier checkpoint, the [verified-rendering extension](backend-live-2026-10-20.md#deterministic-source-verification-extension)
 passes 33 tests and four real backend cases, but its native diagnostic fails
 with a BotServiceRbac tenant-ID authorization error. It is not a certified
 replacement for the working specialist. Its saved Inactive state is now
 independently verified. A separate authenticated direct Activity request reached
 hosting but exposed an SDK incompatibility; the tested local repair has not
-been deployed. No endpoint-authentication change was approved or applied.
+been deployed at that point. T003/T004 subsequently deployed the hosted repair
+and passed 3/3 version 3 checks; version 5 is now retained. Native certification
+remains open. The no-authentication-change statement applies to that checkpoint,
+not the later separately recorded diagnostic cohorts.
 
 The later actual top-level Foundry connection attempt used a real owned project
 endpoint but failed on the hosting browser's blocked consent pop-up. Exactly
@@ -354,20 +399,26 @@ Figure 3. Redacted original supporting-setup screenshot, `image10.png`. The hist
 
 Use only fictional, nonidentifying situations. Financial-domain content in the authorized notebook is sample material, not current legal guidance. Do not grade answers against hardcoded reporting thresholds or the age of a fictional customer.
 
-| ID    | Input or check                                                        | Expected route and measurable assertion                                                  | Current result                  |
-| ----- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------- |
-| F6-01 | Parse all notebook code cells without execution                       | `11` cells parse; zero syntax errors                                                     | Passed on Python 3.14.3         |
-| F6-02 | Inspect inline document lists                                         | Exactly `8 + 8 + 8 = 24` records                                                         | Passed by static AST inspection |
-| F6-03 | Inspect package layout                                                | Root requirements/environment files and actual DOCX present; referenced nested MD absent | Passed by local inventory       |
-| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | Not run                         |
-| F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | Not run                         |
-| F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | Not run                         |
-| F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | Not run                         |
-| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | Not run                         |
-| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | Not run                         |
-| F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | Not run                         |
-| F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | Not run                         |
-| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | Dedicated Foundry/Search group deleted and absence verified; no Copilot objects created |
+Results below are reconciled on **2026-10-26**. PASS means the dated offline
+assertion passed, not runtime acceptance. NOT_RUN concerns exact guide execution;
+PARTIAL preserves related evidence without substituting another question or route.
+The [crosswalk receipt](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+provides provenance, public evidence pointers and limits for every row.
+
+| ID    | Input or check                                                        | Expected route and measurable assertion                                                  | Current result                                             |
+| ----- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| F6-01 | Parse all notebook code cells without execution                       | `11` cells parse; zero syntax errors                                                     | PASS: historical Python 3.14.3 syntax only                 |
+| F6-02 | Inspect inline document lists                                         | Exactly `8 + 8 + 8 = 24` records                                                         | PASS: historical static inventory                          |
+| F6-03 | Inspect package layout                                                | Root requirements/environment files and actual DOCX present; referenced nested MD absent | PASS: historical layout, not ingestion                     |
+| F6-04 | “Hello, I need help reviewing a case”                                 | Clarification requested; `0` connected-agent calls                                       | NOT_RUN exact variant; related native intake PASS          |
+| F6-05 | “What does ATO mean?”                                                 | Uploaded glossary supports `Account takeover`; `0` connected-agent calls                 | NOT_RUN exact variant; related native local lookup PASS    |
+| F6-06 | “Which signs should an analyst examine for account takeover?”         | Connected-agent call and retrieval-tool call; supporting pattern passage present         | PARTIAL: related expertise; exact route/tool join unproved |
+| F6-07 | “Compare the evidence-handling steps with the relevant policy source” | At least two applicable source groups supported in tool results; no invented rule        | PARTIAL: related multi-source passes, not exact comparison |
+| F6-08 | “What did our private customer do yesterday?”                         | No invented private events; missing access/evidence acknowledged                         | PARTIAL: backend abstention, not exact native turn         |
+| F6-09 | Repeat F6-06 in French in a fresh conversation                        | Same supported meaning and source lineage; no assumption of exact wording                | NOT_RUN: no exact French Lab 6 evidence                    |
+| F6-10 | Remove access from an approved test identity                          | Access denied; no unauthorized passage in the answer                                     | NOT_RUN: Lab 5 Search denial does not substitute           |
+| F6-11 | Connect an agent without Activity in an isolated negative test        | HTTP `400` with Activity-protocol error; repair and retest                               | NOT_RUN: blueprint error does not substitute               |
+| F6-12 | Verify cleanup                                                        | Training connection, agent version, knowledge objects and indexes removed as approved    | PARTIAL: historical deletion passes; hosted v5 retained    |
 
 For each live case, record actual route, source IDs, assertion pass/fail, citation support, latency and sanitized error. Report routing accuracy as correctly routed cases divided by executed routing cases. Report citation support separately. A model-authored source label or a successful HTTP response cannot substitute for a retrieved passage.
 
@@ -406,8 +457,10 @@ Capture new live screenshots only after obtaining access and approval. Redact id
 Static review, dependency restoration and substantial cloud checkpoints are complete.
 The [paid Foundry record](foundry-live-2026-10-20.md) distinguishes passing transport
 and single-source grounding from failing cross-source final quotations.
-Copilot routing cases F6-04 through F6-11 and an actual Activity conversation
-remain unexecuted. Standard Copilot navigation still failed; the Foundry browser
-also reported an IndexedDB object-store error. These observations do not establish
-invalid user credentials. All isolated resources were removed. Do not certify the
-whole lab until the remaining acceptance criteria actually pass.
+The earlier no-Activity, navigation/IndexedDB and disposable-cleanup observations
+describe their own checkpoint, not all later runs or invalid user credentials.
+Later specialist native 4/4, hosted version 3 repair and candidate evidence remain
+distinct. The current candidate is 10/11, not the earlier 11/11 cohort.
+Use the reconciled F6 table for exact-versus-related gaps and the retained-v5
+cleanup boundary. T017's documentary substep is delivered, not runtime completion;
+do not certify the whole lab or restart already verified work.

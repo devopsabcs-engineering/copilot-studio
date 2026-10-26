@@ -8,6 +8,48 @@ ms.date: 2026-10-26
 
 [Tous les labs](index.md) | [English](../en/validation.md) | [Galerie de preuves](evidence.md)
 
+### Acceptation du lab 6 réconciliée, 2026-10-26
+
+La [correspondance documentaire T017](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+est livrée avec le [guide actualisé](lab-06.md), sans exécution d'acceptation.
+F6-01/02/03 sont PASS historiques hors ligne, pas des réussites d'exécution.
+F6-04/05 sont NOT_RUN pour la variante exacte avec accueil/recherche locale
+natifs voisins réussis; F6-06/07/08/12 sont PARTIAL; F6-09/10/11 sont NOT_RUN.
+Les douze lignes conservent provenance, pointeurs publics et limites.
+Aucune nouvelle question ni tentative réelle pour cette correspondance.
+
+Spécialiste original natif 4/4, extension diagnostique hébergée et candidat MCP
+de données sont des routes distinctes. Les correspondances au corpus ne joignent
+pas indépendamment les résultats de l'outil natif du spécialiste.
+L'[ancien candidat 11/11](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+comprend une relance explicite. La [cohorte actuelle après contrôle est à 10/11](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json);
+cas 9 échoué deux fois, cause non prouvée, aucun troisième essai.
+Conservez échecs et citations historiquement réussies, sans substitution entre cohortes.
+
+Accueil, connaissances locales, expertise étayée, multisource, trois jeux de
+données et nettoyage sont fondés sur les sources. Syntaxe/disposition, variantes
+ciblées et contrôles français/client privé/identité refusée/sans Activity sont
+des validations du guide, pas de nouvelles exigences originales universelles.
+Le libellé F6-05 apparaît dans les instructions, pas dans un reçu d'exécution.
+Les variantes non exécutées limitent la reproductibilité, sans imposer de répéter
+les comportements sources vérifiés. Les exigences supplémentaires du document
+principal protégé restent UNKNOWN, sans contournement ni reconstruction.
+Annotations natives, URL éditeur et citations verbatim ne sont pas des critères
+originaux universels; les anciens tests gardent leurs vrais résultats.
+
+Le refus Search du lab 5 ne prouve pas le refus Foundry F6; HTTP 400 de blueprint
+ne prouve pas le test sans Activity suivi de réparation.
+La [réparation hébergée v3 T003/T004 réussit 3/3](../assets/runtime-2026-10-23/hosted-version3-regression.json);
+la [v5 hébergée reste conservée](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+sans certification native. Les anciens nettoyages ne prouvent que leurs propres
+inventaires clos, pas zéro ressource actuelle ni facture finale.
+T017 reste non cochée, l'atelier incomplet. Reprenez un seul critère non résolu
+avec périmètre autorisé et prérequis pris en charge, pas des labs entiers.
+La chronologie et le tableau initial ci-dessous restent historiques, sans
+remplacer cette réconciliation actuelle.
+
+### Chronologie des exécutions antérieures
+
 Les [deux nouvelles cohortes Search OAuth par principal de service](../assets/runtime-2026-10-26/native-search-index-picker.json)
 enregistrent chacune Connected après un Create, puis échouent au sélecteur :
 `Something went wrong.`, HTTP 400 console, Add to agent désactivé.
@@ -267,8 +309,10 @@ inchangé. Aucun nouveau déploiement, réseau privé complet ni lab connecté n
 
 Le [point antérieur du 23 octobre](completion-roadmap.md#point-dexécution-du-23-octobre)
 ajoute un inventaire actuel des ressources/coûts et des lectures authentifiées
-de l'état enregistré. La réparation SDK locale passe encore 33 tests, mais reste
-non déployée. Le diagnostic est Inactive; les métadonnées Foundry actuelles
+de l'état enregistré. À ce jalon antérieur, la réparation SDK locale passait
+33 tests sans être déployée. T003/T004 ont ensuite déployé la réparation et
+réussi 3/3 contrôles hébergés v3; la dernière v5 reste conservée sans certification
+native. Le diagnostic était Inactive; les métadonnées Foundry de ce jalon
 sélectionnent la version 4 active inchangée du contrôle. Cela ne prouve aucune
 conversation native. La [revue critère par critère](../assets/runtime-2026-10-23/independent-lab-review.json)
 ne ferme aucun critère restant. Validations de livraison, propriété de rétention,

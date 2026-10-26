@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "task": "T017",
+  "reconciledDate": "2026-10-26",
+  "scope": "Offline retained-evidence documentary reconciliation; no new runtime acceptance",
+  "documentaryCrosswalkDelivered": true,
+  "T017RuntimeComplete": false,
+  "workshopComplete": false,
+  "newQuestions": 0,
+  "liveLabAttempts": 0,
+  "sourceBoundary": {
+    "accessibleSourceBehaviors": ["source-free intake", "local glossary", "grounded specialist expertise", "multi-source work", "three eight-record datasets", "cleanup guidance"],
+    "additionalProtectedMainRequirements": "UNKNOWN",
+    "protectedMainOpenedBypassedOrReconstructed": false,
+    "guideVariantsAreUniversalOriginalGates": false,
+    "nativeAnnotationsPublisherUrlsAndVerbatimQuotesAreUniversalOriginalGates": false,
+    "historicalQuotationFailuresAndPassesPreserved": true,
+    "reference": "docs/assets/runtime-2026-10-20/foundry-original-lab-retrieval-validation.json#/primary_source_reconciliation"
+  },
+  "statusDefinitions": {
+    "PASS": "The stated historical offline assertion is supported, not a runtime pass.",
+    "PARTIAL": "Some relevant assertions have evidence; exact guide turn, route, membership or current cleanup scope remains unproved.",
+    "NOT_RUN": "No exact guide execution located in inspected retained scopes; related behavior may already pass.",
+    "UNKNOWN": "Not established, including additional requirements in the unreadable main source."
+  },
+  "cohorts": {
+    "originalSpecialist": {
+      "nativeOriginalQuestionsPassed": 4,
+      "nativeOriginalQuestionsTotal": 4,
+      "route": "Original connected specialist, version 4; not the verified diagnostic extension or data-only MCP candidate",
+      "underlyingNativeMcpMembershipIndependentlyJoined": false,
+      "references": [
+        "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction/confirmed_native_replies",
+        "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction/native_mcp_trace_independently_joined"
+      ]
+    },
+    "previousCandidate": {
+      "acceptedCases": 11,
+      "totalCases": 11,
+      "explicitRetries": 1,
+      "currentCohort": false,
+      "reference": "docs/assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json#/fullElevenCaseNativeMatrixPassed"
+    },
+    "currentPostControlCandidate": {
+      "acceptedCases": 10,
+      "totalCases": 11,
+      "unacceptedCase": 9,
+      "failedCase9Attempts": 2,
+      "thirdReplaySubmitted": false,
+      "rootCause": "NOT_PROVEN",
+      "route": "Data-only MCP evidence candidate; not the original specialist or verified diagnostic extension",
+      "references": [
+        "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/acceptedDistinctOriginalCases",
+        "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/8"
+      ]
+    },
+    "hostedDiagnosticExtension": {
+      "hostedRepairVersion3Passed": 3,
+      "hostedRepairVersion3Total": 3,
+      "latestRetainedVersion": "5",
+      "nativeCertified": false,
+      "references": [
+        "docs/assets/runtime-2026-10-23/hosted-version3-regression.json",
+        "docs/assets/runtime-2026-10-26/agent-endpoints-readonly.json#/observations/latestVersion",
+        "docs/assets/runtime-2026-10-26/agent-endpoints-readonly.json#/acceptance"
+      ]
+    }
+  },
+  "rows": [
+    {
+      "id": "F6-01",
+      "status": "PASS",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "Notebook is source-backed; syntax counting is an added offline compatibility check.",
+      "exactEvidence": ["docs/en/validation.md#checks-performed-in-this-session"],
+      "relatedEvidence": [],
+      "evidenceBoundary": "Historical narrative records 11 syntax-valid cells on Python 3.14.3, not a new parser log or current SDK/runtime certification."
+    },
+    {
+      "id": "F6-02",
+      "status": "PASS",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Three groups of eight records are source-backed; AST inspection is the guide validation method.",
+      "exactEvidence": ["docs/assets/runtime-2026-10-19/results.json#/lab6/local_data_validation"],
+      "relatedEvidence": [],
+      "evidenceBoundary": "Historical 8 + 8 + 8 inventory with nonempty fields and unique IDs. Data presence is not conversation or retrieval membership proof."
+    },
+    {
+      "id": "F6-03",
+      "status": "PASS",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "Observed package-layout discrepancy, not an original live scenario.",
+      "exactEvidence": ["docs/en/lab-06.md#acceptance-matrix-and-exact-assertions"],
+      "relatedEvidence": [],
+      "evidenceBoundary": "Historical root dependency/environment files and DOCX present; referenced nested Markdown absent. Presence is not readability. Later licensed Markdown Ready is an adaptation, not equivalence to unreadable DOCX."
+    },
+    {
+      "id": "F6-04",
+      "status": "NOT_RUN",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Intake routing is source-backed; exact F6 wording is a guide variant.",
+      "exactEvidence": [],
+      "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/0"],
+      "evidenceBoundary": "Related original intake passes with complete deterministic reply and zero MCP calls. Different exact guide wording remains unrun, a reproducibility limit rather than a new universal source gate."
+    },
+    {
+      "id": "F6-05",
+      "status": "NOT_RUN",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Accessible setup explicitly includes this lookup wording and local route; original scenario 4 uses different wording. Written instructions are not execution.",
+      "exactEvidence": [],
+      "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/3"],
+      "evidenceBoundary": "Related ATO local lookup passes with actual intended uploaded knowledge search, complete reply and zero MCP calls. Exact F6 utterance unproved; licensed Markdown adaptation does not repair original DOCX ingestion."
+    },
+    {
+      "id": "F6-06",
+      "status": "PARTIAL",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Grounded expertise is source-backed; exact indicators question is a guide variant.",
+      "exactEvidence": [],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction",
+        "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"
+      ],
+      "evidenceBoundary": "Original specialist native expertise passed, but corpus matches do not independently join its underlying MCP output. Current separate candidate case 5 proves one actual evidence invocation and fp-002. Neither substitutes for an exact F6 connected-specialist/tool trace."
+    },
+    {
+      "id": "F6-07",
+      "status": "PARTIAL",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Multi-source work is source-backed; the focused evidence/policy comparison is a guide variant.",
+      "exactEvidence": [],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-19/foundry-results.json#/foundry_agent",
+        "docs/assets/runtime-2026-10-20/foundry-native-category-recovery.json#/targeted_version_4_correction",
+        "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/6"
+      ],
+      "evidenceBoundary": "Current candidate case 7 returns ip-002 and rc-007 with two exact individually attributed quotations and local evidence. Earlier backend final-quotation failures and later specialist passes remain separate. No exact F6 comparison or independent original-specialist native MCP join is established."
+    },
+    {
+      "id": "F6-08",
+      "status": "PARTIAL",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "Private-customer abstention is an added safety check; no exact accessible-source requirement established.",
+      "exactEvidence": [],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-20/foundry-quote-recovery.json#/cases/2/model_abstention_passed",
+        "docs/assets/runtime-2026-10-20/foundry-quote-recovery.json#/cases/2/zero_document_retrieval_passed"
+      ],
+      "evidenceBoundary": "Related backend model abstention passed despite off-topic retrieved records; zero-document retrieval failed in that run. Neither proves the exact native private-customer turn. Zero returned documents is not an extra F6 requirement."
+    },
+    {
+      "id": "F6-09",
+      "status": "NOT_RUN",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "French semantic/provenance regression is an added guide check, not an established original requirement.",
+      "exactEvidence": [],
+      "relatedEvidence": ["docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4"],
+      "evidenceBoundary": "English expertise, translated documentation and Lab 5 multilingual Search do not prove this French Lab 6 turn."
+    },
+    {
+      "id": "F6-10",
+      "status": "NOT_RUN",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "Foundry denied-identity/no-leak validation is an added guide check.",
+      "exactEvidence": [],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-26/lab5-native-denied-first-use.json",
+        "docs/assets/runtime-2026-10-26/native-blueprint-identity-correlation.json#/interpretation"
+      ],
+      "evidenceBoundary": "Lab 5 Search denial is not Lab 6 Foundry denial. Caller/blueprint HTTP 400 is not a scoped denied-identity/no-passage test. No permissions changed here."
+    },
+    {
+      "id": "F6-11",
+      "status": "NOT_RUN",
+      "sourceProvenance": "guide_added_validation",
+      "sourceAssessment": "Missing-Activity negative plus repair/retest is added current-connector validation.",
+      "exactEvidence": [],
+      "relatedEvidence": [
+        "docs/assets/runtime-2026-10-19/foundry-results.json#/activity",
+        "docs/assets/runtime-2026-10-26/native-blueprint-identity-correlation.json#/interpretation",
+        "docs/assets/runtime-2026-10-26/agent-endpoints-readonly.json#/observations/protocols"
+      ],
+      "evidenceBoundary": "Activity configuration, caller/blueprint HTTP 400 and unrelated Search-picker HTTP 400 do not prove this isolated missing-protocol test or repaired same-route retest. No supported native extension fix is established."
+    },
+    {
+      "id": "F6-12",
+      "status": "PARTIAL",
+      "sourceProvenance": "workshop_source_backed",
+      "sourceAssessment": "Cleanup guidance is source-backed; ownership order and independent absence checks are guide elaborations.",
+      "exactEvidence": [
+        "docs/assets/runtime-2026-10-19/foundry-results.json#/cleanup",
+        "docs/assets/runtime-2026-10-20/foundry-quote-recovery.json#/cleanup",
+        "docs/assets/runtime-2026-10-20/foundry-supported-citation-retest.json#/cleanup"
+      ],
+      "relatedEvidence": ["docs/assets/runtime-2026-10-26/agent-endpoints-readonly.json#/observations/latestVersion"],
+      "evidenceBoundary": "PASS only for closed historical disposable inventories. Latest hosted version 5 remains retained. No current all-Lab-6 zero-resources or final-billing claim; owner retention/deletion decision remains."
+    }
+  ],
+  "remainingWorkBoundary": "Resume only an unresolved criterion with a supported fix or prerequisite and approved scope; do not restart whole labs. Exact guide-variant gaps are reproducibility limits, not newly universal original requirements. Unknown protected-main requirements cannot be certified."
+}

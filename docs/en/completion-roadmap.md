@@ -13,6 +13,34 @@ The planning deliverable is complete. The workshop execution is **not complete**
 This roadmap identifies what must be done before that claim is justified.
 Unchecked tasks are work to execute, not promised or observed outcomes.
 
+### T017 documentary substep delivered, 2026-10-26
+
+The [public F6 crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+and synchronized [Lab 6 guide](lab-06.md)/[validation ledger](validation.md)
+deliver offline reconciliation and publication, not runtime completion.
+No new questions or live attempts were submitted. T017 remains unchecked.
+F6-01/02/03 are historical offline PASS; F6-04/05 exact-variant NOT_RUN with
+related native behavior passing; F6-06/07/08/12 PARTIAL; F6-09/10/11 NOT_RUN.
+
+Source-backed intake/local knowledge/grounded expertise/multi-source work,
+three datasets and cleanup are distinguished from guide-added checks and exact
+prompt variants. F6-05 wording is present in setup instructions, not proof of
+execution. Different guide wording alone is not a new universal original gate
+or an instruction to restart verified work. Additional requirements in the
+protected main source remain UNKNOWN, with no bypass or reconstruction.
+Native annotation arrays, publisher URLs and verbatim quotations remain excluded
+as universal original gates; historical failures and quotation passes remain.
+
+Original specialist native 4/4 does not certify the diagnostic extension or
+independently join its underlying native MCP results. The separate candidate's
+previous 11/11 includes a retry; current post-control results are 10/11, with
+two case-9 failures, unproved cause and no third replay.
+Hosted v3 T003/T004 passed 3/3, but retained hosted v5 is not native-certified
+or cleaned by older receipts. Lab 5 Search denial and blueprint HTTP 400 do not
+close F6 Foundry denial or the missing-Activity negative/repair pair.
+Only unresolved, justified criteria may advance after their own supported
+prerequisite and approved scope; the workshop remains incomplete.
+
 The planning baseline is commit `94ebcd3` and the retained execution evidence.
 Local verification on October 22 passed 47 documentation
 tests, 33 extension tests, dependency consistency and Python syntax checks.
@@ -31,22 +59,22 @@ runs. The dated continuations below and the
 [backend report](backend-live-2026-10-20.md) record later outcomes.
 The table identifies remaining gates, not instructions to restart each lab.
 
-| Lab                | Work already exercised                                                     | Remaining gate                                                      | Resume tasks         |
-|--------------------|----------------------------------------------------------------------------|---------------------------------------------------------------------|----------------------|
-| [0](lab-00.md)     | Identity, roles, quota, tools and paid-test preflight                      | Complete readiness, numerical budget and resource ownership review  | T001,T002,T009       |
-| [1](lab-01.md)     | PDF retrieval, refusal, directory lookup, email delivery and PDF hash      | Historical full answer, original citation and connector error audit | T009                 |
-| [2](lab-02.md)     | Private licensing-PDF ingestion and earlier connected answer tests         | External PDF citation navigation and current connected-source proof | T010                 |
-| [3](lab-03.md)     | Native topic and one genuine event correlated in KQL                       | Published-channel behavior and the required privacy boundary        | T010                 |
-| [4](lab-04.md)     | Direct model invocation and actual Standard BYOM dialog inspection         | API-key/keyless-policy conflict, then connected prompt acceptance   | T011,T012            |
-| [5.1](lab-05-1.md) | Corrected paid deployment, private pipeline and guarded cleanup            | Retain reviewed deviations; no unchanged-source apply claim         | T013 done; T014,T015 |
-| [5](lab-05.md)     | Retrieval, filters, hotel answers and fictional native Search cohorts      | Original hotel URLs/corpus limits and paired native denied identity | T014                 |
-| [6](lab-06.md)     | Notebook, embeddings, three-source retrieval, MCP, hosted and native tests | Native verified route, remaining scenario assertions and F6 mapping | T005,T006,T007,T017  |
+| Lab                | Work already exercised                                                     | Remaining gate                                                          | Resume tasks         |
+| ------------------ | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------------- |
+| [0](lab-00.md)     | Identity, roles, quota, tools and paid-test preflight                      | Complete readiness, numerical budget and resource ownership review      | T001,T002,T009       |
+| [1](lab-01.md)     | PDF retrieval, refusal, directory lookup, email delivery and PDF hash      | Historical full answer, original citation and connector error audit     | T009                 |
+| [2](lab-02.md)     | Private licensing-PDF ingestion and earlier connected answer tests         | External PDF citation navigation and current connected-source proof     | T010                 |
+| [3](lab-03.md)     | Native topic and one genuine event correlated in KQL                       | Published-channel behavior and the required privacy boundary            | T010                 |
+| [4](lab-04.md)     | Direct model invocation and actual Standard BYOM dialog inspection         | API-key/keyless-policy conflict, then connected prompt acceptance       | T011,T012            |
+| [5.1](lab-05-1.md) | Corrected paid deployment, private pipeline and guarded cleanup            | Retain reviewed deviations; no unchanged-source apply claim             | T013 done; T014,T015 |
+| [5](lab-05.md)     | Retrieval, filters, hotel answers and fictional native Search cohorts      | Original hotel URLs/corpus limits and paired native denied identity     | T014                 |
+| [6](lab-06.md)     | Notebook, embeddings, three-source retrieval, MCP, hosted and native tests | Native verified route, remaining assertions and retained-resource scope | T005,T006,T007,T017  |
 
 Lab 6's hosted repair is T003/T004, native verified delivery is T005/T006,
 and its eleven-scenario continuation is T007/T008. T017 reconciles the separate
-`F6-01` through `F6-12` acceptance matrix with those retained runs. The older
-Lab 6 matrix's `Not run` rows and earlier failures must not be interpreted as
-proof that all later Lab 6 work is absent, or silently upgraded to passes.
+`F6-01` through `F6-12` acceptance matrix with those retained runs. That mapping
+is now delivered in the linked crosswalk; the guide distinguishes exact versus
+related evidence. Earlier failures are preserved, not silently upgraded.
 Plan numbers are not lab numbers: plan 6.1 is **Lab 4 BYOM**, not Lab 6.
 
 ### Resume rules, not whole-lab reruns
@@ -1484,12 +1512,19 @@ Requirements: REQ-004. Input: the original questions and complete-turn audit in 
 - [x] T008 [Plan:4.1] Have Test run all eleven unchanged scenarios in a fresh native session after an acknowledged readiness preflight. Preserve full final replies and `DynamicPlanFinished`, expected handler routes, source comparisons, individual attribution, relevance, applicability and example-coverage results per case. Count retries separately.
 - [ ] T017 [Plan:4.1] Reconcile each Lab 6 criterion F6-01 through F6-12 with its exact retained run, artifact, question, route and assertion result. Update the Lab 6 guide and validation ledger together; preserve historical failures and distinguish the original matrix from the eleven-scenario continuation. Reuse evidence only where the actual assertion matches. Identify remaining native denied-identity and missing-Activity negative tests explicitly; do not substitute Lab 5 Search denial, a blueprint-ID error or direct transport success. Preserve the inaccessible original-source limitation. Run only a genuinely missing criterion after its prerequisite or supported fix exists, and verify cleanup of that attempt.
 
-Exit: every required case and criterion passes in the new run. Earlier merged
+Delivered documentary substep, 2026-10-26: twelve provenance-labelled dispositions
+and synchronized bilingual guide/ledger/roadmap publication in the
+[crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json).
+Runtime completion remains open; guide-added variants are not automatically
+universal original requirements.
+
+Exit: every justified required case and criterion has matching acceptance
+evidence, without restarting verified work. Earlier merged
 captures, four extractive backend successes and generic quality grades do not
 replace this matrix. Stop on failed criteria, retain the failure, fix the cause,
 and repeat affected cases plus routing regressions.
-T017's evidence reconciliation can proceed read-only before 3.1 is resolved;
-its dependent native retests cannot. A missing protected original does not
+T017's documentary reconciliation is delivered independently of 3.1;
+dependent native retests still require their supported fix. A missing protected original does not
 authorize reconstructing it or certifying unknown additional requirements.
 
 ### 5.1 Complete Labs 0, 1, 2 and 3

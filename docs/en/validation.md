@@ -8,6 +8,47 @@ ms.date: 2026-10-26
 
 [All labs](index.md) | [Français](../fr/validation.md) | [Evidence gallery](evidence.md)
 
+### Lab 6 acceptance reconciled, 2026-10-26
+
+The [T017 documentary crosswalk](../assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json)
+is delivered with the [updated guide](lab-06.md), not a runtime acceptance run.
+F6-01/02/03 are historical offline PASS, not runtime passes. F6-04/05 are exact
+guide-variant NOT_RUN with related native intake/local lookup passing;
+F6-06/07/08/12 are PARTIAL; F6-09/10/11 are NOT_RUN.
+All twelve rows retain source provenance, public evidence pointers and limits.
+No new questions or live attempts were submitted for this crosswalk.
+
+The original specialist native 4/4, hosted diagnostic extension and data-only
+MCP candidate are separate routes. Original corpus matches do not independently
+join the specialist's underlying native retrieval-tool output.
+The [previous candidate 11/11](../assets/runtime-2026-10-25/mcp-native-eleven-case-matrix.json)
+includes one explicit retry. The [current post-control cohort is 10/11](../assets/runtime-2026-10-25/mcp-native-control-repair-regression.json);
+case 9 failed twice, root cause unproved, no third replay.
+Preserve those failures and historical quotation passes without cross-cohort substitution.
+
+Intake, local knowledge, grounded expertise, multi-source work, three datasets
+and cleanup guidance are source-backed. Syntax/layout checks, focused prompt
+variants and French/private-customer/denied-identity/missing-Activity controls
+are guide validations, not newly universal original requirements. F6-05 wording
+appears in setup instructions, not an execution receipt. Exact-variant gaps are
+reproducibility limits, not a reason to repeat verified source behavior.
+Additional protected-main requirements remain UNKNOWN, without bypass or
+reconstruction. Native annotations, publisher URLs and verbatim quotations are
+not universal original gates; historical tests retain their actual outcomes.
+
+Lab 5 Search denial does not prove F6 Foundry denial; blueprint HTTP 400 does
+not prove the missing-Activity negative plus repaired retest.
+T003/T004's [hosted v3 repair passed 3/3](../assets/runtime-2026-10-23/hosted-version3-regression.json);
+[hosted v5 remains retained](../assets/runtime-2026-10-26/agent-endpoints-readonly.json)
+and native delivery is not certified. Earlier cleanup receipts prove only their
+closed inventories, not current zero resources or final billing.
+T017 remains unchecked, workshop incomplete. Resume one unresolved criterion
+only with approved scope and a supported prerequisite, not whole-lab restarts.
+The chronology and original review baseline below are historical, not a replacement
+for this current reconciliation.
+
+### Earlier execution chronology
+
 The [two new native Search OAuth service-principal cohorts](../assets/runtime-2026-10-26/native-search-index-picker.json)
 each save Connected after one Create, then fail index selection with
 `Something went wrong.`, console HTTP 400 and Add to agent disabled.
@@ -257,7 +298,9 @@ No new deployment, full private-network or connected lab pass is inferred.
 
 The earlier [October 23 checkpoint](completion-roadmap.md#october-23-execution-checkpoint)
 adds fresh resource/cost inventory and authenticated saved-state reads.
-The local SDK repair still passes 33 tests, but remains undeployed.
+At that earlier checkpoint, the local SDK repair passed 33 tests but remained
+undeployed. T003/T004 later deployed the hosted repair and passed 3/3 v3 checks;
+the latest v5 remains retained without native certification.
 The diagnostic is Inactive; current Foundry metadata selects the unchanged
 active version-4 control. Neither proves a native conversation.
 The [criterion-level lab review](../assets/runtime-2026-10-23/independent-lab-review.json)
