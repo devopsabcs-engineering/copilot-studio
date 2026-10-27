@@ -86,6 +86,24 @@ files and 22 translations unchanged. Native picker repair, automatic detection a
 continuous execution-version proof remain unproved. Earlier FAIL/NOT_RUN results
 and the collector's failed echo wait remain preserved; no message was replayed.
 
+The later [two static French wrappers](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+pass their scoped native checks: one fresh conversation, four accepted messages
+(two lookups and two language controls), four Send clicks and zero retries.
+CTR and SAR replies exactly match the corrected French resources, retaining all
+12 literal quotations and individual references. They are static snapshots, not
+live retrieval; native retrieval/MCP/Foundry invocation counts are zero.
+French `System.User.Language` and English restoration are proven; actual posted/reply
+`Activity.Locale` remains `en-US`. The persisted override is restored, not cleared.
+One localization upload persisted both wrappers. Strict candidate-map and two-file-only
+guards failed and remain failures: a read-only audit explains 41 reordered positions
+with all 42 Escalate phrases preserved, one materialized French fallback component
+and component bookkeeping. Complete clone accounting is 64 to 65 files; the native
+postflight preserves all 64 non-token files, 23 French translations and 50 components.
+All 158 English/153 French resources and 1,814 historical files remain exact at that
+postflight. A strict UTF-8 BOM failure is retained; BOM-aware validation used unchanged
+files without another export or message. This separate cohort does not prove full
+static localization, picker repair, automatic detection or T017 completion.
+
 The [exact private-history check](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 is F6-08 response-only PASS: one question, no replay or extra Hello, on the same
 frozen prospective configuration as F6-04/05. The complete final reply acknowledges

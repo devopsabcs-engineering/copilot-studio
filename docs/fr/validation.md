@@ -88,6 +88,26 @@ détection automatique et preuve continue des versions restent non prouvées.
 Les anciens FAIL/NOT_RUN et l'attente échouée d'écho du collecteur sont conservés;
 aucun message n'est rejoué.
 
+Les [deux textes statiques français ultérieurs](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+réussissent leurs contrôles natifs ciblés : une conversation neuve, quatre messages
+acceptés (deux consultations et deux contrôles de langue), quatre clics Send et zéro
+relance. Les réponses CTR/SAR correspondent exactement aux ressources françaises
+corrigées, avec les 12 citations littérales et références individuelles inchangées.
+Ces instantanés ne sont pas une recherche en direct; zéro invocation native de
+recherche/MCP/Foundry. `System.User.Language` français et retour à l'anglais sont
+prouvés; les `Activity.Locale` envoyées/répondues restent `en-US`. La valeur persistante
+est remise à l'anglais, pas effacée. Un téléversement conserve les deux corrections.
+Les contrôles stricts d'égalité et de modification de deux seuls fichiers échouent
+et restent des échecs : l'audit en lecture seule explique 41 positions réordonnées
+avec les 42 phrases Escalate conservées, un composant français matérialisant un repli
+existant et les métadonnées administratives. Le clone passe de 64 à 65 fichiers;
+le contrôle après exécution préserve 64 fichiers hors jeton, 23 traductions françaises
+et 50 composants. Les 158 ressources anglaises/153 françaises et 1 814 fichiers
+historiques restent exacts à ce contrôle. L'échec UTF-8 strict sur BOM est conservé;
+la validation compatible BOM relit les mêmes fichiers, sans export ni message
+supplémentaire. Cette cohorte distincte ne prouve ni localisation statique complète,
+ni réparation du sélecteur, ni détection automatique, ni achèvement de T017.
+
 Le [contrôle exact d'historique privé](../assets/runtime-2026-10-26/lab6-private-history-native.json)
 est F6-08 PASS pour la réponse uniquement : une question, sans relance ni Hello
 supplémentaire, sur la même configuration prospective figée que F6-04/05. La réponse

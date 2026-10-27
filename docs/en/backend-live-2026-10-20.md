@@ -17,6 +17,27 @@ normal push, remote revision and rendered English/French pages. This publishes
 an honest in-progress snapshot, not an agent or Azure deployment. T009, T016,
 remaining acceptance and human governance stay open.
 
+## October 26 scoped French static replies
+
+The [two corrected static wrappers](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+pass native CTR/SAR checks with all 12 literal quotation/reference pairs exact,
+French disclaimers and the conditional SAR extension preserved. One fresh conversation
+contains four accepted messages: two lookups and two language controls, with zero
+retries or readiness questions. Intended static sends and processed cancellations
+have native response-end proof; no separate `DynamicPlanFinished` is fabricated.
+Native retrieval/MCP/Foundry counts are zero, not evidence of live source retrieval.
+`System.User.Language` is French then restored to English; actual `Activity.Locale`
+stays `en-US`. The persisted override is not cleared or browser detection tested.
+
+One French upload persisted the corrections. Strict map-equality and two-file-only
+checks failed and remain failures. A separate read-only audit explains 41 reordered
+positions preserving all 42 Escalate phrases, one materialized fallback translation
+and bookkeeping. The complete clone grows from 64 to 65 files; postflight preserves
+all 64 non-token files, 23 French translations, 50 components, 158 English/153 French
+resources and 1,814 historical files. A strict UTF-8 BOM failure is preserved;
+BOM-aware validation reads unchanged evidence without another message or export.
+No agent publication, Azure write, whole-lab rerun or full-static/general French claim.
+
 ## October 26 integrated Search popup prerequisite
 
 The [bounded integrated-user probe](../assets/runtime-2026-10-26/native-search-integrated-popup.json)

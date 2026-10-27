@@ -17,6 +17,30 @@ envoi normal, révision distante et pages anglaises/françaises rendues.
 Cet instantané honnête reste en cours; aucun déploiement d'agent ou Azure.
 T009, T016, autres critères d'acceptation et gouvernance humaine restent ouverts.
 
+## Réponses statiques françaises ciblées du 26 octobre
+
+Les [deux textes statiques corrigés](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+réussissent les contrôles natifs CTR/SAR avec les 12 paires citation littérale/référence
+exactes, les avertissements français et le délai SAR conditionnel conservés.
+Une conversation neuve contient quatre messages acceptés : deux consultations et deux
+contrôles de langue, sans relance ni question de préparation. Envois statiques prévus
+et annulations traitées ont une preuve native de fin de réponse; aucun événement
+`DynamicPlanFinished` distinct n'est inventé. Zéro appel natif de recherche/MCP/Foundry,
+sans preuve de recherche en direct. `System.User.Language` passe au français puis
+revient à l'anglais; `Activity.Locale` reste `en-US`. La valeur persistante n'est pas
+effacée et la détection par navigateur n'est pas testée.
+
+Un téléversement français conserve les corrections. Les contrôles stricts d'égalité
+et de modification de deux seuls fichiers échouent et restent des échecs. L'audit
+distinct en lecture seule explique 41 positions réordonnées avec les 42 phrases
+Escalate conservées, une traduction matérialisant un repli existant et les métadonnées.
+Le clone complet passe de 64 à 65 fichiers; le contrôle après exécution préserve
+64 fichiers hors jeton, 23 traductions françaises, 50 composants, 158 ressources
+anglaises/153 françaises et 1 814 fichiers historiques. L'échec UTF-8 strict sur BOM
+est conservé; la validation compatible BOM relit les mêmes preuves sans autre message
+ni export. Aucune publication d'agent, écriture Azure, reprise de lab complet ou
+affirmation de localisation statique complète ou d'acceptation générale du français.
+
 ## Prérequis popup Search intégré du 26 octobre
 
 La [sonde bornée par utilisateur intégré](../assets/runtime-2026-10-26/native-search-integrated-popup.json)

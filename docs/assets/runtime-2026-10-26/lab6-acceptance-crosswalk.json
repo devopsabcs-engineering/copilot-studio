@@ -125,6 +125,27 @@
     "currentStatusCounts": {"PASS": 8, "PARTIAL": 2, "FAIL": 0, "NOT_RUN": 2},
     "publicationQuestions": 0
   },
+  "latestFrenchStaticWrappersUpdate": {
+    "reference": "docs/assets/runtime-2026-10-26/lab6-french-static-wrappers.json",
+    "scope": "Two static replies under explicit override; separate from the preceding generative French cohort",
+    "status": "PASS_SCOPED_STATIC_WRAPPERS",
+    "freshConversations": 1,
+    "acceptedNativeUserMessages": 4,
+    "lookupInputs": 2,
+    "languageControls": 2,
+    "resubmissions": 0,
+    "literalQuotationReferencePairs": 12,
+    "actualPostedAndReplyActivityLocale": "en-US",
+    "englishRestorationProven": true,
+    "persistedOverrideCleared": false,
+    "strictDeploymentFailuresPreserved": true,
+    "nativeRetrievalMcpAndFoundryInvocations": 0,
+    "fullStaticLocalizationClaimed": false,
+    "originalMatrixCase9Replayed": false,
+    "publicationQuestions": 0,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false
+  },
   "sourceBoundary": {
     "accessibleSourceBehaviors": ["source-free intake", "local glossary", "grounded specialist expertise", "multi-source work", "three eight-record datasets", "cleanup guidance"],
     "additionalProtectedMainRequirements": "UNKNOWN",
@@ -296,7 +317,8 @@
       ],
       "relatedEvidence": [
         "docs/assets/runtime-2026-10-25/mcp-native-control-repair-regression.json#/cases/4",
-        "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json"
+        "docs/assets/runtime-2026-10-26/lab6-french-localization-repair.json",
+        "docs/assets/runtime-2026-10-26/lab6-french-static-wrappers.json"
       ],
       "evidenceBoundary": "Latest scoped PASS: one unchanged French question under an executed/read-back System.User.Language French override, French narrative and supported meaning/core lineage, one completed MCP operation with two pinned-corpus records sharing the new English regression's one ATO core record, and a correlated noncancelled DynamicPlanFinished. Actual posted/reply Activity.Locale remain en-US; the documented User.Language override takes priority and those fields are not relabelled. Two fresh conversations contain five accepted messages: two domain questions plus three deterministic controls; no resubmission. English restored in the same second conversation. Earlier English-answer FAILs, blocked-delivery/guarded NOT_RUN and localization-only NOT_RUN remain preserved. Native picker repair, automatic detection, complete static localization, continuous execution-version proof and original architecture equivalence remain unproved."
     },

@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "criterion": "F6-09",
+  "status": "PASS_SCOPED_STATIC_WRAPPERS",
+  "scope": "Two corrected French static lookup wrappers under explicit User.Language override; separate from the earlier generative French cohort",
+  "managedCorrection": {
+    "nativeFrenchUploads": 1,
+    "nativeSuccessAcknowledged": true,
+    "uploadRetries": 0,
+    "intendedFrenchWrapperValuesChanged": 2,
+    "literalQuotationsPreserved": 12,
+    "individualSourceAttributionsPreserved": 12,
+    "primaryEnglishResourcesUnchanged": 158,
+    "persistedFrenchResources": 153,
+    "sourceTopicsInstructionsModelAuthenticationBindingsAndPublicationUnchanged": true,
+    "originalDownloadsUnmodified": true
+  },
+  "strictDeploymentChecks": {
+    "candidateResourceMapEquality": "FAIL_PRESERVED",
+    "twoTranslationFilesOnly": "FAIL_PRESERVED",
+    "subsequentReadOnlyNormalizationAudit": {
+      "reorderedEscalateIndexedPositions": 41,
+      "escalatePhrases": 42,
+      "perDialogPhraseMultisetExact": true,
+      "lostPhrases": 0,
+      "addedPhrases": 0,
+      "otherCandidateValues": 151,
+      "otherCandidateValuesExactWithoutNormalization": 110,
+      "otherCandidateValuesEqualModuloOnlyProvenReorder": true,
+      "addedFrenchLanguageSwitchComponentMaterializesExistingFallback": true,
+      "existingControlTextsAndEffectiveDisplayNamePreserved": true,
+      "newBehavioralSourceComponents": 0,
+      "unexplainedNonNormalizationDifferences": 0,
+      "failedChecksReclassifiedOrUploadReplayed": false
+    },
+    "completeCloneAccounting": {
+      "beforeFiles": 64,
+      "afterFiles": 65,
+      "unchangedOldNonTokenFiles": 59,
+      "targetFrenchTranslationFilesChanged": 2,
+      "triggerReorderTranslationFilesChanged": 1,
+      "componentAuditBookkeepingFilesChanged": 1,
+      "opaqueSyncBookkeepingFilesChanged": 1,
+      "frenchTranslationFilesAdded": 1,
+      "filesRemoved": 0,
+      "beforeComponents": 49,
+      "afterComponents": 50,
+      "beforeFrenchTranslations": 22,
+      "afterFrenchTranslations": 23,
+      "completeWindowsExtendedLengthPathsUsed": true,
+      "opaqueSyncTokensDecoded": false
+    }
+  },
+  "nativeCohort": {
+    "freshConversations": 1,
+    "acceptedNativeUserMessages": 4,
+    "lookupInputs": 2,
+    "languageControls": 2,
+    "durableIntents": 4,
+    "sendClicks": 4,
+    "sendIntentFailures": 0,
+    "resubmissions": 0,
+    "extraHelloOrReadinessQuestions": 0,
+    "automaticInitialBotGreetings": 1
+  },
+  "cases": {
+    "CTR": {
+      "status": "PASS",
+      "nativeBodyExactlyMatchesFrenchCandidate": true,
+      "displayedReplyMatchesNativeMarkdownRendering": true,
+      "literalQuotationAndIndividualReferencePairs": 5,
+      "frenchSampleOnlyNoLegalAdviceAndNoLiveRetrievalDisclaimers": true
+    },
+    "SAR": {
+      "status": "PASS",
+      "nativeBodyExactlyMatchesFrenchCandidate": true,
+      "displayedReplyMatchesNativeMarkdownRendering": true,
+      "literalQuotationAndIndividualReferencePairs": 7,
+      "frenchSampleOnlyNoLegalAdviceAndNoLiveRetrievalDisclaimers": true,
+      "conditionalExtensionNotUniversalDeadlinePreserved": true
+    }
+  },
+  "language": {
+    "supportedVariable": "System.User.Language",
+    "frenchControl": "PASS",
+    "frenchExecutedReadback": "French",
+    "englishRestoration": "PASS",
+    "englishExecutedReadback": "English",
+    "actualPostedActivityLocale": "en-US",
+    "actualReplyActivityLocale": "en-US",
+    "persistedOverrideCleared": false,
+    "browserDetectionRestoredOrTested": false
+  },
+  "wholeTurn": {
+    "exactIntendedStaticSendAndProcessedCancellationExecuted": true,
+    "frozenActivityProcessedVariable": true,
+    "nativeResponseEndProven": true,
+    "separateActivityProcessedOrDynamicPlanFinishedFabricated": false,
+    "noncancelledGenerativePlanClaimed": false,
+    "nativeRetrievalInvocations": 0,
+    "nativeMcpInvocations": 0,
+    "nativeFoundryChildInvocations": 0,
+    "sourceAttributionsAreNotLiveRetrieval": true,
+    "unexposedUnderlyingHttpFanoutClaimed": false
+  },
+  "postflight": {
+    "completeCloneFiles": 65,
+    "nonTokenFilesByteIdentical": 64,
+    "frenchTranslations": 23,
+    "components": 50,
+    "englishResourcesExact": 158,
+    "frenchResourcesExact": 153,
+    "historicalFiles": 1814,
+    "historicalHashesAndModificationTimesUnchanged": true,
+    "originalDownloadsPreserved": true,
+    "snapshotIsNotContinuousExecutionVersionProof": true
+  },
+  "receiptValidation": {
+    "strictUtf8OfficialJsonBomFailurePreserved": true,
+    "bomAwareValidationPassedOnUnchangedFiles": true,
+    "additionalNativeMessagesClonesOrExportsForBomRecovery": 0
+  },
+  "acceptanceLimits": {
+    "earlierGenerativeFrenchCohortIsSeparate": true,
+    "earlierStrictFailuresPreserved": true,
+    "nativeLanguagePickerRepaired": false,
+    "automaticLanguageDetectionProven": false,
+    "completeStaticLocalizationClaimed": false,
+    "generalFrenchAcceptanceClaimed": false,
+    "historicalArchitectureEquivalenceClaimed": false,
+    "originalMatrixCase9Replayed": false,
+    "T017RuntimeComplete": false,
+    "workshopComplete": false,
+    "agentPublications": 0,
+    "azureResourceOrRoleChanges": 0
+  }
+}
