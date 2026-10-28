@@ -1,7 +1,7 @@
 ---
 title: Feuille de route pour terminer l'atelier
 description: Travaux restants, priorités, dépendances, responsables et critères mesurables de clôture de l'atelier.
-ms.date: 2026-10-26
+ms.date: 2026-10-28
 ---
 
 ## Objectif et périmètre
@@ -12,6 +12,30 @@ ms.date: 2026-10-26
 Le livrable de planification est terminé. L'exécution complète de l'atelier ne
 l'est **pas**. Les tâches non cochées représentent des travaux à effectuer,
 et non des résultats déjà observés ou promis.
+
+### Documentation livrée ; critères d'exécution toujours ouverts
+
+La passe de complétion documentaire bilingue couvre
+l'[accueil du dépôt](../../README.md), l'[index anglais](../en/index.md),
+l'[index français](index.md), les huit unités (0, 1, 2, 3, 4, 5.1, 5, 6)
+et les deux feuilles de route. Chaque lab possède son équivalent, ses critères
+d'acceptation et ses liens de preuve. Consultez la
+[couverture et les tâches de reprise](#couverture-des-labs-et-point-de-reprise)
+pour les travaux restants, sans reprendre un lab entier.
+
+La livraison documentaire ne clôt pas T001/T002/T005/T006/T007/T009/T010/T011/T012/
+T014/T015/T016/T017. La matrice F6 distincte compte 8 PASS, 2 PARTIAL, 0 FAIL
+et 2 NOT_RUN ; la matrice d'origine à onze scénarios reste à 10/11, avec deux
+échecs du cas 9 et aucun troisième rejeu. F6-09 et les deux réponses statiques
+françaises réussissent sous sélection explicite de langue, sans prouver la
+réparation du sélecteur natif, la détection automatique ou la localisation statique
+complète. Les échecs historiques ci-dessous restent conservés.
+
+Le wiki reflète ces guides de référence :
+[English](https://github.com/devopsabcs-engineering/copilot-studio/wiki/EN-index) |
+[Français](https://github.com/devopsabcs-engineering/copilot-studio/wiki/FR-index).
+Suivez les [contrôles de publication partagés](../publishing.md) après modification
+des sources ; cette livraison documentaire ne publie pas un nouvel instantané wiki.
 
 ### Sous-étape documentaire T017 livrée, 2026-10-26
 

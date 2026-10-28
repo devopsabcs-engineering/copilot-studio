@@ -1,7 +1,7 @@
 ---
 title: "Lab 03 : Superviser un agent avec Application Insights"
 description: "Configurer la télémétrie d’un agent, examiner les propriétés d’un événement avec KQL et distinguer revue documentaire et preuve d’exécution."
-ms.date: 2026-10-20
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
@@ -343,13 +343,15 @@ qu’un flux a fonctionné dans le tenant examiné.*
    observée et résultat du nettoyage. Les cas d’exécution restent **Non exécuté**
    tant qu’ils n’ont pas été réalisés.
 
-La configuration et les schémas officiels ont été vérifiés sur documentation
-uniquement. Enregistrement de connexion, disponibilité du nœud, livraison,
-structure réelle des propriétés, classeur et retour arrière n’ont pas été testés.
-Il faut une page de création d’agent fonctionnelle avec les droits de créateur,
-une paire Application Insights/Log Analytics approuvée, une ingestion autorisée
-et les droits de lecture pour lever le blocage. L’authentification n’est plus le
-blocage observé.
+La revue initiale de configuration et de schéma était documentaire ; le test connecté
+décrit plus haut remplace son état non testé de connexion, de nœud et de livraison.
+Un événement natif de l'agent a été corrélé dans KQL, puis la déconnexion distante
+et la suppression distincte des ressources ont été vérifiées. Ne remettez pas ces
+résultats observés à Non exécuté. Le comportement en canal publié et la limite de
+confidentialité requise restent ouverts sous [T010](completion-roadmap.md) :
+des clés d'identifiants de conversation/canal restaient présentes malgré les options
+sensibles désactivées. Le classeur est facultatif ; son absence ne justifie ni de
+répéter le déclenchement terminé ni de déclarer l'acceptation complète du lab.
 
 ### Références officielles vérifiées
 

@@ -1,7 +1,7 @@
 ---
 title: "Lab 03: Monitor an agent with Application Insights"
 description: "Configure agent-level telemetry, inspect custom event properties with KQL, and distinguish documentary review from runtime evidence."
-ms.date: 2026-10-20
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
@@ -328,12 +328,14 @@ provenance, not evidence that telemetry flowed in the reviewed tenant.*
    discovery/filtered queries, observed event structure, and cleanup outcome.
    Leave all runtime cases **Not run** until executed.
 
-Official configuration and schema checks passed as documentary review only.
-Connection saving, node availability, telemetry delivery, actual custom-property
-shape, workbook availability, and rollback have not been exercised. Unblocking
-requires a working agent authoring page with maker access, an approved
-Application Insights/workspace pair, permitted ingestion, and authorized
-log-reading access. Authentication is no longer the observed blocker.
+The initial configuration/schema review was documentary only; the later connected
+test above supersedes its untested connection, node and delivery status. One native
+agent event was correlated in KQL, followed by verified remote disconnection and
+separate resource deletion. Do not reset those observed results to Not run.
+Published-channel behavior and the required privacy boundary remain open under
+[T010](completion-roadmap.md); platform conversation/channel identifier keys were
+still present with sensitive logging off. Workbook availability is optional, not
+a reason to rerun the completed telemetry trigger or claim full lab acceptance.
 
 ### Official references checked
 

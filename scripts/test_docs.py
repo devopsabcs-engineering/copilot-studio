@@ -2,6 +2,7 @@
 from datetime import datetime
 from pathlib import Path
 import json
+import re
 import tempfile
 import unittest
 
@@ -11,6 +12,13 @@ from validate_docs import local_link_errors, validate
 
 
 class WikiTests(unittest.TestCase):
+    def f6_evidence_section(self, text):
+        sections = [section for section in text.split("\n### ")[1:]
+                    if "2026-10-26" in section.splitlines()[0]
+                    and "lab6-acceptance-crosswalk.json" in section]
+        self.assertEqual(len(sections), 1)
+        return sections[0]
+
     def test_lab6_crosswalk_preserves_exact_scope_provenance_and_privacy(self):
         root = Path(__file__).resolve().parents[1]
         path = root / "docs/assets/runtime-2026-10-26/lab6-acceptance-crosswalk.json"
@@ -122,7 +130,7 @@ class WikiTests(unittest.TestCase):
                     self.assertIn("](../assets/runtime-2026-10-26/lab6-intake-local-native.json)", text)
                     for marker in ("2026-10-26", "T017", "10/11", "11/11", "UNKNOWN"):
                         self.assertIn(marker, text)
-                    first_current_section = text.split("\n### ", 2)[1]
+                    first_current_section = self.f6_evidence_section(text)
                     self.assertIn(filename, first_current_section)
                     self.assertIn("10/11", first_current_section)
                     self.assertIn("11/11", first_current_section)
@@ -348,7 +356,7 @@ class WikiTests(unittest.TestCase):
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
-                section = text.split("\n### ", 2)[1]
+                section = self.f6_evidence_section(text)
                 for asset in (filename, "lab6-multisource-native.json", "lab6-intake-routing-repair.json"):
                     self.assertIn(f"](../assets/runtime-2026-10-26/{asset})", section)
                 for marker in ("F6-07", "F6-09", "FAIL", "Which", "^...$", "reviewing a case",
@@ -425,7 +433,8 @@ class WikiTests(unittest.TestCase):
         self.assertTrue(update["earlierBlockedAttemptAndFailuresPreserved"])
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
-                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                section = self.f6_evidence_section(
+                    (root / "docs" / language / f"{name}.md").read_text("utf-8"))
                 self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
                 for marker in ("60/2000", "en-US", "aria-checked=false", "F6-09", "FAIL", "NOT_RUN"):
                     self.assertIn(marker, section)
@@ -517,7 +526,8 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(update["postRepairFrenchQuestion"], "NOT_RUN")
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
-                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                section = self.f6_evidence_section(
+                    (root / "docs" / language / f"{name}.md").read_text("utf-8"))
                 self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
                 for marker in ("155", "97", "39", "22", "35", "2.14.1", "NuGet", "F6-09", "FAIL", "NOT_RUN"):
                     self.assertIn(marker, section)
@@ -763,7 +773,8 @@ class WikiTests(unittest.TestCase):
         self.assertEqual(crosswalk["rows"][5]["status"], "PARTIAL")
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
-                section = (root / "docs" / language / f"{name}.md").read_text("utf-8").split("\n### ", 2)[1]
+                section = self.f6_evidence_section(
+                    (root / "docs" / language / f"{name}.md").read_text("utf-8"))
                 self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
                 for marker in ("System.User.Language", "Activity.Locale", "en-US", "F6-09", "F6-06",
                                "PASS", "PARTIAL", "FAIL", "NOT_RUN", "63", "22"):
@@ -947,7 +958,7 @@ class WikiTests(unittest.TestCase):
         for language in ("en", "fr"):
             for name in ("lab-06", "validation", "completion-roadmap"):
                 text = (root / "docs" / language / f"{name}.md").read_text("utf-8")
-                section = text.split("\n### ", 2)[1]
+                section = self.f6_evidence_section(text)
                 self.assertIn(f"](../assets/runtime-2026-10-26/{filename})", section)
                 for marker in ("F6-08", "DynamicPlanFinished", "240", "NOT_ESTABLISHED"):
                     self.assertIn(marker, section)
@@ -1173,6 +1184,46 @@ class WikiTests(unittest.TestCase):
             self.assertEqual(errors, [])
             self.assertGreaterEqual(counts["bilingual_pairs"], 13)
             self.assertGreaterEqual(counts["screenshots"], 29)
+
+    def test_readme_and_wiki_navigation_cover_all_labs_in_both_languages(self):
+        root = Path(__file__).resolve().parents[1]
+        readme = (root / "README.md").read_text("utf-8")
+        labs = ("00", "01", "02", "03", "04", "05-1", "05", "06")
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            export(output)
+            home = (output / "Home.md").read_text("utf-8")
+            sidebar = (output / "_Sidebar.md").read_text("utf-8")
+            for language in ("en", "fr"):
+                for lab in labs:
+                    self.assertIn(f"](docs/{language}/lab-{lab}.md)", readme)
+                    self.assertIn(f"]({language.upper()}-lab-{lab})", home)
+                    self.assertIn(f"]({language.upper()}-lab-{lab})", sidebar)
+                for page in ("index", "validation", "completion-roadmap"):
+                    self.assertIn(f"](docs/{language}/{page}.md)", readme)
+                    self.assertIn(f"]({language.upper()}-{page})", sidebar)
+                for page in ("index", "completion-roadmap"):
+                    self.assertIn(f"/wiki/{language.upper()}-{page}", readme)
+                self.assertIn(f"]({language.upper()}-evidence)", sidebar)
+
+    def test_bilingual_lab_acceptance_ids_and_open_roadmap_tasks_remain_aligned(self):
+        root = Path(__file__).resolve().parents[1]
+        for lab in ("00", "01", "02", "03", "04", "05-1", "05", "06"):
+            ids = []
+            for language in ("en", "fr"):
+                text = (root / "docs" / language / f"lab-{lab}.md").read_text("utf-8")
+                acceptance_ids = set(re.findall(r"\b[A-Z][A-Z0-9]*-\d{2}\b", text))
+                if lab != "00":
+                    self.assertTrue(acceptance_ids, f"{language}/lab-{lab}: no acceptance IDs")
+                ids.append(acceptance_ids)
+            self.assertEqual(ids[0], ids[1], f"lab-{lab}: acceptance IDs differ")
+        unresolved = ("T001", "T002", "T005", "T006", "T007", "T009", "T010",
+                      "T011", "T012", "T014", "T015", "T016", "T017")
+        for language in ("en", "fr"):
+            text = (root / "docs" / language / "completion-roadmap.md").read_text("utf-8")
+            for task in unresolved:
+                self.assertRegex(text, rf"(?m)^- \[ \] {task} \[Plan:")
+                self.assertNotRegex(text, rf"(?m)^- \[[xX]\] {task} \[Plan:")
 
     def test_backend_evidence_preserves_acceptance_boundaries(self):
         root = Path(__file__).resolve().parents[1]

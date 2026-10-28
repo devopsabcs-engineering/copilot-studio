@@ -1,7 +1,7 @@
 ---
 title: Workshop completion roadmap
 description: Prioritized remaining work, dependencies, owners, and measurable acceptance gates for workshop completion.
-ms.date: 2026-10-26
+ms.date: 2026-10-28
 ---
 
 ## Goal and scope
@@ -12,6 +12,28 @@ ms.date: 2026-10-26
 The planning deliverable is complete. The workshop execution is **not complete**.
 This roadmap identifies what must be done before that claim is justified.
 Unchecked tasks are work to execute, not promised or observed outcomes.
+
+### Documentation delivered; runtime gates remain open
+
+The bilingual documentation completion pass covers the
+[repository home](../../README.md), [English index](index.md),
+[French index](../fr/index.md), all eight lab units (0, 1, 2, 3, 4, 5.1, 5, 6)
+and both roadmaps. Each lab has a counterpart, acceptance criteria and evidence
+links. Use [lab coverage and resume tasks](#lab-coverage-and-where-to-resume)
+for the remaining work, not a whole-lab restart.
+
+Documentation delivery does not close T001/T002/T005/T006/T007/T009/T010/T011/T012/
+T014/T015/T016/T017. The current separate F6 matrix is 8 PASS, 2 PARTIAL, 0 FAIL
+and 2 NOT_RUN; the original eleven-scenario matrix remains 10/11, with two case-9
+failures and no third replay. F6-09 and the two French static wrappers are scoped
+passes under an explicit language override, not proof of native picker repair,
+automatic detection or full static localization. Historical failures below remain.
+
+The wiki mirrors these canonical guides:
+[English](https://github.com/devopsabcs-engineering/copilot-studio/wiki/EN-index) |
+[Français](https://github.com/devopsabcs-engineering/copilot-studio/wiki/FR-index).
+Follow the [shared publication checks](../publishing.md) after source changes;
+delivery of this documentation does not itself publish a new wiki snapshot.
 
 ### T017 documentary substep delivered, 2026-10-26
 

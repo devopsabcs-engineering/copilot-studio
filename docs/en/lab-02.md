@@ -1,7 +1,7 @@
 ---
 title: "Lab 02: Ground an agent with Azure AI Search"
 description: "Build a vector retrieval pipeline, connect it to a standard Copilot Studio agent, and verify grounding without claiming an unperformed live test."
-ms.date: 2026-10-20
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
@@ -14,7 +14,10 @@ Keep retrieval, answer generation, and document provenance separate so you can t
 each layer. Allow about 90 minutes, excluding resource approval and indexing delays.
 
 > [!IMPORTANT]
-> Status: **Retrieval pipeline tested; complete Copilot integration blocked**.
+> Current result: the licensing-only index and formal AccessKey connected-answer
+> checks passed within their recorded scope. External PDF viewer navigation and
+> current connected-source proof remain open; see the [validation ledger](validation.md).
+> Historical checkpoint: **Retrieval pipeline tested; complete Copilot integration blocked**.
 > On 2026-10-19, sign-in succeeded and the Copilot Studio home shell was visible.
 > Subsequent Agents navigation and reloads returned a blank page, preventing
 > inspection of the licensing agent or a fresh knowledge question. The current
@@ -26,7 +29,7 @@ each layer. Allow about 90 minutes, excluding resource approval and indexing del
 > paid run verified real embeddings and managed-identity query vectorization.
 > A further private hotel-corpus test passed 25 checks: three original PDFs,
 > nine Search-projected child chunks, integrated embeddings and hybrid retrieval.
-> Licensing-corpus isolation and the Copilot connection remain unverified. See the
+> Licensing-corpus isolation and the Copilot connection were unverified then. See the
 > [latest runtime results](live-rerun-2026-10-19.md). The original review was scoped to
 > that subscription, not proof that no connection exists elsewhere. Documentation
 > checks are not runtime passes. The original review created no resources or agent changes.
@@ -40,7 +43,7 @@ The [nine-question chronology](backend-live-2026-10-20.md#source-aware-no-answer
 does not certify external PDF viewer navigation. The keyless Cognitive policy
 remained enforced; Search keys were permitted on this isolated service.
 
-The later October 20 attempt created a licensing-only index of 30 source pages,
+An earlier October 20 attempt created a licensing-only index of 30 source pages,
 separate from the hotel index, and passed an actual query vectorizer check.
 The connected Standard-agent test then stopped at the hosting browser's blocked
 Entra sign-in pop-up: no connection, field mapping, source or question was saved.
@@ -272,13 +275,16 @@ is nondeterministic; the listed observable assertions are the acceptance criteri
    query assertions, indexer result, sanitized screenshots, and cleanup result.
    Record each runtime case as **Not run** until observed.
 
-The completed review verified the official routes, authentication distinctions,
-wizard tier requirement, embedding options, and role separation. Index creation,
-connector readiness, retrieval quality, citations, and cleanup remain unverified
-in the live tenant. Unblocking requires a working agent authoring page with maker
-access, approved Search infrastructure, model deployment/quota, and authorized
-data connections. Authentication is no longer the observed blocker; the agent's
-existing knowledge and tools could not be inspected through the blank page.
+The original documentary review verified the official routes, authentication
+distinctions, wizard tier requirement, embedding options and role separation.
+Its blank-page blocker and unverified index/connection state were historical,
+not the current result. The later licensing-only index and formal AccessKey
+connection passed the scoped answer, source and abstention checks described above.
+External PDF viewer navigation and current connected-source proof remain open.
+Retain the failed Entra popup attempt separately; it is not a failure of the
+subsequently tested AccessKey route or proof that Entra sign-in is now repaired.
+Resume [T010](completion-roadmap.md) from its retained evidence, not by resetting
+all SRCH cases or repeating the completed ingestion.
 
 ### Official references checked
 

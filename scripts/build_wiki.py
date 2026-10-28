@@ -73,7 +73,10 @@ def export(output: Path, root: Path = ROOT) -> int:
 * [Guides français](FR-index)
 * [Validation EN](EN-validation)
 * [Validation FR](FR-validation)
-* [Evidence / Preuves](EN-evidence)
+* [Completion roadmap](EN-completion-roadmap)
+* [Feuille de route](FR-completion-roadmap)
+* [Evidence](EN-evidence)
+* [Preuves](FR-evidence)
 * [Publication](Publishing)
 """
     for language in ("EN", "FR"):

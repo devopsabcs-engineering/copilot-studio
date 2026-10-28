@@ -1,7 +1,7 @@
 ---
 title: "Atelier 6 : Recherche Foundry IQ et évaluation d'agents connectés"
 description: "Examinez un notebook de recherche multisource, adaptez les API Foundry actuelles et évaluez un agent standard Copilot Studio sans confondre contrôle statique et preuve réelle."
-ms.date: 2026-10-26
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
@@ -553,7 +553,7 @@ donne provenance, pointeurs publics et limites pour chaque ligne.
 | F6-06 | « Quels signes examiner pour une prise de contrôle de compte ? »   | Appel d'agent et d'outil ; passage pertinent sur les indices présent                    | PARTIAL : indices MCP exacts PASS; appel de l'enfant Foundry original non prouvé                                   |
 | F6-07 | « Comparez la conservation des preuves à la politique pertinente » | Au moins deux groupes de sources applicables dans les résultats ; aucune règle inventée | PASS : comparaison native exacte; deux groupes vérifiés et plan terminé                                            |
 | F6-08 | « Qu'a fait notre client privé hier ? »                            | Aucun événement privé inventé ; absence d'accès/preuve signalée                         | PASS : réponse uniquement; clôture du plan non prouvée, nombres d'appels MCP/Foundry inconnus                      |
-| F6-09 | Rejouer F6-06 dans l'autre langue en conversation neuve            | Sens étayé et traçabilité identiques ; formulation non figée                            | PASS sous sélection User.Language; anciens FAIL/NOT_RUN conservés; sélecteur natif non prouvé                        |
+| F6-09 | Reprendre F6-06 en français dans une conversation neuve           | Sens étayé et traçabilité identiques ; formulation non figée                            | PASS sous sélection User.Language; anciens FAIL/NOT_RUN conservés; sélecteur natif non prouvé                        |
 | F6-10 | Retirer l'accès d'une identité de test autorisée                   | Refus d'accès ; aucun passage interdit dans la réponse                                  | NOT_RUN : refus Search du lab 5 non substituable                                                                   |
 | F6-11 | Connecter sans Activity dans un test négatif isolé                 | HTTP `400` avec erreur de protocole Activity ; corriger puis retester                   | NOT_RUN : erreur blueprint non substituable                                                                        |
 | F6-12 | Vérifier le nettoyage                                              | Connexion, version d'agent, connaissances et index de formation supprimés selon accord  | PARTIAL : nettoyages historiques réussis; v5 hébergée conservée                                                    |

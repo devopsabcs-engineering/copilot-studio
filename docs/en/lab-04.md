@@ -1,13 +1,13 @@
 ---
 title: "Lab 04: Use a Foundry model in a grounded prompt"
 description: "Connect a compatible chat-completion model to a prompt, retrieve Azure AI Search passages explicitly, and test a controlled topic."
-ms.date: 2026-10-24
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
 ## Lab 04: Use a Foundry model in a grounded prompt
 
-[Workshop index](index.md) | [Français](../fr/lab-04.md) | [Previous: monitoring](lab-03.md)
+[Workshop index](index.md) | [Français](../fr/lab-04.md) | [Previous: monitoring](lab-03.md) | [Next: infrastructure](lab-05-1.md)
 
 Build an explicit retrieval-and-generation path: Azure AI Search returns document
 passages, a prompt sends those passages to an approved Foundry model, and the topic
@@ -329,13 +329,15 @@ generative mode. Do not change a production fallback to follow the source image.
    type without private details, input/output types, tests, sanitized traces,
    and rollback result. Do not export retrieved protected passages.
 
-The review verified the current connector operation, output contract, BYOM
-endpoint limitation, unsupported GPT-5 family, and orchestration differences.
-Model availability in this tenant, prompt execution, response shape, grounding,
-error branches, and rollback remain **Not run**. Unblocking requires a working
-standard-agent authoring page with maker access, a working Lab 02 pipeline, an
-approved compatible model deployment, prompt capacity, and permitted connections.
-Authentication is no longer the observed blocker.
+The documentary review verified the connector operation, output contract, BYOM
+endpoint limitation, unsupported GPT-5 family and orchestration differences.
+Later evidence proves a direct paid model invocation and inspection of the actual
+Standard BYOM dialog, not connected-prompt acceptance. BYOM-01 through BYOM-07
+remain unverified on that path. The current blocker is the dialog's required API
+key versus the enforced keyless Cognitive policy, not merely an unavailable
+authoring page or Azure permissions. Keep [T011/T012](completion-roadmap.md) open.
+The separately documented Azure OpenAI Entra action is a possible distinct workflow,
+not an approved or tested replacement for native prompt BYOM.
 
 ### Official references checked
 

@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 : Ancrer les réponses d’un agent avec Azure AI Search"
 description: "Créer une chaîne de recherche vectorielle, la connecter à un agent Copilot Studio standard et vérifier l’ancrage sans prétendre avoir exécuté des tests."
-ms.date: 2026-10-20
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
@@ -15,7 +15,11 @@ provenance documentaire afin de tester chaque étape. Prévoyez environ 90 minut
 hors autorisations et délais d’indexation.
 
 > [!IMPORTANT]
-> Statut : **Chaîne de recherche testée ; intégration Copilot complète bloquée**.
+> Résultat actuel : l'index de licences isolé et les contrôles de réponses connectées
+> par AccessKey formelle ont réussi dans leur périmètre consigné. La navigation
+> du lecteur PDF externe et la preuve de source connectée actuelle restent ouvertes ;
+> consultez le [registre de validation](validation.md).
+> Point historique : **Chaîne de recherche testée ; intégration Copilot complète bloquée**.
 > Équivalent de suivi : **Retrieval pipeline tested; complete Copilot integration blocked**.
 > Le 2026-10-19, la connexion a réussi et l’accueil Copilot Studio était visible.
 > La navigation vers Agents et les rechargements suivants ont toutefois affiché
@@ -29,7 +33,7 @@ hors autorisations et délais d’indexation.
 > de vrais embeddings et la vectorisation des requêtes par identité managée ;
 > un autre test privé du corpus hôtelier a réussi 25 contrôles : trois PDF originaux,
 > neuf passages enfants projetés par Search, embeddings intégrés et recherche hybride.
-> L'isolation du corpus de licences et la connexion Copilot restent non vérifiées.
+> L'isolation du corpus de licences et la connexion Copilot étaient alors non vérifiées.
 > Consultez les [derniers résultats](live-rerun-2026-10-19.md).
 > L'inventaire initial est limité à cet abonnement et ne prouve pas l’absence
 > d’une connexion ailleurs. Une vérification documentaire n’est pas un test
@@ -44,7 +48,7 @@ après un échec consigné et deux corrections natives. La
 ne certifie pas la navigation du lecteur PDF externe. Cognitive est resté
 sans clé ; les clés Search étaient permises sur ce service isolé.
 
-La tentative ultérieure du 20 octobre a créé un index de licences de 30 pages,
+Une tentative antérieure du 20 octobre a créé un index de licences de 30 pages,
 distinct de l'index hôtelier, avec un vrai test du vectoriseur réussi.
 Le test Standard connecté s'est arrêté à la fenêtre Entra bloquée par le
 navigateur hôte : aucune connexion, mappage, source ou question sauvegardée.
@@ -285,14 +289,17 @@ peut varier ; les observations suivantes constituent les critères d’acceptati
    résultat d’indexation, captures expurgées et résultat du nettoyage. Indiquez
    **Non exécuté** pour chaque cas tant qu’aucune observation réelle n’existe.
 
-La revue a vérifié les parcours documentés, les types d’authentification, le niveau
-requis par l’assistant, les modèles d’embeddings et la séparation des rôles.
-Création de l’index, état de connexion, qualité de recherche, références et
-nettoyage ne sont pas validés dans le tenant. Il faut une page de création
-d’agent fonctionnelle avec les droits de créateur, un service Search approuvé, un
-modèle avec quota et des connexions autorisées pour lever le blocage.
-L’authentification n’est plus le blocage observé ; la page vide a empêché
-l’inspection des connaissances et outils existants.
+La revue documentaire initiale a vérifié les parcours, les types d'authentification,
+le niveau requis par l'assistant, les embeddings et la séparation des rôles.
+La page vide et l'état non vérifié de l'index ou de la connexion étaient historiques,
+pas le résultat actuel. L'index de licences isolé et la connexion AccessKey formelle
+ont ensuite réussi les contrôles limités de réponse, de source et d'abstention
+décrits plus haut. La navigation du lecteur PDF externe et la preuve de source
+connectée actuelle restent ouvertes. Conservez séparément l'échec de la fenêtre
+Entra : il ne constitue ni un échec de la voie AccessKey testée ensuite ni une
+preuve de réparation de la connexion Entra. Reprenez [T010](completion-roadmap.md)
+à partir des preuves conservées, sans réinitialiser tous les cas SRCH ni répéter
+l'ingestion terminée.
 
 ### Références officielles vérifiées
 

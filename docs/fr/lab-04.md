@@ -1,13 +1,13 @@
 ---
 title: "Lab 04 : Utiliser un modèle Foundry dans un prompt ancré"
 description: "Connecter un modèle compatible avec les complétions de conversation, récupérer des passages Azure AI Search et tester une rubrique contrôlée."
-ms.date: 2026-10-24
+ms.date: 2026-10-28
 ms.topic: tutorial
 ---
 
 ## Lab 04 : Utiliser un modèle Foundry dans un prompt ancré
 
-[Index de l’atelier](index.md) | [English](../en/lab-04.md) | [Précédent : supervision](lab-03.md)
+[Index de l’atelier](index.md) | [English](../en/lab-04.md) | [Précédent : supervision](lab-03.md) | [Suite : infrastructure](lab-05-1.md)
 
 Construisez une chaîne explicite de recherche et de génération : Azure AI Search
 retourne des passages, un prompt les transmet à un modèle Foundry approuvé et la
@@ -340,14 +340,16 @@ Ne modifiez pas un repli de production pour reproduire la capture d’origine.
    de point de terminaison sans détails privés, types d’entrées/sorties, tests,
    traces expurgées et retour arrière. N’exportez pas de passages protégés.
 
-La revue a vérifié l’action Search, le contrat de sortie, la limite de point de
-terminaison BYOM, l’exclusion GPT-5 et les modes d’orchestration. Disponibilité
-du modèle dans ce tenant, appels de prompt, structure réelle, ancrage, erreurs et
-retour arrière restent **Non exécuté**. Il faut une page de création d’agent
-standard fonctionnelle avec les droits de créateur, une chaîne Lab 02
-opérationnelle, un modèle compatible approuvé, la capacité de prompts et des
-connexions autorisées pour lever le blocage. L’authentification n’est plus le
-blocage observé.
+La revue documentaire a vérifié l'action Search, le contrat de sortie, la limite
+du point de terminaison BYOM, l'exclusion GPT-5 et les modes d'orchestration.
+Les preuves ultérieures établissent un appel direct au modèle payant et l'inspection
+du vrai dialogue BYOM Standard, pas l'acceptation d'un prompt connecté. BYOM-01
+à BYOM-07 restent non vérifiés sur cette voie. Le blocage actuel oppose la clé API
+requise par le dialogue à la stratégie Cognitive sans clé imposée ; il ne s'agit
+pas seulement d'une page indisponible ou de droits Azure manquants.
+Gardez [T011/T012](completion-roadmap.md) ouverts. L'action Azure OpenAI avec Entra
+documentée séparément est une voie distincte possible, pas un remplacement approuvé
+ou testé du BYOM natif des prompts.
 
 ### Références officielles vérifiées
 
