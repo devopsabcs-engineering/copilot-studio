@@ -32,8 +32,61 @@ automatic detection or full static localization. Historical failures below remai
 The wiki mirrors these canonical guides:
 [English](https://github.com/devopsabcs-engineering/copilot-studio/wiki/EN-index) |
 [Français](https://github.com/devopsabcs-engineering/copilot-studio/wiki/FR-index).
-Follow the [shared publication checks](../publishing.md) after source changes;
-delivery of this documentation does not itself publish a new wiki snapshot.
+The October 28 documentation snapshot was actually published and independently
+verified: source commit `e23699ed17a7580efa89352185ffee8aa931f337` and wiki commit
+`39c07971dce549a2e770cce9bc042a4fd1ee0123`. All 165 offline tests passed;
+validation covered 36 canonical Markdown pages, 17 bilingual pairs, 42 screenshots
+and 38 wiki Markdown pages. Public readback verified 39 raw files and 21 rendered
+pages, including all eight labs in both languages. Both worktrees were clean and
+the exact remote revisions matched at that checkpoint. The later October 28
+recheck confirmed those same revisions and results; it submitted no live questions.
+This publication is complete as a documentation milestone, not final workshop release.
+Follow the [shared publication checks](../publishing.md) for subsequent changes,
+including this status update; those changes are not covered by the earlier readback.
+
+### Current completion and remaining work, 2026-10-28
+
+Completed work to retain, not repeat:
+
+* Bilingual README, indexes, all eight lab guides and roadmap navigation are delivered.
+  Stale Lab 2/3/4/5.1 summaries were reconciled with their later retained evidence.
+  Wiki navigation now includes both evidence pages and both completion roadmaps.
+* T003/T004 remain completed for their scoped hosted SDK repair and authenticated
+  Activity checks; these are not proof of the original native connected-child route.
+* T008 retains its earlier accepted eleven-scenario cohort. The later configuration's
+  regression remains 10/11; successes from different configurations are not combined.
+* T013 is complete within infrastructure reconciliation scope, not an unchanged-source
+  deployment or whole-Lab-5 pass.
+* T017's documentary crosswalk is delivered. The separate current F6 dispositions
+  remain 8 PASS, 2 PARTIAL, 0 FAIL and 2 NOT_RUN, with the qualifications below.
+* The [French static-wrapper milestone](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+  passes only its two exact static replies and language controls: four accepted
+  messages, zero retries, all 12 quotation/reference pairs preserved and English
+  restored. It does not repair the native language picker or prove live retrieval.
+
+| Still-open tasks | Remaining outcome | Prerequisite or next useful action |
+| ---------------- | ----------------- | ---------------------------------- |
+| T001/T002 | Cost-controlled retention and attributable release approval | Record actual resource owner/review deadline, numerical Azure/Copilot limits and Product Owner/Security/Tech Lead review references. General spending/deployment authorization is already accepted, but is not those facts. |
+| T005/T006 | Original native Foundry protocol/identity contract and whole-parent delivery | Obtain a supported platform resolution and correlated caller/runtime evidence before the exact diagnostic/control checks. Direct hosted or prospective MCP success is not a substitute. |
+| T007 | Current original eleven-case regression, still 10/11 | Establish the missing final-generation/dispatch outcome after case 9's completed retrieval/plan. Its first attempt had no parent reply; the retry had no plan or reply. Cause remains unproved; do not submit a third replay without a supported fix. |
+| T009 | Lab 0 readiness and remaining Lab 1 acceptance | Verify tenant credits/budget and recover the actual historical full answer, original citation navigation and connector error-body fidelity. New answers or partial captures cannot replace the historical audit. |
+| T010 | Lab 2 connected-source navigation and Lab 3 channel/privacy boundary | Restore the intended native Search prerequisite; verify actual PDF navigation and connected positive/negative behavior. Correlate published-channel telemetry and the required privacy boundary rather than certifying them from one event. |
+| T011/T012 | Policy-compatible Lab 4 BYOM and connected tests | Obtain a supported connector authentication path or authentic policy-owner exception/scope decision. Keep enforced local-auth policy intact; backend OAuth alone does not establish connector compatibility. |
+| T014 | Remaining Labs 5/5.1 connected query and hotel-navigation acceptance | Complete normal-browser integrated Search OAuth, then independently verify the connection and bounded index-picker behavior. Obtain actual source URL/scope facts where missing; never fabricate hotel links. |
+| T015/T016 | Final evidence, retained-resource disposition and release publication | Current bilingual progress publication is verified. Final closure still depends on remaining acceptance and accountable retention/cleanup decisions, followed by final validation and publication readback. |
+| T017 | Remaining Lab 6 runtime assertions | F6-06's original connected-child route and F6-12's current retention/cleanup remain PARTIAL; exact F6-10/11 negatives remain NOT_RUN pending their supported native prerequisites. Do not substitute Lab 5 denial or direct transport checks. |
+
+Latest native Search prerequisite observation, October 27: the approved administrator
+and exact staging agent were verified, but the chooser displayed **No connections
+available** with Next disabled. The requested integrated connection was not exposed.
+There were zero Create clicks, picker invocations or questions; Cancel/Leave restored
+the overview. This chooser-only result does not prove that the earlier seven backend
+connections were deleted, and user approval does not prove interactive OAuth completed.
+Normal-browser OAuth is still required; no new secret or embedded-popup retry is justified.
+
+No whole lab is unstarted. Resume only the missing assertion after its prerequisite
+changes; do not rerun completed labs, replay original case 9, weaken authentication,
+invent approval facts or mark every task complete merely because documentation is current.
 
 ### T017 documentary substep delivered, 2026-10-26
 

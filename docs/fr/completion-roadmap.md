@@ -34,8 +34,66 @@ complète. Les échecs historiques ci-dessous restent conservés.
 Le wiki reflète ces guides de référence :
 [English](https://github.com/devopsabcs-engineering/copilot-studio/wiki/EN-index) |
 [Français](https://github.com/devopsabcs-engineering/copilot-studio/wiki/FR-index).
-Suivez les [contrôles de publication partagés](../publishing.md) après modification
-des sources ; cette livraison documentaire ne publie pas un nouvel instantané wiki.
+L'instantané documentaire du 28 octobre a réellement été publié et vérifié
+indépendamment : commit source `e23699ed17a7580efa89352185ffee8aa931f337` et commit
+wiki `39c07971dce549a2e770cce9bc042a4fd1ee0123`. Les 165 tests hors ligne réussissent ;
+la validation couvre 36 pages Markdown de référence, 17 paires bilingues,
+42 captures et 38 pages Markdown wiki. La relecture publique vérifie 39 fichiers
+bruts et 21 pages rendues, dont les huit labs dans les deux langues. Les deux
+arbres de travail étaient propres et les révisions distantes exactes concordaient
+à ce point de contrôle. La vérification ultérieure du 28 octobre confirme ces mêmes
+révisions et résultats, sans question réelle supplémentaire. Cette publication
+termine un jalon documentaire, pas la livraison finale de l'atelier.
+Suivez les [contrôles de publication partagés](../publishing.md) pour les changements
+ultérieurs, dont cette mise à jour ; la relecture antérieure ne les couvre pas.
+
+### État actuel et travaux restants, 2026-10-28
+
+Travaux terminés à conserver, sans les recommencer :
+
+* README, index, huit guides de labs et navigation des feuilles de route sont livrés
+  en deux langues. Les anciens résumés des labs 2/3/4/5.1 sont rapprochés des preuves
+  ultérieures conservées. La navigation wiki inclut désormais les deux pages de
+  preuves et les deux feuilles de route.
+* T003/T004 restent terminées pour la réparation SDK hébergée et les contrôles Activity
+  authentifiés de portée limitée, pas pour la route native originale d'agent enfant.
+* T008 conserve sa cohorte antérieure acceptée de onze scénarios. La régression sur la
+  configuration ultérieure reste à 10/11 ; les réussites de configurations distinctes
+  ne sont pas combinées.
+* T013 est terminée dans le périmètre de rapprochement d'infrastructure, pas comme
+  déploiement des sources inchangées ni acceptation du lab 5 entier.
+* La correspondance documentaire T017 est livrée. Les états F6 actuels distincts
+  restent à 8 PASS, 2 PARTIAL, 0 FAIL et 2 NOT_RUN, avec les limites ci-dessous.
+* Le [jalon des réponses statiques françaises](../assets/runtime-2026-10-26/lab6-french-static-wrappers.json)
+  réussit uniquement ses deux réponses exactes et contrôles de langue : quatre
+  messages acceptés, aucune relance, 12 paires citation/référence conservées et retour
+  à l'anglais. Il ne répare pas le sélecteur natif ni ne prouve une recherche en direct.
+
+| Tâches encore ouvertes | Résultat restant | Prérequis ou prochaine action utile |
+| ---------------------- | ---------------- | ------------------------------------ |
+| T001/T002 | Conservation à coût maîtrisé et approbation de livraison attribuable | Consigner les vrais responsables et dates de revue, limites numériques Azure/Copilot et références des revues Product Owner/Sécurité/Tech Lead. L'autorisation générale de dépenses/déploiement est déjà acceptée, mais ne constitue pas ces faits. |
+| T005/T006 | Contrat natif original Foundry de protocole/identité et réponse complète du parent | Obtenir une résolution de plateforme prise en charge et des preuves corrélées de l'appelant/exécution avant les contrôles diagnostic/témoin exacts. Un succès hébergé direct ou MCP prospectif ne les remplace pas. |
+| T007 | Régression actuelle des onze cas originaux, toujours à 10/11 | Établir le résultat manquant de génération finale/envoi après la récupération et le plan terminés du cas 9. Premier essai sans réponse parent ; second sans plan ni réponse. Cause non prouvée ; pas de troisième rejeu sans correction prise en charge. |
+| T009 | Préparation du lab 0 et acceptation restante du lab 1 | Vérifier crédits/budget et récupérer la vraie réponse historique complète, la navigation de citation originale et la fidélité des corps d'erreur du connecteur. Réponses nouvelles et captures partielles ne remplacent pas cet audit. |
+| T010 | Navigation de source connectée du lab 2 et limites canal/confidentialité du lab 3 | Rétablir le prérequis Search natif prévu ; vérifier navigation PDF réelle et comportements connectés positif/négatif. Corréler télémétrie du canal publié et limite de confidentialité au lieu de les certifier à partir d'un seul événement. |
+| T011/T012 | BYOM du lab 4 conforme à la stratégie et tests connectés | Obtenir une authentification de connecteur prise en charge ou une vraie exception/décision de périmètre du responsable de stratégie. Conserver l'interdiction d'authentification locale ; l'OAuth du backend ne prouve pas la compatibilité du connecteur. |
+| T014 | Acceptation restante des requêtes connectées et liens hôteliers des labs 5/5.1 | Terminer l'OAuth Search intégré dans un navigateur normal, puis vérifier indépendamment connexion et sélecteur d'index borné. Obtenir les vraies URL/décisions de périmètre manquantes ; ne pas inventer de liens hôteliers. |
+| T015/T016 | Preuves finales, décision sur les ressources conservées et publication de livraison | La publication bilingue de progrès actuelle est vérifiée. La clôture finale dépend encore de l'acceptation restante et des décisions attribuables de conservation/nettoyage, puis des contrôles et de la relecture de publication finale. |
+| T017 | Assertions d'exécution restantes du lab 6 | La route originale d'enfant connecté F6-06 et la conservation/nettoyage actuels F6-12 restent PARTIAL ; les négatifs exacts F6-10/11 restent NOT_RUN en attente des prérequis natifs pris en charge. Ne pas substituer refus du lab 5 ou transport direct. |
+
+Dernière observation du prérequis Search natif, le 27 octobre : administrateur
+approuvé et agent de préparation exact vérifiés, mais le sélecteur affiche
+**No connections available** et Next désactivé. La connexion intégrée demandée
+n'est pas exposée. Zéro clic Create, invocation du sélecteur d'index ou question ;
+Cancel/Leave restaure la vue d'ensemble. Ce résultat limité au sélecteur ne prouve
+pas la suppression des sept anciennes connexions backend, et l'accord de l'utilisateur
+ne prouve pas l'achèvement de l'OAuth interactif. L'OAuth dans un navigateur normal
+reste nécessaire ; ni nouveau secret ni répétition de popup intégrée ne sont justifiés.
+
+Aucun lab entier n'est non commencé. Reprendre uniquement l'assertion manquante après
+changement du prérequis ; ne pas rejouer les labs terminés ou le cas 9 original,
+affaiblir l'authentification, inventer des approbations ou tout cocher parce que la
+documentation est à jour.
 
 ### Sous-étape documentaire T017 livrée, 2026-10-26
 
